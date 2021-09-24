@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/page/2 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:58:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  </title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+  <p class='mobile-quicklink'><a href="#right-col">Navigation</a></p>
+  <div id='main-col'>
+  	
+  		
+  			<div class="post" id="post-912">
+  				<h2><a href="../archives/912.html" rel="bookmark" title="Permanent Link to Another example of Object Theater">Another example of Object Theater</a></h2>
+  				<small>October 30th, 2014 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<h3>Mastermind</h3>
+<p>This year I gave my Web Applications students the task of writing a <a href="http://en.wikipedia.org/wiki/Mastermind_(board_game)" title="Mastermind (board game) - Wikipedia, the free encyclopedia">Mastermind</a> game.  You can see some of their work <a href="http://aw-resconi.herokuapp.com/" title="Mastermind">here</a>, <a href="http://aw-comolli.herokuapp.com/" title="Mastermind">here</a> and <a href="http://aw-pistocchini-scapinello.herokuapp.com/" title="Mastermind">here</a>.  The game works like this: the computer starts a new game by inventing a random secret code, composed of 4 digits from 1 to 6.  For instance: 5414.</p>
+<p>The player must deduce what is the secret code by trying guesses.  To continue the example if my first guess is 1234, the computer will answer &#8220;-+&#8221; which means that I got one number right (+) and another number is present in the secret code but in a different position (-).  Of course, I don&#8217;t know which!  I can then try more guesses, until I have enough clues to guess right.</p>
+<p>You get a score for each completed game, that is equal to the number of guesses.  Of course, the lower the score, the better.</p>
+<p>A player will earn a score that is the average of all the games he or she completed.</p>
+<h3>Procedural!</h3>
+<p>Teaching Object-Oriented programming was <em>not</em> one of the goals of the course.  Therefore, most programs I got were <em>very</em> procedural. (Please note that the example that follows is from a <em>good</em> student and his work earned a very high score in my course.  It was a good web application, even though it was not object-oriented).</p>
+<p>I&#8217;d like to show an example of procedural code.  This is a controller object that handles a &#8220;guess&#8221;.</p>
+<pre><code>public void guess() throws IOException {
+  String gameId = request.getParameter("game_id");
+  String code = gamesRepository.findSecretCode(gameId);
+  String guess = request.getParameter("guess");
+  String answer = compareCodes(code, guess);
+  String player = gamesRepository.find_game_player(gameId);
+  guessesRepository.createGuess(gameId, player, guess, answer);
+  gamesRepository.incrementGameScore(gameId);
+
+  // if game is won
+  if(answer.equals("++++")){
+    gamesRepository.setFinished(request.getParameter("game_id"));
+    int oldScore = gamesRepository.getPlayerScore(player);
+    playersRepository.addFinishedGame(player, oldScore);
+  }
+
+  // return json data
+  response.getWriter().write(toJson("answer", answer));
+}
+</code></pre>
+<p>This is classic procedural code; the game logic is found in the controller (method <code>compareCodes()</code>) and the repositories (three repositories!).  There are no domain objects.</p>
+<p>The database structure is something like</p>
+<pre><code>       1      *      1      *
+player -------- game -------- guesses
+</code></pre>
+<p>The gameRepository adds a row to the games table when a new game is added.  The guessesRepository adds a row to the guesses table when a new guess is guessed.  The controller must take care to call the proper repositories at the right time.  The controller &#8220;knows&#8221;  the database structure; if the database structure changes, the controller code will probably also change.</p>
+<h3>Object-Oriented</h3>
+<p>What I&#8217;d like to do instead is</p>
+<ul>
+<li>Domain objects that handle all the game logic</li>
+<li>No logic in the repositories or the controller</li>
+<li>Just one repository is enough, thank you.  The repository should take care of adding rows to the proper tables.</li>
+</ul>
+<p>The domain object should probably be the MasterMind game.</p>
+<pre><code>game.guess(request.getParameter("guess"));
+</code></pre>
+<p>The &#8220;guess&#8221; message is what sets the domain logic in motion.  The controller should not need to know anything else.</p>
+<p>Q. What if the game is won?  Who updates the player&#8217;s score?</p>
+<p>A. The game object should do that.</p>
+<p>Q. Where do we see that the game updates the player&#8217;s score?</p>
+<p>A. Not in the controller.  The controller does not know or care.  Handling victories is something that is done in the game object.</p>
+<p>Q. Really! How do we update the player&#8217;s score?</p>
+<p>A. The game probably knows its player, and tells it to update its score if the game is won.</p>
+<p>Q. How does the game get a reference to its player?</p>
+<p>A. The controller does not know.  But see next question.</p>
+<p>Q. Where do we get the game object from?</p>
+<p>A. From a repository, of course.  We suppose that the repository will return it with all the dependencies that it needs to have.  If the game needs a reference to its player, the repository must take care to set it up.</p>
+<pre><code>String gameId = request.getParameter("game_id");
+Game game = gamesRepository.findGame(gameId);
+
+game.guess(request.getParameter("guess"));
+</code></pre>
+<p>Q. How is the state of the game persisted?</p>
+<p>A. By asking the repository to save the game.</p>
+<pre><code>// Here we are in the infrastructure world
+String gameId = request.getParameter("game_id");
+Game game = gamesRepository.findGame(gameId);
+
+// Now we pass to the realm of pure domain logic
+game.guess(request.getParameter("guess"));
+
+// And now we return to the infrastructure world
+gamesRepository.save(game);
+response.getWriter().writer(toJson(game));
+</code></pre>
+<p>So we have seen another example of <a href="../archives/904.html">object theater</a>.  The infrastructure details are dealt with before and after the main action.  The main action is sending &#8220;guess&#8221; to the game object.  There is where the functional requirements is dealt with.  Before that, and after that, is infrastructure code that deals with non-functional, performance requirements.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/912.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-904">
+  				<h2><a href="../archives/904.html" rel="bookmark" title="Permanent Link to Object-Oriented Theater">Object-Oriented Theater</a></h2>
+  				<small>October 30th, 2014 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<blockquote><p><strong>Update 30/10/14</strong>: I first read about the &#8220;Object Theatre&#8221; in <a href="https://groups.google.com/forum/#!topic/growing-object-oriented-software/eFfT7orRrdk%5B76-100-false%5D">a message by Anthony Green</a> on the GOOS mailing list; I didn&#8217;t remember it consciously when I wrote this post, but it certainly has been working in my brain ever since.  The &#8220;Object Theatre&#8221; metaphor is his invention, not mine.  Thanks <a href="https://twitter.com/kevinrutherford">Kevin</a> and <a href="https://twitter.com/anthonycgreen">Anthony</a> for <a href="https://twitter.com/anthonycgreen/status/527896910083141633">pointing it out</a>.
+</p></blockquote>
+<p>Yesterday evening I attended <a href="https://www.youtube.com/watch?v=41PvxgaZEzk" title="YouTube video of yesterdays' Codemotion Tech Talk">a good introduction on functional programming</a>  by <a href="https://twitter.com/mariofusco">Mario Fusco</a>.  One of his slides illustrated a well-known principle of functional programming.  There are pure functions, and &#8220;functions&#8221; with side effects.  Good FP style suggests to keep non-pure functions at the edges of the program, so that the inner core of your program only contains pure, mathematical functions.</p>
+<p>He showed this picture</p>
+<p><a href="http://www.slideshare.net/mariofusco/if-you-think-you-can-stay-away-from-functional-programming-you-are-wrong/41" title="Outer impure shell, inner pure kernel">http://www.slideshare.net/mariofusco/if-you-think-you-can-stay-away-from-functional-programming-you-are-wrong/41</a></p>
+<p>In fact, a very similar picture can be drawn for good object-oriented style.  In good OO style, you want to separate your domain objects from infrastructure objects.  The domain objects contain just domain logic, they execute in memory and have no references to file system, databases or network services.  They can be mutable, of course!  But they are &#8220;pure logic&#8221; in the sense that they live in a platonic world where we are only concerned with the functional behaviour of our programs.</p>
+<p>Infrastructure objects, on the other hand, deal with everything else:  user interface, databases, file systems, web services&#8230; All the things that are needed to connect our platonic world of objects to the outside world.</p>
+<p>So what&#8217;s good OO style in this context?  In my opinion, it&#8217;s good to keep the infrastructure objects in an outside shell, while the inner core of the program contains only pure domain objects.  Let me give you an example.</p>
+<p>Suppose you have a Counter object that needs (for non-functional reasons!) to be made persistent.  The functional logic is about incrementing and decrementing the value of the counter.  The infrastructure logic is about making sure that the counter retains its value across reboots (which is definitely a non-functional requirement.)</p>
+<p>The wrong way to do this is</p>
+<pre><code>// bad style! don't do this
+class Counter {
+  public Counter(int id, CounterDao dao) {
+    this.id = id;
+    this.dao = dao;
+  }
+
+  public void increment() {
+    value++;
+    dao.incrementCounter(id);
+  }
+
+  private int value = 0;
+  private int id;
+  private CounterDao dao;
+}
+</code></pre>
+<p>The usage of this counter would be</p>
+<pre><code>CounterDao dao = ...;
+Counter counter = new Counter(123, dao);
+
+// here we perform logic and also persist the state
+counter.increment();
+</code></pre>
+<p>The above example is bad style, because it mixes persistency logic with functional logic.  Bah!  A better way to do it is:</p>
+<pre><code>class Counter {
+  public void increment() {
+    value++;
+  }
+  private int value = 0;
+}
+</code></pre>
+<p>See?  Only pure logic.  We don&#8217;t care about persistency there.  We could use the counter this way:</p>
+<pre><code>// we start this use case in the world of infrastructure
+CounterDao dao = ...;
+Counter counter = dao.findCounter(id);
+
+// here we enter the world of pure logic
+counter.increment();
+
+// here we return to the world of infrastructure
+dao.save(counter);
+</code></pre>
+<p>I like to call this structure &#8220;object theatre&#8221;.  Imagine your domain objects as actors in a play.  You want to setup a scene where your actors are set up in a certain way: <a href="http://www.teatrolemaschere.it/wp-content/gallery/arlecchino-e-colombina-nel-teatrino-dei-burattori/burattori_compresse_002.jpg" title="Arlecchino and Colombina (picture)" target="_blank">Arlecchino talks to Colombina, Colombina has a fan in her hand, etc</a>.  When the scene starts, the actors perform each according to their character.  When the scene ends, we lower the curtain.</p>
+<p>I imagine that an object-oriented system works the same way.  When a request arrives, we set up the scene by retrieving all the proper objects from various repositories and we connect them appropriately.  This is setting the scene.  Then we send a message to one object that sets some logic in motion. The objects send messages to each other, carrying out a computation.  This is playing out the scene.  When the domain objects are done, we conclude by returning the objects to their respective repositories.  This is lowering the curtain.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a>, <a href="../archives/category/expressive-code.html" rel="category tag">Expressive Code</a> |   <a href="../archives/904.html#comments">5 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-897">
+  				<h2><a href="../archives/897.html" rel="bookmark" title="Permanent Link to A summary of my XP2014">A summary of my XP2014</a></h2>
+  				<small>June 2nd, 2014 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>TL;DR:  The conference was pleasant, energetic and informative.  The organizers did an excellent job of coordinating a very large program.  The city, of course, is awesome.  I met old and new friends, and I learned a lot.</p>
+<p>I had the chance to present my <a href="../archives/293.html" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; The OCP kata">two</a> <a href="../archives/154.html" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; The birthday greetings kata">sessions</a> to some great people.  Just 5-7 people partecipating in each session, but they were the right people.</p>
+<p>I attended an introduction to Continuous Deployment by Luca Minudel.  Luca presented in a very clear and concise way what CD is and what are its main components.  From this session, and another one by Seb Rose, I see that the idea of &#8220;CD pipelines&#8221; has now become common.</p>
+<p>I attended the keynote by Pekka Abrahamsson.  Pekka jokes that while working in his academic ivory tower, his group managed to create innovative products with undergraduate students.  I was impressed by an experimental system for getting rid of a dangerous parasyte in beehives.</p>
+<p>I attended the keynote by Robert Martin.  I actually had a chance to shake hands with the man.  Martin&#8217;s thesis is that we need to do something to improve the standards of quality in our profession, before some ugly software-related incident forces the regulators to do that to us.  For Martin, the best chance for us to do that is to apply the practices of Extreme Programming.  XP was invented by Kent Beck &#8220;to heal the divide between business people and programmers.&#8221;  In recent times, Martin sees that the Agile Movement is increasingly concerned with project management, and less and less interested in the programming practices.  This drove away many programmers from Agile, who then formed the Software Craftsmanship movement.  And this is a massive #fail: the divide is back.  XP still has the potential to heal this divide.  By focusing on the <strong>practices</strong>, not just the principles or the values, XP helps programmers achieve better results more cheaply.  But you must stress the <strong>practices</strong>.  As Uncle Bob puts it, &#8220;do we do the practices?  Or do we &#8216;let the team decide&#8217;&#8221;?  The team, says Martin, has an agenda.  If the team refuses to do a practice, he says, it&#8217;s because the team has something to hide.</p>
+<p>I attended the keynote by Joshua Kerievsky.  Joshua presented his view of &#8220;safety at work&#8221;, which is both metaphoric (as in &#8220;I caused a small injury to my customer by exposing him or her to a bug&#8221;) and literal.  I can see how seeing things from the point of view of &#8220;safety&#8221; leads, in part, to the same kind of process improvements that you would do with the goal of improving quality: find the root cause of defects and remove them, and so on.  But safety is more general; it&#8217;s not just protecting money.  As you can see <a href="http://www.industriallogic.com/blog/anzeneering/" title="Anzeneering | Industrial Logic">on Industrial Logic&#8217;s website</a>, it&#8217;s a more general thing.  I think I like Joshua&#8217;s idea.  It resonates with the teachings of Tom Gilb, who is always stressing good engineering.  Excellent engineering is always keen on safety at work.  Joshua quoted <a href="http://en.wikipedia.org/wiki/Joseph_Strauss_(engineer)">the engineer who built the Golden Gate Bridge</a>, with far less fatalities than were expected by the statistics of the time.  I add that the same is true of Filippo Brunelleschi, the engineer who built the dome of the Florence Cathedral.
+  </p>
+<p>  On a side note, I was finally convinced to try Industrial Logic&#8217;s elearning resources.  I can&#8217;t wait to have time to get into it.
+</p>
+<p>Another note: someone asked Joshua what he made of the current debate on &#8220;TDD is Dead&#8221;.  Joshua joked that his company celebrated the funeral of TDD by issuing a 50% discount on their TDD elearning modules.  It was so successful that some of his customers asked if BDD was also going to die soon :-)  He said that by and large DHH is grossly misinformed on TDD, even though he has a few good points.</p>
+<p>I attended a session by Steve Holyer and Nancy Van Schooenderwoert, on how a coach can maximize his or her chances of success <em>before</em> accepting a coaching engagement.  The main thing I got from the session is a better understanding of Jerry Weinberg&#8217;s principle of Organizational Addiction.  I had read Quality Software Management Vol. 3, but I never got round to think how to use the addiction model as a tool for making sense of what happens at work, and what to do about it.</p>
+<p>I attended a session by Rebecca Wirfs-Brock on how to deal with complex requirements.  This session was going a bit too fast for me :)  I can&#8217;t say I was able to follow the exercise, but it gave something to chew on later.  </p>
+<p>
+I attended an interesting prentation by Seb Rose on a tool for assessing the quality of a suite of tests by introducing bugs and seeing if the tests detect them.  </p>
+<p>I partecipated in a very interesting game by Michele Finelli on Alerting, Logging and Monitoring.  I was later given a private lesson by Michele on this very subject.  I think Michele should write something on the subject; most developers, including me before Michele&#8217;s lesson, have very foggy notions on this subject.</p>
+<p>I noticed that some people were wearing tee shirts advertising XP2015 in Finland!  And at dinner on Tuesday I learned that they had already decided the location for XP2016!  Me and my friends organizers for the Italian Agile Day should learn something from this :)</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/897.html#comments">3 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-890">
+  				<h2><a href="../archives/890.html" rel="bookmark" title="Permanent Link to An introduction to contemporary web application techniques">An introduction to contemporary web application techniques</a></h2>
+  				<small>February 8th, 2014 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>I just attended <a href="http://www.avanscoperta.it/it/training/codejam-feb2014/" title="CodeJam - Cutting edge web application development | Avanscoperta">CodeJam: Cutting edge web application development</a>, a two-days course taught by <a href="https://twitter.com/gabrielelana">Gabriele Lana</a> and <a href="https://twitter.com/sandropaganotti">Sandro Paganotti</a> and organized by <a href="http://avanscoperta.it/">Avanscoperta</a>.  (Disclaimer: I also offer courses through Avanscoperta and I had previously worked together with Gabriele.)</p>
+<p>What was it like?  In short, it&#8217;s like watching the reasoning, techniques and tools of two master software craftsmen at work.  This was not an easy tutorial; the process was not simplified to make it easier to follow.  Gabriele and Sandro applied all of their usual tools and process.  This is the main value of the course; you can find as many Node or Angular tutorials, books and videos as you want.  What you will not easily find is how accomplished Node or Angular professionals actually go about their business.</p>
+<p>Gabriele in particular is fond of the &#8220;play by play&#8221; video series by Peepcode, where you can watch over the shoulder of an accomplished professional how they solve a problem.  There is a lot of practical, untold information in that; information that we as a community don&#8217;t yet have a way of sharing.  It&#8217;s about technique; how you use the shell, the editor, the keyboard.  How you use screen real estate.  What tradeoffs you make when you have to choose finessing versus delivering.</p>
+<p>My particular interest in this course was to get up to speed on contemporary techniques for building web application.  The old school of building applications by serving a new page of procedurally-generated html at every request is, well, old school.  The <a href="http://www.slideshare.net/ugolandini/25-tiers" title="2.5 Tiers">new school</a> is a single html page that contains a full application written in Javascript, while the server provides only REST persistence services.</p>
+<p>The main gist of the course is that Sandro and Gabriele build an order-taking application for a restaurant.  There is a mobile site that will be used by the waiter taking orders on a mobile phone, and a kitchen site that will be used by the cooks to see what dishes have been requested, and signal that the dishes are ready.  The application is built with Angular in the frontend, and Node in the backend.</p>
+<p>Participants follow the development on a Git repository, were a sequence of stages is saved in different branches.  You could follow what the trainer was doing on your own machine and make experiments; or you could just watch what the trainer was doing, and listen to what he was saying.  It didn&#8217;t matter if you didn&#8217;t complete the section (I rarely could) because the next stage would start from a fresh checkout of the next branch from Git.</p>
+<p>The pace of the course was intense.  The two trainers packed a *lot* of useful information.  They showed different ways of doing things; for instance, the kitchen web site was built on just two files (one html and one js) and received events from the backend via websockets.  The mobile site instead was built on a rails-like directory layout, with separate folders for models, controllers, etc; and it received events from the backend using Server-Side Events.  Gabriele showed many different Node and Mongo techniques and libraries; Sandro showed many different Angular techniques.  </p>
+<p>Of particular interest was project automation with Grunt, which integrated many different tools together.  For instance, whenever you saved a file, it would automatically run JSHint (check code style) and Karma (run the automated tests) and then reload the application in the browser.  The initial directory layout was built with Yeoman.  The introduction of Javascript and CSS libraries was managed by the Bowell package manager.</p>
+<p>Gabriele explained his screen management philosophy: he uses a tiling window manager; how he completely remapped his modifier keys to type faster and with less strain on his body; how he uses Vim, how he uses the Unix shell.</p>
+<p>I was impressed with Node.  It&#8217;s an engineering marvel.</p>
+<p>Last but not least, I should mention the course organizer <a href="https://twitter.com/ziobrando">Alberto Brandolini</a> who provided us with delicious food during the day, lunch and evening.  Thanks Alberto!</p>
+<p>I invite you to check out <a href="https://github.com/cleancode/waitress">the repository on Github</a>.  I&#8217;m very happy I attended this course!</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/890.html#comments">1 Comment &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-886">
+  				<h2><a href="../archives/886.html" rel="bookmark" title="Permanent Link to Il mio corso di TDD">Il mio corso di TDD</a></h2>
+  				<small>December 27th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>TL;DR: what my <a href="http://www.avanscoperta.it/it/training/test-driven-development/" title="Test-Driven Development | Avanscoperta">public TDD course</a> is about.  </p>
+<h3>Imparare il TDD</h3>
+<p>In gennaio terrò il mio <a href="http://www.avanscoperta.it/it/training/test-driven-development/" title="Test-Driven Development | Avanscoperta">primo corso pubblico di TDD</a>.  Grazie ad Alberto Brandolini che lo ha organizzato.</p>
+<h3>La promessa del TDD</h3>
+<p>Scrivere programmi che funzionano correttamente gia dalla prima volta che vengono messi in produzione.  Sentirsi dire dal cliente che i pochi difetti riscontrati si verificano talmente di rado che non vale neanche la pena di correggerli.</p>
+<p>Arriva il cliente con una nuova richiesta.  Ha cambiato idea di nuovo.  Il nuovo requisito coinvolge una serie di nuovi casi speciali.  Non è un problema: concordiamo con il cliente alcuni esempi concreti e lo risolviamo.    Il nostro codice è malleabile: il nuovo requisito del cliente spesso richiede solo di creare nuove implementazioni di interfacce esistenti; in questi casi il design supporta facilmente l&#8217;introduzione del nuovo requisito.  In altri casi invece dobbiamo modificare la struttura del codice per poter inserire bene il codice nuovo.  Lo facciamo in maniera controllata, a piccoli passi.  Il nostro codice è semplice perché è stato sviluppato a partire dai test: la maggior parte delle volte, il codice che abbiamo prodotto era molto più semplice di quello che ci aspettavamo di dover scrivere.</p>
+<p>Ti ricordi? Una volta scrivevamo codice per, tipo,  una settimana.  Poi passavamo una o due settimane a farlo funzionare, debuggando con le scritte sulla console.  Ora il debugging non lo facciamo quasi più.  Il codice viene pensato, testato, scritto ed integrato nel giro di minuti, non giorni.</p>
+<h3>Le difficoltà</h3>
+<p>Non è stato facile.  Io ci ho messo anni per cominciare a capire come funziona il TDD.  Sono stati anni produttivi: ogni nuovo gradino di comprensione mi ha permesso di scrivere codice migliore.  E ogni nuovo gradino diventava un plateau da cui non era facile scorgere quale fosse il prossimo passo.</p>
+<p>Mi sono dovuto ricredere su tante cose.  Ho imparato a tenere i framework, il sistema operativo, le librerie al loro posto, per essere sicuro di mantenere il controllo della situazione.  Non voglio essere alla mercé di quello che un framework può o non può fare, dei suoi bug e delle sue idiosincrasie.  Il codice della mia applicazione adesso è separato dal codice che serve a parlare con il framework.  </p>
+<p>Ho imparato che il design è importante.  <a href="http://minnenratta.wordpress.com/" title="Minnen Ratta | Saving the world, one lame suggestion at a time">Carlo Bottiglieri</a> ha detto &#8220;Se il design non lo sai fare, il TDD non te lo insegna.&#8221;  E&#8217; per questo che dopo i primi successi con il TDD, non riuscivo a migliorare.  Ho cercato chi potesse insegnarmelo; ho comprato libri di seconda mano perché l&#8217;argomento &#8220;design&#8221; è talmente fuori moda che i libri non li ristampano più.  Alcuni libri che pure avevo letto prima, come il famoso libro dei pattern, non mi avevano detto granché.  Ora li rileggo e capisco meglio che cosa vogliono dire.  </p>
+<p>Ho capito che il design è un modo di pensare; <a href="http://francescocirillo.com/" title="Francesco Cirillo">Francesco Cirillo</a> ripeteva &#8220;E&#8217; semplice ma non è facile&#8221;.  Ora capisco che l&#8217;idea che avevo io di &#8220;semplice&#8221; era tutta sbagliata.  Capisco anche perché molti programmatori confondono il &#8220;semplice&#8221; con il &#8220;facile&#8221;, perché anch&#8217;io ho vissuto questa confusione.  Coesione e accoppiamento adesso hanno un senso; le vedo nel codice.</p>
+<p>E non è finita.  Continuo a imparare nuove cose, da libri, blog,  colleghi e situazioni sul lavoro.  E&#8217; bello quando affrontiamo un problema in pair programming, facendo TDD come si deve e quindi scrivendo solo il minimo che serve per fare passare il test, rimuovendo la duplicazione a ogni passo, e otteniamo codice molto più semplice del previsto.  Salta fuori che il TDD è una tecnica di design&#8230; proprio come dicevano i libri!</p>
+<h3>Il corso di TDD</h3>
+<p>Dal 2007 al 2012 ho lavorato in Sourcesense/<a href="http://xpeppers.com/" title="XPeppers">XPeppers</a> come coach del team Orione.  Abbiamo affrontato molti problemi con TDD.  Abbiamo insegnato il TDD (con tutti i limiti della nostra comprensione dell&#8217;argomento) presso i nostri clienti.  Abbiamo fatto un corso pubblico di TDD di un giorno, che ha avuto un discreto successo.</p>
+<p>Dall&#8217;aprile 2012 sono tornato consulente indipendente.  Faccio il coach freelance presso organizzazioni che vogliono migliorare la maniera in cui lavorano con il software.  </p>
+<p>Il corso di due giorni sul TDD è stato provato più volte presso i nostri clienti, insieme al mio collega coach Antonio Carpentieri. Nel maggio del 2013 sono stato invitato dagli amici di DotNetToscana a fare un corso di TDD di due giorni.  Dopo quell&#8217;esperienza ho sentito che il corso era pronto per essere presentato al pubblico.</p>
+<h3>La prospettiva</h3>
+<p>Qual&#8217;è la prospettiva attraverso cui mostro il TDD?  </p>
+<ul>
+<li>Il TDD è divertente.  È semplice.  Cerco sempre il senso del semplice e del divertente nella programmazione.  Per questo sono molto sospettoso quando sento parlare di &#8220;framework per testare X&#8221;.  Mi puzza di complicazione.  Per iniziare a fare TDD non c&#8217;è nemmeno bisogno di xUnit.</li>
+<li>Il TDD è una tecnica di design.  Per me non è uno slogan, è una cosa che pratico per davvero. Per questo quando parlo di TDD parlo anche e soprattutto di come fare design.</li>
+<li>Si parte sempre da una user story.  Sviluppiamo per realizzare una richiesta del cliente; per questo il primo test spesso è un acceptance test.</li>
+<li>Acceptance test non significa end-to-end test.  Sono due concetti ortogonali; un AT può anche essere un test end-to-end, ma spesso non lo è.</li>
+<li>Separa la parte facile da testare da quella difficile da testare.  Concentra tutta la logica interessante nella parte facile da testare.</li>
+</ul>
+<p>I miei maestri?  Ho imparato da Francesco Cirillo e Carlo Bottiglieri.  Considero fondamentali il libro di Kent Beck, <a href="http://books.google.com/books?isbn=0321146530">Test-Driven Development: By Example</a>, il libro di Steve Freeman e Nat Pryce, <a href="http://www.growing-object-oriented-software.com/" title="Growing Object-Oriented Software Guided by Tests: About the Book">Growing Object-Oriented Software Guided By Tests</a>.  Condivido molte delle cose che scrivono <a href="http://arlobelshee.com/" title="Arlo Being Bloody Stupid">Arlo Belshee</a> e <a href="http://www.jbrains.ca/" title="jbrains">J.B. Rainsberger</a>.  Trovo utili <a href="http://cleancoders.com/" title="Clean Coders">i video di Robert Martin</a> e <a href="https://www.youtube.com/channel/UCKu3XCVh7pe06khn4N1uCiQ">quelli di Piergiuliano Bossi</a>.  </p>
+<h3>In conclusione</h3>
+<p>Per me il TDD è uno strumento per migliorare.  Senza il TDD, ogni programmatore arriva al suo livello naturale di competenza e si ferma lì.  Con il TDD, e il design che devi imparare per fare bene TDD, hai un percorso di miglioramento che non finisce mai.  Il mio corso può esserti utile se:</p>
+<ul>
+<li>
+    hai provato qualche volta a fare TDD, ma non è rimasto nella tua pratica quotidiana.
+  </li>
+<li>
+    Hai fatto qualche progetto con TDD ma il codice che ne è uscito fuori era un pasticcio.
+  </li>
+<li>
+    Vorresti iniziare a fare TDD ma non sai da dove cominciare.
+  </li>
+<li>
+    Fai correntemente TDD e hai qualche dubbio da sciogliere per passare al prossimo livello.
+  </li>
+<li>
+    Senti sempre parlare di &#8220;design&#8221; ma non hai mai trovato un libro che te lo spieghi bene.
+  </li>
+</ul>
+<p>Se ti riconosci in uno di questi casi, probabilmente posso aiutarti, perché sono stadi da cui sono passato anch&#8217;io.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/886.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-875">
+  				<h2><a href="../archives/875.html" rel="bookmark" title="Permanent Link to Notes on exception handling">Notes on exception handling</a></h2>
+  				<small>November 20th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<style>
+  code {
+    font-size: smaller;
+  }
+  pre {
+    page-break-inside: avoid;
+  }
+</style>
+<blockquote>
+<p>  If a function be advertised to return an error code in the event of difficulties, thou shalt check for that code, yea, even though the checks triple the size of thy code and produce aches in thy typing fingers, for if thou thinkest &#8220;it cannot happen to me&#8221;, the gods shall surely punish thee for thy arrogance.
+</p>
+<p>  <cite>Henry Spencer&#8217;s 10 Commandments for C Programmers</cite>
+</p></blockquote>
+<p>In the olden days, before Exceptions were invented, we wanted to write code like this:</p>
+<pre><code>// Called when the user presses the "triple" button
+void onTripleButtonPressed() {
+  String valueEntered = readValueFromField();
+  int valueToDisplay = triple(stringToInteger(valueEntered));
+  displayResult(integerToString(valueToDisplay));
+}
+
+int triple(int value) {
+  return value * 3;
+}
+</code></pre>
+<p>Unfortunately, we were forced to write code like this instead:</p>
+<pre><code>int onTripleButtonPressed() {
+  StringHolder valueEntered = new StringHolder();
+  int resultCode = readValueFromField(valueEntered);
+  if (isError(resultCode))
+    return resultCode;
+
+  IntHolder valueAsInteger = new IntHolder();
+  resultCode = stringToInteger(valueAsInteger, valueEntered.value);
+  if (isError(resultCode))
+    return resultCode;
+
+  resultCode = triple(valueAsInteger);
+  if (isError(resultCode))
+    return resultCode;
+
+  StringHolder valueToDisplay = new StringHolder();
+  resultCode = integerToString(valueToDisplay, valueAsInteger.value);
+  if (isError(resultCode))
+    return resultCode;
+
+  resultCode = displayResult(valueToDisplay.value);
+  if (isError(resultCode))
+    return resultCode;
+
+  return OK; // :-)
+}
+
+private int triple(IntHolder valueAsInteger) {
+  int result = valueAsInteger.value * 3;
+  if (isOverflow(result)) 
+    return ERROR_OVERFLOW;
+  valueAsInteger.value = result;
+  return OK;
+}
+</code></pre>
+<p>Yes, we were FORCED to check the result of each and every operation.  There was no other way to write reliable software.  As you can see:</p>
+<ul>
+<li>Code size is more than three times</li>
+<li>Logic becomes obscure</li>
+<li>Functions are forced to return two values; the intended result AND an error code.</li>
+<li>You always, always, always had to return an error code from all functions.</li>
+</ul>
+<p>There was no alternative, until exceptions came along.  Then we were finally able to write simple code in a reliable way:</p>
+<pre><code>// Called when the user presses the "triple" button
+// Exceptions are handled here
+void onTripleButtonPressed() {
+  try {
+    tryOnTripleButtonPressed();
+  } catch (Exception e) {
+    alertUser(e.getMessage());
+  }
+}
+
+// Business logic is handled here
+private void tryOnTripleButtonPressed() {
+  String valueEntered = readValueFromField();
+  int valueToDisplay = triple(stringToInteger(valueEntered));
+  displayResult(integerToString(valueToDisplay));
+}
+</code></pre>
+<p>In this example, all exception handling is centralized <strong>at the point where the GUI gives control to our code</strong>.  The code that performs what the user really wanted is in another function, which contains exactly the same clean code of the first example.</p>
+<p>Thus, the invention of exception handling allows us to cleanly separate code that performs the happy path, and code that handles the many possible exceptional conditions: integer overflow, I/O exceptions, GUI widgets being improperly configured, etc.  </p>
+<p>What you saw in the previous example is the </p>
+<blockquote><p>
+<strong>Fundamental Pattern of Exception Handling</strong>: centralize exception handling at the point where the GUI gives control to our code.  No other exception handling should appear anywhere else.
+</p></blockquote>
+<p>It turns out that the Fundamental Pattern of Exception Handling is the only pattern that we need to know.  There are other cases where we are tempted to write a try-catch, but it turns out that we nearly always have better ways to do it.</p>
+<h3 id="antipattern_nostalgia_for_the_bad_old_days">Antipattern: <strong>nostalgia</strong> (for the bad old days)</h3>
+<p>There is an ineffective style of coding that we sometimes see in legacy code:</p>
+<pre><code>void onTripleButtonPressed() {
+  String valueEntered = null;
+  try {
+    valueEntered = readValueFromField();
+  } catch (Exception e) {
+    logger.log(ERROR, "can't read from field", e);
+    return;
+  }
+
+  int valueEnteredAsInteger = 0;
+  try {
+    valueEnteredAsInteger = Integer.parseInt(valueEntered);
+  } catch (Exception e) {
+    logger.log(ERROR, "parse exception", e);
+    return;
+  }
+
+  int valueToDisplay = 0;
+  try {
+    valueToDisplay = triple(valueEnteredAsInteger);
+  } catch (Exception e) {
+    logger.log(ERROR, "overflow", e);
+    return;
+  }
+
+  try {
+    displayResult(integerToString(valueToDisplay));
+  } catch (Exception e) {
+    logger.log(ERROR, "something went wrong", e);
+    return;
+  }
+}
+</code></pre>
+<p>As you can see, this is just as bad as the olden days code!  But while in the old times we had no alternatives, now we do.  Just use exceptions the way they were intended to.</p>
+<h3 id="stay_up_no_matter_what">Stay up no matter what</h3>
+<p>Sometimes there is a feeling that we should write code that &#8220;stays up no matter what happens&#8221;.  For instance:</p>
+<pre><code>private void tryOnTripleButtonPressed() {
+  String valueEntered = readValueFromField();
+  int valueToDisplay = triple(stringToInteger(valueEntered));
+
+  try {
+    sendEmail(userEmail, "You tripled " + valueEntered);
+  } catch (Exception e) {
+    logger.log(WARNING, "could not send email", e);
+    // continue
+  }
+
+  displayResult(integerToString(valueToDisplay));
+}
+</code></pre>
+<p>Here we have added an email confirmation; whenever the user presses the button, they will also receive an email.  Now we should ask ourselves which of the two: </p>
+<ol style="list-style-type: decimal">
+<li>is the sending of the email an integral and fundamental part of what should happen when the user presses the button?  </li>
+<li>Or is it an accessory part should never stop the completion of the rest of the action?</li>
+</ol>
+<p>This is a business decision.  If the business decides on 1., then we should remove the try-catch.  By applying the Fundamental Pattern, proper logging of the exception will be done elsewhere.  We end up with:</p>
+<pre><code>private void tryOnTripleButtonPressed() {
+  String valueEntered = readValueFromField();
+  int valueToDisplay = triple(stringToInteger(valueEntered));
+  sendEmail(userEmail, "You tripled " + valueEntered);
+  displayResult(integerToString(valueToDisplay));
+}
+</code></pre>
+<p>Clean code again.  Yay!</p>
+<p>If the business decides on 2., then we cannot allow sendMail to throw exceptions that might stop the processing of the user action.  What do we do now?  Do we have to keep the try-catch?</p>
+<p>The answer is yes, but out of the way.  There are two ways to do this: the easy way and the simple way.  If you do it the <strong>easy</strong> way, you will move the try-catch <em>inside</em> the sendMail function.  You will get code like this:</p>
+<pre><code>private void tryOnTripleButtonPressed() {
+    String valueEntered = readValueFromField();
+    int valueToDisplay = triple(stringToInteger(valueEntered));
+    sendMail(userEmail, "You tripled " + valueEntered);     
+    displayResult(integerToString(valueToDisplay));
+  }
+
+private void sendMail(EmailAddress email, String message) {
+  try {
+      trySendEmail(email, message);
+  } catch (Exception e) {
+    logger.log(WARNING, "could not send email", e);
+    // continue
+  }
+}
+</code></pre>
+<p>You have moved exception handling for sending mail to a dedicated function (good).  However, you still have complicated code tightly coupled to the user action.  The sending of email, which is an <em>accessory</em> operation, makes understanding the fundamental operation more difficult (bad!)</p>
+<p>What is the <strong>simple</strong> way, then?  In the simple way we eliminate the tight coupling betweeen tripling the number and sending the email.  There are several patterns that we might use; a typical choice would be &#8220;publish-subscribe&#8221;.  We set up a subscriber that waits for the &#8220;User Pressed the Triple Button&#8221; event.  In the main onTripleButtonPressed function we don&#8217;t know nor care what the subscriber does.  It might send email, write logs, compute statistics, or maybe distribute the event to a list of other subscribers.  We don&#8217;t know nor care!  The code looks like this:</p>
+<pre><code>private void tryOnTripleButtonPressed() {
+  String valueEntered = readValueFromField();
+  int valueToDisplay = triple(stringToInteger(valueEntered));
+  subscriber.notifyTripled(valueEntered);
+  displayResult(integerToString(valueToDisplay));
+}
+</code></pre>
+<p>In the Simple way, the Fundamental Pattern has been respected: for the subscriber object, the start of the processing is within the notifyTripled method.  We have clean <em>and</em> loosely coupled code.</p>
+<h3 id="avoid_resource_leaking">Avoid resource leaking</h3>
+<p>Another time when we are tempted to use a try-catch in violation of the Fundamental Pattern is when we open some resource that must be closed.</p>
+<pre><code>void doSomethingImportant() {
+  Reader reader = null;
+  try {
+    reader = new FileReader("foo bar");
+    doSomethingWith(reader);
+    reader.close();
+  } catch (Exception e) {
+    if (null != reader) {
+      reader.close();
+    }
+    // report the exception to the callers
+    throw new RuntimeException(e);
+  } 
+}
+</code></pre>
+<p>It is correct that we close the reader in the event that something within doSomethingWith throws an exception. But we don&#8217;t want the catch; a finally clause is better:</p>
+<pre><code>void doSomethingImportant() throws IOException {
+  Reader reader = null;
+  try {
+    reader = new FileReader("foo bar");
+    doSomethingWith(reader);
+  } finally {
+    if (null != reader)
+      reader.close();
+  } 
+}
+</code></pre>
+<p>This way, we don&#8217;t even need to worry about rethrowing the exception to our callers.  The code is both correct <em>and</em> clear.</p>
+<h3>Irritating APIs</h3>
+<p>Some APIs force us to use more try-catches that we&#8217;d like. An example in Java is how to read data from a database using JDBC:</p>
+<pre><code>PreparedStatement statement = connection.prepareStatement("...");
+try {
+    ResultSet results = statement.executeQuery();
+    try {
+        while (results.next()) {
+            // ...
+        }
+    } finally {
+        results.close();
+    }
+} finally {
+    statement.close();
+} 
+</code></pre>
+<p>Here the problem lies in how the JDBC API is defined.  We can&#8217;t change it of course, but we should encapsulate all uses of the JDBC API in a single class, so that we don&#8217;t have to look at this code anymore.  Treat that class as your adapter to JDBC.  For instance:</p>
+<pre><code>Results results = new Database(connection).read("select * from foo");
+  // use results
+</code></pre>
+<p>Of course our object is a lot less flexible than the JDBC API.  This is expected: we want to decide <em>how</em> we use JDBC and encapsulate that &#8220;how&#8221; in a single place.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/875.html#comments">6 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-868">
+  				<h2><a href="../archives/868.html" rel="bookmark" title="Permanent Link to How to host a JavaScript coding dojo">How to host a JavaScript coding dojo</a></h2>
+  				<small>June 27th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>Yesterday I organized a JavaScript coding dojo for my current customer&#8217;s programmers.  Here&#8217;s what we did. Disclaimer: I&#8217;m not a JavaScript ninja, nor were most of the dojo participants.  We need to keep it simple.  We also need to make it fit within two hours.</p>
+<p>I wanted the exercise to have a user interface.  Why? Because we did many domain-only dojos, and I think we&#8217;re missing something.  The UI is important: it makes the exercise more fun, and it teaches you lots.  So, where to start? My starting point is the principle of <strong>domain-view separation</strong>.  We want an extremely dumb UI that calls to the domain logic whenever it needs something.</p>
+<p>My other point is that <strong>I don&#8217;t want to test the UI</strong>.  We don&#8217;t have time to setup something like Selenium, and since we don&#8217;t know much JavaScript we would waste a lot of time.  So we write a small UI, without tests, <strong>checking how it looks in the browser at every step</strong>.  This is important: we don&#8217;t have the tests, but we have the browser to give us high-quality feedback.  Also remember to keep the JavaScript console open when you do this.</p>
+<h3>The starting setup</h3>
+<p>We start from an empty exercise setup, that contains four files (not counting library files). For exercise &#8220;foo&#8221;, we have:</p>
+<ul>
+<li>foo.html is the UI</li>
+<li>foo.js contains the logic</li>
+<li>foo_test.html is the test runner</li>
+<li>foo_test.js contains the tests</li>
+</ul>
+<p>The starting foo.html looks like this:</p>
+<pre>  
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;FOO&lt;/title&gt;    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Foo!&lt;/h1&gt;
+    &lt;script src=&quot;lib/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;foo.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      $(document).ready(function() {
+        console.log(&quot;hello&quot;);
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>The starting foo.js is empty.  The test runner is</p>
+<pre>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Foo Test&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;lib/qunit.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;qunit-fixture&quot;&gt;&lt;/div&gt;
+    &lt;script src=&quot;lib/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;lib/qunit.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;foo.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;foo_test.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;  
+</pre>
+<p>and foo_test.js is simply</p>
+<pre>
+module(&quot;Foo&quot;);
+
+test(&quot;it works&quot;, function() {
+  equal(false, true);
+});  
+</pre>
+<p>As you can see, I setup jQuery and QUnit.  These are our tools.</p>
+<h3>The demo</h3>
+<p>The dojo agenda is:</p>
+<ol start="0">
+<li>Introduction and demo.  I solve a simpler exercise in front of the audience, with a video beamer.</li>
+<li>Explain the problem to be solved.</li>
+<li>Someone in the audience builds the UI and the first broken test.</li>
+<li>Someone else passes the test, and demonstrates that it works in the browser too!  Watch out for when the tests are green and the UI is broken :)  Then this person writes the next broken test.</li>
+<li>And repeat the last step until finished.</li>
+<li>Retrospective</li>
+</ol>
+<p>My demo exercise was &#8220;write an application that allows me to enter a number, and prints that number doubled.  Let&#8217;s call it <em>Doubler</em>&#8220;.  The UI I built was </p>
+<pre>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;doubler&lt;/title&gt;    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;doubler!&lt;/h1&gt;
+
+    &lt;p id=&quot;display&quot;&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;number&quot; value=&quot;&quot; id=&quot;number&quot;/&gt;&lt;/p&gt;
+
+    &lt;script src=&quot;lib/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;doubler.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      $(document).ready(function() {
+        var $number = $(&quot;#number&quot;);
+        var $display = $(&quot;#display&quot;);
+        $number.change(function() {
+          $display.html(&quot;The input is changed and its value is &quot; + 
+            $number.val());
+        });
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;  
+</pre>
+<p>When I have this working I can start the TDD process.  I know that all I need to do is to replace the hard-coded expression &#8220;The input &#8230; &#8221; with a call to a domain object, like</p>
+<pre>
+  $display.html(new Doubler().process($number.val()));
+</pre>
+<p>Now I have the power of TDD at my disposal.  I can make Doubler do what I want, and I know it will work in the UI.  And Doubler is completely unaware that there is a UI at all; all it has to do is implement the pure domain logic.  At this point, I also show how to implement an object (in the sense of object-oriented programming) in JavaScript.  There are a few hundreds different ways to do that; the style I used is like this:</p>
+<pre>
+function Counter() {
+  var itsValue = 0;
+  this.increment = function() {
+    itsValue++;
+  }
+  this.value = function() {
+    return itsValue;
+  }
+}  
+</pre>
+<p>The &#8220;itsValue&#8221; local variable is accessible to the two methods (since they are closures), but is completely incapsulated and inaccessible from the outside. A test for this object could be</p>
+<pre>
+  test("It increments its value", function() {
+    var counter = new Counter();
+    counter.increment();
+    counter.increment();
+    equal(counter.value(), 2);
+  });
+</pre>
+<p>After this, I proposed the team to solve stage 1 of the <a href="http://clean-code-advisors.com/ressourcen/application-katas">Tic-Tac-Toe Application Kata by Ralph Westphal</a>.  It&#8217;s simple enough to be finished in a hour, yet not trivial.  One point to watch out for: we want the Game object to contain the state of the game.  We don&#8217;t want to rely on the UI to tell the domain object what is the state of a given cell.</p>
+<p>If you want a harder challenge, you could implement the Game of Life :)</p>
+<h3>Discussion</h3>
+<p>It took me a few test trials to arrive at this dojo format.  I experimented with an explicit model-view-controller architecture, where you TDD also the &#8220;glue&#8221; code that I write in the UI file.  This can be done by using html fixtures in the test code.  But it didn&#8217;t give me the right feelings; it felt unpleasant to work with.  </p>
+<p>One thing that I surely want to avoid is the approach shown in chapter 15 &#8220;TDD and DOM Manipulation&#8221; of the (otherwise useful) <em><a href="http://tddjs.com/">Test Driven JavaScript development</a></em> book.  The approach in that chapter is to decide a design upfront, such as MVC, and then unit test that the controller connects itself in a certain way to the view and the model.  Why I don&#8217;t like it?  Because the design does not emerge from a test.  Because it&#8217;s testing the implementation, not the specification.  Because I want my first test to be about the valuable logic of the problem, not about a technical detail.  Because I want <em>every</em> test to be about a valuable business behaviour.  </p>
+<p>The format I came up with feels right to me.  It&#8217;s appropriate for beginners.  I&#8217;m not sure that you would want to work always this way when you do production work, but it certainly is a good starting point.</p>
+<p>Have fun!</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/868.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-856">
+  				<h2><a href="../archives/856.html" rel="bookmark" title="Permanent Link to A fundamental design move">A fundamental design move</a></h2>
+  				<small>May 30th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>Pardon me if the content of this post looks obvious to you.  It took me years to understand this!</p>
+<p>When doing incremental design, I found that there is one fundamental move that makes design emerge.  It is </p>
+<style type="text/css">
+  ol>li {
+    list-style-type: lower-alpha;
+  }
+</style>
+<ol>
+<li>I recognize that one thing has more than one responsibility; </li>
+<li>then I separate the responsibilities by splitting the thing into two or more smaller things;</li>
+<li>and I connect the smaller things with the proper degree of coupling.</li>
+</ol>
+<p>For instance, in the description of the domain of the game Monopoly we have this sentence:</p>
+<blockquote><p>    A player takes a turn by rolling two dice and moving around the board accordingly.
+</p></blockquote>
+<p>A straightforward translation of this into code is</p>
+<pre>
+class Player {
+  // ...
+  public void takeTurn() {
+    int result = Math.random(6) + Math.random(6);
+    this.position = (this.position + result) % 40;
+  }      
+}
+</pre>
+<p>Can you see that Player#takeTurn() does two things?  You can see this from the beginning by the wording: &#8220;by rolling two dice *and* moving around the board&#8221;. </p>
+<p>You can also see it when you try to write the test:</p>
+<pre>
+@Test public void playerTakesTurn() {
+  Player player = new Player();
+  assertEquals(0, player.position()); // initial position
+  
+  player.takeTurn();
+  assertEquals(???, player.position()); // how should I know???
+}
+</pre>
+<p>We can&#8217;t write the last assertion because we have no control over the dice.</p>
+<p>The standard way to solve this is to move the responsibility of extracting a random result to a separate class.  </p>
+<pre>
+@Test public void playerTakesTurn() {
+  Dice dice = new Dice();
+  Player player = new Player(dice);
+  //...
+}
+
+class Player {
+  public void takeTurn() {
+    int result = this.dice.roll();
+    this.position = (this.position + result) % 40;
+  }      
+}
+</pre>
+<p>This still does not solve our problem, since Dice#roll() will still produce a random result that we have no control over.  But now we have the option of making the coupling between Player and Dice weaker, by making Dice an interface and passing a fake Dice implementation that will return the result that we want:</p>
+<pre>
+@Test public void playerTakesTurn() {
+  Dice dice = new FakeDiceReturning(7);
+  Player player = new Player(dice);
+  assertEquals(0, player.position()); // initial position
+
+  player.takeTurn();
+  assertEquals(7, player.position()); // now it's easy
+}
+</pre>
+<p>This design move, that is almost forced by the need to write a clear test, has a number of advantages:</p>
+<ul>
+<li>Now we have the option to pass different dice implementation.  If the rules ever called for using different kinds of dice (for instance, 8-sided dice) we would not need to change the Player class at all.</li>
+<li>Now we can test the Dice implementation separately.  We might thus discover the bug in the above random number generation code.  (did you see it?) :-)</li>
+</ul>
+<p>So, to summarize, the fundamental design move is in three steps:</p>
+<ol>
+<li>You realize a portion of code has two responsibilities, perhaps because the test is hard to write.</li>
+<li>You separate the portion of code in two parts; this is usually some form of &#8220;<em>extract method</em>&#8220;.</li>
+<li>You&#8217;re not finished yet, because you still have to decide what kind of coupling you want between the two parts.  Usually, a simple <em>extract method</em> will produce a coupling that is too tight.  More work is required to ease the coupling to the degree that you want.</li>
+</ol>
+<p>It is simply a consequence of the Single Responsibility Principle; but it can also be seen as the or as the application of the &#8220;clarity of intent&#8221; rule in Kent Beck&#8217;s 4 Rules of Simple Design.</p>
+<p>Now the interesting thing is that this design move applies not just to methods, but to classes, modules, services and applications!  Whenever you see two things inside one, separate them.  If you applied the right degree of coupling, you will end up with a system that is simpler.  </p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a>, <a href="../archives/category/essay.html" rel="category tag">Essay</a> |   <a href="../archives/856.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-842">
+  				<h2><a href="../archives/842.html" rel="bookmark" title="Permanent Link to Roles, stereotypes, kinds of objects">Roles, stereotypes, kinds of objects</a></h2>
+  				<small>May 10th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>I&#8217;ve been thinking lately about the ways that different authors explain OOP. I&#8217;ve drawn a little diagram that I would like to share with you.</p>
+<p><a href="../wp-content/uploads/2013/05/ObjectsRoles.png"><img src="../wp-content/uploads/2013/05/ObjectsRoles-300x169.png" alt="" title="Objects Roles" width="300" height="169" class="alignnone size-medium wp-image-844" srcset="http://matteo.vaccari.name/blog/wp-content/uploads/2013/05/ObjectsRoles-300x169.png 300w, http://matteo.vaccari.name/blog/wp-content/uploads/2013/05/ObjectsRoles.png 900w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>The sources for this are, in no particular order:</p>
+<ul>
+<li>Eric Evans, <a href="http://domainlanguage.com/ddd/patterns/DDD_Reference_2011-01-31.pdf">DDD Reference</a></li>
+<li>Ivar Jacobson, Object-Oriented Software Engineering</li>
+<li>Peter Coad, <a href="http://www.petercoad.com/download/bookpdfs/jmcuch01.pdf" title="">Archetypes, Color, and the Domain-Neutral Component</a></li>
+<li>Rebecca Wirfs-Brock, <a href="http://wirfs-brock.com/PDFs/Characterizing Your Objects.pdf">Characterizing Classes</a></li>
+<li>Steve Freeman, Nat Pryce, <a href="http://www.growing-object-oriented-software.com/">Growing Object-Oriented Software</a></li>
+<li>Vaughn Vernon, <a href="https://vaughnvernon.co/?page_id=168">Implementing DDD</a></li>
+</ul>
+<p>Each of these authors has a perspective I find useful.  I would love it if there was a comprehensive, single model, but so far I can&#8217;t see how to systematize them.</p>
+<p>It gets weirder when you start collecting design principles&#8230; I might do a mind map of those some day.  Somehow I can see how SOLID and GRASP (for instance) are compatible.  They are pointing in the same general direction, but from different angles.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/842.html#comments">1 Comment &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-833">
+  				<h2><a href="../archives/833.html" rel="bookmark" title="Permanent Link to Doing the job of the customer?">Doing the job of the customer?</a></h2>
+  				<small>March 24th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>Summary: I spoke about how XP is about having a productive conversation with the customer, to help them learn about what they really need, using working software as a focus. One reaction was &#8220;why should we do the job of the customer, when they *should* know what they want?&#8221;  My answer is that they can&#8217;t possibly know what they want right from the start; learning what is really needed is a process.  We do it because it&#8217;s the job of software development to make this process happen.</p>
+<p>Lo scorso venerdì ho fatto una <a href="http://www.slideshare.net/xpmatteo/20120322-responsivedesigncodemotion">presentazione su Extreme Programming</a> al <a href="http://codemotion.it/">Codemotion</a>. Ho parlato di come i metodi agili abbiano al centro la conversazione fra sviluppatori e clienti; una conversazione che permette ai clienti di scoprire quello di cui hanno veramente bisogno, grazie anche al prodotto che viene sviluppato iterativamente e permette di aggiustare il tiro ad ogni iterazione.</p>
+<p>  Una reazione è stata: &#8220;Perché dobbiamo fare noi il lavoro del cliente? Perché facciamo tutto questo per il cliente quando negli altri campi dell&#8217;ingegneria non si fa?&#8221;</p>
+<p>La mia risposta è che non sono convinto che negli altri campi dell&#8217;ingegneria sia poi così diverso da quello che si fa nel software, e comunque se anche fosse non mi interessa. Quello che mi importa è che il cliente *non ha altra maniera* di scoprire quello che gli serve veramente se non attraverso una conversazione focalizzata su un prodotto sviluppato in iterazioni successive.  Per cui noi questo facciamo: la ragione per cui sviluppiamo software è per soddisfare i bisogni del nostro cliente.  </p>
+<p>Se potessimo ottenere lo stesso risultato applicando qualche formula o processo che non richieda tutto questo impegno da parte di tutti, lo faremmo.  Ma non c&#8217;è!  Questo è il semplice dato di fatto.</p>
+<p>Il nostro business, nello sviluppo software, consiste nel fare felici i clienti&#8230; non lo percepisco come un problema. E&#8217; impegnativo, d&#8217;accordo, ma è giusto così.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/833.html#comments">5 Comments &#187;</a></p>
+  			</div>
+
+  		
+  		<div class="navigation">
+  			<div class="alignleft"><a href="3.html" >&laquo; Previous Entries</a></div>
+  			<div class="alignright"><a href="../index.html" >Next Entries &raquo;</a></div>
+  		</div>
+
+  	  </div>
+
+  <div id='right-col'>
+    <p class='mobile-quicklink'><a href="#main-col">Top</a></p>
+      <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='../archives/date/2018/10.html'>October 2018</a></li>
+	<li><a href='../archives/date/2017/09.html'>September 2017</a></li>
+	<li><a href='../archives/date/2016/08.html'>August 2016</a></li>
+	<li><a href='../archives/date/2016/03.html'>March 2016</a></li>
+	<li><a href='../archives/date/2016/01.html'>January 2016</a></li>
+	<li><a href='../archives/date/2014/12.html'>December 2014</a></li>
+	<li><a href='../archives/date/2014/10.html'>October 2014</a></li>
+	<li><a href='../archives/date/2014/06.html'>June 2014</a></li>
+	<li><a href='../archives/date/2014/02.html'>February 2014</a></li>
+	<li><a href='../archives/date/2013/12.html'>December 2013</a></li>
+	<li><a href='../archives/date/2013/11.html'>November 2013</a></li>
+	<li><a href='../archives/date/2013/06.html'>June 2013</a></li>
+	<li><a href='../archives/date/2013/05.html'>May 2013</a></li>
+	<li><a href='../archives/date/2013/03.html'>March 2013</a></li>
+	<li><a href='../archives/date/2013/02.html'>February 2013</a></li>
+	<li><a href='../archives/date/2012/10.html'>October 2012</a></li>
+	<li><a href='../archives/date/2012/08.html'>August 2012</a></li>
+	<li><a href='../archives/date/2012/07.html'>July 2012</a></li>
+	<li><a href='../archives/date/2012/06.html'>June 2012</a></li>
+	<li><a href='../archives/date/2012/05.html'>May 2012</a></li>
+	<li><a href='../archives/date/2012/04.html'>April 2012</a></li>
+	<li><a href='../archives/date/2012/01.html'>January 2012</a></li>
+	<li><a href='../archives/date/2011/12.html'>December 2011</a></li>
+	<li><a href='../archives/date/2011/11.html'>November 2011</a></li>
+	<li><a href='../archives/date/2011/10.html'>October 2011</a></li>
+	<li><a href='../archives/date/2011/07.html'>July 2011</a></li>
+	<li><a href='../archives/date/2011/06.html'>June 2011</a></li>
+	<li><a href='../archives/date/2011/05.html'>May 2011</a></li>
+	<li><a href='../archives/date/2011/04.html'>April 2011</a></li>
+	<li><a href='../archives/date/2011/03.html'>March 2011</a></li>
+	<li><a href='../archives/date/2011/02.html'>February 2011</a></li>
+	<li><a href='../archives/date/2010/11.html'>November 2010</a></li>
+	<li><a href='../archives/date/2010/10.html'>October 2010</a></li>
+	<li><a href='../archives/date/2010/09.html'>September 2010</a></li>
+	<li><a href='../archives/date/2010/08.html'>August 2010</a></li>
+	<li><a href='../archives/date/2010/07.html'>July 2010</a></li>
+	<li><a href='../archives/date/2010/06.html'>June 2010</a></li>
+	<li><a href='../archives/date/2010/05.html'>May 2010</a></li>
+	<li><a href='../archives/date/2010/04.html'>April 2010</a></li>
+	<li><a href='../archives/date/2010/03.html'>March 2010</a></li>
+	<li><a href='../archives/date/2010/02.html'>February 2010</a></li>
+	<li><a href='../archives/date/2010/01.html'>January 2010</a></li>
+	<li><a href='../archives/date/2009/12.html'>December 2009</a></li>
+	<li><a href='../archives/date/2009/11.html'>November 2009</a></li>
+	<li><a href='../archives/date/2009/10.html'>October 2009</a></li>
+	<li><a href='../archives/date/2009/09.html'>September 2009</a></li>
+	<li><a href='../archives/date/2009/07.html'>July 2009</a></li>
+	<li><a href='../archives/date/2009/05.html'>May 2009</a></li>
+	<li><a href='../archives/date/2009/04.html'>April 2009</a></li>
+	<li><a href='../archives/date/2009/03.html'>March 2009</a></li>
+	<li><a href='../archives/date/2009/02.html'>February 2009</a></li>
+	<li><a href='../archives/date/2009/01.html'>January 2009</a></li>
+	<li><a href='../archives/date/2008/12.html'>December 2008</a></li>
+	<li><a href='../archives/date/2008/11.html'>November 2008</a></li>
+	<li><a href='../archives/date/2008/10.html'>October 2008</a></li>
+	<li><a href='../archives/date/2008/09.html'>September 2008</a></li>
+	<li><a href='../archives/date/2008/07.html'>July 2008</a></li>
+	<li><a href='../archives/date/2008/06.html'>June 2008</a></li>
+	<li><a href='../archives/date/2008/05.html'>May 2008</a></li>
+	<li><a href='../archives/date/2008/04.html'>April 2008</a></li>
+	<li><a href='../archives/date/2008/01.html'>January 2008</a></li>
+	<li><a href='../archives/date/2007/11.html'>November 2007</a></li>
+	<li><a href='../archives/date/2007/10.html'>October 2007</a></li>
+	<li><a href='../archives/date/2007/09.html'>September 2007</a></li>
+	<li><a href='../archives/date/2007/06.html'>June 2007</a></li>
+	<li><a href='../archives/date/2007/05.html'>May 2007</a></li>
+	<li><a href='../archives/date/2007/04.html'>April 2007</a></li>
+	<li><a href='../archives/date/2007/03.html'>March 2007</a></li>
+	<li><a href='../archives/date/2007/02.html'>February 2007</a></li>
+	<li><a href='../archives/date/2007/01.html'>January 2007</a></li>
+	<li><a href='../archives/date/2006/12.html'>December 2006</a></li>
+	<li><a href='../archives/date/2006/11.html'>November 2006</a></li>
+	<li><a href='../archives/date/2006/10.html'>October 2006</a></li>
+	<li><a href='../archives/date/2006/09.html'>September 2006</a></li>
+	<li><a href='../archives/date/2006/08.html'>August 2006</a></li>
+	<li><a href='../archives/date/2006/07.html'>July 2006</a></li>
+	<li><a href='../archives/date/2006/06.html'>June 2006</a></li>
+	<li><a href='../archives/date/2006/05.html'>May 2006</a></li>
+	<li><a href='../archives/date/2006/04.html'>April 2006</a></li>
+	<li><a href='../archives/date/2006/03.html'>March 2006</a></li>
+	<li><a href='../archives/date/2006/02.html'>February 2006</a></li>
+	<li><a href='../archives/date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="../archives/category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="../archives/category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="../archives/category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="../archives/category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="../archives/category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="../archives/category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="../archives/category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+              <!-- ?php get_links_list(); ? -->
+
+        <li><h2>Misc</h2>
+        <ul>
+          <li><a href="feed:http://matteo.vaccari.name/blog/feed">Entries (RSS)</a> and <a href="feed:http://matteo.vaccari.name/blog/comments/feed">Comments (RSS)</a></li>
+                  </ul>
+        </li>
+      
+    </ul>
+  </div>
+
+    <p class='mobile-quicklink'><a href="#main-col">Top</a></p>
+  </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/page/2 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:58:02 GMT -->
+</html>

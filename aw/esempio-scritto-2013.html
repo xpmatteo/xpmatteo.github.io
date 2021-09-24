@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from matteo.vaccari.name/aw/esempio-scritto-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:22:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Matteo Vaccari</title>
+    <link rel="stylesheet" href="../stylesheets/matteo.css" />
+  </head>
+  <body>
+    <h2>Matteo Vaccari</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    <h2>ESEMPIO di Esame scritto per Applicazioni Web 2012/13</h2>
+
+<h3 id="esercizio_0">Esercizio 0.</h3>
+
+<p>Vogliamo realizzare un&#8217;applicazione che gestisce un archivio dei libri della propria biblioteca personale.  Ogni utente registra i libri della sua biblioteca nel servizio.</p>
+
+<ul>
+<li>Di ciascun libro vogliamo salvare il titolo e l&#8217;autore.  </li>
+<li>Di ciascun libro vogliamo ricordare a quale utente appartiene.</li>
+<li>Non deve essere possibile inserire libri con titolo vuoto o autore vuoto.</li>
+</ul>
+
+<h4 id="a_disegnare_un_diagramma_entit_e_relazioni">(a) Disegnare un diagramma entità e relazioni</h4>
+
+<h4 id="b_scrivere_il_codice_sql_che_crea_lo_schema">(b) Scrivere il codice SQL che crea lo schema</h4>
+
+<h4 id="c_pagina_principale">(c) Pagina principale.</h4>
+
+<p>La pagina principale deve ricavare dalla sessione l&#8217;utente corrente, e presentare:</p>
+
+<ul>
+<li>un elenco di tutti i libri dell&#8217;utente corrente; </li>
+<li>un link alla pagina &#8220;Inserisci un nuovo libro&#8221;</li>
+</ul>
+
+<p>Questa pagina risponde alla url &#8220;/books/index&#8221;</p>
+
+<h4 id="d_pagina_8220inserisci_un_nuovo_libro8221">(d) Pagina &#8220;Inserisci un nuovo libro&#8221;</h4>
+
+<p>Questa pagina deve mostrare una form che permette di inserire un nuovo libro.  Risponde alla url &#8220;/books/new&#8221;.  </p>
+
+<h4 id="e_azione_books_create">(e) Azione /books/create</h4>
+
+<p>Questa azione riceve i dati della form e deve ridirigere su &#8220;/&#8221; se il salvataggio del nuovo libro ha successo, oppure ripresentare la form se la validazione dei dati fallisce.</p>
+
+<p>Per i punti (c) e (d) ed (e), scrivere il codice da inserire nei file:</p>
+
+<ul>
+<li>config/routes.rb</li>
+<li>app/models/book.rb</li>
+<li>app/models/user.rb</li>
+<li>app/controllers/books_controller.rb</li>
+<li>app/views/books/index.html.erb</li>
+<li>app/views/books/new.html.erb</li>
+</ul>
+
+<h3 id="esercizio_1">Esercizio 1.</h3>
+
+<p>Un browser fa una richiesta alla url http://www.example.org/pippo.html.  Assumendo che la risorsa /pippo.html esista, che sia di tipo HTML e che il contenuto sia <code>&lt;p&gt;pippo&lt;/p&gt;</code>, scrivere il messaggio di <em>richiesta</em> HTTP e il messaggio di <em>risposta</em> HTTP.</p>
+
+<h3 id="esercizio_2">Esercizio 2.</h3>
+
+<p>Dato il codice html seguente:</p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;Prova&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="page"&gt;          
+      &lt;div id="sidebar"&gt;
+        sidebar
+      &lt;/div&gt;
+      &lt;div id="main_content"&gt;
+        main content
+      &lt;/div&gt;
+      &lt;div id="footer"&gt;
+        footer
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Scrivere il codice CSS per realizzare un layout di questo tipo:</p>
+
+<pre><code>+---------------------------
+| sidebar | main content   |
+|         |                |
+|         |                |
+|         |                |
++---------------------------
+| footer                   |
++---------------------------
+</code></pre>
+
+<p>Il layout può essere di larghezza fissa (ad esempio: larghezza della pagina di 600 pixel) oppure fluido, a vostra scelta.</p>
+
+<h2 id="esempio_di_soluzione">Esempio di soluzione</h2>
+
+<h3 id="esercizio_0">Esercizio 0.</h3>
+
+<h4 id="a_disegnare_un_diagramma_entit_e_relazioni">(a) Disegnare un diagramma entità e relazioni</h4>
+
+<p>Ci possono essere molte maniere più raffinate di rappresentare questo problema, ma per una prima versione possono essere sufficienti queste:</p>
+
+<pre><code>
++------------- *       1 +--------------+
+| Books      |-----------|  Users       |
++-------------           +--------------+
+</code></pre>
+
+<h4>(b) Scrivere il codice SQL che crea lo schema</h4>
+
+<p>Mi aspetto che le tabelle rispettino le convenzioni di Ruby on Rails.</p>
+
+<pre><code>create table users (
+  id integer auto_increment not null primary key,
+  email varchar(255),
+  hashed_password varchar(255),
+  created_at datetime,
+  updated_at datetime
+);
+
+create table books (
+  id integer auto_increment not null primary key,
+  user_id integer,
+  title varchar(255),
+  author varchar(255),
+  created_at datetime,
+  updated_at datetime
+);
+</code></pre>
+
+<h4 id="c_pagina_principale">(c) (d) (e)</h4>
+
+<p>Soluzione:</p>
+
+<pre><code># config/routes.rb
+root :to =&gt; "books/index"
+get "/books/new"
+post "/books/create"
+
+# app/models/book.rb
+class Book &lt; ActiveRecord::Base
+  validates_presence_of :title, :author, :user_id
+  belongs_to :user
+end
+
+# app/models/user.rb
+class User &lt; ActiveRecord::Base
+  has_many :books
+end
+
+# app/controllers/books_controller.rb
+class BookController &lt; ApplicationController
+  def index
+    @books = current_user.books
+  end
+
+  def new
+    @current_user = current_user
+  end
+
+  def create
+    @book = Book.new(params[:book])
+    if @book.save
+      redirect_to "/"
+    else
+      @current_user = current_user
+      render "new"
+    end
+  end
+
+  def current_user
+    User.where("id = ?", session[:user_id]).first
+  end
+end
+
+# app/views/books/index.html.erb
+&lt;h1&gt;I tuoi libri&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;% for book in @books %&gt;
+    &lt;li&gt;&lt;%= book.title %&gt;&lt;/li&gt;
+  &lt;% end %&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  &lt;a href="/books/new"&gt;Inserisci nuovo libro&lt;/a&gt;
+&lt;/p&gt;
+
+# app/views/books/new.html.erb
+&lt;h1&gt;Inserisci un nuovo libro&lt;/h1&gt;    
+&lt;form action="/books/create" method="post"&gt;
+  &lt;input type="hidden" name="books[user_id]" value="&lt;%= @current_user.id %&gt;" /&gt;
+  &lt;p&gt;
+    Titolo:
+    &lt;input type="text" name="books[title]" /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    Autore:
+    &lt;input type="text" name="books[author]" /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;input type="submit" /&gt;
+  &lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="esercizio_1">Esercizio 1.</h3>
+
+<p>Richiesta:</p>
+
+<pre><code>GET /pippo.html HTTP/1.1\r\n
+Host: www.example.org\r\n
+\r\n
+</code></pre>
+
+<p>Risposta:</p>
+
+<pre><code>HTTP/1.1 200 OK\r\n
+Content-type: text/html\r\n
+Content-length: 12\r\n
+\r\n
+&lt;p&gt;pippo&lt;/p&gt;
+</code></pre>
+
+<h3 id="esercizio_2">Esercizio 2.</h3>
+
+
+<p>Soluzione con un layout di larghezza fissa:</p>
+
+<pre><code>#page {
+  width: 600px;
+}
+
+#sidebar {
+  width: 200px;
+  float: left;
+}
+
+#main_content {
+  width: 400px;
+  float: left;
+}
+
+#footer {
+  clear: both;
+}
+</code></pre>
+
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/esempio-scritto-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:22:01 GMT -->
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from matteo.vaccari.name/so/minix by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Istruzioni per Minix</title>
+    <link rel="stylesheet" href="../stylesheets/matteo.css" />
+  </head>
+  <body>
+    <h2>Istruzioni per Minix</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../so.html'>Sistemi Operativi</a>
+      </h3>
+    
+
+    
+<h3>Documentazione</h3>
+
+Il sito principale per le informazioni su Minix è <a
+href='http://www.minix3.com/'>www.minix3.com</a>.  In particolare vanno
+studiate le seguenti pagine:
+<ul>
+
+<li><a href='http://www.minix3.org/doc/setup.html'>Istruzioni per
+l'installazione</a> che appaiono anche come appendice A nel testo
+OSDI3</li>
+
+<li>La pagina di manuale <a
+href='http://www.minix3.org/manpages/man8/setup.8.html'>man setup</a>,
+descrive la procedura di setup in maggiore dettaglio.  Leggi la parte
+che riguarda il test dell'installazione.
+
+<li>La pagina di manuale <a
+href='http://www.minix3.org/manpages/man8/usage.8.html'>man usage</a>,
+contiene una spiegazione molto più dettagliata, se vuoi conoscere i
+minuti dettagli.
+</ul>
+
+I sorgenti sono <a href="http://pisolo.sciva.uninsubria.it/minix/">consultabili in forma di ipertesto</a> grazie a Michele Chinosi.
+
+<p>Per qualsiasi dubbio, consultare le <a
+href='http://www.minix3.org/doc/setup.html'>man pages</a>.
+</p>
+
+<h3>Usare Minix con l'emulatore Qemu</h3>
+
+E' possibile usare Minix direttamente dal live CD, ma non si può
+salvare niente.  Per poter lavorare occorre installare Minix da
+qualche parte.  E' senz'altro possibile, e istruttivo, installare
+Minix su una vera partizione di un vero PC.  Se non hai a disposizione
+un PC da ripartizionare, allora bisogna usare un emulatore.  Io
+consiglio Qemu, che è facile da usare e abbastanza veloce.
+Attenzione: se decidi di ripartizionare un PC vero, se fai un errore
+rischi di perdere tutti i dati che hai su quel disco.
+
+<p>
+Le seguenti istruzioni permettono di installare Minix su Qemu in
+Linux.  Qemu è disponibile anche in 
+<a href='http://www.h6.dion.ne.jp/~kazuw/qemu-win/qemu-0.8.0-windows-2.zip'>Windows</a>; queste istruzioni
+potranno con poche modifiche servirvi anche se usate Windows
+(Occorre aggiungere sulla riga di comando di qemu l'opzione "-L .").
+</p>
+
+<p>
+Scarica i sorgenti di <a
+href='http://fabrice.bellard.free.fr/qemu/download.html'>qemu</a>.
+Poi esegui:
+<pre>
+tar xvzf qemu-0.8.0.tar.gz
+cd qemu-0.8.0
+./configure
+make
+sudo make install
+</pre>
+Crea una directory per minix, e scaricaci dentro <a
+href='http://cd.minix3.org/download/IDE-3.1.1.iso.zip'>l'immagine del
+CD di Minix</a>
+<pre>
+mkdir minix
+cd minix
+wget http://matteo.vaccari.name/so/files/IDE-3.1.2.iso.gz
+</pre>
+Decomprimi l'immagine
+<pre>
+gunzip IDE-3.1.2.iso.zip 
+</pre>
+
+Creiamo un disco virtuale per qemu.  Lo facciamo grandino, per esempio
+1.2GB.  Non ti preoccupare, lo spazio effettivamente occupato sul
+disco è molto meno.  (Per la spiegazione del comando qemu-img, digita
+"man qemu-img") 
+<pre>
+qemu-img create -f qcow hd.qcow 1200M
+</pre>
+
+Lanciamo qemu facendo boot dal CD (per una spiegazione delle opzioni
+di qemu, "man qemu")
+<pre>
+qemu -cdrom IDE-3.1.2.iso -boot d hd.qcow
+</pre>
+Dopo pochi secondi abbiamo la schermata di login.  La login è "root",
+senza password.
+</p>
+
+<p>
+Esegui il comando "setup" e <strong>leggi attentamente le
+istruzioni</strong>.  (Cerca di capire cosa fanno i vari comandi che
+stai dando; non eseguire queste istruzioni come un robot.)  Potrai
+scegliere il tipo di tastiera, il tipo di scheda di rete (scegli "4"),
+il tipo di installazione (completa o minima: vanno bene entrambe) e la
+modalità "expert" o "automatic".  Scegli "automatic" se vuoi fare in
+fretta, "expert" se vuoi controllare in dettaglio quello che succede.
+</p>
+
+<p>
+Se scegli "automatic" vanno bene tutti i default.  Puoi saltare
+il test dei blocchi danneggiati.
+</p>
+
+<p>
+Ora facciamo "scendere" il sistema operativo con il comando
+"shutdown".  Ci ritroveremo con il prompt "fd0>" del boot monitor di
+Minix.  Puoi terminare l'emulatore con ctrl-alt-2, seguito da "quit".
+Verifichiamo se siamo in grado di fare il boot dal disco rigido
+
+<pre>
+qemu hd.cow
+</pre>
+Dovresti avere il prompt di login in pochi secondi.  
+</p>
+
+<p>Installa i pacchetti addizionali.  Da root esegui <kbd>packman</kbd> e segui le istruzioni.  Se installi tutto, ci vorranno diverse ore.
+</p>
+
+<h3>Testare l'installazione</h3>
+
+Entra come "root".  Vai nella directory /usr/src/test e
+digita "make".  Poi fai logout ("exit") e fai la login come utente
+"bin".  Torna nella directory "/usr/src/test" ed esegui "./run".
+Questo porterà via almeno un'ora.
+
+<h3>Ricompilare Minix</h3>
+
+Entra come root, vai in /usr/src/tools, digita "make" per vedere le
+varie opzioni disponibili.  Poi digita 
+<pre>
+make clean
+time make image
+</pre>
+Per installare la nuova immagine del kernel digita
+<pre>
+make hdboot
+</pre>
+La nuova immagine verrà installata in /boot/image/3.1.1r1. Per testare
+la nuova immagine, dai "shutdown" per tornare nel boot monitor.  Fai
+il boot con "boot c0d0p0".  Il monitor sceglierà l'immagine più
+recente.  
+
+
+
+<h3>Editare con Minix</h3>
+
+Ci sono molti editor.  Io consiglio di scegliere emacs o vi.
+<ul>
+<li>mined è l'editor tradizionale di Minix.  Fai "man mined" per una
+spiegazione dei comandi.  Ricorda: per uscire fai "ctrl-X".
+<li>vi è uno dei due editor classici di Unix.  Gli utenti unix si
+dividono fra fan di vi e fan di emacs
+<li>elle è una versione molto semplificata di emacs.  Nota che
+l'utente root, e tutti gli utenti che aggiungerai con "adduser", hanno
+nella loro home directory un profilo per "elle" che simula mined.  Se
+vuoi invece emulare emacs, togli dalla tua home i file ".ellepro.*"
+<li>Se hai installato la versione 3.1.2, puoi installare emacs
+</ul>
+
+<h3>Le partizioni</h3>
+
+Una spiegazione dei nomi di device usati da Minix:
+<ul>
+<li>/dev/c0d0 rappresenta il primo disco fisso: controller 0, disk 0. (Un
+controller IDE può controllare un massimo di due dischi.</li>
+<li>/dev/c0d0p0 è la prima partizione del primo disco (partition 0)</li>
+<li>Se una partizione primaria è suddivisa internamente in partizioni
+secondarie, allora i nomi di device sono tipo /dev/c0d0p0s0
+(sottopartizione 0)</li>
+</ul>
+
+Installando Minix su qemu secondo queste istruzioni, il disco verrà
+partizionato come segue:
+<ul>
+<li>/dev/c0d0p0s0 16  MB /</li>
+<li>/dev/c0d0p0s1 225 MB /home</li>
+<li>/dev/c0d0p0s2        /usr</li>
+</ul>
+
+<h3>Howto</h3>
+
+<h4>Come configurare la rete con qemu</h4>
+<ol>
+  <li>Nel setup, quando chiede quale scheda di rete supportare, scegliere la voce che dice "supportata da qemu"
+  <li>dare il comando halt per entrare nel monitor; poi digitare:</li>
+  <li>qemu_pci=1 </li>
+  <li>save</li>
+  <li>boot</li>
+</ol>
+
+<h4>Come connettersi attraverso la rete a qemu</h4>
+<ol>
+  <li>Fare partire qemu con l'opzione -redir tcp:5555::22</li>
+  <li>impostare una password per root (con passwd)</li>
+  <li>ssh -p 5555 -o StrictHostKeyChecking=no root@localhost</li>
+</ol>
+
+<h4>Come rimettere a posto il terminale quando "impazzisce"</h4>
+<ul>
+  <li>il comando clear pulisce lo schermo</li>
+  <li>il comando stty sane resetta il terminale</li>
+</ul>
+
+<h4>Come modificare la keymap</h4>
+Per caricare una nuova keymap al volo:
+<ul>
+  <li>loadkeys /usr/lib/keymaps/italian.map</li>
+</ul>
+Per cambiare la keymap in maniera permanente:
+<ul>
+  <li>cp /usr/lib/keymaps/italian.map /etc/keymap</li>
+</ul>
+Per modificare una keymap:
+<ol>
+  <li>salvare una copia di backup: cd /usr/src/drivers/tty/keymaps; cp italian.src italian.src.orig</li>
+  <li> modificare italian.src</li>
+  <li> cd /usr/src/tool</li>
+  <li>make services</li>
+  <li>loadkeys /usr/lib/keymaps/italian.map</li>
+</ol>
+
+
+<h3>Esercizio: realizzare una system call addizionale</h3>
+ Il prototipo è
+
+<blockquote>
+int getpids(pid_t *current_pid, pid_t *parent_pid); 
+</blockquote>
+
+<ol>
+<li>Scrivere un programma di test, che verifica che la syscall funzioni.  Inizialmente non compila.  Il programma apre un albero di processi di 4 livelli e verifica il funzionamento di getpids() confrontando i risultati con getpid(2) e getppid(2).  Per esempio:
+<blockquote>
+<pre>
+#include &lt;sys/types.h>
+#include &lt;sys/wait.h>
+#include &lt;unistd.h>
+#include &lt;getpids.h>
+
+#include &lt;assert.h>
+#include &lt;stdio.h>
+
+#define N 4
+
+void assert_getpids_works(void) {
+  pid_t expected_me = getpid();
+  pid_t expected_parent = getppid();
+  pid_t actual_me, actual_parent;
+
+  int result = getpids(&amp;actual_me, &amp;actual_parent);
+  assert(0 == result);
+  assert(actual_me == expected_me);
+  assert(actual_parent == expected_parent);
+}
+
+main(void) {
+  int i;
+
+  assert_getpids_works();
+
+  for (i=0; i&lt;N; i++) {
+    if (0 == fork()) {
+      assert_getpids_works();
+      return 0;
+    } else {
+      int status;
+      wait(&status);
+    }
+  }
+  printf("OK\n");
+  return 0;
+}
+</pre>
+</blockquote>
+
+<li>Aggiungere src/include/getpids.h con il prototipo di getpids().  Installare gli header
+<pre>
+cd src/tools
+make includes
+</pre>    
+Ricompilare il prog di test.  Il programma compila, ma fallisce il link.
+<li>Modificare lo header di sistema src/include/minix/callnr.h.
+<li>Aggiungere il sorgente lato userspace in lib/other/_getpids.c, usando come modello lib/posix/_getpid.c .  
+Inizialmente deve restituire dei numeri fasulli, tipo 999. Per esempio:
+<blockquote>
+<pre>
+#include &lt;lib.h>
+#include &lt;getpids.h>
+
+PUBLIC pid_t getpids(pid_t *current, pid_t *parent)
+{
+  *current = *parent = 999;
+  return 0;
+}
+</pre>
+</blockquote>
+
+</li>
+<li>Aggiungere il nostro file a Makefile.in.  Eseguire
+  <pre>
+    make Makefile
+    make
+  </pre>
+  </li>
+
+<li>Installare tutte le librerie
+<pre>
+cd src/lib
+make all install
+</pre>    
+Verificare che il prog di test ora compila, ma le assert falliscono
+  <li>Modificare /usr/src/servers/pm/{proto.h,table.c,Makefile}</li>
+  <li>Aggiungere un file sorgente a /usr/src/servers/pm; modificare il Makefile</li>
+  <li>cd src/tools; make install</li>
+  <li>occorre modificare anche servers/fs/table.c per tener conto della nostra nuova syscall
+  <li>Verificare che il programma di test ora funzioni correttamente</li>
+</ol>
+
+
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/so/minix by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:07 GMT -->
+</html>

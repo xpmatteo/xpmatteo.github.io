@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+def all_words_in_standard_input
+  words = []
+  while line=gets
+    for word in line.split(" ")
+      words << word
+    end
+  end
+  words
+end
+
+def count_them(a)
+  result = Hash.new(0)
+  for element in a
+    result[element] += 1
+  end
+  return result
+end
+
+def output hash
+  for key in hash.keys.sort.reverse
+    puts "#{hash[key]} #{key}"
+  end
+end
+
+output(count_them(all_words_in_standard_input))

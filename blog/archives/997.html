@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/997 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Smalltalk-Inspired, Frameworkless, TDDed Todo-MVC</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm &raquo; Smalltalk-Inspired, Frameworkless, TDDed Todo-MVC Comments Feed" href="997/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Pattern: Testable Screens' href='982.html' />
+<link rel='next' title='No Frameworks, Part 1' href='1019.html' />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="997.html" />
+<link rel='shortlink' href='../index7451.html?p=997' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embed73ae.json?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F997" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed71d9?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F997&amp;format=xml" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+    <div id='main-col'>
+
+  
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="982.html" rel="prev">Pattern: Testable Screens</a></div>
+			<div class="alignright"><a href="1019.html" rel="next">No Frameworks, Part 1</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-997">
+			<h2><a href="997.html" rel="bookmark" title="Permanent Link: Smalltalk-Inspired, Frameworkless, TDDed Todo-MVC">Smalltalk-Inspired, Frameworkless, TDDed Todo-MVC</a></h2>
+
+			<div class="entrytext">
+				<br />
+<h3>UPDATES</h3>
+<div class='ahem'>
+   15/01/2017 &mdash; I produced <a href='https://vimeo.com/194470329'>a video of me explaining this material</a>, together with <a href='http://www.slideshare.net/xpmatteo/tdd-e-javascript-senza-framework'>a deck of slides</a>.  I&nbsp;also <a href='https://github.com/xpmatteo/frameworkless-tdd-todomvc'>updated the code</a> after writing this article.
+</div>
+<h3>TL;DR</h3>
+<p>I wrote <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc">an alternative</a> to the <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs">Vanilla-JS example</a> of <a href='http://todomvc.com/'>todomvc.com</a>. I show that you can drive the design from the tests, that you don&#8217;t need external libraries to write OO code in JS, and that simple is better :)</p>
+<h3>Why yet another Todo App?</h3>
+<p>A very interesting website is <a href='http://todomvc.com/'>todomvc.com</a>. Like the venerable <a href='http://www.csszengarden.com/'>www.csszengarden.com</a> shows many different ways to render the same page with CSS, todomvc.com instead shows how to write the same application with different JavaScript frameworks, so that you can compare the strengths and weakness of various frameworks and styles.</p>
+<p>Given the amount of variety and churn of JS frameworks, it is very good that you can see a small-sized complete example: not too big that it takes ages to understand, but not so small to seem trivial.</p>
+<p>Any comparison, though, needs a frame of reference. A good one in this case would be writing the app with no frameworks at all. After all, if you can do a good job without frameworks, why incur the many costs of ownership of frameworks? So I looked at <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs">the vanillajs example provided</a>, and found it lacking.  My main gripe is that there is no clear &#8220;model&#8221; in this code.  If this were real MVC, I would expect to find a TodoList that holds a collection of TodoItems; this sort of things.  Alas, the only &#8220;model&#8221; provided in that example has the unfortunate name of &#8220;Model&#8221; and is not a model at all; it&#8217;s a collection of procedures that read and write from browser storage. So it&#8217;s not really a model because a real &#8220;model&#8221; should be a Platonic, infrastructure-free implementation of business logic.</p>
+<p>There are other shortcomings to that implementation, including that the &#8220;view&#8221; has a &#8220;render&#8221; method that accepts the name of an operation to perform, making it way more procedural than I would like. This is so different to what I think of as MVC that made me want to try my hand at doing it better.</p>
+<p>Caveats: I&#8217;m not a good JS programmer. I don&#8217;t know the language well, and I&#8217;m sure my code is clumsier than it could be. But I&#8217;m also sure that writing a frameworkless app is <strong>not</strong> a sign of clumsiness, ignorance or old age. Anybody can learn Angular, React or what have you. Learning frameworks is not difficult. What is difficult is to write good code, with or without frameworks.  Learning to write good code without frameworks gives you incredible leverage: gone are the hours spent looking on StackOverflow for the magic incantations needed to make framework X do Y. Gone is the cost of maintenance inflicted on you by the framework developers, when they gingerly update the framework from version 3 to version 4. Gone is the tedium of downloading megabytes of compressed code from the server!</p>
+<h3>So what were my goals?</h3>
+<ul>
+<li>Simple design.  This means: no frameworks! Really, frameworks are sad. Just write the code that your app needs, and write it well.</li>
+<li>TDD: let the tests drive the design. I try to write tests that talk the language of the app specification, avoiding implementation details as much as possible</li>
+<li>Smalltalk-inspired object orientation. JS generally pushes you to expose the state of objects as public properties. In Smalltalk, the internal state of an object is totally encapsulated. I emulated that with a simple trick that does not require extra libraries.</li>
+<li>I had in the back of my mind the &#8220;count&#8221; example in Jill Nicola&#8217;s and Peter Coad&#8217;s OOP book. That is what I think of when I say &#8220;MVC&#8221;. I tried to avoid specifying this design directly in the tests, though.</li>
+<li>Simple, readable code.  You wil be the judge on that.</li>
+</ul>
+<h3>How did it go?</h3>
+<p>The first time around I tried to work in a &#8220;presenter-first&#8221; style. After a while, I gave up and <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/commit/eefdc95fed3795f7ca7118ff5a714fb98672ef05" title="The commit where I threw almost everything away and started again">started again from scratch</a>. The code was ugly, and I felt that I was committing the classic TDD mistake, to force my preconceived design.  So I started again and the second time was much nicer.</p>
+<p>You cannot understand a software design process just by looking at the final result. It&#8217;s only by observing how the design evolved that you can see how the designer thinks.  When I started again from scratch, my first tests <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/6366692cc114b799ed71ac0f9a43a0c784495446/test/todo-list-test.js" title="The first version of the TodoListView test">looked like this</a>:</p>
+<pre>beforeEach(function() {
+  fixture = document.createElement('div');
+  $ = function(selector) { return fixture.querySelector(selector); }
+})
+
+describe('an empty todo list', function() {
+  it('returns an empty html list', function() {
+    expect(new TodoListView([]).render()).to.equal('&lt;ul class=&quot;todo-list&quot;&gt;&lt;/ul&gt;');
+  });
+});
+
+describe('a list of one element', function() {
+  it('renders as html', function() {
+    fixture.innerHTML = new TodoListView(['Pippo']).render();
+    expect($('ul.todo-list li label').textContent).equal('Pippo');
+    expect($('ul.todo-list input.edit').value).equal('Pippo');
+  });
+});
+</pre>
+<p>The above tests are not particularly nice, but they are very concrete: the check that the view returns the expected HTML, with very few assumptions on the design.  Note that the &#8220;model&#8221; in the beginning was just an array of strings.</p>
+<p>The final version of those test does not change much on the surface, but the logic is different:</p>
+<pre>beforeEach(function() {
+  fixture = createFakeDocument('&lt;ul class=&quot;todo-list&quot;&gt;&lt;/ul&gt;');
+  todoList = new TodoList();
+  view = new TodoListView(todoList, fixture);
+})
+
+it('renders an empty todo list', function() {
+  view.render();
+  expect($('ul.todo-list').children.length).to.equal(0);
+});
+
+it('renders a list of one element', function() {
+  todoList.push(aTodoItem('Pippo'));
+  view.render();
+  expect($('li label').textContent).equal('Pippo');
+  expect($('input.edit').value).equal('Pippo');
+});
+</pre>
+<p>The better solution, for me, was to pass the document to the view object, call its <code>render()</code> method, and check how the document was changed as a result.  This places almost no constraints on how the view should do its work. This, to me, was key to letting the test drive the design.  I was free to change and simplify my production code, as long as the correct code was being produced.</p>
+<p>Of course, not all the tests check the DOM. We have many tests that check the model logic directly, such as</p>
+<pre>it('can contain one element', function() {
+  todoList.push('pippo');
+
+  expect(todoList.length).equal(1);
+  expect(todoList.at(0).text()).equal('pippo');
+});
+</pre>
+<p>Out of a total of 585 test LOCs, we have 32% dedicated to testing the models, 7% for testing repositories, 4% testing event utilities and 57% for testing the &#8220;view&#8221; objects.</p>
+<h3>How long did it take me?</h3>
+<p>I did not keep a scrupolous count of pomodoros, but since I committed very often I can estimate the time taken from my activity on Git. Assuming that every stretch of commits starts with about 15 minutes of work before the first commit in the stretch, it took me about 18 and a half hours of work to complete the second version, distributed over 7 days (see my calculations <a href='https://docs.google.com/spreadsheets/d/1DNFP6zikmNSYJEdIFTlCtseTgmpAUDFXSs4DpfwkIHA'>in this spreadsheet</a>.)  The first version, the one I discarded, took me about 6 and a half hours, over two days.  That makes it 25 hours of total work.</p>
+<h3>What does it look like?</h3>
+<p>The initialization code is in <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/master/index.html">index.html</a>:</p>
+<pre>&lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var repository = new TodoMvcRepository(localStorage);
+  var todoList = repository.restore();
+  new TodoListView(todoList, document).render();
+  new FooterView(todoList, document).render();
+  new NewTodoView(todoList, document).render();
+  new FilterByStatusView(todoList, document).render();
+  new ClearCompletedView(todoList, document).render();
+  new ToggleAllView(todoList, document).render();
+  new FragmentRepository(localStorage, document).restore();
+  todoList.subscribe(repository);
+&lt;/script&gt;
+</pre>
+<p>I like it. It creates a bunch of objects, and starts them. The very first action is to create a repository, and ask it to retrieve a TodoList model from browser storage.  The <code>FragmentRepository</code> should perhaps better named <code>FilterRepository</code>.  The <code>todoList.subscribe(repository)</code> makes the repository subscribe to the changes in the <code>todoList</code> model. This is how the model is saved whenever there&#8217;s a change.</p>
+<p>Each of the &#8220;view&#8221; objects takes the model and the DOM document as parameters.  As you will see, these &#8220;views&#8221; also perform the function of controllers.  This is how they came out of the TDD process. They probably don&#8217;t conform exactly to MVC, but who cares, as long as they are small, understandable and testable?</p>
+<p>Each of the &#8220;views&#8221; handles a particular UI detail: for instance, the <code>ClearCompletedView</code> is in <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/master/js/app.js">js/app.js</a>:</p>
+<pre>function ClearCompletedView(todoList, document) {
+  todoList.subscribe(this);
+
+  this.notify = function() {
+    this.render();
+  }
+
+  this.render = function() {
+    var button = document.querySelector('.clear-completed');
+    button.style.display = (todoList.containsCompletedItems()) ? 'block' : 'none';
+    button.onclick = function() {
+      todoList.clearCompleted();
+    }
+  }
+}
+</pre>
+<p>The above view subscribes itself to the <code>todoList</code> model, so that it can update the visibility of the button whenever the <code>todoList</code> changes, as the <code>notify</code> method will then be called.</p>
+<p>The test code is in <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/tree/master/test">the test folder</a>. For instance, the test for the <code>ClearCompletedView</code> above is:</p>
+<pre>describe('the view for the clear complete button', function() {
+  var todoList, fakeDocument, view;
+
+  beforeEach(function() {
+    todoList = new TodoList();
+    todoList.push('x', 'y', 'z');
+    fakeDocument = createFakeDocument('&lt;button class=&quot;clear-completed&quot;&gt;Clear completed&lt;/button&gt;');
+    view = new ClearCompletedView(todoList, fakeDocument);
+  })
+
+  it('does not appear when there are no completed', function() {
+    view.render();
+    expectHidden($('.clear-completed'));
+  });
+
+  it('appears when there are any completed', function() {
+    todoList.at(0).complete(true);
+    view.render();
+    expectVisible($('.clear-completed'));
+  });
+
+  it('reconsider status whenever the list changes', function() {
+    todoList.at(1).complete(true);
+    expectVisible($('.clear-completed'));
+  });
+
+  it('clears completed', function() {
+    todoList.at(0).complete(true);
+    $('.clear-completed').onclick();
+    expect(todoList.length).equal(2);
+  });
+
+  function $(selector) { return fakeDocument.querySelector(selector); }
+});
+</pre>
+<p>Things to note:</p>
+<ul>
+<li>I use a real model here, not a fake. This gives me confidence that the view and the model work correctly together, and allows me to drive the development of the <code>containsCompletedItems()</code> method in <code>TodoList</code>. However, it does couple the view and the model tightly.</li>
+<li>I use a simplified &#8220;document&#8221; here, that only contains the fragment of index.html that this view is concerned about. However, I&#8217;m testing with the real DOM in a real browser, using Karma. This gives me confidence that the view will interact correctly with the real browser DOM. The only downside is that the view knows about the &#8220;clear-completed&#8221; class name.</li>
+<li>The click on the button is simulated by invoking the onclick handler. </li>
+</ul>
+<p>If you are curious, here is the implementation of <code>createFakeDocument</code>:</p>
+<pre>function createFakeDocument(html) {
+  var fakeDocument = document.createElement('div');
+  fakeDocument.innerHTML = html;
+  return fakeDocument;
+}
+</pre>
+<p>It&#8217;s that simple to test JS objects against the real DOM.</p>
+<p>All the production code is in file <a href='https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/master/js/app.js'>js/app.js</a>.  An example model is <code>TodoItem</code>:</p>
+<pre>function TodoItem(text, observer) {
+  var complete = false;
+
+  this.text = function() {
+    return text;
+  }
+
+  this.isCompleted = function() {
+    return complete;
+  }
+
+  this.complete = function(isComplete) {
+    complete = isComplete;
+    if (observer) observer.notify()
+  }
+
+  this.rename = function(newText) {
+    if (text == newText)
+      return;
+    text = newText.trim();
+    if (observer) observer.notify()
+  }
+}
+</pre>
+<p>As you can see, I used a very simple style of object-orientation. I do not use (or need here) prototype inheritance, but I do encapsulate object state well.</p>
+<p>I&#8217;m not showing the TodoList model because it&#8217;s too long :(. I don&#8217;t like this, but I don&#8217;t have a good idea at this moment to make it smaller.  Another class that&#8217;s too long and complex is <code>TodoListView</code>, with about 80 lines of code.  I could probably break it down in <code>TodoListView</code> and <code>TodoItemView</code>, making it a composite view with a smaller view for each <code>TodoItem</code>. That would require creating and destroying the view dynamically. I don&#8217;t know if that would be a good idea; I haven&#8217;t tried it yet.</p>
+<h3>Comparison with other Todo-MVC examples</h3>
+<p>How does it compare to the other examples?  There is no way I can read all of the examples, let alone understand them. However, there is a simple metric that I can use to compare my outcome: simple LOC, counting just the executable lines and omitting comments and blank lines.  After all, if you use a framework, I expect you to write less code; otherwise, it seems to me that either the framework is not valuable, or that you can&#8217;t use it well, which means that it&#8217;s not valuable to you.  This is the table of LOCs, computed with Cloc.  (Caveat: I tried to exclude all framework and library code, but I&#8217;m not sure I did that correctly for all examples.)  My version is the one labelled &#8220;vanillajs/xpmatteo&#8221; in bold.  I&#8217;m excluding test code.</p>
+<style>
+  #locs td:first-of-type {
+    text-align: right;
+  }
+</style>
+<table id='locs'>
+<tr>
+<td>1204</td>
+<td>typescript-angular/js</td>
+</tr>
+<tr>
+<td>1185</td>
+<td>ariatemplates/js</td>
+</tr>
+<tr>
+<td>793</td>
+<td>aurelia</td>
+</tr>
+<tr>
+<td>790</td>
+<td>socketstream</td>
+</tr>
+<tr>
+<td>782</td>
+<td>typescript-react/js</td>
+</tr>
+<tr>
+<td>643</td>
+<td>gwt/src</td>
+</tr>
+<tr>
+<td>631</td>
+<td>closure/js</td>
+</tr>
+<tr>
+<td>597</td>
+<td>dojo/js</td>
+</tr>
+<tr>
+<td>594</td>
+<td>puremvc/js</td>
+</tr>
+<tr>
+<td>564</td>
+<td>vanillajs/js</td>
+</tr>
+<tr>
+<td>529</td>
+<td>dijon/js</td>
+</tr>
+<tr>
+<td>508</td>
+<td>enyo_backbone/js</td>
+</tr>
+<tr>
+<td>489</td>
+<td>typescript-backbone/js</td>
+</tr>
+<tr>
+<td>481</td>
+<td>vanilla-es6/src</td>
+</tr>
+<tr>
+<td>479</td>
+<td>flight/app</td>
+</tr>
+<tr>
+<td>475</td>
+<td>lavaca_require/js</td>
+</tr>
+<tr>
+<td>468</td>
+<td>componentjs/app</td>
+</tr>
+<tr>
+<td>432</td>
+<td>duel/src/main</td>
+</tr>
+<tr>
+<td>383</td>
+<td>polymer/elements</td>
+</tr>
+<tr>
+<td>364</td>
+<td>cujo/app</td>
+</tr>
+<tr>
+<td>346</td>
+<td>sapui5/js</td>
+</tr>
+<tr style='font-weight: bold'>
+<td>321</td>
+<td>vanillajs/xpmatteo</td>
+</tr>
+<tr>
+<td>317</td>
+<td>scalajs-react/src/main/scala</td>
+</tr>
+<tr>
+<td>311</td>
+<td>backbone_marionette/js</td>
+</tr>
+<tr>
+<td>310</td>
+<td>ampersand/js</td>
+</tr>
+<tr>
+<td>295</td>
+<td>sammyjs/js</td>
+</tr>
+<tr>
+<td>295</td>
+<td>backbone_require/js</td>
+</tr>
+<tr>
+<td>287</td>
+<td>extjs_deftjs/js</td>
+</tr>
+<tr>
+<td>284</td>
+<td>durandal/js</td>
+</tr>
+<tr>
+<td>280</td>
+<td>rappidjs/app</td>
+</tr>
+<tr>
+<td>276</td>
+<td>thorax/js</td>
+</tr>
+<tr>
+<td>271</td>
+<td>troopjs_require/js</td>
+</tr>
+<tr>
+<td>265</td>
+<td>angular2/app</td>
+</tr>
+<tr>
+<td>256</td>
+<td>angularjs/js</td>
+</tr>
+<tr>
+<td>249</td>
+<td>mithril/js</td>
+</tr>
+<tr>
+<td>242</td>
+<td>thorax_lumbar/src</td>
+</tr>
+<tr>
+<td>235</td>
+<td>chaplin-brunch/app</td>
+</tr>
+<tr>
+<td>233</td>
+<td>vanilladart/web/dart</td>
+</tr>
+<tr>
+<td>233</td>
+<td>somajs_require/js</td>
+</tr>
+<tr>
+<td>232</td>
+<td>serenadejs/js</td>
+</tr>
+<tr>
+<td>226</td>
+<td>emberjs/todomvc/app</td>
+</tr>
+<tr>
+<td>224</td>
+<td>spine/js</td>
+</tr>
+<tr>
+<td>224</td>
+<td>exoskeleton/js</td>
+</tr>
+<tr>
+<td>214</td>
+<td>backbone/js</td>
+</tr>
+<tr>
+<td>213</td>
+<td>meteor</td>
+</tr>
+<tr>
+<td>207</td>
+<td>angular-dart/web</td>
+</tr>
+<tr>
+<td>190</td>
+<td>somajs/js</td>
+</tr>
+<tr>
+<td>167</td>
+<td>riotjs/js</td>
+</tr>
+<tr>
+<td>164</td>
+<td>react-alt/js</td>
+</tr>
+<tr>
+<td>156</td>
+<td>angularjs_require/js</td>
+</tr>
+<tr>
+<td>147</td>
+<td>ractive/js</td>
+</tr>
+<tr>
+<td>146</td>
+<td>olives/js</td>
+</tr>
+<tr>
+<td>146</td>
+<td>knockoutjs_require/js</td>
+</tr>
+<tr>
+<td>145</td>
+<td>canjs_require/js</td>
+</tr>
+<tr>
+<td>139</td>
+<td>atmajs/js</td>
+</tr>
+<tr>
+<td>132</td>
+<td>firebase-angular/js</td>
+</tr>
+<tr>
+<td>130</td>
+<td>foam/js</td>
+</tr>
+<tr>
+<td>129</td>
+<td>canjs/js</td>
+</tr>
+<tr>
+<td>124</td>
+<td>vue/js</td>
+</tr>
+<tr>
+<td>99</td>
+<td>knockback/js</td>
+</tr>
+<tr>
+<td>98</td>
+<td>react/js</td>
+</tr>
+<tr>
+<td>96</td>
+<td>angularjs-perf/js</td>
+</tr>
+<tr>
+<td>34</td>
+<td>react-backbone/js</td>
+</tr>
+</table>
+<h3>Things I learned</h3>
+<p>It&#8217;s been fun and I learned a lot about JS and TDD. Many framework-based solutions are shorter than mine, and that&#8217;s to be expected. However, all you need to know to understand my code is JS. </p>
+<p>TDD works best when you try to avoid pushing it to produce your preconceived design ideas. It&#8217;s much better when you follow the process: write tests that express business requirements, write the simplest code to make the tests pass, refactor to remove duplication.</p>
+<p>Working in JS is fun; however, not all things can be tested nicely with the approach I used here.  I often checked in the browser that the features I had test-driven were really working.  Sometimes they didn&#8217;t, because I had forgot to change the &#8220;main&#8221; code in <code>index.html</code> to use the new feature.  At one point I had an unwanted interaction between two event handlers: the handler for the onchange event fired when the edit text was changed by the onkeyup handler.  I wasn&#8217;t able to write a good test for this, so I resorted to simply testing that the onkeyup handler removed the onchange handler before acting on the text.  (This is not very good because it tests the implementation instead of the outcome.)</p>
+<p>You can do a lot of work without jQuery, expecially since there is the <code>querySelector</code> API. However, in real work I would probably still use it, to improve cross-browser compatibility.  It would probably also make my code simpler.</p>
+
+				
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on 16 August 2016 at 18:14						and is filed under <a href="category/agile.html" rel="category tag">Agile</a>.
+						You can follow any responses to this entry through the <a href="997/feed">RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="997/trackback" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">2 Responses to &#8220;Smalltalk-Inspired, Frameworkless, TDDed Todo-MVC&#8221;</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-297455">
+			<cite>Luciano</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-297455" title="">December 13th, 2016 at 10:32</a> </small>
+
+			<p>Matteo thanks for your TDD &#8211; Vanilla JS sample.<br />
+Trying to run your example cloned from github with &#8220;npm run&#8221; on Windows 10 platform I get an error: Exit status 1. I am not a node.js expert and I can&#8217;t understand why.<br />
+Following the content of the npm-debug.log:</p>
+<p>0 info it worked if it ends with ok<br />
+1 verbose cli [ &#8216;C:\\Program Files\\nodejs\\node.exe&#8217;,<br />
+1 verbose cli   &#8216;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&#8217;,<br />
+1 verbose cli   &#8216;start&#8217; ]<br />
+2 info using <a href="mailto:npm@3.10">npm@3.10</a>.9<br />
+3 info using node@v6.9.2<br />
+4 verbose run-script [ &#8216;prestart&#8217;, &#8216;start&#8217;, &#8216;poststart&#8217; ]<br />
+5 info lifecycle @~prestart: @<br />
+6 silly lifecycle @~prestart: no script for prestart, continuing<br />
+7 info lifecycle @~start: @<br />
+8 verbose lifecycle @~start: unsafe-perm in lifecycle true<br />
+9 verbose lifecycle @~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Java-IDE\eclipse-workspaces\frameworkless-tdd-todomvc\node_modules\.bin;C:\Python27\Lib\site-packages\PyQt4;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Python27\;C:\Python27\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\instantclient_12_1;C:\javalibs\jrebel;C:\Program Files (x86)\PC Connectivity Solution\;C:\javalibs\apache-maven-3.3.9\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\unxutils\usr\local\wbin;C:\unxutils\bin;C:\Program Files\Java\jre1.8.0_73\bin;C:\Program Files (x86)\Intel\Services\IPT\;C:\Program Files\ThinkPad\Bluetooth Software\;C:\Program Files\ThinkPad\Bluetooth Software\syswow64;C:\javalibs\apache-ant-1.7.1\bin;%BPADir%;%TFSPowerToolDir%;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files (x86)\Microsoft SDKs\Windows Azure\CLI\wbin;C:\javalibs\selenium-2.44.0;C:\RTE-NE51;C:\Program Files\Calibre2\;C:\svabi\files;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Elm Platform\0.17.1\bin;C:\Ruby193\bin;C:\Program Files (x86)\Nmap;C:\Program Files (x86)\Graphviz2.34\bin;C:\Program Files (x86)\Git\bin;C:\Program Files\Docker Toolbox;C:\Users\lucianom\AppData\Local\Microsoft\WindowsApps;C:\Users\lucianom\AppData\Roaming\npm<br />
+10 verbose lifecycle @~start: CWD: C:\Java-IDE\eclipse-workspaces\frameworkless-tdd-todomvc<br />
+11 silly lifecycle @~start: Args: [ &#8216;/d /s /c&#8217;, &#8216;npm install &amp;&amp; npm run watch&#8217; ]<br />
+12 silly lifecycle @~start: Returned: code: 1  signal: null<br />
+13 info lifecycle @~start: Failed to exec start script<br />
+14 verbose stack Error: @ start: `npm install &amp;&amp; npm run watch`<br />
+14 verbose stack Exit status 1<br />
+14 verbose stack     at EventEmitter. (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)<br />
+14 verbose stack     at emitTwo (events.js:106:13)<br />
+14 verbose stack     at EventEmitter.emit (events.js:191:7)<br />
+14 verbose stack     at ChildProcess. (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)<br />
+14 verbose stack     at emitTwo (events.js:106:13)<br />
+14 verbose stack     at ChildProcess.emit (events.js:191:7)<br />
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)<br />
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)<br />
+15 verbose pkgid @<br />
+16 verbose cwd C:\Java-IDE\eclipse-workspaces\frameworkless-tdd-todomvc<br />
+17 error Windows_NT 10.0.14393<br />
+18 error argv &#8220;C:\\Program Files\\nodejs\\node.exe&#8221; &#8220;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&#8221; &#8220;start&#8221;<br />
+19 error node v6.9.2<br />
+20 error npm  v3.10.9<br />
+21 error code ELIFECYCLE<br />
+22 error @ start: `npm install &amp;&amp; npm run watch`<br />
+22 error Exit status 1<br />
+23 error Failed at the @ start script &#8216;npm install &amp;&amp; npm run watch&#8217;.<br />
+23 error Make sure you have the latest version of node.js and npm installed.<br />
+23 error If you do, this is most likely a problem with the  package,<br />
+23 error not with npm itself.<br />
+23 error Tell the author that this fails on your system:<br />
+23 error     npm install &amp;&amp; npm run watch<br />
+23 error You can get information on how to open an issue for this project with:<br />
+23 error     npm bugs<br />
+23 error Or if that isn&#8217;t available, you can get their info via:<br />
+23 error     npm owner ls<br />
+23 error There is likely additional logging output above.<br />
+24 verbose exit [ 1, true ]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-297459">
+			<cite>Luciano</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-297459" title="">December 13th, 2016 at 10:57</a> </small>
+
+			<p>Solved the error using`\&#8221;` instead of `&#8217;` inside package.json.<br />
+It seems a problem with only the windows platform.<br />
+I found this solution here:<br />
+<a href="https://github.com/pjhjohn/jsonplaceholder-client/issues/22" rel="nofollow">https://github.com/pjhjohn/jsonplaceholder-client/issues/22</a><br />
+(see fix)</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://matteo.vaccari.name/blog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="997" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4d7814e6ee" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="39"/></p>
+</form>
+
+
+
+	
+    </div>
+
+    <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='date/2018/10.html'>October 2018</a></li>
+	<li><a href='date/2017/09.html'>September 2017</a></li>
+	<li><a href='date/2016/08.html'>August 2016</a></li>
+	<li><a href='date/2016/03.html'>March 2016</a></li>
+	<li><a href='date/2016/01.html'>January 2016</a></li>
+	<li><a href='date/2014/12.html'>December 2014</a></li>
+	<li><a href='date/2014/10.html'>October 2014</a></li>
+	<li><a href='date/2014/06.html'>June 2014</a></li>
+	<li><a href='date/2014/02.html'>February 2014</a></li>
+	<li><a href='date/2013/12.html'>December 2013</a></li>
+	<li><a href='date/2013/11.html'>November 2013</a></li>
+	<li><a href='date/2013/06.html'>June 2013</a></li>
+	<li><a href='date/2013/05.html'>May 2013</a></li>
+	<li><a href='date/2013/03.html'>March 2013</a></li>
+	<li><a href='date/2013/02.html'>February 2013</a></li>
+	<li><a href='date/2012/10.html'>October 2012</a></li>
+	<li><a href='date/2012/08.html'>August 2012</a></li>
+	<li><a href='date/2012/07.html'>July 2012</a></li>
+	<li><a href='date/2012/06.html'>June 2012</a></li>
+	<li><a href='date/2012/05.html'>May 2012</a></li>
+	<li><a href='date/2012/04.html'>April 2012</a></li>
+	<li><a href='date/2012/01.html'>January 2012</a></li>
+	<li><a href='date/2011/12.html'>December 2011</a></li>
+	<li><a href='date/2011/11.html'>November 2011</a></li>
+	<li><a href='date/2011/10.html'>October 2011</a></li>
+	<li><a href='date/2011/07.html'>July 2011</a></li>
+	<li><a href='date/2011/06.html'>June 2011</a></li>
+	<li><a href='date/2011/05.html'>May 2011</a></li>
+	<li><a href='date/2011/04.html'>April 2011</a></li>
+	<li><a href='date/2011/03.html'>March 2011</a></li>
+	<li><a href='date/2011/02.html'>February 2011</a></li>
+	<li><a href='date/2010/11.html'>November 2010</a></li>
+	<li><a href='date/2010/10.html'>October 2010</a></li>
+	<li><a href='date/2010/09.html'>September 2010</a></li>
+	<li><a href='date/2010/08.html'>August 2010</a></li>
+	<li><a href='date/2010/07.html'>July 2010</a></li>
+	<li><a href='date/2010/06.html'>June 2010</a></li>
+	<li><a href='date/2010/05.html'>May 2010</a></li>
+	<li><a href='date/2010/04.html'>April 2010</a></li>
+	<li><a href='date/2010/03.html'>March 2010</a></li>
+	<li><a href='date/2010/02.html'>February 2010</a></li>
+	<li><a href='date/2010/01.html'>January 2010</a></li>
+	<li><a href='date/2009/12.html'>December 2009</a></li>
+	<li><a href='date/2009/11.html'>November 2009</a></li>
+	<li><a href='date/2009/10.html'>October 2009</a></li>
+	<li><a href='date/2009/09.html'>September 2009</a></li>
+	<li><a href='date/2009/07.html'>July 2009</a></li>
+	<li><a href='date/2009/05.html'>May 2009</a></li>
+	<li><a href='date/2009/04.html'>April 2009</a></li>
+	<li><a href='date/2009/03.html'>March 2009</a></li>
+	<li><a href='date/2009/02.html'>February 2009</a></li>
+	<li><a href='date/2009/01.html'>January 2009</a></li>
+	<li><a href='date/2008/12.html'>December 2008</a></li>
+	<li><a href='date/2008/11.html'>November 2008</a></li>
+	<li><a href='date/2008/10.html'>October 2008</a></li>
+	<li><a href='date/2008/09.html'>September 2008</a></li>
+	<li><a href='date/2008/07.html'>July 2008</a></li>
+	<li><a href='date/2008/06.html'>June 2008</a></li>
+	<li><a href='date/2008/05.html'>May 2008</a></li>
+	<li><a href='date/2008/04.html'>April 2008</a></li>
+	<li><a href='date/2008/01.html'>January 2008</a></li>
+	<li><a href='date/2007/11.html'>November 2007</a></li>
+	<li><a href='date/2007/10.html'>October 2007</a></li>
+	<li><a href='date/2007/09.html'>September 2007</a></li>
+	<li><a href='date/2007/06.html'>June 2007</a></li>
+	<li><a href='date/2007/05.html'>May 2007</a></li>
+	<li><a href='date/2007/04.html'>April 2007</a></li>
+	<li><a href='date/2007/03.html'>March 2007</a></li>
+	<li><a href='date/2007/02.html'>February 2007</a></li>
+	<li><a href='date/2007/01.html'>January 2007</a></li>
+	<li><a href='date/2006/12.html'>December 2006</a></li>
+	<li><a href='date/2006/11.html'>November 2006</a></li>
+	<li><a href='date/2006/10.html'>October 2006</a></li>
+	<li><a href='date/2006/09.html'>September 2006</a></li>
+	<li><a href='date/2006/08.html'>August 2006</a></li>
+	<li><a href='date/2006/07.html'>July 2006</a></li>
+	<li><a href='date/2006/06.html'>June 2006</a></li>
+	<li><a href='date/2006/05.html'>May 2006</a></li>
+	<li><a href='date/2006/04.html'>April 2006</a></li>
+	<li><a href='date/2006/03.html'>March 2006</a></li>
+	<li><a href='date/2006/02.html'>February 2006</a></li>
+	<li><a href='date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+<script async="async" type='text/javascript' src='../wp-content/plugins/akismet/_inc/form0235.js?ver=4.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/997 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:47 GMT -->
+</html>

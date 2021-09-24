@@ -1,0 +1,29 @@
+#!/bin/bash 
+
+printf "Content-Type: text/html\r\n"
+printf "\r\n"
+
+hostname=$(hostname)
+uptime=$(uptime)
+disk_space=$(df -h)
+
+# Il primo parametro è il formato; occorre passare lo html nel secondo
+# parametro per evitare che i % vengano interpretati erroneamente
+printf "%s" "
+<html>
+  <head>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8'/>
+    <title>Informazioni sul server $hostname</title>    
+  </head>
+  <body>
+    <img src='logo.cgi' alt='' />
+    <h2>Uptime</h2>
+    $uptime
+    
+    <h2>Spazio disco</h2>
+<pre>
+$disk_space
+</pre>
+  </body>
+</html>
+"

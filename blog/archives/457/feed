@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: On discussions	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/457/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/457</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Vic				</title>
+				<link>http://matteo.vaccari.name/blog/archives/457/comment-page-1#comment-93580</link>
+		<dc:creator><![CDATA[Vic]]></dc:creator>
+		<pubDate>Tue, 02 Nov 2010 17:05:27 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=457#comment-93580</guid>
+					<description><![CDATA[Matteo: I was reading this in Carlo Pescio&#039;s blog:
+http://www.carlopescio.com/2010/11/design-structure-and-decisions.html
+and your post came back to my mind.
+I see some commonality, both with what you say and what I say.]]></description>
+		<content:encoded><![CDATA[<p>Matteo: I was reading this in Carlo Pescio&#8217;s blog:<br />
+<a href="http://www.carlopescio.com/2010/11/design-structure-and-decisions.html" rel="nofollow">http://www.carlopescio.com/2010/11/design-structure-and-decisions.html</a><br />
+and your post came back to my mind.<br />
+I see some commonality, both with what you say and what I say.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/457/comment-page-1#comment-93519</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 10 Oct 2010 20:55:52 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=457#comment-93519</guid>
+					<description><![CDATA[Vic: I&#039;m not saying that we should spend a lot of time writing rote code.  If you have a standard way of doing things, that standard should be embodied in some easy-to-use library.  The point I&#039;m trying to make is that you&#039;re in a very good position when you can code *anything* that the customer asks you by simply connecting existing pieces.  Getting there requires a great deal of thought!  But my goal is to be able to do what is required of me without having to think.  Well before Agile was invented we used to say that the goal was to reduce the number of things that require thought, by inventing ways to *calculate* solutions.  That&#039;s the same spirit.
+]]></description>
+		<content:encoded><![CDATA[<p>Vic: I&#8217;m not saying that we should spend a lot of time writing rote code.  If you have a standard way of doing things, that standard should be embodied in some easy-to-use library.  The point I&#8217;m trying to make is that you&#8217;re in a very good position when you can code *anything* that the customer asks you by simply connecting existing pieces.  Getting there requires a great deal of thought!  But my goal is to be able to do what is required of me without having to think.  Well before Agile was invented we used to say that the goal was to reduce the number of things that require thought, by inventing ways to *calculate* solutions.  That&#8217;s the same spirit.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Vic				</title>
+				<link>http://matteo.vaccari.name/blog/archives/457/comment-page-1#comment-93518</link>
+		<dc:creator><![CDATA[Vic]]></dc:creator>
+		<pubDate>Sun, 10 Oct 2010 19:23:17 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=457#comment-93518</guid>
+					<description><![CDATA[&quot;Suppose that you can code a feature without much thinking, because (for instance) your team has standard ways of dealing with this sort of features, or you did similar things years ago, and you know how to code a solution.&quot;
+
+Oddly enough, before the agile frenzy we would have said: if you can code something without thinking, if you have already done the same thing, if you have a standard way of doing that, then you you should have (or build) a reusable component / library / something to handle the repetitive parts. Therefore, think, not code.
+
+I consider my time wasted when I write rote code; I&#039;d rather spend that time thinking on what I need so that I don&#039;t have to write that code anymore...]]></description>
+		<content:encoded><![CDATA[<p>&#8220;Suppose that you can code a feature without much thinking, because (for instance) your team has standard ways of dealing with this sort of features, or you did similar things years ago, and you know how to code a solution.&#8221;</p>
+<p>Oddly enough, before the agile frenzy we would have said: if you can code something without thinking, if you have already done the same thing, if you have a standard way of doing that, then you you should have (or build) a reusable component / library / something to handle the repetitive parts. Therefore, think, not code.</p>
+<p>I consider my time wasted when I write rote code; I&#8217;d rather spend that time thinking on what I need so that I don&#8217;t have to write that code anymore&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/457/comment-page-1#comment-93508</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Fri, 08 Oct 2010 22:14:53 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=457#comment-93508</guid>
+					<description><![CDATA[time to time as a pair-programmer I made unnecessary discussions that was waste in the sense you described here, if I get this right.
+
+and time to time the programmer pairing with me did unnecessary discussions.´: waste
+
+in many of those situations the reason was the simple fear to act and then looks at the results and judge then.
+
+the tools that worked for me to encourage action was
+- technical: small changes, frequent check-ins, easy low costs roll-backs
+- social: the facilitator tools about non judgmental listening 
+
+I like also the opinions you listed in the post]]></description>
+		<content:encoded><![CDATA[<p>time to time as a pair-programmer I made unnecessary discussions that was waste in the sense you described here, if I get this right.</p>
+<p>and time to time the programmer pairing with me did unnecessary discussions.´: waste</p>
+<p>in many of those situations the reason was the simple fear to act and then looks at the results and judge then.</p>
+<p>the tools that worked for me to encourage action was<br />
+&#8211; technical: small changes, frequent check-ins, easy low costs roll-backs<br />
+&#8211; social: the facilitator tools about non judgmental listening </p>
+<p>I like also the opinions you listed in the post</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/457/comment-page-1#comment-93507</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 08 Oct 2010 14:52:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=457#comment-93507</guid>
+					<description><![CDATA[Hi Jacopo, 
+
+Thanks for your comments.  
+
+I acknowledge that I&#039;ve been doing very little programming lately, pairing or not.  You have a point about doing things *always* the same way.  But I am worried about the other extreme; the danger of doing things always differently.  The Toyota people say that you can only improve a process when the process is standardized.  I think that the team can&#039;t improve their coding if they don&#039;t set a baseline of accepted solutions to improve upon.]]></description>
+		<content:encoded><![CDATA[<p>Hi Jacopo, </p>
+<p>Thanks for your comments.  </p>
+<p>I acknowledge that I&#8217;ve been doing very little programming lately, pairing or not.  You have a point about doing things *always* the same way.  But I am worried about the other extreme; the danger of doing things always differently.  The Toyota people say that you can only improve a process when the process is standardized.  I think that the team can&#8217;t improve their coding if they don&#8217;t set a baseline of accepted solutions to improve upon.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: jacopo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/457/comment-page-1#comment-93503</link>
+		<dc:creator><![CDATA[jacopo]]></dc:creator>
+		<pubDate>Thu, 07 Oct 2010 20:29:40 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=457#comment-93503</guid>
+					<description><![CDATA[Matteo, pair programming isn&#039;t pair coding: spiking, looking for answers online *and* discussing is part of the development cycle. If you think doing alone you could miss simplicity, or courage, then it&#039;s worth doing in pair.
+
+I don&#039;t get the value as line-of-code thing. Given I&#039;ve got 100 lines of code right know and I should add functionaly X, if removing 90% of those LOC adding new beavihour gets simpler, that&#039;s value added, I think. If removing those 90 lines took 1 pomodoro of iterative refactoring (me, then my pair, then me again with a new idea) that&#039;s still value added.
+
+Waste is *useless* discussion, the one which ends with nothing done. How do you know when disccussion is getting useless: timeboxing to the rescue..
+
+In my (humble) opinion, starting a pair programming session with someone telling me &quot;I&#039;ve done this 10 times before&quot; (and everytime in the same way) does not help: I would react with &quot;so, let&#039;s do it differently!&quot;. That&#039;s even a better bet, for both.
+
+Anyway, pair programming is probably one of the hardest XP practices: it does not ask you to change *just* your job habits, but you as a person.
+
+Thanks for sharing these thoughts.]]></description>
+		<content:encoded><![CDATA[<p>Matteo, pair programming isn&#8217;t pair coding: spiking, looking for answers online *and* discussing is part of the development cycle. If you think doing alone you could miss simplicity, or courage, then it&#8217;s worth doing in pair.</p>
+<p>I don&#8217;t get the value as line-of-code thing. Given I&#8217;ve got 100 lines of code right know and I should add functionaly X, if removing 90% of those LOC adding new beavihour gets simpler, that&#8217;s value added, I think. If removing those 90 lines took 1 pomodoro of iterative refactoring (me, then my pair, then me again with a new idea) that&#8217;s still value added.</p>
+<p>Waste is *useless* discussion, the one which ends with nothing done. How do you know when disccussion is getting useless: timeboxing to the rescue..</p>
+<p>In my (humble) opinion, starting a pair programming session with someone telling me &#8220;I&#8217;ve done this 10 times before&#8221; (and everytime in the same way) does not help: I would react with &#8220;so, let&#8217;s do it differently!&#8221;. That&#8217;s even a better bet, for both.</p>
+<p>Anyway, pair programming is probably one of the hardest XP practices: it does not ask you to change *just* your job habits, but you as a person.</p>
+<p>Thanks for sharing these thoughts.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

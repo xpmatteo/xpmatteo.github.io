@@ -1,0 +1,69 @@
+
+Sistemi Operativi II, a.a. 2007/08.  Matteo Vaccari http://matteo.vaccari.name/so
+
+2008/05/05
+
+Esercizio: implementare una semplice shell.
+
+Primo livello: eseguiamo solo comandi composti da una sola "parola".
+Esempio:
+
+  $ ./myshell
+  myshell> ls<RETURN>
+  (lista dei file della directory corrente)
+  myshell> 
+
+Pseudocodice:
+
+  while true
+    print "myshell> "
+    read command
+    fork
+    if child then
+      execute command
+    else
+      wait for child
+    end
+  end
+
+Secondo livello: eseguiamo anche comandi composti da piu' di una
+parola.  Esempio:
+
+  $ ./myshell
+  myshell> ls foo bar baz
+  baz: file does not exist
+  foo bar
+  myshell>
+
+Fra le varianti di exec(2) che possiamo usare, la piu' conveniente e'
+probabilmente la execvp(2), perche' accetta un array di argomenti di
+lunghezza arbitraria.  Ai fini dell'esercizio possiamo usare un array
+di argomenti di una lunghezza massima di (diciamo) dieci elementi.
+
+E' importante testare l'algoritmo che separa gli argomenti in un
+array di stringhe separatamente rispetto al resto del programma.  Ad
+esempio usando un "main" apposta che esegue una c.d. "test harness"
+per testare questo algoritmo.
+
+
+Terzo livello: implementiamo alcuni comandi built-in.  
+
+Il comando "cd" non puo' essere sensatamente implementato come un
+comando eseguito tramite fork+exec.  Perche'?  
+
+Alcuni comandi, come "cd(1)", "exit(1)", "exec(1)" non sono eseguiti
+tramite fork+exec, ma sono implementati direttamente dalla shell.
+Implementare almeno "cd(1)", "pwd(1) e "exit(1)".  Esempio:
+
+  $ ./myshell
+  myshell> ls
+  (lista dei file della directory corrente)
+  myshell> pwd
+  /home/matteo
+  myshell> cd /tmp
+  myshell> pwd
+  /tmp
+  myshell> ls -l
+  (lista dei file della directory /tmp)
+  myshell> exit
+  $ 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Refactor to remove duplication	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/824/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/824</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Indrit				</title>
+				<link>http://matteo.vaccari.name/blog/archives/824/comment-page-1#comment-95885</link>
+		<dc:creator><![CDATA[Indrit]]></dc:creator>
+		<pubDate>Wed, 27 Mar 2013 13:56:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=824#comment-95885</guid>
+					<description><![CDATA[When I switched from Java to Ruby I had a lot of problems when sharing these concepts with almost all my ruby colleagues in the USA. It seemed like in &quot;ruby&quot; the laws of software development were different...and then I discovered that the code base was much more like a &quot;horror crime scene&quot; than an &quot;agile&quot; organization. These concepts has universal value and should be taken seriously. This doesn&#039;t mean that one should have a cut-and-paste approach and become a &quot;victim&quot; of the same but every case should be pragmatically evaluated in base of the &#039;likelyhood of change&#039;.]]></description>
+		<content:encoded><![CDATA[<p>When I switched from Java to Ruby I had a lot of problems when sharing these concepts with almost all my ruby colleagues in the USA. It seemed like in &#8220;ruby&#8221; the laws of software development were different&#8230;and then I discovered that the code base was much more like a &#8220;horror crime scene&#8221; than an &#8220;agile&#8221; organization. These concepts has universal value and should be taken seriously. This doesn&#8217;t mean that one should have a cut-and-paste approach and become a &#8220;victim&#8221; of the same but every case should be pragmatically evaluated in base of the &#8216;likelyhood of change&#8217;.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Siriquelle				</title>
+				<link>http://matteo.vaccari.name/blog/archives/824/comment-page-1#comment-95863</link>
+		<dc:creator><![CDATA[Siriquelle]]></dc:creator>
+		<pubDate>Fri, 22 Mar 2013 09:39:13 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=824#comment-95863</guid>
+					<description><![CDATA[I am defiantly guilty of some of the code smells you have eluded to, especially primitive obsession. Thoroughly enjoyable writing too I might add.]]></description>
+		<content:encoded><![CDATA[<p>I am defiantly guilty of some of the code smells you have eluded to, especially primitive obsession. Thoroughly enjoyable writing too I might add.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

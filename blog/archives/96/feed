@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: PHP on Java: Che idea del piffero	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/96/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/96</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/96/comment-page-1#comment-18077</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 19 Oct 2007 16:00:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=96#comment-18077</guid>
+					<description><![CDATA[Dicono che sia bello &lt;a href=&quot;http://www.railsenvy.com/2007/9/10/ruby-on-rails-vs-django-commercial-7&quot; rel=&quot;nofollow&quot;&gt;Django&lt;/a&gt;.  Ma non me ne intendo di Python.]]></description>
+		<content:encoded><![CDATA[<p>Dicono che sia bello <a href="http://www.railsenvy.com/2007/9/10/ruby-on-rails-vs-django-commercial-7" rel="nofollow">Django</a>.  Ma non me ne intendo di Python.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Fabrizio				</title>
+				<link>http://matteo.vaccari.name/blog/archives/96/comment-page-1#comment-18074</link>
+		<dc:creator><![CDATA[Fabrizio]]></dc:creator>
+		<pubDate>Fri, 19 Oct 2007 14:05:04 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=96#comment-18074</guid>
+					<description><![CDATA[E framework web per python? Mai usati? Se affermativo, cosa consiglieresti?]]></description>
+		<content:encoded><![CDATA[<p>E framework web per python? Mai usati? Se affermativo, cosa consiglieresti?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

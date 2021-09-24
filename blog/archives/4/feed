@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Finalmente!	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/4/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/4</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/4/comment-page-1#comment-16</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 19 Aug 2006 22:33:10 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=4#comment-16</guid>
+					<description><![CDATA[Sacarde: ti consiglio senz&#039;altro il libro di Kernighan e Ritchie.]]></description>
+		<content:encoded><![CDATA[<p>Sacarde: ti consiglio senz&#8217;altro il libro di Kernighan e Ritchie.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: sacarde				</title>
+				<link>http://matteo.vaccari.name/blog/archives/4/comment-page-1#comment-15</link>
+		<dc:creator><![CDATA[sacarde]]></dc:creator>
+		<pubDate>Sat, 19 Aug 2006 13:11:42 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=4#comment-15</guid>
+					<description><![CDATA[salve,
+   trovo interessanti i documenti sui sistemi operativi, sono appassionato di linux, mi piacerebbe imparare il linguaggio C
+
+puo&#039; suggerirmi qualche guida ?
+
+
+grazie]]></description>
+		<content:encoded><![CDATA[<p>salve,<br />
+   trovo interessanti i documenti sui sistemi operativi, sono appassionato di linux, mi piacerebbe imparare il linguaggio C</p>
+<p>puo&#8217; suggerirmi qualche guida ?</p>
+<p>grazie</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/4/comment-page-1#comment-5</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 27 Jul 2006 06:41:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=4#comment-5</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Ripensandoci, perché no?  Grazie del suggerimento!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/4/comment-page-1#comment-3</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 26 Jul 2006 09:41:28 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=4#comment-3</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Credo che reinserirò i vecchi post manualmente, tenendo solo quelli più significativi</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Piero Bozzolo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/4/comment-page-1#comment-2</link>
+		<dc:creator><![CDATA[Piero Bozzolo]]></dc:creator>
+		<pubDate>Wed, 19 Jul 2006 17:51:28 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=4#comment-2</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Ottimo, utilizzo wordpress pure io da un po di tempo, esiste anche la possibilità di importare tutti i post di altri blog tramite feed rss (cosa che a me è stata molto utile quando ho installato wp, mi ha permesso di importare tutti i post che avevo sotto un&#8217;altro blog engine&#8230;).</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

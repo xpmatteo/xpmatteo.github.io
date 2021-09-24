@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: TDD is not finished until the code speaks	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/174/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/174</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Extreme Enthusiasm &#187; Blog Archive &#187; Report of the first run of the OCP kata				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-93076</link>
+		<dc:creator><![CDATA[Extreme Enthusiasm &#187; Blog Archive &#187; Report of the first run of the OCP kata]]></dc:creator>
+		<pubDate>Wed, 24 Feb 2010 15:58:10 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-93076</guid>
+					<description><![CDATA[[...] code in the Hand class was still not good enough. It was full of loops. There was no flash of insight here, we just applied a few &#8220;extract method&#8221;s that moved [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] code in the Hand class was still not good enough. It was full of loops. There was no flash of insight here, we just applied a few &#8220;extract method&#8221;s that moved [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Extreme Enthusiasm &#187; Blog Archive &#187; My impressions of the Emergent Design Workshop				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-92807</link>
+		<dc:creator><![CDATA[Extreme Enthusiasm &#187; Blog Archive &#187; My impressions of the Emergent Design Workshop]]></dc:creator>
+		<pubDate>Thu, 29 Oct 2009 07:32:20 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-92807</guid>
+					<description><![CDATA[[...] higher level of criticism for code. What I learned resonates with what I wrote earlier about &#8220;code that speaks.&#8221; It turns out I was on the right track there; the goal is to have code like Lego bricks; [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] higher level of criticism for code. What I learned resonates with what I wrote earlier about &#8220;code that speaks.&#8221; It turns out I was on the right track there; the goal is to have code like Lego bricks; [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Extreme Enthusiasm &#187; Blog Archive &#187; Codice parlante al Bergamo XP UG				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-92312</link>
+		<dc:creator><![CDATA[Extreme Enthusiasm &#187; Blog Archive &#187; Codice parlante al Bergamo XP UG]]></dc:creator>
+		<pubDate>Tue, 01 Sep 2009 07:22:58 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-92312</guid>
+					<description><![CDATA[[...] il piacere di essere invitato al Bergamo XP User Group per raccontare il materiale del mio post sul codice parlante. La serata è questo giovedì 3 settembre, e il luogo è (pare) la sede di Softcare a Torre [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] il piacere di essere invitato al Bergamo XP User Group per raccontare il materiale del mio post sul codice parlante. La serata è questo giovedì 3 settembre, e il luogo è (pare) la sede di Softcare a Torre [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Declarative design &#171; A Place In The Queue				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-90888</link>
+		<dc:creator><![CDATA[Declarative design &#171; A Place In The Queue]]></dc:creator>
+		<pubDate>Mon, 27 Jul 2009 18:27:19 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-90888</guid>
+					<description><![CDATA[[...]   Mi sono finalmente deciso a leggere Domain Driven Design di Evans. I due recenti post di Carlo e M. Vaccari sono stati l&#8217; input necessario per colmare la lacuna (non l&#8217; ho ancora assimilato, ci [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;]   Mi sono finalmente deciso a leggere Domain Driven Design di Evans. I due recenti post di Carlo e M. Vaccari sono stati l&#8217; input necessario per colmare la lacuna (non l&#8217; ho ancora assimilato, ci [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Degenerazioni &#171; Minnen Ratta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-89581</link>
+		<dc:creator><![CDATA[Degenerazioni &#171; Minnen Ratta]]></dc:creator>
+		<pubDate>Fri, 03 Jul 2009 10:48:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-89581</guid>
+					<description><![CDATA[[...] ricerca virtuosa, a cui e&#8217; dedicato DDD e esemplificata in questo post di Matteo, e&#8217; l&#8217;estremo opposto del fenomeno pernicioso che ho descritto in questo post, che [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] ricerca virtuosa, a cui e&#8217; dedicato DDD e esemplificata in questo post di Matteo, e&#8217; l&#8217;estremo opposto del fenomeno pernicioso che ho descritto in questo post, che [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Let me see &#187; Code: speak to me!				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-87214</link>
+		<dc:creator><![CDATA[Let me see &#187; Code: speak to me!]]></dc:creator>
+		<pubDate>Thu, 21 May 2009 10:47:44 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-87214</guid>
+					<description><![CDATA[[...] I saw this post by Matteo Vaccari about code that should speak, I immediately though about a similar situation I [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] I saw this post by Matteo Vaccari about code that should speak, I immediately though about a similar situation I [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: TDD e design scadente &#171; A Place In The Queue				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-86226</link>
+		<dc:creator><![CDATA[TDD e design scadente &#171; A Place In The Queue]]></dc:creator>
+		<pubDate>Mon, 04 May 2009 18:30:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-86226</guid>
+					<description><![CDATA[[...] e design&#160;scadente Posted in Vari by acerisara on 4 Maggio 2009   Grande post. E&#8217; da qualche mese ormai che studio ed applico seriamente questa tecnica di sviluppo (con [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] e design&nbsp;scadente Posted in Vari by acerisara on 4 Maggio 2009   Grande post. E&#8217; da qualche mese ormai che studio ed applico seriamente questa tecnica di sviluppo (con [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Tonino				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-85970</link>
+		<dc:creator><![CDATA[Tonino]]></dc:creator>
+		<pubDate>Wed, 29 Apr 2009 13:26:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-85970</guid>
+					<description><![CDATA[Thank you for the post, I enjoyed it.
+ 
+Speaking code do a good job as long as we need to share and improve knoweledge about the domain.
+Otherwise an alternative &quot;legitimate&quot; option is to pick up already existing code, no matter if it doesn&#039;t &quot;speak&quot;.]]></description>
+		<content:encoded><![CDATA[<p>Thank you for the post, I enjoyed it.</p>
+<p>Speaking code do a good job as long as we need to share and improve knoweledge about the domain.<br />
+Otherwise an alternative &#8220;legitimate&#8221; option is to pick up already existing code, no matter if it doesn&#8217;t &#8220;speak&#8221;.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Franco Lombardo &#187; Blog Archive &#187; La tessera mancante				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-85932</link>
+		<dc:creator><![CDATA[Franco Lombardo &#187; Blog Archive &#187; La tessera mancante]]></dc:creator>
+		<pubDate>Tue, 28 Apr 2009 13:52:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-85932</guid>
+					<description><![CDATA[[...] di Milano, Matteo Vaccari ha parlato brevissimamente dell&#039;argomento, ed è stato illuminante. Da qui il suo interessante post. In particolare una frase pesa come un macigno su quanti, come me, pensano di essere agili solo [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] di Milano, Matteo Vaccari ha parlato brevissimamente dell&#8217;argomento, ed è stato illuminante. Da qui il suo interessante post. In particolare una frase pesa come un macigno su quanti, come me, pensano di essere agili solo [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Alberto Brandolini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/174/comment-page-1#comment-85931</link>
+		<dc:creator><![CDATA[Alberto Brandolini]]></dc:creator>
+		<pubDate>Tue, 28 Apr 2009 12:59:20 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=174#comment-85931</guid>
+					<description><![CDATA[Hi Matteo,
+
+It&#039;s interesting to note that in Domain Driven Design tests are useful tools not only to validate application behavior, but also to validate code readability. A common DDD practice is to start an exploratory coding session writing tests with no attention to the existing code: the idea is to &quot;Write the code that you would like to have&quot;, in a language that is clearly readable by developers and domain experts. Put in this way ...assertions might be optional (and thus the word &quot;test&quot; would be misleading). We&#039;re basically testing the expressiveness of the code.
+Making the code actually work is a different job. Sometimes it&#039;s easily achievable, sometimes it&#039;s harder. But decoupling from the existing code is often necessary to get closer to the domain.]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo,</p>
+<p>It&#8217;s interesting to note that in Domain Driven Design tests are useful tools not only to validate application behavior, but also to validate code readability. A common DDD practice is to start an exploratory coding session writing tests with no attention to the existing code: the idea is to &#8220;Write the code that you would like to have&#8221;, in a language that is clearly readable by developers and domain experts. Put in this way &#8230;assertions might be optional (and thus the word &#8220;test&#8221; would be misleading). We&#8217;re basically testing the expressiveness of the code.<br />
+Making the code actually work is a different job. Sometimes it&#8217;s easily achievable, sometimes it&#8217;s harder. But decoupling from the existing code is often necessary to get closer to the domain.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

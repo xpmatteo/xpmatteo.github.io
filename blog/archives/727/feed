@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Everyone&#8217;s crazy about FP	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/727/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/727</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/727/comment-page-1#comment-95276</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Thu, 14 Jun 2012 02:56:17 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=727#comment-95276</guid>
+					<description><![CDATA[it is a common misconception that dynamically typed language remove the types dependencies.
+
+it is true only for the edit and compile/interpretation time, while there is still a dependency at run-time.
+
+So the DIP holds true also for dynamically typed language.]]></description>
+		<content:encoded><![CDATA[<p>it is a common misconception that dynamically typed language remove the types dependencies.</p>
+<p>it is true only for the edit and compile/interpretation time, while there is still a dependency at run-time.</p>
+<p>So the DIP holds true also for dynamically typed language.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/727/comment-page-1#comment-95072</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 26 May 2012 13:38:18 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=727#comment-95072</guid>
+					<description><![CDATA[As far as I know, Clojure is a fine language.  It&#039;s a very credible variant of Lisp, which is certainly not a dumbed down version of anything, and I hear it has a very good JVM implementation.  
+
+What I object to is the implied statement that &quot;Clojure (or FP) is great because OOP has problems&quot;.  FP is a great thing on its own merits, thank you!  And OO is a great thing too.  Being good at OOP takes care, practice and perseverance.  So does being good at FP!  
+
+Don&#039;t blame the tools when your results are not good.]]></description>
+		<content:encoded><![CDATA[<p>As far as I know, Clojure is a fine language.  It&#8217;s a very credible variant of Lisp, which is certainly not a dumbed down version of anything, and I hear it has a very good JVM implementation.  </p>
+<p>What I object to is the implied statement that &#8220;Clojure (or FP) is great because OOP has problems&#8221;.  FP is a great thing on its own merits, thank you!  And OO is a great thing too.  Being good at OOP takes care, practice and perseverance.  So does being good at FP!  </p>
+<p>Don&#8217;t blame the tools when your results are not good.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/727/comment-page-1#comment-95070</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Sat, 26 May 2012 09:21:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=727#comment-95070</guid>
+					<description><![CDATA[Indeed primitive obsession in functional languages is still one of the real difficulties for me to overcome while learning FP.
+It&#039;s also possible that languages like Clojure make the same trade-off between paradigm and familiarity that C++ and Java made with OO; in both cases what we&#039;re seeing is a dumbed-down version of the real OO/FP thing, either classes full of setters or programs with no referential transparency.]]></description>
+		<content:encoded><![CDATA[<p>Indeed primitive obsession in functional languages is still one of the real difficulties for me to overcome while learning FP.<br />
+It&#8217;s also possible that languages like Clojure make the same trade-off between paradigm and familiarity that C++ and Java made with OO; in both cases what we&#8217;re seeing is a dumbed-down version of the real OO/FP thing, either classes full of setters or programs with no referential transparency.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from matteo.vaccari.name/aw/diario2011 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Applicazioni Web, a.a. 2011/12</title>
+    <link rel="stylesheet" href="../stylesheets/matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Applicazioni Web, a.a. 2011/12</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    <h3>Lezione 0: The Command-Line Web, 2011-11-29</h3>
+
+
+<p></p>
+
+<p>Argomenti: HTTP, URI, REST</p>
+
+<h4>Esercizi</h4>
+
+<p>Per eseguire questi esercizi usa Linux oppure un Mac.  Non Windows.  Se non hai una macchina Linux, puoi usare una macchina virtuale: scarica VirtualBox e installaci sopra Ubuntu.</p>
+
+<ul>
+<li>Trova l'indirizzo IP del tuo computer con ifconfig</li>
+<li>Usa netcat per implementare una semplice chat</li>
+<li>Usa netcat per osservare la richiesta http del tuo browser</li>
+<li>Usa netcat per interrogare <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a></li>
+<li>Usa netcat e la content-negotiation per ottenere la pagina <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a> in spagnolo</li>
+<li>Usa la riga di comando Unix per ottenere l'indirizzo IP di www.google.com</li>
+<li>Usa netstat per scoprire quali porte TCP sono aperte nella tua workstation</li>
+<li>Usa netcat per scoprire il mime type della immagine alla url <a href="http://httpd.apache.org/images/httpd_logo_wide">http://httpd.apache.org/images/httpd_logo_wide</a></li>
+</ul>
+
+
+<h4>Altri esempi di domande d'esame</h4>
+
+<ul>
+<li>Quali sono le principali caratteristiche del protocollo HTTP?</li>
+<li>Descrivi la sequenza di eventi che parte da digitare una URL nella barra degli indirizzi del browser e si conclude con la rappresentazione grafica nella finestra del browser di una risorsa.</li>
+<li>Che cos'è una <em>risorsa</em>?  Fai degli esempi.</li>
+<li>Scrivi il testo dei messaggi di una tipica transazione HTTP</li>
+<li>Descrivi le differenze fra GET e POST e quali sono i differenti usi di questi metodi.</li>
+<li>Descrivi il significato e l'uso degli header più importanti: Content-Type, Accept, Location, Host.</li>
+<li>Che cos'è una redirezione?  Come funziona?</li>
+<li>Descrivi i principali codici di Status e il loro significato.</li>
+<li>Descrivi la forma e le componenti di una URL HTTP.</li>
+<li>Che cos'è un <em>mime type</em>?  Quali sono i mime types più comuni?</li>
+</ul>
+
+
+<h4>Da studiare</h4>
+
+<ul>
+<li><a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics, fino a "Cookies" escluso.</li>
+<li>Studiare <a href="http://www.jmarshall.com/easy/http/">http://www.jmarshall.com/easy/http/</a> fino a "HTTP 1.1 Clients" incluso.</li>
+<li>Leggere <a href="00-intro.html">la mia dispensa</a>.</li>
+</ul>
+
+
+<p>Materiali per approfondimenti facoltativi</p>
+
+<ul>
+<li>Leggere <a href="http://tomayko.com/writings/rest-to-my-wife">How I explained REST to my wife</a></li>
+</ul>
+
+
+<h3>Lezione 1: HTML, 2011-12-01</h3>
+
+
+<p>Argomenti: HTML, Web Standards, Character Encodings</p>
+
+<h4>Esercizi</h4>
+
+<p>Scrivere un documento HTML che nel browser abbia questo aspetto:</p>
+
+<p><img src="2011/esempio-html-lezione01.png" alt="Rendering di una pagina HTML di esempio" style="border: 1px solid black; margin: 0 2em"/></p>
+
+<p>(La url dell'immagine è http://www.ruby-lang.org/images/logo.gif)</p>
+
+<p>Altri esempi di domande d'esame</p>
+
+<ul>
+<li>Scrivi un esempio HTML di una tabella/un elenco puntato/un elenco numerato/un link/un'immagine/enfasi/grassetto/...</li>
+<li>Qual'è la struttura standard di un documento HTML?</li>
+<li>Quali sono gli attributi di un immagine?</li>
+<li>Che cosa sono le <em>entities</em>?  Quali sono le più comuni?</li>
+<li>Che cos'è un <em>encoding</em>?  In quali maniere si può specificare?</li>
+<li>Quali sono le principali varianti di HTML?</li>
+<li>Qual è la relazione fra XML e HTML?</li>
+<li>Qual è la differenza fra markup <em>semantico</em> e <em>di presentazione</em>?</li>
+<li>Qual è la struttura di un documento HTML?</li>
+<li>Che cos'è il <em>quirks mode</em>?</li>
+<li>Che cosa sono gli <em>attributi</em>?  Che cosa sono e come si usano gli attributi <code>id</code> e <code>class</code>?</li>
+</ul>
+
+
+<h4>Materiali da studiare</h4>
+
+<p>Studiare questi articoli:</p>
+
+<ul>
+<li><a href="http://dev.opera.com/articles/view/12-the-basics-of-html/">12-the-basics-of-html</a></li>
+<li><a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/">15-marking-up-textual-content-in-html/</a></li>
+<li><a href="http://dev.opera.com/articles/view/16-html-lists/">16-html-lists/</a></li>
+<li><a href="http://dev.opera.com/articles/view/17-images-in-html/">17-images-in-html/</a> fino a "Background images with CSS" escluso</li>
+<li><a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/">18-html-links-let-s-build-a-web</a></li>
+<li><a href="http://dev.opera.com/articles/view/19-html-tables/">19-html-tables/</a> fino a "CSS to the rescue: a better looking table" escluso</li>
+<li><a href="http://dev.opera.com/articles/view/22-generic-containers-8212-the-div-and/">22-generic-containers-8212-the-div-and</a></li>
+<li>Studiare <a href="http://www.joelonsoftware.com/articles/Unicode.html">Il minimo che dovete assolutamente sapere su Unicode</a></li>
+<li>Leggere <a href="http://www.digital-web.com/articles/999_of_websites_are_obsolete/">99.9&#37; of Websites Are Obsolete</a> di Jeffrey Zeldman su perché rispettare gli standard non è una questione di idealismo, ma di pragmatismo.</li>
+</ul>
+
+
+<p>Materiali per approfondimenti facoltativi</p>
+
+<ul>
+<li>Facoltativo I capitoli 5,6,7 di <em>Designing With Web Standards, 2nd edition</em> di Zeldman.</li>
+<li>Facoltativo: <a href="http://robertnyman.com/2009/10/14/an-introduction-to-html5/" title="An introduction to HTML5 - Robert&#039;s talk">An Introduction to HTML5</a></li>
+<li>Facoltativo: <a href="http://infomesh.net/html/history/early/" title="Early History of HTML - 1990 to 1992">The Early History of HTML</a></li>
+</ul>
+
+
+<h3>Lezione 2: CSS, 2011-12-06</h3>
+
+
+<p>Argomenti: Cascading Style Sheets</p>
+
+<h4>Esercizi</h4>
+
+<p>Realizzare un documento HTML stilizzato in CSS per ottenere l'effetto di <a href="files/bookish.png">questo bozzetto (png, 120KB)</a>.</p>
+
+<p>Altri esempi di domande d'esame</p>
+
+<ul>
+<li>Quali sono le unità di misura che si possono usare per rappresentare le dimensioni di un font o di un elemento?</li>
+<li>Per quale motivo potrei preferire le unità di lunghezza proporzionali a quelle assolute?  E viceversa?</li>
+<li>Che alternative ci sono per creare un layout di pagina?</li>
+<li>Descrivere il box model</li>
+<li>Come funziona la proprietà "float"?</li>
+<li>Come si risolvono regole CSS che si contraddicono?</li>
+<li>In quali maniere si può collegare un insieme di regole CSS a un documento HTML?</li>
+</ul>
+
+
+<h4>Da studiare</h4>
+
+<p>Studiare questi articoli:</p>
+
+<ul>
+<li><a href="http://dev.opera.com/articles/view/27-css-basics/">27-css-basics</a></li>
+<li><a href="http://dev.opera.com/articles/view/28-inheritance-and-cascade/">28-inheritance-and-cascade</a></li>
+<li><a href="http://dev.opera.com/articles/view/29-text-styling-with-css/">29-text-styling-with-css</a></li>
+<li><a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/">30-the-css-layout-model-boxes-border</a></li>
+<li><a href="http://dev.opera.com/articles/view/35-floats-and-clearing/">35-floats-and-clearing</a></li>
+<li><a href="http://dev.opera.com/articles/view/36-static-and-relative-positioning/">36-static-and-relative-positioning</a></li>
+</ul>
+
+
+<p>Non è necessario imparare a memoria tutte le proprietà e i loro possibili valori; ma è necessario sapere che esistono.</p>
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li><a href="http://www.digital-web.com/articles/everything_you_know_about_CSS_Is_wrong/">Articolo su CSS tables</a></li>
+<li>Il <a href="http://www.w3schools.com/css/">tutorial interattivo su CSS</a> di W3Schools</li>
+<li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+</ul>
+
+
+<h3>Lezione 3: Web Servers, 2011-12-13</h3>
+
+
+<p>Argomenti: Il funzionamento dei Web Server; architettura di Apache HTTPD; cenni sulla configurazione di Apache.  Generazione di contenuto dinamico tramite l'interfaccia CGI.  Le form in HTML.</p>
+
+<h4>Esercizi</h4>
+
+<ol>
+<li>Installa Apache sulla tua macchina Linux o Mac.</li>
+<li>Impara come fare partire e fermare il servizio Apache con "apache2ctl"</li>
+<li>Installa un file html nella DocumentRoot di Apache e verifica con il tuo browser che Apache lo restituisca.</li>
+<li>Trova ed esamina l'access_log e l'error_log di Apache sulla tua macchina.</li>
+<li>Installa in Apache e fai funzionare i due esempi di CGI visti a lezione: <a href="2011/lezione03/ora-del-giorno.txt">ora-del-giorno</a> e <a href="2011/lezione03/scacchiera.txt">scacchiera</a>.</li>
+<li>Modifica l'esempio "scacchiera" per usare il parametro "size" (es. http://localhost/cgi-bin/scacchiera.cgi?size=3); deve produrre una scacchiera con lato di dimensione pari a quella passata nel parametro "size".  Se il parametro "size" è assente oppure non è un numero, deve usare la dimensione di default che è 8.</li>
+<li>In aggiunta o in alternativa al precedente: riscrivi scacchiera.cgi in un altro linguaggio; ad esempio C o Java.</li>
+<li>Scrivi un comando CGI che restituisca un immagine.  L'immagine non deve essere all'interno della DocumentRoot del server.</li>
+<li>Implementa in HTML <a href="2011/lezione03/esercizio-form.png">questa form (png)</a>.</li>
+<li>Osserva con netcat i parametri restituiti dalla form dell'esercizio precedente.  Prova a inviarli sia con GET che con POST.</li>
+</ol>
+
+
+<p>Altri esempi di domande d'esame</p>
+
+<ul>
+<li>Che cos'è la DocumentRoot?</li>
+</ul>
+
+
+<h4>Da studiare</h4>
+
+<ul>
+<li><a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/">20-html-forms-the-basics</a></li>
+<li><a href="http://www.jmarshall.com/easy/cgi/">CGI Made Really Easy</a>.</li>
+<li><a href="http://httpd.apache.org/docs/2.2/">Manuale di Apache Httpd</a>: Binding, Configuration Files, Configuration Sections (fino a "Virtual Hosts" escluso),</li>
+</ul>
+
+
+<h4>Approfondimenti facoltativi</h4>
+
+<ul>
+<li>il modulo <a href="http://httpd.apache.org/docs/2.2/mod/prefork.html">prefork</a> di Apache.</li>
+<li><a href="http://www.alistapart.com/articles/prettyaccessibleforms">Pretty, Accessible Forms</a></li>
+<li><a href="http://www.w3schools.com/html/html_forms.asp">tutorial su HTML Forms</a>.</li>
+<li>Esercizio: creare mediante CGI un servizio web che mostri una galleria di immagini. <br/>
+<ol start="0">
+<li>Salvare alcune foto in una directory.  Per ciascuna di esse creare una thumbnail in formato 320x208px e salvarle con nome thumb_NOMEFOTO.jpg</li>
+<li>Lo script legge tutti i file nella directory che hanno un nome che corrisponde al pattern thumb*.jpg</li>
+<li>Poi lo script restituisce una tabella con 3 colonne che mostra tutte le immagini thumbnail trovate al punto precedente</li>
+<li>Se l'utente clicca su una thumbnail deve vedere la versione originale della foto.  Questa può essere servita direttamente dal server web, oppure servita da un'altro script cgi nel caso le foto non siano all'interno della DocumentRoot</li>
+</ol>
+Questo esercizio può essere realizzato con un linguaggio di programmazione a scelta.</li>
+</ul>
+
+
+<h3>Lezione 4: Il linguaggio Ruby</h3>
+
+
+<p>Introduzione a Ruby: Array, hash, blocks, Symbols, string manipulation.  Traduzione del programma <a href="2011/lezione03/scacchiera.txt">scacchiera</a> della lezione scorsa <a href="2011/lezione04/scacchiera.txt">in Ruby</a>.  Parsing dei parametri della richiesta HTTP, sia nel caso di metodo GET che di metodo POST.</p>
+
+<h4>Esercizi</h4>
+
+<ol>
+<li>Modifica il programma della <a href="2011/lezione04/scacchiera.txt">scacchiera</a> per prendere due argomenti, width e height, che specifichino separatamente la larghezza e l'altezza della scacchiera.  Deve continuare a supportare però anche il parametro size, che deve continuare a funzionare come prima: scacchiera.cgi?size=3 equivale a scacchiera.cgi?width=3&amp;height=3.</li>
+<li>Risolvi in Ruby il problema numero 1 del <a href="http://projecteuler.net/">Progetto Euler</a></li>
+</ol>
+
+
+<h4>Da studiare</h4>
+
+<ul>
+<li><a href="http://www.humblelittlerubybook.com/book/" title="Mr. Neighborly's Humble Little Ruby Book">The Humble Little Ruby Book</a>, capitoli 1, 2, 3, 4 (solo Filesystem interaction).  La versione di Ruby che usiamo per queste lezioni è la 1.8.7.</li>
+</ul>
+
+
+<h4>Approfondimenti facoltativi</h4>
+
+<ul>
+<li><a href="http://www.rubyquiz.com/" title="Ruby Quiz">http://www.rubyquiz.com/</a></li>
+</ul>
+
+
+<h3>Lezione 5: Come produrre documenti HTML dinamici, 20-12-2011</h3>
+
+
+<p>Incapsulare il codice in oggetti.  Il linguaggio di templating Embedded Ruby.  Codice dell'<a href="2011/lezione05/lezione05.tgz">esercizio visto a lezione</a>.</p>
+
+<h4>Esercizi</h4>
+
+<ol>
+  <li>
+    
+<p>    Scrivere un programma CGI che gioca a <a href="http://it.wikipedia.org/wiki/Tris_(gioco)">tris</a>.  Usare la struttura del programma <a href="2011/lezione05/lezione05.tgz">Scacchiera</a>.  Il template board.erb deve essere modificato per presentare la mappa del gioco di tris; ogni casella contiene inizialmente un `&lt;input type="submit" name="?"/>` dove l'attributo `name` cambia da casella a casella; ad esempio si possono numerare le caselle da 0 a 8.  Quando l'utente preme uno dei bottoni che stanno nelle caselle, il CGI risponde ridisegnando la mappa con una "X" o una "O" nella casella.  Il programma deve fermarsi quando il gioco è finito.
+</p>
+
+<p>Una maniera alternativa di implementare la `form` che implementa la mappa è di usare gli `&lt;input type="radio" name="?">`.  Così facendo per giocare una mossa sono necessari due clic.
+</p>
+<p>
+  Nella versione base, Tris.cgi permette a due esseri umani di giocare sulla stessa pagina web.  Può essere interessante (ma esula dal programma di questo esame) estendere il programma per giocare contro l'essere umano.
+</p>
+  </li>
+</ol>
+
+
+<h4>Da studiare</h4>
+
+<p>La <a href="http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2" title="Programming Ruby: The Pragmatic Programmer's Guide">documentazione di Embedded Ruby
+</a> fino a "Installing eruby in Apache" escluso.</p>
+
+<h4>Approfondimenti facoltativi</h4>
+
+<p>Il linguaggio di templating <a href="http://markaby.rubyforge.org/" title="RDoc Documentation">Markaby</a></p>
+
+<p>Il linguaggio di templating <a href="http://haml-lang.com/" title="#haml">HAML</a></p>
+
+<p>Un articolo di David Heinemeier Hansson sui <a href="http://david.heinemeierhansson.com/arc/000405.html" title="The false promise of template languages (Loud Thinking)">linguaggi di templating</a></p>
+
+<h3>Lezione 6: Progettare un'applicazione web 22-12-2011</h3>
+
+
+<p>Requisiti funzionali e non funzionali.  Page flow.  Modello dei dati.  L'architettura Model-View-Controller (MVC).  Virtual hosts.  Uso delle regole di riscrittura per connettere tutte le URL della nostra applicazione a un singolo script CGI.</p>
+
+<p>Iniziamo un ciclo di lezioni su come implementare un clone di <a href="http://tadalist.com/">tadalist.com</a>.  I dettagli si trovano <a href="2011/lezione06/slides06.pdf">nei lucidi</a>, che pubblico per questa volta in via eccezionale.</p>
+
+<p>Ho approntato un <a href="https://github.com/xpmatteo/Web-Applications-2011-12">repository su github</a> per il codice che vediamo a lezione.  Per scaricarlo:</p>
+
+<pre><code>git clone https://github.com/xpmatteo/Web-Applications-2011-12.git
+</code></pre>
+
+<p>Per aggiornarlo dopo ogni lezione:</p>
+
+<pre><code>git pull
+</code></pre>
+
+<h4>Esercizi</h4>
+
+<p>Imparare come fare partire e fermare Apache con "apache2ctl" o "apachectl"</p>
+
+<p>Esercizio: creare un virtual host "pippo.com"</p>
+
+<ol>
+  <li>Creare uno o più documenti HTML e salvarli nella directory /tmp/pippo.com</li>
+  <li>Configurare www.pippo.com per puntare a 127.0.0.1 in /etc/hosts</li>
+  <li>Creare un file di configurazione con le direttive necessarie per configurare www.pippo.com come un name-based virtual host.  Questo file sia salvato come "pippo.conf"</li>
+  <li>Includere pippo.conf nella configurazione di Apache.  Su Ubuntu la maniera migliore è salvare pippo.conf in /etc/apache2/sites-available e poi abilitarlo con "a2ensite pippo"</li>
+  <li>Verificare che aprendo "www.pippo.conf" nel browser si vedano i file creati al primo passo.</li>
+</ol>
+
+
+<p>Configurare l'esercizio visto a lezione per funzionare sul tuo web server.  Se digito http://todo-list/pippo/pluto Devo vedere Hello Ruby.  Se digito http://todo-list/images/cards.jpg devo vedere un'immagine.</p>
+
+<p>(Nota che questi esercizi <em>non</em> sono facoltativi)</p>
+
+<h4>Da studiare</h4>
+
+<p>Il <a href="http://httpd.apache.org/docs/2.2/">manuale di Apache Httpd</a>: Binding, Configuration Files, Configuration Sections (fino a "Virtual Hosts" incluso), <a href="http://httpd.apache.org/docs/2.2/vhosts/name-based.html">Name-Based Virtual Hosts</a> (eccetto la parte su "older browsers").</p>
+
+<h3>Lezione 7, 10-01-2012: Prima iterazione di todo-list</h3>
+
+<p>Inizio della implementazione del servizio web specificato nella lezione precedente. Progettazione ad oggetti della struttura della web application.  Gli oggetti WebRequest, WebResponse, Router, TodoListRepository.  Il codice visto a lezione si trova su github, per scaricarlo usare <code>git pull</code> (vedi lezione precedente.)</p>
+
+<h4>Esercizi</h4>
+
+<p>Ho aggiunto lesson06/README.md con le istruzioni dettagliate per l'installazione, e lesson07/README.md con le istruzioni per l'esercizio da fare a casa: implementare l'aggiunta di elementi a una todo-list (iniziato a lezione, da completare)</p>
+
+<h4>Altre domande che potrei fare durante l'esame</h4>
+
+<p>Spiegare in maniera dettagliata a che cosa serve e come funziona la WebRequest, o la WebResponse, il Router, il TodoListRepository....</p>
+
+<p>Eseguire l'esercizio di questa lezione</p>
+
+<h3>Lezione 8, 12-01-2012: Seconda iterazione di todo-list</h3>
+
+<p>Abbiamo visto come usare form con elementi nascosti per conservare lo stato di una "conversazione" con l'applicazione.  Abbiamo discusso la validazione. Abbiamo parlato del problema di mantenere DRY il codice.</p>
+
+<h4>Esercizi</h4>
+
+<p>Ho aggiornato il progetto su Github alla lezione 08.  Ho risolto l'esercizio della volta scorsa e ho aggiunto la possibilità di marcare come "fatto" un item.  Ci sono due esercizi nel README:</p>
+
+<ul>
+<li>Decodificare correttamente i parametri</li>
+<li>Dare la possibilità di rimuovere il check mark e rimettere un'item nella parte "da fare."</li>
+</ul>
+
+
+<p>Da notare che continuiamo ad usare un Repository in memoria al posto del database vero.  Con l'introduzione degli "item" l'uso di questo repository si è un po' complicato.  Presto dovremo riscriverlo per usare un database.</p>
+
+<h4>Da studiare</h4>
+
+<ul>
+<li><a href="http://devlicio.us/blogs/casey/archive/2009/02/20/ddd-the-repository-pattern.aspx">Il pattern "Repository"</a></li>
+</ul>
+
+
+<h4>Approfondimenti facoltativi</h4>
+
+<ul>
+<li>Sul pattern Repository: <a href="http://www.infoq.com/news/2006/12/domain-driven-design">Domain Driven Design Quickly</a> di Floyd Marinescu, da pag. 51 fino alla fine del capitolo.</li>
+</ul>
+
+
+<h3>Lezione 9, 17-01-2012: validazione</h3>
+
+<p>Abbiamo visto il pattern base della validazione dei dati.  Nell'esempio di codice che trovate su github, abbiamo implementato la validazione del nome della todo-list.</p>
+
+<p>Abbiamo anche abbozzato un meccanismo generico per implementare oggetti di dominio adatti all'uso in un'applicazione web (ma non solo.)  Si veda la classe User.</p>
+
+<h4>Esercizi</h4>
+
+<ul>
+<li>Applicare la validazione anche al testo del todo-item.</li>
+<li>Completare la registrazione di un nuovo utente (azione /users/new e /users/create).  Bisogna completare lo UserRepository sul modello del TodoListRepository.</li>
+</ul>
+
+
+<h3>Lezione 10, 19-01-2012: accesso al database</h3>
+
+<p>Perché usiamo il database; pro e contro del DB rispetto all'uso del file system.  Un meccanismo semplice per accedere ai dati del DB dal codice a oggetti: reimplementazione del repository usando un oggetto di interfaccia al database.  (In progress... pubblicherò altro materiale)</p>
+
+<h4>Da studiare:</h4>
+
+<p>Studiare i capitoli 1, 2, 3 di <a href="http://philip.greenspun.com/sql/">Sql for web nerds</a> di Philip Greenspun</p>
+
+<h3>Lezione 11, 26-01-2012: sessioni e autenticazione</h3>
+
+<p>Come implementare le sessioni sul protocollo HTTP.  I cookie.  Algoritmo di generazione delle sessioni.  Utilizzo proprio e improprio dei dati in sessione.  Salvataggio dei dati in sessione.  Algoritmo di verifica della validità della sessione.  Problemi di sicurezza delle sessioni.  Autenticazione.  Algoritmo di autenticazione.</p>
+
+<p>(In progress... pubblicherò altro materiale)</p>
+
+<h3>Da studiare</h3>
+
+<p>Ripassare <a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics.</p>
+
+<p>Studiare la mia <a href="lecture-notes-sessions.html">dispensa sulle sessioni</a></p>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/diario2011 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:44 GMT -->
+</html>

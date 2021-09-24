@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: About Kent Beck&#8217;s Stepping Stone strategy	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/777/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/777</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Kent Beck: Best Practices for Software Design with Low Feature Latency and High Throughput &#171; The Holy Java				</title>
+				<link>http://matteo.vaccari.name/blog/archives/777/comment-page-1#comment-95553</link>
+		<dc:creator><![CDATA[Kent Beck: Best Practices for Software Design with Low Feature Latency and High Throughput &#171; The Holy Java]]></dc:creator>
+		<pubDate>Sat, 18 Aug 2012 12:23:06 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=777#comment-95553</guid>
+					<description><![CDATA[[...] About Kent Beck’s Stepping Stone strategy by Matteo Vaccari &#8211; the two types of them, examples (I&#8217;m not sure I agree with his interpretation of the simplification strategy though) [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] About Kent Beck’s Stepping Stone strategy by Matteo Vaccari &#8211; the two types of them, examples (I&#8217;m not sure I agree with his interpretation of the simplification strategy though) [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/777/comment-page-1#comment-95550</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 17 Aug 2012 13:35:15 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=777#comment-95550</guid>
+					<description><![CDATA[@Luca: Good point! These strategy apply at many levels.  About applying them to the release cycle: do you mean that you might spend an entire release on infrastructure work?  I&#039;m not sure about that. Agile thinking tells me we should always release value for the customer.  Perhaps what you say is true for some situations (e.g., you&#039;re on an internal project and you&#039;re delivering value to internal customers. )  I suppose it depends on context...
+
+@Howard: what you say is true, but you should also consider that:
+
+ * many pieces of infrastructure are already there for the taking; take Redis or Hadoop or Memcached for instance.
+
+ * The Stepping Stone strategy applies at all levels (see Luca&#039;s comment).  It&#039;s not only architecture level.  The examples I provide are much smaller than that.
+
+ * Stepping Stone is not the only strategy that you should use.  Other ideas in XP in particular and agile methods in general would prevent you to waste too much on useless infrastructure.  For instance: Spike Solution, Continuous Delivery, and the ever-important You Ain&#039;t Gonna Need It.
+
+@ioctopus: I&#039;m saying that you should either find or write yourself the stepping stones that might benefit you.  It&#039;s wise to look for quality in all things, so I would not just grab any open source product; I would only use top quality third-party infrastructure.]]></description>
+		<content:encoded><![CDATA[<p>@Luca: Good point! These strategy apply at many levels.  About applying them to the release cycle: do you mean that you might spend an entire release on infrastructure work?  I&#8217;m not sure about that. Agile thinking tells me we should always release value for the customer.  Perhaps what you say is true for some situations (e.g., you&#8217;re on an internal project and you&#8217;re delivering value to internal customers. )  I suppose it depends on context&#8230;</p>
+<p>@Howard: what you say is true, but you should also consider that:</p>
+<p> * many pieces of infrastructure are already there for the taking; take Redis or Hadoop or Memcached for instance.</p>
+<p> * The Stepping Stone strategy applies at all levels (see Luca&#8217;s comment).  It&#8217;s not only architecture level.  The examples I provide are much smaller than that.</p>
+<p> * Stepping Stone is not the only strategy that you should use.  Other ideas in XP in particular and agile methods in general would prevent you to waste too much on useless infrastructure.  For instance: Spike Solution, Continuous Delivery, and the ever-important You Ain&#8217;t Gonna Need It.</p>
+<p>@ioctopus: I&#8217;m saying that you should either find or write yourself the stepping stones that might benefit you.  It&#8217;s wise to look for quality in all things, so I would not just grab any open source product; I would only use top quality third-party infrastructure.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: itoctopus				</title>
+				<link>http://matteo.vaccari.name/blog/archives/777/comment-page-1#comment-95549</link>
+		<dc:creator><![CDATA[itoctopus]]></dc:creator>
+		<pubDate>Fri, 17 Aug 2012 11:23:00 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=777#comment-95549</guid>
+					<description><![CDATA[What you&#039;re basically saying is that one should re-use other people&#039;s code as a black box which will facilitate development and increase productivity.
+
+There is quote that I read some time ago (I can&#039;t remember who said it - it might be an IBM or a Microsoft engineer): &quot;Don&#039;t trust code that you haven&#039;t written yourself&quot; - While of course, this is not practical - it can tell a lot about the mentality of many developers.
+
+Thank you for sharing!]]></description>
+		<content:encoded><![CDATA[<p>What you&#8217;re basically saying is that one should re-use other people&#8217;s code as a black box which will facilitate development and increase productivity.</p>
+<p>There is quote that I read some time ago (I can&#8217;t remember who said it &#8211; it might be an IBM or a Microsoft engineer): &#8220;Don&#8217;t trust code that you haven&#8217;t written yourself&#8221; &#8211; While of course, this is not practical &#8211; it can tell a lot about the mentality of many developers.</p>
+<p>Thank you for sharing!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Howard				</title>
+				<link>http://matteo.vaccari.name/blog/archives/777/comment-page-1#comment-95545</link>
+		<dc:creator><![CDATA[Howard]]></dc:creator>
+		<pubDate>Thu, 16 Aug 2012 22:24:01 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=777#comment-95545</guid>
+					<description><![CDATA[There are a few hidden issues when drawing an analogy with things that google can do and things that everyone else can do.
+
+
+1) If you are wildly successful and have a great deal of money, you can build amazing infrastructure. It is easier to say technology that has a revolutionary affect like &quot;bigtable, GFS, etc&quot; when you use google as the author. It is harder to build something like &quot;bigtable&quot; when you can&#039;t afford to hire a Jeff Dean and give him the resources he needs to create new technology. (Even if you can afford him, there aren&#039;t enough Jeffs to hire). Furthermore, Google hires developers who build development tools which is fantastic. But not everyone can afford that and it may not matter; youtube didn&#039;t have that luxury before google bought them. You have to balance providing value to your customers with developer productivity. But really there is something subtle with google. When you hire enough people in the top 1% you can accomplish things that others can&#039;t match and it is a mistake to try before you secure a clear way to pay for it. In hindsight, bigtable seems simple enough for someone who is in the top 10% to implement. You have to ask yourself it she could do something that has the same affect as bigtable today. Could someone in the top 1% do it without others in the 1% around him to interact with?
+
+2) It is easy to spend a lot of time building a tool to solve your problem such that you run of time (market window) to solve the problem. I once saw a group of developers who convinced their manager to allow them to write a C++ IDE so it would be easier for them to write the product. Similarly, it can be wasteful to rebuild part of oracle inside of ruby so that you have a similar abstraction. I know you&#039;re thinking &quot;Everyone knows that&quot; but I don&#039;t think they do know how hard it is when they quote google as an example.
+
+Some people underestimate how hard it is to build key infrastructure. At google the bigtable team was tiny because they only accepted the smartest developers they could find (the top 5%). When bigtable failed, it is not simple to isolate the problem. In one case, there was a bigtable bug that caused a corruption every billion or so transaction. The team found it quickly and rolled out a patch within a few hours. This is not technology your average developer can just pick up and run with. 
+
+You see the tip of the iceberg when you see what google does; what is hidden is the huge amount money they spend to hire people who can pull it off. You don&#039;t want to try to keep up with them in hiring people in the top 10%. You don&#039;t want to try to build the next revolutionary infrastructural technology. Google has a blind spot. They are only interested in solving really hard problems. There are plenty of billion dollar easy problems that google is too smart to consider. Twitter is a good example.]]></description>
+		<content:encoded><![CDATA[<p>There are a few hidden issues when drawing an analogy with things that google can do and things that everyone else can do.</p>
+<p>1) If you are wildly successful and have a great deal of money, you can build amazing infrastructure. It is easier to say technology that has a revolutionary affect like &#8220;bigtable, GFS, etc&#8221; when you use google as the author. It is harder to build something like &#8220;bigtable&#8221; when you can&#8217;t afford to hire a Jeff Dean and give him the resources he needs to create new technology. (Even if you can afford him, there aren&#8217;t enough Jeffs to hire). Furthermore, Google hires developers who build development tools which is fantastic. But not everyone can afford that and it may not matter; youtube didn&#8217;t have that luxury before google bought them. You have to balance providing value to your customers with developer productivity. But really there is something subtle with google. When you hire enough people in the top 1% you can accomplish things that others can&#8217;t match and it is a mistake to try before you secure a clear way to pay for it. In hindsight, bigtable seems simple enough for someone who is in the top 10% to implement. You have to ask yourself it she could do something that has the same affect as bigtable today. Could someone in the top 1% do it without others in the 1% around him to interact with?</p>
+<p>2) It is easy to spend a lot of time building a tool to solve your problem such that you run of time (market window) to solve the problem. I once saw a group of developers who convinced their manager to allow them to write a C++ IDE so it would be easier for them to write the product. Similarly, it can be wasteful to rebuild part of oracle inside of ruby so that you have a similar abstraction. I know you&#8217;re thinking &#8220;Everyone knows that&#8221; but I don&#8217;t think they do know how hard it is when they quote google as an example.</p>
+<p>Some people underestimate how hard it is to build key infrastructure. At google the bigtable team was tiny because they only accepted the smartest developers they could find (the top 5%). When bigtable failed, it is not simple to isolate the problem. In one case, there was a bigtable bug that caused a corruption every billion or so transaction. The team found it quickly and rolled out a patch within a few hours. This is not technology your average developer can just pick up and run with. </p>
+<p>You see the tip of the iceberg when you see what google does; what is hidden is the huge amount money they spend to hire people who can pull it off. You don&#8217;t want to try to keep up with them in hiring people in the top 10%. You don&#8217;t want to try to build the next revolutionary infrastructural technology. Google has a blind spot. They are only interested in solving really hard problems. There are plenty of billion dollar easy problems that google is too smart to consider. Twitter is a good example.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/777/comment-page-1#comment-95540</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Thu, 16 Aug 2012 11:44:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=777#comment-95540</guid>
+					<description><![CDATA[So far this match my understanding from video and slides.
+
+As I understood those design strategy (simplify or place stepping stone) can be applied at different level of granularity (from methods to subsystems to complete systems). 
+
+As I understood those design strategy apply at the coding-time (as in your posts/examples) and also at the run-time, in the sense that they apply also to the iterative development and release strategy. 
+
+Do this match your understanding too or am I pushing these ideas outside the original author&#039;s intention?]]></description>
+		<content:encoded><![CDATA[<p>So far this match my understanding from video and slides.</p>
+<p>As I understood those design strategy (simplify or place stepping stone) can be applied at different level of granularity (from methods to subsystems to complete systems). </p>
+<p>As I understood those design strategy apply at the coding-time (as in your posts/examples) and also at the run-time, in the sense that they apply also to the iterative development and release strategy. </p>
+<p>Do this match your understanding too or am I pushing these ideas outside the original author&#8217;s intention?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

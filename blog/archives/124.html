@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/124 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:27:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  &raquo; Blog Archive   &raquo; A few Java snippets I keep reinventing</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm &raquo; A few Java snippets I keep reinventing Comments Feed" href="124/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='An Agile Mini-Project' href='123.html' />
+<link rel='next' title='Next stop: Eindhoven' href='125.html' />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="124.html" />
+<link rel='shortlink' href='../indexd4a6.html?p=124' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embedc8ca.json?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F124" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embedf37e?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F124&amp;format=xml" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+    <div id='main-col'>
+
+  
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="123.html" rel="prev">An Agile Mini-Project</a></div>
+			<div class="alignright"><a href="125.html" rel="next">Next stop: Eindhoven</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-124">
+			<h2><a href="124.html" rel="bookmark" title="Permanent Link: A few Java snippets I keep reinventing">A few Java snippets I keep reinventing</a></h2>
+
+			<div class="entrytext">
+				<p>I write them here so that I&#8217;ll have a place to find them again.</p>
+<p><span id="more-124"></span></p>
+<p>How to convert a String into an InputStream:</p>
+<pre>
+new ByteArrayInputStream(input.getBytes())
+</pre>
+<p>How to capture in a String an OutputStream</p>
+<pre>
+OutputStream os = new ByteArrayOutputStream();
+PrintStream ps = new PrintStream(os);
+ps.println("bla bla");
+...
+String out = ps.toString();
+</pre>
+<p>How to find the temporary directory</p>
+<pre name="code" class="Java">
+protected String getTempDir() throws Exception {
+    if (null == tempDir) {
+        File temp = File.createTempFile("aaa", "b");
+        temp.deleteOnExit();
+        tempDir = temp.getParent();
+    }
+    return tempDir;
+}
+</pre>
+<p>How to provide a simple Log4j configuration for tests</p>
+<pre>
+@BeforeClass 
+public static void configureLogging() {
+    System.setProperty("log4j.defaultInitOverride", "true");
+    Properties p = new Properties();
+    p.setProperty("log4j.appender.stdout", "org.apache.log4j.ConsoleAppender");
+    p.setProperty("log4j.appender.stdout.Target", "System.out");
+    p.setProperty("log4j.appender.stdout.layout", "org.apache.log4j.PatternLayout");
+    p.setProperty("log4j.appender.stdout.layout.ConversionPattern", "%5p %c{1}:%L - %m%n");
+    p.setProperty("log4j.rootLogger", "INFO, stdout");
+    PropertyConfigurator.configure(p);
+}
+</pre>
+<p>How to parse an XML document and find nodes with XPath.  And test a StringTemplate template!</p>
+<pre>
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.antlr.stringtemplate.StringTemplate;
+import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+
+public class XpathTest {
+
+    @Test
+    public void testXpath() throws Exception {
+        Document doc = documentFromString("&lt;a>&lt;b>&lt;c>foo&lt;/c>&lt;/b>&lt;/a>");
+        assertEquals(0, getNodeList(doc, "//foo").getLength());
+        assertEquals(1, getNodeList(doc, "//c").getLength());
+        assertEquals("foo", getNodeContent(doc, "/a/b/c"));
+    }
+
+    private String getNodeContent(Document doc, String xpath) throws XPathExpressionException {
+        NodeList nodes = getNodeList(doc, xpath);
+        assertEquals("expected exactly 1 node at xpath " + xpath, 1, nodes.getLength());
+        return nodes.item(0).getTextContent();
+    }
+
+    private NodeList getNodeList(Document doc, String xpath) throws XPathExpressionException {
+        // see http://www.ibm.com/developerworks/library/x-javaxpathapi.html
+        XPathFactory factory = XPathFactory.newInstance();
+        XPath xp = factory.newXPath();
+        return (NodeList) xp.evaluate(xpath, doc, XPathConstants.NODESET);
+    }
+
+    private Document documentFromString(String string) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setNamespaceAware(true);
+        return factory.newDocumentBuilder().parse(new ByteArrayInputStream(string.getBytes()));
+    }
+
+    @Test
+    public void testTemplate() throws Exception {
+        StringTemplate template = new StringTemplate("Hello, $name$!");
+        template.setAttribute("name", "world");
+        assertEquals("Hello, world!", template.toString());
+    }
+}  
+</pre>
+<p>How to easily create, parse and format a date.</p>
+<pre>
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
+public class DateUtil {
+	private static final Locale LOCALE = Locale.ITALY;
+	private static final String FORMAT_STRING = "dd MMMM yyyy";
+
+	public static Date create(int year, int month, int day, int hours, int minutes, int seconds) {
+		return new GregorianCalendar(year, month-1, day, hours, minutes, seconds).getTime();
+	}
+
+	public static Date parse(String s) throws ParseException {
+		return format().parse(s);
+	}
+
+	public String toFormattedString(Date date) {
+		return format().format(date);
+	}
+
+	private static SimpleDateFormat format() {
+                // update: (thanks Mirko!)
+		// can't use a static instance as SimpleDateFormat is not thread-safe
+		return new SimpleDateFormat(FORMAT_STRING, LOCALE);
+	}
+}
+</pre>
+<p>A simple but workable servlet web.xml configuration file.</p>
+<pre>
+&lt;?xml version = '1.0' encoding = 'utf-8'?&gt;
+&lt;web-app&gt;
+   &lt;description&gt;Sample Simple Web App&lt;/description&gt;
+
+   &lt;servlet&gt;
+      &lt;servlet-name&gt;helloworld&lt;/servlet-name&gt;
+      &lt;servlet-class&gt;essap.sample.helloworld.HelloWorldServlet&lt;/servlet-class&gt;
+   &lt;/servlet&gt;
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;helloworld&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;  
+</pre>
+<p>And finally, a simple but complete Ant build.xml for a web application.</p>
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;project name="my-project" default="compile" basedir="."&gt;
+
+    &lt;property name="build.dir"      location="target" /&gt;
+    &lt;property name="build.prod.dir" location="${build.dir}/prod"/&gt;
+    &lt;property name="build.test.dir" location="${build.dir}/test"/&gt;
+    &lt;property name="src.dir"        location="src"/&gt;
+    &lt;property name="test.dir"       location="unit"/&gt;
+    &lt;property name="test.lib.dir"   location="lib/test" /&gt;
+    &lt;property name="war.file"       location="${build.dir}/my-project.war"/&gt;
+    &lt;property name="conf.dir"       location="conf/development" /&gt;
+
+    &lt;path id="project.classpath"&gt;
+        &lt;pathelement location="${build.prod.dir}" /&gt;
+        &lt;pathelement location="${build.test.dir}" /&gt;
+        &lt;fileset dir="${test.lib.dir}"&gt;
+            &lt;include name="*.jar"/&gt;
+        &lt;/fileset&gt;
+    &lt;/path&gt;
+
+    &lt;target name="prepare"&gt;
+        &lt;mkdir dir="${build.prod.dir}"/&gt;
+        &lt;mkdir dir="${build.test.dir}"/&gt;
+    &lt;/target&gt;
+
+    &lt;target name="compile" depends="prepare"&gt;
+        &lt;javac source="1.5" target="1.5" destdir="${build.prod.dir}" debug="true" encoding="utf-8"&gt;
+            &lt;src path="${src.dir}" /&gt;
+            &lt;classpath refid="project.classpath" /&gt;
+        &lt;/javac&gt;
+    &lt;/target&gt;
+
+    &lt;target name="compile-tests" depends="compile"&gt;
+        &lt;javac source="1.5" target="1.5" destdir="${build.test.dir}" encoding="utf-8"&gt;
+            &lt;src path="${test.dir}" /&gt;
+            &lt;classpath refid="project.classpath" /&gt;
+        &lt;/javac&gt;
+    &lt;/target&gt;
+
+    &lt;target name="test" depends="compile-tests"&gt;
+        &lt;junit haltonfailure="true" haltonerror="true" 
+      outputtoformatters="yes" fork="yes" forkmode="perBatch" maxmemory="256m" dir="${basedir}"&gt;
+            &lt;classpath refid="project.classpath" /&gt;
+            &lt;classpath location="${src.dir}" /&gt;
+            &lt;classpath location="${test.dir}" /&gt;
+            &lt;formatter type="brief" usefile="no" /&gt;
+            &lt;batchtest&gt;
+                &lt;fileset dir="${build.test.dir}" includes="**/*Test.class" /&gt;
+            &lt;/batchtest&gt;
+        &lt;/junit&gt;
+    &lt;/target&gt;
+
+    &lt;target name="clean"&gt;
+        &lt;delete dir="${build.dir}" /&gt;
+    &lt;/target&gt;
+
+    &lt;target name="war" depends="compile"&gt;
+        &lt;war destfile="${war.file}" webxml="${conf.dir}/web.xml"&gt;
+            &lt;classes dir="${build.prod.dir}" /&gt;
+            &lt;classes dir="${src.dir}" includes="**/*.html" /&gt;
+            &lt;classes dir="${src.dir}" includes="**/*.properties" /&gt;
+            &lt;classes dir="${src.dir}" includes="**/config.yml" /&gt;
+            &lt;fileset dir="web" /&gt;
+            &lt;classes dir="${conf.dir}" includes="log4j.*" /&gt;
+        &lt;/war&gt;
+    &lt;/target&gt;  
+&lt;/project&gt;
+</pre>
+
+				
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on 24 July 2008 at 22:53						and is filed under <a href="category/agile.html" rel="category tag">Agile</a>.
+						You can follow any responses to this entry through the <a href="124/feed">RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="124/trackback" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">6 Responses to &#8220;A few Java snippets I keep reinventing&#8221;</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-67571">
+			<cite><a href='http://fabiobeta.it/' rel='external nofollow' class='url'>fabiobeta</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-67571" title="">July 25th, 2008 at 16:18</a> </small>
+
+			<p>Matteo&#8230;grazie!!!</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-67572">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-67572" title="">July 25th, 2008 at 16:47</a> </small>
+
+			<p>You&#8217;re welcome!  Some of this stuff is from the old Milano-XPUG projects&#8230;</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-67640">
+			<cite><a href='http://riffraff.blogsome.com/' rel='external nofollow' class='url'>riffraff</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-67640" title="">July 26th, 2008 at 11:59</a> </small>
+
+			<p>interesting, I used items #1 and #2 yesterday and #5 is already in the codebase, albeit I prefer to transform the NodeList into a List :)</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-67646">
+			<cite>Mirko</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-67646" title="">July 26th, 2008 at 14:01</a> </small>
+
+			<p>Only a little thing:<br />
+SimpleDateFormat is not thread-safe, so need to be instantiated every time.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-70580">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-70580" title="">October 5th, 2008 at 21:54</a> </small>
+
+			<p>Mirko: you&#8217;re right.  I corrected the error.  Although a better fix would be to use Joda Time (<a href="http://joda-time.sourceforge.net/" rel="nofollow">http://joda-time.sourceforge.net/</a>)!</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-96311">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-96311" title="">September 3rd, 2013 at 17:05</a> </small>
+
+			<p>How to transform a SOAP response from XML to Java object:</p>
+<pre>
+protected &lt;T&gt; T unmarshal(Class&lt;T&gt; klass, String fileName) throws JAXBException
+{
+    JAXBContext context = JAXBContext.newInstance(klass.getPackage().getName());
+    Unmarshaller unmarshaller = context.createUnmarshaller();
+    InputStream stream = this.getClass().getResourceAsStream(fileName);
+    JAXBElement jaxbElement = (JAXBElement) unmarshaller.unmarshal(stream);
+    return (T) jaxbElement.getValue();
+}
+</pre>
+<p>How to do the reverse:</p>
+<pre>
+// See http://stackoverflow.com/questions/2472155/i-want-to-convert-an-output-stream-into-string-object
+public &lt;T&gt; String marshal(Class &lt;T&gt; klass, T object) throws JAXBException
+{
+  StringWriter writer = new StringWriter();
+  JAXBContext context = JAXBContext.newInstance(klass);
+  Marshaller marshaller = context.createMarshaller();
+  marshaller.setProperty(Marshaller.JAXB_ENCODING, &quot;UTF-8&quot;);
+  marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+  JAXBElement jaxbElement = new JAXBElement&lt;T&gt;(new QName(&quot;&quot;,&quot;rootTag&quot;), klass, object);
+  marshaller.marshal(jaxbElement, writer);
+  return writer.toString();
+}
+</pre>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://matteo.vaccari.name/blog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="124" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a7877626fe" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="42"/></p>
+</form>
+
+
+
+	
+    </div>
+
+    <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='date/2018/10.html'>October 2018</a></li>
+	<li><a href='date/2017/09.html'>September 2017</a></li>
+	<li><a href='date/2016/08.html'>August 2016</a></li>
+	<li><a href='date/2016/03.html'>March 2016</a></li>
+	<li><a href='date/2016/01.html'>January 2016</a></li>
+	<li><a href='date/2014/12.html'>December 2014</a></li>
+	<li><a href='date/2014/10.html'>October 2014</a></li>
+	<li><a href='date/2014/06.html'>June 2014</a></li>
+	<li><a href='date/2014/02.html'>February 2014</a></li>
+	<li><a href='date/2013/12.html'>December 2013</a></li>
+	<li><a href='date/2013/11.html'>November 2013</a></li>
+	<li><a href='date/2013/06.html'>June 2013</a></li>
+	<li><a href='date/2013/05.html'>May 2013</a></li>
+	<li><a href='date/2013/03.html'>March 2013</a></li>
+	<li><a href='date/2013/02.html'>February 2013</a></li>
+	<li><a href='date/2012/10.html'>October 2012</a></li>
+	<li><a href='date/2012/08.html'>August 2012</a></li>
+	<li><a href='date/2012/07.html'>July 2012</a></li>
+	<li><a href='date/2012/06.html'>June 2012</a></li>
+	<li><a href='date/2012/05.html'>May 2012</a></li>
+	<li><a href='date/2012/04.html'>April 2012</a></li>
+	<li><a href='date/2012/01.html'>January 2012</a></li>
+	<li><a href='date/2011/12.html'>December 2011</a></li>
+	<li><a href='date/2011/11.html'>November 2011</a></li>
+	<li><a href='date/2011/10.html'>October 2011</a></li>
+	<li><a href='date/2011/07.html'>July 2011</a></li>
+	<li><a href='date/2011/06.html'>June 2011</a></li>
+	<li><a href='date/2011/05.html'>May 2011</a></li>
+	<li><a href='date/2011/04.html'>April 2011</a></li>
+	<li><a href='date/2011/03.html'>March 2011</a></li>
+	<li><a href='date/2011/02.html'>February 2011</a></li>
+	<li><a href='date/2010/11.html'>November 2010</a></li>
+	<li><a href='date/2010/10.html'>October 2010</a></li>
+	<li><a href='date/2010/09.html'>September 2010</a></li>
+	<li><a href='date/2010/08.html'>August 2010</a></li>
+	<li><a href='date/2010/07.html'>July 2010</a></li>
+	<li><a href='date/2010/06.html'>June 2010</a></li>
+	<li><a href='date/2010/05.html'>May 2010</a></li>
+	<li><a href='date/2010/04.html'>April 2010</a></li>
+	<li><a href='date/2010/03.html'>March 2010</a></li>
+	<li><a href='date/2010/02.html'>February 2010</a></li>
+	<li><a href='date/2010/01.html'>January 2010</a></li>
+	<li><a href='date/2009/12.html'>December 2009</a></li>
+	<li><a href='date/2009/11.html'>November 2009</a></li>
+	<li><a href='date/2009/10.html'>October 2009</a></li>
+	<li><a href='date/2009/09.html'>September 2009</a></li>
+	<li><a href='date/2009/07.html'>July 2009</a></li>
+	<li><a href='date/2009/05.html'>May 2009</a></li>
+	<li><a href='date/2009/04.html'>April 2009</a></li>
+	<li><a href='date/2009/03.html'>March 2009</a></li>
+	<li><a href='date/2009/02.html'>February 2009</a></li>
+	<li><a href='date/2009/01.html'>January 2009</a></li>
+	<li><a href='date/2008/12.html'>December 2008</a></li>
+	<li><a href='date/2008/11.html'>November 2008</a></li>
+	<li><a href='date/2008/10.html'>October 2008</a></li>
+	<li><a href='date/2008/09.html'>September 2008</a></li>
+	<li><a href='date/2008/07.html'>July 2008</a></li>
+	<li><a href='date/2008/06.html'>June 2008</a></li>
+	<li><a href='date/2008/05.html'>May 2008</a></li>
+	<li><a href='date/2008/04.html'>April 2008</a></li>
+	<li><a href='date/2008/01.html'>January 2008</a></li>
+	<li><a href='date/2007/11.html'>November 2007</a></li>
+	<li><a href='date/2007/10.html'>October 2007</a></li>
+	<li><a href='date/2007/09.html'>September 2007</a></li>
+	<li><a href='date/2007/06.html'>June 2007</a></li>
+	<li><a href='date/2007/05.html'>May 2007</a></li>
+	<li><a href='date/2007/04.html'>April 2007</a></li>
+	<li><a href='date/2007/03.html'>March 2007</a></li>
+	<li><a href='date/2007/02.html'>February 2007</a></li>
+	<li><a href='date/2007/01.html'>January 2007</a></li>
+	<li><a href='date/2006/12.html'>December 2006</a></li>
+	<li><a href='date/2006/11.html'>November 2006</a></li>
+	<li><a href='date/2006/10.html'>October 2006</a></li>
+	<li><a href='date/2006/09.html'>September 2006</a></li>
+	<li><a href='date/2006/08.html'>August 2006</a></li>
+	<li><a href='date/2006/07.html'>July 2006</a></li>
+	<li><a href='date/2006/06.html'>June 2006</a></li>
+	<li><a href='date/2006/05.html'>May 2006</a></li>
+	<li><a href='date/2006/04.html'>April 2006</a></li>
+	<li><a href='date/2006/03.html'>March 2006</a></li>
+	<li><a href='date/2006/02.html'>February 2006</a></li>
+	<li><a href='date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+<script async="async" type='text/javascript' src='../wp-content/plugins/akismet/_inc/form0235.js?ver=4.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/124 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:27:44 GMT -->
+</html>

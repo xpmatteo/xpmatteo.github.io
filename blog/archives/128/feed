@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: La lavagna del team Orione, ottobre 2008	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/128/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/128</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/128/comment-page-1#comment-70813</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 14 Oct 2008 11:55:12 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=128#comment-70813</guid>
+					<description><![CDATA[Beh, Davide, sì, senz&#039;altro la lavagna può essere migliorata; mi fai esempio di come la miglioreresti?]]></description>
+		<content:encoded><![CDATA[<p>Beh, Davide, sì, senz&#8217;altro la lavagna può essere migliorata; mi fai esempio di come la miglioreresti?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Davide				</title>
+				<link>http://matteo.vaccari.name/blog/archives/128/comment-page-1#comment-70811</link>
+		<dc:creator><![CDATA[Davide]]></dc:creator>
+		<pubDate>Tue, 14 Oct 2008 11:22:17 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=128#comment-70811</guid>
+					<description><![CDATA[Ciao,
+ Direi che la risposta di Tommaso ha anticipato un po&#039; il mio pensiero, cioe&#039;: 
+&quot;La lavagna puo&#039; essere piu&#039; coesa?&quot;, &quot;Devono, tutti questi concetti, essere immediatamente visibili?&quot;, &quot;La lavagna potrebbe essere piu&#039; comunicativa se impostata in un altro modo?&quot;]]></description>
+		<content:encoded><![CDATA[<p>Ciao,<br />
+ Direi che la risposta di Tommaso ha anticipato un po&#8217; il mio pensiero, cioe&#8217;:<br />
+&#8220;La lavagna puo&#8217; essere piu&#8217; coesa?&#8221;, &#8220;Devono, tutti questi concetti, essere immediatamente visibili?&#8221;, &#8220;La lavagna potrebbe essere piu&#8217; comunicativa se impostata in un altro modo?&#8221;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Tommaso Torti				</title>
+				<link>http://matteo.vaccari.name/blog/archives/128/comment-page-1#comment-70706</link>
+		<dc:creator><![CDATA[Tommaso Torti]]></dc:creator>
+		<pubDate>Thu, 09 Oct 2008 19:15:29 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=128#comment-70706</guid>
+					<description><![CDATA[Ciao Davide,
+considera che: 
+ * le regole del team sono lì per essere interiorizzate, quando non le violeremo piu e faranno parte del nostro dna (cioè presto) toglieremo quella parte
+ * una riga per user story
+ * numeri scritti grossi per capire ad occhio qual è il remaining dell&#039;iterazione
+ * la parte degli stagisti è messa per comodità lì, ma potrebbe finire in una altra lavagna, se l&#039;avessimo]]></description>
+		<content:encoded><![CDATA[<p>Ciao Davide,<br />
+considera che:<br />
+ * le regole del team sono lì per essere interiorizzate, quando non le violeremo piu e faranno parte del nostro dna (cioè presto) toglieremo quella parte<br />
+ * una riga per user story<br />
+ * numeri scritti grossi per capire ad occhio qual è il remaining dell&#8217;iterazione<br />
+ * la parte degli stagisti è messa per comodità lì, ma potrebbe finire in una altra lavagna, se l&#8217;avessimo</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/128/comment-page-1#comment-70642</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 07 Oct 2008 10:13:10 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=128#comment-70642</guid>
+					<description><![CDATA[Ciao Davide,
+
+mi fai un esempio di cosa intendi per ortogonalizzare e separare?]]></description>
+		<content:encoded><![CDATA[<p>Ciao Davide,</p>
+<p>mi fai un esempio di cosa intendi per ortogonalizzare e separare?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Davide				</title>
+				<link>http://matteo.vaccari.name/blog/archives/128/comment-page-1#comment-70640</link>
+		<dc:creator><![CDATA[Davide]]></dc:creator>
+		<pubDate>Tue, 07 Oct 2008 07:48:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=128#comment-70640</guid>
+					<description><![CDATA[Ciao Matteo,
+ Il mio feedback: mi sembra una lavagna un po&#039; complessa, non e&#039; possibile ortogonalizzare e separare maggiormente i concetti che avete sulla lavagna?]]></description>
+		<content:encoded><![CDATA[<p>Ciao Matteo,<br />
+ Il mio feedback: mi sembra una lavagna un po&#8217; complessa, non e&#8217; possibile ortogonalizzare e separare maggiormente i concetti che avete sulla lavagna?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

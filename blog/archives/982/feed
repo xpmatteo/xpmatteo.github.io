@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Pattern: Testable Screens	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/982/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/982</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/982/comment-page-1#comment-266373</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 17 May 2016 13:46:38 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=982#comment-266373</guid>
+					<description><![CDATA[Hi Roberto,
+
+I am sure this idea is not new; however I am not aware of it being discussed as a published pattern.  Take care!
+
+Matteo]]></description>
+		<content:encoded><![CDATA[<p>Hi Roberto,</p>
+<p>I am sure this idea is not new; however I am not aware of it being discussed as a published pattern.  Take care!</p>
+<p>Matteo</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Roberto S.				</title>
+				<link>http://matteo.vaccari.name/blog/archives/982/comment-page-1#comment-265909</link>
+		<dc:creator><![CDATA[Roberto S.]]></dc:creator>
+		<pubDate>Thu, 12 May 2016 20:51:27 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=982#comment-265909</guid>
+					<description><![CDATA[Hi Matteo, I have done the same thing in the past with an application based on Adobe Flex. Is &quot;testable screens&quot; a known pattern?
+Thanks Bye
+  R]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo, I have done the same thing in the past with an application based on Adobe Flex. Is &#8220;testable screens&#8221; a known pattern?<br />
+Thanks Bye<br />
+  R</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Che cos&#8217;è un test di accettazione?	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/138/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/138</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Test tastes &#171; Software Engineering Slave				</title>
+				<link>http://matteo.vaccari.name/blog/archives/138/comment-page-1#comment-72176</link>
+		<dc:creator><![CDATA[Test tastes &#171; Software Engineering Slave]]></dc:creator>
+		<pubDate>Sun, 23 Nov 2008 12:28:26 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=138#comment-72176</guid>
+					<description><![CDATA[[...] Matteo started discussing, posting his ideas on acceptance and integration tests. he has done a great work, trying to explain his point of view while showing other&#8217;s, such as [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Matteo started discussing, posting his ideas on acceptance and integration tests. he has done a great work, trying to explain his point of view while showing other&#8217;s, such as [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/138/comment-page-1#comment-72165</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 23 Nov 2008 07:05:24 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=138#comment-72165</guid>
+					<description><![CDATA[Ciao Luca,
+
+quello che intendiamo noi per &quot;integration test&quot; è un test che non soddisfa i requisiti di Michael Feathers (http://www.artima.com/weblogs/viewpost.jsp?thread=126923), cioè di solito un test che parla con un sistema esterno, di solito il DB.  Un test che stimola l&#039;interazione di più oggetti, purché siano tutti oggetti definiti da noi che eseguono all&#039;interno del nostro processo, lo chiamiamo comunque un unit test.]]></description>
+		<content:encoded><![CDATA[<p>Ciao Luca,</p>
+<p>quello che intendiamo noi per &#8220;integration test&#8221; è un test che non soddisfa i requisiti di Michael Feathers (<a href="http://www.artima.com/weblogs/viewpost.jsp?thread=126923" rel="nofollow">http://www.artima.com/weblogs/viewpost.jsp?thread=126923</a>), cioè di solito un test che parla con un sistema esterno, di solito il DB.  Un test che stimola l&#8217;interazione di più oggetti, purché siano tutti oggetti definiti da noi che eseguono all&#8217;interno del nostro processo, lo chiamiamo comunque un unit test.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/138/comment-page-1#comment-72131</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Sat, 22 Nov 2008 17:03:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=138#comment-72131</guid>
+					<description><![CDATA[iniziando a fare unit testing interation-based anchei test state-base che scrivevo hanno iniziato a diventare più unitari 
+
+cosi ho sentito il bisogno di scrivere di integrazione per testare come gli oggetti funzionano insieme - anche quando non c&#039;è un sotto-sistema esterno
+
+x fare un esempio - quando scrivo una feature nuova gli scrivo tutti e tre (stare-based, interation-based e integration) e mi sono utili tutti e tre da subito per fare refactoring con tranquillità e anche osare di più]]></description>
+		<content:encoded><![CDATA[<p>iniziando a fare unit testing interation-based anchei test state-base che scrivevo hanno iniziato a diventare più unitari </p>
+<p>cosi ho sentito il bisogno di scrivere di integrazione per testare come gli oggetti funzionano insieme &#8211; anche quando non c&#8217;è un sotto-sistema esterno</p>
+<p>x fare un esempio &#8211; quando scrivo una feature nuova gli scrivo tutti e tre (stare-based, interation-based e integration) e mi sono utili tutti e tre da subito per fare refactoring con tranquillità e anche osare di più</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

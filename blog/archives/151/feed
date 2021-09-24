@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Reuse is overrated	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/151/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/151</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Thibauld				</title>
+				<link>http://matteo.vaccari.name/blog/archives/151/comment-page-1#comment-74162</link>
+		<dc:creator><![CDATA[Thibauld]]></dc:creator>
+		<pubDate>Tue, 30 Dec 2008 10:53:47 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=151#comment-74162</guid>
+					<description><![CDATA[Good post!
+I cannot agree more with you! Most people don&#039;t realize how much time they loose when they try to reuse code instead of actually coding the few lines required! By the way, I just &lt;a href=&quot;http://thibauld.com/2008/12/web-application-implementation-step-4-copying-is-not-reusing/&quot; rel=&quot;nofollow&quot;&gt;blogged about the exact same issue&lt;/a&gt; a few days ago.
+Cheers,]]></description>
+		<content:encoded><![CDATA[<p>Good post!<br />
+I cannot agree more with you! Most people don&#8217;t realize how much time they loose when they try to reuse code instead of actually coding the few lines required! By the way, I just <a href="http://thibauld.com/2008/12/web-application-implementation-step-4-copying-is-not-reusing/" rel="nofollow">blogged about the exact same issue</a> a few days ago.<br />
+Cheers,</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Stefano Leli				</title>
+				<link>http://matteo.vaccari.name/blog/archives/151/comment-page-1#comment-74157</link>
+		<dc:creator><![CDATA[Stefano Leli]]></dc:creator>
+		<pubDate>Tue, 30 Dec 2008 10:00:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=151#comment-74157</guid>
+					<description><![CDATA[Compliments for this good consideration on code reusing. You explained in few lines the real essential of this practise.]]></description>
+		<content:encoded><![CDATA[<p>Compliments for this good consideration on code reusing. You explained in few lines the real essential of this practise.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Paolo "Nusco" Perrotta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/151/comment-page-1#comment-74119</link>
+		<dc:creator><![CDATA[Paolo "Nusco" Perrotta]]></dc:creator>
+		<pubDate>Mon, 29 Dec 2008 23:32:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=151#comment-74119</guid>
+					<description><![CDATA[Best post ever on this blog. :)
+
+Heavy cross-project code reuse used to be one of the main selling points of OOP. It just didn&#039;t happen - not in the sense we expected (we did get library reuse and conceptual reuse, that wasn&#039;t really what we were waiting for). Your post explains why. This is quoting fodder!]]></description>
+		<content:encoded><![CDATA[<p>Best post ever on this blog. :)</p>
+<p>Heavy cross-project code reuse used to be one of the main selling points of OOP. It just didn&#8217;t happen &#8211; not in the sense we expected (we did get library reuse and conceptual reuse, that wasn&#8217;t really what we were waiting for). Your post explains why. This is quoting fodder!</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

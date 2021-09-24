@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Il ritorno del linguaggio naturale: Inform	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/48/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/48</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Andrea Garbagnoli				</title>
+				<link>http://matteo.vaccari.name/blog/archives/48/comment-page-1#comment-15853</link>
+		<dc:creator><![CDATA[Andrea Garbagnoli]]></dc:creator>
+		<pubDate>Fri, 15 Jun 2007 10:15:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=48#comment-15853</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Penso che la possibilità di fare query complesse in linguaggio naturale su database relazionali sarebbe molto gradita; a che punto è la ricerca per questo genere di applicazioni?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/48/comment-page-1#comment-184</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 19 Oct 2006 16:31:19 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=48#comment-184</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Credo che Ruby sia particolarmente adatto alla creazione di DSL.  Non sono molto fluente con Prolog, ma credo che il suo target sia molto più circoscritto, ovvero i problemi che coinvolgono ricerca di alternative (alfa-beta, problemi combinatori, ricerca su alberi, ecc.)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Enri				</title>
+				<link>http://matteo.vaccari.name/blog/archives/48/comment-page-1#comment-176</link>
+		<dc:creator><![CDATA[Enri]]></dc:creator>
+		<pubDate>Wed, 18 Oct 2006 14:30:56 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=48#comment-176</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Aggiungo che FIT e Fitnesse mi stimolano molto soprattutto per questo motivo: non conosco nessun altro framework che mi permetta di esprimere proprietà in un linguaggio così vicino al linguaggio naturale.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Enri				</title>
+				<link>http://matteo.vaccari.name/blog/archives/48/comment-page-1#comment-175</link>
+		<dc:creator><![CDATA[Enri]]></dc:creator>
+		<pubDate>Wed, 18 Oct 2006 14:27:32 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=48#comment-175</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Molto interessante Matteo.</p>
+<p>Le avventure testuali mi sono sempre piaciute, ma non le avevo mai viste sotto quest&#8217;ottica, soprattutto perchè ero troppo piccolo quando ci giocavo.</p>
+<p>Programmazione logica e programmazione ad oggetti. Il confronto fa riflettere, anche e soprattutto alla luce di Ruby.</p>
+<p>Domanda: è più semplice (e mantenibile) implementare/creare un linguaggio (DSL) come quello che hai incollato sopra, utilizzando il paradigma ad oggetti (es Ruby) magari con qualche costrutto tirato dentro dal paradigma logico (vedi chiusure), o utilizzando un linguaggio alla Prolog?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

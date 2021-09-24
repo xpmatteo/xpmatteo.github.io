@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Design problem #2	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/388/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/388</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Gerardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93448</link>
+		<dc:creator><![CDATA[Gerardo]]></dc:creator>
+		<pubDate>Mon, 16 Aug 2010 23:21:53 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93448</guid>
+					<description><![CDATA[I agree with Matteo about point #2, priceGiven() is just a getter and nothing else, so the &quot;you are forbidden to use getters&quot; rule is broken.
+
+I encourage Jacopo and Luca to expose a more &quot;OO Design&quot; point of view before coding the answer.
+
+If no getters must be used, then you have to use &quot;ByRef&quot; style parameters in both Cart and PriceRules, because otherwise you won&#039;t be able to know what items from the Cart are selected by the user, or what is the price from PriceRules of each item.
+
+So, my first approach is as follow: 
+
+1. Cart must implement a method that receives an empty List of 3 Object references per item selected (Item, Quantity, and Subtotal), and this method will summarize the entire Cart resulting in a List as follow (for the example):
+
+ Item: A, C, D
+ Qty.: 3, 1, 1
+ SubT: null, null, null
+
+2. Then, PriceRules must implement a method that receives the resulting List (if not empty) filling the third element for every item with the corresponding computed subtotal.
+
+3. This two functions must be called inside a third method implemented in a third class that handle the request for computation of the &quot;total that the customer has to pay&quot;, receiving the Cart and the PriceRules to use, and then iterate over the resulting List (completely filled) to sum every subtotal and then resolving how to show, return, store, or delegate the result handling to another class.]]></description>
+		<content:encoded><![CDATA[<p>I agree with Matteo about point #2, priceGiven() is just a getter and nothing else, so the &#8220;you are forbidden to use getters&#8221; rule is broken.</p>
+<p>I encourage Jacopo and Luca to expose a more &#8220;OO Design&#8221; point of view before coding the answer.</p>
+<p>If no getters must be used, then you have to use &#8220;ByRef&#8221; style parameters in both Cart and PriceRules, because otherwise you won&#8217;t be able to know what items from the Cart are selected by the user, or what is the price from PriceRules of each item.</p>
+<p>So, my first approach is as follow: </p>
+<p>1. Cart must implement a method that receives an empty List of 3 Object references per item selected (Item, Quantity, and Subtotal), and this method will summarize the entire Cart resulting in a List as follow (for the example):</p>
+<p> Item: A, C, D<br />
+ Qty.: 3, 1, 1<br />
+ SubT: null, null, null</p>
+<p>2. Then, PriceRules must implement a method that receives the resulting List (if not empty) filling the third element for every item with the corresponding computed subtotal.</p>
+<p>3. This two functions must be called inside a third method implemented in a third class that handle the request for computation of the &#8220;total that the customer has to pay&#8221;, receiving the Cart and the PriceRules to use, and then iterate over the resulting List (completely filled) to sum every subtotal and then resolving how to show, return, store, or delegate the result handling to another class.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: jacopo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93318</link>
+		<dc:creator><![CDATA[jacopo]]></dc:creator>
+		<pubDate>Mon, 28 Jun 2010 11:50:14 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93318</guid>
+					<description><![CDATA[Hi matteo:
+1) short anwser is: there is not yet no tests for that. Having an external factory or using default constructor, so far, are equivalent
+2) not really: it encapsulates item&#039;s &quot;type&quot;, which otherwise whould be exposed through a getter. priceRules stores rules, items know how to achieve prices for their &quot;type&quot;
+3) yes, you&#039;re probably right!
+
+As I told in the previous comment, I just wanted to focus on your question about computing total using Cart and PriceRule collaborating, with no getter at all. (I&#039;ve done this kata a few times, but wasn&#039;t able to find anywhere on my laptop..)
+
+I&#039;ll try going further and share the results with you,
+ciao.]]></description>
+		<content:encoded><![CDATA[<p>Hi matteo:<br />
+1) short anwser is: there is not yet no tests for that. Having an external factory or using default constructor, so far, are equivalent<br />
+2) not really: it encapsulates item&#8217;s &#8220;type&#8221;, which otherwise whould be exposed through a getter. priceRules stores rules, items know how to achieve prices for their &#8220;type&#8221;<br />
+3) yes, you&#8217;re probably right!</p>
+<p>As I told in the previous comment, I just wanted to focus on your question about computing total using Cart and PriceRule collaborating, with no getter at all. (I&#8217;ve done this kata a few times, but wasn&#8217;t able to find anywhere on my laptop..)</p>
+<p>I&#8217;ll try going further and share the results with you,<br />
+ciao.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93315</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 27 Jun 2010 16:23:50 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93315</guid>
+					<description><![CDATA[Jacopo:
+
+I like ...displayResultOn(display).  But:
+
+- why the Cart builds the rules with &quot;new&quot; instead of receiving them?  That would force the Cart to, say, open a connection to the database if the rules are stored there.
+
+- anItem.priceGiven is a sort of getter
+
+- anItem.priceGiven breaks completely when you consider special offers]]></description>
+		<content:encoded><![CDATA[<p>Jacopo:</p>
+<p>I like &#8230;displayResultOn(display).  But:</p>
+<p>&#8211; why the Cart builds the rules with &#8220;new&#8221; instead of receiving them?  That would force the Cart to, say, open a connection to the database if the rules are stored there.</p>
+<p>&#8211; anItem.priceGiven is a sort of getter</p>
+<p>&#8211; anItem.priceGiven breaks completely when you consider special offers</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: jacopo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93313</link>
+		<dc:creator><![CDATA[jacopo]]></dc:creator>
+		<pubDate>Sun, 27 Jun 2010 10:51:18 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93313</guid>
+					<description><![CDATA[Sorry for being so late..
+
+Here&#039;s mine, not complete - just one test case - because I wanted to concentrate on pushing on refactoring:
+* http://pastie.org/1020661
+
+No &quot;getters&quot; at all:
+* price is calculated with &lt;code&gt;anItem.priceGiven(priceRules)&lt;/code&gt;
+* total is sent to display with &lt;code&gt;sum.displayResultOn(display)&lt;/code&gt;]]></description>
+		<content:encoded><![CDATA[<p>Sorry for being so late..</p>
+<p>Here&#8217;s mine, not complete &#8211; just one test case &#8211; because I wanted to concentrate on pushing on refactoring:<br />
+* <a href="http://pastie.org/1020661" rel="nofollow">http://pastie.org/1020661</a></p>
+<p>No &#8220;getters&#8221; at all:<br />
+* price is calculated with <code>anItem.priceGiven(priceRules)</code><br />
+* total is sent to display with <code>sum.displayResultOn(display)</code></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93294</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Fri, 18 Jun 2010 07:44:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93294</guid>
+					<description><![CDATA[good suggestions. thank you.]]></description>
+		<content:encoded><![CDATA[<p>good suggestions. thank you.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93292</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Thu, 17 Jun 2010 21:42:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93292</guid>
+					<description><![CDATA[yep, good suggestions. thanks]]></description>
+		<content:encoded><![CDATA[<p>yep, good suggestions. thanks</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93283</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 16 Jun 2010 16:07:44 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93283</guid>
+					<description><![CDATA[How about WriteGrandTotalOn()
+or WriteGrandTotalTo() ?]]></description>
+		<content:encoded><![CDATA[<p>How about WriteGrandTotalOn()<br />
+or WriteGrandTotalTo() ?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93282</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Wed, 16 Jun 2010 15:52:48 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93282</guid>
+					<description><![CDATA[for the last 3 points I agree that needs to be improved and I know how to do it.
+
+But for the first one  ... I tried hard but was not capable to come up with a better name. can you suggest me a better one ?]]></description>
+		<content:encoded><![CDATA[<p>for the last 3 points I agree that needs to be improved and I know how to do it.</p>
+<p>But for the first one  &#8230; I tried hard but was not capable to come up with a better name. can you suggest me a better one ?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93281</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 16 Jun 2010 14:45:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93281</guid>
+					<description><![CDATA[Luca,
+
+I still don&#039;t find these names communicate your intent.  What I mean is that a name like handleDetails() does not say much.  It&#039;s like calling a method doSomething().  Names like addAmountToTotal() or registerUser() or sumOfLineItems() may express intent.  
+
+Your code contains three classes, but does not contain a class for the Cart.  (I see you use a List&#060;string&#062; instead.)
+
+There is nowhere in your code a test that proves that if I buy A, A, B, A the total will be 150 (for instance).
+
+I see complex logic, with many IFs.  It&#039;s difficult to follow what the &quot;previousItemCount += 1&quot; do.]]></description>
+		<content:encoded><![CDATA[<p>Luca,</p>
+<p>I still don&#8217;t find these names communicate your intent.  What I mean is that a name like handleDetails() does not say much.  It&#8217;s like calling a method doSomething().  Names like addAmountToTotal() or registerUser() or sumOfLineItems() may express intent.  </p>
+<p>Your code contains three classes, but does not contain a class for the Cart.  (I see you use a List&lt;string&gt; instead.)</p>
+<p>There is nowhere in your code a test that proves that if I buy A, A, B, A the total will be 150 (for instance).</p>
+<p>I see complex logic, with many IFs.  It&#8217;s difficult to follow what the &#8220;previousItemCount += 1&#8221; do.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/388/comment-page-1#comment-93278</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Wed, 16 Jun 2010 08:25:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388#comment-93278</guid>
+					<description><![CDATA[something like: 
+
+public class Bill: IBill
+
+  public void VisitBillGrandTotal(IBillGrandTotalVisitor visitor)
+  {
+    visitor.VisitGrandTotal(_grandTotal);
+  }
+
+?]]></description>
+		<content:encoded><![CDATA[<p>something like: </p>
+<p>public class Bill: IBill</p>
+<p>  public void VisitBillGrandTotal(IBillGrandTotalVisitor visitor)<br />
+  {<br />
+    visitor.VisitGrandTotal(_grandTotal);<br />
+  }</p>
+<p>?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

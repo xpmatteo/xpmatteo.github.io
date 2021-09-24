@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Clearing some misunderstandings about TDD	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/642/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/642</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/642/comment-page-1#comment-94424</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 12 Oct 2011 09:21:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=642#comment-94424</guid>
+					<description><![CDATA[Sì è possibile.  Si tratta di partire a risolvere una fetta verticale molto sottile del tuo problema e poi essere *molto* convinti nel rimuovere la duplicazione (cioè cercare il design) ad ogni passo.  Rimuovere la duplicazione con l&#039;intento di fare emergere esplicitamente le intenzioni, ovvero i concetti di business del tuo problema.  Bisogna seguire le regole di Kent Beck:
+
+
+	Passa tutti i test
+
+	Senza duplicazione
+
+	Esprime tutti i concetti che dobbiamo esprimere
+
+	Con il minimo numero di classi e metodi
+
+
+
+
+In quest&#039;ordine.  E&#039; una tecnica... che presuppone comunque una forte conoscenza di concetti di design da parte degli sviluppatori.]]></description>
+		<content:encoded><![CDATA[<p>Sì è possibile.  Si tratta di partire a risolvere una fetta verticale molto sottile del tuo problema e poi essere *molto* convinti nel rimuovere la duplicazione (cioè cercare il design) ad ogni passo.  Rimuovere la duplicazione con l&#8217;intento di fare emergere esplicitamente le intenzioni, ovvero i concetti di business del tuo problema.  Bisogna seguire le regole di Kent Beck:</p>
+<p>	Passa tutti i test</p>
+<p>	Senza duplicazione</p>
+<p>	Esprime tutti i concetti che dobbiamo esprimere</p>
+<p>	Con il minimo numero di classi e metodi</p>
+<p>In quest&#8217;ordine.  E&#8217; una tecnica&#8230; che presuppone comunque una forte conoscenza di concetti di design da parte degli sviluppatori.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/642/comment-page-1#comment-94423</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Wed, 12 Oct 2011 07:39:03 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=642#comment-94423</guid>
+					<description><![CDATA[Si, la mia osservazione è: secondo me comincia ancora prima, prosegue col primo test e poi col refactoring.
+Quello che mi chiedo è: è possibile (c&#039;è chi lo fa?) eliminare il design pre-test, è ragionevole? Oppure è una pretesa che deriva da un fraintendimento?]]></description>
+		<content:encoded><![CDATA[<p>Si, la mia osservazione è: secondo me comincia ancora prima, prosegue col primo test e poi col refactoring.<br />
+Quello che mi chiedo è: è possibile (c&#8217;è chi lo fa?) eliminare il design pre-test, è ragionevole? Oppure è una pretesa che deriva da un fraintendimento?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/642/comment-page-1#comment-94420</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Mon, 10 Oct 2011 20:58:58 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=642#comment-94420</guid>
+					<description><![CDATA[Il design inizia già quando scrivi il test....]]></description>
+		<content:encoded><![CDATA[<p>Il design inizia già quando scrivi il test&#8230;.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/642/comment-page-1#comment-94418</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Mon, 10 Oct 2011 10:03:11 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=642#comment-94418</guid>
+					<description><![CDATA[In sostanza fare TDD nel modo giusto significa fare design durante la fase di refactoring.
+Immagino che un mostro dell&#039;OOP possa essere in grado di fare solo così, ma ho qualche dubbio.
+Come si concilia una fase di analisi e design precedente alla scrittura del codice con questo?
+Mi verrebbe da dire che l&#039;approccio corretto (per lo meno è quello che nel mio caso sembra dare frutti) è quello di fare una prima analisi/design, poi partire col primo test rimanendo su questa traccia e non facendo la prima porcheria che viene in mente.
+La fase di refactoring consente poi di affinare le cose e spesso evidenziare problemi o soluzioni alternative.
+E&#039; questa la lezione o c&#039;è dell&#039;altro?]]></description>
+		<content:encoded><![CDATA[<p>In sostanza fare TDD nel modo giusto significa fare design durante la fase di refactoring.<br />
+Immagino che un mostro dell&#8217;OOP possa essere in grado di fare solo così, ma ho qualche dubbio.<br />
+Come si concilia una fase di analisi e design precedente alla scrittura del codice con questo?<br />
+Mi verrebbe da dire che l&#8217;approccio corretto (per lo meno è quello che nel mio caso sembra dare frutti) è quello di fare una prima analisi/design, poi partire col primo test rimanendo su questa traccia e non facendo la prima porcheria che viene in mente.<br />
+La fase di refactoring consente poi di affinare le cose e spesso evidenziare problemi o soluzioni alternative.<br />
+E&#8217; questa la lezione o c&#8217;è dell&#8217;altro?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

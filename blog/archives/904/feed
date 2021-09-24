@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Object-Oriented Theater	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/904/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/904</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: tsezgin				</title>
+				<link>http://matteo.vaccari.name/blog/archives/904/comment-page-1#comment-253662</link>
+		<dc:creator><![CDATA[tsezgin]]></dc:creator>
+		<pubDate>Mon, 07 Dec 2015 16:44:16 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=904#comment-253662</guid>
+					<description><![CDATA[I have been using exactly the same &quot;stage&quot; metaphor for a while, for explaining how domain objects with a specific task (role) should be created (called to stage), assigned a context (inject collaboating objects) and later when executed, perform a specific part of a scenario. 
+Very glad to see someone has documented it already :-)]]></description>
+		<content:encoded><![CDATA[<p>I have been using exactly the same &#8220;stage&#8221; metaphor for a while, for explaining how domain objects with a specific task (role) should be created (called to stage), assigned a context (inject collaboating objects) and later when executed, perform a specific part of a scenario.<br />
+Very glad to see someone has documented it already :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/904/comment-page-1#comment-97105</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 01 Nov 2014 18:25:02 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=904#comment-97105</guid>
+					<description><![CDATA[Yes! There are other words in programming that imply a theatrical metaphor: test double (controfigura), script (copione)... any others?]]></description>
+		<content:encoded><![CDATA[<p>Yes! There are other words in programming that imply a theatrical metaphor: test double (controfigura), script (copione)&#8230; any others?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Diego				</title>
+				<link>http://matteo.vaccari.name/blog/archives/904/comment-page-1#comment-97103</link>
+		<dc:creator><![CDATA[Diego]]></dc:creator>
+		<pubDate>Sat, 01 Nov 2014 06:11:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=904#comment-97103</guid>
+					<description><![CDATA[I think this is a beautiful metaphor... may it also help in finding better names for methods, objects, tests... just like a canovaccio?]]></description>
+		<content:encoded><![CDATA[<p>I think this is a beautiful metaphor&#8230; may it also help in finding better names for methods, objects, tests&#8230; just like a canovaccio?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Gabriele Tondi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/904/comment-page-1#comment-97101</link>
+		<dc:creator><![CDATA[Gabriele Tondi]]></dc:creator>
+		<pubDate>Fri, 31 Oct 2014 17:47:55 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=904#comment-97101</guid>
+					<description><![CDATA[I agree, &quot;core&quot; should be totally decoupled from details.
+It should only define the abstraction needed applying DIP.]]></description>
+		<content:encoded><![CDATA[<p>I agree, &#8220;core&#8221; should be totally decoupled from details.<br />
+It should only define the abstraction needed applying DIP.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Nicola Musatti				</title>
+				<link>http://matteo.vaccari.name/blog/archives/904/comment-page-1#comment-97093</link>
+		<dc:creator><![CDATA[Nicola Musatti]]></dc:creator>
+		<pubDate>Thu, 30 Oct 2014 15:58:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=904#comment-97093</guid>
+					<description><![CDATA[I entirely agree! Infrastructure changes tend to be driven by different forces than functional ones, even though there is obviously a degree of cross-influence.
+
+To put it in one sentence: a car is-not-a car factory.]]></description>
+		<content:encoded><![CDATA[<p>I entirely agree! Infrastructure changes tend to be driven by different forces than functional ones, even though there is obviously a degree of cross-influence.</p>
+<p>To put it in one sentence: a car is-not-a car factory.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

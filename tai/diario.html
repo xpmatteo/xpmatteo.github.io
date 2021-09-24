@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from matteo.vaccari.name/tai/diario by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Tecnologia e Applicazioni Internet, a.a. 2011/12</title>
+    <link rel="stylesheet" href="../stylesheets/matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Tecnologia e Applicazioni Internet, a.a. 2011/12</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../tai.html'>Tecnologia e Applicazioni Internet</a>
+      </h3>
+    
+
+    
+<div class="ahem">
+
+<p>
+Tutte le letture e gli esercizi che non siano esplicitamente marcati come
+"facoltativi" sono parte del programma di esame.
+</p>
+
+  <p>
+  I lucidi che potete trovare in questa pagina <strong>non sono
+  un sostituto per il libro di testo</strong> o per gli altri materiali
+  che vi segnalo.  I lucidi <em>non contengono un discorso
+  completo</em>, ma solo una traccia, che è comprensibile soltanto nel
+  contesto di quello che dico a lezione quando li proietto.  
+  </p>
+
+  <p>Lo scopo di
+  rendervi disponibili le slide è di lasciarvi una <em>traccia</em> dei
+  discorsi che abbiamo fatto a lezione.  Per chi non era presente,
+  l'unica utilità delle slide è come <strong>promemoria</strong> degli
+  argomenti che sono stati trattati.
+  </p>
+
+  <p>
+  Insomma, ripeto: <strong>non limitate il vostro studio ai lucidi!</strong>  
+  </p>
+</div>
+
+<br />
+<br />
+
+<ul>  
+  <li>
+    
+09-03-2012
+ Lezione 0 <br />
+     Test-Driven Development.
+
+    <ul><li> Studiare il <a href="http://www.baerbak.com/chap5.pdf">Capitolo 5 di Flexible, Reliable Software</a> (pdf)
+</li><li> <a href="slides2012/2012-tai-lezione-00.pdf">Lucidi</a>
+</li><li> Esercizio: ripetere da capo tutto lo sviluppo della PayStation, seguendo il Capitolo 5 e riportando il codice in Eclipse.
+</li><li> Esercizio: risolvere l'esercizio 5.4.  Il codice per iniziare è <a href="http://www.baerbak.com/src/frs-src.zip">in questo zip</a> sul sito del prof. Baerbak.
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+23-03-2012
+ Lezione 1 <br />
+     Architettura di un'applicazione web
+
+
+    <ul><li> Esercizio svolto a lezione: come separare la parte "web" di un'applicazione dal modello del dominio.  Vedi il <a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012">codice su github</a>.  Per scaricare il codice, usare (solo la prima volta)
+<pre>
+git clone https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012.git
+</pre>
+Per aggiornare successivamente, usare
+<pre>
+cd tecnologia-e-applicazioni-internet-2012
+git pull	
+</pre>
+
+</li><li> Esercizio: modificare l'esercizio visto a lezione per interfacciarsi con la PayStation.  Modificare HelloWorldContainer in PayStationContainer, modificare HelloWorldPage in PayStationPage.  La pagina deve assomigliare a questa:
+<div style="border:1px solid black; margin: 1em; padding: 1em; width: 20em">
+<p style="border: 1px solid gray; padding: 0.2em">Minuti acquistati: 0</p>
+<form>
+	<input type="submit" name="coin05" value="5 &cent;" />
+	<input type="submit" name="coin10" value="10 &cent;" />
+	<input type="submit" name="coin25" value="25 &cent;" />
+	<input type="submit" name="cancel" value="Annulla" />
+</form>
+</div>
+Quando si preme il bottone "5 &cent;", la pagina si ricarica e la scritta diventa: "Minuti acquistati: 2".
+
+</li><li> Leggere <a href="http://misko.hevery.com/code-reviewers-guide/" title="Guide: Writing Testable Code">Writing Testable Code</a>  di Mišco Hevery
+</li><li> Guardare <a href="http://www.youtube.com/watch?v=wEhu57pih5w&amp;feature=player_embedded" >The Clean Code Talks - Unit Testing</a> di Mišco Hevery
+</li><li> <a href="slides2012/2012-tai-lezione-01.pdf">Lucidi</a>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+30-03-2012
+ Lezione 2 <br />
+     Costruire una GUI web per la PayStation
+
+    <ul><li> Testare le pagine: come usare asserzioni custom per evitare di fare asserzioni sull'intero codice HTML restituito
+</li><li> Come mantenere stateless il server,  mantenendo lo stato della conversazione nella pagina
+</li><li> Esercizio svolto in laboratorio: quando si preme il bottone "Acquista" viene visualizzata la ricevuta
+</li><li> Esercizio da fare a casa: implementare una pagina di "log ricevute".  Quando si carica nel browser la pagina http://localhost:8080/admin/receipts si deve visualizzare una pagina del tipo
+<div style="border:1px solid black; margin: 1em; padding: 1em; width: 20em">
+	<h4>Receipts</h4>
+	<table>
+		<tr><td>2012-04-03 13:24</td><td>5 minutes</td></tr>
+		<tr><td>2012-04-03 14:14</td><td>7 minutes</td></tr>
+		<tr><td>2012-04-03 19:14</td><td>54 minutes</td></tr>
+	</table>
+</div>
+Opzionalmente, mostrare anche l'indirizzo IP da cui è stato fatto l'acquisto.
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+13-03-2012
+ Lezione 3 <br />
+     Uso di template per le viste.  Introduzione a XPath.  Uso di XPath per testare le viste.
+
+<p>Abbiamo risolto l'esercizio di lezione precedente: fare una pagina di amministrazione che mostri l'elenco delle ricevute di parcheggio acquistate.  Questo ha comportato:
+</p>
+<ol>
+	<li>Introduzione di un Repository, un oggetto che nasconde la persistenza</li>
+<li>Introduzione di Observer, che permette di aggiornare il Repository ogni volta che viene fatto un'acquisto, ma senza introdurre una dipendenza dalla PayStation al Repository.  Ho fatto qualche esempio su come questo pattern possa essere usato in svariate maniere arricchendo il funzionamento dell'applicazione senza complicare gli oggetti di dominio.</li>
+<li>Introdurre un Router, che decide sulla base della url richiesta quali pagine servire</li>
+<li>Introdurre una classe astratta Page da cui le due pagine derivano</li>
+<li>Il concetto di model-view-controller.  Nel nostro caso il Model è la PayStation, il controller sono gli oggetti Page, e le view sono gli oggetti View.</li>
+</ol>
+<p>
+	Ho fatto un disegno della struttura dell'applicazione e l'ho anche fotografato:
+	<a href="http://www.flickr.com/photos/xpmatteo/7073872827/"><img src="http://farm8.staticflickr.com/7203/7073872827_632c02155c.jpg" width="500" height="375"/></a>
+</p>
+<p>
+	Per usare i template, nell'esercizio di oggi abbiamo introdotto la classe TemplateView, che ha come scopo di interfacciare il nostro codice alla libreria di templating che abbiamo scelto.  Il principio è quello di mantenere isolato il codice della nostra applicazione dalle dipendenze da librerie di terze parti, per due ragioni: uno, perché potremmo decidere in seguito di cambiare libreria e passare, ad esempio, a Velocity, e non vorremmo dover girare per tutta l'applicazione a cambiare le nostre view.  E due, perché vogliamo fissare una volta per tutte <em>come</em> abbiamo deciso di usare la libreria FreeMarker.  Se ad esempio un domani decidiamo che i template vanno caricati in maniera diversa, ad esempio dal classpath invece che dal filesystem, le modifiche sarebbero concentrate in un unico punto.
+</p>
+<p>
+	Altra classe introdotta oggi è XmlFragment, che parsa una stringa che contiene XML, e permette di interrogare il documento mediante XPath.  Questo ci sarà molto utile per testare in maniera precisa le view.  Anche qui il principio è di concentrare in una sola classe la maniera con cui usiamo una libreria, in questo caso il parser XML.  Non c'è bisogno di dire che per poter usare questa libreria, il nostro codice HTML deve essere XML valido, il che è sempre una buona idea.
+</p>
+
+
+    <ul><li> <a href="slides2012/2012-tai-lezione-03.pdf">Lucidi</a>
+</li><li> Vedi il <a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012">codice su github</a>.
+</li><li> Studiare <a href="http://misko.hevery.com/2009/01/04/interfacing-with-hard-to-test-third-party-code/" title="Interfacing with hard-to-test third-party code">Interfacing with hard-to-test third-party code</a> di Mišco Hevery
+</li><li> Studiare il <a href="http://freemarker.sourceforge.net/docs/dgui.html" title="FreeMarker Manual - Template Author's Guide">manuale di Freemarker per gli autori di template</a>, sezioni 1-3
+</li><li> Facoltativo: leggere <a href="http://alistair.cockburn.us/Hexagonal+architecture" title="Alistair.Cockburn.us | Hexagonal architecture">Hexagonal Architecture</a> fino a "Sample Code" escluso.
+</li><li> Facoltativo: leggere Steve Freeman su come <a href="http://www.mockobjects.com/2007/04/test-smell-logging-is-also-feature.html" title="Mock Objects: Test Smell: Logging is also a feature">disaccoppiare logging da oggetti di dominio</a>.
+
+</li><li> Esercizio svolto in laboratorio: reimplementare PayStationView usando TemplateView.
+<ol>
+	<li>Scrivere un test (anche senza XPath) di PayStationView, per garantirci che reimplementandolo, non lo rompiamo inavvertitamente.</li>
+	<li>Copiare il "template" dalla costante nel codice Java al suo proprio file, e reimplementare PayStationView in termini di TemplateView.  Si può mettere una TemplateView dentro a PayStationView, oppure fare ereditare PayStationView da TemplateView.</li>
+	<li>Testare meglio la PSView, scrivendo qualche test con XPath.  Nel file PayStationViewTest ho lasciato qualche traccia.</li>
+	<li>Infine rimuovere la "set" generica da PSView e sostituirla con un paio di setter specifici: setState, setMinutes</li>	
+</ol>
+</li><li> Esercizio da svolgere a casa: implementare una PurchaseListView, che usi una tabella e contenga le informazioni specificate nell'esercizio della volta scorsa.  Testarla con XPath accuratamente.
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     04-05-2012
+ Lezione 4 <br />
+     Persistenza in Java con Jdbc.  Pattern di uso di Jdbc.  Il pattern Repository.  
+
+    <ul><li> 
+<a href="slides2012/2012-tai-lezione-04.pdf">Lucidi</a>
+</li><li> 
+  Esercizio: creare un Repository per l'applicazione PayStation.  Partire dal
+  <a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012/tree/master/Lesson04">codice su github.</a>  
+  Passi preliminari:
+  <ul>
+    <li>Installare Mysql (su Ubuntu, il package mysql-server)</li>
+    <li>Eseguire script/create_databases.sh</li>
+  </ul>
+  A questo punto dovrebbero esserci esattamente due test rossi, in DatabaseReceiptRepository.
+  <ol>
+    <li>Fare passare i due test rossi.</li>
+    <li>Sostituire lo InMemoryReceiptRepository creato nel PayStationContainer con il DatabaseReceiptRepository</li>
+    <li>Verificare che tutti i test continuino a passare</li>
+    <li>Terminare l'applicazione e farla ripartire.  Verificare nella pagina di amministrazione che le Receipt acquistate siano ancora presenti.</li>
+  </ol>
+  Domanda: ora che abbiamo il DatabaseReceiptRepository, è ancora necessario avere una singola istanza di repository?  O possiamo creare un nuovo DatabaseReceiptRepository per ogni richiesta?
+</li><li>
+ Studiare il corso <a href="http://java.sun.com/docs/books/tutorial/jdbc/basics/index.html" title="Lesson: JDBC Basics (The Java&trade; Tutorials &gt; JDBC(TM) Database Access)">JDBC Basics</a>, sezioni "Getting Started" e "Processing SQL Statements with JDBC"
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     11-05-2012
+ Lezione 5 <br />
+     
+<p>Risorse statiche.  Layout. </p>
+
+<p>
+  Abbiamo visto una soluzione al problema per casa della volta scorsa.  Abbiamo parlato dell'importanza di <strong>non</strong> condividere la connessione al DB fra diverse richieste.  La soluzione da me suggerita è di aprire una nuova connessione per ogni richiesta, ricordandosi di chiuderla non appena la richiesta è stata gestita.  Una soluzione alternativa potrebbe essere di usare un <em>connection pool</em>.
+</p>
+
+<p>Abbiamo visto come fare in modo che la nostra applicazione possa restituire risorse statiche come file CSS o immagini.  Se usassimo un container di servlet come Tomcat o Jetty questo sarebbe già gestito;  ma poiché invece utilizziamo un framework molto più vicino al protocollo HTTP, queste cose dobbiamo gestircele da soli.  Abbiamo visto come applicare il pattern <em>decorator</em> per gestire le risorse statiche senza toccare il codice del resto dell'applicazione (vedi classe StaticAssetContainer nel <a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012/tree/master/Lesson05-paystation">codice della lezione</a>.)  </p>
+
+<p>
+  Poi ci siamo posti il problema di come definire un layout generale dell'applicazione, che definisca header, footer e altre cose comuni a tutte le pagine dell'applicazione.  Abbiamo definito una classe ApplicationLayout e abbiamo visto come usare TemplateView per implementarla.
+</p>
+
+
+    <ul><li> Esercizio da fare a casa.  Vogliamo realizzare un'applicazione per gestire fatture.  Inizialmente ci accontentiamo di avere una pagina che permetta di 
+<ul>
+  <li>Visualizzare le righe della fattura (Invoice), il totale imponibile (cioè prima dell'IVA), l'IVA (VAT) e il totale con IVA.</li>
+  <li>
+    Inserire nuove righe nella fattura.
+  </li>
+</ul>
+<p>L'interfaccia utente sarà simile a questa:</p>
+
+<table style="border: 1px solid black; width: 20em">
+  <tr>
+    <th colspan="2">Fattura</th>
+  </tr>
+  
+  <tr>
+    <td>Descrizione</td>
+    <td>Importo</td>
+  </tr>
+  <tr>
+    <td>
+      <input type='text'/>
+    </td>    
+    <td>
+      <input type='text' size="8"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input type='submit' value='aggiungi'/>
+      <hr/>
+    </td>
+  </tr>
+  <tr><td>Voce 1</td><td style="text-align: right">&euro; 100,00</td></tr>
+  <tr><td>Voce 2</td><td style="text-align: right">&euro; 300,00</td></tr>
+  <tr><td>Voce 3</td><td style="text-align: right">&euro; 600,00</td></tr>
+  <tr><td>Imponibile</td><td style="text-align: right">&euro; 1000,00</td></tr>
+  <tr><td>IVA al 21&#x0025;</td><td style="text-align: right">&euro; 210,00</td></tr>
+  <tr><td><strong>Totale</strong></td><td style="text-align: right"><strong>&euro; 1210,00</strong></td></tr>
+</table>
+
+<p>Procedimento suggerito:</p>
+<ol>
+  <li><a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012/tree/master/Lesson05-invoice">Codice di partenza</a></li>
+  <li>Iniziamo la soluzione dal <em>modello del dominio</em> dell'applicazione.  Scriviamo i test per l'oggetto Invoice.  Nel codice pubblicato su Github trovate i primi test (che non passano).  Facciamo passare tutti i test.
+  </li>
+  <li>
+    Sarà evidente che il modello del dominio conterrà (almeno) due classi:
+    <pre>
+      +------------+      0..* +------------+
+      |  Invoice   |&lt;&gt;---------| LineItem   |
+      +------------+           +------------+
+    </pre>
+    Un LineItem rappresenta una "riga" della fattura e contiene una description e un amount e sa come formattare correttamente una riga.  In pratica la fattura è essenzialmente una lista di LineItem.
+  </li>
+  <li>
+    Realizziamo la parte web dell'applicazione, usando inizialmente un InMemoryInvoiceRepository. 
+  </li>
+  <li>
+    Salviamo e recuperiamo la fattura su database, sostituendo lox InMemoryInvoiceRepository con un DatabaseInvoiceRepository.
+  </li>
+</ol>
+
+<p>
+  Nota: <strong>non usare float o double per il denaro!!!</strong> La matematica in virgola mobile non è esatta.  Rappresentiamo il denaro con una quantità intera di centesimi.  In alternativa possiamo definire una classe Money che incapsula una quantità intera di centesimi ed espone metodi per sommare e per formattare.
+</p>
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     18-05-2012
+ Lezione 6 <br />
+     Il linguaggio JavaScript.  Programmazione a oggetti; prototipi; JSON. Manipolazione del DOM. Test unitari in JavaScript.
+
+    <ul><li> 
+<a href="slides2011/2011-tai-lezione-06.pdf">Lucidi</a>
+</li><li>
+Esercizi svolti in laboratorio (vedi il codice su github)
+<ol>
+<li>Caricare il file fibonacci-test.html in Chrome (NON Firefox), aprire il debugger con (bottone destro->Ispeziona Elemento), cliccare su Scripts, cliccare sul bottone in basso a sinistra che apre la console.  Osservare il messaggio "Hello, World!"
+</li>
+<li>
+Modificare il file fibonacci.js; scrivere una funzione che calcola Fibonacci.  Stampare sulla console il valore di Fibonacci(20).
+</li>
+<li>Modificare il file fibonacci-test.html per costruire una semplice interfaccia utente per calcolare Fibonacci.  Mettere un campo di testo e un bottone etichettato "Fibonacci".  
+  - Scrivo "6" nel campo di testo 
+  - Premo il bottone 
+  - Il codice JavaScript scrive "Fibonacci(6) = 5" in un paragrafo che prima era vuoto.
+</li></ol>  
+
+</li><li> Esercizio da fare a casa:
+Rifare l'esercizio delle fatture della volta scorsa; questa volta verrà eseguito tutto in una pagina HTML senza parlare con il server.  Per prima cosa ridefinire gli oggetti Invoice e LineItem prendendo spunto dalle version Java della volta scorsa.  Assicurarsi che funzionino osservandone il comportamento sulla console del debugger di Chrome.  Quando siamo sicuri che il nostro modello funziona correttamente, aggiungiamo l'interfaccia utente HTML.
+
+</li><li>
+Studiare i capitoli 1-6 di <em>Pro JavaScript Techniques</em> di John Resig.  La <a href="http://www.apress.com/9781590597279" title="APRESS.COM : Pro JavaScript Techniques : 9781590597279">versione pdf</a> si può comprare per $32 circa.
+
+</li><li> Guardare la presentazione <a href="http://www.slideshare.net/giordano/javascript-survival-guide-for-java-developers" title="JavaScript Survival Guide">JavaScript Survival Guide</a> di Giordano Scalzo
+
+</li><li> (Facoltativo) Materiale su JavaScript a cura di <a href="http://javascript.crockford.com/" title="Douglas Crockford's Javascript">Douglas Crockford</a>.
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     25-05-2012
+ Lezione 7 <br />
+     Come fare TDD in JavaScript.  La libreria jQuery.
+
+    <ul><li> Studiare questa <a href="http://www.slideshare.net/simon/learning-jquery-in-30-minutes">presentazione su jQuery</a> da pagina 4 a 27 comprese.
+</li><li> Studiare i capitoli 10,11 di <em>Pro JavaScript Techniques</em> di John Resig.
+</li><li> Esercizio fatto in laboratorio: riscrivere il codice javascript della Fattura per usare jQuery.  Spostare il codice JavaScript in un file separato "invoice_glue.js".  Sfruttare $(document).ready per collegare il comportamento al documento HTML in maniera "<a href="http://en.wikipedia.org/wiki/Unobtrusive_JavaScript" title="Unobtrusive JavaScript - Wikipedia, the free encyclopedia">unobtrusive</a>".
+
+</li><li> Esercizio da fare a casa: implementare il <a href="http://mathworld.wolfram.com/LightsOutPuzzle.html" title="Lights Out Puzzle -- from Wolfram MathWorld">Lights Out Puzzle</a> con jQuery.  Desiderata:
+<ul>
+  <li>Disegnare una tabella di 4x4 bottoni.</li>
+  <li>I bottoni possono essere accesi o spenti.</li>
+  <li>Quando la pagina viene caricata, i bottoni sono accesi o spenti in una configurazione scelta a caso, sempre diversa. </li>
+  <li>Quando l'utente preme un bottone con il mouse, il bottone premuto cambia stato, e così anche i quattro bottoni adiacenti (non in diagonale).</li>
+  <li>I bottoni sul bordo sinistro sono considerati adiacenti al corrispondente bottone sul bordo destro; i bottoni sul bordo superiore sono considerati adiacenti a quelli sul bordo inferiore.  In questo modo quando premo un qualsiasi bottone, sono sempre esattamente 5 i bottoni che cambiano stato.</li>
+  <li>Scopo del gioco è spegnere tutti i bottoni.  Se l'utente riesce a spegnere tutti i bottoni, appare la scritta "Bravo! Hai vinto!". La scritta deve apparire con una animazione (scegli tu quale.)  Deve apparire anche un bottone con la scritta "Gioca ancora"; se l'utente preme il bottone "Gioca ancora", la scritta "Hai vinto" e il bottone scompaiono, e il gioco ricomincia con una nuova configurazione scelta a caso.</li>
+</ul>
+<p>Implementare prima la logica del gioco in JavaScript con TDD.  Poi realizzare l'interfaccia utente in HTML.
+</p>
+
+<p>Per rendere la cosa ancora più interessante: realizzare tutta l'interfaccia utente in JavaScript, nel senso che il documento HTML inizialmente contiene soltanto 
+</p>
+<pre>
+  &lt;html&gt;
+    &lt;head&gt;&lt;title&gt;Lights Out!&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;&lt;div id=&quot;puzzle&quot;&gt;&lt;/div&gt;&lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+<p>Tutti i bottoni vengono creati tramite istruzioni jQuery (vedi <a href="http://api.jquery.com/append/" title=".append() &#8211; jQuery API">append</a>).  In questo modo anche la dimensione del puzzle viene scelta a caso fra 3x3, 4x4 e 5x5.
+</p>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     08-06-2012
+ Lezione 8 <br />
+     Ajax.  Come fare Ajax con JavaScript puro e come fare Ajax con jQuery.
+
+    <ul><li> <a href="slides2012/2012-tai-lezione-08.pdf">Lucidi</a>
+</li><li> Leggere la <a href="http://api.jquery.com/jQuery.ajax/" title="jQuery.ajax() &#8211; jQuery API">documentazione di jQuery.ajax()</a>, i paragrafi "Data Types" e "Examples".
+</li><li> Studiare l'articolo <a href="http://testcase.rubyforge.org/articles/menu-test" >Menu Test</a>  (esclusa l'ultima sezione Effects Mocking)
+</li><li> Leggere l'articolo del 2005 <a href="http://www.adaptivepath.com/ideas/ajax-new-approach-web-applications" title="Ajax: A New Approach to Web Applications -            
+    Adaptive Path">Ajax: a New Approach to Web Applications</a> dove è stato coniato il termine "Ajax".
+</li><li> Esercizio svolto in laboratorio e da completare a casa:
+<ul>
+<li>Collegare la form al server tramite ajax in modo che quando viene premuto il bottone, la form viene aggiornata tramite ajax senza ricaricare l'intera pagina</li>
+<li>Formattare correttamente con una tabella la fattura</li>
+<li>Gli importi vanno formattati in euro (es. € 1,23)</li>
+<li>Devono apparire imponibile, iva e totale con iva</li>
+</ul>
+Modificare (anche) lato server:
+<ul>
+<li>Ci devono essere una tabella invoices e una tabella line_items</li>
+<li>Popolare manualmente il database per inserire due invoice che abbiano ID 123 e ID 234</li>
+<li>Visitando la url /invoices/123 devo vedere la fattura 123 e i suoi line items</li>
+<li>Visistando la url /invoices/234 devo vedere la fattura 234 e i suoi line items</li>
+<li>Se aggiunto un line item con la form, deve essere attaccato alla fattura corretta.</li>
+</ul>
+(vedi il <a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012/tree/master/Lesson08-invoice">codice su github</a>).
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     13-06-2012
+ Lezione 9 <br />
+     Integrare JavaScript lato client e Java lato server.
+
+    <ul><li> Leggere la <a href="http://www.slideshare.net/ugolandini/25-tiers" title="2.5 Tiers">Presentazione di Ugo Landini a Java Day 2009 -- 2.5 Tiers</a>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     14-06-2012
+ Lezione 10 <br />
+     Test di accettazione. Test end-to-end.  Smoke test.  Come scrivere test espressivi.  Continuous integration.
+
+    <ul><li> <a href="slides2012/2012-tai-lezione-10.pdf">Lucidi</a>
+</li><li> Leggere la definizione standard di <a href="http://www.extremeprogramming.org/rules/functionaltests.html" title="Acceptance Tests">Acceptance Tests</a> per sapere di che cosa stiamo parlando.
+</li><li> Implementare l'<a href="https://github.com/xpmatteo/tecnologia-e-applicazioni-internet-2012/tree/master/Lesson10-at">esercizio</a>.  La descrizione dell'esercizio è nel README.
+</li><li> Leggere <a href="http://htmlunit.sourceforge.net/gettingStarted.html">Getting Started With HtmlUnit</a> per imparare il minimo sullo strumento che ho scelto per l'esercizio.
+</li><li> (Facoltativo) Leggere <a href="http://www.methodsandtools.com/archive/archive.php?id=72" title="Acceptance Test Driven Development (TDD) Explained">Acceptance TDD Explained</a> di Lasse Koskela, che è un ottimo articolo sul perché e sul come.
+</li><li> (Facoltativo) Leggere <a href="http://jamesshore.com/Blog/Alternatives-to-Acceptance-Testing.html">Alternatives to Acceptance Testing</a> per ascoltare un parere diverso
+</li><li> (Facoltativo) La <a href="http://martinfowler.com/bliki/TestPyramid.html" title="TestPyramid">piramide dei test</a>.  Viene discussa anche in questo ottimo <a href="http://www.youtube.com/watch?v=wEhu57pih5w">video di Misko Hevery</a>.
+</li><li> (Facoltativo) Brian Marick's <a href="http://www.exampler.com/old-blog/2003/08/21/" title="Exploration Through Example">Testing Quadrants</a>.
+</li><li> Nota: la migliore documentazione di riferimento online per JavaScript si trova sulla <a href="https://developer.mozilla.org/en/JavaScript">Mozilla Developer Network</a>.
+
+
+</li></ul>
+    
+    <br />
+  </li>
+</ul>
+
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/tai/diario by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:47 GMT -->
+</html>

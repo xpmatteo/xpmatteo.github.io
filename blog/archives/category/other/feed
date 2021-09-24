@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>other &#8211; Extreme Enthusiasm</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/category/other/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Wed, 08 Jan 2020 14:48:28 +0000	</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+	<item>
+		<title>Interesting job opportunity in Oxford</title>
+		<link>http://matteo.vaccari.name/blog/archives/170</link>
+				<comments>http://matteo.vaccari.name/blog/archives/170#respond</comments>
+				<pubDate>Thu, 05 Feb 2009 08:18:37 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[other]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=170</guid>
+				<description><![CDATA[It&#8217;s nice to hear that some companies are growing and hiring, despite the current economic troubles. I know Oege de Moor since my time as a Ph.D. student, working in mathematical techniques for program construction. Oege is an extremely smart guy and a positive person. So here is the message I got from him last [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>It&#8217;s nice to hear that some companies are growing and hiring, despite the current economic troubles.  I know Oege de Moor since my time as a Ph.D. student, working in mathematical techniques for program construction.  Oege is an extremely smart guy and a positive person.  So here is the message I got from him last week:</p>
+<blockquote><p>
+<a href="http://semmle.com/">Semmle</a> is taking off fast, and we urgently need more top-notch software design engineers to join. The main criterion is that they&#8217;re smart and love building great software. Skills that are immediately relevant include:</p>
+<ul>
+<li>experts in the C and C++ language spec (for static analyses)</li>
+<li>visualisation tools (like yGraph)</li>
+<li>all forms of declarative programming</li>
+</ul>
+<p>.. but we expect people who work with us to pick these up in their stride.</p>
+<p>Do you know anyone suitable who might like to join Semmle as a student intern, as a consultant or as a full-time engineer? Then please let me know, or pass on this message.</p>
+<p>Thanks,</p>
+<p>-Oege
+</p></blockquote>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/170/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+	</channel>
+</rss>

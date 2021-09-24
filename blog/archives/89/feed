@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Http chat server in Erlang, il seguito	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/89/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/89</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Matteo Vaccari &#187; Blog Archive &#187; Scelgo Erlang o Php?				</title>
+				<link>http://matteo.vaccari.name/blog/archives/89/comment-page-1#comment-52496</link>
+		<dc:creator><![CDATA[Matteo Vaccari &#187; Blog Archive &#187; Scelgo Erlang o Php?]]></dc:creator>
+		<pubDate>Mon, 21 Apr 2008 16:52:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=89#comment-52496</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Non ho ancora imparato a programmare in Erlang (a mia discolpa, passo gran parte del mio tempo a fare corsi, mentoring e coaching sui metodi Agili, cosa che mi appassiona di più!) Però il mio lavoro come docente a contratto all&#8217;Università dell&#8217;Insubria mi da il vantaggio di avere ogni tanto giovani brillanti che mi chiedono una tesi&#8230; Così posso chiedere a loro di imparare Erlang e raccontare quello che hanno imparato. Tempo fa Marco Trinci ha realizzato un chat server sincrono su http. [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marco Trinci				</title>
+				<link>http://matteo.vaccari.name/blog/archives/89/comment-page-1#comment-17621</link>
+		<dc:creator><![CDATA[Marco Trinci]]></dc:creator>
+		<pubDate>Sun, 07 Oct 2007 11:24:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=89#comment-17621</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Se Matteo è favorevole io sono disposto a mettere in linea i sorgenti.<br />
+L&#8217;unico valido motivo che avrei per non pubblicarli è non far vedere le cavolate che ho scritto :-)</p>
+<p>Molto probabilmente sviluppando un&#8217;applicazione più complessa di una chat sarà necessario aggiungere o modificare parte del codice. Poi sicuramente a persone più esperte di me nella programmazione in Erlang, guardando i sorgenti, può venire in mente un&#8217;implementazione migliore.<br />
+Sarebbe bello avere un&#8217;implementazione di Comet in Erlang opensource che tutti possono migliorare o adattare alle proprie esigenze.</p>
+<p>Penso che nel futuro possa essere interessante prevedere di integrarlo nel Framework ErlyWeb.<br />
+Pensa Matteo&#8230;il web server più veloce(Yaws) e un Framework MVC(ErlyWeb) con integrato un modulo(il nostro) che permette la creazione di applicazioni Comet secondo lo standard Bayeux in modo trasparente.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Valentino				</title>
+				<link>http://matteo.vaccari.name/blog/archives/89/comment-page-1#comment-17250</link>
+		<dc:creator><![CDATA[Valentino]]></dc:creator>
+		<pubDate>Wed, 26 Sep 2007 09:01:03 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=89#comment-17250</guid>
+					<description><![CDATA[In realta` e` AJAX che e` una variante di Comet comunque. Consiglio anche di dare un&#039;occhiata a questo: http://divmod.org/trac/wiki/DivmodNevow/Athena che e` open source. complimenti a marco.]]></description>
+		<content:encoded><![CDATA[<p>In realta` e` AJAX che e` una variante di Comet comunque. Consiglio anche di dare un&#8217;occhiata a questo: <a href="http://divmod.org/trac/wiki/DivmodNevow/Athena" rel="nofollow">http://divmod.org/trac/wiki/DivmodNevow/Athena</a> che e` open source. complimenti a marco.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Lawrence Oluyede				</title>
+				<link>http://matteo.vaccari.name/blog/archives/89/comment-page-1#comment-17249</link>
+		<dc:creator><![CDATA[Lawrence Oluyede]]></dc:creator>
+		<pubDate>Wed, 26 Sep 2007 08:48:59 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=89#comment-17249</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Immagino che però non sia opensource :D</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

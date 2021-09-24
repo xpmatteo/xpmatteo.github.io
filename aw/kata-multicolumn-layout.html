@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from matteo.vaccari.name/aw/kata-multicolumn-layout by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:22:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Dispense: kata-multicolumn-layout</title>
+    <link rel="stylesheet" href="../stylesheets/matteo.css" />
+  </head>
+  <body>
+    <h2>Dispense: kata-multicolumn-layout</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    <h3>Kata: a Multi-column Layout in CSS</h3>
+
+<p>This exercise is inspired by Chapter 9 in <a href="http://www.ericmeyeroncss.com/">Eric Meyer on CSS</a>.  The goal is to be able to produce a two-column layout using valid HTML and CSS.  The layout of the page should be</p>
+
+<pre><code>+--------------+
+|title         |
+|--------------|
+|body   | menu |
+|body   |      |
+|body   |      |
+|--------------|
+|  copyright   |
++--------------+
+</code></pre>
+
+<h3>Prerequisites</h3>
+
+<p>None.</p>
+
+<h3>Ingredients</h3>
+
+<p>This <a href="files/kata-multicolumn-layout/blog.html">blog file</a> and the Creative Commons license <a href="files/kata-multicolumn-layout/creativecommons-by-88x31.png">logo</a>.</p>
+
+<h3>Summary</h3>
+
+<ol>
+<li>Add proper markup</li>
+<li>Typography</li>
+<li>A hybrid table-based layout</li>
+<li>Style the menu</li>
+<li>Purely semantic markup</li>
+</ol>
+
+
+<h3>The first step: add proper markup</h3>
+
+<p>Load blog.html in your favourite editor.  Read through it.  Load it in your browser as well, and look at the result.  Ugly, isn't it?  Let's start by adding a proper html structure.</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+  &lt;title&gt;RailsToItaly, report of the 1st day&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Random thoughts on life and programming
+  ...
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Reload the page.  The encoding should now be OK.</p>
+
+<p>Now work on the body.  Add headings and paragraphs:</p>
+
+<pre><code>&lt;h1&gt;Random thoughts on life and programming&lt;/h1&gt;
+
+&lt;h3&gt;Archives&lt;/h3&gt;
+
+&lt;a href="http://some-site.com/"&gt;October 2008&lt;/a&gt;
+...
+
+&lt;h2&gt;RailsToItaly, report of the 1st day&lt;/h2&gt;
+&lt;h4&gt;October 29th, 2007&lt;/h4&gt;
+
+&lt;p&gt;  Yesterday ...
+&lt;/p&gt;
+
+&lt;p&gt;  Zed ....
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a rel="license" ... &gt;
+&lt;/p&gt;
+</code></pre>
+
+<p>The page should now look like this: <a href='files/kata-multicolumn-layout/stage01.png'><img alt='a screenshot of stage01' src='files/kata-multicolumn-layout/stage01-thumb.png' /></a></p>
+
+<h3>The second step: typography</h3>
+
+<p>In the <code>head</code> section of the document, add a <code>style</code> element, and type the following:</p>
+
+<pre><code>&lt;style type="text/css"&gt;
+  html {
+    font-size: 10pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+&lt;/style&gt;
+</code></pre>
+
+<p>Reload the browser.  See the font change.</p>
+
+<p>Add style to the headings:</p>
+
+<pre><code>h1 {
+  font-size: 200%;
+  text-transform: lowercase;
+}
+h2 {
+  font-size: 130%;
+}
+h3 {
+  font-size: 100%;
+}
+h4 {
+  font-size: 80%;
+}
+</code></pre>
+
+<p>Reload the browser.  See the headings change.  Then add some style to paragraphs:</p>
+
+<pre><code>p {
+  line-height: 1.66;
+  margin: 0.5em 3em 1em 3em;
+}
+</code></pre>
+
+<p>Reload the browser.  See the effect.  Finally, let's add some style to the copyright section.</p>
+
+<pre><code>p#copyright {
+  font-size: 80%;
+  color: gray;
+}
+</code></pre>
+
+<p>We need to add <code>id="copyright"</code> to the copyright paragraph.  Reload the browser and see that the copyright is no longer aligned with the other paragraphs.  This is because the font-size in the paragraph is now 80% of the default, which is 10pt, and we specified a left-margin of 3ems.  To correct this, we must add an appropriate left-margin: 3/0.8 = 3.75.  Add to the style</p>
+
+<pre><code>p#copyright {
+  font-size: 80%;
+  color: gray;
+  margin-left: 3.75em;
+}
+</code></pre>
+
+<p>and reload the browser to see the copyright paragraph is now left-aligned with the other paragraphs.  <a href='files/kata-multicolumn-layout/stage02.png'><img alt='a screenshot of stage02' src='files/kata-multicolumn-layout/stage02-thumb.png' /></a></p>
+
+<h3>The third step: a hybrid table-based layout</h3>
+
+<p>Let's wrap the blog entry and the archive section in a two-cell table.  The body of the document should look like this:</p>
+
+<pre><code>&lt;h1&gt;Random thoughts on life and programming&lt;/h1&gt;
+
+&lt;table cellspacing="0" cellpadding="0"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;h2&gt;RailsToItaly, report of the 1st day&lt;/h2&gt;
+
+      &lt;h4&gt;October 29th, 2007&lt;/h4&gt;
+      &lt;p&gt;  Yesterday ...
+      &lt;/p&gt;
+      &lt;p&gt;  Zed also said ...
+      &lt;/p&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;h3&gt;Archives&lt;/h3&gt;
+
+      &lt;a href="http://some-site.com/"&gt;October 2008&lt;/a&gt;
+      ....
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p id="copyright"&gt;
+...
+&lt;/p&gt;
+</code></pre>
+
+<p>This markup looks ugly, since we're adding non-semantic markup to the html document.  But at least it's simple and it works.  Reload the browser.  Drats!  The archives section is vertically aligned with the middle of the other column.  Correct this by adding the attribute <code>valign="top"</code> to both cells:</p>
+
+<pre><code>&lt;td valign="top"&gt;
+</code></pre>
+
+<p>Reload and see that the vertical alignment is right.  The copyright section, though, is still off.  We'd rather stop trying to align it to the other paragraphs, and center it in the page.</p>
+
+<pre><code>p#copyright {
+  font-size: 80%;
+  color: gray;
+  text-align: center;
+}
+</code></pre>
+
+<p>Reload and see the effect.  Try changing the size of the browser window and see how the two columns change size accordingly.</p>
+
+<p><a href='files/kata-multicolumn-layout/stage03.png'><img alt='a screenshot of stage03' src='files/kata-multicolumn-layout/stage03-thumb.png' /></a></p>
+
+<h3>The fourth step: style the menu</h3>
+
+<p>We want the whole document to look a bit more like paper, so we add background and foreground colors:</p>
+
+<pre><code>html {
+  font-size: 10pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  background: rgb(95%,95%,80%);
+  color: black;
+}
+</code></pre>
+
+<p>The foreground color should already be black, but it's a good habit to always specify both colors. Reload the browser.</p>
+
+<p>A standard trick to turn links into "buttons" is to make them block-display elements.</p>
+
+<pre><code>#archives a {
+  display: block;
+  padding: 0.1em 0.1em;
+  margin: 0;
+}
+#archives a:hover {
+  background: rgb(85%,85%,70%);
+}
+</code></pre>
+
+<p>We also need to add an <code>id="archives"</code> attribute to the table cell that contains the archives. Reload the browser.  Move the mouse over the links.  The column looks too narrow.  Let's give it more room:</p>
+
+<pre><code>#archives {
+  width: 20%;
+}
+</code></pre>
+
+<p>Reload the browser, change the windows size making it more narrow or more wide, and see the result.</p>
+
+<p>Optionally, let's give the archives a bit more style with</p>
+
+<pre><code>#archives a {
+  ...
+  border-left: 1px solid gray;
+}
+
+#archives h3 {
+  color: gray;
+  border-bottom: 1px solid gray;
+  margin: 0;
+  padding: 0;
+}
+</code></pre>
+
+<p>That's ok for now: <a href='files/kata-multicolumn-layout/stage04.png'><img alt='a screenshot of stage04' src='files/kata-multicolumn-layout/stage04-thumb.png' /></a>.</p>
+
+<h3>The fifth step: purely semantic markup</h3>
+
+<p>The non-semantic markup is highly undesirable.  Let's change it to something more palatable.  Begin by removing the table, and wrapping the archives section and the entry section in their own divs.</p>
+
+<pre><code>&lt;h1&gt;Random thoughts on life and programming&lt;/h1&gt;
+
+&lt;div id="entry"&gt;
+  &lt;h2&gt;RailsToItaly, report of the 1st day&lt;/h2&gt;
+
+  &lt;h4&gt;October 29th, 2007&lt;/h4&gt;
+
+  &lt;p&gt;  Yesterday ...
+  &lt;/p&gt;
+  &lt;p&gt;  Zed also said ...
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="archives"&gt;
+  &lt;h3&gt;Archives&lt;/h3&gt;
+  ...
+&lt;/div&gt;
+
+&lt;p id="copyright"&gt;
+...
+&lt;/p&gt;
+</code></pre>
+
+<p>Reload the browser.  Now the archives section is following the entry.  That will be good for screen readers, because the content will be read first and navigation second.  But we want back the two-columns layout.  Add the following styles:</p>
+
+<pre><code>div#entry {
+  margin: 0 25% 1em 7%;
+  padding: 0;
+}
+</code></pre>
+
+<p>Reload the browser.  This leaves enough room on the right of the entry.</p>
+
+<pre><code>#archives {
+  width: 20%;
+  position: absolute;
+  top: 0; right: 0;
+  width: 20%;
+}
+</code></pre>
+
+<p>Reload the browser.  Now the menu is on the top-right corner.  We must move it down, but how much?  We don't know how much margin the h1 is being given; every browser will use different values.  To force a known value, we add:</p>
+
+<pre><code>h1 {
+  ...
+  padding: 0;
+  margin: 0.66em 1em 0.33em 1em;
+}
+</code></pre>
+
+<p>Now we know that the h1 is taking 1em (for the text) plus 0.99em for the margin, which is roughly 2ems.  Now we know that the h1 is 200% of the normal text.  So the h1 is taking 4ems in terms of the normal font size.  Therefore, we change</p>
+
+<pre><code>#archives {
+  ...
+  top: 4em; right: 0;
+  font-size: 10pt;
+  ...
+}
+</code></pre>
+
+<p>We repeat the font-size so that no browser should be confused as to which font-size our ems refer to.  Reload the browser:  the two entries are still not top aligned.  Some more work is needed: set the line-height of the headings to 1, a known value:</p>
+
+<pre><code>h1, h2, h3, h4 {
+  line-height: 1;
+}
+</code></pre>
+
+<p>Remove top padding and margin from h2 and h3</p>
+
+<pre><code>h2, h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+</code></pre>
+
+<p>Reload the browser.  Now the two sections are well aligned.  Now move the copyright section a bit down so that it does not get so much in the eyes</p>
+
+<pre><code>p#copyright {
+  margin-top: 4em;
+  ...
+}
+</code></pre>
+
+<p>And we're finished!  <a href='files/kata-multicolumn-layout/stage05.png'><img alt='a screenshot of stage05' src='files/kata-multicolumn-layout/stage05-thumb.png' /></a>  The final style is:</p>
+
+<pre><code>html {
+  font-size: 10pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  background: rgb(95%,95%,80%);
+  color: black;
+}
+h1 {
+  font-size: 200%;
+  text-transform: lowercase;
+  padding: 0;
+  margin: 0.66em 1em 0.33em 1em;
+}
+h2 {
+  font-size: 130%;
+}
+h3 {
+  font-size: 100%;
+}
+h4 {
+  font-size: 80%;
+}
+h1, h2, h3, h4 {
+  line-height: 1;
+}
+h2, h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+p {
+  line-height: 1.66;
+  margin: 0.5em 3em 1em 3em;
+}
+p#copyright {
+  margin-top: 4em;
+  font-size: 80%;
+  color: gray;
+  background: rgb(95%,95%,80%);
+  text-align: center;
+}
+div#entry {
+  margin: 0 25% 1em 7%;
+}
+#archives {
+  width: 20%;
+  position: absolute;
+  top: 4em; right: 0;
+  font-size: 10pt;
+  width: 20%;
+}
+#archives a {
+  display: block;
+  padding: 0.1em 0.1em;
+  margin: 0;
+  border-left: 1px solid gray;
+}
+#archives a:hover {
+  background: rgb(85%,85%,70%);
+}
+#archives h3 {
+  color: gray;
+  border-bottom: 1px solid gray;
+  margin: 0;
+  padding: 0;
+}
+</code></pre>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/kata-multicolumn-layout by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:22:04 GMT -->
+</html>
