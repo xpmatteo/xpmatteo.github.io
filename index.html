@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
   
-<!-- Mirrored from matteo.vaccari.name/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:33 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Matteo Vaccari &mdash; Matteo Vaccari</title>
+    <title>Matteo Vaccari &mdash; Home</title>
     <link rel="stylesheet" href="stylesheets/matteo.css" />
   </head>
   <body>
     <h2>Matteo Vaccari</h2>
     
-
     <section itemscope itemtype="http://data-vocabulary.org/Person" style="font-size: larger">
-  <p itemprop="name" style="display: none">Matteo Vaccari</p>
-  <p>
-    It is possible to write software that solves real business problems, cheaply and reliably.  The recipe is <a href='http://www.extremeprogramming.org/'>well known</a>, even though it's not easy to do.
-  </p>
+      <p itemprop="name" style="display: none">Matteo Vaccari</p>
+      <p>
+        It is possible to write software that solves real business problems, cheaply and reliably.  The recipe is <a href='http://www.extremeprogramming.org/'>well known</a>, even though it's not easy to do.
+      </p>
 
   <p>
   I am an <span itemprop='role'>Extreme Programmer</span>. I help individuals, teams and organization become more effective.
@@ -54,21 +51,9 @@
     <li><a href="so.html">Operating Systems</a> course (taught from 2000 to 2006)</li>
     <li>My Ph.D. thesis on <a href="matteo-vaccari-calculational-derivation-of-circuits.pdf">Calculational Derivation of Circuits</a></li>
   </ul>
-  <div class="quote">
-    
 
-<p>Sure. What I mean is that a "good designer" will say, "we need Spring"
-before one line of code is written, but an XP team should not. Spring
-is more or less a given on most Java projects, but when we are
-practicing "pure TDD" it is not. Now one side will argue that this
-means we are under-designing our system or ignoring best practices.
-The counter argument is that we are avoiding a source of additional
-complexity until there is a business need.
-</p>
-
-<cite>Adam Sroka on the XP mailing list</cite>
-
-
+  <h3>Random quote</h3>
+  <div id="quote" class="quote">
   </div>
 </section>
 
@@ -79,8 +64,26 @@ complexity until there is a business need.
         <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
       </address>
     </div>
-    
-  </body>
 
-<!-- Mirrored from matteo.vaccari.name/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:33 GMT -->
+    <script>
+      const target = document.getElementById("quote")
+      fetch("quotes.txt")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.blob();
+        })
+        .then(blob => blob.text())
+        .then(text => {
+          const quotes = text.split("%%")
+          const index = Math.floor(Math.random() * quotes.length)
+          target.innerHTML = quotes[index]
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
+
+    </script>
+  </body>
 </html>
