@@ -177,3 +177,27 @@ div#navigation ul {
 h3 {
   margin-top: 3em;
 }
+
+/* thanks https://www.sitepoint.com/use-webfont-icons-bullet-points-html5-lists/ */
+ul.icon
+{
+	list-style-type: none;
+}
+
+ul.icon li
+{
+	text-indent: -1.4em;
+}
+
+ul.icon li:before
+{
+	font-family: remixicon;
+	content: "\e800";
+	float: left;
+	width: 1.4em;
+}
+
+ul.icon li.article:before { content: "\ea7e"; }
+ul.icon li.video:before { content: "\f282"; }
+
+
