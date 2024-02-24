@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Trattare il database agilmente	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/88/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/88</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Moreno				</title>
+				<link>http://matteo.vaccari.name/blog/archives/88/comment-page-1#comment-17034</link>
+		<dc:creator><![CDATA[Moreno]]></dc:creator>
+		<pubDate>Mon, 10 Sep 2007 15:41:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=88#comment-17034</guid>
+					<description><![CDATA[Sempre interessanti i tuoi spunti.
+
+Purtroppo alcune di queste osservazioni dovrebbero esser scontate (es: separare db test automatici dal development, !!separare development da production!!), ma purtroppo mi imbatto ancora in sviluppatori che commentano con un &quot;ma che noia questi test automatici, non possiamo skipparli?&quot;... figuriamoci a gestire in modo ordinato anche la parte db :-(
+
+My .02
+
+M]]></description>
+		<content:encoded><![CDATA[<p>Sempre interessanti i tuoi spunti.</p>
+<p>Purtroppo alcune di queste osservazioni dovrebbero esser scontate (es: separare db test automatici dal development, !!separare development da production!!), ma purtroppo mi imbatto ancora in sviluppatori che commentano con un &#8220;ma che noia questi test automatici, non possiamo skipparli?&#8221;&#8230; figuriamoci a gestire in modo ordinato anche la parte db :-(</p>
+<p>My .02</p>
+<p>M</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Dzamir				</title>
+				<link>http://matteo.vaccari.name/blog/archives/88/comment-page-1#comment-16985</link>
+		<dc:creator><![CDATA[Dzamir]]></dc:creator>
+		<pubDate>Fri, 07 Sep 2007 09:17:08 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=88#comment-16985</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Ottima l&#8217;idea degli script incrementali per tenere traccia di tutti gli aggiornamenti del db, la settimana scorsa a lavoro riflettevo proprio su questo problema dopo un aggiornamento alla struttura del database. Ottima anche l&#8217;idea del doppio db, uno per lo sviluppo e uno per i test, ora come ora ne utilizziamo soltanto uno per lo sviluppo/test. I test alla fine si assicurano di fare il cleanup di tutti i dati aggiunti, ma effettivamente avrebbe più senso che il db fosse creato da zero ogni qual volta i test venissero eseguiti, o comunque svuotati alla fine dei test.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

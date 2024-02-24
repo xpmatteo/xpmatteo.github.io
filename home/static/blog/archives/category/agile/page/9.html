@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/category/agile/page/9 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:31:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm   &raquo; Agile</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../../../../feed" />
+<link rel="pingback" href="../../../../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm &raquo; Agile Category Feed" href="../feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../../../../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../../../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+  <div id='main-col'>
+
+		
+				<h2 class="pagetitle">Archive for the 'Agile' Category</h2>
+
+ 	  
+		<div class="navigation">
+			<div class="alignleft"><a href="10" >&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="8.html" >Next Entries &raquo;</a></div>
+		</div>
+
+				<div class="post">
+				<h3 id="post-388"><a href="../../../388.html" rel="bookmark" title="Permanent Link to Design problem #2">Design problem #2</a></h3>
+				<small>Monday, June 14th, 2010</small>
+
+				<div class="entry">
+					<p>This is a subset of the <a href="http://codekata.pragprog.com/2007/01/kata_nine_back_.html">Back to the Checkout</a> kata by Dave Thomas, which I used many times as a TDD training exercise.  </p>
+<p>Suppose you have a PriceRules object that knows that the prices of items.  Its responsibility is to know the following table:</p>
+<blockquote>
+<table>
+<tr>
+<th>Item</th>
+<th>Unit Price</th>
+<th>Special Price</th>
+<tr>
+<td>A</td>
+<td>50</td>
+<td>3 for 130</td>
+</tr>
+<tr>
+<td>B</td>
+<td>30</td>
+<td>2 for 45</td>
+</tr>
+<tr>
+<td>C</td>
+<td>20</td>
+</tr>
+<tr>
+<td>D</td>
+<td>15</td>
+</tr>
+</table>
+</blockquote>
+<p>Then you have a Cart object that knows which items a customer is trying to buy.  For instance, a given cart could contain the list [A, A, C, A, D]. </p>
+<p>The problem is to compute the total that the customer has to pay, out of a collaboration between (at least) the cart and the pricerRules objects.   It seems easy, but there is a catch: you are forbidden to use getters.  All methods must return &#8220;void&#8221;, in Java terms.   Design the messages that are exchanged between the objects and produce the desired result.  (In the example, it would be 165).  Have fun!</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a>, <a href="../../design-exercise.html" rel="category tag">Design Exercise</a>, <a href="../../expressive-code.html" rel="category tag">Expressive Code</a> |   <a href="../../../388.html#comments">17 Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-386"><a href="../../../386.html" rel="bookmark" title="Permanent Link to I will be at XP2010 Reloaded">I will be at XP2010 Reloaded</a></h3>
+				<small>Sunday, June 13th, 2010</small>
+
+				<div class="entry">
+					<p>Bruno Rossi of the Bozen University will organize a <a href="http://xp2010-reloaded.case.unibz.it/">followup to XP2010</a> on September 15 this year.  I think this is a great opportunity for those who could not attend XP2010 in Norway.  This conference will be much smaller and  affordable.   </p>
+<p>I will submit something about Extreme Programming engineering techniques; nothing terribly new, just sharing some of my current understanding of these techniques.  </p>
+<p>I hope I will see you in Bolzano!</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../386.html#respond">No Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-378"><a href="../../../378.html" rel="bookmark" title="Permanent Link to Software Design problems, anyone?">Software Design problems, anyone?</a></h3>
+				<small>Sunday, June 13th, 2010</small>
+
+				<div class="entry">
+					<p>You learn math by solving problems.  Problems frame the way you learn, give you a tangible proof that you&#8217;re progressing, give you a sense of meaning and achievement.  How do you learn physics?  By studying the books of course, but then solving physics problems is very important.  How do you learn to play deep games such as chess or go?  By playing, mostly.  And then by pondering and solving problems.  Electronics?  Chemistry?  Building science?  Genetics?  The books on these subjects are full of problems.</p>
+<p>How do you learn good software design?  I don&#8217;t know.  The books that I&#8217;ve read explain principles, and provide examples.  Rarely I&#8217;ve seen books that contain problems, exercises, or challenges.  (Notable exceptions: William Wake&#8217;s <em>Refactoring Workbook</em> and Ka Iok Tong&#8217;s <a href="http://www2.cpttm.org.mo/cyberlab/softdev/ESAD/">Essential Skills for Agile Development</a>.)  </p>
+<p>I propose that we assemble a collection of problems meant to develop and discuss software design.  A good problem for this goal would problem *not* have a single correct answer, for design and engineering are always a matter of compromises.  A good problem should be a means to discuss the various choices and tradeoff, and worse and better ways to solve it.  A good problem should be a small framework.</p>
+<p>Let&#8217;s start!  Here is a problem that I find interesting.  The good old Fizz-Buzz problem goes like this:</p>
+<blockquote><p>
+Write a program that prints the numbers in order from 1 to 100, with the exception that when a number is a multiple of 3, it prints &#8220;Fizz&#8221;.  When a number is a multiple of 5, it prints &#8220;Buzz&#8221;.  And when a number is multiple of both, it prints &#8220;FizzBuzz&#8221;.  In all other cases, it just prints the decimal representation of the number.
+</p></blockquote>
+<p>There is an obvious way to solve this exercise, of course.  It&#8217;s a very simple problem, from the point of view of programming.  I would have the student solve it however they like.  Most solutions contain a 3-way IF.  I would then ask students to <strong>remove duplication</strong>.  Early XP books were strong on removing duplication, for a good reason.  It takes a bit of training to see how much duplication can creep in even such a small bit of programming.  </p>
+<p>The usual objection I get at this point is that it makes no sense to go this deep in removing duplication for such a small and trivial example.  They also will say that the 3-IFs version is more readable than any version where duplication is removed.  This is the crux of the matter.</p>
+<p>I then continue the exercise by adding the requirement that  </p>
+<blockquote><p>
+For multiples of 7, the program prints &#8220;Bang&#8221;.
+</p></blockquote>
+<p>Easy, they say.  Add a fourth IF.  Not so fast, I say :-)  </p>
+<blockquote><p>
+For multiples of 7 and 3, the program prints &#8220;FizzBang&#8221;.  For multiples of 5 and 7, the program prints &#8220;BuzzBang&#8221;.  For multiples of 3, 5, 7, the program prints &#8220;FizzBuzzBang&#8221;!
+</p></blockquote>
+<p>Now we have an exploding number of IFs.  If the next requirement is of the same sort as this one, we see how the IF-chain solution becomes untenable :-)  Now solve this!</p>
+<p>Update:</p>
+<ul>
+<li>I got the idea of using FizzBuzz as a design example from <a href="http://giordano.scalzo.biz/">Giordano Scalzo</a>, who presented it at the <a href="http://milano-xpug.pbworks.com/">Milano XPUG</a> and posted a solution on slideshare</li>
+<li>Other sources of problems, in no particular order: the <em><a href="http://www.industriallogic.com/xp/refactoring/">Refactoring to patterns</a></em> book by Joshua Kerievsky.  The list of <a href="http://codekata.pragprog.com/">katas by Dave Thomas</a>.  The <a href="http://www.informit.com/articles/article.aspx?p=1402446">Refactoring in Ruby</a> book by William Wake and Mike Rutherford.  The <a href="http://rubyquiz.com/">Ruby Quiz</a> site.  I&#8217;m not merely looking for <em>programming</em> problems.  I&#8217;m looking for <em>design</em> problems.  The difference is that I don&#8217;t just want a problem that requires a correct or efficient solution.  I want a problem that requires a solution that is easy to understand and change.
+</li>
+</ul>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a>, <a href="../../design-exercise.html" rel="category tag">Design Exercise</a>, <a href="../../expressive-code.html" rel="category tag">Expressive Code</a> |   <a href="../../../378.html#comments">6 Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-373"><a href="../../../373.html" rel="bookmark" title="Permanent Link to How true">How true</a></h3>
+				<small>Tuesday, June 8th, 2010</small>
+
+				<div class="entry">
+					<p>I read this interview by Bill Wake to an Ukrainian coach, and he raises a very important point that I find it difficult to get right :-) </p>
+<blockquote>
+<p><strong>WW</strong> &#8211; I&#8217;m interested in things you do, behaviors you have, whether you think of them as coaching or programming.
+</p>
+<p><strong>AK</strong> &#8211; I was at a position in my life where I stopped being a traditional team lead and turned myself into a ScrumMaster. It&#8217;s hard to do, because you get used to proposing your ideas and believing that you&#8217;re smarter than  other people. Instead you have to start believing that the team can make up better ideas themselves. You make yourself stop talking and just ask questions. This is a hard thing to achieve.</p>
+</blockquote>
+<p><cite>Alexey Krivitsky, <a href="http://xp123.com/coach/interviews/Alexey2009.htm" title="XP123 -&nbsp; Coach Interview - Alexey Krivitsky">interviewed by</a> William Wake</cite></p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../373.html#respond">No Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-371"><a href="../../../371.html" rel="bookmark" title="Permanent Link to Emmanuel Gaillot on Software Craftmanship">Emmanuel Gaillot on Software Craftmanship</a></h3>
+				<small>Tuesday, May 25th, 2010</small>
+
+				<div class="entry">
+					<p><a href="http://emmanuelgaillot.blogspot.com/2010/05/software-craftsmanship-fueling-debate.html">Excellent post</a> by Emmanuel.  My favourite quote:</p>
+<blockquote><p>
+I envision a future in which programmers are the conscious repositories of a body of knowledge. A future in which they regain their craft, instead of tweaking frameworks they don&#8217;t understand. A future, eventually, in which programmers say &#8220;no&#8221; to demands at odds with their ethics.</p></blockquote>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../371.html#respond">No Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-364"><a href="../../../364.html" rel="bookmark" title="Permanent Link to Antonio Ganci on design">Antonio Ganci on design</a></h3>
+				<small>Sunday, April 18th, 2010</small>
+
+				<div class="entry">
+					<p>My friend and former Sourcesense collegue Antonio Ganci <a href="http://blogs.ugidotnet.org/AntonioGanci/archive/2010/04/18/larchitettura-e-sufficientemente-malleabile.aspx">posted an article</a> (Italian) that describes exactly what I meant in <a href="../../../343.html">A Frequently Asked TDD Question</a> and <a href="../../../352.html">its followup</a>.  It&#8217;s about what you can accomplish if you&#8217;re really good at design.</p>
+<p>It&#8217;s in Italian, so I will report here in English the main points: Antonio is the main developer for an application. He had the most crazy change requests from his customers, like: </p>
+<ul>
+<li>All user-visible text should be uppercase,</li>
+<li>There should be an offline mode for working at home</li>
+<li>Users with Vista or newer OS should see a WPF user interface, the others should get normal Windows Forms</li>
+<li>Change rounding from 2 to 4 digits  everywhere</li>
+<li>Log every data modification</li>
+</ul>
+<p>He reports that some of these changes were done in less than half an hour.   Quite a feat, and Antonio seems proud of his design.  I think he has good reasons to be proud!  </p>
+<p>Antonio does not say how he did that, but we can guess that the key is the <a href="http://c2.com/xp/OnceAndOnlyOnce.html">Once and Only Once rule</a>.  If there&#8217;s a single place where you print/compute/store a number, it&#8217;s very easy to change precision.  If you have some sort of builder to generate the user interface, it&#8217;s not terribly expensive to generate a WPF interface instead of a Windows Forms one.</p>
+<p>Once and Only Once: there should be a single authoritative place in the code where each concept is represented.  How do you get to OAOO?  One part of the story is to remove duplication.  Never write the same concept in two places, that is, keep <a href="http://www.artima.com/intv/dry.html">DRY</a>.  The other part is to write expressive code: don&#8217;t write &#8220;a+b&#8221;, write what you mean by &#8220;a+b&#8221;: what does it mean in terms of the application?  That&#8217;s the Once, and the Only Once. </p>
+<p>Bravo Antonio.</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a>, <a href="../../expressive-code.html" rel="category tag">Expressive Code</a> |   <a href="../../../364.html#respond">No Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-359"><a href="../../../359.html" rel="bookmark" title="Permanent Link to On Jeff Sutherland&#8217;s &#8220;Shock therapy&#8221; paper">On Jeff Sutherland&#8217;s &#8220;Shock therapy&#8221; paper</a></h3>
+				<small>Tuesday, April 13th, 2010</small>
+
+				<div class="entry">
+					<p>I read the paper by Jeff Sutherland and others, <a href="http://jeffsutherland.com/SutherlandShockTherapyAgile2009.pdf" title="">Shock Therapy: A Bootstrap for a Hyper-Productive Scrum</a>.  There are some things I like in this paper, and some things that I don&#8217;t.</p>
+<p>I like it that</p>
+<ul>
+<li>The coach insists on a proper definition of done, holding the team accountable for the quality of the work.</li>
+<li>The coach insists that only properly expressed stories are inserted in the team backlog.  No vague stories, with no acceptance criteria.</li>
+<li>The coach insists that Scrum training is done beforehand, and all parties involved attend, both business and developers.</li>
+<li>The coach insists that all part of Scrum are implemented, with no &#8220;scrumbut.&#8221;  The coach provides reasonable defaults for the (few) degrees of freedom of the Scrum framework.</li>
+<li>The coach works by helping the team solve problems by themselves, with the goal of getting the team to a point where they don&#8217;t need the coach anymore.</li>
+</ul>
+<p>I don&#8217;t like</p>
+<ul>
+<li>The theme of forcefully enforcing the rules that pervades the paper.  &#8220;Resistance is futile&#8221;&#8230; Bah.</li>
+<li>Measuring team maturity with velocity alone.  Velocity is a highly suspect measure.  Velocity depends on the stories estimate numbers, which are decided by the team.  There is a part of subjectivity in the estimates.  Did they estimate *all* the stories before starting work?  Did they change *any* of the estimates later?.</li>
+<li>Velocity is also suspect because it bears no strict relation to <em>return on investment</em>.  You might be very fast in developing software that does not give you a iota of profit.  This does not seem to be a concern in this paper.</li>
+<li>Thirdly, it&#8217;s very easy to be faster than what we did in the first iteration.  In my experience, in the first iteration a lot of effort goes in building a &#8220;walking skeleton&#8221; of the system, learning about the problem domain and project technologies, and so on.</li>
+<li>Fourth, it&#8217;s unclear what it means to compare &#8220;velocities&#8221; of different teams.  Who did the estimates that are used to compare velocities?  And how do you compare velocities with teams that are not even doing Scrum??</li>
+<li>Then I have issues with how the paper says nonchalantly &#8220;ATDD was used&#8221; as if practicing ATDD was easy.  In my experience, which is also what many trainers say, it takes at least two or three months to begin to be proficient with TDD, let alone ATDD.  How much experience and training did the developers have with ATDD?  Does the &#8220;shock therapy&#8221; work well even when the team members are new to TDD and other XP engineering practices?</li>
+<li>No mention is made of the quality of the code produced by the teams.  Was the high velocity bought at the expense of introducing technical debt?  Was code quality even measured in any way?  The paper does not say.</li>
+</ul>
+<p>In conclusion, I found a few useful ideas in this paper, but I think it leaves a lot of questions unanswered.  I have no problem believing that Jeff Sutherland can achieve very good results with his teams.  I find the paper does not prove at all that there is a magic formula that guarantees high productivity. </p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../359.html#comments">5 Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-352"><a href="../../../352.html" rel="bookmark" title="Permanent Link to Answering Luca&#8217;s comment">Answering Luca&#8217;s comment</a></h3>
+				<small>Saturday, March 20th, 2010</small>
+
+				<div class="entry">
+					<p>Luca Minudel <a href="../../../343.html#comment-93117">commented</a> on my previous post.  My answer has got so long that it became a full post.</p>
+<p>Hi Luca,</p>
+<p>I&#8217;m a fan of the <a href="http://www.growing-object-oriented-software.com/">Growing Object-Oriented Software</a> book, but I haven&#8217;t adopted the mockist style yet.  I know that I have seen lots of instances of mock misuse, leading to unreadable and brittle tests. So I&#8217;m afraid it depends a lot on who&#8217;s doing the training :-)  It&#8217;s true that the GOOS book promotes good object-orientation.  </p>
+<p>My point in my previous post was not advocating a particular style of training.  It is simply to answer a common question.  <em>&#8220;If we work incrementally without design upfront, as all the books on TDD advocate, is there a risk of getting in a situation where adding some features becomes unreasonably expensive?&#8221;</em>  This fear is often related to non-functional requirements.  </p>
+<p>I think this fear has merit, and it&#8217;s too easy for new converts to TDD (including me) to confidently say <em>&#8220;we have the tests, we can refactor the code to make it do whatever is needed.&#8221;</em>  The bug in this reasoning is that we should not code with the expectation to do (what often amounts to) major refactoring.  We should code with the objective of producing a system where implementing new stuff is so easy that it feels like composing Lego bricks, or like putting the last piece of a puzzle, when it slides comfortably in its place.  </p>
+<p>Getting to a design that is this good is the real goal of TDD and XP.  I can&#8217;t say in all honesty that I can achieve this level of goodness in major applications.  But I&#8217;m beginning to see how one could do that.  </p>
+<p>So the point of my post is that you can afford to work in a totally incremental way, only if you are dead serious about keeping your code squeaky clean.  Which is not easy to do, given the time pressures we always have.  But then again, this is nothing new, this is what the XP books have been saying from the beginning, isn&#8217;t it?  Only it is surprising to discover how really clean your code should be.</p>
+<p>Coming back to your comment, it seems you are concerned with ways to help a team to do the right thing and produce good code.  My experience is that the first step is to know your material well.  So if you&#8217;re accomplished producing good code in the mockist style, more power to you!  Your team will pick it up from you.  </p>
+<p>It&#8217;s interesting that you found it easier to communicate good style using the mockist approach rather than teaching principles like OCP and Demeter.  I&#8217;ll have to think about it.</p>
+<p>Dear reader: if you haven&#8217;t read <a href="http://www.growing-object-oriented-software.com/">Growing Object-Oriented Software</a> yet, I invite you to do so.  It&#8217;s not a book about &#8220;mocks&#8221; simply.  It&#8217;s a book about a style of software development, deeply and beautifully object-oriented.  For a taste of the authors&#8217; style, I suggest you to read their paper <a href="http://www.jmock.org/oopsla2004.pdf">Mock Roles, Not Objects</a> (pdf).</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../352.html#comments">3 Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-343"><a href="../../../343.html" rel="bookmark" title="Permanent Link to A frequently asked TDD question">A frequently asked TDD question</a></h3>
+				<small>Thursday, March 18th, 2010</small>
+
+				<div class="entry">
+					<p>Today I and <a href="http://tommasotorti.blogspot.com/">Tommaso</a> facilitated the kickoff of a new project for a new team.  One question that came up was:</p>
+<blockquote><p>
+We know that before the project is finished, we will have to profile all buttons and links so that users will not see options they are not authorized to use.  Should we keep this in mind as we write the code today?  Or should we rigidly adhere to YAGNI and defer all work on profiling until the profiling story is chosen by our customer?
+</p></blockquote>
+<p>This question comes up quite often.  An answer that is often heard by agilists is </p>
+<blockquote><p>
+Never!  Today you should only work for today&#8217;s story!  The profiling story might never be chosen, after all, and even if it is chosen, you will refactor your code to accomodate the new functionality.  YAGNI, my friend!
+</p></blockquote>
+<p>Tommaso rightly objected that this point of view is wrong.  When the moment of link profilation comes up, the application is usually at a late stage of development.  Refactoring all links and buttons to include profilation takes <em>a lot of work</em>.  And we knew this functionality was coming, so we can&#8217;t even invoke the &#8220;customer changing their mind&#8221; excuse.  </p>
+<p>Agile development can only work if we can keep down the cost of adding functionality even late in the development cycle.  This should apply to unforeseen changes, and even more so to features that we always knew were needed.  If a change requires major reworking, then we clearly did something wrong.</p>
+<p>What do I suggest then?  Should we build in infrastructure right at the beginning for all major features?  Should we do design upfront to protect us from this sort of mistakes?  </p>
+<p>Well, there is not a clear-cut answer.  Naive reading of the TDD book will lead you to believe that just applying the TDD mantra</p>
+<blockquote>
+<ol>
+<li>
+    Red&mdash;Write a little test that doesn&#8217;t work, and perhaps doesn&#8217;t even compile at first.
+  </li>
+<li>
+    Green&mdash;Make the test work quickly, committing whatever sins necessary in the process.
+  </li>
+<li>
+    Refactor&mdash;Eliminate all of the duplication created in merely getting the test to work.
+  </li>
+</ol>
+<p><cite>Kent Beck, <a href="http://books.google.com/books?id=gFgnde_vwMAC">Test Driven Development by Example</a></cite>
+</p></blockquote>
+<p>will lead you slowly but surely, <em>almost automatically</em>, to a well-written system that makes it easy to add changes at all times.  Well, there is a <strong>huge</strong> misunderstanding here.  There is nothing &#8220;almost automatic&#8221; in this process.  If you read carefully the book, it will also say things like <em>&#8220;Our designs must consist of many highly cohesive, loosely coupled components&#8221;</em>.  </p>
+<p>Just how <em>highly cohesive</em> and how <em>loosely coupled</em> our systems must be, is something that is left to the judgment of the reader.  Which in most cases is not skilled enough to imagine just how cohesive and decoupled people like Kent Beck think when they say &#8220;cohesive and decoupled&#8221;.  Most people don&#8217;t understand how serious people like Kent Beck are when they say &#8220;eliminate all of the duplication&#8221;.</p>
+<p>Because if you&#8217;re not fanatical about removing duplication, about striving for code that is highly cohesive and decoupled, there is little chance of achieving code that is easy to change over time.  </p>
+<p>My answer is that if I am <strong>serious</strong> about removing duplication, then I will *not* have code like <code>&lt;a href='foo'&gt;bar&lt;/a&gt;</code> written in more than one place; let alone in hundreds of places.  I will have a single function, a single method, a single place where the html link is generated.  Then when the time comes to add profilation, or HTTPS, or Ajax, or anything else that affects how my links should work, then I will have a *single* place to change.  The change will not be too expensive.</p>
+<p>If I don&#8217;t think I can work with the level of discipline it takes to <em>really</em> remove duplication, then perhaps I&#8217;ll be better off stopping pretending I&#8217;m really doing TDD, and start doing some design upfront.</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../343.html#comments">9 Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-333"><a href="../../../333.html" rel="bookmark" title="Permanent Link to Lazy proxy in Ruby">Lazy proxy in Ruby</a></h3>
+				<small>Thursday, March 11th, 2010</small>
+
+				<div class="entry">
+					<p>I&#8217;m a total newbie when it comes to Ruby evaluation tricks, so when I learned this today I felt it was a good thing to share :-)</p>
+<p>The problem: speeding up a Rails application.  When all is said and done, you need to cache page fragments in order to speed up an application significantly.  For instance: you start with</p>
+<p><code></p>
+<pre>
+class ProductsController &lt; ApplicationController
+  def category
+    @products = Product.find_by_category(params[:id])
+  end
+end
+
+...
+
+&lt;div id=&quot;products&quot;&gt;
+  &lt;% for product in @products do %&gt;
+    &lt;!-- some complicated html code --&gt;
+  &lt;% end %&gt;
+&lt;/div&gt;
+</pre>
+<p></code></p>
+<p>and then add fragment caching in the view with</p>
+<p><code></p>
+<pre>
+&lt;% cache &quot;category-#{params[:id]}&quot; do %&gt;
+  &lt;div id=&quot;products&quot;&gt;
+    &lt;% for product in @products do %&gt;
+      &lt;!-- some complicated html code --&gt;
+    &lt;% end %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;
+</pre>
+<p></code></p>
+<p>OK, this speeds up view rendering.  But we are still executing the query in the controller, to obtain a list of products we are not even using.  The standard Rails solution to this is</p>
+<p><code></p>
+<pre>
+  class ProductsController &lt; ApplicationController
+    def category
+      unless fragment_exist? "category-#{params[:id]}"
+        @products = Product.find_by_category(params[:id])
+      end
+    end
+  end
+</pre>
+<p></code></p>
+<p>This is nice enough.  But one things is worrying me, is there might be a race condition between the &#8220;unless fragment_exists?&#8221; test and the call to &#8220;cache&#8221; in the view.  If the cron job that cleans the cache directory executes between the two, the user will see an error.</p>
+<p>I thought to myself, wouldn&#8217;t it be nice to give the view a lazy proxy in place of the array of results?  The lazy proxy will only execute the query if it is needed.  The controller becomes:</p>
+<p><code></p>
+<pre>
+class ProductsController &lt; ApplicationController
+  def category
+    @products = LazyProxy.new do
+      Product.find_by_category(params[:id])
+    end
+  end
+end
+</pre>
+<p></code></p>
+<p>The LazyProxy magic is surprisingly simple:</p>
+<p><code></p>
+<pre>
+class LazyProxy &lt; Delegator
+  def initialize(&amp;block)
+    @block = block
+  end
+
+  def __getobj__
+    @delegate ||= @block.call
+  end
+end  
+</pre>
+<p></code></p>
+<p>The block given to the constructor is saved, and not used immediately.  The Delegator class from the standard library delegates all calls to the object returned by the __getobj__ method.  The &#8220;||=&#8221; trick makes sure that the result of @block.call will be saved in an instance variable, so that the query is executed at most once.</p>
+<p>So the idea is that the view will be given a lazy proxy for a query.  If the fragment exists, the view code will not be evaluated and the proxy will not be used.  No query.  If the fragment does not exist, the lazy proxy is used and a query is executed.  There is no race condition, for there is no test to see if the fragment exists.</p>
+<p>What do you think?</p>
+<p><strong>Update</strong> One additional advantage of the lazy proxy is that you no longer need to make sure that the fragment key is the same on both view and controller.</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../agile.html" rel="category tag">Agile</a> |   <a href="../../../333.html#comments">4 Comments &#187;</a></p>
+		</div>
+
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="10" >&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="8.html" >Next Entries &raquo;</a></div>
+		</div>
+
+	  	</div>
+
+  <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            <p>You are currently browsing the archives for the Agile category.</p>
+
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../../../../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../../../../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../../../../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='../../../date/2018/10.html'>October 2018</a></li>
+	<li><a href='../../../date/2017/09.html'>September 2017</a></li>
+	<li><a href='../../../date/2016/08.html'>August 2016</a></li>
+	<li><a href='../../../date/2016/03.html'>March 2016</a></li>
+	<li><a href='../../../date/2016/01.html'>January 2016</a></li>
+	<li><a href='../../../date/2014/12.html'>December 2014</a></li>
+	<li><a href='../../../date/2014/10.html'>October 2014</a></li>
+	<li><a href='../../../date/2014/06.html'>June 2014</a></li>
+	<li><a href='../../../date/2014/02.html'>February 2014</a></li>
+	<li><a href='../../../date/2013/12.html'>December 2013</a></li>
+	<li><a href='../../../date/2013/11.html'>November 2013</a></li>
+	<li><a href='../../../date/2013/06.html'>June 2013</a></li>
+	<li><a href='../../../date/2013/05.html'>May 2013</a></li>
+	<li><a href='../../../date/2013/03.html'>March 2013</a></li>
+	<li><a href='../../../date/2013/02.html'>February 2013</a></li>
+	<li><a href='../../../date/2012/10.html'>October 2012</a></li>
+	<li><a href='../../../date/2012/08.html'>August 2012</a></li>
+	<li><a href='../../../date/2012/07.html'>July 2012</a></li>
+	<li><a href='../../../date/2012/06.html'>June 2012</a></li>
+	<li><a href='../../../date/2012/05.html'>May 2012</a></li>
+	<li><a href='../../../date/2012/04.html'>April 2012</a></li>
+	<li><a href='../../../date/2012/01.html'>January 2012</a></li>
+	<li><a href='../../../date/2011/12.html'>December 2011</a></li>
+	<li><a href='../../../date/2011/11.html'>November 2011</a></li>
+	<li><a href='../../../date/2011/10.html'>October 2011</a></li>
+	<li><a href='../../../date/2011/07.html'>July 2011</a></li>
+	<li><a href='../../../date/2011/06.html'>June 2011</a></li>
+	<li><a href='../../../date/2011/05.html'>May 2011</a></li>
+	<li><a href='../../../date/2011/04.html'>April 2011</a></li>
+	<li><a href='../../../date/2011/03.html'>March 2011</a></li>
+	<li><a href='../../../date/2011/02.html'>February 2011</a></li>
+	<li><a href='../../../date/2010/11.html'>November 2010</a></li>
+	<li><a href='../../../date/2010/10.html'>October 2010</a></li>
+	<li><a href='../../../date/2010/09.html'>September 2010</a></li>
+	<li><a href='../../../date/2010/08.html'>August 2010</a></li>
+	<li><a href='../../../date/2010/07.html'>July 2010</a></li>
+	<li><a href='../../../date/2010/06.html'>June 2010</a></li>
+	<li><a href='../../../date/2010/05.html'>May 2010</a></li>
+	<li><a href='../../../date/2010/04.html'>April 2010</a></li>
+	<li><a href='../../../date/2010/03.html'>March 2010</a></li>
+	<li><a href='../../../date/2010/02.html'>February 2010</a></li>
+	<li><a href='../../../date/2010/01.html'>January 2010</a></li>
+	<li><a href='../../../date/2009/12.html'>December 2009</a></li>
+	<li><a href='../../../date/2009/11.html'>November 2009</a></li>
+	<li><a href='../../../date/2009/10.html'>October 2009</a></li>
+	<li><a href='../../../date/2009/09.html'>September 2009</a></li>
+	<li><a href='../../../date/2009/07.html'>July 2009</a></li>
+	<li><a href='../../../date/2009/05.html'>May 2009</a></li>
+	<li><a href='../../../date/2009/04.html'>April 2009</a></li>
+	<li><a href='../../../date/2009/03.html'>March 2009</a></li>
+	<li><a href='../../../date/2009/02.html'>February 2009</a></li>
+	<li><a href='../../../date/2009/01.html'>January 2009</a></li>
+	<li><a href='../../../date/2008/12.html'>December 2008</a></li>
+	<li><a href='../../../date/2008/11.html'>November 2008</a></li>
+	<li><a href='../../../date/2008/10.html'>October 2008</a></li>
+	<li><a href='../../../date/2008/09.html'>September 2008</a></li>
+	<li><a href='../../../date/2008/07.html'>July 2008</a></li>
+	<li><a href='../../../date/2008/06.html'>June 2008</a></li>
+	<li><a href='../../../date/2008/05.html'>May 2008</a></li>
+	<li><a href='../../../date/2008/04.html'>April 2008</a></li>
+	<li><a href='../../../date/2008/01.html'>January 2008</a></li>
+	<li><a href='../../../date/2007/11.html'>November 2007</a></li>
+	<li><a href='../../../date/2007/10.html'>October 2007</a></li>
+	<li><a href='../../../date/2007/09.html'>September 2007</a></li>
+	<li><a href='../../../date/2007/06.html'>June 2007</a></li>
+	<li><a href='../../../date/2007/05.html'>May 2007</a></li>
+	<li><a href='../../../date/2007/04.html'>April 2007</a></li>
+	<li><a href='../../../date/2007/03.html'>March 2007</a></li>
+	<li><a href='../../../date/2007/02.html'>February 2007</a></li>
+	<li><a href='../../../date/2007/01.html'>January 2007</a></li>
+	<li><a href='../../../date/2006/12.html'>December 2006</a></li>
+	<li><a href='../../../date/2006/11.html'>November 2006</a></li>
+	<li><a href='../../../date/2006/10.html'>October 2006</a></li>
+	<li><a href='../../../date/2006/09.html'>September 2006</a></li>
+	<li><a href='../../../date/2006/08.html'>August 2006</a></li>
+	<li><a href='../../../date/2006/07.html'>July 2006</a></li>
+	<li><a href='../../../date/2006/06.html'>June 2006</a></li>
+	<li><a href='../../../date/2006/05.html'>May 2006</a></li>
+	<li><a href='../../../date/2006/04.html'>April 2006</a></li>
+	<li><a href='../../../date/2006/03.html'>March 2006</a></li>
+	<li><a href='../../../date/2006/02.html'>February 2006</a></li>
+	<li><a href='../../../date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1 current-cat"><a href="../../agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="../../books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="../../design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="../../essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="../../expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="../../fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="../../other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../../../../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/category/agile/page/9 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:31:46 GMT -->
+</html>

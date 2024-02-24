@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/73 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:28:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Proposta Tesi di Laurea interna: http chat server in Erlang</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm &raquo; Proposta Tesi di Laurea interna: http chat server in Erlang Comments Feed" href="73/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='The Comet is coming; or, push is coming back.' href='72.html' />
+<link rel='next' title='Appunti su Domain-Driven Design, di Eric Evans' href='74.html' />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="73.html" />
+<link rel='shortlink' href='../index8cae.html?p=73' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embedc1de.json?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F73" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed0db6?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F73&amp;format=xml" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+    <div id='main-col'>
+
+  
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="72.html" rel="prev">The Comet is coming; or, push is coming back.</a></div>
+			<div class="alignright"><a href="74.html" rel="next">Appunti su <em>Domain-Driven Design</em>, di Eric Evans</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-73">
+			<h2><a href="73.html" rel="bookmark" title="Permanent Link: Proposta Tesi di Laurea interna: http chat server in Erlang">Proposta Tesi di Laurea interna: http chat server in Erlang</a></h2>
+
+			<div class="entrytext">
+				<p>Summary: I&#8217;m looking for a student to pick up the task of writing an http chat server in Erlang</p>
+<p>I linguaggio di programmazione Erlang è una rara bestia &#8212; deriva dai linguaggi di programmazione cari agli informatici teorici, come Lisp e Prolog, e li cala in un contesto industriale con un&#8217;implementazione di tutto rispetto.  </p>
+<p><a href="http://www.erlang.org/white_paper.html">Erlang</a> nasce da una ricerca in Ericsson di un linguaggio di programmazione alternativo al C per sviluppare le centrali telefoniche.  Intorno al 1982 Ericsson ha condotto esperimenti con una ventina di diversi linguaggi di programmazione.  Gli esperimenti dimostrarono che i linguaggi che fornivano una maggiore produttività in quest&#8217;ambito applicativo erano i linguaggi simbolici di alto livello, come Lisp e Prolog.  Un fatto curioso emerso da queste ricerche fu che il numero di errori in un programma risultò proporzionale al numero di linee di codice, a parità di funzionalità implementata.  Questo implicava la ricerca di un linguaggio che fosse molto più conciso del C.</p>
+<p>Il contesto applicativo di Ericsson, ovvero il software che permette a Tizio di telefonare a Caio, richiede però alcune caratteristiche addizionali che questi linguaggi simbolici non avevano: la gestione della concorrenza, la possibilità di contenere l&#8217;impatto degli inevitabili errori di programmazione, la scalabilità, la fault tolerance, il soft real-time.</p>
+<p>Questa ricerca condusse quindi all&#8217;invenzione di un linguaggio ad hoc.  Ora, un linguaggio di programmazione vive o muore sulla base della qualità della sua implementazione.  E il linguaggio Erlang ha un interprete che permette di realizzare applicazione massicciamente concorrenti (si pensi a quante telefoni comunicano contemporaneamente con una centrale telefonica), con la possibilità di aggiornare il codice a caldo (un po&#8217; come la possibilità di cambiare i dischi in un server senza spegnerlo, solo che qui si tratta di software.)  Erlang gestisce la concorrenza con un modello ad attori che è più semplice per il programmatore del meccanismo basato su stato condiviso e semafori.  Erlang ha un database transazionale integrato, che può essere distribuito in maniera trasparente su più nodi per fault tolerance e scalabilità.  C&#8217;è uno <a href="http://www.sics.se/~joe/apachevsyaws.html">studio</a> che dimostra che un web server implementato in Erlang ha una capacità di sopportare picchi di carico di almeno un ordine di grandezza maggiore di Apache.</p>
+<p>Tutto ciò porta a concludere che Erlang è il candidato ideale per realizzare applicazioni client-server che necessitino della massima scalabilità e affidabilità: ad esempio i mercati telematici.</p>
+<p>L&#8217;obiettivo di questa Tesi è di realizzare un progetto pilota di servizio web interattivo push in Erlang.  In una parola, realizziamo un server di &#8220;chat&#8221; tipo <a href="http://lingr.com/">lingr</a> o <a href="http://www.campfirenow.com/">campfire</a>, interamente in Erlang.  Questo coinvolgerà l&#8217;adattamento di Erlang allo stile di programmazione <a href="../indexae74.html?p=72">comet</a>.</p>
+<p>Questa Tesi è di livello specialistico, ma possiamo vedere di ritagliarne un pezzo più piccolo per una laurea Triennale.  Se sei interessato, mandami un messaggio per prendere appuntamento per parlarne.  E&#8217; preferibile avere un po&#8217; di esperienza con la programmazione in stile funzionale.</p>
+<p><strong>Aggiornamento:</strong> i programmatori pragmatici stanno per fare uscire un <a href="http://www.pragmaticprogrammer.com/titles/jaerlang/">libro su Erlang</a>.  Questa è una grande notizia!</p>
+
+				
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on 25 January 2007 at 10:52						and is filed under <a href="category/agile.html" rel="category tag">Agile</a>.
+						You can follow any responses to this entry through the <a href="73/feed">RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="73/trackback" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">13 Responses to &#8220;Proposta Tesi di Laurea interna: http chat server in Erlang&#8221;</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-2406">
+			<cite><a href='http://www.pixzone.com/blog/' rel='external nofollow' class='url'>Federico</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-2406" title="">January 25th, 2007 at 16:47</a> </small>
+
+			<p>Molto interessante, forse un po&#8217; in anticipo sui miei tempi, dovro&#8217; scrivere la tesi l&#8217;anno prossimo&#8230; pero&#8217; e&#8217; un argomento su cui gia&#8217; stavo indagando da tempo&#8230; unico mio difetto � che di erlang ho letto solo qualche tutorial introduttivo&#8230; avresti da consigliarmi un buon testo o un bel tutorial online?</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-2445">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-2445" title="">January 26th, 2007 at 10:22</a> </small>
+
+			<p>Su erlang.org trovi un sacco di documentazione.  Ci dovrebbe essere anche almeno la prima parte di &#8220;Concurrent programming with Erlang&#8221; (che non ho letto!)  In realt� sono totalmente ignorante di Erlang; la ragione per cui propongo la tesi � per avere l&#8217;occasione di impararlo anch&#8217;io.</p>
+<p>A parte questo, se ragioniamo sul lungo periodo, credo che la cosa pi� importante sia dominare i principi; in questo caso i principi rilevanti sono quelli di programmazione funzionale, e di programmazione concorrente.</p>
+<p>Per la programmazione funzionale ci sono tanti ottimi testi, e non ha moltissima importanza se la studi in Erlang o Scheme o ML o Haskell.  E&#8217; importante che tu sappia come si usa la ricorsione al posto del &#8220;while&#8221;!  Ti suggerisco: </p>
+<p>Structure And Interpretation of Computer Programs (<a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" rel="nofollow">http://mitpress.mit.edu/sicp/full-text/book/book.html</a>)  Grande classico che ti insegna come un semplice linguaggio possa illustrare tutti i paradigmi di programmazione.</p>
+<p>The little Schemer<br />
+(<a href="http://www.ccs.neu.edu/home/matthias/BTLS/" rel="nofollow">http://www.ccs.neu.edu/home/matthias/BTLS/</a>)<br />
+Altro classico, che ti propone dei koan funzionali su cui meditare.  Molto zen.</p>
+<p>Altri testi che potresti trovare utili sulla programmazione funzionale: ML For The Working Programmer di Paulson, o Introduction to Functional Programming di Bird e Wadler.</p>
+<p>Sulla programmazione concorrente, invece, non so darti molti consigli.  Non conosco testi cos� ben scritti come quelli che ho citato qui sopra.  Che dipenda dal fatto che la programmazione concorrente � un argomento molto meno ben compreso?  </p>
+<p>Comunque, una cosa importante da capire � il concetto di transazione (perch�? perch� � un concetto fondamentale per ridurre o gestire il nondeterminismo in un sistema concorrente.)  Un buon testo che spiega i sistemi concorrenti e le transazioni � il Coulouris, Distributed Systems (<a href="http://www.cdk4.net/" rel="nofollow">http://www.cdk4.net/</a>).  Io ho letto la seconda edizione, ormai � giunto alla quarta.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-2450">
+			<cite><a href='http://www.pixzone.com/blog/' rel='external nofollow' class='url'>Federico</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-2450" title="">January 26th, 2007 at 12:47</a> </small>
+
+			<p>Wow, ti ringrazio per tutti questi spunti, iniziero&#8217; a documentarmi! Intanto ieri mi sono stampato un paio di tutorial su erlang che mi sono ripromesso di finire entro le prossime settimane.<br />
+Come dici tu credo che la cosa piu&#8217; &#8220;difficile&#8221; sia cambiare forma mentale rispetto alla programmazione procedurale&#8230; iniziero&#8217; con qualcosa di semplice e conosco comunque qualche smanettone di erlang a cui chieder consigli&#8230; ;)</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-2461">
+			<cite><a href='http://www.oluyede.org/blog' rel='external nofollow' class='url'>Lawrence Oluyede</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-2461" title="">January 26th, 2007 at 16:29</a> </small>
+
+			<p>Che idee grandiose! Erlang � (in teoria) il mio linguaggio per il 2007. Ho fatto anche qualche prova l&#8217;anno scorso: <a href="http://www.oluyede.org/blog/category/erlang/" rel="nofollow">http://www.oluyede.org/blog/category/erlang/</a></p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-5022">
+			<cite><a href='http://riffraff.blogsome.com/' rel='external nofollow' class='url'>riffraff</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-5022" title="">March 16th, 2007 at 14:40</a> </small>
+
+			<p>(leggo solo oggi..)</p>
+<p>perch� non sei un mio professore, percheeeee!</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-6578">
+			<cite><a href='../indexbde5.html?p=80' rel='external nofollow' class='url'>Matteo Vaccari &raquo; Blog Archive &raquo; Tesi su Erlang&#8230; le cose si muovono</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-6578" title="">April 3rd, 2007 at 09:24</a> </small>
+
+			<p>[&#8230;] La tesi su Http chat server in Erlang � partita&#8230; sono molto contento. Pare che diverse cose si stiano muovendo: i Programmatori Pragmatici stanno per pubblicare un libro su Erlang scritto da Joe Armstrong, che � uno dei principali autori del linguaggio. Fra l&#8217;altro la tesi di dottorato di Armstrong � molto leggibile (prendete esempio, o studenti!) [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-54643">
+			<cite><a href='http://julio.diegidio.name/' rel='external nofollow' class='url'>LudovicoVan</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-54643" title="">April 29th, 2008 at 09:14</a> </small>
+
+			<p>Ciao Matteo,</p>
+<p>Trovo questa tua proposta estremamente interessante, soprattutto per via di certi &#8220;studi&#8221; che sto portando avandi sul ruolo e le meccaniche dei linguaggi funzionali (il tutto nel contesto di una teoria che sia in grado di comprendere e distinguere i vari paradigmi), e devo dire che una significativa esperienza in tal senso e&#8217; cio&#8217; che attualmente mi manca di piu&#8217;.</p>
+<p>Detto cio&#8217;, la domanda da 1 milione di dollari sarebbe: pensi che potrei essere &#8220;eleggibile&#8221;, in qualche modo, per un&#8217;opportunita&#8217; del genere? E, soprattutto, pensi che ci sia un qualche modo di avere una minima &#8220;retribuzione&#8221;, perlomeno a coprire alcune spese di base? Non ho grandi esigenze, ma non mi potrei permettere di smettere completamente di guadagnare&#8230;</p>
+<p>Per darti un&#8217;idea piu&#8217; precisa, un accenno al mio background &#8220;accademico&#8221;: sono quasi completamente autodidatta, con licenza liceale, anche se ho frequentato vari anni di varie universita&#8217;, il che mi ha dato occasione di approfondire la questione dei &#8220;linguaggi&#8221; non solo dal punto di vista della matematica (soprattutto number theory) e della computer science (soprattutto le questioni legate a decidibilita&#8217;, computabilita&#8217;, ecc.), ma anche dal punto di vista umanistico, fino agli aspetti filosofici.</p>
+<p>Alcuni miei recenti contributi e domande su argomenti correlati sono disseminati per lo sci.math group. Un punto di partenza: <a href="http://mathforum.org/kb/profile.jspa?userID=483994" rel="nofollow">http://mathforum.org/kb/profile.jspa?userID=483994</a></p>
+<p>Che ne dici, c&#8217;e&#8217; qualche speranza? Con tutte le recenti &#8220;riforme&#8221;, temo di non essere sicuro della risposta&#8230;</p>
+<p>-LV</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-54645">
+			<cite><a href='http://julio.diegidio.name/' rel='external nofollow' class='url'>LudovicoVan</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-54645" title="">April 29th, 2008 at 09:15</a> </small>
+
+			<p>P.S. Scusa, mi rendo ora conto che il mio post arriva alquanto in ritardo. Tuttavia la domanda, se vuoi, resta.</p>
+<p>Grazie,</p>
+<p>Julio</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-54725">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-54725" title="">April 29th, 2008 at 18:24</a> </small>
+
+			<p>@LudovicoVan: l&#8217;offerta è (era) valida solo per laureandi in informatica, e specificamente per laureandi in informatica a Varese.  No, non c&#8217;è nessuna possibilità di rimborso spese per il &#8220;lavoro&#8221; di laurea se fai una laurea interna (come quella di cui parliamo).  C&#8217;è una (magra) speranza di avere un rimborso spese se fai uno stage presso un&#8217;azienda, che però non è tenuta a corrisponderlo.</p>
+<p>Non ho capito il commento sulle &#8220;riforme&#8221; comunque se vuoi approfondire Erlang penso che un bravo autodidatta non dovrebbe avere grosse difficoltà.  Anche se in generale ti consiglierei di riprendere e completare gli studi per una laurea.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-54976">
+			<cite><a href='http://julio.diegidio.name/' rel='external nofollow' class='url'>LudovicoVan</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-54976" title="">April 30th, 2008 at 20:16</a> </small>
+
+			<p>Hai perfettamente ragione, e grazie per la risposta.</p>
+<p>Ad essere sincero, il fatto e&#8217; che lavorando all&#8217;Universita&#8217; -mi immagino- uno in un certo senso &#8220;si paga gli studi&#8221;, mentre se devi conciliare lavoro e studio ti dico che diventa &#8220;una giostra continua&#8221; (per quanto non sto implicando particolari bilanci). In ogni caso, point taken: in effetti, non smetto di pensarci.</p>
+<p>La formazione in azienda, almeno per come e&#8217; impostata attualmente (direi, per via della piaga degli smart-test, soprattutto quando regolarmente somministrati da persone per lo piu&#8217; incompetenti a persone tendenzialmente non qualificate, welcome simplicity), purtroppo non e&#8217; un&#8217;opzione. Lavoro prevalentemente in azienda, e allora e&#8217; meglio imparare a caccia di progetti interessanti, tipo training on the job ma autogestito e, per forza di cose, del tutto indipendente, nonche&#8217;, ahime&#8217; sembrerebbe, sempre in ultima istanza incompatibile, indipendentemente da qualunque rigore&#8230; ti ritrovi a lavorare di nascosto, alla lettera: il cambiamento e&#8217; bandito, insieme a qualunque cosa non esca da una ricetta al micro-onde; e con essi e&#8217; bandita l&#8217;essenza stessa di qualunque processo di apprendimento e dunque di progresso e sviluppo. Superna morale del mondo di fuori: ti devi conformare, ma non troppo, ma non troppo, ma non troppo, e cosi&#8217; via. This ain&#8217;t gonna happen: almeno solo.</p>
+<p>Giusto a titolo di commento dall&#8217;altro lato della barricata: diciamo che mi starebbe bene anche fare il bidello, se non che gli studenti pare si siano trasformati tutti in capre, e gli insegnanti tutti in&#8230; chi puo&#8217; dirlo.</p>
+<p>!?[:,D-/=~+<br />
+*#{8-;=/=:|<br />
+?!&lt;&lt;;-)/=-)</p>
+<p>Bottom line: colgo il tuo spunto sul tentare uno &#8220;stage in azienda&#8221;, chissa&#8217;&#8230; #####</p>
+<p>E intanto continuero&#8217; a pensarci&#8230; :]8};)</p>
+<p>Grazie di nuovo e buon lavoro.</p>
+<p>-LV</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-55426">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-55426" title="">May 2nd, 2008 at 13:45</a> </small>
+
+			<p>Lo so che la formazione in azienda spesso è carente o assente.  Bisogna scegliere bene l&#8217;azienda per cui lavorare.</p>
+<p>Non ho capito cosa c&#8217;entri fare il bidello; i bidelli non sono lì per studiare.  E non è assolutamente vero che gli studenti siano tutti capre. </p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-55667">
+			<cite><a href='http://julio.diegidio.name/' rel='external nofollow' class='url'>LudovicoVan</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-55667" title="">May 3rd, 2008 at 13:13</a> </small>
+
+			<p>Quella del bidello era un modo per dire, appunto, che lavorare *in* Universita&#8217; tende a risolvere entrambi i problemi (lavorare *e* studiare).</p>
+<p>Era un esempio: un mio amico (vero) lavora in Universita&#8217; come addetto al servizio di prestito libri per la biblioteca inter-facolta&#8217; (non vero). Il lavoro e&#8217; abbastanza &#8220;umano&#8221; da lasciargli carrettate di tempo per portare avanti qualunque genere di studio egli preferisca, e &#8211; *nel contempo* &#8211; gli consente un continuo rapporto e scambio con *tutto* lo studentato, assistentato, docenza varia, amministrativi e chi piu&#8217; ne ha piu&#8217; ne metta, ecc. ecc. Se poi ci metti che e&#8217; puro uno gigolo&#8230;</p>
+<p>Morale: si e&#8217; laureato in Psicologia qualche anno fa con tesi di Antropologia sugli &#8220;Ipertesti&#8221; &#8211; ovviamente con supporto tecnico dal sottoscritto e non solo &#8211; con il Prof. di Storia del Cinema (da Lingue) in correlazione. E fa ancora il bidello&#8230;</p>
+<p>Sugli studenti, ti darei ragione, ma non piu&#8217; che al 2-5%&#8230; nella mia esperienza per lo meno.</p>
+<p>-LV</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-55668">
+			<cite><a href='http://julio.diegidio.name/' rel='external nofollow' class='url'>LudovicoVan</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-55668" title="">May 3rd, 2008 at 13:19</a> </small>
+
+			<p>P.S. L&#8217;ultima volta che l&#8217;ho incontrato, stavano facendo alcuni tentativi di &#8220;garage-domotica&#8221; per uso &#8220;artistico&#8221;. Non mi chiedere che vuol dire&#8230; ;)</p>
+<p>-LV</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://matteo.vaccari.name/blog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="73" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e891bb9f2c" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="66"/></p>
+</form>
+
+
+
+	
+    </div>
+
+    <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='date/2018/10.html'>October 2018</a></li>
+	<li><a href='date/2017/09.html'>September 2017</a></li>
+	<li><a href='date/2016/08.html'>August 2016</a></li>
+	<li><a href='date/2016/03.html'>March 2016</a></li>
+	<li><a href='date/2016/01.html'>January 2016</a></li>
+	<li><a href='date/2014/12.html'>December 2014</a></li>
+	<li><a href='date/2014/10.html'>October 2014</a></li>
+	<li><a href='date/2014/06.html'>June 2014</a></li>
+	<li><a href='date/2014/02.html'>February 2014</a></li>
+	<li><a href='date/2013/12.html'>December 2013</a></li>
+	<li><a href='date/2013/11.html'>November 2013</a></li>
+	<li><a href='date/2013/06.html'>June 2013</a></li>
+	<li><a href='date/2013/05.html'>May 2013</a></li>
+	<li><a href='date/2013/03.html'>March 2013</a></li>
+	<li><a href='date/2013/02.html'>February 2013</a></li>
+	<li><a href='date/2012/10.html'>October 2012</a></li>
+	<li><a href='date/2012/08.html'>August 2012</a></li>
+	<li><a href='date/2012/07.html'>July 2012</a></li>
+	<li><a href='date/2012/06.html'>June 2012</a></li>
+	<li><a href='date/2012/05.html'>May 2012</a></li>
+	<li><a href='date/2012/04.html'>April 2012</a></li>
+	<li><a href='date/2012/01.html'>January 2012</a></li>
+	<li><a href='date/2011/12.html'>December 2011</a></li>
+	<li><a href='date/2011/11.html'>November 2011</a></li>
+	<li><a href='date/2011/10.html'>October 2011</a></li>
+	<li><a href='date/2011/07.html'>July 2011</a></li>
+	<li><a href='date/2011/06.html'>June 2011</a></li>
+	<li><a href='date/2011/05.html'>May 2011</a></li>
+	<li><a href='date/2011/04.html'>April 2011</a></li>
+	<li><a href='date/2011/03.html'>March 2011</a></li>
+	<li><a href='date/2011/02.html'>February 2011</a></li>
+	<li><a href='date/2010/11.html'>November 2010</a></li>
+	<li><a href='date/2010/10.html'>October 2010</a></li>
+	<li><a href='date/2010/09.html'>September 2010</a></li>
+	<li><a href='date/2010/08.html'>August 2010</a></li>
+	<li><a href='date/2010/07.html'>July 2010</a></li>
+	<li><a href='date/2010/06.html'>June 2010</a></li>
+	<li><a href='date/2010/05.html'>May 2010</a></li>
+	<li><a href='date/2010/04.html'>April 2010</a></li>
+	<li><a href='date/2010/03.html'>March 2010</a></li>
+	<li><a href='date/2010/02.html'>February 2010</a></li>
+	<li><a href='date/2010/01.html'>January 2010</a></li>
+	<li><a href='date/2009/12.html'>December 2009</a></li>
+	<li><a href='date/2009/11.html'>November 2009</a></li>
+	<li><a href='date/2009/10.html'>October 2009</a></li>
+	<li><a href='date/2009/09.html'>September 2009</a></li>
+	<li><a href='date/2009/07.html'>July 2009</a></li>
+	<li><a href='date/2009/05.html'>May 2009</a></li>
+	<li><a href='date/2009/04.html'>April 2009</a></li>
+	<li><a href='date/2009/03.html'>March 2009</a></li>
+	<li><a href='date/2009/02.html'>February 2009</a></li>
+	<li><a href='date/2009/01.html'>January 2009</a></li>
+	<li><a href='date/2008/12.html'>December 2008</a></li>
+	<li><a href='date/2008/11.html'>November 2008</a></li>
+	<li><a href='date/2008/10.html'>October 2008</a></li>
+	<li><a href='date/2008/09.html'>September 2008</a></li>
+	<li><a href='date/2008/07.html'>July 2008</a></li>
+	<li><a href='date/2008/06.html'>June 2008</a></li>
+	<li><a href='date/2008/05.html'>May 2008</a></li>
+	<li><a href='date/2008/04.html'>April 2008</a></li>
+	<li><a href='date/2008/01.html'>January 2008</a></li>
+	<li><a href='date/2007/11.html'>November 2007</a></li>
+	<li><a href='date/2007/10.html'>October 2007</a></li>
+	<li><a href='date/2007/09.html'>September 2007</a></li>
+	<li><a href='date/2007/06.html'>June 2007</a></li>
+	<li><a href='date/2007/05.html'>May 2007</a></li>
+	<li><a href='date/2007/04.html'>April 2007</a></li>
+	<li><a href='date/2007/03.html'>March 2007</a></li>
+	<li><a href='date/2007/02.html'>February 2007</a></li>
+	<li><a href='date/2007/01.html'>January 2007</a></li>
+	<li><a href='date/2006/12.html'>December 2006</a></li>
+	<li><a href='date/2006/11.html'>November 2006</a></li>
+	<li><a href='date/2006/10.html'>October 2006</a></li>
+	<li><a href='date/2006/09.html'>September 2006</a></li>
+	<li><a href='date/2006/08.html'>August 2006</a></li>
+	<li><a href='date/2006/07.html'>July 2006</a></li>
+	<li><a href='date/2006/06.html'>June 2006</a></li>
+	<li><a href='date/2006/05.html'>May 2006</a></li>
+	<li><a href='date/2006/04.html'>April 2006</a></li>
+	<li><a href='date/2006/03.html'>March 2006</a></li>
+	<li><a href='date/2006/02.html'>February 2006</a></li>
+	<li><a href='date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+<script async="async" type='text/javascript' src='../wp-content/plugins/akismet/_inc/form0235.js?ver=4.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/73 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:28:30 GMT -->
+</html>

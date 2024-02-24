@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Manual mocks can be valuable	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/6/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/6</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Matteo Vaccari &#187; Blog Archive &#187; To mock or not to mock				</title>
+				<link>http://matteo.vaccari.name/blog/archives/6/comment-page-1#comment-280</link>
+		<dc:creator><![CDATA[Matteo Vaccari &#187; Blog Archive &#187; To mock or not to mock]]></dc:creator>
+		<pubDate>Fri, 03 Nov 2006 09:47:13 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=6#comment-280</guid>
+					<description><![CDATA[[...] meglio usare un mock fatto a mano, piuttosto che un jMock o simili [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] meglio usare un mock fatto a mano, piuttosto che un jMock o simili [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Money is not a float	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/197/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/197</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Max				</title>
+				<link>http://matteo.vaccari.name/blog/archives/197/comment-page-1#comment-93456</link>
+		<dc:creator><![CDATA[Max]]></dc:creator>
+		<pubDate>Mon, 06 Sep 2010 21:37:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=197#comment-93456</guid>
+					<description><![CDATA[Some notes on other popular JVM languaes:
+
+1) Groovy does the &quot;right thing&quot; by default
+
+this.a = 0.3
+===&#062; 0.3
+this.a * 3
+===&#062; 0.9
+this.a.class.name
+===&#062; java.math.BigDecimal
+
+2) Scala behave exactly like Java:
+
+scala&#062; val cent = 0.3
+cent: Double = 0.3
+scala&#062; cent * 3
+res0: Double = 0.8999999999999999
+
+However, using BigDecimal is straightforward  thanks to the implicit conversion:
+
+scala&#062; val cent : BigDecimal = 0.3
+cent: BigDecimal = 0.3
+scala&#062; cent * 3
+res1: scala.math.BigDecimal = 0.9]]></description>
+		<content:encoded><![CDATA[<p>Some notes on other popular JVM languaes:</p>
+<p>1) Groovy does the &#8220;right thing&#8221; by default</p>
+<p>this.a = 0.3<br />
+===&gt; 0.3<br />
+this.a * 3<br />
+===&gt; 0.9<br />
+this.a.class.name<br />
+===&gt; java.math.BigDecimal</p>
+<p>2) Scala behave exactly like Java:</p>
+<p>scala&gt; val cent = 0.3<br />
+cent: Double = 0.3<br />
+scala&gt; cent * 3<br />
+res0: Double = 0.8999999999999999</p>
+<p>However, using BigDecimal is straightforward  thanks to the implicit conversion:</p>
+<p>scala&gt; val cent : BigDecimal = 0.3<br />
+cent: BigDecimal = 0.3<br />
+scala&gt; cent * 3<br />
+res1: scala.math.BigDecimal = 0.9</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/197/comment-page-1#comment-93203</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Mon, 03 May 2010 18:51:38 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=197#comment-93203</guid>
+					<description><![CDATA[An update: I found this very good article in Stephan Schmidt&#039;s blog: http://codemonkeyism.com/once-and-for-all-do-not-use-double-for-money/]]></description>
+		<content:encoded><![CDATA[<p>An update: I found this very good article in Stephan Schmidt&#8217;s blog: <a href="http://codemonkeyism.com/once-and-for-all-do-not-use-double-for-money/" rel="nofollow">http://codemonkeyism.com/once-and-for-all-do-not-use-double-for-money/</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Carlo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/197/comment-page-1#comment-92862</link>
+		<dc:creator><![CDATA[Carlo]]></dc:creator>
+		<pubDate>Fri, 11 Dec 2009 14:59:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=197#comment-92862</guid>
+					<description><![CDATA[It&#039;s interesting to note this behaviour with (j)ruby:
+
+ten_cent = 0.10
+sum = 0.0
+10.times {sum += ten_cent}
+puts &quot;sum is #{sum}&quot;
+
+That results in &quot;1.0&quot; with &quot;native&quot; ruby, and 0.9999 with JRuby.]]></description>
+		<content:encoded><![CDATA[<p>It&#8217;s interesting to note this behaviour with (j)ruby:</p>
+<p>ten_cent = 0.10<br />
+sum = 0.0<br />
+10.times {sum += ten_cent}<br />
+puts &#8220;sum is #{sum}&#8221;</p>
+<p>That results in &#8220;1.0&#8221; with &#8220;native&#8221; ruby, and 0.9999 with JRuby.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Massimo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/197/comment-page-1#comment-92822</link>
+		<dc:creator><![CDATA[Massimo]]></dc:creator>
+		<pubDate>Wed, 18 Nov 2009 00:40:00 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=197#comment-92822</guid>
+					<description><![CDATA[A few simpler examples...
+
+#include 
+
+int main() 
+{
+        printf( &quot;%g\n&quot;, 0.3 - 0.2 - 0.1 );
+        printf( &quot;%g\n&quot;, 0.3 - ( 0.2 + 0.1 ) );
+        printf( &quot;%g\n&quot;, 0.4 - 0.3 - 0.1 );
+        printf( &quot;%g\n&quot;, 0.4 - ( 0.3 + 0.1 ) );
+
+        return 0;
+}]]></description>
+		<content:encoded><![CDATA[<p>A few simpler examples&#8230;</p>
+<p>#include </p>
+<p>int main()<br />
+{<br />
+        printf( &#8220;%g\n&#8221;, 0.3 &#8211; 0.2 &#8211; 0.1 );<br />
+        printf( &#8220;%g\n&#8221;, 0.3 &#8211; ( 0.2 + 0.1 ) );<br />
+        printf( &#8220;%g\n&#8221;, 0.4 &#8211; 0.3 &#8211; 0.1 );<br />
+        printf( &#8220;%g\n&#8221;, 0.4 &#8211; ( 0.3 + 0.1 ) );</p>
+<p>        return 0;<br />
+}</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

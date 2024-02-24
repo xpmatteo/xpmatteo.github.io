@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: OCP Dojo at the XP Days Benelux 2010	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/495/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/495</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/495/comment-page-1#comment-94470</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 29 Oct 2011 06:47:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=495#comment-94470</guid>
+					<description><![CDATA[Hello Carlo,
+
+nice to hear from you.  I read your solution and I see there are still IFs you could eliminate, in the ModuleNumber.factiory.  I suggest you to try the &quot;decorator&quot; and/or the &quot;chain of responsibility&quot; patterns.   Start with this setup:
+
+FizzBuzzer fizzBuzzer;
+
+@Before
+public void build() {
+  fizzBuzzer = new FizzBuzzer();
+}
+
+@Test
+public NumberIsNotAMultipleOfThreeOrFive_thenSayTheNumber() {
+  assertEquals(&quot;1&quot;, fizzBuzzer.say(1));
+  assertEquals(&quot;2&quot;, fizzBuzzer.say(2));
+  assertEquals(&quot;4&quot;, fizzBuzzer.say(4));
+} 
+
+and then try to follow the rules *to the letter*.  You should arrive at a different result...
+
+Matteo]]></description>
+		<content:encoded><![CDATA[<p>Hello Carlo,</p>
+<p>nice to hear from you.  I read your solution and I see there are still IFs you could eliminate, in the ModuleNumber.factiory.  I suggest you to try the &#8220;decorator&#8221; and/or the &#8220;chain of responsibility&#8221; patterns.   Start with this setup:</p>
+<p>FizzBuzzer fizzBuzzer;</p>
+<p>@Before<br />
+public void build() {<br />
+  fizzBuzzer = new FizzBuzzer();<br />
+}</p>
+<p>@Test<br />
+public NumberIsNotAMultipleOfThreeOrFive_thenSayTheNumber() {<br />
+  assertEquals(&#8220;1&#8221;, fizzBuzzer.say(1));<br />
+  assertEquals(&#8220;2&#8221;, fizzBuzzer.say(2));<br />
+  assertEquals(&#8220;4&#8221;, fizzBuzzer.say(4));<br />
+} </p>
+<p>and then try to follow the rules *to the letter*.  You should arrive at a different result&#8230;</p>
+<p>Matteo</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Carlo Garatti				</title>
+				<link>http://matteo.vaccari.name/blog/archives/495/comment-page-1#comment-94467</link>
+		<dc:creator><![CDATA[Carlo Garatti]]></dc:creator>
+		<pubDate>Fri, 28 Oct 2011 19:47:04 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=495#comment-94467</guid>
+					<description><![CDATA[Matteo, 
+i try to do the FizzBuzz and, apart the &quot;if solution&quot;, i agree with your solution (you can see mine here: https://github.com/carlino/TDDFizzBuzz). Is difficult to explain but if i design in TDD, i reach the solution with the if&#039;s. During the development i&#039;m feeling that the solution is not good, so i stop and redo. My question is: naturally my mind tend to arrive at ifs design in TDD. Is very difficult (lets me say, not natural) arrive to the solutions with the objects in TDD (maybe for me!!:D). In your experience? in my opinion this is the very difficult part of TDD!!!
+Ciao :D]]></description>
+		<content:encoded><![CDATA[<p>Matteo,<br />
+i try to do the FizzBuzz and, apart the &#8220;if solution&#8221;, i agree with your solution (you can see mine here: <a href="https://github.com/carlino/TDDFizzBuzz" rel="nofollow">https://github.com/carlino/TDDFizzBuzz</a>). Is difficult to explain but if i design in TDD, i reach the solution with the if&#8217;s. During the development i&#8217;m feeling that the solution is not good, so i stop and redo. My question is: naturally my mind tend to arrive at ifs design in TDD. Is very difficult (lets me say, not natural) arrive to the solutions with the objects in TDD (maybe for me!!:D). In your experience? in my opinion this is the very difficult part of TDD!!!<br />
+Ciao :D</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

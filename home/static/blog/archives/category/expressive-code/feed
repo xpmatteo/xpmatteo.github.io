@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Expressive Code &#8211; Extreme Enthusiasm</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/category/expressive-code/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Wed, 08 Jan 2020 14:48:28 +0000	</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+	<item>
+		<title>Object-Oriented Theater</title>
+		<link>http://matteo.vaccari.name/blog/archives/904</link>
+				<comments>http://matteo.vaccari.name/blog/archives/904#comments</comments>
+				<pubDate>Thu, 30 Oct 2014 15:34:26 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=904</guid>
+				<description><![CDATA[Update 30/10/14: I first read about the &#8220;Object Theatre&#8221; in a message by Anthony Green on the GOOS mailing list; I didn&#8217;t remember it consciously when I wrote this post, but it certainly has been working in my brain ever since. The &#8220;Object Theatre&#8221; metaphor is his invention, not mine. Thanks Kevin and Anthony for [&#8230;]]]></description>
+								<content:encoded><![CDATA[<blockquote><p><strong>Update 30/10/14</strong>: I first read about the &#8220;Object Theatre&#8221; in <a href="https://groups.google.com/forum/#!topic/growing-object-oriented-software/eFfT7orRrdk%5B76-100-false%5D">a message by Anthony Green</a> on the GOOS mailing list; I didn&#8217;t remember it consciously when I wrote this post, but it certainly has been working in my brain ever since.  The &#8220;Object Theatre&#8221; metaphor is his invention, not mine.  Thanks <a href="https://twitter.com/kevinrutherford">Kevin</a> and <a href="https://twitter.com/anthonycgreen">Anthony</a> for <a href="https://twitter.com/anthonycgreen/status/527896910083141633">pointing it out</a>.
+</p></blockquote>
+<p>Yesterday evening I attended <a href="https://www.youtube.com/watch?v=41PvxgaZEzk" title="YouTube video of yesterdays' Codemotion Tech Talk">a good introduction on functional programming</a>  by <a href="https://twitter.com/mariofusco">Mario Fusco</a>.  One of his slides illustrated a well-known principle of functional programming.  There are pure functions, and &#8220;functions&#8221; with side effects.  Good FP style suggests to keep non-pure functions at the edges of the program, so that the inner core of your program only contains pure, mathematical functions.</p>
+<p>He showed this picture</p>
+<p><a href="http://www.slideshare.net/mariofusco/if-you-think-you-can-stay-away-from-functional-programming-you-are-wrong/41" title="Outer impure shell, inner pure kernel">http://www.slideshare.net/mariofusco/if-you-think-you-can-stay-away-from-functional-programming-you-are-wrong/41</a></p>
+<p>In fact, a very similar picture can be drawn for good object-oriented style.  In good OO style, you want to separate your domain objects from infrastructure objects.  The domain objects contain just domain logic, they execute in memory and have no references to file system, databases or network services.  They can be mutable, of course!  But they are &#8220;pure logic&#8221; in the sense that they live in a platonic world where we are only concerned with the functional behaviour of our programs.</p>
+<p>Infrastructure objects, on the other hand, deal with everything else:  user interface, databases, file systems, web services&#8230; All the things that are needed to connect our platonic world of objects to the outside world.</p>
+<p>So what&#8217;s good OO style in this context?  In my opinion, it&#8217;s good to keep the infrastructure objects in an outside shell, while the inner core of the program contains only pure domain objects.  Let me give you an example.</p>
+<p>Suppose you have a Counter object that needs (for non-functional reasons!) to be made persistent.  The functional logic is about incrementing and decrementing the value of the counter.  The infrastructure logic is about making sure that the counter retains its value across reboots (which is definitely a non-functional requirement.)</p>
+<p>The wrong way to do this is</p>
+<pre><code>// bad style! don't do this
+class Counter {
+  public Counter(int id, CounterDao dao) {
+    this.id = id;
+    this.dao = dao;
+  }
+
+  public void increment() {
+    value++;
+    dao.incrementCounter(id);
+  }
+
+  private int value = 0;
+  private int id;
+  private CounterDao dao;
+}
+</code></pre>
+<p>The usage of this counter would be</p>
+<pre><code>CounterDao dao = ...;
+Counter counter = new Counter(123, dao);
+
+// here we perform logic and also persist the state
+counter.increment();
+</code></pre>
+<p>The above example is bad style, because it mixes persistency logic with functional logic.  Bah!  A better way to do it is:</p>
+<pre><code>class Counter {
+  public void increment() {
+    value++;
+  }
+  private int value = 0;
+}
+</code></pre>
+<p>See?  Only pure logic.  We don&#8217;t care about persistency there.  We could use the counter this way:</p>
+<pre><code>// we start this use case in the world of infrastructure
+CounterDao dao = ...;
+Counter counter = dao.findCounter(id);
+
+// here we enter the world of pure logic
+counter.increment();
+
+// here we return to the world of infrastructure
+dao.save(counter);
+</code></pre>
+<p>I like to call this structure &#8220;object theatre&#8221;.  Imagine your domain objects as actors in a play.  You want to setup a scene where your actors are set up in a certain way: <a href="http://www.teatrolemaschere.it/wp-content/gallery/arlecchino-e-colombina-nel-teatrino-dei-burattori/burattori_compresse_002.jpg" title="Arlecchino and Colombina (picture)" target="_blank">Arlecchino talks to Colombina, Colombina has a fan in her hand, etc</a>.  When the scene starts, the actors perform each according to their character.  When the scene ends, we lower the curtain.</p>
+<p>I imagine that an object-oriented system works the same way.  When a request arrives, we set up the scene by retrieving all the proper objects from various repositories and we connect them appropriately.  This is setting the scene.  Then we send a message to one object that sets some logic in motion. The objects send messages to each other, carrying out a computation.  This is playing out the scene.  When the domain objects are done, we conclude by returning the objects to their respective repositories.  This is lowering the curtain.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/904/feed</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+							</item>
+		<item>
+		<title>Anti-FOR tips from the Yahtzee Kata</title>
+		<link>http://matteo.vaccari.name/blog/archives/571</link>
+				<comments>http://matteo.vaccari.name/blog/archives/571#respond</comments>
+				<pubDate>Sat, 14 May 2011 15:47:20 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Design Exercise]]></category>
+		<category><![CDATA[Essay]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=571</guid>
+				<description><![CDATA[Again on the Kata Yahtzee, that I blogged about some time ago. If you have not solved the kata at least once, please stop reading this! Get back when you have. *&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* * Good to see you again! Now that you solved it, you probably know that the naive solution takes many &#8220;for&#8221; loops. Let [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>Again on the <a href="http://codingdojo.org/cgi-bin/wiki.pl?KataYahtzee" title="Coding Dojo Wiki: KataYahtzee">Kata Yahtzee</a>, that I <a href="http://matteo.vaccari.name/blog/archives/311" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Report of the first run of the OCP kata">blogged about</a> some time ago.</p>
+<p>If you have not solved the kata at least once, please stop reading this!  Get back when you have.</p>
+<p><center><br />
+  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br />
+  *<br />
+</center></p>
+<p>Good to see you again!  Now that you solved it, you probably know that the naive solution takes many &#8220;for&#8221; loops.  Let <em>D</em> be the player dice, represented as <em>an array of die results</em>, e.g., D=(1,6,1,6,4). The naive rules for sixes would be</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def sixes_score 
+      sum = 0
+      for d in D
+        if d == 6
+          sum += 6
+        end
+      end
+      return sum
+    end
+  </pre>
+<p></code></p>
+<p>This solution involves <em>searching</em> for sixes and adding up.  Why do we need to search?  We need to search because there are many different D that are worth exactly the same for the sixes rule.  For instance, both D=(1,2,3,6,6) and D=(6,6,1,2,3) are worth 12.</p>
+<p><span id="more-571"></span></p>
+<p>One way to avoid the search is to represent the die rolls in a <em>canonical form</em>, that is a form where two equivalent results are represented in the same way.  The obvious way to obtain a canonical form is to sort D; but in this particular case, we&#8217;d still need to search for sixes.</p>
+<p>An alternative canonical form would be to count how many results we have: for instance D=(1,1,3,6,6) would be represented as C = [2,0,1,0,0,2], that is &#8220;two times 1, one time 3, two times 6.&#8221;  The rule for sixes becomes</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def sixes_score
+      return 6*C[6]
+    end
+  </pre>
+<p></code></p>
+<p>(Note: we take C to be a 1-based array.  It&#8217;s easy to make one in Java or Ruby: use an array of length 7 and ignore index 0.)</p>
+<p>The straight rules are also easy, because C is a canonical form for them as well:</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def small_straight_score
+      if C == [1,1,1,1,1,0] then 15 else 0
+    end
+    def large_straight_score
+      if C == [0,1,1,1,1,1] then 20 else 0
+    end
+  </pre>
+<p></code></p>
+<p>Now, how does this help us with the other rules?  Take the Yahtzee rule, for instance.  The naive solution</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def really_naive_yahtzee_score   
+      for (i=1; i &lt; 5 ; i++)
+        return 0 if D[i-1] &ne; D[i]
+      end
+      return 50
+    end
+  </pre>
+<p></code></p>
+<p>can be slightly improved by </p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def slighly_less_naive_yahtzee_score     
+      for d in D
+        return 0 if D[0] &ne; d
+      end
+      return 50
+    end
+  </pre>
+<p></code></p>
+<p>Using C does not improve much as we still have to search:</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def still_naive_yahtzee_score
+      for c in C
+        return 50 if c == 5
+      end
+      return 0
+    end
+  </pre>
+<p></code></p>
+<p>This is because there are many different C that are equivalent with respect to the Yahtzee rule: for instance C = [0,0,0,5,0] and C=[0,5,0,0,0].  Can we apply the same reasoning and find another canonical representation?  Why yes! If we sort C = [0,0,0,5,0] to obtain S = {5,0,0,0,0} the yahtzee rule becomes very simple:</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def cool_yahtzee_score
+      if S[0] == 5 then 50 else 0
+    end
+  </pre>
+<p></code></p>
+<p>Many other rules are immediately codified this way:</p>
+<p><code></p>
+<pre name="code" class="ruby:nogutter:nocontrols">
+    def four_of_a_kind_score
+      if S[0] &ge; 4 then sum(D) else 0
+    end
+    
+    def full_house_score
+      if S[0] == 3 &and; S[1] == 2 then 25 else 0
+    end
+  </pre>
+<p></code></p>
+<p>The pair rule is a bit more challenging: it is not part of the &#8220;official&#8221; rules but it make for interesting coding :o).  The rule is &#8220;Pair: The player scores the sum of the two highest matching dice. For example, 3, 3, 3, 4, 4  gives 8.&#8221;  Using C requires searching.  Using S would be no good (can you see why?)</p>
+<p>Again: can you find a canonical representation for the pair rule so that we don&#8217;t have to search?  Hint: remove &#8220;noise&#8221; to reveal information.</p>
+<h3>Conclusion</h3>
+<p>It&#8217;s important to find <a href="http://www.antiifcampaign.com/" title="The Anti-IF Campaign">ways to remove IFs</a>.  It&#8217;s also important to find ways to remove FORs!  I <a href="http://matteo.vaccari.name/blog/archives/174" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; TDD is not finished until the code speaks">blogged about this</a> before.</p>
+<p>We used two ways to remove FORs here:</p>
+<ol>
+<li>Use canonical representations, like C and S;</li>
+<li>Hide them in well-known functions like sort and sum.</li>
+</ol>
+<p>Our search for canonical forms helps us develop a <em>language</em> for reasoning effectively about our problem domain.  In fact we are <a href="http://alistair.cockburn.us/ASD+book+extract%3A+%22Naur,+Ehn,+Musashi%22" title="Programming as Theory Building">building a little <em>theory</em></a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/571/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>When refactoring is no use</title>
+		<link>http://matteo.vaccari.name/blog/archives/471</link>
+				<comments>http://matteo.vaccari.name/blog/archives/471#comments</comments>
+				<pubDate>Sat, 06 Nov 2010 23:06:36 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=471</guid>
+				<description><![CDATA[TDD is about design. It&#8217;s not about testing. Last week an interesting thing happened while I was working with a team. They had been writing a new application with TDD since last June, and they were successful in that the application was nearly ready, on time and on budget. But there was one thing that [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>TDD is about design.  It&#8217;s not about testing.  </p>
+<p>Last week an interesting thing happened while I was working with a team.  They had been writing a new application with TDD since last June, and they were successful in that the application was nearly ready, on time and on budget.  But there was one thing that was worrying them.  </p>
+<p>They had been following an article on the Model-View-Controller pattern, and had structured their application accordingly.  There was a controller for every window, and there was a model too.  (It&#8217;s not a web application, it&#8217;s Swing.)  The view object was extremely thin, as it only contained code for constructing and laying out widgets; absolutely no other logic in there.  The controller hooked listeners to the appropriate UI widgets.</p>
+<p>So everything was OK, no?  A clear architecture, a clear separation of concerns, everything tested.  There was a problem: the controllers were big objects, with intricate logic.  The tests were difficult to read and difficult to write.  It was difficult to understand what was being tested.  My worry was that maintenance of that GUI could quickly turn into a mess.  Also my customer was worried about that.  The fact is, whenever anything had to be changed about the logic of that window, the controller would have to be changed, and the view would have to be changed, and the model would have to be changed.  We had three big monoliths that were involved in everything.  This ran against the <em>open-closed principle</em>.  </p>
+<p>My first reaction was to call upon my refactoring skills.  Take the unreadable tests and make them readable.  Use <em>extract method</em> and expressive names to make them read like a story about what was being tested.  Some success there, but not a clear victory.  It was still difficult to find the code being tested, as those were end-to-end tests.  Then I found the bit that contained the important logic and wrote proper unit tests for it.  Some success, as I was able to test with precision all the corner cases that the end-to-end test was not exercising.  But still not a clear victory.  Then I started to work on the big controller.  I took the worst one with me in my hotel room, and I spent a chunk of my evening trying to refactor it.  Extract method, rename, extract class.  Extract, extract, extract.  It was still big and ugly.  With a bit of polish, but still big and ugly.  Still running against the OCP.</p>
+<p>The next day I pulled a different set of tools.  I remembered the lessons in <a href="http://www.francescocirillo.com/fc.html">Francesco Cirillo</a>&#8216;s <a href="http://matteo.vaccari.name/blog/archives/221" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; My impressions of the Emergent Design Workshop">Emergent Design Workshop</a>.  I showed the team how to use Francesco&#8217;s technique, which is to start with a design of the communicating objects on the whiteboard.  After one day of practice with this technique, we attacked the real problem.  We started designing the main application window from scratch.  </p>
+<p>The team was surprised, and I was surprised as well, because the big controller evaporated.  It was clear, when working at the whiteboard, that it was not necessary.  The model object evaporated too.  We designed the main scenarios, and we saw that a simple design could accommodate all of them. At first I sketched the design for them, but they were soon criticizing my design and changing it to suit their needs and tastes.  Then we started coding; it went smoothly because the design was already done, and we were taking advantage of all the low-level objects that they had implemented already.</p>
+<p>We learned is that when the design is wrong, no amount of refactoring moves will get you out of the hole.  </p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/471/feed</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+							</item>
+		<item>
+		<title>TDD is no substitute for knowing what you are doing</title>
+		<link>http://matteo.vaccari.name/blog/archives/416</link>
+				<comments>http://matteo.vaccari.name/blog/archives/416#comments</comments>
+				<pubDate>Tue, 29 Jun 2010 11:26:53 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Essay]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=416</guid>
+				<description><![CDATA[Know your stuff A while ago we had a fun evening at the Milano XPUG writing a Sudoku solver. I blogged about my solution. I&#8217;m not particularly proud of it, in retrospect. The code and the tests are not obvious. I can&#8217;t read any of it and be certain that it works. It does not [&#8230;]]]></description>
+								<content:encoded><![CDATA[<h4>Know your stuff</h4>
+<p>A while ago we had a fun evening at the <a href="http://milano-xpug.pbworks.com/" title="milano-xpug / FrontPage">Milano XPUG</a> writing a Sudoku solver.  I blogged about <a href="http://matteo.vaccari.name/blog/archives/43" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Sudoku anch&#8217;io">my solution</a>.  I&#8217;m not particularly proud of it, in retrospect.  The code and the tests are not obvious.  I can&#8217;t read any of it and be certain that it works.  It does not speak.</p>
+<p>It is true that solving puzzles like Sudoku is quite different from what application programmers do everyday at work.  Why is it that?  The problems that we solve in business applications do not have that mathematical crispness that puzzles have.  Perhaps it&#8217;s because we&#8217;re not good enough at analyzing them and expressing them abstractly.  That would explain why business code is so long, convoluted and expensive.</p>
+<p>Anyway, the point I want to make is that it is not satisfying to use the tests in TDD as a crutch for constructing hapazard code that, with a kick here and a few hammer blows there seem to work.  The point of TDD is to *design* code; and a good design shows how and why a solution works.  </p>
+<p>I often see people doing katas that involve problems with well-known solutions.  We usually disregard, forget, or ignore the well-known solution! And we keep writing tests and production code until we rig together something that passes the tests.  It&#8217;s painful.  I know.  I too did some of that.</p>
+<p>TDD does not work well when we don&#8217;t know what we&#8217;re doing.  Some high-profile XPers failed to ship when TDDing their way with <a href="http://thinkingbox.wordpress.com/2008/09/11/the-consequences-of-shipping/" title="The consequences of shipping &laquo; The thinking box">unfamiliar APIs</a> or <a href="http://ravimohan.blogspot.com/2007/04/learning-from-sudoku-solvers.html" title="One Man Hacking: Learning From Sudoku Solvers">disregarding known solutions</a>.  TDD is no substitute for analyzing a problem, and finding abstractions that make it easy to solve.  TDD without thinking and analyzing and abstracting <em>is not fun!</em>.</p>
+<p>It&#8217;s for this reason that there is the XP practice of &#8220;spiking solutions&#8221;, that is, take time to learn how to do something, make experiments, then apply what you learned.  If you know how to do things, you will not spend hours discussing with your pair; you and your pair will grab the keyboard from each other, as <a href="http://cirillosscrapbook.wordpress.com/2008/05/27/mamma-programming/#more-53" title="Mamma Programming &laquo; Cirillo&#039;s Scrapbook">Francesco Cirillo often says</a>.</p>
+<h4>A better way</h4>
+<p>Consider Sudoku again.  Peter Norvig <a href="http://norvig.com/sudoku.html" title="Solving Every Sudoku Puzzle">solves it</a> in two different ways by using known techniques.  The first solution is depth-first search, which is gueranteed to terminate as the graph of Sudoku states is acyclic.  The other is by constraint propagation.  If I were to do the exercise again, I would try to make the analysis apparent from the code.</p>
+<p>Say we want to solve it by depth-first search.  That entails two sub-problems:</p>
+<ul>
+<li style="list-style-type:none">a) writing a depth-first algorithm</li>
+<li style="list-style-type:none">b) writing something that enumerates legal moves in a given Sudoku board</li>
+</ul>
+<p>I would start by testing the depth-first search algorithm.  I would drive it with an abstract &#8220;tree&#8221; implementation.  This means I could concentrate on the search algorithm without being distracted by the complex details of the Sudoku rules.  </p>
+<p>Then I would test-drive the generation of next-moves from a Sudoku position.  That could also be done incrementally.  Can we imagine a simplified Sudoku board?  The full Sudoku is too complex for the first test!  A year ago I would have started by defining a 9 by 9 array of numbers, but now the sheer boredom of defining it would stop me.  Is there a better way?  </p>
+<p>Relax.  Think.  Dream.</p>
+<p>Think about the game terminology.  As <a href="http://norvig.com/sudoku.html" title="Solving Every Sudoku Puzzle">Norvig says</a>, the game is about <em>units</em> (either a row, a column or a box).  A unit with no empty spaces has no descendant moves.  A unit where a number is missing has the full unit as a descendant move.  A unit where two numbers are missing&#8230; You get the point.</p>
+<p>Then work out how to combine descendant moves of two units that share a square.  Think a row and a column.  If the common square is empty, than valid solutions for that square must be valid for both units&#8230;  </p>
+<p>The point is to work the problem incrementally.  Try smaller scales first.  Try 2&#215;2 boards.  Make the size of units and the board parametric.  Add the constraint rules one by one, so that you can test them separately.</p>
+<h4>Conclusions</h4>
+<p>One important principle to apply is &#8220;separation of concerns&#8221;.  Enumerating moves is a problem, and search strategy is another.  By solving them separately, our tests become more clear and to the point.  We gain confidence that we know how and why our code works.</p>
+<p>Another way to see this is to decompose a problem in smaller problems; prove with tests that you can solve the subproblems, then prove with tests that you can solve the composition of the subproblems.</p>
+<p>When you have a problem that is of fixed size 42, turn that constant into a parameter and solve the problem for N=1, N=2, &#8230; Imagine if the Sudoku board was 100&#215;100 instead of 9&#215;9; would you define a 100&#215;100 matrix in your tests?  Turning these constants into parameters make your code more general, your tests more clear, while making the problem *easier* to solve!</p>
+<p>To summarize, what I think is important is</p>
+<ul>
+<li>Learn data structures, algorithms, known solutions, the proper way of doing things.</li>
+<li>Apply separation of concerns.  </li>
+<li>Solving a slightly more general problem sometimes is much easier than solving the actual problem</li>
+<li>It&#8217;s more fun to work when you know what you&#8217;re doing!</li>
+</ul>
+<h4 style="margin-top: 6em">Update</h4>
+<p>Charlie Poole <a href="http://tech.groups.yahoo.com/group/testdrivendevelopment/message/33042" title="Yahoo! Groups">recently posted this</a> on the TDD mailing list (Emphasis is mine):</p>
+<blockquote><p>
+I&#8217;ve written elsewhere that I believe attempting to get TDD to &#8220;drive&#8221; the invention of a new algorithm reflects an incorrect understanding of what TDD is for.</p>
+<p>TDD allows us to express intent (i.e. design) in a testable manner and to move from intention to implementation very smoothly &#8211; I know of no better way.</p>
+<p>OTOH, you <em><strong>have to start out with an intent</strong></em>. In this context, I think that means you need to have some idea of the algorithm you want to implement. TDD will help you implement it and even refine the details of the idea. Writing tests may also inspire you to have further ideas, to deepen the ones you started with or to abandon ideas that are not working out.
+</p></blockquote>
+<p>Vlad Levin <a href="http://vladimirlevin.blogspot.com/2007/04/tdd-is-not-algorithm-generator.html" title="Vlad's Agile Software Development Blog: TDD Is Not An Algorithm Generator!">blogs thoughtfully</a>:</p>
+<blockquote>
+<p>  one of the first rules I teach my students when I am doing a TDD workshop or teaching a course is precisely that <strong>TDD is not an algorithm generator</strong>! Solving sudoku is just the kind of problem you want to find an algorithm for first, then implement that algorithm</p>
+<p>  [&#8230;]</p>
+<p>  So what is the purpose of TDD then? One goal of TDD is to reduce the need to determine ahead of time which classes and methods you&#8217;re going to implement for an entire story. There&#8217;s a large body of shared experience in the developer community that trying to anticipate such things tends to lead to paralysis where nothing useful gets done and/or produces bloated, over-designed code. Instead, you can develop one aspect of the story at a time, using each test to keep yourself moving forward and refactoring the design as you go along
+</p></blockquote>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/416/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+							</item>
+		<item>
+		<title>The geometry lab &#8212; an exercise</title>
+		<link>http://matteo.vaccari.name/blog/archives/395</link>
+				<comments>http://matteo.vaccari.name/blog/archives/395#respond</comments>
+				<pubDate>Tue, 15 Jun 2010 07:40:48 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Design Exercise]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=395</guid>
+				<description><![CDATA[Last week I was traning a team on XP techniques. We tried the following exercise: I want you people to build me a Swing application that computes the area of a square with a given side length. I asked for an estimate. The devs were nervous, someone said &#8220;impossible!&#8221; :-) someone said 5 hours. I [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>Last week I was traning a team on XP techniques.  We tried the following exercise:</p>
+<blockquote><p> I want you people to build me a Swing application that computes the area of a square with a given side length.</p></blockquote>
+<p>I asked for an estimate.  The devs were nervous, someone said &#8220;impossible!&#8221; :-) someone said 5 hours.  I played the part of the project-manager-who-was-once-a-developer and said &#8220;come on, five hours??  I could do that in 10 minutes in my sleep.  What&#8217;s so difficult about it&#8221;?  Then I reasoned with them that if we keep our estimates too comfortable, our business opportunities may fly out of the window.  They agreed on a 2 hours estimate.</p>
+<p>They proceeded to implement the feature.  The three devs rotated every 7 minutes.  This was a good slot size; everyone was involved, even the junior one who is rarely given the keyboard.  The feature was done in one and a half hour.  Then I said</p>
+<blockquote><p>Cool.  Now we need to compute the area of a triangle of a given base and height.  How much time for this?</p></blockquote>
+<p>The devs estimated 1.5 hours.  It was delivered on time.  Now the fun part started.  The team wrote the application in the &#8220;usual&#8221; way, by writing new code for the new window.  No effort was spent, at this time, to reduce duplication.  I pointed out that</p>
+<blockquote><p>We&#8217;re going to need to implement many more of these geometry formulae.  Make it so that it is trivial to add others.
+</p></blockquote>
+<p>The team came up with a design where the Swing window object is generic and can be customized to support the input for any formula that requires a variable number of inputs with different names.  They thought they could do it in 2 hours.  It took 4.  At some point we wasted a lot of time on Swing layouts, trying to fathom the mysteries of GroupLayout.  I gave some help here.  Then we were done!  Stepping again in my role of customer I said</p>
+<blockquote><p>
+Very well.  The next feature we need is to compute the area of a circle from the radius.
+</p></blockquote>
+<p>It was done in 10 minutes.  The customer was very satisfied, and so were the devs.</p>
+<p>What have we learned?   </p>
+<ul>
+<li>I have learned the power of letting the team come up with their own design.  It&#8217;s difficult for me, an xp-trainer-who-was-once-a-developer, to give up giving guidance on design.  But time and again, I have seen the damage of doing so: the team follows my design, gets bogged down, does not learn.</li>
+<li>We have learned how hard it is to make the code easy to change.  It would have been easy to declare we were &#8220;done&#8221; after the area of triangle was working.  But we were not really &#8220;done&#8221; from the point of view of TDD.  Remember, the cycle is red-green-REFACTOR, and by &#8220;refactor&#8221; what is really meant is &#8220;remove duplication&#8221;.
+</li>
+<li>Once you get to clean, refactored code, the cost of changes drops.  And it&#8217;s a pleasure to work with!</li>
+<li>The decision to invest time in making the code generic might seem difficult.  After all, you can get skilled at copy-pasting Swing code and writing many copies of the Swing form class.  But then you are left with gobs of code.  And good luck applying a different graphic layout to them all!  My answer is that we should get skilled at writing flexible code.  It took us 4 hours to make the code generic.  Next time they have to do something similar, it will take less.
+<p><a href="http://milano-xpug.pbworks.com/Velocita">Copying-and-pasting is a dead end</a>; there is a limit at how skilled you can become at it, and there is certainly a big problem in the quality of the code you deliver.  Learning to do good, clean, flexible code never ends.  It&#8217;s a path where you can get to write better and better code.  Which path would you rather be on?</li>
+</ul>
+<blockquote><p>
+Very cool, guys.  This geometry app rocks!!
+</p></blockquote>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/395/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>Design problem #2</title>
+		<link>http://matteo.vaccari.name/blog/archives/388</link>
+				<comments>http://matteo.vaccari.name/blog/archives/388#comments</comments>
+				<pubDate>Mon, 14 Jun 2010 14:05:41 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Design Exercise]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=388</guid>
+				<description><![CDATA[This is a subset of the Back to the Checkout kata by Dave Thomas, which I used many times as a TDD training exercise. Suppose you have a PriceRules object that knows that the prices of items. Its responsibility is to know the following table: Item Unit Price Special Price A 50 3 for 130 [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>This is a subset of the <a href="http://codekata.pragprog.com/2007/01/kata_nine_back_.html">Back to the Checkout</a> kata by Dave Thomas, which I used many times as a TDD training exercise.  </p>
+<p>Suppose you have a PriceRules object that knows that the prices of items.  Its responsibility is to know the following table:</p>
+<blockquote>
+<table>
+<tr>
+<th>Item</th>
+<th>Unit Price</th>
+<th>Special Price</th>
+<tr>
+<td>A</td>
+<td>50</td>
+<td>3 for 130</td>
+</tr>
+<tr>
+<td>B</td>
+<td>30</td>
+<td>2 for 45</td>
+</tr>
+<tr>
+<td>C</td>
+<td>20</td>
+</tr>
+<tr>
+<td>D</td>
+<td>15</td>
+</tr>
+</table>
+</blockquote>
+<p>Then you have a Cart object that knows which items a customer is trying to buy.  For instance, a given cart could contain the list [A, A, C, A, D]. </p>
+<p>The problem is to compute the total that the customer has to pay, out of a collaboration between (at least) the cart and the pricerRules objects.   It seems easy, but there is a catch: you are forbidden to use getters.  All methods must return &#8220;void&#8221;, in Java terms.   Design the messages that are exchanged between the objects and produce the desired result.  (In the example, it would be 165).  Have fun!</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/388/feed</wfw:commentRss>
+		<slash:comments>17</slash:comments>
+							</item>
+		<item>
+		<title>Software Design problems, anyone?</title>
+		<link>http://matteo.vaccari.name/blog/archives/378</link>
+				<comments>http://matteo.vaccari.name/blog/archives/378#comments</comments>
+				<pubDate>Sun, 13 Jun 2010 07:45:29 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Design Exercise]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=378</guid>
+				<description><![CDATA[You learn math by solving problems. Problems frame the way you learn, give you a tangible proof that you&#8217;re progressing, give you a sense of meaning and achievement. How do you learn physics? By studying the books of course, but then solving physics problems is very important. How do you learn to play deep games [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>You learn math by solving problems.  Problems frame the way you learn, give you a tangible proof that you&#8217;re progressing, give you a sense of meaning and achievement.  How do you learn physics?  By studying the books of course, but then solving physics problems is very important.  How do you learn to play deep games such as chess or go?  By playing, mostly.  And then by pondering and solving problems.  Electronics?  Chemistry?  Building science?  Genetics?  The books on these subjects are full of problems.</p>
+<p>How do you learn good software design?  I don&#8217;t know.  The books that I&#8217;ve read explain principles, and provide examples.  Rarely I&#8217;ve seen books that contain problems, exercises, or challenges.  (Notable exceptions: William Wake&#8217;s <em>Refactoring Workbook</em> and Ka Iok Tong&#8217;s <a href="http://www2.cpttm.org.mo/cyberlab/softdev/ESAD/">Essential Skills for Agile Development</a>.)  </p>
+<p>I propose that we assemble a collection of problems meant to develop and discuss software design.  A good problem for this goal would problem *not* have a single correct answer, for design and engineering are always a matter of compromises.  A good problem should be a means to discuss the various choices and tradeoff, and worse and better ways to solve it.  A good problem should be a small framework.</p>
+<p>Let&#8217;s start!  Here is a problem that I find interesting.  The good old Fizz-Buzz problem goes like this:</p>
+<blockquote><p>
+Write a program that prints the numbers in order from 1 to 100, with the exception that when a number is a multiple of 3, it prints &#8220;Fizz&#8221;.  When a number is a multiple of 5, it prints &#8220;Buzz&#8221;.  And when a number is multiple of both, it prints &#8220;FizzBuzz&#8221;.  In all other cases, it just prints the decimal representation of the number.
+</p></blockquote>
+<p>There is an obvious way to solve this exercise, of course.  It&#8217;s a very simple problem, from the point of view of programming.  I would have the student solve it however they like.  Most solutions contain a 3-way IF.  I would then ask students to <strong>remove duplication</strong>.  Early XP books were strong on removing duplication, for a good reason.  It takes a bit of training to see how much duplication can creep in even such a small bit of programming.  </p>
+<p>The usual objection I get at this point is that it makes no sense to go this deep in removing duplication for such a small and trivial example.  They also will say that the 3-IFs version is more readable than any version where duplication is removed.  This is the crux of the matter.</p>
+<p>I then continue the exercise by adding the requirement that  </p>
+<blockquote><p>
+For multiples of 7, the program prints &#8220;Bang&#8221;.
+</p></blockquote>
+<p>Easy, they say.  Add a fourth IF.  Not so fast, I say :-)  </p>
+<blockquote><p>
+For multiples of 7 and 3, the program prints &#8220;FizzBang&#8221;.  For multiples of 5 and 7, the program prints &#8220;BuzzBang&#8221;.  For multiples of 3, 5, 7, the program prints &#8220;FizzBuzzBang&#8221;!
+</p></blockquote>
+<p>Now we have an exploding number of IFs.  If the next requirement is of the same sort as this one, we see how the IF-chain solution becomes untenable :-)  Now solve this!</p>
+<p>Update:</p>
+<ul>
+<li>I got the idea of using FizzBuzz as a design example from <a href="http://giordano.scalzo.biz/">Giordano Scalzo</a>, who presented it at the <a href="http://milano-xpug.pbworks.com/">Milano XPUG</a> and posted a solution on slideshare</li>
+<li>Other sources of problems, in no particular order: the <em><a href="http://www.industriallogic.com/xp/refactoring/">Refactoring to patterns</a></em> book by Joshua Kerievsky.  The list of <a href="http://codekata.pragprog.com/">katas by Dave Thomas</a>.  The <a href="http://www.informit.com/articles/article.aspx?p=1402446">Refactoring in Ruby</a> book by William Wake and Mike Rutherford.  The <a href="http://rubyquiz.com/">Ruby Quiz</a> site.  I&#8217;m not merely looking for <em>programming</em> problems.  I&#8217;m looking for <em>design</em> problems.  The difference is that I don&#8217;t just want a problem that requires a correct or efficient solution.  I want a problem that requires a solution that is easy to understand and change.
+</li>
+</ul>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/378/feed</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+							</item>
+		<item>
+		<title>Antonio Ganci on design</title>
+		<link>http://matteo.vaccari.name/blog/archives/364</link>
+				<comments>http://matteo.vaccari.name/blog/archives/364#respond</comments>
+				<pubDate>Sun, 18 Apr 2010 17:14:17 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=364</guid>
+				<description><![CDATA[My friend and former Sourcesense collegue Antonio Ganci posted an article (Italian) that describes exactly what I meant in A Frequently Asked TDD Question and its followup. It&#8217;s about what you can accomplish if you&#8217;re really good at design. It&#8217;s in Italian, so I will report here in English the main points: Antonio is the [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>My friend and former Sourcesense collegue Antonio Ganci <a href="http://blogs.ugidotnet.org/AntonioGanci/archive/2010/04/18/larchitettura-e-sufficientemente-malleabile.aspx">posted an article</a> (Italian) that describes exactly what I meant in <a href="http://matteo.vaccari.name/blog/archives/343">A Frequently Asked TDD Question</a> and <a href="http://matteo.vaccari.name/blog/archives/352">its followup</a>.  It&#8217;s about what you can accomplish if you&#8217;re really good at design.</p>
+<p>It&#8217;s in Italian, so I will report here in English the main points: Antonio is the main developer for an application. He had the most crazy change requests from his customers, like: </p>
+<ul>
+<li>All user-visible text should be uppercase,</li>
+<li>There should be an offline mode for working at home</li>
+<li>Users with Vista or newer OS should see a WPF user interface, the others should get normal Windows Forms</li>
+<li>Change rounding from 2 to 4 digits  everywhere</li>
+<li>Log every data modification</li>
+</ul>
+<p>He reports that some of these changes were done in less than half an hour.   Quite a feat, and Antonio seems proud of his design.  I think he has good reasons to be proud!  </p>
+<p>Antonio does not say how he did that, but we can guess that the key is the <a href="http://c2.com/xp/OnceAndOnlyOnce.html">Once and Only Once rule</a>.  If there&#8217;s a single place where you print/compute/store a number, it&#8217;s very easy to change precision.  If you have some sort of builder to generate the user interface, it&#8217;s not terribly expensive to generate a WPF interface instead of a Windows Forms one.</p>
+<p>Once and Only Once: there should be a single authoritative place in the code where each concept is represented.  How do you get to OAOO?  One part of the story is to remove duplication.  Never write the same concept in two places, that is, keep <a href="http://www.artima.com/intv/dry.html">DRY</a>.  The other part is to write expressive code: don&#8217;t write &#8220;a+b&#8221;, write what you mean by &#8220;a+b&#8221;: what does it mean in terms of the application?  That&#8217;s the Once, and the Only Once. </p>
+<p>Bravo Antonio.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/364/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>Report of the first run of the OCP kata</title>
+		<link>http://matteo.vaccari.name/blog/archives/311</link>
+				<comments>http://matteo.vaccari.name/blog/archives/311#comments</comments>
+				<pubDate>Tue, 23 Feb 2010 19:49:15 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=311</guid>
+				<description><![CDATA[Two weeks ago we had our first meeting of the Milano Coding Dojo. It was great fun, and I was honored to see Giordano had prepared such a good presentation mentioning, among other things, the &#8220;OCP Kata&#8221; of my earlier blog post. The &#8220;Open Closed Principle&#8221; says that we should be able to add new [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>Two weeks ago we had our first meeting of the Milano Coding Dojo.  It was great fun, and I was honored to see Giordano had prepared <a href="http://giordano.scalzo.biz/2010/02/06/milano-xpug-january-coding-dojo/">such a good presentation</a> mentioning, among other things, the &#8220;OCP Kata&#8221; of my <a href="http://matteo.vaccari.name/blog/archives/293">earlier blog post</a>.  The &#8220;Open Closed Principle&#8221; says that we should be able to add new feature by adding code, not by changing existing code (with an exception made for the place where the objects are created; after all, for the new class to be used, it must be instantiated somewhere.)  The OCP Kata is a set of rules, to be used in a training session, that force us to apply the OCP.
+</p>
+<p>So this was not only the first test-drive of this Dojo, but also of the OCP Kata.  How did it go?
+</p>
+<p>We worked randori-style on the Yathzee kata.  My impressions follow.
+</p>
+<h4>On the OCP Kata rules</h4>
+<p>The OCP Kata was an influence only for the first test (forced us to use an explicit factory) and the second test (forced us to apply the OCP).  After that, the OCP rules did not fire, as the problem was naturally easy to be solved in OCP style.  After all, it was the implementation of a series of scoring rules for the Yathzee game.  Once you have the scoring rules machinery in place, everything else can be completed just by adding a new class (and modifying the factory).</p>
+<h4>One class, many uses</h4>
+<p>    We must always keep an eye on the design.  The complexity of the code kept going up, until we worked hard at removing duplication.  The OCP rules do not produce a good design by themselves.  Early in the kata, the rule for &#8220;twos&#8221; was the same as the rule for &#8220;threes&#8221; with 3 in place of 2.  The solution was to create a SingleNumberRule that takes the number in the constructor.  We avoided making two classes, when a single class could be used in different context with different configuration.      </p>
+<p>    The driving force was <em>removing duplication</em>.
+</p>
+<h4>More duplication</h4>
+<p>    Later, we had a lot of duplication between the &#8220;pair&#8221; rule, and the &#8220;double pair&#8221; rule.  The code that looks for a pair is needed in both rules.  An old-school OO programmer would have made the two rules derive from a common, abstract base class.  The abstract base class would be a repository for shared methods.  Modern OO programmers know to use inheritance only as a last resort.  So what could we do to remove duplication without inheritance?  One key observation was that most of that duplicated code was looking heavily into the array of rolls.  When you have code that uses heavily a data structure, it&#8217;s a good idea to move both data structure and code in an object.
+</p>
+<p>
+    The natural name for that object is &#8220;hand&#8221;, so we created a Hand class that wraps the array of die rolls.  The duplicated code disappeared.
+</p>
+<p>    The driving forces were <em>removing duplication</em> and <em>avoiding direct access to data</em>.
+</p>
+<h4>Finding abstractions</h4>
+<p>    The code in the Hand class was still not good enough.  It was <a href="http://matteo.vaccari.name/blog/archives/174">full of loops</a>.  There was no flash of insight here, we just applied a few &#8220;extract method&#8221;s that moved each loop in its own little method.  Once we did that, we realized that some loops depended on another one that counts the occurrences of each number in the hand.  For instance, the occurrences in the hand (1, 1, 3, 3, 4) are (2, 0, 2, 1, 0, 0).  This is a key abstraction in this domain.
+</p>
+<p>    The other abstraction that is needed to implement the pair rule is &#8220;find me the highest pair&#8221;, which is just max{i | occurrences(i) &ge; 2}.  (It is not enough to score *any* pair.  It must be the highest pair, if more are present.)
+</p>
+<p>    To implement the &#8220;double pair&#8221; rule, we need a way to say &#8220;find the second highest pair&#8221;.  One way to say this is that if the highest pair is, say, 4, we must look for the highest pair that is less then 4.  The method we need is
+</p>
+<pre>
+    public int highestPairLessThen(int n) {
+       return max{i | occurrences(i) &ge; 2 &amp;&amp; i &lt; n};
+    }
+</pre>
+<p>Now the two pairs rule was easy to implement:</p>
+<pre>
+    public int highestPair() {
+      return highestPairLessThen(7);
+    }
+    
+    public int secondHighestPair() {
+      return highestPairLessThen(highestPair());
+    }
+</pre>
+<p>The solution here was to find the right abstractions, and implement complex things in terms of simple things.  It&#8217;s a bit of functional programming in the small.  </p>
+<h4>Conclusions</h4>
+<p>The goal of good design is to have simple building blocks that can be combined together to create complex things.  When we are at the object-talking-to-other-objects level, the OCP principles guides us to invent object abstractions.  When we are in the small, within-the-object level, it&#8217;s good to apply some mathematical thinking.  It&#8217;s not deep, difficult mathematics.  It&#8217;s just a game of finding the right definitions, and using them to express complex things in terms of simpler things.</p>
+<p>
+  <strong>Update: cleaned up HTML, added headings</strong></p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/311/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+							</item>
+		<item>
+		<title>The OCP kata</title>
+		<link>http://matteo.vaccari.name/blog/archives/293</link>
+				<comments>http://matteo.vaccari.name/blog/archives/293#comments</comments>
+				<pubDate>Tue, 12 Jan 2010 16:49:54 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Expressive Code]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=293</guid>
+				<description><![CDATA[Read the first chapter of the Patterns book, it&#8217;s all there, where it says &#8220;favor composition over inheritance&#8221;, said Jacopo. We were chatting about the Open/Closed Principle, and how I read about it in Meyer in 1991, yet it didn&#8217;t &#8220;click&#8221; for me back then. Now I see how the OCP is key to writing [&#8230;]]]></description>
+								<content:encoded><![CDATA[<style type="text/css" media="screen">
+  p.note {
+    font-size: 95%; 
+    width: 80%;
+    margin-left: 2em;
+    font-style:italic; 
+  }
+</style>
+<blockquote><p>
+  Read the first chapter of the <a href="http://en.wikipedia.org/wiki/Design_Patterns_%28book%29" title="Design Patterns - Wikipedia, the free encyclopedia">Patterns book</a>, it&#8217;s all there, where it says &#8220;favor composition over inheritance&#8221;,
+</p></blockquote>
+<p>said <a href="http://jfranzoi.wordpress.com/">Jacopo</a>.  We were chatting about the <a href="http://en.wikipedia.org/wiki/Open/closed_principle" title="Open/closed principle - Wikipedia, the free encyclopedia">Open/Closed Principle</a>, and how I read about it in <a href="http://docs.eiffel.com/book/method/object-oriented-software-construction-2nd-edition" title="Object-oriented Software Construction, 2nd Edition | Eiffel Documentation">Meyer</a> in 1991, yet it didn&#8217;t &#8220;click&#8221; for me back then.</p>
+<p>Now I see how the OCP is key to writing code that can be changed easily, which is the chief technical goal of an agile team.  I wondered, is there a way to teach and learn the OCP?  Is there a kata to learn OCP?  </p>
+<p>It&#8217;s unfortunate that most <a href="http://katas.softwarecraftsmanship.org/?p=92" title="String Calculator Series &#8211; Multiple Languages     &raquo; Software Craftsmanship – Katas">common coding katas</a> result in &#8220;single-object-oriented programming&#8221;.  The famous <a href="http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata">bowling score example</a> by Robert Martin, for instance, is usually solved by creating *one* object.  This might be fine for learning how to write simple code.  It&#8217;s not so good for learning how to do object-oriented design.  </p>
+<p>So I invented this little exercise to practice and learn OCP.</p>
+<p>Take any <a href="http://www.rubyquiz.com/" title="Ruby Quiz">coding problem</a>.  The <a href="http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata">bowling score</a>, the <a href="http://katas.softwarecraftsmanship.org/?p=92" title="String Calculator Series &#8211; Multiple Languages     &raquo; Software Craftsmanship – Katas">string evaluator</a>, the <a href="http://codekata.pragprog.com/2007/01/kata_nine_back_.html" title="CodeKata: Kata Nine: Back to the CheckOut">supermarket checkout</a>, you name it.  Then follow these instructions.</p>
+<p>0. Write the first failing test.  Then write a <em>factory</em> that returns an object, or an aggregate of objects, that make the test pass.  </p>
+<p class="note">The factory should be limited to creating objects and linking them together.  No conditionals allowed.
+</p>
+<p>1. Write the next failing test.  </p>
+<p>2. Can you make it pass <em>by changing the factory and/or creating a new class and nothing else</em>?  If yes, great!  Go back to 1.  If not, refactor until you can.</p>
+<p class="note">The refactoring should bring the system to a state where it&#8217;s possible to implement the next test just by changing the aggregate of objects that is returned by the factory.  Be careful not to implement new functionality; the current test should still fail. </p>
+<p>For instance, take the bowling score problem.  The first test is</p>
+<p><code></p>
+<pre name="code" class="java:nocontrols:nogutter">
+  @Test public void gutterGame() throws Exception {
+    BowlingGame game = new BowlingGameFactory().create();
+    for (int i=0; i&lt;20; i++) {
+      game.roll(0);
+    }
+    assertEquals(0, game.score());
+  }
+</pre>
+<p></code></p>
+<p>The code to make this pass is </p>
+<p><code></p>
+<pre name="code" class="java:nocontrols:nogutter">
+  class BowlingGameFactory {
+    public BowlingGame create() {
+      return new BowlingGame();
+    }
+  }
+  
+  class BowlingGame {
+    public void roll(int n) {}
+    public int score() {
+      return 0;
+    }
+  }
+</pre>
+<p></code></p>
+<p>Nothing strange here.  Now the second test is </p>
+<p><code></p>
+<pre name="code" class="java:nocontrols:nogutter">
+  @Test public void allOnesGame() throws Exception {
+    BowlingGame game = new BowlingGameFactory().create();
+    for (int i=0; i&lt;20; i++) {
+      game.roll(1);
+    }
+    assertEquals(20, game.score());
+  }
+</pre>
+<p></code></p>
+<p>The simplest code that makes both tests pass would be to change BowlingGame to accumulate rolls in a variable.  But our rules stop us from doing that; we must find a way to implement the new functionality with a new object.  I think about it for a few minutes, and all I can think of is to delegate to another object the accumulation of rolls.  I will call this role &#8220;Rolls&#8221;.  Cool!  This forces me to invent a new design idea.  But I must be careful not to add new functionality, so I will just write a Rolls object that always returns 0.</p>
+<p><code></p>
+<pre name="code" class="java:nocontrols:nogutter">
+  interface Rolls {
+    void add(int n);
+    int sum();
+  }
+  
+  class BowlingGame {
+    private final Rolls rolls;
+    
+    public BowlingGame(Rolls rolls) {
+      this.rolls = rolls;
+    }
+    
+    public void roll(int n) {
+      rolls.add(n);
+    }
+
+    public int score() {
+      return rolls.sum();
+    }
+  }
+  
+  class BowlingGameFactory {
+    public BowlingGame create() {
+      Rolls zero = new Rolls() {
+        public void add(int n) {}
+        public int sum() { return 0; }
+      };
+      return new BowlingGame(zero);
+    }
+  }
+</pre>
+<p></code></p>
+<p>This passes the first test, and still fails the second.  In order to pass the second test, all I have to do is provide a real implementation of Rolls and change the factory.</p>
+<p><code></p>
+<pre name="code" class="java:nocontrols:nogutter">
+  class Accumulator implements Rolls {
+    void add(int n) { ... }
+    int sum() { ... }
+  }
+    
+  class BowlingGameFactory {
+    public BowlingGame create() {
+      return new BowlingGame(new Accumulator());
+    }
+  }
+</pre>
+<p></code></p>
+<p>And so on.   The point here is to think about how to</p>
+<ol>
+<li>compose functionality out of existing objects, and</li>
+<li>avoid reworking existing code.</li>
+</ol>
+<p>Feedback?</p>
+<h3>Updates</h3>
+<p>24/12/2013 <a href="http://www.cafe-encounter.net/" title="Chris F Carroll | Coffee | Coding | Computers | Church">Chris F Carroll</a>&#8216;s <a href="https://github.com/chrisfcarroll/OCPKatas">Gilded Mall Kata</a> is a new exercise that can be done with the OCP kata rules.  Thanks Chris!</p>
+<p>29/05/2014 There is now <a href="https://github.com/xpmatteo/ocp-kata" title="The OCP Kata Github repository">a repository with a few prepared exercises</a>! I presented this at XP2014.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/293/feed</wfw:commentRss>
+		<slash:comments>17</slash:comments>
+							</item>
+	</channel>
+</rss>

@@ -1,3 +1,46 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://matteo.vaccari.name/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Matteo Vaccari's Home"
+theme = 'hugo-simple'
+copyright = "© 2001-2024 Matteo Vaccari"
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# Generate "Bearblog"-like URLs !only!, see https://bearblog.dev/.
+disableKinds = ["taxonomy"]
+# ignoreErrors = ["error-disable-taxonomy"]
+[taxonomies]
+tag = "tags"
+
+
+[permalinks]
+blog = "/:slugorfilename/"
+tags = "/blog/:slug"
+
+
+[params]
+description = "A collection of writings about software development"
+favicon = "images/favicon.ico"
+dateFormat = "2006-01-02"
+hideMadeWithLine = false
+
+[params.author]
+name = "Matteo Vaccari"
+email = "vaccari@pobox.com"
+
+[[menu.main]]
+name = "Home"
+pageRef = "/"
+weight = 10
+[[menu.main]]
+name = "Blog"
+pageRef = "/blog"
+weight = 20
+
+[services.rss]
+limit = 42
+
+[outputs]
+# Disable section RSS
+section = ["html"]

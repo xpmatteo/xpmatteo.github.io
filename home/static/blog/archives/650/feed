@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Fixing session management in Tomcat	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/650/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/650</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Luk				</title>
+				<link>http://matteo.vaccari.name/blog/archives/650/comment-page-1#comment-94998</link>
+		<dc:creator><![CDATA[Luk]]></dc:creator>
+		<pubDate>Fri, 30 Mar 2012 11:45:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=650#comment-94998</guid>
+					<description><![CDATA[Don&#039;t forget that you may expose your site to hacking with this DIY approach.]]></description>
+		<content:encoded><![CDATA[<p>Don&#8217;t forget that you may expose your site to hacking with this DIY approach.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/650/comment-page-1#comment-94533</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Thu, 24 Nov 2011 09:42:25 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=650#comment-94533</guid>
+					<description><![CDATA[That&#039;s the same we did but for different reasons. In our Restful app we need to store the just user credentials in the session (it works both in cookies or as parameter), we want the sessionId to stay on the db for security logs (there is a batch to delete them after some months) and to avoid the (mis-)use of Java Session as a generic bucket.]]></description>
+		<content:encoded><![CDATA[<p>That&#8217;s the same we did but for different reasons. In our Restful app we need to store the just user credentials in the session (it works both in cookies or as parameter), we want the sessionId to stay on the db for security logs (there is a batch to delete them after some months) and to avoid the (mis-)use of Java Session as a generic bucket.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

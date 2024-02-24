@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Annunciato l&#8217;Agile Day italiano	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/98/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/98</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Jacopo Romei				</title>
+				<link>http://matteo.vaccari.name/blog/archives/98/comment-page-1#comment-18657</link>
+		<dc:creator><![CDATA[Jacopo Romei]]></dc:creator>
+		<pubDate>Sat, 10 Nov 2007 01:37:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=98#comment-18657</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Ci vediamo il 23 allora. Sono un fan attivo dell&#8217;agile da qualche anno ormai ma non ho mai partecipato all&#8217;Agile Day. Sarà un vero piacere quest&#8217;anno! A presto!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea G.				</title>
+				<link>http://matteo.vaccari.name/blog/archives/98/comment-page-1#comment-18067</link>
+		<dc:creator><![CDATA[Andrea G.]]></dc:creator>
+		<pubDate>Fri, 19 Oct 2007 11:05:16 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=98#comment-18067</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>E&#8217; un&#8217;esperienza unica e indimenticabile. Molte conferenze costano parecchio e non ti danno la metà di quello che ti da l&#8217;Agileday. Sono stato all&#8217;edizione 2006 ed è stata interessantissima.<br />
+Il mio consiglio è porta Rails.<br />
+L&#8217;anno scorso c&#8217;era Django e non è stata un gran che.<br />
+Quest&#8217;anno ho sentito che fanno una breve introduzione per i nuovi di xp. Dunque potresti fare un pò di sviluppo agile su Rails.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

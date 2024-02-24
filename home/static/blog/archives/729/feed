@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: A subtle misconception about Velocity	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/729/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/729</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95096</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 03 Jun 2012 13:11:38 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95096</guid>
+					<description><![CDATA[Giorgio: in my opinion, you know you are refactoring too much when the system starts becoming more complicated !!]]></description>
+		<content:encoded><![CDATA[<p>Giorgio: in my opinion, you know you are refactoring too much when the system starts becoming more complicated !!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95094</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Sun, 03 Jun 2012 10:30:54 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95094</guid>
+					<description><![CDATA[While working on a recent project alone, I did not have a stable velocity as the main goal, but it came out as a result. The psychological effect was good (&quot;slow and steady wins the race&quot;) as it validated that I was at least cleaning up *enough*; what I am not sure is if I was cleaning up *too much*.]]></description>
+		<content:encoded><![CDATA[<p>While working on a recent project alone, I did not have a stable velocity as the main goal, but it came out as a result. The psychological effect was good (&#8220;slow and steady wins the race&#8221;) as it validated that I was at least cleaning up *enough*; what I am not sure is if I was cleaning up *too much*.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Tonino				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95085</link>
+		<dc:creator><![CDATA[Tonino]]></dc:creator>
+		<pubDate>Tue, 29 May 2012 10:14:33 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95085</guid>
+					<description><![CDATA[Having a stable velocity, and with that having hopefully the ability to do make long term plans are concepts based on a reasonable model about an &quot;economy of software development&quot; that is just an abstractiom, very useful if used as a thinking and communication tool, but very bad if some occasions.
+
+We&#039;d rather use it to understand the importance of not getting drawn into a kind of &quot;quick fix&quot; trap, for example.
+Unfortunately in communicating that we are going to measure the velocity and failing in communicating the underline reason (justified by such &quot;model&quot;), is exactly the right way to fall into a quick fix trap, creating conflicts, backfiring all our good intention (and we know that the road to hell is paved with good intentions).
+
+In that case, better not using any velocity metrics explicitly, and just coach the teams to write clean code.
+Make sure doing relative estimates (if you do them, otherwise be sure the stories are small enough) and make sure that also the P.O. is able to prioritize the backlog items, by optimizing by &quot;max value, min cost&quot; (that means that the P.O. should have an idea of the business value of any backlog item).
+
+In writing bad code we don&#039;t learn anything, have stress, and the accidental complexity created will trashes any estimate slowing down everything.
+In striving for writing clean code we can think better, learn better and hopefully have a basecode that will minimize the possibility of trashing the estimates (it doesn&#039;t mean that we can formally prove it, or that there is a science behind that yet, but it doesn&#039;t really matter. It&#039;s craftsmanship).]]></description>
+		<content:encoded><![CDATA[<p>Having a stable velocity, and with that having hopefully the ability to do make long term plans are concepts based on a reasonable model about an &#8220;economy of software development&#8221; that is just an abstractiom, very useful if used as a thinking and communication tool, but very bad if some occasions.</p>
+<p>We&#8217;d rather use it to understand the importance of not getting drawn into a kind of &#8220;quick fix&#8221; trap, for example.<br />
+Unfortunately in communicating that we are going to measure the velocity and failing in communicating the underline reason (justified by such &#8220;model&#8221;), is exactly the right way to fall into a quick fix trap, creating conflicts, backfiring all our good intention (and we know that the road to hell is paved with good intentions).</p>
+<p>In that case, better not using any velocity metrics explicitly, and just coach the teams to write clean code.<br />
+Make sure doing relative estimates (if you do them, otherwise be sure the stories are small enough) and make sure that also the P.O. is able to prioritize the backlog items, by optimizing by &#8220;max value, min cost&#8221; (that means that the P.O. should have an idea of the business value of any backlog item).</p>
+<p>In writing bad code we don&#8217;t learn anything, have stress, and the accidental complexity created will trashes any estimate slowing down everything.<br />
+In striving for writing clean code we can think better, learn better and hopefully have a basecode that will minimize the possibility of trashing the estimates (it doesn&#8217;t mean that we can formally prove it, or that there is a science behind that yet, but it doesn&#8217;t really matter. It&#8217;s craftsmanship).</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Ilias Bartolini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95081</link>
+		<dc:creator><![CDATA[Ilias Bartolini]]></dc:creator>
+		<pubDate>Sun, 27 May 2012 18:52:54 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95081</guid>
+					<description><![CDATA[And obviously any solution depends on the context :) 
+For a team that is forming and on the path of reaching maturity to improve continuously nothing is obvious. Also finding time and courage for removing debt and invest in improvement needs incremental steps: I see that adding a slack can be a first good step.]]></description>
+		<content:encoded><![CDATA[<p>And obviously any solution depends on the context :)<br />
+For a team that is forming and on the path of reaching maturity to improve continuously nothing is obvious. Also finding time and courage for removing debt and invest in improvement needs incremental steps: I see that adding a slack can be a first good step.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Ilias Bartolini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95080</link>
+		<dc:creator><![CDATA[Ilias Bartolini]]></dc:creator>
+		<pubDate>Sun, 27 May 2012 18:36:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95080</guid>
+					<description><![CDATA[&quot;I’m not sure what you mean when you say that adding slack may lead to hide problems; can you elaborate on that?&quot;
+
+Are you looking at how much of this slack time are you &quot;actually&quot; doing?
+
+Sorry, I may make a lot of wrong assumptions for this example:
+
+Two iteration ago you velocity was 42 and you had enough time for those &quot;extra activities&quot; that fit in you slack.
+Last iteration a couple of stories bumped into issues and took longer, no time for &quot;extra activities&quot; but your velocity is still 42.
+Team during the retrospective looks at its velocity and thinks that this has been another good iteration: 42 same as last time...  and maybe also the PO looks at the velocity and thinks that everything is great...
+
+You missed a chance to see at your lower velocity and start a conversation on what didn&#039;t went well.
+
+Slack is not &quot;optional&quot; and left for the end of the iteration.
+
+Ilias]]></description>
+		<content:encoded><![CDATA[<p>&#8220;I’m not sure what you mean when you say that adding slack may lead to hide problems; can you elaborate on that?&#8221;</p>
+<p>Are you looking at how much of this slack time are you &#8220;actually&#8221; doing?</p>
+<p>Sorry, I may make a lot of wrong assumptions for this example:</p>
+<p>Two iteration ago you velocity was 42 and you had enough time for those &#8220;extra activities&#8221; that fit in you slack.<br />
+Last iteration a couple of stories bumped into issues and took longer, no time for &#8220;extra activities&#8221; but your velocity is still 42.<br />
+Team during the retrospective looks at its velocity and thinks that this has been another good iteration: 42 same as last time&#8230;  and maybe also the PO looks at the velocity and thinks that everything is great&#8230;</p>
+<p>You missed a chance to see at your lower velocity and start a conversation on what didn&#8217;t went well.</p>
+<p>Slack is not &#8220;optional&#8221; and left for the end of the iteration.</p>
+<p>Ilias</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95078</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 27 May 2012 10:55:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95078</guid>
+					<description><![CDATA[@ilias: I think Jim Highsmith agrees with me :-)  Velocity should be used to calibrate what we can deliver.  Slack is needed so that the team can invest in the development engine, as Jim says.  The PO is not allowed to tell the team how to use their slack time, so he is not empowered to fix all priorities.]]></description>
+		<content:encoded><![CDATA[<p>@ilias: I think Jim Highsmith agrees with me :-)  Velocity should be used to calibrate what we can deliver.  Slack is needed so that the team can invest in the development engine, as Jim says.  The PO is not allowed to tell the team how to use their slack time, so he is not empowered to fix all priorities.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95077</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 27 May 2012 10:44:49 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95077</guid>
+					<description><![CDATA[@Ilias:
+
+I agree that the real objectives are to deliver value, and to always improve.  Other measures are just tools to help us reach that goal, and they may only be temporary tools that we throw away when they are no longer useful.
+
+My point here is that when you have a team that is not yet to the point of reliably delivering value, it&#039;s not a good idea to strive to deliver as many completed stories as possible.  Maybe this is obvious to more experienced agilists, but it was not obvious to me :-)
+
+It&#039;s true that cleaning up the code and paying down technical debt are activities that *should* be done continuously.  But it&#039;s virtually guaranteed that a beginning team will *not* do this to the level that is actually required.  It&#039;s surprising how much cleanup the code *really* needs :-)  So one way to make sure that the team takes the time to really clean up, is to make sure that they have spare time in their iteration.  This at least is my current understanding.
+
+I&#039;m not sure what you mean when you say that adding slack may lead to hide problems; can you elaborate on that?
+
+@Ilias and @roberto: I didn&#039;t say that explicitly, but I completely agree that velocity is a measure that is not reported outside the team.  This does not prevent pressure to deliver faster, though.  Most teams deliver more slowly than is desired; I think we can all agree on this?  It&#039;s only natural that the developers themselves will try to do one more story, as long as they believe that the code is refactored enough.  It&#039;s easy for them to be wrong on this :-)]]></description>
+		<content:encoded><![CDATA[<p>@Ilias:</p>
+<p>I agree that the real objectives are to deliver value, and to always improve.  Other measures are just tools to help us reach that goal, and they may only be temporary tools that we throw away when they are no longer useful.</p>
+<p>My point here is that when you have a team that is not yet to the point of reliably delivering value, it&#8217;s not a good idea to strive to deliver as many completed stories as possible.  Maybe this is obvious to more experienced agilists, but it was not obvious to me :-)</p>
+<p>It&#8217;s true that cleaning up the code and paying down technical debt are activities that *should* be done continuously.  But it&#8217;s virtually guaranteed that a beginning team will *not* do this to the level that is actually required.  It&#8217;s surprising how much cleanup the code *really* needs :-)  So one way to make sure that the team takes the time to really clean up, is to make sure that they have spare time in their iteration.  This at least is my current understanding.</p>
+<p>I&#8217;m not sure what you mean when you say that adding slack may lead to hide problems; can you elaborate on that?</p>
+<p>@Ilias and @roberto: I didn&#8217;t say that explicitly, but I completely agree that velocity is a measure that is not reported outside the team.  This does not prevent pressure to deliver faster, though.  Most teams deliver more slowly than is desired; I think we can all agree on this?  It&#8217;s only natural that the developers themselves will try to do one more story, as long as they believe that the code is refactored enough.  It&#8217;s easy for them to be wrong on this :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Roberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95076</link>
+		<dc:creator><![CDATA[Roberto]]></dc:creator>
+		<pubDate>Sat, 26 May 2012 21:41:10 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95076</guid>
+					<description><![CDATA[I agree with both of you ... in my way: 
+I think that velocity has to remain a private tool for the team. None outside the team has to know it. 
+The only measure for the team work has to be the delivered software, measured by the business value.]]></description>
+		<content:encoded><![CDATA[<p>I agree with both of you &#8230; in my way:<br />
+I think that velocity has to remain a private tool for the team. None outside the team has to know it.<br />
+The only measure for the team work has to be the delivered software, measured by the business value.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Ilias Bartolini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/729/comment-page-1#comment-95074</link>
+		<dc:creator><![CDATA[Ilias Bartolini]]></dc:creator>
+		<pubDate>Sat, 26 May 2012 17:25:34 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=729#comment-95074</guid>
+					<description><![CDATA[I agree that an unstable velocity is an indicator of some problems in how we write software, or estimate, or manage the iteration.
+
+I don&#039;t agree that maximising or stabilising velocity are an objective.
+Velocity is only a value that we &quot;read&quot; to learn something about what we delivered.
+Adding a variable/artificial slack to the iteration velocity can also hide other types of problems.
+
+Deliver &quot;value&quot; and &quot;maintaining quality&quot; is the objective.
+Aiming to a certain velocity number is always wrong.
+
+When you mention &quot;reducing technical debt, to clean the system, to improve the tests, to study, to perform technical improvements&quot; ...all of these activities should be done daily irrespective of the fact that in this iteration we have some slack left or not.
+
+I&#039;ve seen many times velocity used as a tool to keep high, low or steady the business pressure on the team but they are all misuses.
+Velocity is only a tool to &quot;learn&quot; what we&#039;ve done this iteration and what we can roughly expect the next one if the context remains the same.
+
+Velocity is for capacity calibration, is not a productivity measure, is not a team pressure valve or gauge.
+
+You may be interested in this:
+http://jimhighsmith.com/2011/11/02/velocity-is-killing-agility/
+
+Ilias]]></description>
+		<content:encoded><![CDATA[<p>I agree that an unstable velocity is an indicator of some problems in how we write software, or estimate, or manage the iteration.</p>
+<p>I don&#8217;t agree that maximising or stabilising velocity are an objective.<br />
+Velocity is only a value that we &#8220;read&#8221; to learn something about what we delivered.<br />
+Adding a variable/artificial slack to the iteration velocity can also hide other types of problems.</p>
+<p>Deliver &#8220;value&#8221; and &#8220;maintaining quality&#8221; is the objective.<br />
+Aiming to a certain velocity number is always wrong.</p>
+<p>When you mention &#8220;reducing technical debt, to clean the system, to improve the tests, to study, to perform technical improvements&#8221; &#8230;all of these activities should be done daily irrespective of the fact that in this iteration we have some slack left or not.</p>
+<p>I&#8217;ve seen many times velocity used as a tool to keep high, low or steady the business pressure on the team but they are all misuses.<br />
+Velocity is only a tool to &#8220;learn&#8221; what we&#8217;ve done this iteration and what we can roughly expect the next one if the context remains the same.</p>
+<p>Velocity is for capacity calibration, is not a productivity measure, is not a team pressure valve or gauge.</p>
+<p>You may be interested in this:<br />
+<a href="http://jimhighsmith.com/2011/11/02/velocity-is-killing-agility/" rel="nofollow">http://jimhighsmith.com/2011/11/02/velocity-is-killing-agility/</a></p>
+<p>Ilias</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

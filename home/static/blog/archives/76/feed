@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Soluzione esame scritto di Applicazioni Web, febbraio 2007	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/76/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/76</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Federico Feroldi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/76/comment-page-1#comment-10055</link>
+		<dc:creator><![CDATA[Federico Feroldi]]></dc:creator>
+		<pubDate>Thu, 10 May 2007 15:49:14 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=76#comment-10055</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Ma com&#8217;è che al Politecnico si studia quella &#8220;portentosa&#8221; e &#8220;diffusissima&#8221; tecnologia che è il WebML?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca				</title>
+				<link>http://matteo.vaccari.name/blog/archives/76/comment-page-1#comment-3995</link>
+		<dc:creator><![CDATA[Luca]]></dc:creator>
+		<pubDate>Wed, 28 Feb 2007 11:12:55 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=76#comment-3995</guid>
+					<description><![CDATA[[...]
+ Se non sai di che cosa sto parlando, vuol dire che non capisci _nulla_ di basi di dati.
+[...]
+
+AHAHAHAHAH!!! :-D Grande Matteo!!]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;]<br />
+ Se non sai di che cosa sto parlando, vuol dire che non capisci _nulla_ di basi di dati.<br />
+[&#8230;]</p>
+<p>AHAHAHAHAH!!! :-D Grande Matteo!!</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

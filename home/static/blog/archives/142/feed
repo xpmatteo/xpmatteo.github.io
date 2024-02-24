@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: XP Day Benelux 2008	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/142/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/142</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: PDI^2 :: ordinare un array a grandi linee, revisited :: December :: 2008				</title>
+				<link>http://matteo.vaccari.name/blog/archives/142/comment-page-1#comment-72507</link>
+		<dc:creator><![CDATA[PDI^2 :: ordinare un array a grandi linee, revisited :: December :: 2008]]></dc:creator>
+		<pubDate>Mon, 01 Dec 2008 12:11:13 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=142#comment-72507</guid>
+					<description><![CDATA[[...] Di recente ha parlato della stessa cosa (invarianti, non il giochino) al XP Day Benelux e ha postato slide &#038; problemini che sono interessanti, e in questo modo mi ha fatto tornare in mente questo problema, che mi ero [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Di recente ha parlato della stessa cosa (invarianti, non il giochino) al XP Day Benelux e ha postato slide &#38; problemini che sono interessanti, e in questo modo mi ha fatto tornare in mente questo problema, che mi ero [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Rudy De Coninck				</title>
+				<link>http://matteo.vaccari.name/blog/archives/142/comment-page-1#comment-72268</link>
+		<dc:creator><![CDATA[Rudy De Coninck]]></dc:creator>
+		<pubDate>Tue, 25 Nov 2008 20:29:53 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=142#comment-72268</guid>
+					<description><![CDATA[I loved your session too however not sure that I will practice the technique every day ;-)]]></description>
+		<content:encoded><![CDATA[<p>I loved your session too however not sure that I will practice the technique every day ;-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giovanni Intini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/142/comment-page-1#comment-72236</link>
+		<dc:creator><![CDATA[Giovanni Intini]]></dc:creator>
+		<pubDate>Mon, 24 Nov 2008 20:39:34 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=142#comment-72236</guid>
+					<description><![CDATA[I loved the invariant game :)]]></description>
+		<content:encoded><![CDATA[<p>I loved the invariant game :)</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

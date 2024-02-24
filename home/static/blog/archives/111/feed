@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Scelgo Erlang o Php?	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/111/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/111</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: giulio sovran				</title>
+				<link>http://matteo.vaccari.name/blog/archives/111/comment-page-1#comment-95066</link>
+		<dc:creator><![CDATA[giulio sovran]]></dc:creator>
+		<pubDate>Mon, 21 May 2012 18:44:08 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=111#comment-95066</guid>
+					<description><![CDATA[Sto cercando uno sviluppatore Erlang da assumere in un&#039;azienda di Berlino, Dublino o Sofia, oppure che lavori in Remoto.
+
+Avreste contatti da passarmi?
+
+grazie
+
+giulio]]></description>
+		<content:encoded><![CDATA[<p>Sto cercando uno sviluppatore Erlang da assumere in un&#8217;azienda di Berlino, Dublino o Sofia, oppure che lavori in Remoto.</p>
+<p>Avreste contatti da passarmi?</p>
+<p>grazie</p>
+<p>giulio</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

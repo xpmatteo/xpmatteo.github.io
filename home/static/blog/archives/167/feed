@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: I value simplicity	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/167/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/167</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Federico				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-85375</link>
+		<dc:creator><![CDATA[Federico]]></dc:creator>
+		<pubDate>Tue, 31 Mar 2009 16:56:18 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-85375</guid>
+					<description><![CDATA[&#062;But Matteo I would really like to have a suggestion to improve my ability with simplicity!
+
+1 Reduce
+2 Organize
+3 Time
+4 Learn
+5 Differences
+6 Context
+7 Emotion
+8 Trust
+9 Failure
+10 The One
+
+&quot;The Laws of Simplicity&quot;, John Maeda, MIT Press 2006
+http://lawsofsimplicity.com/
+
+I think 1-4 are a great start]]></description>
+		<content:encoded><![CDATA[<p>&gt;But Matteo I would really like to have a suggestion to improve my ability with simplicity!</p>
+<p>1 Reduce<br />
+2 Organize<br />
+3 Time<br />
+4 Learn<br />
+5 Differences<br />
+6 Context<br />
+7 Emotion<br />
+8 Trust<br />
+9 Failure<br />
+10 The One</p>
+<p>&#8220;The Laws of Simplicity&#8221;, John Maeda, MIT Press 2006<br />
+<a href="http://lawsofsimplicity.com/" rel="nofollow">http://lawsofsimplicity.com/</a></p>
+<p>I think 1-4 are a great start</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-79958</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 04 Feb 2009 17:02:40 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-79958</guid>
+					<description><![CDATA[Hi Subhash,
+
+I know many good developer find that Maven is a good and useful tool.  I resolve to not speak again about it until I&#039;ve read the Sonatype book.  It has arrived today.]]></description>
+		<content:encoded><![CDATA[<p>Hi Subhash,</p>
+<p>I know many good developer find that Maven is a good and useful tool.  I resolve to not speak again about it until I&#8217;ve read the Sonatype book.  It has arrived today.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-79390</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Sun, 01 Feb 2009 19:35:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-79390</guid>
+					<description><![CDATA[@Subhash
+
+Obviously I don&#039;t know if this is the point for Matteo. 
+
+Your post just give me the opportunity to clarify my point of view :)]]></description>
+		<content:encoded><![CDATA[<p>@Subhash</p>
+<p>Obviously I don&#8217;t know if this is the point for Matteo. </p>
+<p>Your post just give me the opportunity to clarify my point of view :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-79389</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Sun, 01 Feb 2009 19:32:59 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-79389</guid>
+					<description><![CDATA[@Subhash
+
+These words catch my attention 
+
+&#062; Yesterday night
+
+&#062; I re-organized
+
+How it will be when the team working on that code will grow to say 15 developers?
+
+And when the code-base will grow to hundreds thousand lines of code?
+
+And in 5-10 years when many different technologies will have emerged and used in the code-base?
+
+
+Some project have these constraint, especially enterprise software, while others don&#039;t. When is the case, simplicity should scale with them.]]></description>
+		<content:encoded><![CDATA[<p>@Subhash</p>
+<p>These words catch my attention </p>
+<p>&gt; Yesterday night</p>
+<p>&gt; I re-organized</p>
+<p>How it will be when the team working on that code will grow to say 15 developers?</p>
+<p>And when the code-base will grow to hundreds thousand lines of code?</p>
+<p>And in 5-10 years when many different technologies will have emerged and used in the code-base?</p>
+<p>Some project have these constraint, especially enterprise software, while others don&#8217;t. When is the case, simplicity should scale with them.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Subhash				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-78966</link>
+		<dc:creator><![CDATA[Subhash]]></dc:creator>
+		<pubDate>Fri, 30 Jan 2009 10:13:14 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-78966</guid>
+					<description><![CDATA[This is a well written article. The process creation example made me smile :-) And the last paragraph was humble and respectful.
+
+In that same humble tone, let me put down my differences:
+
+Yesterday night I re-organized my project code (http://code.google.com/p/rest-client/) into a more modular structure, and all the while I was admiring Maven so much! It made my work so much easier. If I had done something similar, say in Ant, it would have taken considerably more time and effort. I understand that Maven is not without its own short-comings, but from my evaluation of the current set of build tools, I find it most useful for me.]]></description>
+		<content:encoded><![CDATA[<p>This is a well written article. The process creation example made me smile :-) And the last paragraph was humble and respectful.</p>
+<p>In that same humble tone, let me put down my differences:</p>
+<p>Yesterday night I re-organized my project code (<a href="http://code.google.com/p/rest-client/" rel="nofollow">http://code.google.com/p/rest-client/</a>) into a more modular structure, and all the while I was admiring Maven so much! It made my work so much easier. If I had done something similar, say in Ant, it would have taken considerably more time and effort. I understand that Maven is not without its own short-comings, but from my evaluation of the current set of build tools, I find it most useful for me.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-78835</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 29 Jan 2009 16:16:36 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-78835</guid>
+					<description><![CDATA[Thank you for calling me naive.  I think it&#039;s important we don&#039;t lose the naivete of thinking that things can be improved, and that we can be a part of this change.
+
+I don&#039;t know about your situation and I will not certainly presume to tell you what you should do.  The thing I know is that local optimizations are not optimal.  I don&#039;t believe in &quot;I do my job and I don&#039;t make waves.&quot;  I will respectfully ask to collaborate with other parts of the organizations I&#039;m in so that we can work together towards a *global* optimum.
+
+There&#039;s little to gain in improving my productivity as a programmer by 10% (not easy to do) when 90% of what I do is useless.  That would result at best in a 1% overall gain.  There&#039;s a lot more to be gained in focusing on the real needs of the organization and of the customer; on reducing waste; on improving communication.  
+
+All of these important activities have little to do with *tools* and a lot to do with *individuals and interactions*.  
+
+http://flickr.com/photos/freedomtoast/280930261/
+&quot;Criticize shortcomings at a workplace without fear and hesitation!&quot; (I would add &quot;respectfully&quot;.)]]></description>
+		<content:encoded><![CDATA[<p>Thank you for calling me naive.  I think it&#8217;s important we don&#8217;t lose the naivete of thinking that things can be improved, and that we can be a part of this change.</p>
+<p>I don&#8217;t know about your situation and I will not certainly presume to tell you what you should do.  The thing I know is that local optimizations are not optimal.  I don&#8217;t believe in &#8220;I do my job and I don&#8217;t make waves.&#8221;  I will respectfully ask to collaborate with other parts of the organizations I&#8217;m in so that we can work together towards a *global* optimum.</p>
+<p>There&#8217;s little to gain in improving my productivity as a programmer by 10% (not easy to do) when 90% of what I do is useless.  That would result at best in a 1% overall gain.  There&#8217;s a lot more to be gained in focusing on the real needs of the organization and of the customer; on reducing waste; on improving communication.  </p>
+<p>All of these important activities have little to do with *tools* and a lot to do with *individuals and interactions*.  </p>
+<p><a href="http://flickr.com/photos/freedomtoast/280930261/" rel="nofollow">http://flickr.com/photos/freedomtoast/280930261/</a><br />
+&#8220;Criticize shortcomings at a workplace without fear and hesitation!&#8221; (I would add &#8220;respectfully&#8221;.)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Filippo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-78813</link>
+		<dc:creator><![CDATA[Filippo]]></dc:creator>
+		<pubDate>Thu, 29 Jan 2009 11:38:49 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-78813</guid>
+					<description><![CDATA[@Matteo: sorry, that&#039;s really naive: &quot;...is the usual defence of complex solutions. In a way you’re advocating giving up and surrendering to the status quo. In my view, my job is to find ways to simplify things. That includes simplifying the organization. I don’t necessarily succeed, but I will certainly work in that direction...&quot;
+I may add, that&#039;s the usual defence of the &quot;simple solution people&quot;: if a company/environment is too complex, it&#039;s wrong, and I won&#039;t give up until I fix it completely.
+
+I value simplicity as much as you do, but I am also conscious of the environment where I work. There are reasons why big companies are structured as they are (usually related to the ability of scaling to thousand of employees, dealing with employee turnover, new hires, not being to tied to a single vendors...), and it&#039;s not my job as software engineer/project manager to question that and fix the company itself.
+I work in this environment, and try to find small optimization in the mess (isn&#039;t kaizen, after all?); I don&#039;t try to propose/impose radical treatments because that&#039;s not what they are looking for.
+With this perspective in mind, as I wrote before, a lot of tools you consider complicated, are actually big improvements. In these environments, they&#039;re exactly the simplicity you&#039;re talking about.
+So I don&#039;t mind having to study them, or mentoring people to understand them, since it&#039;s a step ahead towards simplicity.]]></description>
+		<content:encoded><![CDATA[<p>@Matteo: sorry, that&#8217;s really naive: &#8220;&#8230;is the usual defence of complex solutions. In a way you’re advocating giving up and surrendering to the status quo. In my view, my job is to find ways to simplify things. That includes simplifying the organization. I don’t necessarily succeed, but I will certainly work in that direction&#8230;&#8221;<br />
+I may add, that&#8217;s the usual defence of the &#8220;simple solution people&#8221;: if a company/environment is too complex, it&#8217;s wrong, and I won&#8217;t give up until I fix it completely.</p>
+<p>I value simplicity as much as you do, but I am also conscious of the environment where I work. There are reasons why big companies are structured as they are (usually related to the ability of scaling to thousand of employees, dealing with employee turnover, new hires, not being to tied to a single vendors&#8230;), and it&#8217;s not my job as software engineer/project manager to question that and fix the company itself.<br />
+I work in this environment, and try to find small optimization in the mess (isn&#8217;t kaizen, after all?); I don&#8217;t try to propose/impose radical treatments because that&#8217;s not what they are looking for.<br />
+With this perspective in mind, as I wrote before, a lot of tools you consider complicated, are actually big improvements. In these environments, they&#8217;re exactly the simplicity you&#8217;re talking about.<br />
+So I don&#8217;t mind having to study them, or mentoring people to understand them, since it&#8217;s a step ahead towards simplicity.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-78799</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 29 Jan 2009 08:38:17 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-78799</guid>
+					<description><![CDATA[@Luca: there&#039;s a quote I love from, I think, Kernighan.  It says: &quot;Debugging some code is twice as difficult as writing it.  Therefore, if you are writing code in the most clever way you can, by definition you will not be able to debug it!&quot; 
+
+I think it extends to architectures.  If we barely understand it *now*, it will be impossible to understand when things get more complicated!  So yes, we agree.  
+
+As for how to become good at simplifying things: good question!  Let me know the answer when you find it :)  So far my recipe is to think hard, apply small incremental improvements, and try experiments.]]></description>
+		<content:encoded><![CDATA[<p>@Luca: there&#8217;s a quote I love from, I think, Kernighan.  It says: &#8220;Debugging some code is twice as difficult as writing it.  Therefore, if you are writing code in the most clever way you can, by definition you will not be able to debug it!&#8221; </p>
+<p>I think it extends to architectures.  If we barely understand it *now*, it will be impossible to understand when things get more complicated!  So yes, we agree.  </p>
+<p>As for how to become good at simplifying things: good question!  Let me know the answer when you find it :)  So far my recipe is to think hard, apply small incremental improvements, and try experiments.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-78790</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 29 Jan 2009 07:18:18 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-78790</guid>
+					<description><![CDATA[@Filippo: This is the usual defence of complex solutions.  In a way you&#039;re advocating giving up and surrendering to the status quo. In my view, my job is to find ways to simplify things.  That includes simplifying the organization.  I don&#039;t necessarily succeed, but I will certainly work in that direction. 
+
+Problems are inherently complex, but our job is to invent ways to look at them that manages, breaks down, controls the complexity.  If I&#039;m really good, I will show that the problem was not so difficult after all, when you explain it well.  Think of teachers; the very same topic can seem obscure, or crystal clear, depending on how good the teacher is at explaining.  
+
+I agree that common tools and practices are good; it would be even better if those tools were simpler.  I know that such tools can exist; just look at the Ruby/Python world for that; they&#039;re light years ahead in my view.  They value simplicity.
+
+So I will certainly learn the tools of the trade of the organization I work with; I learn my Hibernate, my Spring, my Maven too.  But I point out, to the Mavenites, that I was effective with humble old Ant without reading a big manual.  Simplify your architecture, learn to not depend on so many frameworks and libraries, and the case for Maven disappears.]]></description>
+		<content:encoded><![CDATA[<p>@Filippo: This is the usual defence of complex solutions.  In a way you&#8217;re advocating giving up and surrendering to the status quo. In my view, my job is to find ways to simplify things.  That includes simplifying the organization.  I don&#8217;t necessarily succeed, but I will certainly work in that direction. </p>
+<p>Problems are inherently complex, but our job is to invent ways to look at them that manages, breaks down, controls the complexity.  If I&#8217;m really good, I will show that the problem was not so difficult after all, when you explain it well.  Think of teachers; the very same topic can seem obscure, or crystal clear, depending on how good the teacher is at explaining.  </p>
+<p>I agree that common tools and practices are good; it would be even better if those tools were simpler.  I know that such tools can exist; just look at the Ruby/Python world for that; they&#8217;re light years ahead in my view.  They value simplicity.</p>
+<p>So I will certainly learn the tools of the trade of the organization I work with; I learn my Hibernate, my Spring, my Maven too.  But I point out, to the Mavenites, that I was effective with humble old Ant without reading a big manual.  Simplify your architecture, learn to not depend on so many frameworks and libraries, and the case for Maven disappears.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/167/comment-page-1#comment-78713</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Wed, 28 Jan 2009 21:08:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=167#comment-78713</guid>
+					<description><![CDATA[I really value simplicity even if recognize I am not good at. imho Matteo get the point 
+
+maybe because I&#039;m good in dealing with very complicate problems that I&#039;ve never get used with simplicity.
+
+Maybe here lie the paradox:
+
+  when the problems get more and more and more complicated, says complex,  the ability to deal with complicated problems do not work anymore. Here work the ability to imagine simple solutions.
+
+
+
+So to me (and to Filippo and team members) when a complicated solution come out then I would ask this: &quot;we know that this solution will work, now imagine that because it the sw will be be successful and will dramatically grow (x10 users, x1000 features, x1000 loc, x10 years, x100 developers) how can improve this solution to make it scalable ?
+
+But Matteo I would really like to have a suggestion to improve my ability with simplicity!]]></description>
+		<content:encoded><![CDATA[<p>I really value simplicity even if recognize I am not good at. imho Matteo get the point </p>
+<p>maybe because I&#8217;m good in dealing with very complicate problems that I&#8217;ve never get used with simplicity.</p>
+<p>Maybe here lie the paradox:</p>
+<p>  when the problems get more and more and more complicated, says complex,  the ability to deal with complicated problems do not work anymore. Here work the ability to imagine simple solutions.</p>
+<p>So to me (and to Filippo and team members) when a complicated solution come out then I would ask this: &#8220;we know that this solution will work, now imagine that because it the sw will be be successful and will dramatically grow (x10 users, x1000 features, x1000 loc, x10 years, x100 developers) how can improve this solution to make it scalable ?</p>
+<p>But Matteo I would really like to have a suggestion to improve my ability with simplicity!</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

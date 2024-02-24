@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/174 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:27:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  &raquo; Blog Archive   &raquo; TDD is not finished until the code speaks</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm &raquo; TDD is not finished until the code speaks Comments Feed" href="174/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Growing an XP team' href='173.html' />
+<link rel='next' title='The Power of Questions' href='176.html' />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="174.html" />
+<link rel='shortlink' href='../index0325.html?p=174' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embedca38.json?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F174" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed0412?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F174&amp;format=xml" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+    <div id='main-col'>
+
+  
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="173.html" rel="prev">Growing an XP team</a></div>
+			<div class="alignright"><a href="176.html" rel="next">The Power of Questions</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-174">
+			<h2><a href="174.html" rel="bookmark" title="Permanent Link: TDD is not finished until the code <em>speaks</em>">TDD is not finished until the code <em>speaks</em></a></h2>
+
+			<div class="entrytext">
+				<h3>A problem, and solutions that don&#8217;t seem right</h3>
+<p>I recently asked a few people to solve a little programming problem. In this problem, a number of towns are connected by one-way roads that have different distances. The programmer must write code that answers questions such as:</p>
+<ul>
+<li>What is the distance of the path A-B-C-D?</li>
+<li>How many paths are there from A to C that are exactly 4 steps long?</li>
+<li>What is the distance of the shortest path from A to D?</li>
+</ul>
+<p><img src="../wp-content/uploads/2009/04/graph1.png" alt="The graph"  class="alignnone size-full wp-image-175" srcset="http://matteo.vaccari.name/blog/wp-content/uploads/2009/04/graph1.png 347w, http://matteo.vaccari.name/blog/wp-content/uploads/2009/04/graph1-300x204.png 300w" sizes="(max-width: 347px) 100vw, 347px" /></a></p>
+<p>I reviewed three different solutions; they were all valid, reasonably well written. Two had proper unit tests, while the third was checked by prints in a &quot;main&quot;. The authors tried hard to write a &quot;good&quot; solution. There were no long methods; all the logic was broken down in small methods. And yet, I was not pleased with the results. </p>
+<p><span id="more-174"></span></p>
+<p>The common pattern in all three solution was the presence of an object named RouteFinder, or similar. Other objects were Town, or Path, but they were data structures with little behaviour; in other words, anemic objects. When I tried to understand the implementation logic, all I could see was loops, with many variations of the following:</p>
+<p><code class='java'></p>
+<pre>
+private void calculateRoutesWithMaximumStops(List<Route> routes, int stops) {
+    int stop = 0;
+    while (stop < stops) {
+        for (Route route : getUniqueRoutes(routes)) {
+            routes.addAll(cloneRoute(route));
+        }
+        stop++;
+    }
+}
+</pre>
+<p></code></p>
+<p>The problem is that this code does not speak about the problem domain. It's clear that the author took pains to extract methods, to reduce the complexity of the code; but in fact all he did was to decompose a procedure in subprocedures. That is not bad in itself; but the resulting code is <em>not readable</em>. Dude, where's my <strong>domain</strong>?</p>
+<h3>My solution</h3>
+<p>To me, readable code must speak about the domain. It must allow me to express the questions above directly in the code. Yes, I know this is a lofty goal, but how would I go about solving this problem, you may ask? Well, I did a bit of thinking on it, and I came up with the following.</p>
+<p>Suppose we have an object that represents a set of paths. Let's call it a PathSet. I want to start with the set of 1-step paths.</p>
+<p><code class='java'></p>
+<pre>
+PathSet oneStepPaths = new PathSet()
+  .withPath("A", "C", 10)
+  .withPath("B", "D", 1)
+  .withPath("C", "A", 6)
+  .withPath("D", "A", 2)
+  .withPath("E", "C", 3)
+  .withPath("D", "A", 2)
+  .withPath("E", "D", 10)
+  .withPath("B", "C", 4)
+  .withPath("A", "B", 6)
+  .withPath("A", "E", 3)
+  ;
+</pre>
+<p></code></p>
+<p>We can define an operation to restrict a PathSet by start or by destination:</p>
+<p><code class='java'></p>
+<pre>
+PathSet startingFromA = oneStepPaths.from("A");
+  // [AC, AB, AE]
+PathSet goingToC = oneStepPaths.to("C");
+  // [AC, EC, BC]  
+</pre>
+<p></code></p>
+<p>That was just looping through all the paths in the set, filtering all those that don't satisfy the property of &quot;starting with A&quot;, or &quot;ending with C&quot;. A more interesting operation is to take two paths into a longer one: for instance, composing &quot;AB&quot; (length 6) with BC (length 4), we get path ABC (length 10). This operation is only defined when the second path starts with the last town of the first path.</p>
+<p>We can &quot;lift&quot; the composition of two paths to the composition of pathSets by taking all possible compositions of one path from the first set with a path from the second set:</p>
+<p><code class='java'></p>
+<pre>
+PathSet twoStepPaths = oneStepPaths.compose(oneStepPaths);
+// [ABC, ABD, ACA, AEC, AED, BCA, BDA, CAB, ...
+</pre>
+<p></code></p>
+<p>This composition can be iterated one more time to obtain the set of all three-steps paths. The next step (sorry) is to define a generalized operation to compose a set with itself <em>n</em> times.</p>
+<p><code class='java'></p>
+<pre>
+PathSet fourStepPaths = oneStepPaths.exp(4);
+// same as oneStepPaths.compose(oneStepPaths).compose(oneStepPaths)
+//                     .compose(oneStepPaths);
+// [ABCAB, ABCAC, ..., EDAEC, EDAED]
+</pre>
+<p></code></p>
+<p>Now it's easy to answer the question &quot;how many paths of 4 steps are there from A to C: </p>
+<p><code class='java'></p>
+<pre>
+PathSet fourStepTripsFrom_A_to_C = oneStepPaths.exp(4).from("A").to("C");
+</pre>
+<p></code></p>
+<p>To answer questions about the shortest path, we need to define another operation, that takes the union of two PathSets. This will be the subject of another story.</p>
+<h3>Discussion</h3>
+<p>It seems to me this is a key characteristic of a good object-oriented domain: it defines objects that can be composed together in various ways, to express questions or statements about the problem domain. </p>
+<p>They say a domain model should be <em>rich</em>, in the sense that objects should have behaviour attached to them. We should avoid service objects that contain all the behaviour (those are usually called something like FooHandler or FooManager), and anemic objects with data but no behaviour. I think this guidance is correct, but it's not enough; the mark of a successful domain model is when you can compose objects together in useful ways. I would call that an <strong>expressive</strong> domain model.</p>
+<p>Eric Evans led a renaissance of true object-oriented thinking with his book <em>Domain Driven Design</em>. This book recalled the programmer's attention on the key importance of objects as a way to model the problem domain. Too much attention is wasted on infrastructure, which also benefits from being programmed with objects, but should not be the central focus of development.</p>
+<p>So Evans' book manages to set an important goal in front of the developers; but I think it does not give enough guidance on how to reach it. It's interesting to look into the example library that Evans developed; it's the &quot;Time and Money&quot; library. This library allows the developer to express <em>in code</em> things like &quot;'thanksgiving' is celebrated on the fourth Thursday in November; when is the next occurrence?&quot;. </p>
+<p><code></p>
+<pre>
+public void testDeriveThanksgiving() {
+    //Calculate Thanksgiving, the 4th Thursday in November, for the
+    // year 2005
+    DateSpecification thanksgiving 
+        = DateSpecification.nthOccuranceOfWeekdayInMonth(
+                11, Calendar.THURSDAY, 4);
+    // With the specification, you can do checks like
+    assertTrue(thanksgiving.isSatisfiedBy(CalendarDate.date(2005, 11, 24)));
+    assertFalse(thanksgiving.isSatisfiedBy(CalendarDate.date(2005, 11, 25)));
+    // Derive the date(s) for an interval
+    assertEquals(CalendarDate.date(2005, 11, 24),
+        thanksgiving.firstOccurrenceIn(CalendarInterval.year(2005)));
+...
+}
+</pre>
+<p></code></p>
+<p>This code shows the same kind of expressiveness that I think is the mark of a good object-oriented domain. </p>
+<p>This library deals with a kind of subject (calendar and dates) that is relevant for, I think, the majority of applications. Yet few calendrical APIs are as expressive as this one. Why is it so? The current thinking in agile circles is that you get to a good design incrementally, by applying TDD and refactoring. The value of TDD is that it helps you to stop and think about your code. Thinking is certainly a valuable thing. But it's not enough to sit and ponder, if you don't know where to direct your thoughts. If you don't have a rich enough vocabulary of design elements in your head that you can mull over.</p>
+<p>In fact, TDD could be a crutch that allows you to give up finding a good design and settle for a mediocre one. The tests make sure your code does what it needs to do. You apply some refactoring, removing the obvious smells. Then you can move on and code the next feature. Don't get me wrong: I have the highest regard for code that works; and it's even more impressive when it does not show common smells like &quot;long method&quot; and &quot;bad choice of names&quot;. </p>
+<p>But it may be not enough. I want my code (and my team) to be great. I want my velocity to increase over time, as long as the kind of features that the customer wants are similar to old ones. This can <em>only</em> happen if the concepts I built into the domain enable me to code up features in less code; this is when my domain model evolves toward a <em>domain specific language</em> that talks about the problem domain.</p>
+<h3>How do I get there?</h3>
+<p>This is all good, you will say, but how do I do that? Where is the inspiration, the examples, the procedure I should follow, the book I should read? I don't know. For the moment, let me explain the thinking that went into my solution of the problem above. </p>
+<p>You know that functions are a very important idea in mathematics. A function is a <em>correspondence</em> between elements of a set (the <em>domain</em>) to elements of another set (the <em>range</em>). For instance, this is how we say that <em>f</em> is a function from domain <em>X</em> to range <em>Y</em></p>
+<div style='padding-left: 2em'>
+<p><em>f</em>: <em>X</em> &rarr; <em>Y</em></p>
+</div>
+<p>The key property of a function is that for every input, there is exactly one output; given <em>x</em> in <em>X</em>, you get <em>f</em>(<em>x</em>), which exists and is unique. If you relax the restriction that <em>f</em>(<em>x</em>) exists and is unique, what you get is a <em>binary relation</em>. A binary relation associates any element of the domain with zero, one, or more than one elements of the range.</p>
+<p>We can view it as a set of pairs (<em>x</em>,<em>y</em>) where <em>x</em> is in <em>X</em> and <em>y</em> is in <em>Y</em>. We say that a relation is a subset of the cartesian product of <em>X</em> and <em>Y</em>. </p>
+<div style='padding-left: 2em'>
+<p><em>R</em> &sube; <em>X</em> &times; <em>Y</em></p>
+</div>
+<p>If (<em>x</em>,<em>y</em>) is in <em>R</em>, we write <em>x</em>(<em>R</em>)<em>y</em> or even <em>xRy</em> for short. We can't use the <em>f</em>(<em>x</em>) notation anymore, because it implies that <em>f</em> transforms <em>x</em> in some unique element. </p>
+<p>Now binary relations are a very useful thing to know, because they come up in many different problems. For instance, our PathSet looks a lot like a binary relation: it tells me which towns are reachable from any given town. </p>
+<p>And binary relations are nice because they come with a number of useful <em>operations</em>. Relational composition, for instance. When I compose two relations <em>R</em> and <em>S</em> what I get is a new relation <em>R</em>&#x2218;<em>S</em>. Now, if you want to know if <em>x</em>(<em>R</em>&#x2218;<em>S</em>)<em>y</em>, you must find some intermediate element <em>z</em> such that <em>xRz</em> and <em>zSy</em>. If there is one, then it's true that <em>x</em>(<em>R</em>&#x2218;<em>S</em>)<em>y</em>. </p>
+<p>This <em>composition</em> operation is very similar to the composition that we defined above: remember, the operation returned the PathSet with all the paths that could be composed, that is the paths where the destination town of the first is the same as the start town of the second. There are many other useful operations defined on relations: two other operations that I used are domain restriction and range restriction, which are called &quot;from&quot; and &quot;to&quot; above.</p>
+<p>The PathSet is a bit more complex than a binary relation, because every element has a numeric distance associated. But it's easy to extend the definition of relational composition to take care of that. We just say that the distance of each composed path is the sum of the distances of the two paths it's composed from.</p>
+<p>So this is what I was thinking while I was designing the code to solve this problem <em>right</em>. I remembered that whenever you have something that looks like a graph, you can see it as a binary relation. The advantage of seeing it that way is that relations have a language of standard operations. This language is what I was looking for: some way to define an <em>expressive language</em> for the problem domain.</p>
+<h3>Conclusion</h3>
+<p>When I was a Ph.D. student, I <a href="../../tesi.pdf">spent a lot of time</a> learning and doing mathematics for <em>program construction</em>. The idea was to calculate programs from specifications, much like we calculate the solution for an equation. When I got back to working as a professional programmer, I found I could not use much of what I learned. It was too complicated, too difficult. It's true that all the things I learned made me a better programmer, but that is mostly because I learned and a greater sense of beauty, precision and economy in programming. </p>
+<p>Lately I found that while the proof techniques I used were too cumbersome, the <em>language</em> of mathematics itself could be a what is needed to write domain models that are really <em>expressive</em>. A key ingredient for me is that the domain objects should be composable with useful operations. Extracting methods and giving them a nice name is good, but it's not enough if the method I get is not a generally useful operation.</p>
+<p>Stay tuned, let's see where this train of thought leads. For the moment, gentle reader, your comments are most welcome.</p>
+<h3>References</h3>
+<p>An easy introduction to binary relations is in <a href="http://www.usingz.com/text/online/page-83.html">chapter 7</a> of <em>Using Z</em> by Woodcock and Davies.</p>
+
+				
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on 25 April 2009 at 23:55						and is filed under <a href="category/essay.html" rel="category tag">Essay</a>, <a href="category/expressive-code.html" rel="category tag">Expressive Code</a>.
+						You can follow any responses to this entry through the <a href="174/feed">RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="174/trackback" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">11 Responses to &#8220;TDD is not finished until the code <em>speaks</em>&#8221;</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-85930">
+			<cite>matteo</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-85930" title="">April 28th, 2009 at 14:57</a> </small>
+
+			<p>Update: thanks to Marco (marc_lorux) for pointing out an error.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-85931">
+			<cite><a href='http://ziobrando.blogspot.com/' rel='external nofollow' class='url'>Alberto Brandolini</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-85931" title="">April 28th, 2009 at 14:59</a> </small>
+
+			<p>Hi Matteo,</p>
+<p>It&#8217;s interesting to note that in Domain Driven Design tests are useful tools not only to validate application behavior, but also to validate code readability. A common DDD practice is to start an exploratory coding session writing tests with no attention to the existing code: the idea is to &#8220;Write the code that you would like to have&#8221;, in a language that is clearly readable by developers and domain experts. Put in this way &#8230;assertions might be optional (and thus the word &#8220;test&#8221; would be misleading). We&#8217;re basically testing the expressiveness of the code.<br />
+Making the code actually work is a different job. Sometimes it&#8217;s easily achievable, sometimes it&#8217;s harder. But decoupling from the existing code is often necessary to get closer to the domain.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-85932">
+			<cite><a href='http://www.francolombardo.net/la-tessera-mancante_post-80.html' rel='external nofollow' class='url'>Franco Lombardo &raquo; Blog Archive &raquo; La tessera mancante</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-85932" title="">April 28th, 2009 at 15:52</a> </small>
+
+			<p>[&#8230;] di Milano, Matteo Vaccari ha parlato brevissimamente dell&#8217;argomento, ed è stato illuminante. Da qui il suo interessante post. In particolare una frase pesa come un macigno su quanti, come me, pensano di essere agili solo [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-85970">
+			<cite>Tonino</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-85970" title="">April 29th, 2009 at 15:26</a> </small>
+
+			<p>Thank you for the post, I enjoyed it.</p>
+<p>Speaking code do a good job as long as we need to share and improve knoweledge about the domain.<br />
+Otherwise an alternative &#8220;legitimate&#8221; option is to pick up already existing code, no matter if it doesn&#8217;t &#8220;speak&#8221;.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-86226">
+			<cite><a href='http://emptylist.wordpress.com/2009/05/04/tdd-e-design-scadente/' rel='external nofollow' class='url'>TDD e design scadente &laquo; A Place In The Queue</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-86226" title="">May 4th, 2009 at 20:30</a> </small>
+
+			<p>[&#8230;] e design&nbsp;scadente Posted in Vari by acerisara on 4 Maggio 2009   Grande post. E&#8217; da qualche mese ormai che studio ed applico seriamente questa tecnica di sviluppo (con [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-87214">
+			<cite><a href='http://stefanomasini.com/index.php/2009/05/21/code-speak-to-me/' rel='external nofollow' class='url'>Let me see &raquo; Code: speak to me!</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-87214" title="">May 21st, 2009 at 12:47</a> </small>
+
+			<p>[&#8230;] I saw this post by Matteo Vaccari about code that should speak, I immediately though about a similar situation I [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-89581">
+			<cite><a href='http://minnenratta.wordpress.com/2009/07/03/degenerazioni/' rel='external nofollow' class='url'>Degenerazioni &laquo; Minnen Ratta</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-89581" title="">July 3rd, 2009 at 12:48</a> </small>
+
+			<p>[&#8230;] ricerca virtuosa, a cui e&#8217; dedicato DDD e esemplificata in questo post di Matteo, e&#8217; l&#8217;estremo opposto del fenomeno pernicioso che ho descritto in questo post, che [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-90888">
+			<cite><a href='http://emptylist.wordpress.com/2009/07/27/declarative-design/' rel='external nofollow' class='url'>Declarative design &laquo; A Place In The Queue</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-90888" title="">July 27th, 2009 at 20:27</a> </small>
+
+			<p>[&#8230;]   Mi sono finalmente deciso a leggere Domain Driven Design di Evans. I due recenti post di Carlo e M. Vaccari sono stati l&#8217; input necessario per colmare la lacuna (non l&#8217; ho ancora assimilato, ci [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-92312">
+			<cite><a href='178.html' rel='external nofollow' class='url'>Extreme Enthusiasm &raquo; Blog Archive &raquo; Codice parlante al Bergamo XP UG</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-92312" title="">September 1st, 2009 at 09:22</a> </small>
+
+			<p>[&#8230;] il piacere di essere invitato al Bergamo XP User Group per raccontare il materiale del mio post sul codice parlante. La serata è questo giovedì 3 settembre, e il luogo è (pare) la sede di Softcare a Torre [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-92807">
+			<cite><a href='221.html' rel='external nofollow' class='url'>Extreme Enthusiasm &raquo; Blog Archive &raquo; My impressions of the Emergent Design Workshop</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-92807" title="">October 29th, 2009 at 09:32</a> </small>
+
+			<p>[&#8230;] higher level of criticism for code. What I learned resonates with what I wrote earlier about &#8220;code that speaks.&#8221; It turns out I was on the right track there; the goal is to have code like Lego bricks; [&#8230;]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-93076">
+			<cite><a href='311.html' rel='external nofollow' class='url'>Extreme Enthusiasm &raquo; Blog Archive &raquo; Report of the first run of the OCP kata</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-93076" title="">February 24th, 2010 at 16:58</a> </small>
+
+			<p>[&#8230;] code in the Hand class was still not good enough. It was full of loops. There was no flash of insight here, we just applied a few &#8220;extract method&#8221;s that moved [&#8230;]</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://matteo.vaccari.name/blog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="174" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="cea260fc53" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="138"/></p>
+</form>
+
+
+
+	
+    </div>
+
+    <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='date/2018/10.html'>October 2018</a></li>
+	<li><a href='date/2017/09.html'>September 2017</a></li>
+	<li><a href='date/2016/08.html'>August 2016</a></li>
+	<li><a href='date/2016/03.html'>March 2016</a></li>
+	<li><a href='date/2016/01.html'>January 2016</a></li>
+	<li><a href='date/2014/12.html'>December 2014</a></li>
+	<li><a href='date/2014/10.html'>October 2014</a></li>
+	<li><a href='date/2014/06.html'>June 2014</a></li>
+	<li><a href='date/2014/02.html'>February 2014</a></li>
+	<li><a href='date/2013/12.html'>December 2013</a></li>
+	<li><a href='date/2013/11.html'>November 2013</a></li>
+	<li><a href='date/2013/06.html'>June 2013</a></li>
+	<li><a href='date/2013/05.html'>May 2013</a></li>
+	<li><a href='date/2013/03.html'>March 2013</a></li>
+	<li><a href='date/2013/02.html'>February 2013</a></li>
+	<li><a href='date/2012/10.html'>October 2012</a></li>
+	<li><a href='date/2012/08.html'>August 2012</a></li>
+	<li><a href='date/2012/07.html'>July 2012</a></li>
+	<li><a href='date/2012/06.html'>June 2012</a></li>
+	<li><a href='date/2012/05.html'>May 2012</a></li>
+	<li><a href='date/2012/04.html'>April 2012</a></li>
+	<li><a href='date/2012/01.html'>January 2012</a></li>
+	<li><a href='date/2011/12.html'>December 2011</a></li>
+	<li><a href='date/2011/11.html'>November 2011</a></li>
+	<li><a href='date/2011/10.html'>October 2011</a></li>
+	<li><a href='date/2011/07.html'>July 2011</a></li>
+	<li><a href='date/2011/06.html'>June 2011</a></li>
+	<li><a href='date/2011/05.html'>May 2011</a></li>
+	<li><a href='date/2011/04.html'>April 2011</a></li>
+	<li><a href='date/2011/03.html'>March 2011</a></li>
+	<li><a href='date/2011/02.html'>February 2011</a></li>
+	<li><a href='date/2010/11.html'>November 2010</a></li>
+	<li><a href='date/2010/10.html'>October 2010</a></li>
+	<li><a href='date/2010/09.html'>September 2010</a></li>
+	<li><a href='date/2010/08.html'>August 2010</a></li>
+	<li><a href='date/2010/07.html'>July 2010</a></li>
+	<li><a href='date/2010/06.html'>June 2010</a></li>
+	<li><a href='date/2010/05.html'>May 2010</a></li>
+	<li><a href='date/2010/04.html'>April 2010</a></li>
+	<li><a href='date/2010/03.html'>March 2010</a></li>
+	<li><a href='date/2010/02.html'>February 2010</a></li>
+	<li><a href='date/2010/01.html'>January 2010</a></li>
+	<li><a href='date/2009/12.html'>December 2009</a></li>
+	<li><a href='date/2009/11.html'>November 2009</a></li>
+	<li><a href='date/2009/10.html'>October 2009</a></li>
+	<li><a href='date/2009/09.html'>September 2009</a></li>
+	<li><a href='date/2009/07.html'>July 2009</a></li>
+	<li><a href='date/2009/05.html'>May 2009</a></li>
+	<li><a href='date/2009/04.html'>April 2009</a></li>
+	<li><a href='date/2009/03.html'>March 2009</a></li>
+	<li><a href='date/2009/02.html'>February 2009</a></li>
+	<li><a href='date/2009/01.html'>January 2009</a></li>
+	<li><a href='date/2008/12.html'>December 2008</a></li>
+	<li><a href='date/2008/11.html'>November 2008</a></li>
+	<li><a href='date/2008/10.html'>October 2008</a></li>
+	<li><a href='date/2008/09.html'>September 2008</a></li>
+	<li><a href='date/2008/07.html'>July 2008</a></li>
+	<li><a href='date/2008/06.html'>June 2008</a></li>
+	<li><a href='date/2008/05.html'>May 2008</a></li>
+	<li><a href='date/2008/04.html'>April 2008</a></li>
+	<li><a href='date/2008/01.html'>January 2008</a></li>
+	<li><a href='date/2007/11.html'>November 2007</a></li>
+	<li><a href='date/2007/10.html'>October 2007</a></li>
+	<li><a href='date/2007/09.html'>September 2007</a></li>
+	<li><a href='date/2007/06.html'>June 2007</a></li>
+	<li><a href='date/2007/05.html'>May 2007</a></li>
+	<li><a href='date/2007/04.html'>April 2007</a></li>
+	<li><a href='date/2007/03.html'>March 2007</a></li>
+	<li><a href='date/2007/02.html'>February 2007</a></li>
+	<li><a href='date/2007/01.html'>January 2007</a></li>
+	<li><a href='date/2006/12.html'>December 2006</a></li>
+	<li><a href='date/2006/11.html'>November 2006</a></li>
+	<li><a href='date/2006/10.html'>October 2006</a></li>
+	<li><a href='date/2006/09.html'>September 2006</a></li>
+	<li><a href='date/2006/08.html'>August 2006</a></li>
+	<li><a href='date/2006/07.html'>July 2006</a></li>
+	<li><a href='date/2006/06.html'>June 2006</a></li>
+	<li><a href='date/2006/05.html'>May 2006</a></li>
+	<li><a href='date/2006/04.html'>April 2006</a></li>
+	<li><a href='date/2006/03.html'>March 2006</a></li>
+	<li><a href='date/2006/02.html'>February 2006</a></li>
+	<li><a href='date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+<script async="async" type='text/javascript' src='../wp-content/plugins/akismet/_inc/form0235.js?ver=4.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/174 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:27:00 GMT -->
+</html>

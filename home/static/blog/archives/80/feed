@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Tesi su Erlang&#8230; le cose si muovono	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/80/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/80</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Federico Feroldi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/80/comment-page-1#comment-10052</link>
+		<dc:creator><![CDATA[Federico Feroldi]]></dc:creator>
+		<pubDate>Thu, 10 May 2007 15:44:00 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=80#comment-10052</guid>
+					<description><![CDATA[Naaaaa che peccato! Adesso mi devo trovare un altro argomento per la tesi! :P]]></description>
+		<content:encoded><![CDATA[<p>Naaaaa che peccato! Adesso mi devo trovare un altro argomento per la tesi! :P</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Moreno				</title>
+				<link>http://matteo.vaccari.name/blog/archives/80/comment-page-1#comment-6644</link>
+		<dc:creator><![CDATA[Moreno]]></dc:creator>
+		<pubDate>Tue, 03 Apr 2007 15:45:56 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=80#comment-6644</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Erlang mi appassiona molto: ho trovato un senso pratico allo studio dell&#8217;approccio dichiarativo del corso di Prolog.</p>
+<p>Quando il libro di Erlang uscirà, spero di riuscire a farlo mio e di avere tempo per leggerlo ;-)</p>
+<p>M</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

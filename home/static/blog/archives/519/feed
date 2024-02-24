@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Il Codemotion si avvicina&#8230;	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/519/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/519</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/519/comment-page-1#comment-93808</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 06 Mar 2011 08:48:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=519#comment-93808</guid>
+					<description><![CDATA[Grazie Luca!]]></description>
+		<content:encoded><![CDATA[<p>Grazie Luca!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Jannace				</title>
+				<link>http://matteo.vaccari.name/blog/archives/519/comment-page-1#comment-93806</link>
+		<dc:creator><![CDATA[Luca Jannace]]></dc:creator>
+		<pubDate>Sat, 05 Mar 2011 15:51:14 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=519#comment-93806</guid>
+					<description><![CDATA[Il suo intervento è stato meraviglioso, da solo è valso la partecipazione all&#039;evento!
+Oltre l&#039;approccio tdd ho apprezzato in particolar modo l&#039;aspetto diciamo &quot;extreme&quot; espresso sulla programmazione ad oggetti.
+Spero che questo blog venga aggiornato con le sue prossime partecipazioni, magari quia Roma.]]></description>
+		<content:encoded><![CDATA[<p>Il suo intervento è stato meraviglioso, da solo è valso la partecipazione all&#8217;evento!<br />
+Oltre l&#8217;approccio tdd ho apprezzato in particolar modo l&#8217;aspetto diciamo &#8220;extreme&#8221; espresso sulla programmazione ad oggetti.<br />
+Spero che questo blog venga aggiornato con le sue prossime partecipazioni, magari quia Roma.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

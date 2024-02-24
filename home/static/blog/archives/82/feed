@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Think first, code later	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/82/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/82</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/82/comment-page-1#comment-10756</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Mon, 21 May 2007 09:59:59 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=82#comment-10756</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Ciao Vittorio,</p>
+<p>è un discorso ampio e interessante.  Non sono capace di derivare l&#8217;algoritmo di Dekker con TDD, e non credo che in generale con TDD si riescano a derivare algoritmi non banali.  Non è lì il punto del TDD; il punto è che nella pratica, colui che fa il lavoro del programmatore, non ha mai o quasi mai il problema di derivare un algoritmo &#8220;difficile&#8221;.  </p>
+<p>In pratica, salvo rari casi, tutti gli algoritmi difficili che servono sono incapsulati in librerie.  La cosa sorprendente è che nonostante questo, il lavoro del programmatore non si è ancora trasformato in un banale compito di compilazione, che possa essere fatto in maniera semiautomatica.  Anzi, il compito di fornire al cliente software che funziona e risolve i suoi problemi è sempre difficile.  </p>
+<p>Come mai?  Qual&#8217;è la tua risposta?</p>
+<p>Secondo me, è perché il programmatore deve comunque scrivere un grandissimo numero di algoritmi banali, organizzarli in un tutto coerente, tenere conto di centinaia di requisiti che male si adattano a un analisi matematica, e fare tutto ciò in una maniera che permetta di modificare il risultato per tenere conto di nuovi requisiti.</p>
+<p>E&#8217; un problema molto diverso questo da quello che Dekker ha risolto; e sono convinto che Dekker stesso avrebbe fatto fatica.  </p>
+<p>Per me il TDD è una maniera di affrontare senza paura problemi di questo tipo, e di riuscire a vincerli anche se il mio potere cerebrale è minuscolo in confronto a quello di un Dijkstra o un Dekker.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Vittorio				</title>
+				<link>http://matteo.vaccari.name/blog/archives/82/comment-page-1#comment-10713</link>
+		<dc:creator><![CDATA[Vittorio]]></dc:creator>
+		<pubDate>Sun, 20 May 2007 09:37:24 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=82#comment-10713</guid>
+					<description><![CDATA[Matteo,
+Dijkstra era estremamente cauto (se non scettico) rispetto al testing, da cui la sua famosa frase &quot;Program testing can be used to show the presence of bugs, but never to show their absence&quot;.
+Nel caso particolare dell&#039;algoritmo di Dekker, la storia e&#039; proprio di qualcosa che non si riusciva facilmente a testare, ma doveva essere modellata con un formalismo matematico, pensata a fondo ed infine realizzata in modo intrinsecamente corretto. Nel piccolo, mi pare piu&#039; vicino ad un &quot;big&quot; upfront design che ad un approccio alla XP.
+Mi fai vedere come si deriva l&#039;algoritmo usando il TDD? Ancora meglio, nelle condizioni dell&#039;epoca, dove la concorrenza era principalmente dovuta agli interrupt e le macchine erano &quot;chiuse&quot;, ma sarei gia&#039; contento di vederlo con una concorrenza alla java (senza usare, ovviamente la sincronizzazione di java).
+Con questo non dico che il TDD non sia utile, solo che non dobbiamo pensare che sia un approccio universale alla risoluzione dei problemi.
+Vic.]]></description>
+		<content:encoded><![CDATA[<p>Matteo,<br />
+Dijkstra era estremamente cauto (se non scettico) rispetto al testing, da cui la sua famosa frase &#8220;Program testing can be used to show the presence of bugs, but never to show their absence&#8221;.<br />
+Nel caso particolare dell&#8217;algoritmo di Dekker, la storia e&#8217; proprio di qualcosa che non si riusciva facilmente a testare, ma doveva essere modellata con un formalismo matematico, pensata a fondo ed infine realizzata in modo intrinsecamente corretto. Nel piccolo, mi pare piu&#8217; vicino ad un &#8220;big&#8221; upfront design che ad un approccio alla XP.<br />
+Mi fai vedere come si deriva l&#8217;algoritmo usando il TDD? Ancora meglio, nelle condizioni dell&#8217;epoca, dove la concorrenza era principalmente dovuta agli interrupt e le macchine erano &#8220;chiuse&#8221;, ma sarei gia&#8217; contento di vederlo con una concorrenza alla java (senza usare, ovviamente la sincronizzazione di java).<br />
+Con questo non dico che il TDD non sia utile, solo che non dobbiamo pensare che sia un approccio universale alla risoluzione dei problemi.<br />
+Vic.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/82/comment-page-1#comment-9318</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 06 May 2007 13:58:45 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=82#comment-9318</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Un&#8217;altro libro mitico è &#8220;Unix Network Programming&#8221;, dello scomparso Rich Stevens; questo libro appare in &#8220;Wayne&#8217;s World II&#8221;:</p>
+<p>[Steven&#8217;s] books are so good that they have come to symbolize intelligence. In &#8220;Wayne&#8217;s World II,&#8221; Garth&#8217;s girlfriend carries a copy of &#8220;Unix Network Programming.&#8221; Stevens discovered this when he took his 13-year-old son to see the film. His son grabbed his arm and said, &#8220;Dad, that&#8217;s your book!&#8221; (<a href="http://archive.salon.com/tech/feature/2000/09/01/rich_stevens/index1.html" rel="nofollow">http://archive.salon.com/tech/feature/2000/09/01/rich_stevens/index1.html</a>)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Gabriele Lana				</title>
+				<link>http://matteo.vaccari.name/blog/archives/82/comment-page-1#comment-9246</link>
+		<dc:creator><![CDATA[Gabriele Lana]]></dc:creator>
+		<pubDate>Fri, 04 May 2007 18:59:32 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=82#comment-9246</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Grazie del riferimento Matteo, mi piacciono tantissimo queste storie di archeoinformatica :-)</p>
+<p>P.S. due curiosità sul &#8220;Libro del Drago&#8221;</p>
+<p>&#8211; Da poco è uscita la tanto attesa seconda edizione <a href="http://www.amazon.com/o/ASIN/0321486811" rel="nofollow">http://www.amazon.com/o/ASIN/0321486811</a></p>
+<p>&#8211; E&#8217; stato citato nel film &#8220;Hackers&#8221;: veniva presentato ad un tizio che doveva riconoscerlo (come libro del drago) come prova di iniziazione per entrare in una banda di hacker appunto. Tra l&#8217;altro è stato uno dei primi film interpretati da Angelina Jolie <a href="http://imdb.com/title/tt0113243/" rel="nofollow">http://imdb.com/title/tt0113243/</a></p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

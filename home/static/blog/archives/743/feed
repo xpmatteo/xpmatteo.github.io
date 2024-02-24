@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Names objects after things, not actions!	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/743/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/743</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Moreno Carullo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/743/comment-page-1#comment-95301</link>
+		<dc:creator><![CDATA[Moreno Carullo]]></dc:creator>
+		<pubDate>Mon, 25 Jun 2012 12:03:33 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=743#comment-95301</guid>
+					<description><![CDATA[Yep, beware of -er objects!
+
+On the RemoteFile: I would go with the protocol-based idea, so that it&#039;s both SRP and OCP compliant.
+
+Another great post on the topic: http://objology.blogspot.com/2011/09/one-of-best-bits-of-programming-advice.html
+
+-- Moreno]]></description>
+		<content:encoded><![CDATA[<p>Yep, beware of -er objects!</p>
+<p>On the RemoteFile: I would go with the protocol-based idea, so that it&#8217;s both SRP and OCP compliant.</p>
+<p>Another great post on the topic: <a href="http://objology.blogspot.com/2011/09/one-of-best-bits-of-programming-advice.html" rel="nofollow">http://objology.blogspot.com/2011/09/one-of-best-bits-of-programming-advice.html</a></p>
+<p>&#8212; Moreno</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/743/comment-page-1#comment-95298</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 24 Jun 2012 15:12:08 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=743#comment-95298</guid>
+					<description><![CDATA[@Kevin: it&#039;s true that RemoteFile will have to change whenever we need a new url scheme.  Is this a problem?  It depends on how often this happens.  In general you can&#039;t be closed against *every* possible change.  Let me phrase this better; I don&#039;t think it *pays* to try to be closed against any kind of change; that requires you to build lots of design that you might never need.  This is why I went with the three methods ftp_download, http_download, sftp_download.  If this becomes a problem, i.e., you often have to add crazy different mechanisms for downloading remote files, you would do well to move the variation out of the RemoteFile class.  In my second variation I show a way to do that.  So I don&#039;t think this is a violation of SRP; I think it is a violation of OCP.
+
+One point: RemoteFile does not really contain the implementation of the FTP protocol.  It will probably delegate to library classes to do this.  What my object will contain is the knowledge of how to call the library classes.
+
+About unit testing: if I understand your objection correctly, you say that building the RemoteFile inside the PatentJob, instead of using reflection to instantiate its class from a configuration file makes it more difficult to unit test.  True, but you can change Sandi&#039;s design by passing the RemoteFile to the PatentJob in the constructor.  I think this difficulty is very easy to overcome.
+
+About Gary Bernhardt: it&#039;s not clear to me why you say that Gary&#039;s advice is the opposite of mine.  My advice here is to find the proper names for concepts; Gary&#039;s advice agrees with this when he creates the Catalog class.]]></description>
+		<content:encoded><![CDATA[<p>@Kevin: it&#8217;s true that RemoteFile will have to change whenever we need a new url scheme.  Is this a problem?  It depends on how often this happens.  In general you can&#8217;t be closed against *every* possible change.  Let me phrase this better; I don&#8217;t think it *pays* to try to be closed against any kind of change; that requires you to build lots of design that you might never need.  This is why I went with the three methods ftp_download, http_download, sftp_download.  If this becomes a problem, i.e., you often have to add crazy different mechanisms for downloading remote files, you would do well to move the variation out of the RemoteFile class.  In my second variation I show a way to do that.  So I don&#8217;t think this is a violation of SRP; I think it is a violation of OCP.</p>
+<p>One point: RemoteFile does not really contain the implementation of the FTP protocol.  It will probably delegate to library classes to do this.  What my object will contain is the knowledge of how to call the library classes.</p>
+<p>About unit testing: if I understand your objection correctly, you say that building the RemoteFile inside the PatentJob, instead of using reflection to instantiate its class from a configuration file makes it more difficult to unit test.  True, but you can change Sandi&#8217;s design by passing the RemoteFile to the PatentJob in the constructor.  I think this difficulty is very easy to overcome.</p>
+<p>About Gary Bernhardt: it&#8217;s not clear to me why you say that Gary&#8217;s advice is the opposite of mine.  My advice here is to find the proper names for concepts; Gary&#8217;s advice agrees with this when he creates the Catalog class.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Maurizio				</title>
+				<link>http://matteo.vaccari.name/blog/archives/743/comment-page-1#comment-95296</link>
+		<dc:creator><![CDATA[Maurizio]]></dc:creator>
+		<pubDate>Sat, 23 Jun 2012 10:32:54 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=743#comment-95296</guid>
+					<description><![CDATA[At the base of the -er thing, which I guess has affected at least once every programmer in the world, there is a biased tendency to apply procedural design instead of OO. The latter is harder but leads to a better segregation of responsibilities. It takes more work because you have to identify and manage many more little things, but then it pays off in terms of flexibility. Besides, who loves Managers anymore? :)]]></description>
+		<content:encoded><![CDATA[<p>At the base of the -er thing, which I guess has affected at least once every programmer in the world, there is a biased tendency to apply procedural design instead of OO. The latter is harder but leads to a better segregation of responsibilities. It takes more work because you have to identify and manage many more little things, but then it pays off in terms of flexibility. Besides, who loves Managers anymore? :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Kevin Berridge				</title>
+				<link>http://matteo.vaccari.name/blog/archives/743/comment-page-1#comment-95293</link>
+		<dc:creator><![CDATA[Kevin Berridge]]></dc:creator>
+		<pubDate>Fri, 22 Jun 2012 16:54:02 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=743#comment-95293</guid>
+					<description><![CDATA[Great post!  Thanks for linking to all those resources, I have lots of reading to do now!
+
+I&#039;ve been thinking about this a lot recently, after finishing the book Object Thinking.  I wonder if I could get your thoughts on a few nagging issues I have though.  First off, how do you square this with SRP?  It looks like your RemoteFile contains the implementations for all the various different protocols.  Do you think that&#039;s even a problem?
+
+Do you think this works in a static language too?  It would be difficult to unit test this approach because you depend on the constructor of the concrete type RemoteFile.
+
+My experience is leading me to agree with you, but it&#039;s interesting that your advice here is basically the polar opposite of the advice given by Gary Bernhardt (in this screen cast I think: https://www.destroyallsoftware.com/screencasts/catalog/extracting-domain-objects).
+
+Thanks!]]></description>
+		<content:encoded><![CDATA[<p>Great post!  Thanks for linking to all those resources, I have lots of reading to do now!</p>
+<p>I&#8217;ve been thinking about this a lot recently, after finishing the book Object Thinking.  I wonder if I could get your thoughts on a few nagging issues I have though.  First off, how do you square this with SRP?  It looks like your RemoteFile contains the implementations for all the various different protocols.  Do you think that&#8217;s even a problem?</p>
+<p>Do you think this works in a static language too?  It would be difficult to unit test this approach because you depend on the constructor of the concrete type RemoteFile.</p>
+<p>My experience is leading me to agree with you, but it&#8217;s interesting that your advice here is basically the polar opposite of the advice given by Gary Bernhardt (in this screen cast I think: <a href="https://www.destroyallsoftware.com/screencasts/catalog/extracting-domain-objects" rel="nofollow">https://www.destroyallsoftware.com/screencasts/catalog/extracting-domain-objects</a>).</p>
+<p>Thanks!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/743/comment-page-1#comment-95289</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Fri, 22 Jun 2012 13:45:41 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=743#comment-95289</guid>
+					<description><![CDATA[As you know Matteo, I was following Sandi&#039;s school till recently.
+Now I&#039;m using only names without -er.
+Still there is an real risk in creating God classes (Person a typical example).
+
+The trick that works for me is to do exactly as you described here: not getting the first name but try to imagine -er classes and what they have in common.
+
+Good post!]]></description>
+		<content:encoded><![CDATA[<p>As you know Matteo, I was following Sandi&#8217;s school till recently.<br />
+Now I&#8217;m using only names without -er.<br />
+Still there is an real risk in creating God classes (Person a typical example).</p>
+<p>The trick that works for me is to do exactly as you described here: not getting the first name but try to imagine -er classes and what they have in common.</p>
+<p>Good post!</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

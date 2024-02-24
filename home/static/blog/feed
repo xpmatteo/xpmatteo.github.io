@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Extreme Enthusiasm</title>
+	<atom:link href="http://matteo.vaccari.name/blog/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Wed, 08 Jan 2020 14:48:28 +0000	</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+	<item>
+		<title>How I Learned to Love Mocks</title>
+		<link>http://matteo.vaccari.name/blog/archives/1035</link>
+				<comments>http://matteo.vaccari.name/blog/archives/1035#respond</comments>
+				<pubDate>Fri, 19 Oct 2018 07:28:23 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1035</guid>
+				<description><![CDATA[See my new article on Medium]]></description>
+								<content:encoded><![CDATA[<p><a href="https://medium.com/@xpmatteo/how-i-learned-to-love-mocks-1-fb341b71328">See my new article on Medium</a></p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/1035/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>No Frameworks, Part II</title>
+		<link>http://matteo.vaccari.name/blog/archives/1022</link>
+				<comments>http://matteo.vaccari.name/blog/archives/1022#comments</comments>
+				<pubDate>Sun, 24 Sep 2017 15:30:10 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1022</guid>
+				<description><![CDATA[True. So *assuming* frameworks are necessary takes away a valuable option. &#8212; Matteo Vaccari (@xpmatteo) September 24, 2017 Context is king Engineering is about making tradeoffs. It is about delivering useful solutions at an acceptable cost. As Carlo Pescio likes to say, a construction engineer knows the properties of materials; she knows when to use [&#8230;]]]></description>
+								<content:encoded><![CDATA[<blockquote class="twitter-tweet" data-width="500">
+<p lang="en" dir="ltr">True. So *assuming* frameworks are necessary takes away a valuable option.</p>
+<p>&mdash; Matteo Vaccari (@xpmatteo) <a href="https://twitter.com/xpmatteo/status/911926030851592192">September 24, 2017</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h3>Context is king</h3>
+<p>Engineering is about making tradeoffs.  It is about delivering useful solutions at an acceptable cost.  As <a href='https://twitter.com/carlopescio'>Carlo Pescio</a> likes to say, a construction engineer knows the properties of materials; she knows when to use steel, concrete, glass or bricks.  Every material has particular properties that make it more or less appropriate for achieving a desired effect.</p>
+<p>In the world of software, application frameworks are a broad category of &#8220;construction materials&#8221; for application developers.  What are, generally speaking, their properties?  In which contexts are they useful or harmful?  What kind of results are made easier, or more difficult, by using frameworks?</p>
+<p>These are all relevant questions, IF you have a choice of using frameworks or not.  All too often, developers assume that frameworks are necessary; the idea of not using one is not taken seriously.  Indeed, not using frameworks can be scary.  If I don&#8217;t use a framework, will my design be maintainable?  Will my performance be good enough?</p>
+<p>Like everything, it takes practice.  I argue that it&#8217;s possible to have a very maintainable design and a rock solid performance without frameworks.  When you learn to do it, you discover that it is not that difficult, and it does not requires you to write mountains of boilerplate code.</p>
+<p>Once you know how to do stuff without frameworks, you can take an informed decision whether to use one or not.  If you don&#8217;t know how, you don&#8217;t have a choice.</p>
+<h3>Frameworks are good for learning</h3>
+<p>Frameworks are a condensation of proven techniques and design solutions.  You can learn a lot by learning frameworks.  I, for one, learned a lot from Ruby on Rails.  I think we should keep learning frameworks, just for the purpose of learning.  When I was developing my first Mac application, back in 1990, I was struggling, as at the time I didn&#8217;t know any other Mac programmer.  There was no Internet!  Apple back then had an FTP server, that was maintained by an Apple employee in his spare time.  So at some point I got hold of the MacApp framework; it was one of the first application frameworks to come out.  It helped me in many ways; unfortunately, it increased the startup time of my app from 4 to 30 seconds.  I was *so* pissed off by this added delay, but at the time, I thought I was better off keeping the framework.  I remember I was constantly thinking &#8220;the authors of MacApp are very experienced Mac programmers, and they cristallized their knowledge in this framework.  If only they had written a *book* instead!  Then I could take the bits I need of their knowledge, and leave the ones I don&#8217;t need.&#8221;</p>
+<p>Now I understand that writing an effective book is hard, expecially if your primary skill is programming and not book writing.  I still think, though, that frameworks are good for learning techniques and design solutions.</p>
+<p>Viewed in this lights, frameworks can be useful training wheels.  For me, the goal is to be able to get rid of them and be able to do as good and even better.  Once you know how to do that, then using frameworks can be a conscious choice.</p>
+<h3>Most frameworks are DB-centric</h3>
+<p>You can generally set up a barebones project much faster with a framework.  It&#8217;s hard to beat Ruby on Rails on this; with `rails new` you create a working web app, and with generators you can quickly set up a CRUD REST system.  Same goes with Spring Boot REST controllers.</p>
+<p>Too bad that CRUD does not cut it.  Organizing your app around your DB tables is not the way to design an app for a complex domain.</p>
+<p>Rails and all the frameworks inspired by it, including Spring Boot, Symfony, Play, etc are all *DB-centric*.  They assume that you will design your system primarily around an entity-relationship diagram.  This leads to designing for data first, which leads to doing procedural programming.  Let me stress this: DB-centric design leads to procedural programming, which is much different from object-oriented programming.  Yes, there are &#8220;classes&#8221; and &#8220;objects&#8221; in Spring programs; however, &#8220;entities&#8221; in a Spring program are usually data structures without behaviour, while most behaviour is in service objects that have behaviour but no data.  Which is exactly the opposite of object-oriented programming.</p>
+<p>Like everything else, procedural programming has a place.  It&#8217;s generally speaking easier to understand a procedural program than an object-oriented program.  Even a bad procedural program is generally easier to understand and fix than a bad object-oriented program.  However, procedural programming does not lead to a clean model of the domain, in the DDD sense.</p>
+<p>Automating a complex domain in procedural code leads to complex procedural logic, with nested conditionals, and more often than not, with persistence code mixed in with business logic.</p>
+<p>True object-oriented code, however, is good for automating complex domains, if you take care to keep persistence well separated from business logic.  Moreover, true OO, free from persistence concerns, is good for TDD.</p>
+<h3>Talk is cheap</h3>
+<blockquote><p>Talk is cheap. Show me the code.<br />
+    <cite><a href='https://lkml.org/lkml/2000/8/25/132'>Linus Torvalds</a></cite></p></blockquote>
+<p>In fact, replacing what frameworks do for you may require less than 1000 lines of code.  The things that are required of you are:</p>
+<ul>
+<li>knowing the fundamental technologies of the web: how HTTP works</li>
+<li>knowing some fundamental design patterns: the share-nothing architecture and MVC.</li>
+<li>knowing the fundamentals of databases: SQL and database design</li>
+<li>TDD</li>
+</ul>
+<p>The way I do it, is by developing the application from scratch with TDD, focusing on delivering early an end-to-end scenario that is relevant to the customer.  Perhaps a heavily simplified scenario, but still something that makes sense for the customer.</p>
+<p>I cannot show you the code that went in projects done for paying customers.  However, I have some code developed for trainings that I&#8217;m happy to share.</p>
+<ul>
+<li>My presentation &#8220;<a href='https://www.slideshare.net/xpmatteo/20110305-tddcodemotion'>TDD da un capo all&#8217;altro</a>&#8221; (TDD from end to end) contains, I think, enough snippets of code for a reader to reconstruct the app, showing how to TDD an app from absolute scratch.</li>
+<li>My training workshop <a href='https://github.com/xpmatteo/simple-design-in-action'>Simple Design in Action</a> contains successive stages of TDD-ing a web application, showing how to use embedded Jetty without Spring boot and persistence without ORM</li>
+<li>This <a href='https://github.com/xpmatteo/videoworld'>revised version of the Video World project</a> is the result of me and a few collegues removing several layers of frameworks from <a href='https://github.com/ThoughtWorksInc/TWTraining'>old ThoughtWorks training material</a>.  It shows how to do server-side rendering, with layouts.</li>
+<li><a href='https://github.com/xpmatteo/frameworkless-tdd-todomvc'>My version of the TodoMVC sample app</a> shows a way to do frontend work without frameworks.  I also have a <a href='https://vimeo.com/194470329'>video</a> and a <a href='http://matteo.vaccari.name/blog/archives/997'>blog post</a> about it.</li>
+</ul>
+<p>The main thing is: these are not meant to be production code.  They are versions, sometimes simplified, of stuff I did in production code.  Even if I could share production code from real projects, it wouldn&#8217;t be wise to copy it in your own projects.  Good software design is in how the code evolves; you cannot really see it in a snapshot of the code tree.  What I suggest you to do is to try to TDD toy projects until you can do it without too much effort.  You can steal some ideas from my training projects, but when you will be faced with real problems, you will have to find your own solutions.</p>
+<h3>When to use third-party code</h3>
+<p>Am I advocating that we write everything from scratch then?</p>
+<p>This is a question worth answering.  There is a world of third-party systems, libraries and frameworks out there: let&#8217;s classify along two axes, the first axis being how focused to a single task it is, versus how general-purpose.</p>
+<p>The second axis is how easy or hard it is to reproduce the service it does to you; how easily you can do without it.</p>
+<p>In the upper-left quadrant we have things that are focused on doing a single thing, but that are easy to reproduce in your own code.  A good example would be the infamous <a href='https://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos/'>left-pad</a> function.</p>
+<p>In the upper-right quadrant we have things that are focused, but difficult to reproduce.  For instance, crypto libraries like openssl take a huge amount of skill and knowledge to write.  Web servers such as Jetty also go up there.  Yes, you can write a simple HTTP server in 10 lines of Java, but it&#8217;s not likely to be robust enough for production.</p>
+<p>In the lower-right quadrant we have stuff that&#8217;s general purpose, yet difficult to reproduce in-house.  Operating systems, programming language interpreter and compilers, DBMS.  All system software goes there.</p>
+<p>Now, what would go in the lower-left quadrant, where we find general-purpose things that are more or less easily reproduced in-house?  If you have the skill, you can reproduce most services that application frameworks do for you without a lot of effort.  Mind you, I&#8217;m not saying that I can easily rewrite Spring!  I&#8217;m saying something very different: that I can reproduce with ease what Spring does for me.</p>
+<ul>
+<li>Routing http requests to the appropriate controllers: it can be done in-house, as simple as chain of IFs, or as sophisticated as a ~100 line router.</li>
+<li>Injecting dependencies in objects: I can very well instantiate objects explicitly and pass their dependencies in constructors.  It does not take a rocket scientist.</li>
+<li>Automated CRUD &#8220;repositories&#8221;: thank you, I don&#8217;t need them.  A real repository in the DDD sense is something that encapsulates custom persistence logic.  I&#8217;m better off implementing it with a simple adapter over JDBC.  Carlo Pescio <a href='https://twitter.com/CarloPescio/status/910523511382429696'>suggests</a> to use <a href='https://commons.apache.org/proper/commons-dbutils/'>dbutils</a>; I generally <a href='https://github.com/xpmatteo/simple-design-in-action/blob/master/stage-05-database/src/main/java/it/xpug/toolkit/db/Database.java'>TDD my own</a>.</li>
+</ul>
+<p>Etc. etc.  In this sense, Spring and similar frameworks are things that you can do without, if you want to.</p>
+<p>Application servers such as JBoss too are general-purpose, also in the sense that they provide a set of different, not-that-much-cohesive services.  Most of these services can be obtained in better ways:</p>
+<ul>
+<li>HTTP is best implemented with an embedded web server, as the popularity of Dropwizard and Spring Boot shows.</li>
+<li>Clustering as traditionally provided by application servers is best avoided.  It is built on the assumption that web apps maintain expensive session state between one HTTP request and the other.  In fact, only poorly designed web apps do that; well designed web apps are stateless or nearly stateless, and if this is the case, they are best served by non-clustered, independent servers.  This, in fact, is the &#8220;share nothing&#8221; architecture.</li>
+<li>I argued in the past that <a href='http://matteo.vaccari.name/blog/archives/650'>distributed session management in Tomcat is broken</a>.  The same arguments is likely valid for most Java application servers.</li>
+</ul>
+<p>For these reasons, I place JBoss and other JEE application servers in the lower-left quadrant: you can do very well without them.</p>
+<pre>
+                    focused on a single task
+                               |
+                               |
+                     dbutils   |   Jetty
+                    left-pad   |   openssl
+easy to                        |                    difficult
+do without  -------------------+------------------- to do without
+                               |
+                      Spring   |   Linux  JVM
+                      JBoss    |   PostgreSQL
+                               |
+                               |
+                        general purpose
+</pre>
+<p>Now what should be our strategy?  Of course, everything on the right hand side should be bought and not done in-house.  Unless the value of your system depends, let&#8217;s say, on advances in cryptography or DB technology that are not generally available, doing system software or crypto in-house is madness.</p>
+<p>Stuff in the upper-left quadrant is a candidate for writing in-house.  You can save some time by using dbutils over TDD-ing your own JDBC adapter.  However, every dependency on an external library is a liability, as the left-pad incident shows.</p>
+<p>Stuff in the lower-left quadrant is probably best avoided, if you have the skills.  They have the highest impact on your design and reduce significantly your control over the fate of your system.</p>
+<h3>Other objections</h3>
+<blockquote><p>You make the customer pay for reinventing the wheel</p></blockquote>
+<p>In the end, what really matters is to delivery quality software in reasonable time.  I found that by avoiding stuff in the left half of the easy-focused diagram, teams are able to do so.  If that involves some rewriting of common logic, so be it.  It turns out that universal wheels such as Spring do not make me go faster.</p>
+<blockquote><p>By your reasoning, we shouldn’t use compilers or standard libraries</p></blockquote>
+<p>See the section above</p>
+<blockquote><p>You’ll write your own quirky framework and it will suck</p></blockquote>
+<p>No.  I will not write my own framework.  I write just the code that I need to solve this particular customer&#8217;s problem in this particular moment.  I will spend zero time writing code with the expectation that it will be reused elsewhere, not even in other projects that I will do for this customer, not code that I expect to reuse in this same project next month.</p>
+<p>I take YAGNI very seriously.  I TDD the simplest code that solves the problem I have today.  It&#8217;s counter-intuitive, but this makes me go faster.  Every time I wrote code for tomorrow, I found I wasted my time.</p>
+<p>This does not mean that I write the first thing that works and then move on.  I tend to refactor quite a bit before I decide I&#8217;m finished with a bit of code.  My code is generally very simple and clean as a result of quite a bit of effort.  A side effect of this is that my code tends to be flexible and easy to extend.</p>
+<p>I repeat: the simplest thing is often the result of sustained research and effort.  It&#8217;s not the first thing and certainly not the easiest thing.</p>
+<blockquote><p>New developers will have a hard time understanding the codebase</p></blockquote>
+<p>That depends on how good my code is, isnt&#8217;t it?  If you write simple code (see above answer), it shouldn&#8217;t be too hard to understand.  On the other hand, even apps written with frameworks are not always that easy to understand.</p>
+<blockquote><p>Much wiser and skilled developers wrote the frameworks that you&#8217;re despising</p></blockquote>
+<p>Their circumstances may be different.  Their programming habits and processes are probably quite a bit different from mine.  I really don&#8217;t care how experienced, respected or influential framework authors may be; all I care about is the results I get.  I evaluate the quality of a solution with respect to how well it helps me reach my goals.</p>
+<h3>Conclusions?</h3>
+<p>Engineering is about evaluating options.  It seems to me that developers discard the &#8220;no-frameworks&#8221; option without giving it a lot of thought.  In my experience, without frameworks, I was able to help team deliver high performance, high quality code in a short time.</p>
+<p>Your circumstances may be different.  Don&#8217;t trust me; think for yourself. Think critically about technologies and design solutions; and if you care about your craft, try to de-framework an app and see what happens!</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/1022/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+							</item>
+		<item>
+		<title>No Frameworks, Part 1</title>
+		<link>http://matteo.vaccari.name/blog/archives/1019</link>
+				<comments>http://matteo.vaccari.name/blog/archives/1019#comments</comments>
+				<pubDate>Tue, 19 Sep 2017 08:13:18 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019</guid>
+				<description><![CDATA[Non dover perdere tempo a cercare su stackoverflow come configurare il framework ci ha fatto guadagnare un sacco di tempo #abd17 @xpmatteo &#8212; Lorenzo Massacci (@lorenzomassacci) September 16, 2017 Twitter is not good for deep conversations In a recent talk, I told the story of a very successful software project where I was the tech [&#8230;]]]></description>
+								<content:encoded><![CDATA[<blockquote class="twitter-tweet" data-width="500">
+<p lang="it" dir="ltr">Non dover perdere tempo a cercare su stackoverflow come configurare il framework ci ha fatto guadagnare un sacco di tempo <a href="https://twitter.com/hashtag/abd17?src=hash">#abd17</a> <a href="https://twitter.com/xpmatteo">@xpmatteo</a></p>
+<p>&mdash; Lorenzo Massacci (@lorenzomassacci) <a href="https://twitter.com/lorenzomassacci/status/908982914498613248">September 16, 2017</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h3>Twitter is not good for deep conversations</h3>
+<p>In a recent talk, I told the story of a very successful software project where I was the tech leader.  In this project we built a web service + web application, in Java, without using any framework: no Spring, no Hibernate, no MVC framework, nothing like that.  Contrary to prevalent opinion, we delivered quickly, faster than even I had believed.</p>
+<p>And the code was reasonably clean and maintainable: five years after I left the project, many developers told me that they liked working on that product, and it was a formative experience.</p>
+<p>At the conference, I quipped that &#8220;not having to spend time on Stackoverflow to solve framework configuration problems saved us a lot of time,&#8221; and that indeed was part of the reason why we delivered fast, but it is not the whole story. Common reactions to #noframeworks include:</p>
+<ul>
+<li>    You make the customer pay for reinventing the wheel</li>
+<li>    By your reasoning, we shouldn&#8217;t use compilers or standard libraries</li>
+<li>    You&#8217;ll write your own quirky framework</li>
+<li>    Developers will have a hard time understanding the codebase</li>
+</ul>
+<p>All of the above objections are wrong, if you do things the way I recommend, which is, by doing Extreme Programming for real.  Doing XP for real, for me, includes focusing and investing on simplicity, in a way that most developers are not usually willing to do.</p>
+<h3>Applying lean thinking to software development</h3>
+<p>Lean thinking says that we should optimize the end-to-end value stream, from when a customer need is identified, to when that need is solved; if that need is to be solved with software, the value is obtained when we deliver working software in a production environment.</p>
+<p>What should we optimize?  Obviously, for cost and time.  However, since costs in software development are dominated by personnel salaries, the cost is dominated by the number of person/days spent to obtain value: hence, we should optimize for delivery time.</p>
+<p>Once you know what to optimize for, lean thinking suggests that you observe the software delivery process, looking for waste, and act to remove that waste.</p>
+<p>Terminology: In Lean, an activity is classified as &#8220;value adding&#8221; if it directly contributes to building the value that customers want; it is &#8220;waste&#8221; if it does not.  For instance, if you&#8217;re building a chair, cutting and shaping the wood are value-adding activities; moving the wood from the warehouse to the worktable is waste.  Sometimes it&#8217;s difficult to decide if an activity is waste or not. In this case, a simple thought experiment can help: if we did the activity more and more, would the customer be happier?  Or not?</p>
+<p>[Waste is further classified in &#8220;necessary waste&#8221;, something that if we don&#8217;t do, we will end up making the customer pay more, and &#8220;pure waste&#8221;.]</p>
+<p>In the world of software development, writing the lines of code that will end up as part of the solution is certainly value-adding.  On the other hand, a standup meeting is waste: it does not directly contribute to the delivery of software.  If we imagine the standup meeting being extended to two hours or a full day, we clearly see that it would not make the customer any happier :) The standup meeting is probably *necessary waste*, because if we don&#8217;t do it, we reduce communication within the team and we end up creating more waste elsewhere.  However, it is still waste, and we should try to keep it short.</p>
+<p>There is a world of waste in building the wrong product, or the wrong features: you should certainly look in the disciplines of Lean Startup and service design, to make sure you are solving the right problem.  I will not talk about these because they&#8217;re well covered elsewhere.</p>
+<p>The kinds of waste that I want to talk about are the things that take away the best time from developers.  Picture this: the developer comes to work; perhaps he&#8217;s 20 minutes late because of traffic.  He comes in, settles down, checks email, has coffee with his collegues, he chats a little.  Nothing wrong with this.  Then he has a standup meeting, and perhaps other meetings for discussing planning or technical choices.  All of this is still acceptable; they are not value-adding activities, but often they are necessary.  Then comes the magic moment when the developers are in front of the keyboard, with their code open in the editor or IDE, and they are ready to do the value-adding activities that we care about.  And they write a line of code, which requires, say, one minute, and they need to check if it works; so they start the application, and they wait; because the application takes one or two minutes to compile and start up.  They spend another minute logging in the application and clicking through to get to the screen they are working on, and they confirm that their line of code works (or not.)  Then they write another line or two of code, (time required: one minute) and again they need to check if they work, so again they waste three minutes restarting the app and testing it manually.</p>
+<p>They could try to save time by batching changes: write 10 or 100 lines of code, and then test if they work.  Alas, this does not usually save time, as the number of mistakes increases, and the mistakes interact with each other, and the end result is that debugging 10 or 100 lines of code takes significantly longer than debugging 1 or 2.</p>
+<p>The point I&#8217;m trying to make is that the compile-link-start-login-navigate-to-the-right-screen cycle eats minutes from the best time that developers have: the time when they are sitting at their workstation, ready to write the lines of code that they know they have to write, having completed all the meeting obligations and coffee breaks and all other necessary wastes.</p>
+<p>When you start looking at the work of developers in this way, you start to see the value of dynamic languages, where building the app is istantaneous, and the time saved in this way may trump the supposed gains obtained by static typing.  You also start looking at the long compile times of C++ or Scala, and you see that those languages were not designed with the need of fast software delivery in mind.</p>
+<p>You also start to see other wasteful activities.  When a framework does not do what you want, there is often not a lot of reasoning you can do.  The framework is too complex for you to debug it; the documentation is too vast, or too incomplete, and you know from experience that looking there is not likely to provide a solution quickly.  So you go to Stackoverflow and hope that someone else has solved your problem.  Then you try a possible solution, and if it does not work, you try another.  All of this is, of course, pure waste, borne from the fact that you are using complex frameworks that may behave in unforeseen ways.</p>
+<p>If, on the other hand, you have a problem with a simple app that does not use a framework, you can most likely solve it by reading the code, or stepping through the code in the debugger.  All of the code of the app is your own code, and you can step through it, with no jumps into framework code, or AOP-generated code like that, for instance, Spring or Hibernate put into your app and that make debugging much more difficult.  The solution to your problem is in your own code, not on Stackoverflow, and the size of your own code is many orders of magnitude less than the code in frameworks.</p>
+<p>Getting back to the length of the compile-and-startup cycle, we see that frameworks do not help: Spring apps, for instance, take minutes to start, because they search the classpath for configuration classes.  On the other hand, a no-framework Java web app with an embedded Jetty starts in under a second, and when you debug it in the IDE it has nearly-instant reload of changed code.  No need to install JRebel.  You don&#8217;t have to believe me; just try.</p>
+<p>Other framework-related wastes include:</p>
+<ul>
+<li>  The time required to learn it.</li>
+<li>  The time required to upgrade your app when a new version comes up (this is work that the framework developer inflict on you, without your consent)</li>
+<li>  The time required to upgrade an old app that was using an outdated version of the framework (this is expecially bad when vulnerabilities are discovered in an old framework, forcing the customer to pay for upgrading a framework that is old and by this time poorly supported.  Pure waste, as there is no business reason to change the app)</li>
+<li>  Time required to argue on the relative merits of framework A vs framework B, which leads to the mother of all framework-related wastes, the Meeting To Decide Which Frameworks To Use :)</li>
+</ul>
+<p>Now this is all about the wastes of frameworks, and we haven&#8217;t even started to look into the risks generated by them.  In the next part, I will talk about how the benefits of frameworks, and how you can get the same benefits without using them.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/1019/feed</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+							</item>
+		<item>
+		<title>Smalltalk-Inspired, Frameworkless, TDDed Todo-MVC</title>
+		<link>http://matteo.vaccari.name/blog/archives/997</link>
+				<comments>http://matteo.vaccari.name/blog/archives/997#comments</comments>
+				<pubDate>Tue, 16 Aug 2016 16:14:27 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=997</guid>
+				<description><![CDATA[UPDATES 15/01/2017 &#8212; I produced a video of me explaining this material, together with a deck of slides. I&#160;also updated the code after writing this article. TL;DR I wrote an alternative to the Vanilla-JS example of todomvc.com. I show that you can drive the design from the tests, that you don&#8217;t need external libraries to [&#8230;]]]></description>
+								<content:encoded><![CDATA[<br />
+<h3>UPDATES</h3>
+<div class='ahem'>
+   15/01/2017 &mdash; I produced <a href='https://vimeo.com/194470329'>a video of me explaining this material</a>, together with <a href='http://www.slideshare.net/xpmatteo/tdd-e-javascript-senza-framework'>a deck of slides</a>.  I&nbsp;also <a href='https://github.com/xpmatteo/frameworkless-tdd-todomvc'>updated the code</a> after writing this article.
+</div>
+<h3>TL;DR</h3>
+<p>I wrote <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc">an alternative</a> to the <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs">Vanilla-JS example</a> of <a href='http://todomvc.com/'>todomvc.com</a>. I show that you can drive the design from the tests, that you don&#8217;t need external libraries to write OO code in JS, and that simple is better :)</p>
+<h3>Why yet another Todo App?</h3>
+<p>A very interesting website is <a href='http://todomvc.com/'>todomvc.com</a>. Like the venerable <a href='http://www.csszengarden.com/'>www.csszengarden.com</a> shows many different ways to render the same page with CSS, todomvc.com instead shows how to write the same application with different JavaScript frameworks, so that you can compare the strengths and weakness of various frameworks and styles.</p>
+<p>Given the amount of variety and churn of JS frameworks, it is very good that you can see a small-sized complete example: not too big that it takes ages to understand, but not so small to seem trivial.</p>
+<p>Any comparison, though, needs a frame of reference. A good one in this case would be writing the app with no frameworks at all. After all, if you can do a good job without frameworks, why incur the many costs of ownership of frameworks? So I looked at <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs">the vanillajs example provided</a>, and found it lacking.  My main gripe is that there is no clear &#8220;model&#8221; in this code.  If this were real MVC, I would expect to find a TodoList that holds a collection of TodoItems; this sort of things.  Alas, the only &#8220;model&#8221; provided in that example has the unfortunate name of &#8220;Model&#8221; and is not a model at all; it&#8217;s a collection of procedures that read and write from browser storage. So it&#8217;s not really a model because a real &#8220;model&#8221; should be a Platonic, infrastructure-free implementation of business logic.</p>
+<p>There are other shortcomings to that implementation, including that the &#8220;view&#8221; has a &#8220;render&#8221; method that accepts the name of an operation to perform, making it way more procedural than I would like. This is so different to what I think of as MVC that made me want to try my hand at doing it better.</p>
+<p>Caveats: I&#8217;m not a good JS programmer. I don&#8217;t know the language well, and I&#8217;m sure my code is clumsier than it could be. But I&#8217;m also sure that writing a frameworkless app is <strong>not</strong> a sign of clumsiness, ignorance or old age. Anybody can learn Angular, React or what have you. Learning frameworks is not difficult. What is difficult is to write good code, with or without frameworks.  Learning to write good code without frameworks gives you incredible leverage: gone are the hours spent looking on StackOverflow for the magic incantations needed to make framework X do Y. Gone is the cost of maintenance inflicted on you by the framework developers, when they gingerly update the framework from version 3 to version 4. Gone is the tedium of downloading megabytes of compressed code from the server!</p>
+<h3>So what were my goals?</h3>
+<ul>
+<li>Simple design.  This means: no frameworks! Really, frameworks are sad. Just write the code that your app needs, and write it well.</li>
+<li>TDD: let the tests drive the design. I try to write tests that talk the language of the app specification, avoiding implementation details as much as possible</li>
+<li>Smalltalk-inspired object orientation. JS generally pushes you to expose the state of objects as public properties. In Smalltalk, the internal state of an object is totally encapsulated. I emulated that with a simple trick that does not require extra libraries.</li>
+<li>I had in the back of my mind the &#8220;count&#8221; example in Jill Nicola&#8217;s and Peter Coad&#8217;s OOP book. That is what I think of when I say &#8220;MVC&#8221;. I tried to avoid specifying this design directly in the tests, though.</li>
+<li>Simple, readable code.  You wil be the judge on that.</li>
+</ul>
+<h3>How did it go?</h3>
+<p>The first time around I tried to work in a &#8220;presenter-first&#8221; style. After a while, I gave up and <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/commit/eefdc95fed3795f7ca7118ff5a714fb98672ef05" title="The commit where I threw almost everything away and started again">started again from scratch</a>. The code was ugly, and I felt that I was committing the classic TDD mistake, to force my preconceived design.  So I started again and the second time was much nicer.</p>
+<p>You cannot understand a software design process just by looking at the final result. It&#8217;s only by observing how the design evolved that you can see how the designer thinks.  When I started again from scratch, my first tests <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/6366692cc114b799ed71ac0f9a43a0c784495446/test/todo-list-test.js" title="The first version of the TodoListView test">looked like this</a>:</p>
+<pre>beforeEach(function() {
+  fixture = document.createElement('div');
+  $ = function(selector) { return fixture.querySelector(selector); }
+})
+
+describe('an empty todo list', function() {
+  it('returns an empty html list', function() {
+    expect(new TodoListView([]).render()).to.equal('&lt;ul class=&quot;todo-list&quot;&gt;&lt;/ul&gt;');
+  });
+});
+
+describe('a list of one element', function() {
+  it('renders as html', function() {
+    fixture.innerHTML = new TodoListView(['Pippo']).render();
+    expect($('ul.todo-list li label').textContent).equal('Pippo');
+    expect($('ul.todo-list input.edit').value).equal('Pippo');
+  });
+});
+</pre>
+<p>The above tests are not particularly nice, but they are very concrete: the check that the view returns the expected HTML, with very few assumptions on the design.  Note that the &#8220;model&#8221; in the beginning was just an array of strings.</p>
+<p>The final version of those test does not change much on the surface, but the logic is different:</p>
+<pre>beforeEach(function() {
+  fixture = createFakeDocument('&lt;ul class=&quot;todo-list&quot;&gt;&lt;/ul&gt;');
+  todoList = new TodoList();
+  view = new TodoListView(todoList, fixture);
+})
+
+it('renders an empty todo list', function() {
+  view.render();
+  expect($('ul.todo-list').children.length).to.equal(0);
+});
+
+it('renders a list of one element', function() {
+  todoList.push(aTodoItem('Pippo'));
+  view.render();
+  expect($('li label').textContent).equal('Pippo');
+  expect($('input.edit').value).equal('Pippo');
+});
+</pre>
+<p>The better solution, for me, was to pass the document to the view object, call its <code>render()</code> method, and check how the document was changed as a result.  This places almost no constraints on how the view should do its work. This, to me, was key to letting the test drive the design.  I was free to change and simplify my production code, as long as the correct code was being produced.</p>
+<p>Of course, not all the tests check the DOM. We have many tests that check the model logic directly, such as</p>
+<pre>it('can contain one element', function() {
+  todoList.push('pippo');
+
+  expect(todoList.length).equal(1);
+  expect(todoList.at(0).text()).equal('pippo');
+});
+</pre>
+<p>Out of a total of 585 test LOCs, we have 32% dedicated to testing the models, 7% for testing repositories, 4% testing event utilities and 57% for testing the &#8220;view&#8221; objects.</p>
+<h3>How long did it take me?</h3>
+<p>I did not keep a scrupolous count of pomodoros, but since I committed very often I can estimate the time taken from my activity on Git. Assuming that every stretch of commits starts with about 15 minutes of work before the first commit in the stretch, it took me about 18 and a half hours of work to complete the second version, distributed over 7 days (see my calculations <a href='https://docs.google.com/spreadsheets/d/1DNFP6zikmNSYJEdIFTlCtseTgmpAUDFXSs4DpfwkIHA'>in this spreadsheet</a>.)  The first version, the one I discarded, took me about 6 and a half hours, over two days.  That makes it 25 hours of total work.</p>
+<h3>What does it look like?</h3>
+<p>The initialization code is in <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/master/index.html">index.html</a>:</p>
+<pre>&lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var repository = new TodoMvcRepository(localStorage);
+  var todoList = repository.restore();
+  new TodoListView(todoList, document).render();
+  new FooterView(todoList, document).render();
+  new NewTodoView(todoList, document).render();
+  new FilterByStatusView(todoList, document).render();
+  new ClearCompletedView(todoList, document).render();
+  new ToggleAllView(todoList, document).render();
+  new FragmentRepository(localStorage, document).restore();
+  todoList.subscribe(repository);
+&lt;/script&gt;
+</pre>
+<p>I like it. It creates a bunch of objects, and starts them. The very first action is to create a repository, and ask it to retrieve a TodoList model from browser storage.  The <code>FragmentRepository</code> should perhaps better named <code>FilterRepository</code>.  The <code>todoList.subscribe(repository)</code> makes the repository subscribe to the changes in the <code>todoList</code> model. This is how the model is saved whenever there&#8217;s a change.</p>
+<p>Each of the &#8220;view&#8221; objects takes the model and the DOM document as parameters.  As you will see, these &#8220;views&#8221; also perform the function of controllers.  This is how they came out of the TDD process. They probably don&#8217;t conform exactly to MVC, but who cares, as long as they are small, understandable and testable?</p>
+<p>Each of the &#8220;views&#8221; handles a particular UI detail: for instance, the <code>ClearCompletedView</code> is in <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/master/js/app.js">js/app.js</a>:</p>
+<pre>function ClearCompletedView(todoList, document) {
+  todoList.subscribe(this);
+
+  this.notify = function() {
+    this.render();
+  }
+
+  this.render = function() {
+    var button = document.querySelector('.clear-completed');
+    button.style.display = (todoList.containsCompletedItems()) ? 'block' : 'none';
+    button.onclick = function() {
+      todoList.clearCompleted();
+    }
+  }
+}
+</pre>
+<p>The above view subscribes itself to the <code>todoList</code> model, so that it can update the visibility of the button whenever the <code>todoList</code> changes, as the <code>notify</code> method will then be called.</p>
+<p>The test code is in <a href="https://github.com/xpmatteo/frameworkless-tdd-todomvc/tree/master/test">the test folder</a>. For instance, the test for the <code>ClearCompletedView</code> above is:</p>
+<pre>describe('the view for the clear complete button', function() {
+  var todoList, fakeDocument, view;
+
+  beforeEach(function() {
+    todoList = new TodoList();
+    todoList.push('x', 'y', 'z');
+    fakeDocument = createFakeDocument('&lt;button class=&quot;clear-completed&quot;&gt;Clear completed&lt;/button&gt;');
+    view = new ClearCompletedView(todoList, fakeDocument);
+  })
+
+  it('does not appear when there are no completed', function() {
+    view.render();
+    expectHidden($('.clear-completed'));
+  });
+
+  it('appears when there are any completed', function() {
+    todoList.at(0).complete(true);
+    view.render();
+    expectVisible($('.clear-completed'));
+  });
+
+  it('reconsider status whenever the list changes', function() {
+    todoList.at(1).complete(true);
+    expectVisible($('.clear-completed'));
+  });
+
+  it('clears completed', function() {
+    todoList.at(0).complete(true);
+    $('.clear-completed').onclick();
+    expect(todoList.length).equal(2);
+  });
+
+  function $(selector) { return fakeDocument.querySelector(selector); }
+});
+</pre>
+<p>Things to note:</p>
+<ul>
+<li>I use a real model here, not a fake. This gives me confidence that the view and the model work correctly together, and allows me to drive the development of the <code>containsCompletedItems()</code> method in <code>TodoList</code>. However, it does couple the view and the model tightly.</li>
+<li>I use a simplified &#8220;document&#8221; here, that only contains the fragment of index.html that this view is concerned about. However, I&#8217;m testing with the real DOM in a real browser, using Karma. This gives me confidence that the view will interact correctly with the real browser DOM. The only downside is that the view knows about the &#8220;clear-completed&#8221; class name.</li>
+<li>The click on the button is simulated by invoking the onclick handler. </li>
+</ul>
+<p>If you are curious, here is the implementation of <code>createFakeDocument</code>:</p>
+<pre>function createFakeDocument(html) {
+  var fakeDocument = document.createElement('div');
+  fakeDocument.innerHTML = html;
+  return fakeDocument;
+}
+</pre>
+<p>It&#8217;s that simple to test JS objects against the real DOM.</p>
+<p>All the production code is in file <a href='https://github.com/xpmatteo/frameworkless-tdd-todomvc/blob/master/js/app.js'>js/app.js</a>.  An example model is <code>TodoItem</code>:</p>
+<pre>function TodoItem(text, observer) {
+  var complete = false;
+
+  this.text = function() {
+    return text;
+  }
+
+  this.isCompleted = function() {
+    return complete;
+  }
+
+  this.complete = function(isComplete) {
+    complete = isComplete;
+    if (observer) observer.notify()
+  }
+
+  this.rename = function(newText) {
+    if (text == newText)
+      return;
+    text = newText.trim();
+    if (observer) observer.notify()
+  }
+}
+</pre>
+<p>As you can see, I used a very simple style of object-orientation. I do not use (or need here) prototype inheritance, but I do encapsulate object state well.</p>
+<p>I&#8217;m not showing the TodoList model because it&#8217;s too long :(. I don&#8217;t like this, but I don&#8217;t have a good idea at this moment to make it smaller.  Another class that&#8217;s too long and complex is <code>TodoListView</code>, with about 80 lines of code.  I could probably break it down in <code>TodoListView</code> and <code>TodoItemView</code>, making it a composite view with a smaller view for each <code>TodoItem</code>. That would require creating and destroying the view dynamically. I don&#8217;t know if that would be a good idea; I haven&#8217;t tried it yet.</p>
+<h3>Comparison with other Todo-MVC examples</h3>
+<p>How does it compare to the other examples?  There is no way I can read all of the examples, let alone understand them. However, there is a simple metric that I can use to compare my outcome: simple LOC, counting just the executable lines and omitting comments and blank lines.  After all, if you use a framework, I expect you to write less code; otherwise, it seems to me that either the framework is not valuable, or that you can&#8217;t use it well, which means that it&#8217;s not valuable to you.  This is the table of LOCs, computed with Cloc.  (Caveat: I tried to exclude all framework and library code, but I&#8217;m not sure I did that correctly for all examples.)  My version is the one labelled &#8220;vanillajs/xpmatteo&#8221; in bold.  I&#8217;m excluding test code.</p>
+<style>
+  #locs td:first-of-type {
+    text-align: right;
+  }
+</style>
+<table id='locs'>
+<tr>
+<td>1204</td>
+<td>typescript-angular/js</td>
+</tr>
+<tr>
+<td>1185</td>
+<td>ariatemplates/js</td>
+</tr>
+<tr>
+<td>793</td>
+<td>aurelia</td>
+</tr>
+<tr>
+<td>790</td>
+<td>socketstream</td>
+</tr>
+<tr>
+<td>782</td>
+<td>typescript-react/js</td>
+</tr>
+<tr>
+<td>643</td>
+<td>gwt/src</td>
+</tr>
+<tr>
+<td>631</td>
+<td>closure/js</td>
+</tr>
+<tr>
+<td>597</td>
+<td>dojo/js</td>
+</tr>
+<tr>
+<td>594</td>
+<td>puremvc/js</td>
+</tr>
+<tr>
+<td>564</td>
+<td>vanillajs/js</td>
+</tr>
+<tr>
+<td>529</td>
+<td>dijon/js</td>
+</tr>
+<tr>
+<td>508</td>
+<td>enyo_backbone/js</td>
+</tr>
+<tr>
+<td>489</td>
+<td>typescript-backbone/js</td>
+</tr>
+<tr>
+<td>481</td>
+<td>vanilla-es6/src</td>
+</tr>
+<tr>
+<td>479</td>
+<td>flight/app</td>
+</tr>
+<tr>
+<td>475</td>
+<td>lavaca_require/js</td>
+</tr>
+<tr>
+<td>468</td>
+<td>componentjs/app</td>
+</tr>
+<tr>
+<td>432</td>
+<td>duel/src/main</td>
+</tr>
+<tr>
+<td>383</td>
+<td>polymer/elements</td>
+</tr>
+<tr>
+<td>364</td>
+<td>cujo/app</td>
+</tr>
+<tr>
+<td>346</td>
+<td>sapui5/js</td>
+</tr>
+<tr style='font-weight: bold'>
+<td>321</td>
+<td>vanillajs/xpmatteo</td>
+</tr>
+<tr>
+<td>317</td>
+<td>scalajs-react/src/main/scala</td>
+</tr>
+<tr>
+<td>311</td>
+<td>backbone_marionette/js</td>
+</tr>
+<tr>
+<td>310</td>
+<td>ampersand/js</td>
+</tr>
+<tr>
+<td>295</td>
+<td>sammyjs/js</td>
+</tr>
+<tr>
+<td>295</td>
+<td>backbone_require/js</td>
+</tr>
+<tr>
+<td>287</td>
+<td>extjs_deftjs/js</td>
+</tr>
+<tr>
+<td>284</td>
+<td>durandal/js</td>
+</tr>
+<tr>
+<td>280</td>
+<td>rappidjs/app</td>
+</tr>
+<tr>
+<td>276</td>
+<td>thorax/js</td>
+</tr>
+<tr>
+<td>271</td>
+<td>troopjs_require/js</td>
+</tr>
+<tr>
+<td>265</td>
+<td>angular2/app</td>
+</tr>
+<tr>
+<td>256</td>
+<td>angularjs/js</td>
+</tr>
+<tr>
+<td>249</td>
+<td>mithril/js</td>
+</tr>
+<tr>
+<td>242</td>
+<td>thorax_lumbar/src</td>
+</tr>
+<tr>
+<td>235</td>
+<td>chaplin-brunch/app</td>
+</tr>
+<tr>
+<td>233</td>
+<td>vanilladart/web/dart</td>
+</tr>
+<tr>
+<td>233</td>
+<td>somajs_require/js</td>
+</tr>
+<tr>
+<td>232</td>
+<td>serenadejs/js</td>
+</tr>
+<tr>
+<td>226</td>
+<td>emberjs/todomvc/app</td>
+</tr>
+<tr>
+<td>224</td>
+<td>spine/js</td>
+</tr>
+<tr>
+<td>224</td>
+<td>exoskeleton/js</td>
+</tr>
+<tr>
+<td>214</td>
+<td>backbone/js</td>
+</tr>
+<tr>
+<td>213</td>
+<td>meteor</td>
+</tr>
+<tr>
+<td>207</td>
+<td>angular-dart/web</td>
+</tr>
+<tr>
+<td>190</td>
+<td>somajs/js</td>
+</tr>
+<tr>
+<td>167</td>
+<td>riotjs/js</td>
+</tr>
+<tr>
+<td>164</td>
+<td>react-alt/js</td>
+</tr>
+<tr>
+<td>156</td>
+<td>angularjs_require/js</td>
+</tr>
+<tr>
+<td>147</td>
+<td>ractive/js</td>
+</tr>
+<tr>
+<td>146</td>
+<td>olives/js</td>
+</tr>
+<tr>
+<td>146</td>
+<td>knockoutjs_require/js</td>
+</tr>
+<tr>
+<td>145</td>
+<td>canjs_require/js</td>
+</tr>
+<tr>
+<td>139</td>
+<td>atmajs/js</td>
+</tr>
+<tr>
+<td>132</td>
+<td>firebase-angular/js</td>
+</tr>
+<tr>
+<td>130</td>
+<td>foam/js</td>
+</tr>
+<tr>
+<td>129</td>
+<td>canjs/js</td>
+</tr>
+<tr>
+<td>124</td>
+<td>vue/js</td>
+</tr>
+<tr>
+<td>99</td>
+<td>knockback/js</td>
+</tr>
+<tr>
+<td>98</td>
+<td>react/js</td>
+</tr>
+<tr>
+<td>96</td>
+<td>angularjs-perf/js</td>
+</tr>
+<tr>
+<td>34</td>
+<td>react-backbone/js</td>
+</tr>
+</table>
+<h3>Things I learned</h3>
+<p>It&#8217;s been fun and I learned a lot about JS and TDD. Many framework-based solutions are shorter than mine, and that&#8217;s to be expected. However, all you need to know to understand my code is JS. </p>
+<p>TDD works best when you try to avoid pushing it to produce your preconceived design ideas. It&#8217;s much better when you follow the process: write tests that express business requirements, write the simplest code to make the tests pass, refactor to remove duplication.</p>
+<p>Working in JS is fun; however, not all things can be tested nicely with the approach I used here.  I often checked in the browser that the features I had test-driven were really working.  Sometimes they didn&#8217;t, because I had forgot to change the &#8220;main&#8221; code in <code>index.html</code> to use the new feature.  At one point I had an unwanted interaction between two event handlers: the handler for the onchange event fired when the edit text was changed by the onkeyup handler.  I wasn&#8217;t able to write a good test for this, so I resorted to simply testing that the onkeyup handler removed the onchange handler before acting on the text.  (This is not very good because it tests the implementation instead of the outcome.)</p>
+<p>You can do a lot of work without jQuery, expecially since there is the <code>querySelector</code> API. However, in real work I would probably still use it, to improve cross-browser compatibility.  It would probably also make my code simpler.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/997/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+							</item>
+		<item>
+		<title>Pattern: Testable Screens</title>
+		<link>http://matteo.vaccari.name/blog/archives/982</link>
+				<comments>http://matteo.vaccari.name/blog/archives/982#comments</comments>
+				<pubDate>Tue, 29 Mar 2016 11:44:35 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=982</guid>
+				<description><![CDATA[When you are developing a complex application, be it web, mobile or whatever, it&#8217;s useful to be able to launch any screen immediately and independently from the rest of the system. By &#8220;screen&#8221; I mean a web page, an Android activity, a Swing component, or whatever it is called in the UI technology that you [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>When you are developing a complex application, be it web, mobile or whatever, it&#8217;s useful to be able to <strong>launch any screen immediately and independently</strong> from the rest of the system.  By &#8220;screen&#8221; I mean a web page, an Android activity, a Swing component, or whatever it is called in the UI technology that you are using.  For instance, in an ecommerce application, I would like to be able to immediately show the &#8220;thank you for your purchase&#8221; page, without going through logging in, adding an item to the cart and paying.  </p>
+<p>The benefits of this simple idea are many:</p>
+<ol>
+<li>You can easily demo user stories that are related to that screen</li>
+<li>You can quickly test UI changes</li>
+<li>You can debug things related to that page</li>
+<li>You can spike variations</li>
+<li>The design of the screen is cleaner and less expensive to maintain.</li>
+</ol>
+<p>Unfortunately, teams are often not able to do this, because screens are tightly coupled to the rest of the application.  For instance, in Javascript single-page applications, it would be good to be able to launch a view without having to start a server. Often this is not possible, because the view is tightly coupled to the Ajax code that gets the data from the server, that the view needs to function.</p>
+<p>The way out of this problem is to decouple the screen from its data sources.  In a web application, I would launch a screen by going to a debug page that allows me to set up some test data, and then launch the page.  For instance:</p>
+<p><img src="http://matteo.vaccari.name/blog/wp-content/uploads/2016/03/Untitled-2.png" alt="Untitled 2" style='width: 60%' /></p>
+<p>Note that the form starts pre-populated with default data, so that I can launch the desired screen with a single click.</p>
+<p>Making screens decoupled from their data sources does, in my opinion, generally improve the design of the application.  Making things more testable has a general positive impact on quality.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/982/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+							</item>
+		<item>
+		<title>Bureaucratic tests</title>
+		<link>http://matteo.vaccari.name/blog/archives/972</link>
+				<comments>http://matteo.vaccari.name/blog/archives/972#respond</comments>
+				<pubDate>Mon, 28 Mar 2016 16:00:53 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Essay]]></category>
+		<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=972</guid>
+				<description><![CDATA[The TDD cycle should be fast! We should be able to repeat the red-green-refactor cycle every few minutes. This means that we should work in very small steps. Kent Beck in fact is always talking about &#8220;baby steps.&#8221; So we should learn how to make progress towards our goal in very small steps, each one [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>The TDD cycle should be fast!  We should be able to repeat the red-green-refactor cycle every few minutes.  This means that we should work in very small steps.  Kent Beck in fact is always talking about &#8220;baby steps.&#8221;  So we should learn how to make progress towards our goal in very small steps, each one taking us a little bit further.  Great!  How do we do that?</p>
+<h3 id="example_1_testing_that_8220it8217s_an_object8221">Example 1: Testing that &#8220;it&#8217;s an object&#8221;</h3>
+<p>In the quest for &#8220;small steps&#8221;, I sometimes see recommendations that we write things like these:</p>
+<pre><code>it("should be an object", function() {
+  assertThat(typeof chat.userController === 'object')
+});
+</code></pre>
+<p>which, of course, we can pass by writing</p>
+<pre><code>chat.userController = {}
+</code></pre>
+<p>What is the next &#8220;baby step&#8221;?</p>
+<pre><code>it("should be a function", function() {
+  assertThat(typeof chat.userController.login === 'function')
+});
+</code></pre>
+<p>And, again, it&#8217;s very easy to make this pass.</p>
+<pre><code>chat.userController = { login: function() {} }
+</code></pre>
+<p>I think these are <strong>not the right kind of &#8220;baby steps&#8221;</strong>.  These tests give us very little value.</p>
+<p>Where is the value in a test?  In my view, a test gives you two kinds of value:</p>
+<ol>
+<li>Verification value, where I get assurance that the code does what I expect.  This is the tester&#8217;s perspective.</li>
+<li>Design feedback, where I get information on the quality of my design.  And this is the programmers&#8217;s perspective.</li>
+</ol>
+<p>I think that in the previous two tests, we didn&#8217;t get any verification value, as all we were checking is the behaviour of the <code>typeof</code> operator.  And we didn&#8217;t get any design feedback either.  We checked that we have an object with a method; this does not mean much, because any problem can be solved with objects and methods.  It&#8217;s a bit like judging a book by checking that it contains written words.  What matters is what the words mean.  In the case of software, what matters is what the objects do.</p>
+<h3 id="example_2_testing_ui_structure">Example 2: Testing UI structure</h3>
+<p>Another example: there are tutorials that suggest that we test an Android&#8217;s app UI with tests like this one:</p>
+<pre><code>public void testMessageGravity() throws Exception {
+  TextView myMessage = 
+    (TextView) getActivity().findViewById(R.id.myMessage);
+  assertEquals(Gravity.CENTER, myMessage.getGravity());
+}
+</code></pre>
+<p>Which, of course, can be made to pass by adding one line to a UI XML file:</p>
+<pre><code>&lt;TextView
+  android:id="@+id/myMessage"
+  <strong>android:gravity="center"</strong>
+/&gt;
+</code></pre>
+<p>What have we learned from this test?  Not much, I&#8217;m afraid.</p>
+<h3 id="example_3_testing_a_listener">Example 3: Testing a listener</h3>
+<p>This last example is sometimes seen in GUI/MVC code.  We are developing a screen of some sort, and we try to make progress towards the goal of &#8220;when I click this button, something interesting happens.&#8221;  So we write something like this:</p>
+<pre><code>@Test
+public void buttonShouldBeConnectedToAction() {
+    assertEquals(button.getActionListeners().length, 1);
+    assertTrue(button.getActionListeners()[0] 
+                 instanceof ActionThatDoesSomething);
+}
+</code></pre>
+<p>Once again, this test does not give us much value.</p>
+<h3 id="bureaucracy">Bureaucracy</h3>
+<p>The above tests are all examples of what Keith Braithwaithe calls &#8220;pseudo-TDD&#8221;:</p>
+<ol>
+<li>Think of a solution</li>
+<li>Imagine a bunch of classes and functions that you just know you’ll need to implement (1)</li>
+<li>Write some tests that assert the existence of (2)</li>
+<li>[&#8230; go read <a href="https://cumulative-hypotheses.org/2011/08/30/tdd-as-if-you-meant-it/">Keith&#8217;s article</a> for the rest of his thoughts on the subject.]</li>
+</ol>
+<p>In all of the above examples, we start by thinking of a line of production code that we want to write.  Then we write a test that asserts that that line of code exists.  This test does nothing but <strong>give us permission</strong> to write that line of code: it&#8217;s just bureaucracy!  </p>
+<p>Then we write the line of code, and the test passes. What have we accomplished?  A false sense of progress; a false sense of &#8220;doing the right thing&#8221;.  In the end, all we did was wasting time.  </p>
+<p>Sometimes I hear developers claim that they took longer to finish, because they had to write the tests.  To me, this is nonsense: I write tests to go faster, not slower.  Writing useless tests slows me down.  If I feel that testing makes me slower, I should probably reconsider how I write those tests: I&#8217;m probably writing bureaucratic tests.</p>
+<h3 id="valuable_tests">Valuable tests</h3>
+<p>Bureaucratic tests are about <strong>testing a bit of solution</strong> (that is, a bit of the implementation of a solution).  Valuable test are about <strong>solving a little bit of the problem</strong>.  Bureaucratic tests are usually testing structure; valuable tests are always about testing behaviour.  The right way to do baby steps is to break down <strong>the problem</strong> in small bits (not the solution).  If you want to do useful baby steps, start by writing a list of all the tests that you think you will need.</p>
+<p>In <em>Test-Driven Development: by Example</em>, Kent Beck attacks the problem of implementing multi-currency money starting with this to-do list:</p>
+<pre><code>$5 + 10 CHF = $10 if rate is 2:1
+$5 * 2 = $10
+</code></pre>
+<p>Note that these tests are nothing but small slices of the problem.  In the course of developing the solution, many more tests are added to the list.</p>
+<p>Now you are probably wonder what would I do, instead of the bureaucratic tests that I presented above.  In each case, I would start with a simple example of what the software should do.  What are the responsibilities of the <code>userController</code>?  Start there.  For instance:</p>
+<pre><code>it("logs in an existing user", function() {
+  var user = { nickname: "pippo", password: "s3cr3t" }
+  chat.userController.addUser user
+
+  expect(chat.userController.login("pippo", "s3cr3t")).toBe(user)
+});
+</code></pre>
+<p>In the case of the Android UI, I would probably test it by looking at it; the looks of the UI have no behaviour that I can test with logic.  My test passes when the UI &#8220;looks OK&#8221;, and that I can only test by looking at it (see also <a href="https://blog.8thlight.com/uncle-bob/2013/03/06/ThePragmaticsOfTDD.html">Robert Martin&#8217;s opinion on when not to TDD</a>).  I suppose that some of it can be automated with <a href='http://www.agileday.it/2015/sessions/snapshot-testing-su-ios/'>snapshot testing</a>, which is a variant of the &#8220;golden master&#8221; technique.</p>
+<p>In the case of the GUI button listener, I would not test it directly.  I would probably write an end-to-end test that proves that when I click the button, something interesting happens.  I would probably also have more focused tests on the behaviour that is being invoked by the listener.</p>
+<h3 id="conclusions">Conclusions</h3>
+<p>Breaking down a problem into baby steps means that we break in very small pieces the problem to solve, not the solution.  Our tests should always speak about bits of the problem; that is, about things that the customer actually asked for.  Sometimes we need to start by solving an arbitrarily simplified version of the original problem, like Kent Beck and Bill Wake do in <a href='http://xp123.com/articles/slicing-functionality-alternate-paths/'>this article I found enlightening</a>; but it&#8217;s always about testing the problem, not the solution!</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/972/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>OOP is underrated</title>
+		<link>http://matteo.vaccari.name/blog/archives/963</link>
+				<comments>http://matteo.vaccari.name/blog/archives/963#respond</comments>
+				<pubDate>Mon, 21 Mar 2016 16:29:20 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=963</guid>
+				<description><![CDATA[I came recently upon a thread where Object-Oriented Programming was being questioned because of excessive complexity, ceremony, layers,&#8230; and because of the insistence of OOP of treating everything as an object, which some feel runs counter to most people&#8217;s intuition. Similar threads keep appearing, where OOP is being questioned and other approaches, like functional programming, [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>I came recently upon a thread where Object-Oriented Programming was being questioned because of excessive complexity, ceremony, layers,&#8230; and because of the insistence of OOP of treating everything as an object, which some feel runs counter to most people&#8217;s intuition.  Similar threads keep appearing, where OOP is being questioned and other approaches, like functional programming, are seen as a cure for the OOP &#8220;problem&#8221;.</p>
+<p>My answer touches upon many points, and I wanted to share it with you.</p>
+<p>Encapsulation is a key thing in OOP, and it&#8217;s just part of the larger context.  Abstract Data Types also do encapsulation.  OOP is more than that; the key idea is that OOP enables the building of a model of the problem you want to solve; and that model is reasoned about with the spatial, verbal and operational reasoning modes that we all use to solve everyday problems.  In this sense OOP culture is strongly different from the ADT and formal math culture.</p>
+<p>Math is very powerful.  It enables to solve problems that by intuition alone you wouldn&#8217;t be able to solve easily.  A good mathematical model can make simple what seems to be very complex.  Think how Fourier transforms make it easy to reason about signals.  Think how a little mathematical reasoning makes it easy to solve the <a href="https://en.wikipedia.org/wiki/Mutilated_chessboard_problem">Mutilated Chessboard problem</a>.  In fact, a good mathematical model can reduce the essential complexity of a problem.  (You read right &#8212; reducing the essential complexity.  I think that we are never sure what the essential complexity of a problem really is.  There might always be another angle or an insight to be had that would make it simpler than what we thought it was.  Think a parallel with Kolmogorov complexity: you never know what the K complexity of a string really is.)</p>
+<p>However, mathematical reasoning is difficult and rare.  If you can use it, then more power to you!  My feeling is that many recent converts to FP fail to see the extent of the power of mathematical models and limit themselves to using FP as a fancy procedural language.  But I digress.</p>
+<p>My point is that if you want to reach the point of agile maturity where programming is no longer the bottleneck, and we deliver when the market is ready, not when we finally manage to finish coding (two stars on <a href="http://martinfowler.com/articles/agileFluency.html">the Shore/Larsen model</a>), building the right model of the problem is an essential ingredient.  You should build a model that is captured as directly as possible in code.  If you have a mathematical model, it&#8217;s probably a good fit for a functional programming language.  However, we don&#8217;t always have a good mathematical model of our problems.</p>
+<p>For many problems, we can more readily find spatial/verbal/operational intuitive models.  When we describe an OO model with phrases like &#8220;This guy talks to that guy&#8221;, that is the sort of description that made <a href="https://www.cs.utexas.edu/users/EWD/transcriptions/EWD09xx/EWD936.html">Dijkstra fume with disdain</a>!  Yet this way of reasoning is simple, immediate and useful.  Some kind of problems readily adapt themselves to be modeled this way.  You may think of it as programming a simulation of the problem.  It leverages a part of our brain that (unlike mathematical reasoning) we all use all the time.  These operational models, while arguably less powerful than mathematical models, are easier reason about and to communicate.</p>
+<p>Coming to the perception of the excessive &#8220;ceremony&#8221; and &#8220;layers&#8221; of OOP, I have two points:</p>
+<ol>
+<li>Most &#8220;OOP&#8221; that we see is not OOP at all.  Most programs are conceived starting with the data schema.  That&#8217;s the opposite of OOP!  If you want to do OOP, you start with the behaviour that is visible from the outside of your system, not with the data that lie within it.  It&#8217;s too bad that most programming culture is so deeply data-oriented that we don&#8217;t even realise this.  It&#8217;s too bad that a lot of framework and tooling imply and push towards data centric: think JPA and Rails-style ActiveRecord, where you design your &#8220;object&#8221; model as a tightly-coupled copy of a data model.</li>
+<li>
+Are we practicing XP?  When we practice XP, we introduce stuff gradually as we need.  An abstraction is introduced when there is a concrete need.  A layer is introduced when it is shown to simplify the existing program.  When we introduce layers and framework upfront (anybody here do a &#8220;framework selection meeting&#8221; before starting coding? :-) ) we usually end up with extra complexity.  But that&#8217;s nothing new: XP has been teaching us to avoid upfront design for a long time.
+</li>
+</ol>
+<p>For more on how OOP thinking differs from formalist thinking, see <a href="https://books.google.it/books/about/Object_Thinking.html?id=-eJQAAAAMAAJ">Object Thinking</a> by David West.  I also did a presentation on this subject (<a href="https://www.youtube.com/watch?v=jO6Z3wOdfWc">video in Italian</a>).</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/963/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>The time that really matters</title>
+		<link>http://matteo.vaccari.name/blog/archives/942</link>
+				<comments>http://matteo.vaccari.name/blog/archives/942#respond</comments>
+				<pubDate>Thu, 14 Jan 2016 15:06:43 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=942</guid>
+				<description><![CDATA[TL;DR: write apps that start from the command line within one second. One of the core principles of Lean is waste reduction. There are many kinds of waste: for instance, overproduction means to write software that is not needed, or that is &#8220;gold-plated&#8221;, that is, done to a level of completeness that exceed the customer&#8217;s [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>TL;DR: write apps that start from the command line within one second.</p>
+<p>One of the core principles of Lean is waste reduction.  There are many kinds of waste: for instance, overproduction means to write software that is not needed, or that is &#8220;gold-plated&#8221;, that is, done to a level of completeness that exceed the customer&#8217;s needs.</p>
+<p>Here I would like to talk about another kind of waste: <em>waiting.</em></p>
+<p>Picture this: you are a programmer.  You arrived at work this morning.  You attended the stand-up meeting.  You attended an ad-hoc technical meeting.  You had a coffee break with your collegues.  You pick up a user story from the card wall and you discuss its details with the product owner.  You finally sit down in front of the keyboard, pairing with a fellow programmer.  Now your core time starts: the time when you program; the time when are really doing value-adding work.  You start by checking the screen of the application where you will have to add functionality: so you start the application&#8230;. and wait.  And wait.  And wait.</p>
+<p>Your application may be able to run thousands of transactions per second, yet it takes minutes to boot.</p>
+<p>The time that your application takes to boot is a tax that you keep paying, tens or hundreds of times per day.  This waiting time cuts into your best time: the time when you are in front of the keyboard, well-rested, ready to do your best work.  This tax is being paid by all the programmers in the team, by all the testers and by all those who need to redeploy the application.</p>
+<p>I hear you saying: &#8220;But, but, but&#8230; I do TDD!  I don&#8217;t need to boot my app that often!&#8221;.  OK, it&#8217;s very good that you do TDD.  If you do it well, which means that you will <a href="http://blog.thecodewhisperer.com/2010/10/16/integrated-tests-are-a-scam/">mostly do microtests instead of integrated tests</a>, then you will not have to reboot your application all the time.  And yet&#8230; there are times when we really need to reboot the app.  We will have to write at least <em>some</em> integrated tests.  Sometimes we will have to debug.  Sometimes we will have to test the thing manually.  Sometimes we are tweaking the UI, and it makes little sense to write tests for that.  Sometimes, despite our best intentions, we don&#8217;t find a way to do TDD well.  For all of these reasons, it really pays to have an application that can be started <em>within one second.</em></p>
+<p>My favourite way to implement a web application in Java is to use an embedded Jetty server.  This is a technique that I&#8217;ve been teaching for years.  You may see an example in the <a href="https://github.com/xpmatteo/simple-design-in-action/">github repository for my Simple Design workshop</a>.  Running the program is simply a matter of executing</p>
+<pre><code>./gradlew compileJava &amp;&amp; script/run.sh
+</code></pre>
+<p>which takes about a second.  If you run it from Eclipse in debug mode, it reloads automatically any change you make.</p>
+<p>Compare this to a program written with Spring Boot. Let&#8217;s consider <a href="https://spring.io/guides/gs/spring-boot/#initial">the Getting Started example application</a>.  You compile and run it with</p>
+<pre><code>./gradlew build &amp;&amp; java -jar build/libs/gs-spring-boot-0.1.0.jar
+</code></pre>
+<p>and it will run in 6.8 seconds (measured by hand with a stopwatch on my 8-cores Mid-2015 MacBook Pro).  This is significantly worse than 1 second, but still tolerable.  The problem is that by design, Spring looks for components in its classpath.  This autoconfiguration takes an increasing amount of time as the application grows in size.  Real-world services written with Spring boot take 20-30 seconds to boot.  That&#8217;s definitely too much in my view&#8230; expecially when it&#8217;s easy to stay under one second.  </p>
+<p>That&#8217;s whay I don&#8217;t like to autoconfigure stuff: I just configure your components explicitly in my <a href="https://cleancoders.com/episode/clean-code-episode-4/show">main partition</a>.  </p>
+<p>Protect your core time: make it so that your app can be restarted within one second.  That&#8217;s a real productivity gain for the whole team.</p>
+<h3 id="references">References</h3>
+<p>Uncle Bob blogged about this very subject in <a href="http://blog.cleancoder.com/uncle-bob/2015/02/21/ModeBImperative.html">The Mode B imperative</a></p>
+<p>Greg Young describes how and why to configure components explicitly in his talk <a href="http://www.infoq.com/presentations/8-lines-code-refactoring">8 Lines of Code</a></p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/942/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>The Semaphores Kata</title>
+		<link>http://matteo.vaccari.name/blog/archives/927</link>
+				<comments>http://matteo.vaccari.name/blog/archives/927#comments</comments>
+				<pubDate>Tue, 23 Dec 2014 10:21:49 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=927</guid>
+				<description><![CDATA[This is an exercise to explore how TDD relates to graphical user interfaces. And also how to work with time. And how to obtain complex behaviour by composition of simpler behaviour. It is inspired by an exercise presented in the book ATDD By Example by Markus Gärtner. First step We want an app that shows [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>This is an exercise to explore how TDD relates to graphical user interfaces.  And also how to work with time.  And how to obtain complex behaviour by composition of simpler behaviour.</p>
+<p>It is inspired by an exercise presented in the book ATDD By Example by Markus Gärtner.</p>
+<h2 id="first_step">First step</h2>
+<p>We want an app that shows a working semaphore, with the three usual lights red, green and amber.  The semaphore works with the following cycle:</p>
+<ul>
+<li>Initially only the red light is on.</li>
+<li>After 60 seconds, the red light goes off, the green light is turned on.</li>
+<li>After 30 seconds, the amber light is turned on.</li>
+<li>After 10 seconds, both amber and green go off, and red is turned on.</li>
+<li>And again and again&#8230;</li>
+</ul>
+<p>This can be done in Java with a Swing user interface, or in Javascript with an HTML user interface.</p>
+<p>Demo: you should show the GUI with the lights turning on and off.  You may speed up the tempo just to make the demo less boring :-)</p>
+<h2 id="second_step">Second step</h2>
+<p>We must now handle a crossing with four semaphores, like this:</p>
+<pre><code>            o
+            o (B0)
+            o
+
+
+o                        o
+o (A0)                   o (A1)
+o                        o
+
+            o
+            o (B1)
+            o
+</code></pre>
+<p>We have four semaphores A0, A1, B0, B1.  A0 and A1 must always show the same lights.  B0 and B1 must always show the same lights.  B0&#8217;s cycle is delayed by 50 seconds with respect to A0.  As a consequence, there should NEVER be a green light on all four semaphores!  And there should be a safety 10 seconds interval when all four semaphores show red.  The following diagram shows what the semaphores should show.</p>
+<pre><code>Every letter represents 10 seconds
+
+     time:     -----------&gt;
+A0 and A1:  RRRRRRGGGARRRRRRGGGA
+B0 and B1:  RGGGARRRRRRGGGARRRRR
+
+R = Red light
+G = Green light
+A = Green + Amber light
+</code></pre>
+<h2 id="for_the_instructor">For the instructor</h2>
+<p>How to test a GUI?  (Hint: you don&#8217;t; you apply model-view separation and move all of the logic to the model.  You should read the &#8220;Humble Dialog Box&#8221; paper.)  There should be a &#8220;Semaphore&#8221; domain object.</p>
+<p>How to test the passing of time?  (Hint: the most productive way is to assume that the app will receive a &#8220;tick&#8221; message every second.  This is also an instance of model-view separation; the &#8220;tick&#8221; message is sent by a clock.  This is just the same as if there was a user clicking on a button that advances the simulation by one second.)</p>
+<p>How do participants demo the application?  Insist on seeing the application work for real.  A demo that consists of showing unit tests passing is NOT satisfactory.  Try to make developers use both unit tests and manual tests.  Insist on concrete, demoable progress.</p>
+<p>The goal of the second step is to check that the developers use two (or four) instances of the Semaphore object from the first step, instead of making a big, monolithic &#8220;two-way semaphore&#8221; that controls all of the lights.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/927/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+							</item>
+		<item>
+		<title>Mathematics cannot prove the absence of bugs</title>
+		<link>http://matteo.vaccari.name/blog/archives/920</link>
+				<comments>http://matteo.vaccari.name/blog/archives/920#comments</comments>
+				<pubDate>Thu, 18 Dec 2014 14:08:08 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920</guid>
+				<description><![CDATA[Everyone is familiar with Edsger W. Dijkstra&#8217;s famous observation that &#8220;Program testing can be used to show the presence of bugs, but never to show their absence!&#8221; It seems to me that mathematics cannot prove the absence of bugs either. Consider this simple line of code, that appears in some form in *every* business application: [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>Everyone is familiar with Edsger W. Dijkstra&#8217;s famous observation that &#8220;Program testing can be used to show the presence of bugs, but never to show their absence!&#8221;  It seems to me that mathematics cannot prove the absence of bugs either.</p>
+<p>Consider this simple line of code, that appears in some form in *every* business application:</p>
+<pre><code>database.server.address=10.1.2.3
+</code></pre>
+<p>This is a line of software.  It&#8217;s an assignment of a value to a variable.  And there is no mathematical way to prove that this line is correct. This line is correct only IF the given IP address is really the address of the database server that we require.</p>
+<p>Not even TDD and unit testing can help to prove that it&#8217;s correct.  What would a unit test look like?</p>
+<pre><code>assertEquals("10.1.2.3", 
+    config.getProperty("database.server.address"));
+</code></pre>
+<p>This test is just repeating the contents of the configuration file.  It will pass even if the address 10.1.2.3 is wrong.</p>
+<p>So what is the *only* way to prove that this line of code is correct?  You guessed it.  You must run the application and see if it works.  This test can be manual or automated, but still we need a *test* of the live system to make sure that that line of code is correct.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/920/feed</wfw:commentRss>
+		<slash:comments>8</slash:comments>
+							</item>
+	</channel>
+</rss>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Three interesting Java libraries	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/68/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/68</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Technical Related Notes &#187; Blog Archive &#187; links for 2007-01-01				</title>
+				<link>http://matteo.vaccari.name/blog/archives/68/comment-page-1#comment-1659</link>
+		<dc:creator><![CDATA[Technical Related Notes &#187; Blog Archive &#187; links for 2007-01-01]]></dc:creator>
+		<pubDate>Mon, 01 Jan 2007 16:08:38 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=68#comment-1659</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Matteo Vaccari » Blog Archive » Three interesting Java libraries (tags: java) [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/68/comment-page-1#comment-1510</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 23 Dec 2006 15:59:01 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=68#comment-1510</guid>
+					<description><![CDATA[Whooops!  Thanks Filippo.]]></description>
+		<content:encoded><![CDATA[<p>Whooops!  Thanks Filippo.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Filippo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/68/comment-page-1#comment-1457</link>
+		<dc:creator><![CDATA[Filippo]]></dc:creator>
+		<pubDate>Fri, 22 Dec 2006 16:08:26 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=68#comment-1457</guid>
+					<description><![CDATA[*Eric* Evans maybe?]]></description>
+		<content:encoded><![CDATA[<p>*Eric* Evans maybe?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Slides from my talk &#8220;TDD for web views&#8221; at Italian Agile Day 2010	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/489/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/489</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: TDD per le viste &#124; Marco Fracassi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/489/comment-page-1#comment-93692</link>
+		<dc:creator><![CDATA[TDD per le viste &#124; Marco Fracassi]]></dc:creator>
+		<pubDate>Fri, 10 Dec 2010 11:20:22 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=489#comment-93692</guid>
+					<description><![CDATA[[...] Tdd per le viste &#8211; Matteo Vaccari     10 dicembre 2010 &#124; marco.fracassi &#124; Tags: Agile, mvc, tdd, test, xp &#124; Nessun commento &#187; [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Tdd per le viste &#8211; Matteo Vaccari     10 dicembre 2010 | marco.fracassi | Tags: Agile, mvc, tdd, test, xp | Nessun commento &#187; [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

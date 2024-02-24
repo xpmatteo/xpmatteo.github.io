@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/date/2011/02 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:59:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm   &raquo; 2011 &raquo; February</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../../../feed" />
+<link rel="pingback" href="../../../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+  <div id='main-col'>
+
+		
+				<h2 class="pagetitle">Archive for February, 2011</h2>
+
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+				<div class="post">
+				<h3 id="post-511"><a href="../../511.html" rel="bookmark" title="Permanent Link to Two design episodes in Rails">Two design episodes in Rails</a></h3>
+				<small>Friday, February 25th, 2011</small>
+
+				<div class="entry">
+					<p>After the fact, it&#8217;s easy to find better solutions. I present two examples from my experience with an ecommerce Rails application. </p>
+<h3>How to avoid joins, part I</h3>
+<p>We needed to make both product categories  and discounts appear or disappear at specific times.  The canonical solution seemed, at the time, to declare</p>
+<p><code></p>
+<pre>
+class Schedule < ActiveRecord::Base
+  belongs_to :schedulable, :polymorphic => true
+
+  def active?
+    Time.now.between?(self.start, self.end)
+  end  
+end
+
+class Discount < ActiveRecord::Base
+  has_one :schedule, :as => :schedulable
+  
+  # ...
+end
+
+class Category < ActiveRecord::Base
+  has_one :schedule, :as => :schedulable
+  
+  # ...
+end
+</pre>
+<p></code></p>
+<p>The schedules table contains the two columns &#8220;start&#8221; and &#8220;end&#8221;.  The logic for a schedule is pretty simple: it&#8217;s &#8220;active?&#8221; if &#8220;now&#8221; is between &#8220;start&#8221; and &#8220;end&#8221;.</p>
+<p>A lot of thought and discussion went into deciding when to save a Schedule object in the schedules table; we wanted to write</p>
+<p><code></p>
+<pre>
+class Category < ...
+  def active?
+    self.schedule.active?
+  end
+end
+</pre>
+<p></code></p>
+<p>but this presumes that there indeed is a schedule saved in the database for a_product, so it had to be</p>
+<p><code></p>
+<pre>
+class Category < ...
+  def active?
+    self.schedule &#038;&#038; self.schedule.active?
+  end
+end
+</pre>
+<p></code></p>
+<p>and similar complication happened when adding or changing the schedule. Selecting all the active categories, got more complicated for we needed an extra join, and a left outer join at that.  That impacted all queries on categories or discounts, in particular the free search query that really didn't need to get more complicated.  We decided to add a post_create callback so that every new discount or category would always have an associated schedule.  The decision to go with the "polymorphic has-one association" led to complification and increased coupling.  </p>
+<p>So what is a simpler, caveman's solution?  Well, why not add "validity_start" and "validity_end" columns to <em>both</em> categories and discounts tables?  Our Ruby code would become:</p>
+<p><code></p>
+<pre>
+module Schedulable
+  def active?
+    Time.now.between?(self.validity_start, self.validity_end)
+  end  
+end
+
+class Discount < ActiveRecord::Base
+  include Schedulable
+  
+  # ...
+end
+
+class Category < ActiveRecord::Base
+  include Schedulable
+  
+  # ...
+end
+</pre>
+<p></code></p>
+<p>So all it takes to make a model "schedulable" is to include the Schedulable module, and add two more columns to the model table.</p>
+<p>Analysis of the "caveman" solution:</p>
+<ul>
+<li>
+    Duplication?  In the definition of the two tables, perhaps a bit.  But no duplication in Ruby code, and far less code to write.
+  </li>
+<li>
+    Denormalized?  Actually no.  A "schedule" is not something relevant to the business; it doesn't need an identity.  It is not a business entity so it's proper that we implement it as a collection of attributes rather than with its own table.
+  </li>
+<li>
+    Good Rails design?  I think it is.  The decision to make Schedule a model was bad design, as a Schedule is not a business entity.
+  </li>
+</ul>
+<p>So the "caveman" solution actually is what a good data modeler would have chosen from the start.  We were fascinated by how easy it was to use the "polymorphic association" to remove the duplication of the two extra columns, that we ended up complicating our life for no good reason.</p>
+<blockquote><p>
+  Lesson learned: always consider what a caveman would do.  He might be smarter than you!
+</p></blockquote>
+<blockquote><p>
+  Lesson learned: Rails is an effective way to put a web GUI in front of a database.  Think like a data modeler.  Think Entity-Relationship.
+</p></blockquote>
+<h3>How to avoid joins, part II</h3>
+<p>Later in the same project, we needed to make the website respond in English or Italian.  Rails 2 is well equipped for localizing the GUI out-of-the-box; but it will not deal with the problem to translate the properties of your model.  In our case, we needed to translate the names and descriptions of products.  </p>
+<p>The canonical Rails solution at the time was to use the Globalize2 gem.  It's actually a good gem, but in retrospect it was not a good fit for our problem.</p>
+<p>Fact: we didn't need to support 1000 languages.  Just 2.  Maybe 3 or 4 in the next 5 years.</p>
+<p>Fact: we didn't need to translate 100 attributes in 100 models.  Just 3 properties in 2 models.  </p>
+<p>The Globalize2 gem adds a join to a "globalize_translations" table to every query.  That didn't do any bit of good to the free search query, that was awfully complicated already!  So while in theory Globalize2 is transparent, in practice you have to modify many queries to take it into account.  </p>
+<p>Once again, what would our friend the caveman do?  You guessed it, add extra columns instead of a join.  Replace columns "name" and "description" with "name_en", "name_it", "description_en", "description_it".  You add a bit of drudgery to the schema definition, but your queries turn out to become simpler.  Taking advantage of the fact that schema migrations in Rails are very easy, it would not be a big problem to add a new language by adding the few extra columns.</p>
+<p>And all the Ruby code it would take to produce the globalized descriptions in the web pages would be to define</p>
+<p><code></p>
+<pre>
+class Product < ...
+  def globalized_name
+    if self.attributes.include? "name_#{current_locale}"
+      self.attributes["name_#{current_locale}"]
+    else
+      # fallback to Italian
+      self.name_it
+    end
+  end
+end    
+  </pre>
+<p></code></p>
+<p>My solution is not transparent,  but it's simple and easy to understand;  while  Globalize2 tries to be transparent but does not quite succeed. </p>
+<blockquote><p>
+  Lesson learned: less magic please.  If you can't achieve complete transparency, then go for being explicit *and* simple.
+</p></blockquote>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../category/agile.html" rel="category tag">Agile</a> |   <a href="../../511.html#comments">8 Comments &#187;</a></p>
+		</div>
+
+				<div class="post">
+				<h3 id="post-502"><a href="../../502.html" rel="bookmark" title="Permanent Link to What I&#8217;ve been up to? Nine lessons learned.">What I&#8217;ve been up to? Nine lessons learned.</a></h3>
+				<small>Monday, February 7th, 2011</small>
+
+				<div class="entry">
+					<p>What I&#8217;ve been up to?</p>
+<p>It&#8217;s been some time.  This last eight months or so I haven&#8217;t been doing much software development.  Most of my work has been in support.  I&#8217;ve done consulting work.</p>
+<p>This autumn I was hired to help a team with an application that was constantly crashing.  The application was closed source, so we could not easily change it or trace how it worked.  The first thing we did was to start monitoring stats.  I wrote a <a href="https://github.com/xpeppers/monitoring-scripts/tree/master/tomcat">simple monitor</a> that tracks the health of a Tomcat process.  This gives a feeling for what&#8217;s happening inside the application, for what happens in normal times and in times when it&#8217;s stressed.  We kept a monitor open with baretail open on these log files and watched what was happening.</p>
+<p>Every two or three days, the count of busy threads in Tomcat started rising, from the normal level of 2-3 up to the maximum of 150.  At that point there was nothing to do but restart the server.  </p>
+<blockquote><p>Lesson 0: set up watch dogs.  It&#8217;s easy to write a custom status page sniffer.  <a href="http://www.nagios.org/">Nagios</a> keeps an eye over many variables (memory, CPU load, failing services and the like.)  <a href="http://www.newrelic.com/">New Relic</a> is a very good all-round solution when you don&#8217;t know where to start.
+</p></blockquote>
+<p>The usual suspect in such cases is the database, and watching the process monitor on SQL Server revealed that many connections were blocking each other.  We called in one consultant, then another, and finally a third one who knew how to deal with this problem.</p>
+<blockquote><p>Lesson 1: a consultant may know how to deal with your problem, or he may be out of his depth.  You better make sure that any consultant you call in know what they&#8217;re doing.  Warning signs is when they try stuff at random (I read in a blog that changing parameter XYZ could be helpful!) or just give you canned responses (uh, better install the latest service pack&#8230;)</p></blockquote>
+<p>The <a href="http://it.linkedin.com/pub/omid-ehsani/1/335/763">last SQL Server consultant</a> really knew his stuff, and was able to solve the SQL Server hangups problems by cleaning up and optimizing the SQL Server installation.  It turned out that this database has been running with no maintenance for years.</p>
+<blockquote><p>Lesson 2: if you run a business that depends on database-backed applications, you better have a full-time DBA looking over maintenance.</p></blockquote>
+<p>After the SQL Server tune up the application ran considerably better.  But there were more problems on the horizon.  We still had a few occasions when the application did block.  I didn&#8217;t know what to do to get insight on what happened in those cases.  I wanted a thread dump of the Java Virtual Machine, but on Windows it turns out it&#8217;s not an easy thing to do.</p>
+<blockquote><p>Lesson 3: Windows works.  You can&#8217;t really say it doesn&#8217;t.  And this is the most charitable thing I can say about it.  All the same, Unix is so much better than Windows in every which way.  It has always been.  </p></blockquote>
+<p>In the end I found a neat utility called <a href="http://technet.microsoft.com/en-us/sysinternals/bb897553">psexec</a> that helped us solve that problem.  We set up a script that checked the number of busy threads on Tomcat every 30 seconds, and created a thread dump for us.  This showed that our Tomcat threads were busy trying to deliver a mail message to a SMTP server.  A quick investigation found that the application was somehow configured to use a temporary, slow SMTP server nobody remembered about.  We changed the configuration to point to a fast server and this problem was fixed.</p>
+<p>The last failure mode we encountered happened rarely; at times the memory consumption in Tomcat started growing from the usual 100-150MB up to its configured maximum of 500MB, and stay there.  At that point, the application was slowing to a crawl, and there was nothing but, again, reboot it.  Try to imagine our feelings of helplessness while this was happening!</p>
+<p>Our next tool here was to run JMap to get a memory dump, and then analyzing it with the Eclipse Memory Analyzer.  The culprit seemed to be some data objects that we knew the application was allocating to contain the result of queries.  Whenever a user was requesting a report of, say, 50K records, the app allocated memory to hold all of the result in memory, and saved it&#8230; guess where&#8230;. in the user session!  Then it showed the first 100 rows to the user.  Since that query was slow, the user was staring at a blank screen for a minute or two, and then reload (F5!), which caused Tomcat to perform another query.  Each of these 50K rows queries was allocating 50MB of ram in the JVM.  Boom, boom, boom, once this started it brought Tomcat to its knees.</p>
+<blockquote><p>Lesson 4: Don&#8217;t store more than a few bytes in the user session.  Being stateless is the key to scaling.  Which brings us to the next&#8230;</p></blockquote>
+<blockquote><p>Lesson 5: Pagination is best done in the database.  Caching is best done in the database.  Filtering is best done in the database.  Heavy computations with the data are best done in the database.  <a href="http://pragprog.com/titles/bksqla/sql-antipatterns">Brush up on your SQL skills</a>!  If you&#8217;re doing business software, your app&#8217;s performance and capabilities will be dominated by how well you use your database.</p></blockquote>
+<p>We could not change the application code, but luckily there was a configuration parameter that limited the maximum number of returned rows.  Setting it to 1000 solved the problem.</p>
+<blockquote><p>Lesson 6: whenever you perform a query, you must be certain that the number of rows it will return is bounded.  </p></blockquote>
+<p>And so our job with this application was finished.  We went on tackling the next&#8230; One amazing thing that I learned in the process is that placing Apache in front of Tomcat is not always gueranteed to work well.  We had some really rough time when we discovered we had this <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=49417">devastating Apache bug</a>, and later we found a different bug in a different app with the same setup.  </p>
+<blockquote><p>Lesson 7: try to use as few pieces (processes, computers, things) as possible.  Every piece you have may be a cause of failure.  Whomever says &#8220;&#8230; and by using XYZ, we get ZYX for free&#8221; is a fool!  Nothing comes for free.</p></blockquote>
+<p>One of the collegues who valiantly supported me in this adventure was so much overwhelmed by the stressful situation that he resigned.  I don&#8217;t know what to think of this; certainly this was not the sort of job that we were trained to deal with.  This was Operations, not Software Development.  And this was the life of the consultant.  Diving into a problem not knowing the solution, but with the confidence that we will find the means to find the means of solving it.  This is the opposite of &#8220;you tell me what I must do and I do it&#8221;, which is an unfortunately common misinterpretation of &#8220;customer collaboration&#8221;.</p>
+<blockquote><p>Lesson 8: Act as a consultant, not as a contractor (as <a href="http://twitter.com/p_pugliese">@p_pugliese</a> would say).  Find your own ways of gathering information, making plans, trying solutions.  Find your own ways of checking if you&#8217;re making progress.  </p></blockquote>
+<p>In the end, my collegue will have to decide for himself if this is a crisis that leads to coming back to this job stronger than before, or a signal that his deep desire is to do something else.</p>
+				</div>
+
+				<p class="postmetadata">Posted in <a href="../../category/agile.html" rel="category tag">Agile</a> |   <a href="../../502.html#comments">8 Comments &#187;</a></p>
+		</div>
+
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+	  	</div>
+
+  <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            <p>You are currently browsing the <a href="../../../index.html">Extreme Enthusiasm</a> weblog archives
+      for February, 2011.</p>
+
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../../../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../../../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../../../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='../2018/10.html'>October 2018</a></li>
+	<li><a href='../2017/09.html'>September 2017</a></li>
+	<li><a href='../2016/08.html'>August 2016</a></li>
+	<li><a href='../2016/03.html'>March 2016</a></li>
+	<li><a href='../2016/01.html'>January 2016</a></li>
+	<li><a href='../2014/12.html'>December 2014</a></li>
+	<li><a href='../2014/10.html'>October 2014</a></li>
+	<li><a href='../2014/06.html'>June 2014</a></li>
+	<li><a href='../2014/02.html'>February 2014</a></li>
+	<li><a href='../2013/12.html'>December 2013</a></li>
+	<li><a href='../2013/11.html'>November 2013</a></li>
+	<li><a href='../2013/06.html'>June 2013</a></li>
+	<li><a href='../2013/05.html'>May 2013</a></li>
+	<li><a href='../2013/03.html'>March 2013</a></li>
+	<li><a href='../2013/02.html'>February 2013</a></li>
+	<li><a href='../2012/10.html'>October 2012</a></li>
+	<li><a href='../2012/08.html'>August 2012</a></li>
+	<li><a href='../2012/07.html'>July 2012</a></li>
+	<li><a href='../2012/06.html'>June 2012</a></li>
+	<li><a href='../2012/05.html'>May 2012</a></li>
+	<li><a href='../2012/04.html'>April 2012</a></li>
+	<li><a href='../2012/01.html'>January 2012</a></li>
+	<li><a href='12.html'>December 2011</a></li>
+	<li><a href='11.html'>November 2011</a></li>
+	<li><a href='10.html'>October 2011</a></li>
+	<li><a href='07.html'>July 2011</a></li>
+	<li><a href='06.html'>June 2011</a></li>
+	<li><a href='05.html'>May 2011</a></li>
+	<li><a href='04.html'>April 2011</a></li>
+	<li><a href='03.html'>March 2011</a></li>
+	<li><a href='02.html'>February 2011</a></li>
+	<li><a href='../2010/11.html'>November 2010</a></li>
+	<li><a href='../2010/10.html'>October 2010</a></li>
+	<li><a href='../2010/09.html'>September 2010</a></li>
+	<li><a href='../2010/08.html'>August 2010</a></li>
+	<li><a href='../2010/07.html'>July 2010</a></li>
+	<li><a href='../2010/06.html'>June 2010</a></li>
+	<li><a href='../2010/05.html'>May 2010</a></li>
+	<li><a href='../2010/04.html'>April 2010</a></li>
+	<li><a href='../2010/03.html'>March 2010</a></li>
+	<li><a href='../2010/02.html'>February 2010</a></li>
+	<li><a href='../2010/01.html'>January 2010</a></li>
+	<li><a href='../2009/12.html'>December 2009</a></li>
+	<li><a href='../2009/11.html'>November 2009</a></li>
+	<li><a href='../2009/10.html'>October 2009</a></li>
+	<li><a href='../2009/09.html'>September 2009</a></li>
+	<li><a href='../2009/07.html'>July 2009</a></li>
+	<li><a href='../2009/05.html'>May 2009</a></li>
+	<li><a href='../2009/04.html'>April 2009</a></li>
+	<li><a href='../2009/03.html'>March 2009</a></li>
+	<li><a href='../2009/02.html'>February 2009</a></li>
+	<li><a href='../2009/01.html'>January 2009</a></li>
+	<li><a href='../2008/12.html'>December 2008</a></li>
+	<li><a href='../2008/11.html'>November 2008</a></li>
+	<li><a href='../2008/10.html'>October 2008</a></li>
+	<li><a href='../2008/09.html'>September 2008</a></li>
+	<li><a href='../2008/07.html'>July 2008</a></li>
+	<li><a href='../2008/06.html'>June 2008</a></li>
+	<li><a href='../2008/05.html'>May 2008</a></li>
+	<li><a href='../2008/04.html'>April 2008</a></li>
+	<li><a href='../2008/01.html'>January 2008</a></li>
+	<li><a href='../2007/11.html'>November 2007</a></li>
+	<li><a href='../2007/10.html'>October 2007</a></li>
+	<li><a href='../2007/09.html'>September 2007</a></li>
+	<li><a href='../2007/06.html'>June 2007</a></li>
+	<li><a href='../2007/05.html'>May 2007</a></li>
+	<li><a href='../2007/04.html'>April 2007</a></li>
+	<li><a href='../2007/03.html'>March 2007</a></li>
+	<li><a href='../2007/02.html'>February 2007</a></li>
+	<li><a href='../2007/01.html'>January 2007</a></li>
+	<li><a href='../2006/12.html'>December 2006</a></li>
+	<li><a href='../2006/11.html'>November 2006</a></li>
+	<li><a href='../2006/10.html'>October 2006</a></li>
+	<li><a href='../2006/09.html'>September 2006</a></li>
+	<li><a href='../2006/08.html'>August 2006</a></li>
+	<li><a href='../2006/07.html'>July 2006</a></li>
+	<li><a href='../2006/06.html'>June 2006</a></li>
+	<li><a href='../2006/05.html'>May 2006</a></li>
+	<li><a href='../2006/04.html'>April 2006</a></li>
+	<li><a href='../2006/03.html'>March 2006</a></li>
+	<li><a href='../2006/02.html'>February 2006</a></li>
+	<li><a href='../2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="../../category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="../../category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="../../category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="../../category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="../../category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="../../category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../../../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/date/2011/02 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:59:29 GMT -->
+</html>

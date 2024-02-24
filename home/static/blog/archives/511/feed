@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Two design episodes in Rails	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/511/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/511</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: houses for sale in janesville wi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-95521</link>
+		<dc:creator><![CDATA[houses for sale in janesville wi]]></dc:creator>
+		<pubDate>Sat, 11 Aug 2012 03:59:29 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-95521</guid>
+					<description><![CDATA[The milk state is now open for property business.  I thank God. Gosh, what was a realtor to do?]]></description>
+		<content:encoded><![CDATA[<p>The milk state is now open for property business.  I thank God. Gosh, what was a realtor to do?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93803</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 04 Mar 2011 15:09:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93803</guid>
+					<description><![CDATA[Uberto: of course you can add a new Schedules table, and that&#039;s exactly what we did.  My observation is that in retrospective it&#039;s not worth it to make a separate table, when all I need is to add a &quot;valid_from_date&quot; and &quot;valid_until_date&quot; columns.   
+
+In fact, in all the queries that matter (i.e. those that show data to the user) you must take validity into account, and that includes filtering valid products in search results; and since results are to be paginated I don&#039;t want to check validity in application code.  That would lead to a very ugly can of worms.  The overhead is not just in changing all queries to use a join (that could be taken care of with a view, as Carlo suggests), but also in checking if the schedule already exists just about everywhere you mention a schedule.  (That could be taken care of with a Ruby module, in fact... I suspect that the polymorphic has_one was not a very good choice.)]]></description>
+		<content:encoded><![CDATA[<p>Uberto: of course you can add a new Schedules table, and that&#8217;s exactly what we did.  My observation is that in retrospective it&#8217;s not worth it to make a separate table, when all I need is to add a &#8220;valid_from_date&#8221; and &#8220;valid_until_date&#8221; columns.   </p>
+<p>In fact, in all the queries that matter (i.e. those that show data to the user) you must take validity into account, and that includes filtering valid products in search results; and since results are to be paginated I don&#8217;t want to check validity in application code.  That would lead to a very ugly can of worms.  The overhead is not just in changing all queries to use a join (that could be taken care of with a view, as Carlo suggests), but also in checking if the schedule already exists just about everywhere you mention a schedule.  (That could be taken care of with a Ruby module, in fact&#8230; I suspect that the polymorphic has_one was not a very good choice.)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93800</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Fri, 04 Mar 2011 10:12:59 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93800</guid>
+					<description><![CDATA[I&#039;m not a Rails expert, but why you cannot add a new Table/Entity Schedule with a optional join to Category and Discount?
+
+I&#039;m assuming in most of the cases when you load a category (CRUD) you don&#039;t care much about if it&#039;s active or not, and when you need only the active ones it would be just a simple SQL join, or you load them all and you can validate the schedule rule by code if more complex (like (&quot;Mondays AND NOT Festivity AND BETWEEN(&quot;9:00&quot; AND &quot;19:00&quot;)) OR SPECIAL_OFFER_COUPON
+
+Probably I&#039;m missing something, but as much as I like caveman solutions, they are often hiding a real problem...]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;m not a Rails expert, but why you cannot add a new Table/Entity Schedule with a optional join to Category and Discount?</p>
+<p>I&#8217;m assuming in most of the cases when you load a category (CRUD) you don&#8217;t care much about if it&#8217;s active or not, and when you need only the active ones it would be just a simple SQL join, or you load them all and you can validate the schedule rule by code if more complex (like (&#8220;Mondays AND NOT Festivity AND BETWEEN(&#8220;9:00&#8221; AND &#8220;19:00&#8221;)) OR SPECIAL_OFFER_COUPON</p>
+<p>Probably I&#8217;m missing something, but as much as I like caveman solutions, they are often hiding a real problem&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93794</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 02 Mar 2011 18:18:20 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93794</guid>
+					<description><![CDATA[Hi Carlo,
+
+I dig the use of views to simplify the DB interface.  In a way you are pushing for a different solution than mine, but I agree with you that giving more thought to DB design is important.  Only you are a better data modeler than me!
+
+The reason why many people, including me, tend to avoid stored procedures, triggers, etc as much as possible is that this scatters logic between application and DB, and places logic in the place that makes it much more difficult to version, to test, to deploy.  Not to mention that it makes schemas much more difficult to port between vendors.]]></description>
+		<content:encoded><![CDATA[<p>Hi Carlo,</p>
+<p>I dig the use of views to simplify the DB interface.  In a way you are pushing for a different solution than mine, but I agree with you that giving more thought to DB design is important.  Only you are a better data modeler than me!</p>
+<p>The reason why many people, including me, tend to avoid stored procedures, triggers, etc as much as possible is that this scatters logic between application and DB, and places logic in the place that makes it much more difficult to version, to test, to deploy.  Not to mention that it makes schemas much more difficult to port between vendors.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Carlo Pescio				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93791</link>
+		<dc:creator><![CDATA[Carlo Pescio]]></dc:creator>
+		<pubDate>Tue, 01 Mar 2011 18:23:26 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93791</guid>
+					<description><![CDATA[Matteo: I got it like &quot;discount is active only on monday morning&quot;, something that is rather frequent in ecommerce sites. Still, it&#039;s a reasonable change in business requirements :-).
+
+About what I would do: my approach to database design changed quite a bit over the years, and a comprehensive explanation of *why* I would do what follows would require more space than reasonable for a blog comment. Actually, I think it&#039;s a good fit for an &quot;idea paper&quot;, discussing a simple but realistic design issue with the necessary depth of scrutiny. I&#039;ll provide a short rationale anyway, because it&#039;s probably not the mainstream approach.
+
+Looking back at the original problem, I don&#039;t truly like the idea of merging Discount and Schedule at the database level, despite code simplification. The fundamental issue here is lack of modularity / separation of concerns. We are coupling two different concepts:
+
+- the concept of discount, which is a fundamental domain concept in sales.
+
+- the concept of activating a discount on a specific date range (or in my case with different rules), which is a transient business/marketing policy, that may change at any time.
+
+Without proper modularity, we get an entangled database structure; in some cases [not yours], we also get entangled code (I discussed a slightly related problem in an old post: http://www.carlopescio.com/2008/04/can-aop-inform-oop-toward-soa-too-part.html).
+
+Unfortunately, modularity is not part of mainstream database culture, which is why we usually end up with tightly coupled database schemas, where nobody feels confident about removing a field (not to mention a table). However, we have several ways to decouple things, also at the database level. 
+
+So, what I would do? I can see these forces in the problem setting:
+
+- we want to do selections on the database side (efficiency)
+
+- we want a flexible scheduling policy (I would call this business agility :-). more properly, we want to change scheduling policy with ease. I don&#039;t need an overblown solution.
+
+- selection takes the scheduling policy *result* as part of its conditions.
+
+To make a long story short, this forcefield is suggesting me to:
+
+- use a database decoupling technique to hide the concrete scheduling policy to whoever is querying Discount, while still keeping everything on the database side (as far as possible). 
+
+In practice, I would simply use a database view. The view will tell me if a Discount is Active, so structurally I would just see a Discount Id and a boolean.
+
+What is behind the structural side of the view (that is, in the SQL)? It depends!
+  - in your case, a very simple query (of course, I need a Schedule table, but this is hidden by the view)
+  - in my case, if the schedule language is simple (like ORing several time/date intervals), probably a slightly more complex query, and a different schedule table, but everything is still manageable in plain SQL.
+  - if I need a very powerful language, I can use whatever mechanism I choose (even a timer-driven evaluation of conditions) to populate a table, and make the view a mirror of that table.
+  - etc.
+
+You can easily see that the structural side (the returned fields) of the view takes the role of a Strategy pattern interface, while the procedural/SQL side takes the role of the Strategy implementation. Since every decent database does a predicate pushing on views, efficiency won&#039;t be compromised. On the efficiency side, one may also want to experiment with materialized views (not in this case, I would say, but may prove useful in similar cases). 
+
+Once you do that, you still have to live with a join (between Discount and the view). This is unfortunate, and in my opinion, is mostly a consequence of the lack of attention to modularity (and modularity-enforcing techniques) in the database community. For instance, Oracle 11g introduced the concept of virtual field (which would be perfect for this), with some ad-hoc constraints that do not apply to views. 
+Besides, too many people think of views, triggers, stored procedures etc like kludges, because they are never formally taught to use them as engineering tools, and they learn on the job to use them just to patch things around. But that would be another long story :-)]]></description>
+		<content:encoded><![CDATA[<p>Matteo: I got it like &#8220;discount is active only on monday morning&#8221;, something that is rather frequent in ecommerce sites. Still, it&#8217;s a reasonable change in business requirements :-).</p>
+<p>About what I would do: my approach to database design changed quite a bit over the years, and a comprehensive explanation of *why* I would do what follows would require more space than reasonable for a blog comment. Actually, I think it&#8217;s a good fit for an &#8220;idea paper&#8221;, discussing a simple but realistic design issue with the necessary depth of scrutiny. I&#8217;ll provide a short rationale anyway, because it&#8217;s probably not the mainstream approach.</p>
+<p>Looking back at the original problem, I don&#8217;t truly like the idea of merging Discount and Schedule at the database level, despite code simplification. The fundamental issue here is lack of modularity / separation of concerns. We are coupling two different concepts:</p>
+<p>&#8211; the concept of discount, which is a fundamental domain concept in sales.</p>
+<p>&#8211; the concept of activating a discount on a specific date range (or in my case with different rules), which is a transient business/marketing policy, that may change at any time.</p>
+<p>Without proper modularity, we get an entangled database structure; in some cases [not yours], we also get entangled code (I discussed a slightly related problem in an old post: <a href="http://www.carlopescio.com/2008/04/can-aop-inform-oop-toward-soa-too-part.html" rel="nofollow">http://www.carlopescio.com/2008/04/can-aop-inform-oop-toward-soa-too-part.html</a>).</p>
+<p>Unfortunately, modularity is not part of mainstream database culture, which is why we usually end up with tightly coupled database schemas, where nobody feels confident about removing a field (not to mention a table). However, we have several ways to decouple things, also at the database level. </p>
+<p>So, what I would do? I can see these forces in the problem setting:</p>
+<p>&#8211; we want to do selections on the database side (efficiency)</p>
+<p>&#8211; we want a flexible scheduling policy (I would call this business agility :-). more properly, we want to change scheduling policy with ease. I don&#8217;t need an overblown solution.</p>
+<p>&#8211; selection takes the scheduling policy *result* as part of its conditions.</p>
+<p>To make a long story short, this forcefield is suggesting me to:</p>
+<p>&#8211; use a database decoupling technique to hide the concrete scheduling policy to whoever is querying Discount, while still keeping everything on the database side (as far as possible). </p>
+<p>In practice, I would simply use a database view. The view will tell me if a Discount is Active, so structurally I would just see a Discount Id and a boolean.</p>
+<p>What is behind the structural side of the view (that is, in the SQL)? It depends!<br />
+  &#8211; in your case, a very simple query (of course, I need a Schedule table, but this is hidden by the view)<br />
+  &#8211; in my case, if the schedule language is simple (like ORing several time/date intervals), probably a slightly more complex query, and a different schedule table, but everything is still manageable in plain SQL.<br />
+  &#8211; if I need a very powerful language, I can use whatever mechanism I choose (even a timer-driven evaluation of conditions) to populate a table, and make the view a mirror of that table.<br />
+  &#8211; etc.</p>
+<p>You can easily see that the structural side (the returned fields) of the view takes the role of a Strategy pattern interface, while the procedural/SQL side takes the role of the Strategy implementation. Since every decent database does a predicate pushing on views, efficiency won&#8217;t be compromised. On the efficiency side, one may also want to experiment with materialized views (not in this case, I would say, but may prove useful in similar cases). </p>
+<p>Once you do that, you still have to live with a join (between Discount and the view). This is unfortunate, and in my opinion, is mostly a consequence of the lack of attention to modularity (and modularity-enforcing techniques) in the database community. For instance, Oracle 11g introduced the concept of virtual field (which would be perfect for this), with some ad-hoc constraints that do not apply to views.<br />
+Besides, too many people think of views, triggers, stored procedures etc like kludges, because they are never formally taught to use them as engineering tools, and they learn on the job to use them just to patch things around. But that would be another long story :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93788</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 01 Mar 2011 08:19:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93788</guid>
+					<description><![CDATA[Hi Carlo, it&#039;s a pleasure.
+
+You make an interesting point.  The schedule I was talking about was not a daily schedule, it was an interval of dates, as in &quot;I will show the new team shirt on the day of the official presentation&quot;, not &quot;I will allow you to buy shoes from 9 to 5&quot;.  Anyway I take your challenge.
+
+If the requirement were to *remember* when a product *was/will be* scheduled, then the way to go would be a separate table.  
+
+If your requirement is a complex daily/weekly schedule, like in your example of 7:30-9:00 + 19:30-21:00, I would consider the use of an expression language, kind of like what Unix Cron does.  That would not be easy to evaluate in SQL, though.  You would need to move complex logic to SQL, kind of stored procedure, or else evaluate the the schedule logic in application code, and that makes paginating free search results more difficult.
+
+In any case, the caveman&#039;s solution code is not scattered, at least on the application code side; it&#039;s well factored in a single Ruby module.  The columns it needs, though, would be duplicated on all tables that should support &quot;schedulable&quot;.
+
+What would you do?
+]]></description>
+		<content:encoded><![CDATA[<p>Hi Carlo, it&#8217;s a pleasure.</p>
+<p>You make an interesting point.  The schedule I was talking about was not a daily schedule, it was an interval of dates, as in &#8220;I will show the new team shirt on the day of the official presentation&#8221;, not &#8220;I will allow you to buy shoes from 9 to 5&#8221;.  Anyway I take your challenge.</p>
+<p>If the requirement were to *remember* when a product *was/will be* scheduled, then the way to go would be a separate table.  </p>
+<p>If your requirement is a complex daily/weekly schedule, like in your example of 7:30-9:00 + 19:30-21:00, I would consider the use of an expression language, kind of like what Unix Cron does.  That would not be easy to evaluate in SQL, though.  You would need to move complex logic to SQL, kind of stored procedure, or else evaluate the the schedule logic in application code, and that makes paginating free search results more difficult.</p>
+<p>In any case, the caveman&#8217;s solution code is not scattered, at least on the application code side; it&#8217;s well factored in a single Ruby module.  The columns it needs, though, would be duplicated on all tables that should support &#8220;schedulable&#8221;.</p>
+<p>What would you do?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Carlo Pescio				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93786</link>
+		<dc:creator><![CDATA[Carlo Pescio]]></dc:creator>
+		<pubDate>Tue, 01 Mar 2011 07:53:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93786</guid>
+					<description><![CDATA[Matteo,
+interesting read. I share your appreciation for simple code and simple queries. Still, I guess you&#039;ll agree that in the end what we want is simple maintenance / extension. 
+Simple code works toward that goal, unless it&#039;s too simple, in which case maintenance / extension requires a complete rewriting. In worst case, a complete rewriting of scattered code. 
+
+That said, as your customer :-)) I&#039;d like to ask for a simple change (or two)
+
+- change 1
+my schedule isn&#039;t really 9 to 5. is more like 7:30-9:00 + 19:30-21:00, that is multiple intervals.
+
+- change 2
+no no, wait, I changed my mind again. I want a different schedule monday and friday.
+
+Would you still go caveman in this case? (not that I particularly like complex joins, so the real design challenge here would be to make this stuff flexible *and* easy :-))]]></description>
+		<content:encoded><![CDATA[<p>Matteo,<br />
+interesting read. I share your appreciation for simple code and simple queries. Still, I guess you&#8217;ll agree that in the end what we want is simple maintenance / extension.<br />
+Simple code works toward that goal, unless it&#8217;s too simple, in which case maintenance / extension requires a complete rewriting. In worst case, a complete rewriting of scattered code. </p>
+<p>That said, as your customer :-)) I&#8217;d like to ask for a simple change (or two)</p>
+<p>&#8211; change 1<br />
+my schedule isn&#8217;t really 9 to 5. is more like 7:30-9:00 + 19:30-21:00, that is multiple intervals.</p>
+<p>&#8211; change 2<br />
+no no, wait, I changed my mind again. I want a different schedule monday and friday.</p>
+<p>Would you still go caveman in this case? (not that I particularly like complex joins, so the real design challenge here would be to make this stuff flexible *and* easy :-))</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Tweets that mention Extreme Enthusiasm » Blog Archive » Two design episodes in Rails -- Topsy.com				</title>
+				<link>http://matteo.vaccari.name/blog/archives/511/comment-page-1#comment-93765</link>
+		<dc:creator><![CDATA[Tweets that mention Extreme Enthusiasm » Blog Archive » Two design episodes in Rails -- Topsy.com]]></dc:creator>
+		<pubDate>Fri, 25 Feb 2011 19:12:53 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=511#comment-93765</guid>
+					<description><![CDATA[[...] This post was mentioned on Twitter by Luca Mearelli, Matteo Vaccari. Matteo Vaccari said: Two design episodes in Rails: http://matteo.vaccari.name/blog/archives/511 [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] This post was mentioned on Twitter by Luca Mearelli, Matteo Vaccari. Matteo Vaccari said: Two design episodes in Rails: <a href="http://matteo.vaccari.name/blog/archives/511" rel="nofollow">http://matteo.vaccari.name/blog/archives/511</a> [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>
