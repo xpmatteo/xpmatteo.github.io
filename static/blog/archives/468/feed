@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: November is busy :-)	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/468/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/468</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/468/comment-page-1#comment-93614</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 13 Nov 2010 13:19:22 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=468#comment-93614</guid>
+					<description><![CDATA[@Giorgio: glad to see that you made it after all :-)]]></description>
+		<content:encoded><![CDATA[<p>@Giorgio: glad to see that you made it after all :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/468/comment-page-1#comment-93597</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Mon, 08 Nov 2010 12:16:20 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=468#comment-93597</guid>
+					<description><![CDATA[Well, there&#039;s a big &quot;AGENDA&quot; button on the website.  Odd that I didn&#039;t see it.  On the other hand, I clicked the &quot;program&quot; menu item and what I saw was a page *about* the program that did not *contain* the program.  Don&#039;t make me think!!!]]></description>
+		<content:encoded><![CDATA[<p>Well, there&#8217;s a big &#8220;AGENDA&#8221; button on the website.  Odd that I didn&#8217;t see it.  On the other hand, I clicked the &#8220;program&#8221; menu item and what I saw was a page *about* the program that did not *contain* the program.  Don&#8217;t make me think!!!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/468/comment-page-1#comment-93593</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 07 Nov 2010 14:42:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=468#comment-93593</guid>
+					<description><![CDATA[True, there&#039;s no schedule on the website.  I had an email from the organizers a while ago that said:
+
+Session: Programmazione web libera dai framework
+Time: Wednesday, 10 November 2010, 10:45-11:45
+Room: Room 2]]></description>
+		<content:encoded><![CDATA[<p>True, there&#8217;s no schedule on the website.  I had an email from the organizers a while ago that said:</p>
+<p>Session: Programmazione web libera dai framework<br />
+Time: Wednesday, 10 November 2010, 10:45-11:45<br />
+Room: Room 2</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/468/comment-page-1#comment-93590</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Sun, 07 Nov 2010 10:21:35 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=468#comment-93590</guid>
+					<description><![CDATA[I will be at Webtechcon on Wednesday, but I still don&#039;t know if I&#039;ll see your talk because there is no schedule on the website. :)]]></description>
+		<content:encoded><![CDATA[<p>I will be at Webtechcon on Wednesday, but I still don&#8217;t know if I&#8217;ll see your talk because there is no schedule on the website. :)</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Algebraic datatypes in Java	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/529/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/529</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Victor Nazarov				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-256613</link>
+		<dc:creator><![CDATA[Victor Nazarov]]></dc:creator>
+		<pubDate>Fri, 29 Jan 2016 10:57:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-256613</guid>
+					<description><![CDATA[Here is my library [adt4j](https://github.com/sviperll/adt4j) that allows you to use visitor pattern like presented in the above examples, but spend yourself from writing an excess of boilerplate code required by Java language. Adt4j generates &quot;sealed&quot; subclasses with many convinience methods.]]></description>
+		<content:encoded><![CDATA[<p>Here is my library [adt4j](<a href="https://github.com/sviperll/adt4j" rel="nofollow">https://github.com/sviperll/adt4j</a>) that allows you to use visitor pattern like presented in the above examples, but spend yourself from writing an excess of boilerplate code required by Java language. Adt4j generates &#8220;sealed&#8221; subclasses with many convinience methods.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Cláudia				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-94380</link>
+		<dc:creator><![CDATA[Cláudia]]></dc:creator>
+		<pubDate>Wed, 10 Aug 2011 18:05:58 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-94380</guid>
+					<description><![CDATA[Maybe you should take a look at the Tom language:
+ - http://tom.loria.fr
+Tom is embedded in Java and offers constructs for FP in OO. In Tom, we have two ways to define your ADT:
+ 1 - Define the Java classes you want to use and handwrite a mapping from an ADT to it by using constructs provided by Tom;
+ 2 - Write a BNF grammar of your ADT and use the Gom tool to generate both java classes and mapping. 
+After that, we can apply pattern matching over the algebraic terms inside java methods. For instance, your example in Tom+Gom would be:
+
+import visitor.visitor.types.*;
+public class Visitor {
+  %gom {
+    module Visitor 
+      imports int
+      abstract syntax
+      Tree = EmptyTree()
+            &#124; Leaf(value:int)
+            &#124; Node(left: Tree, right: Tree)
+  }
+
+  public static void main(String[] args) {
+    Visitor v = new Visitor();
+    Tree tree = `Node(Node(Leaf(0),EmptyTree()),EmptyTree());
+    int result = v.height(tree);
+    System.out.println(result);
+  }
+
+  public int height(Tree t) {
+    %match(t) {
+      EmptyTree() -&#062; { return 0; }
+      Leaf(x) -&#062; { return 1; }
+      Node(l,r) -&#062; { return 1 + Math.max(height(`l), height(`r)); }
+    }
+    return -1;
+  }
+}
+
+Well, I don&#039;t know if it&#039;s interesting for you (yes, I saw your post is a little old now). Anyway, here are my five cents. =)]]></description>
+		<content:encoded><![CDATA[<p>Maybe you should take a look at the Tom language:<br />
+ &#8211; <a href="http://tom.loria.fr" rel="nofollow">http://tom.loria.fr</a><br />
+Tom is embedded in Java and offers constructs for FP in OO. In Tom, we have two ways to define your ADT:<br />
+ 1 &#8211; Define the Java classes you want to use and handwrite a mapping from an ADT to it by using constructs provided by Tom;<br />
+ 2 &#8211; Write a BNF grammar of your ADT and use the Gom tool to generate both java classes and mapping.<br />
+After that, we can apply pattern matching over the algebraic terms inside java methods. For instance, your example in Tom+Gom would be:</p>
+<p>import visitor.visitor.types.*;<br />
+public class Visitor {<br />
+  %gom {<br />
+    module Visitor<br />
+      imports int<br />
+      abstract syntax<br />
+      Tree = EmptyTree()<br />
+            | Leaf(value:int)<br />
+            | Node(left: Tree, right: Tree)<br />
+  }</p>
+<p>  public static void main(String[] args) {<br />
+    Visitor v = new Visitor();<br />
+    Tree tree = `Node(Node(Leaf(0),EmptyTree()),EmptyTree());<br />
+    int result = v.height(tree);<br />
+    System.out.println(result);<br />
+  }</p>
+<p>  public int height(Tree t) {<br />
+    %match(t) {<br />
+      EmptyTree() -&gt; { return 0; }<br />
+      Leaf(x) -&gt; { return 1; }<br />
+      Node(l,r) -&gt; { return 1 + Math.max(height(`l), height(`r)); }<br />
+    }<br />
+    return -1;<br />
+  }<br />
+}</p>
+<p>Well, I don&#8217;t know if it&#8217;s interesting for you (yes, I saw your post is a little old now). Anyway, here are my five cents. =)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93960</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 14 May 2011 11:42:09 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93960</guid>
+					<description><![CDATA[Andrea: fixed, thanks! :-)]]></description>
+		<content:encoded><![CDATA[<p>Andrea: fixed, thanks! :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93956</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Wed, 11 May 2011 09:04:15 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93956</guid>
+					<description><![CDATA[So we wrote a builder implemented as a visitor!
+
+Off topic: I noted all posts of your blog have minutes = hour!]]></description>
+		<content:encoded><![CDATA[<p>So we wrote a builder implemented as a visitor!</p>
+<p>Off topic: I noted all posts of your blog have minutes = hour!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93954</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 10 May 2011 16:51:13 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93954</guid>
+					<description><![CDATA[@Andrea: if I understand correctly, what you have looks more like a &lt;em&gt;builder&lt;/em&gt; than a visitor.  With &quot;builder&quot; the intent is to map an abstract tree to something else, in a way that lets you change how you define the &quot;something else&quot;.]]></description>
+		<content:encoded><![CDATA[<p>@Andrea: if I understand correctly, what you have looks more like a <em>builder</em> than a visitor.  With &#8220;builder&#8221; the intent is to map an abstract tree to something else, in a way that lets you change how you define the &#8220;something else&#8221;.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93949</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Fri, 06 May 2011 21:04:44 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93949</guid>
+					<description><![CDATA[Hi Matteo, with my team I came to the same solution in a situation where we have to turn &quot;in memory filters&quot; into database queries (in our case Hibernate queries). In this case the visitor is a generic and the getResult method returns a Query object but it could be implemented to return an sql string. This leave us the possibility to change Hibernate with Jdbc or whatever else, if needed.
+The choise seemed very natural and produced elegant code, but thinking to OCP the situation is reverted with respect to your example: it is more likely  we need to add new filters rather than add new database implementations, so we&#039;ll have to modify the visitor code violating OCP.
+However I prefer to not depend on the database layer so I choosed to close the code with respect to the database layer and let it open with respect to the need of new filters.
+I would like to have your opinion on this.]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo, with my team I came to the same solution in a situation where we have to turn &#8220;in memory filters&#8221; into database queries (in our case Hibernate queries). In this case the visitor is a generic and the getResult method returns a Query object but it could be implemented to return an sql string. This leave us the possibility to change Hibernate with Jdbc or whatever else, if needed.<br />
+The choise seemed very natural and produced elegant code, but thinking to OCP the situation is reverted with respect to your example: it is more likely  we need to add new filters rather than add new database implementations, so we&#8217;ll have to modify the visitor code violating OCP.<br />
+However I prefer to not depend on the database layer so I choosed to close the code with respect to the database layer and let it open with respect to the need of new filters.<br />
+I would like to have your opinion on this.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Erik				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93833</link>
+		<dc:creator><![CDATA[Erik]]></dc:creator>
+		<pubDate>Fri, 11 Mar 2011 13:39:42 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93833</guid>
+					<description><![CDATA[Hi Matteo, if you ever get round to working with Scala, I&#039;d be interested to know how you fare. If you&#039;re an XP aficionado as well as a sufferer from Haskell envy, you may well be chuffed to bits with it. Anyway, get well soon, and sorry about hijacking your comments. ;)]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo, if you ever get round to working with Scala, I&#8217;d be interested to know how you fare. If you&#8217;re an XP aficionado as well as a sufferer from Haskell envy, you may well be chuffed to bits with it. Anyway, get well soon, and sorry about hijacking your comments. ;)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93832</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 11 Mar 2011 12:15:13 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93832</guid>
+					<description><![CDATA[Erik, 
+
+thank you for your sensible response.  It&#039;s true that I looked at Scala very superficially.  It might well be that you&#039;re right and I&#039;m wrong.  I will pospone judgment to when/if I get to work with Scala.
+
+I will answer about Java being simple: why, yes, it looks to me it&#039;s a comparatively simple language.  It&#039;s much simpler than C++, and much safer than C. There are dark corners that most programmers don&#039;t know, but the subset of what is well known is mostly the same for most people.  I think it&#039;s simple enough for the purposes of application programmers, which are the primary audience for this language.]]></description>
+		<content:encoded><![CDATA[<p>Erik, </p>
+<p>thank you for your sensible response.  It&#8217;s true that I looked at Scala very superficially.  It might well be that you&#8217;re right and I&#8217;m wrong.  I will pospone judgment to when/if I get to work with Scala.</p>
+<p>I will answer about Java being simple: why, yes, it looks to me it&#8217;s a comparatively simple language.  It&#8217;s much simpler than C++, and much safer than C. There are dark corners that most programmers don&#8217;t know, but the subset of what is well known is mostly the same for most people.  I think it&#8217;s simple enough for the purposes of application programmers, which are the primary audience for this language.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Erik				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93831</link>
+		<dc:creator><![CDATA[Erik]]></dc:creator>
+		<pubDate>Fri, 11 Mar 2011 11:03:20 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93831</guid>
+					<description><![CDATA[Case classes aren&#039;t a &#039;different kind&#039; of class; they are simply classes that will give you some stuff for free, like an extractor (for matching), a builder (so you won&#039;t have to call new), #equals, etc. These are all implementable in standard Scala though, so there&#039;s nothing &#039;different&#039; about case classes. They&#039;re &#039;just&#039; syntactic sugar in that sense, but you can see for yourself what an enormous difference it makes.
+
+Scala is precisely about having a small language (e.g. no special constructs for enums, static methods, etc.) and applying OO/FP principles uniformly (e.g. the collections library). I don&#039;t mean this in a pedantic way, but from your comment I suspect you might have looked at Scala somewhat superficially. (Sorry if this makes me sound like a douche.)
+
+I could imagine how it might make sense to agree on a subset of Scala, but that may depend a lot on your problem domain. Some problems are more amenable to a FP approach, some are more suitable for OO.
+
+It also puzzles me that someone would call Java &#039;simple&#039;. I suppose it depends on your definition of simple, and it may be down to taste as well, but Java certainly isn&#039;t simple in any way that is meaningful to me. 
+
+Anyway, thanks for sharing your thoughts!]]></description>
+		<content:encoded><![CDATA[<p>Case classes aren&#8217;t a &#8216;different kind&#8217; of class; they are simply classes that will give you some stuff for free, like an extractor (for matching), a builder (so you won&#8217;t have to call new), #equals, etc. These are all implementable in standard Scala though, so there&#8217;s nothing &#8216;different&#8217; about case classes. They&#8217;re &#8216;just&#8217; syntactic sugar in that sense, but you can see for yourself what an enormous difference it makes.</p>
+<p>Scala is precisely about having a small language (e.g. no special constructs for enums, static methods, etc.) and applying OO/FP principles uniformly (e.g. the collections library). I don&#8217;t mean this in a pedantic way, but from your comment I suspect you might have looked at Scala somewhat superficially. (Sorry if this makes me sound like a douche.)</p>
+<p>I could imagine how it might make sense to agree on a subset of Scala, but that may depend a lot on your problem domain. Some problems are more amenable to a FP approach, some are more suitable for OO.</p>
+<p>It also puzzles me that someone would call Java &#8216;simple&#8217;. I suppose it depends on your definition of simple, and it may be down to taste as well, but Java certainly isn&#8217;t simple in any way that is meaningful to me. </p>
+<p>Anyway, thanks for sharing your thoughts!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/529/comment-page-1#comment-93830</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 11 Mar 2011 08:24:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=529#comment-93830</guid>
+					<description><![CDATA[@Erik: yes, Scala implements algebraic datatypes directly, at the cost of defining &quot;case classes&quot; as a different kind of class, together with particular ways to construct terms and functions.  But as the Java example shows, you could implement them with ordinary classes.  
+
+This is what I dislike about Scala: they want to have every language feature, and they add new, different concepts to the language to support them.  What ever happened to the good old principle of defining a language around few concepts applied uniformly?
+
+The attitude that simplicity is not important is what makes working with Java Enterprise (and most Java frameworks) a pain.  This is what makes C++ and Perl impractical engineering tools (because they require inordinate amounts of training to learn to use well.)
+
+I&#039;m afraid Scala joins C++ and Perl in the class of languages where every developer only knows and uses a subset of the language, and no two developers use the same subset.  This would make it a poor engineering tool.  ]]></description>
+		<content:encoded><![CDATA[<p>@Erik: yes, Scala implements algebraic datatypes directly, at the cost of defining &#8220;case classes&#8221; as a different kind of class, together with particular ways to construct terms and functions.  But as the Java example shows, you could implement them with ordinary classes.  </p>
+<p>This is what I dislike about Scala: they want to have every language feature, and they add new, different concepts to the language to support them.  What ever happened to the good old principle of defining a language around few concepts applied uniformly?</p>
+<p>The attitude that simplicity is not important is what makes working with Java Enterprise (and most Java frameworks) a pain.  This is what makes C++ and Perl impractical engineering tools (because they require inordinate amounts of training to learn to use well.)</p>
+<p>I&#8217;m afraid Scala joins C++ and Perl in the class of languages where every developer only knows and uses a subset of the language, and no two developers use the same subset.  This would make it a poor engineering tool.  </p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

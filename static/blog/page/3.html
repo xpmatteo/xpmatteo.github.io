@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/page/3 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:25:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  </title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+  <p class='mobile-quicklink'><a href="#right-col">Navigation</a></p>
+  <div id='main-col'>
+  	
+  		
+  			<div class="post" id="post-824">
+  				<h2><a href="../archives/824.html" rel="bookmark" title="Permanent Link to Refactor to remove duplication">Refactor to remove duplication</a></h2>
+  				<small>March 17th, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>The gist of the message I got from Extreme Programming in the early years of this century was that good code would just emerge if we followed the four rules of Simple Design, as advocated by Kent Beck:</p>
+<blockquote><p>
+The code is simple enough when it:</p>
+<ol>
+<li>Runs all the tests</li>
+<li>Has no duplicated logic</li>
+<li>States every intention important to the programmers</li>
+<li>Has the fewest possible classes and methods</li>
+</ol>
+<p>in this order.
+</p></blockquote>
+<p>Various formulation of this list exist.  Given that &#8220;Runs all the test&#8221; is granted (we don&#8217;t want broken code) and &#8220;Has the fewest possible classes and methods&#8221; is also granted (simplicity seems to imply &#8220;few things&#8221;), I often wondered how the other two rules can be used to generate good design.  </p>
+<p>J.B. Rainsberger <a href="http://www.jbrains.ca/permalink/the-four-elements-of-simple-design">says</a>:</p>
+<blockquote><p>
+  Put more simply, if you master removing duplication and fixing bad names, then I claim you master object-oriented design
+</p></blockquote>
+<p>That&#8217;s a bold claim! How can this be?</p>
+<p>In TDD By Example, Kent Beck says that the third step of TDD is not just &#8220;refactor&#8221;, but <strong>refactor to remove duplication</strong>.  The point then is &#8220;what is duplication?&#8221;  Is that just duplicated lines of code?  </p>
+<p>Over time I started collecting interesting examples of duplication.  It turns out that <em>seeing duplication</em> is a skill that has to be learned.</p>
+<h3>Obvious duplication</h3>
+<p>The most obvious form of duplication is duplicated lines of code.  That is usually cured by extracting the common lines in a method.  The extraction of a method is often followed by moving the method to a new class, or another existing class.</p>
+<p>This is just one way the four rules push towards a better design.  There are others.</p>
+<h3>Duplication in names</h3>
+<p>There is a beautiful simple exercise in chapter 1 of <a href="http://www2.cpttm.org.mo/cyberlab/softdev/ESAD/">Essential Skills for Agile Development</a>.  It asks to remove duplication in code that looks like this one:</p>
+<p><code></p>
+<pre>
+class Organization {
+  String primaryContactFirstName;
+  String primaryContactLastName;
+  String primaryContactPhone;
+  String secondaryContactFirstName;
+  String secondaryContactLastName;
+  String secondaryContactPhone;
+  ...
+}    
+</pre>
+<p></code></p>
+<p>There is no &#8220;code&#8221; here, just data declarations.  There is quite obvious duplication in the names though.  The string &#8220;primaryContact&#8221; is repeated three times.  The sequence &#8220;firstName, lastName, phone&#8221; is repeated two times.  The point is to arrive at something like</p>
+<p><code></p>
+<pre>
+class Organization {
+  Contact primaryContact;
+  Contact secondaryContact;
+  ...
+}    
+</pre>
+<p></code></p>
+<h3>Primitive obsession</h3>
+<p><em>Primitive Obsession</em> is one of the classic smells from the Refactoring book.  It happens when we use primitive types in place of our own types.  You can see it in the Organization example above, where we use a String to represent a phone number, and again String to represent names of persons.</p>
+<p>Primitive Obsession is one of the most common smells.  Most developers are not even aware that it is a problem.  It is also a smell that takes a long time to remove.  And &#8230; it is a form of duplication.  We are <em>duplicating the choice of representation</em> for a concept.  We can see the cost of this choice when we decide that, say, we want to stop using Java native Date type and start using the Joda Time replacement; then it takes ages to convert all of our code to the new type.</p>
+<p>But when we do this replacement, we are still falling in the same trap; if we change our mind again, it will again take a very long time to convert the code.  What is the answer to this problem?  Should we think long and hard before we start our project on which Date class we want to use, to minimize the chance of having to change it later?  Would that work?</p>
+<p>Of course not! What we really want is to be able to change our mind quickly, whenever we learn that our first choice was not adequate.  Again, the key is in removing the duplication: make the choice in a single place; all of our code will use our own XDate class.  Our XDate could use java.util.Date internally, or something else, but code outside XDate does not know and does not care.</p>
+<p>(Aside.  Using our own Date type has the beneficial effect that all the static method that are usually found in a number of DateUtils classes become instance methods in XDate.  Another smell is removed!  End Aside.)</p>
+<h3>Using third party APIs directly</h3>
+<p>The primitive obsession smell is just an example of a more general problem: when we use someone else&#8217;s API, we use it directly throughout our code.  When we need, say, to download a data file from some service, what do we do?  Do we start littering our code with calls to java.net.URL and java.net.HttpUrlConnection?  Heavens, no!  That would be committing ourselves to a particular way to solve the http connection problem, and duplicating it in all the places where we need to do it.  </p>
+<p>That would also be a violation of what Robert Martin calls the &#8220;Dependency Inversion Principle&#8221;: depend on abstractions, not on concretions.  The java.net.URL is a concrete way to solve the &#8220;download a remote file&#8221; problem.  </p>
+<p>A better solution would be to hide the decision inside a class.  Just define a <samp>RemoteFile</samp> class with a <samp>download</samp> method.  This way we avoid duplication.</p>
+<p>Alas, this is another smell that most developers don&#8217;t even know about.</p>
+<h3>Hiding design decisions</h3>
+<p>This brings us to a connection that was not obvious: removing duplication leads to the famous paper by David Parnas <a href="https://www.google.com/search?q=on+the+criteria+to+be+used+in+decomposing+systems+into+modules">On the criteria to be used in decomposing systems into modules</a>.  Quote:</p>
+<blockquote><p>
+  We propose instead that one begins with a list of difficult design decisions or design decisions which are likely to change. Each module is then designed to hide such a decision from the others. Since, in most cases, design decisions transcend time of execution, modules will not correspond to steps in the processing.
+</p></blockquote>
+<p>There you have it: a class is a way to codify and centralize a design decision.  A design decision that is duplicated should be moved to its proper home in a single place.  This is one of the things that an XPer must learn, in order to become effective at <a href="http://blog.nayima.be/2012/11/04/agile-tour-brussels-2012-presentation/">becoming faster than the customer</a> :-)</p>
+<p>Further reading: an <a href="http://www.jamesshore.com/Blog/DrawingTheLineOnContinuousDesign.html">essay by James Shore</a> on why removing duplication is key to making continuous design work: it mitigates the risk that unforeseen circumstances will force us to change an earlier decision.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/824.html#comments">2 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-820">
+  				<h2><a href="../archives/820.html" rel="bookmark" title="Permanent Link to Another personal update">Another personal update</a></h2>
+  				<small>February 22nd, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>Almost one year ago I started again as an independent consultant, after five years in Sourcesense/XPeppers.  How&#8217;s it going?</p>
+<p>I have worked with great customers.  They are all good places to work, both technically and from the point of view of the fundamental values: first of all, respect.  (If you&#8217;re a good Java, C#, Php or Ruby programmer and you could be interested in working for one, just ask me.)  </p>
+<p>What value do I bring to these customers?  What kind of work do I do?  </p>
+<p>When I do my best work, I look for the biggest problem and keep working on it, trying different solutions until it gets better (a simple recipe that I learned from <a href="http://blog.nayima.be/">Pascal</a>.)  It&#8217;s not always clear what the biggest problem is, but mostly I look for things that are out of sync with what an Agile team should do.  Two chief things to look for: </p>
+<ol>
+<li>How often do we ship? </li>
+<li>Are the customers (business owners, CEO, other stakeholders) happy? (Which requires sometimes to have difficult conversations)</li>
+</ol>
+<p>Actually, I don&#8217;t really invent or apply the solutions myself; I try to get the organization&#8217;s people to do that.  This makes it far more likely that the solutions make sense and work :-)</p>
+<p>I&#8217;ve been fairly busy, and this is why I didn&#8217;t write here for a long time.  Right now I&#8217;m happy with the way it&#8217;s going.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/820.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-816">
+  				<h2><a href="../archives/816.html" rel="bookmark" title="Permanent Link to TDD no mundo real">TDD no mundo real</a></h2>
+  				<small>February 22nd, 2013 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>TL;DR <a href="https://twitter.com/mauricioaniche">Mauricio Aniche</a>&#8216;s <a href="http://www.casadocodigo.com.br/products/livro-tdd">TDD No Mundo Real</a> is a very good introduction to TDD.</p>
+<p>I learned about Mauricio Aniche&#8217;s book on the <a href="http://www.growing-object-oriented-software.com/">Growing Object-Oriented Software</a> <a href="http://groups.google.com/group/growing-object-oriented-software">mailing list</a>.  At first I thought I would have to wait for a translation, as I don&#8217;t speak Portuguese.  But I soon discovered that I can follow the meaning well enough; in a few spots I got help from Google translate.  I imagine that any speaker of Latin languages can read this book; just try!</p>
+<p>This book is a modern introduction to TDD.  The thing I like the most about it is that it explains the fundamentals using very simple examples.  This for me is high praise: explaining things in a simple way is not easy.  And it&#8217;s always worth it to work on the fundamentals, even when you think you&#8217;re an expert.  </p>
+<p>Chapters 1 to 3 are introductory.  Here Mauricio writes for someone who does not know anything about TDD; he explains how it works and why it&#8217;s much better than traditional development techniques, such as writing little &#8220;main&#8221; methods to test Java classes.</p>
+<p>Chapter 4 is about &#8220;Simplicity and baby steps&#8221;.  This is a fundamental point about TDD, that you work in small increments.  One good point that Mauricio makes is that this concept is often misunderstood.  Some programmers take &#8220;the simplest thing that could possibly work&#8221; to mean &#8220;I&#8217;ll do the simplest possible modification to the current code.&#8221;  This is wrong!  It really means &#8220;make the code as simple as possible with respect to the current tests.&#8221;  Sometimes this means making big, sweeping refactorings in order to make the system simpler.  </p>
+<p>In chapter 5, Mauricio talks about TDD seen as a design technique.  Most TDD practicioners agree that TDD is more about design than tests; yet not everyone can explain well how is it that TDD helps you to design.  The book gives a few examples of how the feedback provided by tests gives you an indication that the production code should be changed.  </p>
+<p>&#8220;Quality of test code&#8221; is the subject of chapter 6.  Here we learn how to keep our tests <abbr title="Don't Repeat Yourself">DRY</abbr> by using Setup and Teardown.</p>
+<p>In chapters 7 and 8 Mauricio shows how tests alert us that the production code has problems of cohesion or coupling.  This is probably the part that even old hands at TDD will find most interesting.</p>
+<p>Then chapter 9 explains some fundamental things about encapsulation, &#8220;Tell, don&#8217;t ask&#8221; and the Law of Demeter.</p>
+<p>Chapter 10 is an explanation of integration tests.</p>
+<p>In conclusion, this book is a concise and complete introduction to TDD.  It&#8217;s very simple and addresses the kind of problems that most working programmers, expecially those working in business software, are likely to find.  What are its shorcomings?  I can think of two: it&#8217;s not available in English, and there&#8217;s no treatment of scenarios, acceptance tests, breaking down features in a list of test.</p>
+<p>Let&#8217;s just hope that Mauricio will translate his book to English, so that it can be circulated more widely.  </p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/816.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-806">
+  				<h2><a href="../archives/806.html" rel="bookmark" title="Permanent Link to On having a boss.  On being a boss.">On having a boss.  On being a boss.</a></h2>
+  				<small>October 1st, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>I was at <a href="http://www.bettersoftware.it/">Better Software</a> in Florence last week, where I heard my friend <a href="https://twitter.com/ziobrando">Alberto Brandolini</a> talk with his usual flair about how problems within organizations relate to problems in the IT departments of organizations.  I agree with most of what Brando said, except for a couple of things.</p>
+<p>You can hear it from just about every cool lean and agile speaker these days.  It&#8217;s the idea that <em>hierarchical control</em> is evil.  For these speakers, the company organizational chart is the symbol of everything that&#8217;s going wrong in the enterprise.  Cool modern speakers about &#8220;agile management&#8221; propose alternative models based on non-hierarchical, ad hoc, informal communication structures.  As far as I understand management, these alternative organization models are deeply flawed.<br />
+ <a href="../archives/806.html#more-806" class="more-link">Read the rest of this entry &raquo;</a></p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/806.html#comments">9 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-789">
+  				<h2><a href="../archives/789.html" rel="bookmark" title="Permanent Link to Exercise: a Pesky Error Message">Exercise: a Pesky Error Message</a></h2>
+  				<small>August 28th, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<style type="text/css" media="screen">
+  pre em {
+    color: red;
+  }
+  p.label {
+    font-size: smaller;
+    margin-top: -1em;
+    font-style: italic;
+    color: gray;
+    text-align: right;
+  }
+  p.label:before { 
+    content: "Snippet ";
+  }
+</style>
+<p>We have some files containing sequences of integers, one number per line. We want to compute the sum of the numbers. The catch is that the numbers are written as roman numerals.</p>
+<p>This code works, but there is a problem: every time we run the tests, a nasty error message appears on standard error. We&#8217;d like to be able to turn off the error message when we run the tests. The error message should still appear when the code is run in production.</p>
+<p>Your job: make it so that the error message does not appear when the tests are run.</p>
+<p>See here the starting code.  Copy it in a file <code>pesky.rb</code> and run it with the commmand <kbd>ruby pesky.rb</kbd>.</p>
+<p><code></p>
+<pre>
+class RomanNumeral
+  def initialize(string)
+    @value = string
+  end
+
+  def to_i
+    case @value
+    when "I"; 1
+    when "II"; 2
+    when "III"; 3
+    when "IV"; 4
+    else
+      STDERR.puts("Invalid numeral '#{@value}'")
+      0
+    end
+  end
+end
+
+class RomanSequence
+  def initialize(input)
+    @input = input
+  end
+
+  def sum
+    result = 0
+    @input.lines.each do |line|
+      roman = RomanNumeral.new(line.chomp)
+      result += roman.to_i
+    end
+    return result
+  end  
+end
+
+require "minitest/autorun"
+require "stringio"
+
+class RomanSequenceTest &lt; MiniTest::Unit::TestCase
+  def test_adds_roman_numerals
+    input = StringIO.new("I\nII\nIII\n")
+    assert_equal 6, RomanSequence.new(input).sum
+  end
+
+  def test_skips_invalid_numerals
+    input = StringIO.new("I\nY\nIII\n")
+    assert_equal 4, RomanSequence.new(input).sum
+  end  
+end
+</pre>
+<p></code></p>
+<h3>PLEASE</h3>
+<p>Solve the exercise before continuing.</p>
+<div style="text-align: center">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br />*
+</div>
+<p> <a href="../archives/789.html#more-789" class="more-link">Read the rest of this entry &raquo;</a></p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a>, <a href="../archives/category/design-exercise.html" rel="category tag">Design Exercise</a> |   <a href="../archives/789.html#comments">1 Comment &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-777">
+  				<h2><a href="../archives/777.html" rel="bookmark" title="Permanent Link to About Kent Beck&#8217;s Stepping Stone strategy">About Kent Beck&#8217;s Stepping Stone strategy</a></h2>
+  				<small>August 15th, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<blockquote><p>
+  Most papers in computer science describe how their author learned what someone else already knew. &mdash; Peter Landin</p>
+<p>And blog posts too. &mdash; Matteo
+</p></blockquote>
+<p>This is a follow-up to <a href="../archives/770.html" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Kent Beck&#8217;s Simplification strategy">my previous post</a>.</p>
+<p>In his <a href="http://www.infoq.com/presentations/responsive-design" title="Responsive Design">Responsive Design</a> presentation, Kent Beck talks about the Stepping Stone strategy.  He talks about two kinds of stepping stones: one is about building abstractions that might make your work easier.  </p>
+<h3>The first kind of Stepping Stone</h3>
+<p>He talks about the abstractions that allow Google people to perform their magic, like BigTable which is built upon Google File System, which is built upon a Distributed Lock Manager. I can relate with this view of &#8220;design&#8221;.  It&#8217;s powerful.  I like this quote from <a href="http://mitpress.mit.edu/catalog/item/default.asp?ttype=2&amp;tid=10928" title="Daniel Jackson. Software Abstractions: Logic, Language, and Analysis">Daniel Jackson</a></p>
+<blockquote>
+<p>Part of what allowed thousands of engineers to build scalable systems at Google is that really smart engineers like Jeff Dean and Sanjay Ghemawat built simple but versatile abstractions like <a href="http://research.google.com/archive/mapreduce.html">MapReduce</a>, SSTable, <a href="http://code.google.com/p/protobuf/">protocol buffers</a>, and the like. Part of what allowed Facebook engineering to scale up is the focus on similarly core abstractions like <a href="https://thrift.apache.org/">Thrift</a>, <a href="https://github.com/facebook/scribe">Scribe</a>, and <a href="http://hive.apache.org/">Hive</a>.  And part of what allows designers to build products effectively at Quora is that <a href="http://www.quora.com/Shreyes-Seshasai/Posts/Tech-Talk-webnode2-and-LiveNode">Webnode and Livenode</a> are fairly easy to understand and build on top of.
+</p>
+<p>Keeping core abstractions simple and general reduces the need for custom solutions and increases the team&#8217;s familiarity and expertise with the common abstractions. The growing popularity and reliability of systems like Memcached, Redis, MongoDB, etc. have reduced the need to build custom storage and caching systems. Funneling the team&#8217;s focus onto a small number of core abstractions rather than fragmenting it over many ad-hoc solutions means that common libraries get more robust, monitoring gets more intelligent, performance characteristics get better understood, and tests get more comprehensive. All of this helps contribute to a simpler system with reduced operational burden.
+</p>
+</blockquote>
+<p>The interesting thing about this strategy is that it&#8217;s the one that you *don&#8217;t* do when you TDD.  Kent Beck is saying, in effect, &#8220;you can do plenty of work with TDD, but sometimes it&#8217;s beneficial to stop doing TDD, and try instead to guess that you will need some intermediate or related thing.  Then you build that something, and the original problem that you had might be much easier to solve.&#8221;  </p>
+<p>Let&#8217;s have an example, shall we?  The Sudoku Solver, for instance.  What Stepping Stones could be useful?  From Artificial Intelligence classes taken long ago, and from Peter Norvig&#8217;s <a href="http://norvig.com/sudoku.html" title="Solving Every Sudoku Puzzle">excellent article on the subject</a>, I know that two ways to solve a Sudoku are depth-first search and constraint propagation.  If I wanted to try depth-first search, my Stepping Stone would be the depth-first search algorithm itself.  </p>
+<blockquote><p>
+  Aside.  What is depth-first search?  Depth-first search means that you model your problem as a search through the space of possible moves.  Given any position you&#8217;re in, you try the first possible move, which brings you in a new position.  </p>
+<ol>
+<li>If the new position is a winning position, you&#8217;re done.  </li>
+<li>If the new position is not a winning one, you make the first possible move from here, and repeat.</li>
+<li>If there are no possible moves in the new position, then you back-track to the previous one, and try the second possible move.</li>
+</ol>
+<p>This algorithm is very simple.  It works for a huge variety of problems; all you need is that you can enumerate moves from any position.  It does not always find a solution; for instance, on some problems it can enter an infinite loop.  But this can&#8217;t happen with Sudoku, so depth-first is an excellent algorithm to try with Sudoku.
+</p></blockquote>
+<p>The depth-first algorithm is easy to test-drive.  Once I have this algorithm, the original problem &#8220;solve Sudoku&#8221; is reduced to &#8220;from any given Sudoku board, enumerate possible moves&#8221;, which is much simpler.</p>
+<p>Not only the problem is made simpler; it&#8217;s also easier to check that I implemented it correctly.</p>
+<p>What about the second way to solve Sudoku, that is constraint propagation?  This brings us to the next section.</p>
+<h3>The second kind of Stepping Stone</h3>
+<p>The other kind of Stepping Stone that Kent Beck mentions in the video is related to the old Lisp maxim</p>
+<blockquote><p>
+  Q. How do you solve a difficult problem?  <br />
+  A. You implement a language in which the problem is trivial to solve.
+</p></blockquote>
+<p>This is the opposite of the Simplification strategy.  Sometimes, <a href="http://books.google.it/books?id=z_hsbu9kyQQC&amp;lpg=PP1&amp;ots=oWmKMkmYU8&amp;dq=polya%20sometimes%20the%20general%20problem%20is%20easier%20to%20solve&amp;pg=PA109#v=onepage&amp;q&amp;f=false" title="How to Solve It: A New Aspect of Mathematical Method - G. Polya">the easiest way to solve a problem is to generalize it</a>.  Let&#8217;s make an example.  The Http access log report problem from my last post would be easy to solve with SQL.  Assuming that the access log lines are in a database table, I could do</p>
+<p><code></p>
+<pre>
+select date,
+  sum(if(status &gt;= 200 and status &lt; 300, 1, 0)) as 2xx-results,
+  sum(if(status &gt;= 300 and status &lt; 400, 1, 0)) as 3xx-results,
+  sum(if(status &gt;= 400 and status &lt; 500, 1, 0)) as 4xx-results,
+  sum(if(status &gt;= 500 and status &lt; 600, 1, 0)) as 5xx-results,
+from access_log
+group by date
+</pre>
+<p></code></p>
+<p>How&#8217;s that for simplicity?  But why couldn&#8217;t I write a similar program in Ruby?  I would start by imagining what the solution would look like:</p>
+<p><code></p>
+<pre>
+Report.new(access_log).
+  group_by(:date).
+  select(:date).
+  sum(:2xx_results) {|x| (200...300) === x.status ? 1 : 0 }.
+  sum(:3xx_results) {|x| (300...400) === x.status ? 1 : 0 }.
+  sum(:4xx_results) {|x| (400...500) === x.status ? 1 : 0 }.
+  sum(:5xx_results) {|x| (500...600) === x.status ? 1 : 0 }  
+</pre>
+<p></code></p>
+<p>Then I could implement the various needed features of <code>Report</code> one by one.  That would give me a nice list of small, safe steps to implement.</p>
+<p>It seems a paradox that solving a more general problem may be easier, but we can see from this example how this can be true.  Another example is in my post <a href="../archives/593.html" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Feeling like carrying bags of sand">Feeling like carrying bags of sand</a>.  </p>
+<p>Getting back to the Sudoku solver, a possible Stepping Stone of the second variety could be to implement a simple constraint propagation system.  If you&#8217;re interested, there is a <a href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-22.html#%_sec_3.3.5">nice discussion in Structure and Interpretation of Computer Programs</a>.</p>
+<h3>Conclusion</h3>
+<p>Stepping Stone is an antidote to the tendency to carry YAGNI too far, to the point that we refuse to write anything that is even slightly more general than what is exactly required.  We&#8217;re not violating YAGNI when it&#8217;s simpler to write a Domain-Specific Language than trying to solve a complicated problem directly.  </p>
+<p>XP warns against premature abstraction.  Let&#8217;s leave aside for the moment the observation that <a href="http://books.google.it/books?id=Laih3tPstjYC&amp;lpg=PT407&amp;ots=7hWem9gbG2&amp;dq=generalization%20abstraction%20object%20thinking&amp;hl=it&amp;pg=PT407#v=onepage&amp;q&amp;f=false" title="Object Thinking - David West - Google Libri">generalization is not the same thing as abstraction</a>.  It is true that by creating abstractions you run the risk of creating things that turn out not to be needed.  Kent Beck warns against this in the video.  Yet, I believe Stepping Stones are a very important dimension to design, one that is not used when we do TDD and that should be considered whenever we have a difficult programming problem. </p>
+<h3>Further reading</h3>
+<p>The idea of &#8220;layers of abstractions&#8221; is (I believe) due to Edsger Dijkstra.  See his paper <a href="https://www.google.com/search?q=dijkstra+%22The+Structure+of+the+%22THE%22-Multiprogramming+System%22">The Structure of the &#8220;THE&#8221;-Multiprogramming System</a>.  It&#8217;s interesting to compare how his idea of powerful abstractions differs from <a href="http://www.carlopescio.com/2012/07/life-without-stupid-objects-episode-1.html" title="Carlo Pescio: Life without Stupid Objects, Episode 1">the weaker concept of &#8220;layers&#8221; in business applications</a>.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/777.html#comments">5 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-770">
+  				<h2><a href="../archives/770.html" rel="bookmark" title="Permanent Link to Kent Beck&#8217;s Simplification strategy">Kent Beck&#8217;s Simplification strategy</a></h2>
+  				<small>August 4th, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>I finally got round to watching <a href="http://www.infoq.com/presentations/responsive-design" title="Responsive Design">Kent Beck&#8217;s video on Responsive Design</a>.  It&#8217;s a very interesting video, for me.  I mean, it&#8217;s very interesting from the point of view of someone who has been doing test-driven development for years, and who for years has watched people work with TDD.</p>
+<p>I&#8217;d like to comment on an interesting part of this video, the one where he talks about the Four Strategies, which are: Leap, Parallel, Stepping Stone and Simplification.  <a href="http://www.carlopescio.com/2010/07/on-kent-becks-responsive-design.html" title="Carlo Pescio: On Kent Beck's Responsive Design">Carlo Pescio says</a> he is unsure about the difference between Stepping Stone and Simplification; but I think I grok what Kent means.  I think that Simplification is a crucial strategy that is enabled by TDD; it would be too difficult and expensive to do without tests.  On the other hand, if you do TDD, you need to understand Simplification, otherwise your tests will not sing.  </p>
+<p>So what is the Simplification strategy?  Kent says (around 00:58)</p>
+<blockquote><p>
+I can imagine that I want to get over here, so what is the least I can do that would be progress?  Suppose I want a big multi-threaded application, so I think, I can&#8217;t do a big multi-threaded application in one step.  It&#8217;s too big a step, it&#8217;s not a safe step.  So what am I going to do?  Well, there are different possibilities, but the one I do all the time is to say, &#8220;Well, which of those am I going to eliminate?  Is it going to be a multi-threaded application doing something trivial, or is it going to be a single-threaded application doing something more substantial?&#8221; [&#8230;] I do this *further* than most people that I encounter.  Someone says &#8220;I want a Sudoku solver and I do a 16 by 16 grid&#8221; and I say &#8220;Well, how about a 1 by 1 grid?&#8221;
+</p></blockquote>
+<p>I think that the Sudoku example nails it.  Let&#8217;s see where the &#8220;one-cell Sudoku&#8221; leads.  What would the test look like?  I suppose it would be like</p>
+<p><code></p>
+<pre>
+def test_solve_one_cell_sudoku
+  sudoku = Sudoku.new(1)
+  sudoku.solve
+  assert_equal "1", sudoku[0,0]
+end
+</pre>
+<p></code></p>
+<p>Any number would solve the one-cell Sudoku, so I arbitrarily chose &#8220;1&#8221; as the solution.  What would the next test look like?  I would write a two-cell Sudoku.  Mind you, not a 2-by-2 Sudoku; that would contain four cells!  Just a non-square, two cells Sudoku: </p>
+<p><code></p>
+<pre>
+def test_solve_two_cells_sudoku
+  sudoku = Sudoku.new(1, 2) # one row, two columns
+  sudoku.solve
+  assert_equal "1", sudoku[0,0]
+  assert_equal "2", sudoku[0,1]
+end
+</pre>
+<p></code></p>
+<p>Again, any two numbers would solve the two-cell Sudoku, as long as they are different.  So I arbitrarily chose &#8220;1&#8221; and &#8220;2&#8221;.</p>
+<p>Now, these arbitrary choices are starting to bug me.  If it&#8217;s true that any other two distinct numbers would do, why do I over-constrain the test?  By forcing &#8220;1&#8221; and &#8220;2&#8221; I&#8217;m placing an extra constraint that might make things more difficult later.  I could make my tests less brittle by specifying exactly what I want:</p>
+<p><code></p>
+<pre>
+def test_solve_one_cell_sudoku
+  sudoku = Sudoku.new(1)
+  sudoku.solve
+  assert_is_digit sudoku[0,0]
+end
+
+def assert_is_digit(string)
+  assert_match /\d/, string
+end
+</pre>
+<p></code></p>
+<p>and</p>
+<p><code></p>
+<pre>
+def test_solve_two_cells_sudoku
+  sudoku = Sudoku.new(1, 2) # one row, two columns
+  sudoku.solve
+  assert_is_digit sudoku[0,0]
+  assert_is_digit sudoku[0,1]
+  assert_not_equal sudoku[0,0], sudoku[0,1]
+end
+</pre>
+<p></code></p>
+<p>OK, now the tests are less brittle, but they are also much less clear!  I like my tests to by very simple examples of what the production code does.  I don&#8217;t like it when I have to think about what the tests <em>mean</em>&#8230;  </p>
+<p>Big flash!  </p>
+<p>I now understand that the indeterminacy of the original tests is in the fact that the solver can choose from an <em>alphabet</em> of symbols that is larger that the Sudoku problem.  If I constrain the first test to &#8220;choose&#8221; its symbol from the alphabet that contains only the &#8220;1&#8221; symbol, then the indeterminacy disappears.  </p>
+<p><code></p>
+<pre>
+def test_solve_one_cell_sudoku
+  sudoku = Sudoku.new(["1"], 1)
+  sudoku.solve
+  assert_equal "1", sudoku[0,0]
+end
+</pre>
+<p></code></p>
+<p>Same for the second test:</p>
+<p><code></p>
+<pre>
+def test_solve_two_cells_sudoku
+  sudoku = Sudoku.new(["1", "2"], 1, 2)
+  sudoku.solve
+  assert_equal "1", sudoku[0,0]
+  assert_equal "2", sudoku[0,1]
+end
+</pre>
+<p></code></p>
+<p>So the Simplification strategy led me to discover a concept, the <em>alphabet</em>, that I was previously ignoring.  Continuing along this route, I will probably be led to &#8220;discover&#8221; the concept of <em>constraint</em>, that will be a useful Stepping Stone to solve the whole Sudoku; not to mention that <em>constraints</em> will be useful to solve Sudoku variants as well.  On the other hand, if I try to solve the whole 9&#215;9 Sudoku problem from the start, I will probably end up writing procedural crap, just as <a href="../archives/43.html" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Sudoku anch&#8217;io">I previously did</a> :-)</p>
+<p>Let me give another example of Simplification: suppose that you have to write a batch command that produces a report out of web access log files.  This is not a theoretical example; I had to do that more than once myself, and the team I&#8217;m currently coaching had to solve this exact problem.  Suppose that the output we want looks like this:</p>
+<p><code></p>
+<pre>
+date          2xx-results    3xx-results   4xx-results   5xx-results
+29/Jul/2011          1223             23           456            12
+01/Aug/2011          1212             24            11           123
+
+</pre>
+<p></code></p>
+<p>As a TDD beginner I would have started with testing an empty report (that is easy to do, but does not teach you much) and then, for a second test, a one line report like this:</p>
+<p><code></p>
+<pre>
+date          2xx-results    3xx-results   4xx-results   5xx-results
+29/Jul/2011             1              0             0             0
+
+</pre>
+<p></code></p>
+<p>The nasty thing is that this second test contains most of the complexity of the whole problem.  It&#8217;s too big a step.  If I try to solve it in one Leap, it will probably lead to procedural crap.  It is better to use the Child Test pattern (from <a href="http://books.google.com/books/about/Test_Driven_Development.html?id=gFgnde_vwMAC&amp;redir_esc=y" title="Test-Driven Development: By Example - Kent Beck">TDD By Example</a>, p.&nbsp;143).  But I don&#8217;t have much guidance on how to choose my Child Test.  What objects do I need?  As a TDD beginner I would often come up with silly objects that would be just procedural crap disguised by objects.</p>
+<p>Here is where I would do best to use a Strategy.  The Stepping Stone strategy could help: for instance, I could invent a DSL for web access reports.  If I did that, then writing my original report would be easy!</p>
+<p>Or I could use the Simplification strategy: start with a one-column, one-row report.  That would give me the guidance I need to find the next small, safe step.  I prepared a kata for this problem; I will probably publish it on github some day.</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/770.html#comments">3 Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-764">
+  				<h2><a href="../archives/764.html" rel="bookmark" title="Permanent Link to Design tip: Name things after what they ARE, not after where they are used!">Design tip: Name things after what they ARE, not after where they are used!</a></h2>
+  				<small>July 9th, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>This is another thing I often see people do. Consider this code fragment:</p>
+<pre>
+&lt;div id=&quot;sidebar&quot;&gt;
+  &lt;%= render partial: &quot;sidebar&quot; %&gt;
+&lt;/div&gt;
+</pre>
+<p>This basically says that in a portion of a layout that is called &#8220;sidebar&#8221; we want to render a partial template that is also called &#8220;sidebar&#8221;.  Hmmmm.  Duplication here! Why are these two things called the same?  Let&#8217;s look into the &#8220;sidebar&#8221; template; we discover that it contains code that produces a navigation menu.  Aha! Why not call the partial &#8220;navigation_menu&#8221; then?</p>
+<p>The mistake in the above code was that the partial template was named after <strong>where it is used</strong>, not after <strong>what it is</strong>.  When you correct that problem, what you get is </p>
+<pre>
+&lt;div id=&quot;sidebar&quot;&gt;
+  &lt;%= render partial: &quot;navigation_menu&quot; %&gt;
+&lt;/div&gt;
+</pre>
+<p>and the duplication problem also disappears.  </p>
+<p>Another example I&#8217;ve seen in production code:</p>
+<pre>
+class Money {
+  public int getValueForAuthorizationSystem() {
+    return value.scaleByPowerOfTen(2).intValue();
+  }   
+}
+</pre>
+<p>Class Money should not really care what the Authorization System wants&#8230; it should be concerned with returning the amount in cents!</p>
+<pre>
+class Money {
+  public int inCents() {
+    return value.scaleByPowerOfTen(2).intValue();
+  }   
+}
+</pre>
+<p>Why is it that programmers name things after where they are used and not after what the things really are?  I think that one major cause is the desire to break up a monolithic thing, because this is what design should be about, but <a href="../archives/755.html" title="Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Design tip: Watch how you cut!">doing it poorly</a>.  Suppose I have a 100 lines long method.  </p>
+<pre>
+def long_method
+  # ... ... ...
+end
+</pre>
+<p>I use <a href="http://www.refactoring.com/catalog/extractMethod.html" title="Refactoring: 
+Extract Method">extract method</a> a number of times and I end up with something like this:</p>
+<pre>
+def long_method
+  # ...
+  step_one(foo, bar, baz)
+  step_two(foo, bar, zork)
+  step_three(agh, foo, bar, zork)
+  step_four(agh, bar, baz, zork)
+end
+</pre>
+<p>what happened here? We took a procedure and cut it in arbitrary pieces.  The result is that we have a number of methods that we can&#8217;t give meaningful names to, other than &#8220;step_X&#8221; and that have an excessive number of arguments.  This means that we cut the procedure poorly.  Note that each of the methods can only be used in the place where it is called; it depends on the context and can&#8217;t be used anywhere else.</p>
+<p>What to do then?  What I would do is to get back to the 100-lines method and try to cut it another way.  Perhaps we will arrive at something like</p>
+<pre>
+def formerly_long_method
+  do_something(foo)
+  do_something(bar)
+  do_something(baz, do_something(zork))
+end
+</pre>
+<p>where the same helper method has been used in more than one way.</p>
+<p>In conclusion: names like foobarForX should always be challenged. They might be fixed by looking again at what &#8220;foobarForX&#8221; really is; or they might be an indication that the design is cut the wrong way. In that case you try the cut again and see if you can improve the situation.  Look for things that are meaningful concepts in the problem domain!</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/764.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-755">
+  				<h2><a href="../archives/755.html" rel="bookmark" title="Permanent Link to Design tip: Watch how you cut!">Design tip: Watch how you cut!</a></h2>
+  				<small>July 9th, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>The number one design problem I see people do is <strong>writing code that is overspecific</strong>.  By that I mean code that can only be used in one place and can never be reused.  Programmers should always try to write code that is generic, reusable and independent from the context where it is used.</p>
+<p>Design is (mainly) about breaking the solution in small, manageable pieces.  However, how you do the cut is important; if you cut poorly, you end up with a worse mess than when you had a single monolithic piece.</p>
+<p>This is an example I saw last week.  It is Rails-specific but I think non-Rails readers will be able to follow the logic. The application had a general HTML layout that contained something like this:</p>
+<pre>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;!-- main application content --&gt;
+    &lt;td valign=&quot;top&quot;&gt;&lt;%= yield %&gt;&lt;/td&gt;
+
+    &lt;!-- right sidebar --&gt;
+    &lt;%= yield :right_sidebar %&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>Ignore for a second the use of a table for layout (that requires a separate post!)  Can you see the design flaw?</p>
+<p>Yes, the flaw is that all pages that want to add something to the right sidebar must remember to wrap it in <code>&lt;td valign=&quot;top&quot;&gt;...&lt;/td&gt;</code>.  Like this:</p>
+<pre>
+&lt;% content_for :right_sidebar do %&gt;
+&lt;td valign=&quot;top&quot;&gt;
+  BANNER GOES HERE
+&lt;/td&gt;
+&lt;% end %&gt;
+</pre>
+<p>In practice the code that goes in the right sidebar is <strong>dependent on the context</strong> where it is used.  The solution in this case is simple: keep the context in the calling code, not in the called code.  Like this:</p>
+<pre>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;!-- main application content --&gt;
+    &lt;td valign=&quot;top&quot;&gt;&lt;%= yield %&gt;&lt;/td&gt;
+
+    &lt;!-- right sidebar --&gt;
+    &lt;td valign=&quot;top&quot;&gt;
+      &lt;%= yield :right_sidebar %&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>This has the problem that if the page does not want to put anything in the right banner, it will still have an empty <code>td</code> element.  Fortunately, Rails has a clean solution for this:</p>
+<pre>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;!-- main application content --&gt;
+    &lt;td valign=&quot;top&quot;&gt;&lt;%= yield %&gt;&lt;/td&gt;
+
+    &lt;!-- right sidebar --&gt;
+    &lt;% if content_for? :right_sidebar %&gt;
+    &lt;td valign=&quot;top&quot;&gt;
+      &lt;%= yield :right_sidebar %&gt;
+    &lt;/td&gt;
+    &lt;% end %&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>The code that uses the right sidebar is now simplified to </p>
+<pre>
+&lt;% content_for :right_sidebar do %&gt;
+  BANNER GOES HERE
+&lt;% end %&gt;
+</pre>
+<p>And this code will not have to change when the application layout is changed to something that does not use tables.</p>
+<p>Watch how you cut!</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a>, <a href="../archives/category/essay.html" rel="category tag">Essay</a> |   <a href="../archives/755.html#respond">No Comments &#187;</a></p>
+  			</div>
+
+  		
+  			<div class="post" id="post-743">
+  				<h2><a href="../archives/743.html" rel="bookmark" title="Permanent Link to Names objects after things, not actions!">Names objects after things, not actions!</a></h2>
+  				<small>June 22nd, 2012 <!-- by matteo --></small>
+
+  				<div class="entry">
+  					<p>The book Object Oriented Programming by Peter Coad and Jill Nicola is a very enjoyable introduction to object thinking.  One of the gems it contains is the following:</p>
+<blockquote><p>
+  <strong>The &#8220;-er-er&#8221; principle. </strong> Challenge any class name that ends in &#8220;-er.&#8221; If it has no parts, change the name of the class to what each object is managing.  If it has parts, put as much work in the parts that the parts know enough to do themselves.
+</p></blockquote>
+<p>(For instance: if you have a PersonManager, delete it and move all of its method to class Person.)</p>
+<p>Carlo Pescio wrote an <a href="http://www.carlopescio.com/2011/04/your-coding-conventions-are-hurting-you.html" title="Carlo Pescio: Your coding conventions are hurting you">excellent blog post on this</a>.  Since I discovered this, I found that  choosing good names for objects makes it much easier to write good code.  It&#8217;s much easier to decide where a responsibility belongs.</p>
+<p>Now, the team I&#8217;m currently coaching with has a Rails project.  As a consequence, I&#8217;m reading the latest things on object-oriented programming and Ruby and Rails.  I read <a href="http://objectsonrails.com/" title="Objects on Rails">Objects On Rails</a> and from there I discovered <a href="http://sandimetz.com/" title="Sandi Metz">Sandi Metz</a> and her chapter on <a href="http://www.informit.com/articles/article.aspx?p=1834700" title="Practical Object Oriented Design in Ruby: Interfaces | Understanding Interfaces | InformIT">interfaces in Ruby</a>.  Sandi really has a way with explaining objects; she has the knack of explaining deep principles in very easy terms; and she does it with examples. Three cheers for examples!</p>
+<p>In this video from 2009 on <a href="http://vimeo.com/12350535" title="2009 - Sandi Metz - SOLID Object-Oriented Design on Vimeo">SOLID Object-Oriented Design</a>, Sandi shows how to take an everyday Ruby script and turn it into an OO thinking lesson.  Please go and watch it; return when you have :-)</p>
+<div style="text-align:center; margin: 1em">
+  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br />
+  *
+</div>
+<p>Did you notice the one wart in Sandi&#8217;s design?  Yes, it&#8217;s the FtpDownloader class!! Can we get rid of the &#8220;-er&#8221; name?  What would a better name be?</p>
+<p>&#8220;Downloading&#8221; is an action.  What are we doing the action to?  We&#8217;re doing it to a file.  So we could call the class File, but it&#8217;s not a great name. You don&#8217;t download just any file; you only download remote files.  Bingo!  Why don&#8217;t we call it RemoteFile?  My design would have</p>
+<p><code><br />
+RemoteFile.new("ftp://server/dir/file.txt").download<br />
+</code>    </p>
+<p>This gets rid of a bit of duplication in Sandi&#8217;s design.  While she would have a configuration like</p>
+<p><code></p>
+<pre>
+ftp_host: server
+ftp_path: /dir
+ftp_file: file.txt
+downloader_class: FtpDownloader
+</pre>
+<p></code>    </p>
+<p>I would just have</p>
+<p><code></p>
+<pre>
+file_url: ftp://server/dir/file.txt
+</pre>
+<p></code>    </p>
+<p>Instead of providing multiple FtpDownloader, HttpDownloader, SftpDownloader classes I would have a single class that decides how to download based on the protocol in the url.</p>
+<p><code></p>
+<pre>
+class RemoteFile
+  def initialize(url)
+    @url = URI(url)
+  end
+
+  def download
+    self.send("#{@url.scheme}_download")
+  end
+  
+  def ftp_download; ... end
+  def sftp_download;  ... end
+  def http_download;  ... end
+end
+</pre>
+<p></code>    </p>
+<p>This makes it in my opinion more cohesive than having many single-method downloader classes.  If you disagree, you could still use the trick that Sandi uses.  But I would still not calling them FtpDownloader.  Since they represent a protocol, I would maybe call them something like FtpProtocol.  The name of a thing, not of an action.</p>
+<p><code></p>
+<pre>   
+class RemoteFile
+  def initialize(url)
+    @url = URI(url)
+  end
+
+  def download
+    # if @url is "http://foo", we get HttpProtocol
+    class_name = @url.scheme.capitalize + "Protocol"
+    Kernel.const_get(class_name).new.get(@url)
+  end
+end
+</pre>
+<p></code>    </p>
+<p>If I have an FtpProtocol object, I can ask it to get or put a file at a url.  It becomes a magnet for all the functionality that belongs to the Ftp protocol.  This would be more cohesive that having both FtpDownloader and FtpUploader :-)</p>
+  				</div>
+
+  				<p class="postmetadata">Posted in <a href="../archives/category/agile.html" rel="category tag">Agile</a> |   <a href="../archives/743.html#comments">5 Comments &#187;</a></p>
+  			</div>
+
+  		
+  		<div class="navigation">
+  			<div class="alignleft"><a href="4.html" >&laquo; Previous Entries</a></div>
+  			<div class="alignright"><a href="2.html" >Next Entries &raquo;</a></div>
+  		</div>
+
+  	  </div>
+
+  <div id='right-col'>
+    <p class='mobile-quicklink'><a href="#main-col">Top</a></p>
+      <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='../archives/date/2018/10.html'>October 2018</a></li>
+	<li><a href='../archives/date/2017/09.html'>September 2017</a></li>
+	<li><a href='../archives/date/2016/08.html'>August 2016</a></li>
+	<li><a href='../archives/date/2016/03.html'>March 2016</a></li>
+	<li><a href='../archives/date/2016/01.html'>January 2016</a></li>
+	<li><a href='../archives/date/2014/12.html'>December 2014</a></li>
+	<li><a href='../archives/date/2014/10.html'>October 2014</a></li>
+	<li><a href='../archives/date/2014/06.html'>June 2014</a></li>
+	<li><a href='../archives/date/2014/02.html'>February 2014</a></li>
+	<li><a href='../archives/date/2013/12.html'>December 2013</a></li>
+	<li><a href='../archives/date/2013/11.html'>November 2013</a></li>
+	<li><a href='../archives/date/2013/06.html'>June 2013</a></li>
+	<li><a href='../archives/date/2013/05.html'>May 2013</a></li>
+	<li><a href='../archives/date/2013/03.html'>March 2013</a></li>
+	<li><a href='../archives/date/2013/02.html'>February 2013</a></li>
+	<li><a href='../archives/date/2012/10.html'>October 2012</a></li>
+	<li><a href='../archives/date/2012/08.html'>August 2012</a></li>
+	<li><a href='../archives/date/2012/07.html'>July 2012</a></li>
+	<li><a href='../archives/date/2012/06.html'>June 2012</a></li>
+	<li><a href='../archives/date/2012/05.html'>May 2012</a></li>
+	<li><a href='../archives/date/2012/04.html'>April 2012</a></li>
+	<li><a href='../archives/date/2012/01.html'>January 2012</a></li>
+	<li><a href='../archives/date/2011/12.html'>December 2011</a></li>
+	<li><a href='../archives/date/2011/11.html'>November 2011</a></li>
+	<li><a href='../archives/date/2011/10.html'>October 2011</a></li>
+	<li><a href='../archives/date/2011/07.html'>July 2011</a></li>
+	<li><a href='../archives/date/2011/06.html'>June 2011</a></li>
+	<li><a href='../archives/date/2011/05.html'>May 2011</a></li>
+	<li><a href='../archives/date/2011/04.html'>April 2011</a></li>
+	<li><a href='../archives/date/2011/03.html'>March 2011</a></li>
+	<li><a href='../archives/date/2011/02.html'>February 2011</a></li>
+	<li><a href='../archives/date/2010/11.html'>November 2010</a></li>
+	<li><a href='../archives/date/2010/10.html'>October 2010</a></li>
+	<li><a href='../archives/date/2010/09.html'>September 2010</a></li>
+	<li><a href='../archives/date/2010/08.html'>August 2010</a></li>
+	<li><a href='../archives/date/2010/07.html'>July 2010</a></li>
+	<li><a href='../archives/date/2010/06.html'>June 2010</a></li>
+	<li><a href='../archives/date/2010/05.html'>May 2010</a></li>
+	<li><a href='../archives/date/2010/04.html'>April 2010</a></li>
+	<li><a href='../archives/date/2010/03.html'>March 2010</a></li>
+	<li><a href='../archives/date/2010/02.html'>February 2010</a></li>
+	<li><a href='../archives/date/2010/01.html'>January 2010</a></li>
+	<li><a href='../archives/date/2009/12.html'>December 2009</a></li>
+	<li><a href='../archives/date/2009/11.html'>November 2009</a></li>
+	<li><a href='../archives/date/2009/10.html'>October 2009</a></li>
+	<li><a href='../archives/date/2009/09.html'>September 2009</a></li>
+	<li><a href='../archives/date/2009/07.html'>July 2009</a></li>
+	<li><a href='../archives/date/2009/05.html'>May 2009</a></li>
+	<li><a href='../archives/date/2009/04.html'>April 2009</a></li>
+	<li><a href='../archives/date/2009/03.html'>March 2009</a></li>
+	<li><a href='../archives/date/2009/02.html'>February 2009</a></li>
+	<li><a href='../archives/date/2009/01.html'>January 2009</a></li>
+	<li><a href='../archives/date/2008/12.html'>December 2008</a></li>
+	<li><a href='../archives/date/2008/11.html'>November 2008</a></li>
+	<li><a href='../archives/date/2008/10.html'>October 2008</a></li>
+	<li><a href='../archives/date/2008/09.html'>September 2008</a></li>
+	<li><a href='../archives/date/2008/07.html'>July 2008</a></li>
+	<li><a href='../archives/date/2008/06.html'>June 2008</a></li>
+	<li><a href='../archives/date/2008/05.html'>May 2008</a></li>
+	<li><a href='../archives/date/2008/04.html'>April 2008</a></li>
+	<li><a href='../archives/date/2008/01.html'>January 2008</a></li>
+	<li><a href='../archives/date/2007/11.html'>November 2007</a></li>
+	<li><a href='../archives/date/2007/10.html'>October 2007</a></li>
+	<li><a href='../archives/date/2007/09.html'>September 2007</a></li>
+	<li><a href='../archives/date/2007/06.html'>June 2007</a></li>
+	<li><a href='../archives/date/2007/05.html'>May 2007</a></li>
+	<li><a href='../archives/date/2007/04.html'>April 2007</a></li>
+	<li><a href='../archives/date/2007/03.html'>March 2007</a></li>
+	<li><a href='../archives/date/2007/02.html'>February 2007</a></li>
+	<li><a href='../archives/date/2007/01.html'>January 2007</a></li>
+	<li><a href='../archives/date/2006/12.html'>December 2006</a></li>
+	<li><a href='../archives/date/2006/11.html'>November 2006</a></li>
+	<li><a href='../archives/date/2006/10.html'>October 2006</a></li>
+	<li><a href='../archives/date/2006/09.html'>September 2006</a></li>
+	<li><a href='../archives/date/2006/08.html'>August 2006</a></li>
+	<li><a href='../archives/date/2006/07.html'>July 2006</a></li>
+	<li><a href='../archives/date/2006/06.html'>June 2006</a></li>
+	<li><a href='../archives/date/2006/05.html'>May 2006</a></li>
+	<li><a href='../archives/date/2006/04.html'>April 2006</a></li>
+	<li><a href='../archives/date/2006/03.html'>March 2006</a></li>
+	<li><a href='../archives/date/2006/02.html'>February 2006</a></li>
+	<li><a href='../archives/date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="../archives/category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="../archives/category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="../archives/category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="../archives/category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="../archives/category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="../archives/category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="../archives/category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+              <!-- ?php get_links_list(); ? -->
+
+        <li><h2>Misc</h2>
+        <ul>
+          <li><a href="feed:http://matteo.vaccari.name/blog/feed">Entries (RSS)</a> and <a href="feed:http://matteo.vaccari.name/blog/comments/feed">Comments (RSS)</a></li>
+                  </ul>
+        </li>
+      
+    </ul>
+  </div>
+
+    <p class='mobile-quicklink'><a href="#main-col">Top</a></p>
+  </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/page/3 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:25:20 GMT -->
+</html>

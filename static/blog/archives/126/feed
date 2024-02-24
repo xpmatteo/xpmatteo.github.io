@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Calcolare gli assegnamenti	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/126/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/126</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Franco Lombardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/126/comment-page-1#comment-70139</link>
+		<dc:creator><![CDATA[Franco Lombardo]]></dc:creator>
+		<pubDate>Tue, 23 Sep 2008 05:59:44 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=126#comment-70139</guid>
+					<description><![CDATA[Matteo, 
+mi sono reso conto di aver detto una grossa stupidata :-(
+Suppongo che dagli assiomi originali di Hoare non sia derivabile l&#039;assioma dell&#039;assegnamento multiplo. Ovviamente, però, prendendo per valido l&#039;assioma dell&#039;assegnamento multiplo si ha come caso particolare l&#039;assegnamento semplice.]]></description>
+		<content:encoded><![CDATA[<p>Matteo,<br />
+mi sono reso conto di aver detto una grossa stupidata :-(<br />
+Suppongo che dagli assiomi originali di Hoare non sia derivabile l&#8217;assioma dell&#8217;assegnamento multiplo. Ovviamente, però, prendendo per valido l&#8217;assioma dell&#8217;assegnamento multiplo si ha come caso particolare l&#8217;assegnamento semplice.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Franco Lombardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/126/comment-page-1#comment-70127</link>
+		<dc:creator><![CDATA[Franco Lombardo]]></dc:creator>
+		<pubDate>Mon, 22 Sep 2008 21:18:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=126#comment-70127</guid>
+					<description><![CDATA[Matteo, anche io sono stato forse troppo sbrigativo nel mio intervento. Quel che intendevo dire è che l&#039;assegnamento simultaneo complica inutilmente &lt;i&gt;quell&#039;esempio&lt;/i&gt;, e io penso anche molti altri, mentre ovviamente rende più semplice lo scambio di valori tra variabili. Personalmente ritengo più comprensibili i due assiomi dell&#039;assegnamento e della sequenza che l&#039;assioma dell&#039;assegnamento simultaneo, proprio per la già citata conformazione &lt;i&gt;sequenziale&lt;/i&gt; del mio cervello (forse bacato).
+Tu dici che l&#039;assioma dell&#039;assegnamento simultaneo è una semplice generalizzazione di quello dell&#039;assegnamento singolo. Io ho il sospetto che un logico potrebbe dimostrare l&#039;indipendenza dei due assiomi, e quindi la sostanziale diversità tra essi. Ma questo è solo una mia ipotesi.]]></description>
+		<content:encoded><![CDATA[<p>Matteo, anche io sono stato forse troppo sbrigativo nel mio intervento. Quel che intendevo dire è che l&#8217;assegnamento simultaneo complica inutilmente <i>quell&#8217;esempio</i>, e io penso anche molti altri, mentre ovviamente rende più semplice lo scambio di valori tra variabili. Personalmente ritengo più comprensibili i due assiomi dell&#8217;assegnamento e della sequenza che l&#8217;assioma dell&#8217;assegnamento simultaneo, proprio per la già citata conformazione <i>sequenziale</i> del mio cervello (forse bacato).<br />
+Tu dici che l&#8217;assioma dell&#8217;assegnamento simultaneo è una semplice generalizzazione di quello dell&#8217;assegnamento singolo. Io ho il sospetto che un logico potrebbe dimostrare l&#8217;indipendenza dei due assiomi, e quindi la sostanziale diversità tra essi. Ma questo è solo una mia ipotesi.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/126/comment-page-1#comment-70102</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Mon, 22 Sep 2008 07:04:08 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=126#comment-70102</guid>
+					<description><![CDATA[Ciao Franco, grazie per la risposta.  
+
+La mia risposta di prima era troppo sbrigativa.  Il fatto è che non è semplice spiegare questa tecnica in poche righe.  Per ridurre al minimo il numero di regole da imparare, ho usato l&#039;assegnamento simultaneo; altrimenti se usi la sequenza
+
+  s := E ; n := n + 1
+  
+ti tocca avere una regola per l&#039;assegnamento e una per la sequenza.
+
+Lo schema di assiomi dell&#039;assegnamento simultaneo è in realtà una generalizzazione di quello per l&#039;assegnamento singolo.  Devi solo fare il passaggio fra &quot;sostituire una variabile con un espressione&quot;, a &quot;sostituire un vettore di variabili con le corrispondenti espressioni.&quot;
+
+Non sono sicuro di capire perché trovi complicato l&#039;assegnamento simultaneo; considera ad esempio il problema di scambiare il valore di due variabili x e y.  A me sembra che la sequenza
+
+  temp := x; x := y; y := temp
+  
+sia più difficile da scrivere e da leggere di
+
+  x,y := y,x
+  
+Sono d&#039;accordo con le tue considerazioni sull&#039;utilità della logica.]]></description>
+		<content:encoded><![CDATA[<p>Ciao Franco, grazie per la risposta.  </p>
+<p>La mia risposta di prima era troppo sbrigativa.  Il fatto è che non è semplice spiegare questa tecnica in poche righe.  Per ridurre al minimo il numero di regole da imparare, ho usato l&#8217;assegnamento simultaneo; altrimenti se usi la sequenza</p>
+<p>  s := E ; n := n + 1</p>
+<p>ti tocca avere una regola per l&#8217;assegnamento e una per la sequenza.</p>
+<p>Lo schema di assiomi dell&#8217;assegnamento simultaneo è in realtà una generalizzazione di quello per l&#8217;assegnamento singolo.  Devi solo fare il passaggio fra &#8220;sostituire una variabile con un espressione&#8221;, a &#8220;sostituire un vettore di variabili con le corrispondenti espressioni.&#8221;</p>
+<p>Non sono sicuro di capire perché trovi complicato l&#8217;assegnamento simultaneo; considera ad esempio il problema di scambiare il valore di due variabili x e y.  A me sembra che la sequenza</p>
+<p>  temp := x; x := y; y := temp</p>
+<p>sia più difficile da scrivere e da leggere di</p>
+<p>  x,y := y,x</p>
+<p>Sono d&#8217;accordo con le tue considerazioni sull&#8217;utilità della logica.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Franco Lombardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/126/comment-page-1#comment-70091</link>
+		<dc:creator><![CDATA[Franco Lombardo]]></dc:creator>
+		<pubDate>Sun, 21 Sep 2008 21:54:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=126#comment-70091</guid>
+					<description><![CDATA[Matteo, alla tua affermazione &lt;cite&gt;In linguaggi come Ruby l&#039;assegnamento simultaneo 
+esiste e si usa&lt;/cite&gt; vorrei rispondere: 
+è anche per questo che la complessità di Ruby è elevata ed alcuni programmatori, 
+come me, si rifiutano di utilizzarlo.
+Perché l&#039;assegnamento simultaneo alza la complessità? A mio avviso perché il 
+cervello umano, almeno il mio, è una macchina 
+fondamentalmente sequenziale.
+
+Nel tuo esempio, quando applichi la prima sostituzione, giungi alla formula
+E=(n+1)2. Qui l&#039;assegnamento simultaneo potrebbe 
+disorientare per un attimo chi ti sta seguendo. Ci si potrebbe infatti chiedere 
+se n a questo punto sia già stato incrementato oppure no.
+
+A mio parere l&#039;esposizione sarebbe molto più comprensibile se partisse da
+{s=n2} s:=E  {s=(n+1)2}
+
+A suffragare la mia convinzione che l&#039;assegnamento simultaneo alzi, inutilmente, 
+la complessità dell&#039;argomento, penso possa esserci anche una considerazione di tipo teorico.
+Su questo terreno, però, non mi trovo a mio agio e probabilmente
+sto per dire delle grosse inesattezze: so che saprai correggimi se dovessi sbagliare.
+A dimostrazione della complessità dell&#039;assegnamento simultaneo, dicevo, sta il
+fatto che la sua semantica non può essere compresa dall&#039;insieme originale di assiomi
+proposti da Hoare nel suo &lt;a href=&quot;http://sunnyday.mit.edu/16.355/Hoare-CACM-69.pdf&quot; rel=&quot;nofollow&quot;&gt;lavoro originale&lt;/a&gt;, 
+ma richiede, se non erro, l&#039;introduzione di un nuovo schema di assiomi:
+
+{P(x0/E0, x1/E1,...,xn/En)}
+x0, x1,...,xn := E0, E1,...,En
+{P(x0, x1,...,xn)}
+
+Citerei quindi lo stesso Hoare. &lt;cite&gt;It seems likely that a language which can 
+be described by a few &quot;self-evident&quot; axioms [...] will be preferable to a language 
+with many obscure axioms.&lt;/cite&gt; Non che questo nuovo assioma sia particolarmente oscuro, 
+però è comunque un assioma in più.
+
+Cambiando parzialmente argomento, nella riunione dell&#039;XPUG Milano chiedevi suggerimenti per
+accostare la logica di Hoare ai metodi agili. Qualcosa si può trovare ancora nella 
+già citata pubblicazione di Hoare, dove l&#039;autore propugna l&#039;adozione della verifica formale
+di correttezza dei programmi sia per alzare la qualità del software, sia per fornire una forma
+di documentazione automatica del codice. E&#039; quindi evidente l&#039;analogia tra la logica di 
+Hoare e la pratica dei test unitari.]]></description>
+		<content:encoded><![CDATA[<p>Matteo, alla tua affermazione <cite>In linguaggi come Ruby l&#8217;assegnamento simultaneo<br />
+esiste e si usa</cite> vorrei rispondere:<br />
+è anche per questo che la complessità di Ruby è elevata ed alcuni programmatori,<br />
+come me, si rifiutano di utilizzarlo.<br />
+Perché l&#8217;assegnamento simultaneo alza la complessità? A mio avviso perché il<br />
+cervello umano, almeno il mio, è una macchina<br />
+fondamentalmente sequenziale.</p>
+<p>Nel tuo esempio, quando applichi la prima sostituzione, giungi alla formula<br />
+E=(n+1)2. Qui l&#8217;assegnamento simultaneo potrebbe<br />
+disorientare per un attimo chi ti sta seguendo. Ci si potrebbe infatti chiedere<br />
+se n a questo punto sia già stato incrementato oppure no.</p>
+<p>A mio parere l&#8217;esposizione sarebbe molto più comprensibile se partisse da<br />
+{s=n2} s:=E  {s=(n+1)2}</p>
+<p>A suffragare la mia convinzione che l&#8217;assegnamento simultaneo alzi, inutilmente,<br />
+la complessità dell&#8217;argomento, penso possa esserci anche una considerazione di tipo teorico.<br />
+Su questo terreno, però, non mi trovo a mio agio e probabilmente<br />
+sto per dire delle grosse inesattezze: so che saprai correggimi se dovessi sbagliare.<br />
+A dimostrazione della complessità dell&#8217;assegnamento simultaneo, dicevo, sta il<br />
+fatto che la sua semantica non può essere compresa dall&#8217;insieme originale di assiomi<br />
+proposti da Hoare nel suo <a href="http://sunnyday.mit.edu/16.355/Hoare-CACM-69.pdf" rel="nofollow">lavoro originale</a>,<br />
+ma richiede, se non erro, l&#8217;introduzione di un nuovo schema di assiomi:</p>
+<p>{P(x0/E0, x1/E1,&#8230;,xn/En)}<br />
+x0, x1,&#8230;,xn := E0, E1,&#8230;,En<br />
+{P(x0, x1,&#8230;,xn)}</p>
+<p>Citerei quindi lo stesso Hoare. <cite>It seems likely that a language which can<br />
+be described by a few &#8220;self-evident&#8221; axioms [&#8230;] will be preferable to a language<br />
+with many obscure axioms.</cite> Non che questo nuovo assioma sia particolarmente oscuro,<br />
+però è comunque un assioma in più.</p>
+<p>Cambiando parzialmente argomento, nella riunione dell&#8217;XPUG Milano chiedevi suggerimenti per<br />
+accostare la logica di Hoare ai metodi agili. Qualcosa si può trovare ancora nella<br />
+già citata pubblicazione di Hoare, dove l&#8217;autore propugna l&#8217;adozione della verifica formale<br />
+di correttezza dei programmi sia per alzare la qualità del software, sia per fornire una forma<br />
+di documentazione automatica del codice. E&#8217; quindi evidente l&#8217;analogia tra la logica di<br />
+Hoare e la pratica dei test unitari.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/126/comment-page-1#comment-69933</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 18 Sep 2008 15:52:56 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=126#comment-69933</guid>
+					<description><![CDATA[Ma in linguaggi come Ruby l&#039;assegnamento simultaneo esiste e si usa:
+
+  x, y = y, x
+
+al posto di 
+
+  temp = x
+  x = y
+  y = temp
+
+Il fatto è che non tutti gli assegnamenti si possono eseguire in un ordine arbitrario senza conseguenze...]]></description>
+		<content:encoded><![CDATA[<p>Ma in linguaggi come Ruby l&#8217;assegnamento simultaneo esiste e si usa:</p>
+<p>  x, y = y, x</p>
+<p>al posto di </p>
+<p>  temp = x<br />
+  x = y<br />
+  y = temp</p>
+<p>Il fatto è che non tutti gli assegnamenti si possono eseguire in un ordine arbitrario senza conseguenze&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Antonio Ganci				</title>
+				<link>http://matteo.vaccari.name/blog/archives/126/comment-page-1#comment-69925</link>
+		<dc:creator><![CDATA[Antonio Ganci]]></dc:creator>
+		<pubDate>Thu, 18 Sep 2008 12:29:34 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=126#comment-69925</guid>
+					<description><![CDATA[Interessante articolo, complimenti.
+Per renderlo più leggibile cambierei la notazione dell&#039;assegnamento da:
+s, n := E, n + 1 in
+s := E
+n := n + 1
+(stessa cosa nella notazione matematica) lo rende IMHO più leggibile, tra l&#039;altro lo stesso Astrachan dice che uno dei motivi per cui è poco diffuso l&#039;uso degli invarianti è dovuto alla notazione matematica non molto chiara.]]></description>
+		<content:encoded><![CDATA[<p>Interessante articolo, complimenti.<br />
+Per renderlo più leggibile cambierei la notazione dell&#8217;assegnamento da:<br />
+s, n := E, n + 1 in<br />
+s := E<br />
+n := n + 1<br />
+(stessa cosa nella notazione matematica) lo rende IMHO più leggibile, tra l&#8217;altro lo stesso Astrachan dice che uno dei motivi per cui è poco diffuso l&#8217;uso degli invarianti è dovuto alla notazione matematica non molto chiara.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

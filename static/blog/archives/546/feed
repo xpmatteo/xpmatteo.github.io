@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: We don&#8217;t have time for tests	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/546/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/546</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/546/comment-page-1#comment-93947</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 04 May 2011 18:07:01 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=546#comment-93947</guid>
+					<description><![CDATA[Hi Nicolas,
+
+Thanks for your comment.  I think that both unit, &quot;micro&quot;-level tests and integration tests have a place.  I disagree that TDD is better suited for small programs.  Large programs are easier to write when they are built out of well-designed and well-tested modules.
+
+You say that unit tests require a lot of maintenance.  I find that may be a sign of a problem with the design of your production code.  Have you read Growing Object Oriented Software [0]? I learned a lot from this book about writing tests that do not cost too much to maintain.
+
+[0] http://www.growing-object-oriented-software.com/]]></description>
+		<content:encoded><![CDATA[<p>Hi Nicolas,</p>
+<p>Thanks for your comment.  I think that both unit, &#8220;micro&#8221;-level tests and integration tests have a place.  I disagree that TDD is better suited for small programs.  Large programs are easier to write when they are built out of well-designed and well-tested modules.</p>
+<p>You say that unit tests require a lot of maintenance.  I find that may be a sign of a problem with the design of your production code.  Have you read Growing Object Oriented Software [0]? I learned a lot from this book about writing tests that do not cost too much to maintain.</p>
+<p>[0] <a href="http://www.growing-object-oriented-software.com/" rel="nofollow">http://www.growing-object-oriented-software.com/</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Nicolas				</title>
+				<link>http://matteo.vaccari.name/blog/archives/546/comment-page-1#comment-93946</link>
+		<dc:creator><![CDATA[Nicolas]]></dc:creator>
+		<pubDate>Wed, 04 May 2011 15:25:33 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=546#comment-93946</guid>
+					<description><![CDATA[TDD is maybe better suited to a small programs than a complex application.
+
+My point is, when making a small program, your unit test really test the program. This is also easy as the program do only a few things.
+
+But most of the time, even if it not forbidden, TDD focus on unit tests. And after years of thoughts, I think unit test are not the most usefull ones. They tend to crash on any change. They tend to test the code you written (or wanted to write), but not the required functionnality.
+
+What i really prefer is validation/integration tests. Here much more bad things can happen. The network can really be slow or just be down. You can find that despite all the meetings, module A and B made differents assumption and thus are not working well together. And the most important thing: Your tests allow to validate the big picture. You application is not just a bunch of small program performing trivial tasks. It is coherant software that do solve a real problem.]]></description>
+		<content:encoded><![CDATA[<p>TDD is maybe better suited to a small programs than a complex application.</p>
+<p>My point is, when making a small program, your unit test really test the program. This is also easy as the program do only a few things.</p>
+<p>But most of the time, even if it not forbidden, TDD focus on unit tests. And after years of thoughts, I think unit test are not the most usefull ones. They tend to crash on any change. They tend to test the code you written (or wanted to write), but not the required functionnality.</p>
+<p>What i really prefer is validation/integration tests. Here much more bad things can happen. The network can really be slow or just be down. You can find that despite all the meetings, module A and B made differents assumption and thus are not working well together. And the most important thing: Your tests allow to validate the big picture. You application is not just a bunch of small program performing trivial tasks. It is coherant software that do solve a real problem.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Gian Marco Gherardi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/546/comment-page-1#comment-93893</link>
+		<dc:creator><![CDATA[Gian Marco Gherardi]]></dc:creator>
+		<pubDate>Sun, 27 Mar 2011 10:37:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=546#comment-93893</guid>
+					<description><![CDATA[For my experience, writing test is *the* key to speed.
+I&#039;ve seen too much times a features developed in 10 minutes without tests that takes weeks to fix all regression and months to meet requirements.]]></description>
+		<content:encoded><![CDATA[<p>For my experience, writing test is *the* key to speed.<br />
+I&#8217;ve seen too much times a features developed in 10 minutes without tests that takes weeks to fix all regression and months to meet requirements.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

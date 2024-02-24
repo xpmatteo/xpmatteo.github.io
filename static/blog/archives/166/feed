@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: What is a coach doing all the time?	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/166/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/166</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/166/comment-page-1#comment-77139</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Mon, 19 Jan 2009 21:15:42 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=166#comment-77139</guid>
+					<description><![CDATA[I sometimes do pair with a developer, and I often find it useful.  Just like pairing with a &quot;new&quot; developer, they have a fresh perspective.  
+
+  I just try not to do it often, because I have a tendency to impose my style and views, and it&#039;s not good, for many reasons, one of which is my developers know better :-)
+
+There&#039;s a sort of 80-20 effect, it works best when I do it rarely.]]></description>
+		<content:encoded><![CDATA[<p>I sometimes do pair with a developer, and I often find it useful.  Just like pairing with a &#8220;new&#8221; developer, they have a fresh perspective.  </p>
+<p>  I just try not to do it often, because I have a tendency to impose my style and views, and it&#8217;s not good, for many reasons, one of which is my developers know better :-)</p>
+<p>There&#8217;s a sort of 80-20 effect, it works best when I do it rarely.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Filippo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/166/comment-page-1#comment-77133</link>
+		<dc:creator><![CDATA[Filippo]]></dc:creator>
+		<pubDate>Mon, 19 Jan 2009 20:16:45 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=166#comment-77133</guid>
+					<description><![CDATA[What about actually implementing some stories (once in a while, maybe in pair with other developers), to understand the &quot;health status&quot; of a project? Would you find it useful?]]></description>
+		<content:encoded><![CDATA[<p>What about actually implementing some stories (once in a while, maybe in pair with other developers), to understand the &#8220;health status&#8221; of a project? Would you find it useful?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

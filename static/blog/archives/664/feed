@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Sulla sessione &#8220;Is Software Evolution Really Effective&#8221; di Francesco Cirillo	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/664/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/664</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94541</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Fri, 25 Nov 2011 21:19:31 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94541</guid>
+					<description><![CDATA[Sono daccordo, nel caso di un prodotto grande è più facile mascherare le inefficienze anche perchè c&#039;è maggiore probabilità di effetti di mutua cancellazione. Immagino però che sia proprio su un progetto grande che un team efficiente possa riuscire a dare il meglio di se.
+Se questo è vero però dovranno pur esistere delle statistiche che lo dimostrano.
+In realtà non mi è ancora capitato di trovare una citazione di una statistica veramente autorevole che dimostri che, per lo meno su certi prodotti, Agile vince su Waterfall. Al di la delle sensazioni, dei gusti e anche della propria esperienza personale, sono questo genere di statistiche che possono smuovere un management ancorato a vecchie idee e pratiche. 
+Anche il Chaos Report che viene spesso citato per confutare Watrfall in realtà mi sembra alquanto controverso....]]></description>
+		<content:encoded><![CDATA[<p>Sono daccordo, nel caso di un prodotto grande è più facile mascherare le inefficienze anche perchè c&#8217;è maggiore probabilità di effetti di mutua cancellazione. Immagino però che sia proprio su un progetto grande che un team efficiente possa riuscire a dare il meglio di se.<br />
+Se questo è vero però dovranno pur esistere delle statistiche che lo dimostrano.<br />
+In realtà non mi è ancora capitato di trovare una citazione di una statistica veramente autorevole che dimostri che, per lo meno su certi prodotti, Agile vince su Waterfall. Al di la delle sensazioni, dei gusti e anche della propria esperienza personale, sono questo genere di statistiche che possono smuovere un management ancorato a vecchie idee e pratiche.<br />
+Anche il Chaos Report che viene spesso citato per confutare Watrfall in realtà mi sembra alquanto controverso&#8230;.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94538</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 25 Nov 2011 11:19:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94538</guid>
+					<description><![CDATA[OK Andrea, ma se è vero che l&#039;azienda non riesce a fare prezzi competitivi su un prodotto personalizzato piccolo, vuol dire che perde un&#039;opportunità di business che verrà colta forse da qualcun&#039;altro.  Vuol dire che l&#039;azienda non ha un processo che le consenta di cogliere queste opportunità.  E fin qui può anche starci.  Quello che non mi chiedo è se invece nel caso di un prodotto grande il processo ci sia, o non si tratti semplicemente del fatto che nel prodotto grande il danno prodotto dal processo carente si nota di meno :-)]]></description>
+		<content:encoded><![CDATA[<p>OK Andrea, ma se è vero che l&#8217;azienda non riesce a fare prezzi competitivi su un prodotto personalizzato piccolo, vuol dire che perde un&#8217;opportunità di business che verrà colta forse da qualcun&#8217;altro.  Vuol dire che l&#8217;azienda non ha un processo che le consenta di cogliere queste opportunità.  E fin qui può anche starci.  Quello che non mi chiedo è se invece nel caso di un prodotto grande il processo ci sia, o non si tratti semplicemente del fatto che nel prodotto grande il danno prodotto dal processo carente si nota di meno :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94537</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Fri, 25 Nov 2011 07:14:43 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94537</guid>
+					<description><![CDATA[Matteo, le tue osservazioni sul prodotto piccolo e l&#039;impossibilità di alzare la cortina di fumo le trovo corrette.
+Quello che secondo me però va tenuto presente è che normalmente un&#039;azienda (e qui escludo le partite iva &quot;personali&quot;) è una macchina tarata su prodotti di una certa dimensione ed è quindi inefficiente su prodotti troppo piccoli.
+E&#039; come chiedere alla Barilla: quanto mi costa un sacchetto di pasta personalizzato? Secondo me verrebbe uno sproposito.
+Con questo non voglio dire che Cirillo sbagli, anzi come ho scritto mi sento di condividere le sue osservazioni, quello che non mi convince è lo strumento di misura che ha usato. E quello che mi rimane è quindi solo una sensazione, in parte comprovata anche dalla mia limitata esperienza personale, ma nessuna statistica oggettiva.]]></description>
+		<content:encoded><![CDATA[<p>Matteo, le tue osservazioni sul prodotto piccolo e l&#8217;impossibilità di alzare la cortina di fumo le trovo corrette.<br />
+Quello che secondo me però va tenuto presente è che normalmente un&#8217;azienda (e qui escludo le partite iva &#8220;personali&#8221;) è una macchina tarata su prodotti di una certa dimensione ed è quindi inefficiente su prodotti troppo piccoli.<br />
+E&#8217; come chiedere alla Barilla: quanto mi costa un sacchetto di pasta personalizzato? Secondo me verrebbe uno sproposito.<br />
+Con questo non voglio dire che Cirillo sbagli, anzi come ho scritto mi sento di condividere le sue osservazioni, quello che non mi convince è lo strumento di misura che ha usato. E quello che mi rimane è quindi solo una sensazione, in parte comprovata anche dalla mia limitata esperienza personale, ma nessuna statistica oggettiva.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94531</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 23 Nov 2011 16:41:16 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94531</guid>
+					<description><![CDATA[@Andrea: d&#039;accordo che un&#039;azienda ha i costi fissi, ma dipende anche dal prodotto che devi fare.  Se un lavoro piccolo costa uno sproposito, quante sono le probabilità che un prodotto grande costi il giusto?  Il fatto che un prodotto piccolo costi un botto potrebbe essere un&#039;indicazione che l&#039;azienda non ha un processo che funziona bene per la produzione di software.  
+
+E sai perché per me è particolarmente importante questa capacità di fare pagare poco un prodotto piccolo?  Perché sul prodotto piccolo ci sono poche possibilità di alzare una cortina di fumo.  Il successo o il fallimento sono molto più evidenti.  Su un progetto di un anno non c&#039;è lo stesso livello di attenzione, non c&#039;è lo stesso feedback rapido fra l&#039;azione e il risultato.  
+
+Es. è entrato un lavoro da 1000 euro che ci viene a costare 2000 euro: risultato, dobbiamo capirci meglio; o impariamo a farlo costare di meno o impariamo a farlo pagare di più.
+
+Se entra un lavoro da 100.000 euro che ci viene a costare 130.000 euro, il risultato è molto più grave ma le possibilità di ignorare la realtà e dare la colpa al commerciale, al dirigente, al cliente, alla tecnologia, al maltempo, al governo, a Steve Jobs o a Bill Gates sono infinite.  Risultato --&gt; non si impara e non si migliora.  
+
+Per questo i progetti piccoli sono interessanti :-)]]></description>
+		<content:encoded><![CDATA[<p>@Andrea: d&#8217;accordo che un&#8217;azienda ha i costi fissi, ma dipende anche dal prodotto che devi fare.  Se un lavoro piccolo costa uno sproposito, quante sono le probabilità che un prodotto grande costi il giusto?  Il fatto che un prodotto piccolo costi un botto potrebbe essere un&#8217;indicazione che l&#8217;azienda non ha un processo che funziona bene per la produzione di software.  </p>
+<p>E sai perché per me è particolarmente importante questa capacità di fare pagare poco un prodotto piccolo?  Perché sul prodotto piccolo ci sono poche possibilità di alzare una cortina di fumo.  Il successo o il fallimento sono molto più evidenti.  Su un progetto di un anno non c&#8217;è lo stesso livello di attenzione, non c&#8217;è lo stesso feedback rapido fra l&#8217;azione e il risultato.  </p>
+<p>Es. è entrato un lavoro da 1000 euro che ci viene a costare 2000 euro: risultato, dobbiamo capirci meglio; o impariamo a farlo costare di meno o impariamo a farlo pagare di più.</p>
+<p>Se entra un lavoro da 100.000 euro che ci viene a costare 130.000 euro, il risultato è molto più grave ma le possibilità di ignorare la realtà e dare la colpa al commerciale, al dirigente, al cliente, alla tecnologia, al maltempo, al governo, a Steve Jobs o a Bill Gates sono infinite.  Risultato &#8211;> non si impara e non si migliora.  </p>
+<p>Per questo i progetti piccoli sono interessanti :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94530</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 23 Nov 2011 16:34:25 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94530</guid>
+					<description><![CDATA[@Giorgio: se un team ha un costo esorbitante, cioè sproporzionato rispetto al valore che produce, allora (evidentemente) non sta lavorando bene.  La scommessa su cui si basa XP è che prendersi il tempo per fare le cose bene produrrà un migliore ROI.  Il risultato della scommessa non è scontato :)
+]]></description>
+		<content:encoded><![CDATA[<p>@Giorgio: se un team ha un costo esorbitante, cioè sproporzionato rispetto al valore che produce, allora (evidentemente) non sta lavorando bene.  La scommessa su cui si basa XP è che prendersi il tempo per fare le cose bene produrrà un migliore ROI.  Il risultato della scommessa non è scontato :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94529</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Tue, 22 Nov 2011 18:35:40 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94529</guid>
+					<description><![CDATA[Ho avuto l&#039;opportunità di applicare in team molte singole pratiche derivanti dal mondo Agile, ma non di lavorare in un team il cui processo si possa definire così. Quello che abbiamo estratto dalle pratiche sono quei benefici immediati di cui parla Matteo.
+Quello che non sono riuscito a capire è se il costo alto di cui parla Francesco è di un team che crede di fare Agile o del team Agile anche quando lavora bene. Il suo talk di better software mi pare fosse riferito al prima caso, così come nell&#039;esempio team nuovo/team vecchio che costa di più.]]></description>
+		<content:encoded><![CDATA[<p>Ho avuto l&#8217;opportunità di applicare in team molte singole pratiche derivanti dal mondo Agile, ma non di lavorare in un team il cui processo si possa definire così. Quello che abbiamo estratto dalle pratiche sono quei benefici immediati di cui parla Matteo.<br />
+Quello che non sono riuscito a capire è se il costo alto di cui parla Francesco è di un team che crede di fare Agile o del team Agile anche quando lavora bene. Il suo talk di better software mi pare fosse riferito al prima caso, così come nell&#8217;esempio team nuovo/team vecchio che costa di più.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94527</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Tue, 22 Nov 2011 16:55:52 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94527</guid>
+					<description><![CDATA[&quot;Il discorso dei 10K-20K euro Francesco l’ha presentato come un dato: l’offerta più bassa e la più alta. Sono offerte fatte da aziende, non da singoli. E’ chiaro che è uno sproposito e proprio per questo Francesco lo segnala come tale. Traine tu le tue conclusioni.&quot; 
+
+-&#062; Ma e&#039; ovvio che se chiedo ad un&#039;azienda di fare una cavolatina i costi vanno alle stelle. Come chiedere ad un&#039;impresa di attaccarmi le tende alle finestre. 
+Ma quello che diceva Francesco era che 10k non erano il preventivo dell&#039;azienda ma i loro costi interni (ma come fa a saperli?). A questo punto se quella azienda e&#039; ancora in commercio significa che evidentemente riesce a rivendere a 20k l&#039;applicazioncina (40k per l&#039;azienda agile), quindi o ha degli ottimi commerciali oppure ci sono altri fattori che non sappiamo.
+Pero&#039; sarebbe interessante sapere come sono arrivati ai 10k... hanno stimato 3 mesi uomo? strapagano i loro dev (improbabile)? boh detta cosi&#039; e&#039; un&#039;informazione che mi e&#039; poco utile.]]></description>
+		<content:encoded><![CDATA[<p>&#8220;Il discorso dei 10K-20K euro Francesco l’ha presentato come un dato: l’offerta più bassa e la più alta. Sono offerte fatte da aziende, non da singoli. E’ chiaro che è uno sproposito e proprio per questo Francesco lo segnala come tale. Traine tu le tue conclusioni.&#8221; </p>
+<p>-&gt; Ma e&#8217; ovvio che se chiedo ad un&#8217;azienda di fare una cavolatina i costi vanno alle stelle. Come chiedere ad un&#8217;impresa di attaccarmi le tende alle finestre.<br />
+Ma quello che diceva Francesco era che 10k non erano il preventivo dell&#8217;azienda ma i loro costi interni (ma come fa a saperli?). A questo punto se quella azienda e&#8217; ancora in commercio significa che evidentemente riesce a rivendere a 20k l&#8217;applicazioncina (40k per l&#8217;azienda agile), quindi o ha degli ottimi commerciali oppure ci sono altri fattori che non sappiamo.<br />
+Pero&#8217; sarebbe interessante sapere come sono arrivati ai 10k&#8230; hanno stimato 3 mesi uomo? strapagano i loro dev (improbabile)? boh detta cosi&#8217; e&#8217; un&#8217;informazione che mi e&#8217; poco utile.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Mariottini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94526</link>
+		<dc:creator><![CDATA[Andrea Mariottini]]></dc:creator>
+		<pubDate>Tue, 22 Nov 2011 16:43:28 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94526</guid>
+					<description><![CDATA[Sulla questione del costo dell&#039;app per iPhone vorrei però sottolineare una cosa.
+Se chiedi ad un&#039;azienda quanto costa fare l&#039;app non puoi aspettarti una cifra tipo 1.000 euro per vari motivi.
+
+Un&#039;azienda non si scomoda nemmeno per 1.000 euro, non prende proprio il lavoro.
+
+Ammesso che sia comunque interessata al lavoro ha due possibilità:
+a) prende una persona nuova a tempo determinato per sviluppare l&#039;app e quindi sopporta il costo una tantum della persona e dell&#039;infrastruttura che gli mette a disposizione. Non credo che 1000 euro siano sufficienti (magari l&#039;azienda non possiede un iphone e quindi come minimo deve comprare quello). Il costo da sopportare secondo me si avvicina facilmente ai 5.000 euro.
+b) L&#039;alternativa è utilizzare personale interno, ma il personale interno non è che sta lì ad aspettare mentre prende un caffè. Sicuramente è impegnato in altre cose, quindi oltre al costo del personale interno (pro quota per il tempo necessario) ci sarà anche il costo dovuto al distogliere tale personale da altri progetti.
+
+Quello che voglio dire è che sviluppare un prodotto anche piccolo come il Pomodoro ha comunque uno zoccolo di costi e questo zoccolo non è che necessariamente si abbassa al diminuire della complessità del prodotto.
+Quindi l&#039;esempio di Cirillo secondo me non è particolarmente rilevante.
+
+Molto più rilevante sarebbe chiedere: quanto mi costa sviluppare questo prodotto complesso? Quanto mi costa aggiungere o modificare una feature a prodotto finito?
+Probabilmente è in questi casi che il team agile vince, ed è in questi casi che il team anziano e competente vince sul team giovane ed inesperto.
+
+Per quanto riguarda le illusioni dell&#039;Agile mi ricordo perfettamente di aver letto su un libro (cercherò quale perché non mi viene in mente.., ma sicuramente è di un autore importante, perché ho solo quelli di libri....) una frase del tipo &quot;il tdd funziona anche perché non richiede sviluppatori particolarmente bravi, mette in grado tutti di scrivere codice decente&quot;.
+
+Sul fatto che un medio Agile è meglio di un medio Waterfall non mi sembra ci siano particolari dubbi, il problema che Cirillo pone è: fare Agile a livello medio non è particolarmente difficile, farlo ad alti livelli, con continuità e migliorando costantemente è molto difficile. Rimane la domanda: come si fa a sapere su che strada si è? Come si imbocca quella giusta? Come ci si rimane?]]></description>
+		<content:encoded><![CDATA[<p>Sulla questione del costo dell&#8217;app per iPhone vorrei però sottolineare una cosa.<br />
+Se chiedi ad un&#8217;azienda quanto costa fare l&#8217;app non puoi aspettarti una cifra tipo 1.000 euro per vari motivi.</p>
+<p>Un&#8217;azienda non si scomoda nemmeno per 1.000 euro, non prende proprio il lavoro.</p>
+<p>Ammesso che sia comunque interessata al lavoro ha due possibilità:<br />
+a) prende una persona nuova a tempo determinato per sviluppare l&#8217;app e quindi sopporta il costo una tantum della persona e dell&#8217;infrastruttura che gli mette a disposizione. Non credo che 1000 euro siano sufficienti (magari l&#8217;azienda non possiede un iphone e quindi come minimo deve comprare quello). Il costo da sopportare secondo me si avvicina facilmente ai 5.000 euro.<br />
+b) L&#8217;alternativa è utilizzare personale interno, ma il personale interno non è che sta lì ad aspettare mentre prende un caffè. Sicuramente è impegnato in altre cose, quindi oltre al costo del personale interno (pro quota per il tempo necessario) ci sarà anche il costo dovuto al distogliere tale personale da altri progetti.</p>
+<p>Quello che voglio dire è che sviluppare un prodotto anche piccolo come il Pomodoro ha comunque uno zoccolo di costi e questo zoccolo non è che necessariamente si abbassa al diminuire della complessità del prodotto.<br />
+Quindi l&#8217;esempio di Cirillo secondo me non è particolarmente rilevante.</p>
+<p>Molto più rilevante sarebbe chiedere: quanto mi costa sviluppare questo prodotto complesso? Quanto mi costa aggiungere o modificare una feature a prodotto finito?<br />
+Probabilmente è in questi casi che il team agile vince, ed è in questi casi che il team anziano e competente vince sul team giovane ed inesperto.</p>
+<p>Per quanto riguarda le illusioni dell&#8217;Agile mi ricordo perfettamente di aver letto su un libro (cercherò quale perché non mi viene in mente.., ma sicuramente è di un autore importante, perché ho solo quelli di libri&#8230;.) una frase del tipo &#8220;il tdd funziona anche perché non richiede sviluppatori particolarmente bravi, mette in grado tutti di scrivere codice decente&#8221;.</p>
+<p>Sul fatto che un medio Agile è meglio di un medio Waterfall non mi sembra ci siano particolari dubbi, il problema che Cirillo pone è: fare Agile a livello medio non è particolarmente difficile, farlo ad alti livelli, con continuità e migliorando costantemente è molto difficile. Rimane la domanda: come si fa a sapere su che strada si è? Come si imbocca quella giusta? Come ci si rimane?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94525</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Tue, 22 Nov 2011 16:42:32 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94525</guid>
+					<description><![CDATA[Le prime due mi paiono ragionevoli: usando TDD puoi migliorare il tuo codice. --&#062; vero
+
+Sulla terza invece Chapeau! Ma in fondo e&#039; la prefazione e il povero Ron Jeffreys vorra&#039; vendere qualche copia del libro. :)
+
+Pero&#039; nessuno (neanche Ron) ha mai detto che &quot;usando i Metodi Agili si diventa più bravi.&quot;]]></description>
+		<content:encoded><![CDATA[<p>Le prime due mi paiono ragionevoli: usando TDD puoi migliorare il tuo codice. &#8211;&gt; vero</p>
+<p>Sulla terza invece Chapeau! Ma in fondo e&#8217; la prefazione e il povero Ron Jeffreys vorra&#8217; vendere qualche copia del libro. :)</p>
+<p>Pero&#8217; nessuno (neanche Ron) ha mai detto che &#8220;usando i Metodi Agili si diventa più bravi.&#8221;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/664/comment-page-1#comment-94524</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Tue, 22 Nov 2011 16:30:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=664#comment-94524</guid>
+					<description><![CDATA[Altra piccola nota: non ho capito se il Code Monster di Francesco era di un team agile o no. Se la risposta fosse si&#039;, allora come fanno a definirsi agili? Come fanno a cambiare quel mostro? 
+Cioe&#039; alla fine mi pare che Francesco abbia detto che ci sono tanti team che pensano di essere agili ma non lo sono, cosa su cui sono d&#039;accordissimo.]]></description>
+		<content:encoded><![CDATA[<p>Altra piccola nota: non ho capito se il Code Monster di Francesco era di un team agile o no. Se la risposta fosse si&#8217;, allora come fanno a definirsi agili? Come fanno a cambiare quel mostro?<br />
+Cioe&#8217; alla fine mi pare che Francesco abbia detto che ci sono tanti team che pensano di essere agili ma non lo sono, cosa su cui sono d&#8217;accordissimo.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: No Frameworks, Part 1	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/1019/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/1019</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Links &#8211; Robbert vd Zon				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-316907</link>
+		<dc:creator><![CDATA[Links &#8211; Robbert vd Zon]]></dc:creator>
+		<pubDate>Sun, 28 Jan 2018 15:21:17 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-316907</guid>
+					<description><![CDATA[[&#8230;] http://matteo.vaccari.name/blog/archives/1019 [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] <a href="http://matteo.vaccari.name/blog/archives/1019" rel="nofollow">http://matteo.vaccari.name/blog/archives/1019</a> [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Frameworkless, o dell&#8217;incontro tra business e tech &#124; Avanscoperta Blog				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-314729</link>
+		<dc:creator><![CDATA[Frameworkless, o dell&#8217;incontro tra business e tech &#124; Avanscoperta Blog]]></dc:creator>
+		<pubDate>Fri, 15 Dec 2017 15:11:55 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-314729</guid>
+					<description><![CDATA[[&#8230;] In un recente intervento sul suo blog, Matteo Vaccari sembra avallare l’idea che sviluppare software senza utilizzare i framework non [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] In un recente intervento sul suo blog, Matteo Vaccari sembra avallare l’idea che sviluppare software senza utilizzare i framework non [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-310351</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 06 Oct 2017 05:26:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-310351</guid>
+					<description><![CDATA[Hi Franco, thanks for your comment!
+
+I don&#039;t think we have yet a full picture of the pros and cons of static vs dynamic languages. One thing I understood is that static typing of separate components, with things like WSDL or similar things that are being invented for REST services, produces tight coupling between the two component, that then must be deployed together.  Typing is coupling!]]></description>
+		<content:encoded><![CDATA[<p>Hi Franco, thanks for your comment!</p>
+<p>I don&#8217;t think we have yet a full picture of the pros and cons of static vs dynamic languages. One thing I understood is that static typing of separate components, with things like WSDL or similar things that are being invented for REST services, produces tight coupling between the two component, that then must be deployed together.  Typing is coupling!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Franco Lombardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-309873</link>
+		<dc:creator><![CDATA[Franco Lombardo]]></dc:creator>
+		<pubDate>Sat, 23 Sep 2017 17:21:53 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-309873</guid>
+					<description><![CDATA[What a good post, Matteo! 
+Anyway I don&#039;t completely agree with your point about dynamic languages. For sure it&#039;s really easy to work quickly with them, but working the right way with (some) statically typed languages could be nearly that fast, as your Java/Jetty example tells us, and, in my opinion, it could avoid some stupid mistakes.]]></description>
+		<content:encoded><![CDATA[<p>What a good post, Matteo!<br />
+Anyway I don&#8217;t completely agree with your point about dynamic languages. For sure it&#8217;s really easy to work quickly with them, but working the right way with (some) statically typed languages could be nearly that fast, as your Java/Jetty example tells us, and, in my opinion, it could avoid some stupid mistakes.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-309853</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 22 Sep 2017 16:51:08 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-309853</guid>
+					<description><![CDATA[@Giorgio Thank you for your comment!
+
+I&#039;m not familiar with PHP frameworks.  With Rails, you definitely have this problem, as running even an empty test in Rails takes 10 or 20 seconds.]]></description>
+		<content:encoded><![CDATA[<p>@Giorgio Thank you for your comment!</p>
+<p>I&#8217;m not familiar with PHP frameworks.  With Rails, you definitely have this problem, as running even an empty test in Rails takes 10 or 20 seconds.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-309852</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 22 Sep 2017 16:21:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-309852</guid>
+					<description><![CDATA[@Claudio Thanks for your comment!  Yes, there is this &quot;boilerplate&quot; problem with Java, but it&#039;s not as severe as some people make it; for me the biggest offender are the &quot;database entities&quot; that have many getters, setters and no behaviour.  If you avoid making those, you&#039;re mostly good :)
+
+I&#039;m an old LISP fan, and I&#039;m sorry I haven&#039;t yet found the time to learn Clojure.  Will do sometime!]]></description>
+		<content:encoded><![CDATA[<p>@Claudio Thanks for your comment!  Yes, there is this &#8220;boilerplate&#8221; problem with Java, but it&#8217;s not as severe as some people make it; for me the biggest offender are the &#8220;database entities&#8221; that have many getters, setters and no behaviour.  If you avoid making those, you&#8217;re mostly good :)</p>
+<p>I&#8217;m an old LISP fan, and I&#8217;m sorry I haven&#8217;t yet found the time to learn Clojure.  Will do sometime!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-309762</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Wed, 20 Sep 2017 21:20:56 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-309762</guid>
+					<description><![CDATA[I&#039;m no particular fan of frameworks: in a world of [micro&#124;mini&#124;]services I&#039;m more used to microframeworks, libraries or embedded containers than to the &quot;monolithic framework to rule them all&quot; like Spring could be considered.
+However, my experience with frameworks in dynamic languages is not the one described: even with heavyweight frameworks like Symfony there is no need to &quot;start the app&quot; to run tests, they are run in a command line process, and they are mostly unit tests.
+At some point, however, you will put together a feature purely by configuration rather than writing code. That requires very good documentation, and acceptance testing, to counteract the stackoverflow problem...]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;m no particular fan of frameworks: in a world of [micro|mini|]services I&#8217;m more used to microframeworks, libraries or embedded containers than to the &#8220;monolithic framework to rule them all&#8221; like Spring could be considered.<br />
+However, my experience with frameworks in dynamic languages is not the one described: even with heavyweight frameworks like Symfony there is no need to &#8220;start the app&#8221; to run tests, they are run in a command line process, and they are mostly unit tests.<br />
+At some point, however, you will put together a feature purely by configuration rather than writing code. That requires very good documentation, and acceptance testing, to counteract the stackoverflow problem&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-309734</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Wed, 20 Sep 2017 06:33:43 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-309734</guid>
+					<description><![CDATA[You are right Matteo, as usual, but what about developers CVs?
+I&#039;ve got some experience now in un-springing projects and the main resistance is from dev they wanted spring in their cv.
+I hope #NoFramework shop catch up! :)
+
+Ps. Logging frameworks are also evil!]]></description>
+		<content:encoded><![CDATA[<p>You are right Matteo, as usual, but what about developers CVs?<br />
+I&#8217;ve got some experience now in un-springing projects and the main resistance is from dev they wanted spring in their cv.<br />
+I hope #NoFramework shop catch up! :)</p>
+<p>Ps. Logging frameworks are also evil!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Claudio Perrone				</title>
+				<link>http://matteo.vaccari.name/blog/archives/1019/comment-page-1#comment-309693</link>
+		<dc:creator><![CDATA[Claudio Perrone]]></dc:creator>
+		<pubDate>Tue, 19 Sep 2017 14:34:31 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=1019#comment-309693</guid>
+					<description><![CDATA[Well, you&#039;re definitely not alone in thinking like this! But I suggest that the core problem is that OO languages like Java simply force people to write a lot of boilerplate code to get anything done (hence the proliferation of such complex frameworks, with all the side-effects that you describe). 
+
+Working without frameworks was one of the first things that surprised me when I discovered Clojure. Rather than relying on a winner-takes-all framework, pretty much everyone uses a set of extremely compact, surprisingly stable little libraries. You can genuinely walk all the stack and see what what&#039;s going on without getting lost! (In addition, some templates, e.g. Luminus, allow you to glue some of these libraries together, if you need more help).]]></description>
+		<content:encoded><![CDATA[<p>Well, you&#8217;re definitely not alone in thinking like this! But I suggest that the core problem is that OO languages like Java simply force people to write a lot of boilerplate code to get anything done (hence the proliferation of such complex frameworks, with all the side-effects that you describe). </p>
+<p>Working without frameworks was one of the first things that surprised me when I discovered Clojure. Rather than relying on a winner-takes-all framework, pretty much everyone uses a set of extremely compact, surprisingly stable little libraries. You can genuinely walk all the stack and see what what&#8217;s going on without getting lost! (In addition, some templates, e.g. Luminus, allow you to glue some of these libraries together, if you need more help).</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

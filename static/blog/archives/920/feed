@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Mathematics cannot prove the absence of bugs	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/920/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/920</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-255884</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 15 Jan 2016 07:13:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-255884</guid>
+					<description><![CDATA[Hi Stefano, just to reiterate: math can prove program correctness for all inputs.  Correctness does not guarantee fitness for purpose.  What we really care about is fitness for purpose; reasoning on the program is a way to make fitness for purpose more likely.  Program testing is another way to make fitness for purpose more likely.  TDD is part reasoning, part testing.  
+
+Uberto is right that not even manual testing can assure you that you are connected to the right database.  I guess that all these reasonings lead to the same conclusion, that is, that absence of bugs is a matter of probabilities, and never a boolean property that can be proved mathematically.
+
+Regarding your point 2: manual testing can check things that automated tests cannot check: a human testers can look for different things every time.  A mechanical test does the opposite: it&#039;s always checking for the same things.  Both styles are useful.]]></description>
+		<content:encoded><![CDATA[<p>Hi Stefano, just to reiterate: math can prove program correctness for all inputs.  Correctness does not guarantee fitness for purpose.  What we really care about is fitness for purpose; reasoning on the program is a way to make fitness for purpose more likely.  Program testing is another way to make fitness for purpose more likely.  TDD is part reasoning, part testing.  </p>
+<p>Uberto is right that not even manual testing can assure you that you are connected to the right database.  I guess that all these reasonings lead to the same conclusion, that is, that absence of bugs is a matter of probabilities, and never a boolean property that can be proved mathematically.</p>
+<p>Regarding your point 2: manual testing can check things that automated tests cannot check: a human testers can look for different things every time.  A mechanical test does the opposite: it&#8217;s always checking for the same things.  Both styles are useful.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Stefano				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-255832</link>
+		<dc:creator><![CDATA[Stefano]]></dc:creator>
+		<pubDate>Thu, 14 Jan 2016 16:29:58 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-255832</guid>
+					<description><![CDATA[Hi Matteo,
+If I understood your post well, I totally concur with Uberto. He touches two very valid points:
+
+1. a program without bugs is a program that works as expected, not a program which is always correct; therefore I much prefer to see TDD as a mean to express requirements, not a testing framework.
+
+2. if we could, testing manually, assure that a sw is always correct, we could then do it with a program too (and with math eventually). as said, this is impossible. therefore manual testing does not add anything in terms of correctness.]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo,<br />
+If I understood your post well, I totally concur with Uberto. He touches two very valid points:</p>
+<p>1. a program without bugs is a program that works as expected, not a program which is always correct; therefore I much prefer to see TDD as a mean to express requirements, not a testing framework.</p>
+<p>2. if we could, testing manually, assure that a sw is always correct, we could then do it with a program too (and with math eventually). as said, this is impossible. therefore manual testing does not add anything in terms of correctness.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-121107</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Wed, 07 Jan 2015 17:26:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-121107</guid>
+					<description><![CDATA[I think that&#039;s exactly the point, a program without bugs is a program that works as expected, not a program which is always correct.
+Even if you test manually the db and it works it still doesn&#039;t mean much, it can be that ip was changed 1 second after your test, or you are actually connecting to a wrong db instance that happens to have same data (this is happened to me).]]></description>
+		<content:encoded><![CDATA[<p>I think that&#8217;s exactly the point, a program without bugs is a program that works as expected, not a program which is always correct.<br />
+Even if you test manually the db and it works it still doesn&#8217;t mean much, it can be that ip was changed 1 second after your test, or you are actually connecting to a wrong db instance that happens to have same data (this is happened to me).</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-99847</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 20 Dec 2014 07:37:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-99847</guid>
+					<description><![CDATA[Giorgio: I present this example because it&#039;s so simple...  complex business rules can arguably be attacked with maths and you might also stand a good chance of conquering them, if you use maths for understanding and simplifying.  Yes I am aware of what Udi Dahan says about maths (http://www.udidahan.com/2014/11/16/watch-out-for-superficial-invariants/) but I think that if you use maths as Dijkstra meant it to be used, then it&#039;s a powerful tool for insight.  I&#039;m not picking on maths.... I&#039;m picking on the attitude that all you need is maths and tests are a second class citizen.]]></description>
+		<content:encoded><![CDATA[<p>Giorgio: I present this example because it&#8217;s so simple&#8230;  complex business rules can arguably be attacked with maths and you might also stand a good chance of conquering them, if you use maths for understanding and simplifying.  Yes I am aware of what Udi Dahan says about maths (<a href="http://www.udidahan.com/2014/11/16/watch-out-for-superficial-invariants/" rel="nofollow">http://www.udidahan.com/2014/11/16/watch-out-for-superficial-invariants/</a>) but I think that if you use maths as Dijkstra meant it to be used, then it&#8217;s a powerful tool for insight.  I&#8217;m not picking on maths&#8230;. I&#8217;m picking on the attitude that all you need is maths and tests are a second class citizen.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-99119</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Fri, 19 Dec 2014 21:25:06 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-99119</guid>
+					<description><![CDATA[I agree all these non-functional requirements are actually the reasons projects fail, first of all maintenance cost. But why choosing this example (a configuration file) to pick on math? There are so many fitting examples such as complex business rules with special cases, user interfaces, integration with 3rd parties.]]></description>
+		<content:encoded><![CDATA[<p>I agree all these non-functional requirements are actually the reasons projects fail, first of all maintenance cost. But why choosing this example (a configuration file) to pick on math? There are so many fitting examples such as complex business rules with special cases, user interfaces, integration with 3rd parties.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-99022</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Fri, 19 Dec 2014 20:13:28 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-99022</guid>
+					<description><![CDATA[Hello Giorgio, 
+
+please read my blog post in perspective.  I wrote a whole Ph.D. thesis about how to write software that&#039;s mathematically proved correct!  And yet maths is not all. 
+
+Your objection about &quot;static analysis&quot;, &quot;load testing&quot; etc is good except that nobody in those fields claims that their field is the answer to all problems in software... as good old Dijkstra seems to have implied about maths.  The irony of it all is that correctness is not the most important, and surprisingly, not the most difficult, part of writing software!  Fitness for purpose, cost of maintainance over the years, speeding up delivery time, are all problems that are FAR more difficult to solve than correctness, and vastly less popular in academia as subjects of study.]]></description>
+		<content:encoded><![CDATA[<p>Hello Giorgio, </p>
+<p>please read my blog post in perspective.  I wrote a whole Ph.D. thesis about how to write software that&#8217;s mathematically proved correct!  And yet maths is not all. </p>
+<p>Your objection about &#8220;static analysis&#8221;, &#8220;load testing&#8221; etc is good except that nobody in those fields claims that their field is the answer to all problems in software&#8230; as good old Dijkstra seems to have implied about maths.  The irony of it all is that correctness is not the most important, and surprisingly, not the most difficult, part of writing software!  Fitness for purpose, cost of maintainance over the years, speeding up delivery time, are all problems that are FAR more difficult to solve than correctness, and vastly less popular in academia as subjects of study.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-98713</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Fri, 19 Dec 2014 16:44:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-98713</guid>
+					<description><![CDATA[A colleague of mine does not run the application at all, but runs a pre-deploy step that tries to connect to the configured hosts with the correct driver, before switching from the old to the new version. This originates from his Java experience where he had dozens of queue names in the configuration and they were modified very frequently.
+
+Returning to the mathematics issue, it seems you can substitute anything into the post and still get the same conclusion: it seems to me that &quot;load testing&quot; or &quot;static analysis&quot; or &quot;code reviews of pull requests on GitHub&quot; cannot prove the absence of bugs either, because I can still put a wrong configuration file into the production environment. Like J.B. said, each one of these techniques covers just a sample of what we need.
+
+That said, there are contexts where mathematics, in the sense of formal verification, can prevent bugs that example-based testing can&#039;t. Whenever there are concurrency or distributed systems involved, you should definitely not try to solve consensus by inventing your own algorithm: just use Paxos. Do not try to invent your own replication mechanism, use something from the literature or Aphyr and Jepsen will haunt you and demonstrate you lose data, like it happened for Redis.
+
+So mathematics is one of the tools; TDD is another; configuration testing before deployment is yet another. What matters is we respond to the risks we encounter and start to introduce in our projects the best risk mitigation strategy considering cost and value. To introduce a practice you must know it; yet everyone is preaching TDD but I don&#039;t see anyone saying reading papers is important...]]></description>
+		<content:encoded><![CDATA[<p>A colleague of mine does not run the application at all, but runs a pre-deploy step that tries to connect to the configured hosts with the correct driver, before switching from the old to the new version. This originates from his Java experience where he had dozens of queue names in the configuration and they were modified very frequently.</p>
+<p>Returning to the mathematics issue, it seems you can substitute anything into the post and still get the same conclusion: it seems to me that &#8220;load testing&#8221; or &#8220;static analysis&#8221; or &#8220;code reviews of pull requests on GitHub&#8221; cannot prove the absence of bugs either, because I can still put a wrong configuration file into the production environment. Like J.B. said, each one of these techniques covers just a sample of what we need.</p>
+<p>That said, there are contexts where mathematics, in the sense of formal verification, can prevent bugs that example-based testing can&#8217;t. Whenever there are concurrency or distributed systems involved, you should definitely not try to solve consensus by inventing your own algorithm: just use Paxos. Do not try to invent your own replication mechanism, use something from the literature or Aphyr and Jepsen will haunt you and demonstrate you lose data, like it happened for Redis.</p>
+<p>So mathematics is one of the tools; TDD is another; configuration testing before deployment is yet another. What matters is we respond to the risks we encounter and start to introduce in our projects the best risk mitigation strategy considering cost and value. To introduce a practice you must know it; yet everyone is preaching TDD but I don&#8217;t see anyone saying reading papers is important&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: J. B. Rainsberger				</title>
+				<link>http://matteo.vaccari.name/blog/archives/920/comment-page-1#comment-97360</link>
+		<dc:creator><![CDATA[J. B. Rainsberger]]></dc:creator>
+		<pubDate>Thu, 18 Dec 2014 17:55:04 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=920#comment-97360</guid>
+					<description><![CDATA[Indeed. A computer program can only constrain which parts can fit together which way, but can never be constrained (perfectly) to &quot;do what you appear to want&quot;, nor even &quot;do what you appear to have intended to do&quot;. We can use sampling (tests) to increase confidence that the program does what we think we want. We can use design principles to reduce the likelihood of misunderstanding, which should increase our confidence further.
+
+We can&#039;t even run the program to prove that it is correct, because for any useful program, we&#039;d have to run it longer than the projected age of the solar system to have a *proof*. :)]]></description>
+		<content:encoded><![CDATA[<p>Indeed. A computer program can only constrain which parts can fit together which way, but can never be constrained (perfectly) to &#8220;do what you appear to want&#8221;, nor even &#8220;do what you appear to have intended to do&#8221;. We can use sampling (tests) to increase confidence that the program does what we think we want. We can use design principles to reduce the likelihood of misunderstanding, which should increase our confidence further.</p>
+<p>We can&#8217;t even run the program to prove that it is correct, because for any useful program, we&#8217;d have to run it longer than the projected age of the solar system to have a *proof*. :)</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

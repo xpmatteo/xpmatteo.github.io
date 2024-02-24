@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: The Rock-Scissors-Paper OCP Dojo	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/431/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/431</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93511</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 09 Oct 2010 14:16:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93511</guid>
+					<description><![CDATA[Hi Indrit, thank you for your feedback.
+
+I can tell you how I did unstall when I started working again on this kata.  I was thinking of &quot;beats&quot; as a mathematical binary relation.  There is a lot of power in modelling problems with mathematics.  And it&#039;s not complicated mathematics.  A book that explains a bit: http://www.usingz.com/text/online/index.html]]></description>
+		<content:encoded><![CDATA[<p>Hi Indrit, thank you for your feedback.</p>
+<p>I can tell you how I did unstall when I started working again on this kata.  I was thinking of &#8220;beats&#8221; as a mathematical binary relation.  There is a lot of power in modelling problems with mathematics.  And it&#8217;s not complicated mathematics.  A book that explains a bit: <a href="http://www.usingz.com/text/online/index.html" rel="nofollow">http://www.usingz.com/text/online/index.html</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Indrit				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93510</link>
+		<dc:creator><![CDATA[Indrit]]></dc:creator>
+		<pubDate>Sat, 09 Oct 2010 10:27:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93510</guid>
+					<description><![CDATA[Hi Matteo,
+
+a very simple and good solution. 
+I think we must analyse why we stalled at coding dojo, I think that could help us for the next similar meetings. We must question ourself how to arrive to a conclusion in a simple and a quick-time way still allowing potentially all participants to exploit/declare their ideas/design.
+
+Thx.]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo,</p>
+<p>a very simple and good solution.<br />
+I think we must analyse why we stalled at coding dojo, I think that could help us for the next similar meetings. We must question ourself how to arrive to a conclusion in a simple and a quick-time way still allowing potentially all participants to exploit/declare their ideas/design.</p>
+<p>Thx.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93431</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sat, 31 Jul 2010 12:28:43 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93431</guid>
+					<description><![CDATA[Hi Stefano,
+
+the test of a design is how easy it is to adapt the design to new requirements.  Suppose you wanted to extend your program to handle Rock-scissors-paper-spock-lizard?  Suppose you needed to support both so that the players can decide which set of rules to use before each game?]]></description>
+		<content:encoded><![CDATA[<p>Hi Stefano,</p>
+<p>the test of a design is how easy it is to adapt the design to new requirements.  Suppose you wanted to extend your program to handle Rock-scissors-paper-spock-lizard?  Suppose you needed to support both so that the players can decide which set of rules to use before each game?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Stefano Masini				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93430</link>
+		<dc:creator><![CDATA[Stefano Masini]]></dc:creator>
+		<pubDate>Sat, 31 Jul 2010 05:23:47 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93430</guid>
+					<description><![CDATA[Hi Matteo,
+
+I&#039;m intrigued by the OCP Dojo rules, but I&#039;m not sure I grasped them entirely.
+I&#039;ve tried this kata in Python and I was a bit disappointed by how trivial the solution was. This is my final version:
+
+
+class Item(object):
+    def beats(self, other):
+        return other.__class__.__name__ in self._beats
+
+class Rock(Item):
+    _beats = [&#039;Scissors&#039;]
+    
+class Scissors(Item):
+    _beats = [&#039;Paper&#039;]
+
+class Paper(Item):
+    _beats = [&#039;Rock&#039;]
+
+class Beats_TestCase(unittest.TestCase):
+    def test_rock_beats_scissors(self):
+        self.assertTrue(Rock().beats(Scissors()))
+
+    def test_scissors_does_not_beat_rock(self):
+        self.assertTrue(not Scissors().beats(Rock()))
+
+    def test_rock_does_not_beat_rock(self):
+        self.assertTrue(not Rock().beats(Rock()))
+
+    def test_scissors_beats_paper(self):
+        self.assertTrue(Scissors().beats(Paper()))
+
+    def test_paper_beats_rock(self):
+        self.assertTrue(Paper().beats(Rock()))
+
+
+As you can see, it&#039;s a typical case of unit-testing that 2+2 equals 4. It&#039;s stating the obvious. In this case the implementation is so trivial that it equals the behavior. So it&#039;s basically like testing the implementation, which is wrong in general.
+
+The point is, I don&#039;t see how I contravened the OCP Dojo rules. Is it maybe because my &quot;factories&quot; are the object constructors? Should I have used an actual factory method instead?
+
+I follow your post and I like your considerations, but I feel like I won&#039;t be able to come to this kind of interesting reasonings if I fall into the 2+2 trap so easily.
+
+Cheers,
+Stefano]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo,</p>
+<p>I&#8217;m intrigued by the OCP Dojo rules, but I&#8217;m not sure I grasped them entirely.<br />
+I&#8217;ve tried this kata in Python and I was a bit disappointed by how trivial the solution was. This is my final version:</p>
+<p>class Item(object):<br />
+    def beats(self, other):<br />
+        return other.__class__.__name__ in self._beats</p>
+<p>class Rock(Item):<br />
+    _beats = [&#8216;Scissors&#8217;]</p>
+<p>class Scissors(Item):<br />
+    _beats = [&#8216;Paper&#8217;]</p>
+<p>class Paper(Item):<br />
+    _beats = [&#8216;Rock&#8217;]</p>
+<p>class Beats_TestCase(unittest.TestCase):<br />
+    def test_rock_beats_scissors(self):<br />
+        self.assertTrue(Rock().beats(Scissors()))</p>
+<p>    def test_scissors_does_not_beat_rock(self):<br />
+        self.assertTrue(not Scissors().beats(Rock()))</p>
+<p>    def test_rock_does_not_beat_rock(self):<br />
+        self.assertTrue(not Rock().beats(Rock()))</p>
+<p>    def test_scissors_beats_paper(self):<br />
+        self.assertTrue(Scissors().beats(Paper()))</p>
+<p>    def test_paper_beats_rock(self):<br />
+        self.assertTrue(Paper().beats(Rock()))</p>
+<p>As you can see, it&#8217;s a typical case of unit-testing that 2+2 equals 4. It&#8217;s stating the obvious. In this case the implementation is so trivial that it equals the behavior. So it&#8217;s basically like testing the implementation, which is wrong in general.</p>
+<p>The point is, I don&#8217;t see how I contravened the OCP Dojo rules. Is it maybe because my &#8220;factories&#8221; are the object constructors? Should I have used an actual factory method instead?</p>
+<p>I follow your post and I like your considerations, but I feel like I won&#8217;t be able to come to this kind of interesting reasonings if I fall into the 2+2 trap so easily.</p>
+<p>Cheers,<br />
+Stefano</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93420</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 21 Jul 2010 13:35:59 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93420</guid>
+					<description><![CDATA[@Tonino: I did that... look at http://github.com/xpmatteo/bowling-workshop and select the &quot;martian bowling&quot; branch :)]]></description>
+		<content:encoded><![CDATA[<p>@Tonino: I did that&#8230; look at <a href="http://github.com/xpmatteo/bowling-workshop" rel="nofollow">http://github.com/xpmatteo/bowling-workshop</a> and select the &#8220;martian bowling&#8221; branch :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Franco Lombardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93410</link>
+		<dc:creator><![CDATA[Franco Lombardo]]></dc:creator>
+		<pubDate>Thu, 15 Jul 2010 12:07:06 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93410</guid>
+					<description><![CDATA[&quot;Simplicity is the ultimate sophistication.&quot; - Leonardo da Vinci]]></description>
+		<content:encoded><![CDATA[<p>&#8220;Simplicity is the ultimate sophistication.&#8221; &#8211; Leonardo da Vinci</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Tonino				</title>
+				<link>http://matteo.vaccari.name/blog/archives/431/comment-page-1#comment-93397</link>
+		<dc:creator><![CDATA[Tonino]]></dc:creator>
+		<pubDate>Mon, 12 Jul 2010 15:38:45 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=431#comment-93397</guid>
+					<description><![CDATA[Great! It could be even better if that work will be done also for the ocp kata bowling solution as well.]]></description>
+		<content:encoded><![CDATA[<p>Great! It could be even better if that work will be done also for the ocp kata bowling solution as well.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Exercise: a Pesky Error Message	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/789/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/789</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Giorgio Sironi				</title>
+				<link>http://matteo.vaccari.name/blog/archives/789/comment-page-1#comment-95596</link>
+		<dc:creator><![CDATA[Giorgio Sironi]]></dc:creator>
+		<pubDate>Fri, 31 Aug 2012 09:13:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=789#comment-95596</guid>
+					<description><![CDATA[My green field solution is in line with the last one presented here. However, I picked up the broader context obsession too and in case we&#039;de dealing with legacy code I would:
+- make logger an optional parameter that defaults to the real implementation.
+- in tests, pass in the Fake logger
+- in production, not touch the calling code
+just because I won&#039;t have access to all the places where a RomanSequence is created.
+In some languages this add a compile-time dependency from RomanSequence to RealLogger, but it&#039;s slightly better than a dependency to STDERR.]]></description>
+		<content:encoded><![CDATA[<p>My green field solution is in line with the last one presented here. However, I picked up the broader context obsession too and in case we&#8217;de dealing with legacy code I would:<br />
+&#8211; make logger an optional parameter that defaults to the real implementation.<br />
+&#8211; in tests, pass in the Fake logger<br />
+&#8211; in production, not touch the calling code<br />
+just because I won&#8217;t have access to all the places where a RomanSequence is created.<br />
+In some languages this add a compile-time dependency from RomanSequence to RealLogger, but it&#8217;s slightly better than a dependency to STDERR.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Books &#8211; Extreme Enthusiasm</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/category/books/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Wed, 08 Jan 2020 14:48:28 +0000	</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+	<item>
+		<title>The Engines of Logic</title>
+		<link>http://matteo.vaccari.name/blog/archives/119</link>
+				<comments>http://matteo.vaccari.name/blog/archives/119#respond</comments>
+				<pubDate>Sun, 08 Jun 2008 16:56:56 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Books]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=119</guid>
+				<description><![CDATA[It is interesting to contrast von Neumann&#8217;s views of computer programming as an activity with Turing&#8217;s. Von Neumann called it &#8220;coding&#8221; and made it clear that he thought of it as a clerical task requiring little intellect. A revealing anecdote tells of a practice at the Institute for Advanced Study computer facility of using students [&#8230;]]]></description>
+								<content:encoded><![CDATA[<blockquote><p>
+It is interesting to contrast von Neumann&#8217;s views of computer programming as an activity with Turing&#8217;s.  Von Neumann called it &#8220;coding&#8221; and made it clear that he thought of it as a clerical task requiring little intellect.  A revealing anecdote tells of a practice at the Institute for Advanced Study computer facility of using students to translate by hand computer instructions written using human-readable mnemonics into machine language.  A young hot-shot programmer proposed to write an assembler that would do this conversion automatically.  Von Neumann is said to have responded angrily that it would be wasteful to use a valuable scientific tool to do a mere clerical job.  In his ACE report, Turing said that the process of computer programming &#8220;should be very fascinating.  There need be no real danger of it ever becoming a drudge, for any processes that are quite mechanical can be be turned over to the machine itself.&#8221;<br />
+&mdash; <a href="http://books.google.it/books?id=a_QApZdZOB0C"><em>The Engines of Logic</em></a>, p. 192
+</p></blockquote>
+<p>Ho appena finito di leggere <a href="http://books.google.it/books?id=a_QApZdZOB0C"><em>The Engines of Logic</em> di Martin Davis</a>, un saggio sulle vite e il lavoro dei logici che possono essere considerati i papà dell&#8217;elaboratore elettronico.  E sono, secondo Davis:</p>
+<ul>
+<li>Leibniz, perché è stato il primo a concepire l&#8217;idea di meccanizzare il ragionamento</li>
+<li>Boole, perché ha inventato quella che oggi chiamiamo logica proposizionale o Booleana</li>
+<li>Frege, perché ha esteso la logica proposizionale con la quantificazione (per ogni&#8230; esiste&#8230;)</li>
+<li>Cantor, perché ha inventato il metodo di dimostrazione &#8220;diagonale&#8221;, che è stato poi messo a frutto da Goedel e da Turing</li>
+<li>Hilbert, perché ha dato nuova linfa al progetto di Leibniz di ottenere un metodo per ottenere la risposta a qualsiasi domanda tramite il calcolo</li>
+<li>Goedel, perché ha dimostrato che il progetto di Hilbert è irrealizzabile</li>
+<li>Turing, perché ha definito con precisione il concetto di &#8220;problema computabile&#8221; (favolosi quegli anni&#8230; più o meno nello stesso periodo Hamming definiva con precisione il concetto di &#8220;informazione&#8221;.  Bello che si possa dare una definizione precisa a concetti apparentemente sfuggenti.)  Non solo: Turing ha anche concepito l&#8217;idea dell&#8217;algoritmo universale, ovvero di una singola macchina che è in grado di risolvere qualsiasi problema computabile.  Da quest&#8217;idea nasce l&#8217;elaboratore di uso generale che conosciamo oggi: con il mio computer posso risolvere problemi di analisi matematica, archiviare indirizzi, editare immagini&#8230; non c&#8217;è limite.  </li>
+<li>Von Neumann, perché ha progettato l&#8217;architettura generale degli elaboratori che usiamo ancora oggi, e continueremo ad usare per un bel pezzo, visto che non ci sono all&#8217;orizzonte alternative plausibili.</li>
+</ul>
+<p>L&#8217;argomento fondamentale del libro è che sì, gli ingegneri che hanno progettato l&#8217;hardware hanno la loro parte di merito, ma è l&#8217;idea logica a monte che è più importante e ha portato più lontano.  Per fare un paio di esempi dal libro: Eckert e Mauchly, gli ingegneri che hanno costruito ENIAC, sono stati geniali per come sono riusciti a rendere affidabile una macchina costruita con 15000 tubi elettronici, componenti notoriamente inaffidabili.  Però era basata sulla notazione decimale: pensate che spreco!  La notazione binaria è molto più economica.  Non solo, ENIAC comprendeva meccanismi specializzati per calcolare funzioni trascendenti, analogamente a quanto avveniva nei differenziatori analogici che erano le macchine di calcolo più avanzate dell&#8217;epoca.  Ma in un calcolatore digitale non c&#8217;è bisogno di questi aggeggi, perché le funzioni trascendenti si approssimano con serie che possono essere calcolate con le ordinarie operazioni aritmetiche.  I logici, invece, la sapevano più lunga.  Già Leibniz era un sostenitore della notazione binaria.  E Turing, nel suo ACE report, sosteneva l&#8217;idea che il calcolatore doveva implementare direttamente solo le operazioni più elementari, perché quelle più complesse (come quelle aritmetiche) potevano essere ottenute mediante quella che oggi si chiamerebbe &#8220;microprogrammazione&#8221;.</p>
+<p>Ben scritto, avvincente e conciso.  </p>
+<p>Ci sono altri libri più approfonditi su questi argomenti; i seguenti sono sempre di divulgazione,  tutti e tre veramente belli.</p>
+<ul>
+<li>Turing: the Enigma, di Andrew Hodges.  Grandissima biografia.</li>
+<li>Goedel, Escher, Bach: an Eternal Golden Braid, di Douglas Hofstaedter.  Labirintico e illuminante viaggio nella logica e nell&#8217;intelligenza artificiale.</li>
+<li><a href="http://books.google.it/books?id=QiMS8t4V_0cC&#038;hl=en">Mechanizing Proof, di Donald MacKenzie</a>.  Grande compendio sugli sforzi di dimostrare automaticamente la correttezza dei programmi.</li>
+</ul>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/119/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>Letto &#8220;Rainbow&#8217;s End&#8221;.  Buon libro.</title>
+		<link>http://matteo.vaccari.name/blog/archives/116</link>
+				<comments>http://matteo.vaccari.name/blog/archives/116#respond</comments>
+				<pubDate>Sun, 04 May 2008 21:12:27 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Books]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=116</guid>
+				<description><![CDATA[Vernor Vinge è uno dei miei autori preferiti. Il suo romanzo che preferisco è A Deepness in the Sky, che è fantascienza molto classica, scientifica, a base di astronavi del lontano futuro e alieni. Questo Rainbow&#8217;s End è molto più vicino a noi; parla di un futuro prossimo. Ci sono echi di Neuromante per come [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>Vernor Vinge è uno dei miei autori preferiti.  Il suo romanzo che preferisco è <a href="http://en.wikipedia.org/wiki/A_Deepness_in_the_Sky">A Deepness in the Sky</a>, che è fantascienza molto classica, scientifica, a base di astronavi del lontano futuro e alieni.</p>
+<p>Questo <a href="http://vrinimi.org/rainbowsend.html">Rainbow&#8217;s End</a> è molto più vicino a noi; parla di un futuro prossimo.  Ci sono echi di <a href="http://en.wikipedia.org/wiki/Neuromancer">Neuromante</a> per come la Rete è pervasiva nella vita dei personaggi.  Ma mentre Gibson immaginava un &#8220;ciberspazio&#8221; separato dalla realtà reale, tanto che chi ci navigava stava praticamente inebetito di fronte al proprio &#8220;deck&#8221;, in questo romanzo la Rete compenetra la realtà; i personaggi percepiscono una &#8220;<a href="http://www.pragprog.com/titles/cfar/augmented-reality">realtà aumentata</a>&#8221; piuttosto che una realtà virtuale.</p>
+<p>Ci sento anche un eco di <a href="http://en.wikipedia.org/wiki/The_Moon_Is_a_Harsh_Mistress">La Luna è una severa maestra</a>, per via di uno dei personaggi che probabilmente non è un essere umano; ma qui non voglio entrare per non rivelare troppo della trama.</p>
+<p>Vinge è un positivista; è uno dei pochi scrittori o sceneggiatori contemporanei che non descrive un futuro triste e oscuro, anche se nel mondo di Rainbow&#8217;s End problemi ce ne sono: il più grave è il pericolo del terrorismo su vasta scala, che è un rischio tanto più concreto in un mondo in cui uno può fare ingegneria genetica a casa sua.  Nei libri di Vinge non ci sono aspetti orrorifici né soprannaturali; l&#8217;unica &#8220;magia&#8221; è nella capacità delle persone di scegliere fra il male e il bene.  </p>
+<p>Insomma, un buon cyberpunk moderno.  </p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/116/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+	</channel>
+</rss>

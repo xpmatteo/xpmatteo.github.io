@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Pair programming antipattern: discussing design	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/137/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/137</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-88908</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Mon, 22 Jun 2009 21:32:38 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-88908</guid>
+					<description><![CDATA[some more contribution to the discussion
+
+http://blog.nayima.be/2009/06/19/nemawashi-decisions-by-consensus-without-compromise/]]></description>
+		<content:encoded><![CDATA[<p>some more contribution to the discussion</p>
+<p><a href="http://blog.nayima.be/2009/06/19/nemawashi-decisions-by-consensus-without-compromise/" rel="nofollow">http://blog.nayima.be/2009/06/19/nemawashi-decisions-by-consensus-without-compromise/</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Subhash				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-72205</link>
+		<dc:creator><![CDATA[Subhash]]></dc:creator>
+		<pubDate>Mon, 24 Nov 2008 09:16:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-72205</guid>
+					<description><![CDATA[Subjects like these are delicate. Both sides in the argument can speak endlessly in their favor. Subjects like these are best left to commonsense. Based on time availability, criticality, modifiability, etc. a decision can be made whether to continue coding, or exploring other possibilities.
+
+{quote}
+There’s a place for design discussions.
+{/quote}
+
+In my humble opinion, there is no particular place for design discussion. Any place, even when programming with your pair, you might come across a design enlightenment. Start brainstorming then and there. This is the fastest way to innovate, I think.]]></description>
+		<content:encoded><![CDATA[<p>Subjects like these are delicate. Both sides in the argument can speak endlessly in their favor. Subjects like these are best left to commonsense. Based on time availability, criticality, modifiability, etc. a decision can be made whether to continue coding, or exploring other possibilities.</p>
+<p>{quote}<br />
+There’s a place for design discussions.<br />
+{/quote}</p>
+<p>In my humble opinion, there is no particular place for design discussion. Any place, even when programming with your pair, you might come across a design enlightenment. Start brainstorming then and there. This is the fastest way to innovate, I think.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-72172</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 23 Nov 2008 09:35:43 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-72172</guid>
+					<description><![CDATA[Hi Vieri,
+
+at first reading I thought I agreed with you.  But thinking it through, in the end, I don&#039;t.  I mean, Agile development is *not* development by committee.  You *don&#039;t* have to have every design choice approved by your team, and not even by your pair.    The code will be your committee: if your solution works, in that it provides the functionality you need to complete the story, then it&#039;s ok.  If I don&#039;t like your design, maybe I will take the time later to refactor it to something I think it&#039;s better.  But I must be careful never to undo any of the functionality that you added.  Which is not too difficult to do, because you work with TDD and all the functionality you wrote is tested.
+
+So, if I think I have a good idea that solves our problem, I must have the *courage* to implement it, without asking permission first.  If my pair thinks she has a good idea, I must have the *humility* to wait and let her do it, without slowing her down by questioning her design.  Perhaps it will not be done the way I would do it.  Perhaps I even think I could do better; but in most cases his way will turn out to be good enough.  It would be arrogant of me to undo his work just to do it again the way I like it, unless there is a very significant advantage in doing it my way.  In most cases I will improve on her design by refactoring a bit, but I will not redo the thing in my image.
+
+My pair may, and should interrupt me if:
+&lt;ul&gt;
+&lt;li&gt;I&#039;m racing through without explaining; I should have the *humility* to explain what I&#039;m going to do, so that he can work with me.  I should not treat my pair as a spectator.&lt;/li&gt;
+&lt;li&gt;It&#039;s clear I&#039;m getting nowhere: if ten minutes pass and I can&#039;t get to green, then *the code* is telling me I&#039;m wrong.  I should ask my pair for help.  My pair should remind me to be disciplined.&lt;/li&gt;
+&lt;li&gt;I&#039;m breaking the rules.  I&#039;m working with more than one broken test, or I&#039;m not writing the tests, or I&#039;m not respecting the pomodoro.  Discipline again.&lt;/li&gt;
+&lt;/ul&gt;
+
+It&#039;s OK to discuss things when we both have no idea how to proceed.]]></description>
+		<content:encoded><![CDATA[<p>Hi Vieri,</p>
+<p>at first reading I thought I agreed with you.  But thinking it through, in the end, I don&#8217;t.  I mean, Agile development is *not* development by committee.  You *don&#8217;t* have to have every design choice approved by your team, and not even by your pair.    The code will be your committee: if your solution works, in that it provides the functionality you need to complete the story, then it&#8217;s ok.  If I don&#8217;t like your design, maybe I will take the time later to refactor it to something I think it&#8217;s better.  But I must be careful never to undo any of the functionality that you added.  Which is not too difficult to do, because you work with TDD and all the functionality you wrote is tested.</p>
+<p>So, if I think I have a good idea that solves our problem, I must have the *courage* to implement it, without asking permission first.  If my pair thinks she has a good idea, I must have the *humility* to wait and let her do it, without slowing her down by questioning her design.  Perhaps it will not be done the way I would do it.  Perhaps I even think I could do better; but in most cases his way will turn out to be good enough.  It would be arrogant of me to undo his work just to do it again the way I like it, unless there is a very significant advantage in doing it my way.  In most cases I will improve on her design by refactoring a bit, but I will not redo the thing in my image.</p>
+<p>My pair may, and should interrupt me if:</p>
+<ul>
+<li>I&#8217;m racing through without explaining; I should have the *humility* to explain what I&#8217;m going to do, so that he can work with me.  I should not treat my pair as a spectator.</li>
+<li>It&#8217;s clear I&#8217;m getting nowhere: if ten minutes pass and I can&#8217;t get to green, then *the code* is telling me I&#8217;m wrong.  I should ask my pair for help.  My pair should remind me to be disciplined.</li>
+<li>I&#8217;m breaking the rules.  I&#8217;m working with more than one broken test, or I&#8217;m not writing the tests, or I&#8217;m not respecting the pomodoro.  Discipline again.</li>
+</ul>
+<p>It&#8217;s OK to discuss things when we both have no idea how to proceed.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Vieri del Bianco				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-71960</link>
+		<dc:creator><![CDATA[Vieri del Bianco]]></dc:creator>
+		<pubDate>Thu, 20 Nov 2008 12:36:20 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-71960</guid>
+					<description><![CDATA[I definitely prefer Luca approach.
+If you work in pair and do not talk and confront with your pair about what you are doing, I think you are missing something. To me working in pair also means working together for a common goal through a common solution; to discuss for 5 minutes to agree for a common design/solution is great to me (even if I&#039;m not in front of a whiteboard), to discuss for one full pomodoro (25m) is silly. But this is a discussion length problem, not an &quot;every discussion&quot; problem.
+My suggestion? Time box design discussions (5 minutes for a Pomodoro that should be spent on code could be fair)... If the discussion is not over, work alone for spike solutions or adopt Luca approach or understand why there are so many pointless discussions. 
+&quot;I&#039;m going to do it my way... than you&#039;ll see&quot; does not seem to me a good pair programming approach.]]></description>
+		<content:encoded><![CDATA[<p>I definitely prefer Luca approach.<br />
+If you work in pair and do not talk and confront with your pair about what you are doing, I think you are missing something. To me working in pair also means working together for a common goal through a common solution; to discuss for 5 minutes to agree for a common design/solution is great to me (even if I&#8217;m not in front of a whiteboard), to discuss for one full pomodoro (25m) is silly. But this is a discussion length problem, not an &#8220;every discussion&#8221; problem.<br />
+My suggestion? Time box design discussions (5 minutes for a Pomodoro that should be spent on code could be fair)&#8230; If the discussion is not over, work alone for spike solutions or adopt Luca approach or understand why there are so many pointless discussions.<br />
+&#8220;I&#8217;m going to do it my way&#8230; than you&#8217;ll see&#8221; does not seem to me a good pair programming approach.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Maietta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-71953</link>
+		<dc:creator><![CDATA[Andrea Maietta]]></dc:creator>
+		<pubDate>Thu, 20 Nov 2008 09:21:10 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-71953</guid>
+					<description><![CDATA[Matteo, neither am I, and I&#039;m sure we both (my partner and I) want to have fun programming, as I guess you do. I know sometimes I do sound harsh, but basically I&#039;m with you.
+
+That said, I wouldn&#039;t say I&#039;m a genius, but sometimes I really had to work with blockheads. Luckily this happened just a few times, so I can say these were the exceptions :-) and as such the last sentence in my previous post should be read.]]></description>
+		<content:encoded><![CDATA[<p>Matteo, neither am I, and I&#8217;m sure we both (my partner and I) want to have fun programming, as I guess you do. I know sometimes I do sound harsh, but basically I&#8217;m with you.</p>
+<p>That said, I wouldn&#8217;t say I&#8217;m a genius, but sometimes I really had to work with blockheads. Luckily this happened just a few times, so I can say these were the exceptions :-) and as such the last sentence in my previous post should be read.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: jacopo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-71921</link>
+		<dc:creator><![CDATA[jacopo]]></dc:creator>
+		<pubDate>Wed, 19 Nov 2008 22:46:37 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-71921</guid>
+					<description><![CDATA[nice hint matteo.
+
+i just want to add this: pair programming is about developing, so that there&#039;s place for design, coding, refactoring, all done in pair.
+
+i really like spending one pomodoro with paper and a pen, discussing designs - ways of doing. but (and this is what you&#039;re saying), as soon as the pair decide to give a design a try, there should be no more discussions: let the code speak!
+
+so, i&#039;ll briefly restate as &quot;please, do design and coding while pairing, but one at a time!&quot;]]></description>
+		<content:encoded><![CDATA[<p>nice hint matteo.</p>
+<p>i just want to add this: pair programming is about developing, so that there&#8217;s place for design, coding, refactoring, all done in pair.</p>
+<p>i really like spending one pomodoro with paper and a pen, discussing designs &#8211; ways of doing. but (and this is what you&#8217;re saying), as soon as the pair decide to give a design a try, there should be no more discussions: let the code speak!</p>
+<p>so, i&#8217;ll briefly restate as &#8220;please, do design and coding while pairing, but one at a time!&#8221;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-71919</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Wed, 19 Nov 2008 22:24:03 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-71919</guid>
+					<description><![CDATA[it happened me too, spending to much time arguing with the competent and passionate pair I was working with
+
+just because we both wanted to do a good job, not even trying to demonstrate to know the better solution
+
+what finally worked for us was to take the time to implement my idea (5-10min at the keyboard) and look together at the final result, then rollback and implement the other pair idea (another 5-10min at the keyboard)  - at the end it was easy to pick up a common agreed viable solution
+
+
+this not only solved the dispute, but after that we learned to wait, to look at the final result and then to comment or suggest possible improvement. and also after that the disputes decremented :)]]></description>
+		<content:encoded><![CDATA[<p>it happened me too, spending to much time arguing with the competent and passionate pair I was working with</p>
+<p>just because we both wanted to do a good job, not even trying to demonstrate to know the better solution</p>
+<p>what finally worked for us was to take the time to implement my idea (5-10min at the keyboard) and look together at the final result, then rollback and implement the other pair idea (another 5-10min at the keyboard)  &#8211; at the end it was easy to pick up a common agreed viable solution</p>
+<p>this not only solved the dispute, but after that we learned to wait, to look at the final result and then to comment or suggest possible improvement. and also after that the disputes decremented :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-71907</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 19 Nov 2008 16:34:09 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-71907</guid>
+					<description><![CDATA[Yes Andrea, except that I&#039;m never going to think my pair is a blockhead.  If I thought that, I would not want to work with him at all.  However, I think most people can get good at programming, if they really want to and we are patient enough to share our thoughts with them.
+
+]]></description>
+		<content:encoded><![CDATA[<p>Yes Andrea, except that I&#8217;m never going to think my pair is a blockhead.  If I thought that, I would not want to work with him at all.  However, I think most people can get good at programming, if they really want to and we are patient enough to share our thoughts with them.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Maietta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/137/comment-page-1#comment-71906</link>
+		<dc:creator><![CDATA[Andrea Maietta]]></dc:creator>
+		<pubDate>Wed, 19 Nov 2008 16:31:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=137#comment-71906</guid>
+					<description><![CDATA[Sacred words, thanks for giving voice to my thoughts.
+As an aside, I&#039;d like to add that, in my opinion, the process you describe requires some factors: trust in the driver, willingness to learn, humility (which clearly contrasts the typical programmer&#039;s hubris).
+I often see a mix of the two: your partner does not understand AND wishes you tried some other way. This can almost always be related to a lack of OOD skills, thus your partner is just trying to take you back to a design she knows better. This is where the teacher hidden inside you emerges (being yourself a teacher you know what I&#039;m talking about), but only time and practice will really do the difference, and here we go back to the aforementioned factors.
+Unluckily, to (partially) quote what Uberto once said in the JUG Milano Mailing list, &quot;blockheads will never produce good gode&quot; (I&#039;m afraid the translation lead to an euphemistic rendering).]]></description>
+		<content:encoded><![CDATA[<p>Sacred words, thanks for giving voice to my thoughts.<br />
+As an aside, I&#8217;d like to add that, in my opinion, the process you describe requires some factors: trust in the driver, willingness to learn, humility (which clearly contrasts the typical programmer&#8217;s hubris).<br />
+I often see a mix of the two: your partner does not understand AND wishes you tried some other way. This can almost always be related to a lack of OOD skills, thus your partner is just trying to take you back to a design she knows better. This is where the teacher hidden inside you emerges (being yourself a teacher you know what I&#8217;m talking about), but only time and practice will really do the difference, and here we go back to the aforementioned factors.<br />
+Unluckily, to (partially) quote what Uberto once said in the JUG Milano Mailing list, &#8220;blockheads will never produce good gode&#8221; (I&#8217;m afraid the translation lead to an euphemistic rendering).</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

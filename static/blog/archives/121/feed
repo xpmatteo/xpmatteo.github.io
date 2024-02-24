@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Essap 2008 is over!	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/121/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/121</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Yves Hanoulle				</title>
+				<link>http://matteo.vaccari.name/blog/archives/121/comment-page-1#comment-66594</link>
+		<dc:creator><![CDATA[Yves Hanoulle]]></dc:creator>
+		<pubDate>Tue, 08 Jul 2008 22:51:07 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=121#comment-66594</guid>
+					<description><![CDATA[It was a lot of fun doing our leadership game in Varesse.
+Thanks for having us.]]></description>
+		<content:encoded><![CDATA[<p>It was a lot of fun doing our leadership game in Varesse.<br />
+Thanks for having us.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

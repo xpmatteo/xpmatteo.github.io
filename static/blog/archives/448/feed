@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Reading The Toyota Way	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/448/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/448</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Plamen's Blog: Weekly agile links 6th - 10th September 2010				</title>
+				<link>http://matteo.vaccari.name/blog/archives/448/comment-page-1#comment-94511</link>
+		<dc:creator><![CDATA[Plamen's Blog: Weekly agile links 6th - 10th September 2010]]></dc:creator>
+		<pubDate>Mon, 14 Nov 2011 14:24:13 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=448#comment-94511</guid>
+					<description><![CDATA[[...] Pannone. Perhaps worth reading if I could place it higher than all of my other tasks (unlikely).Reading The Toyota Way Matteo Vaccari with some thoughts on how this book changes his view.BUT /MY/ TEAM NEEDS A LEADER [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Pannone. Perhaps worth reading if I could place it higher than all of my other tasks (unlikely).Reading The Toyota Way Matteo Vaccari with some thoughts on how this book changes his view.BUT /MY/ TEAM NEEDS A LEADER [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Dean				</title>
+				<link>http://matteo.vaccari.name/blog/archives/448/comment-page-1#comment-94409</link>
+		<dc:creator><![CDATA[Dean]]></dc:creator>
+		<pubDate>Tue, 04 Oct 2011 00:39:09 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=448#comment-94409</guid>
+					<description><![CDATA[Nice post. I really enjoyed the book, and your comment shows that you understood that the author is trying to convey a philosophy rather than a set of steps. More importantly, readers need to learn the philosophy then apply it themselves - infact that is the very heart of TPS - i.e. to continuously improve everything, even improving the improvement!
+
+As i consider TPS and its philosophies, it seems easy to apply them to software development. Perhaps not completely and literally in every case - but it ways that make major improvements.
+
+For example, continuous build and test systems (continuous integration is what they are sometimes called) fits wonderfully in to TPS. Coders can flick their code in to the system and get results back quickly, also the code base can be built and tested automatically and the results placed in emails, on a screen etc etc.
+
+As a perl coder, we have a strong suite of testing software. Even tests to test that our test cases test everything in our code! Tests that check for best practises, documentation coverage (pod) and code tidiness, both of which can be easily customized. These can be easily built in to a system which falls in to the TPS philosophy.
+
+Platforms like &#039;github&#039; also have lowered the entry level for trivial updates, making forking, updating and then pushing the changes really trivial. Such a system allows programmers to easily make small files and improvements in a controllable manner. I think this is again, another concept that is true to TPS
+
+I would love to hear how other people have applied TPS to IT systems and software development. I dont think there is a right or wrong answer, TPS is all about what works for you!]]></description>
+		<content:encoded><![CDATA[<p>Nice post. I really enjoyed the book, and your comment shows that you understood that the author is trying to convey a philosophy rather than a set of steps. More importantly, readers need to learn the philosophy then apply it themselves &#8211; infact that is the very heart of TPS &#8211; i.e. to continuously improve everything, even improving the improvement!</p>
+<p>As i consider TPS and its philosophies, it seems easy to apply them to software development. Perhaps not completely and literally in every case &#8211; but it ways that make major improvements.</p>
+<p>For example, continuous build and test systems (continuous integration is what they are sometimes called) fits wonderfully in to TPS. Coders can flick their code in to the system and get results back quickly, also the code base can be built and tested automatically and the results placed in emails, on a screen etc etc.</p>
+<p>As a perl coder, we have a strong suite of testing software. Even tests to test that our test cases test everything in our code! Tests that check for best practises, documentation coverage (pod) and code tidiness, both of which can be easily customized. These can be easily built in to a system which falls in to the TPS philosophy.</p>
+<p>Platforms like &#8216;github&#8217; also have lowered the entry level for trivial updates, making forking, updating and then pushing the changes really trivial. Such a system allows programmers to easily make small files and improvements in a controllable manner. I think this is again, another concept that is true to TPS</p>
+<p>I would love to hear how other people have applied TPS to IT systems and software development. I dont think there is a right or wrong answer, TPS is all about what works for you!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/448/comment-page-1#comment-93464</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 08 Sep 2010 07:28:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=448#comment-93464</guid>
+					<description><![CDATA[Hi Peter,
+
+thanks for your feedback.  You can see if the pair is blocked from afar by their voices and postures; but this is apparent only if you are experienced enough to tell the difference (for instance) between being busy and achieving little, and programming productively; or between aimless discussion, and focused problem-solving.
+
+There are some objective indicators you could use; you could check, for instance, how long since last commit, or how long since last &quot;green&quot; in JUnit.  These indicators are highly dependent on your team&#039;s practices.  What do you think?]]></description>
+		<content:encoded><![CDATA[<p>Hi Peter,</p>
+<p>thanks for your feedback.  You can see if the pair is blocked from afar by their voices and postures; but this is apparent only if you are experienced enough to tell the difference (for instance) between being busy and achieving little, and programming productively; or between aimless discussion, and focused problem-solving.</p>
+<p>There are some objective indicators you could use; you could check, for instance, how long since last commit, or how long since last &#8220;green&#8221; in JUnit.  These indicators are highly dependent on your team&#8217;s practices.  What do you think?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Peter Saddington				</title>
+				<link>http://matteo.vaccari.name/blog/archives/448/comment-page-1#comment-93460</link>
+		<dc:creator><![CDATA[Peter Saddington]]></dc:creator>
+		<pubDate>Tue, 07 Sep 2010 14:52:34 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=448#comment-93460</guid>
+					<description><![CDATA[Sounds like there may need to be a more apparent information radiator or visual representation of when a programming pair is blocked? Or do you just know (if you know your team very well).
+
+Interesting thoughts on how to visualize issues in a week. 
+
+Best,
+Peter Saddington
+www.whitebarrel.com/blog]]></description>
+		<content:encoded><![CDATA[<p>Sounds like there may need to be a more apparent information radiator or visual representation of when a programming pair is blocked? Or do you just know (if you know your team very well).</p>
+<p>Interesting thoughts on how to visualize issues in a week. </p>
+<p>Best,<br />
+Peter Saddington<br />
+<a href="http://www.whitebarrel.com/blog" rel="nofollow">http://www.whitebarrel.com/blog</a></p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

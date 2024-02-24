@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Appunti su Domain-Driven Design, di Eric Evans	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/74/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/74</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: fabiobeta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/74/comment-page-1#comment-2680</link>
+		<dc:creator><![CDATA[fabiobeta]]></dc:creator>
+		<pubDate>Thu, 01 Feb 2007 17:52:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=74#comment-2680</guid>
+					<description><![CDATA[Per una sbirciata all&#039;argomento ho trovato questo libro scaricabile gratis (o meglio, a pagamento di una registrazione...)
+
+http://www.infoq.com/minibooks/domain-driven-design-quickly]]></description>
+		<content:encoded><![CDATA[<p>Per una sbirciata all&#8217;argomento ho trovato questo libro scaricabile gratis (o meglio, a pagamento di una registrazione&#8230;)</p>
+<p><a href="http://www.infoq.com/minibooks/domain-driven-design-quickly" rel="nofollow">http://www.infoq.com/minibooks/domain-driven-design-quickly</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/74/comment-page-1#comment-2622</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Wed, 31 Jan 2007 09:35:46 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=74#comment-2622</guid>
+					<description><![CDATA[Secondo me cmq sono due approcci entrambi validi (ragionare su mockup di UI e sul Model Design) e arriverei a dire entrambi necessari.
+La cosa veramente importante e&#039; comunicare col cliente, il che non significa fare esattamente quello che lui dice di volere (il che e&#039; un po&#039; XP prima maniera), ma cercare di capire insieme cosa gli serve realmente.
+Concordo sull&#039;effetto iceberg, pero&#039; e&#039; vero che, dopo aver chiarito il dominio, alcune scelte tecniche possono dipendere da come sara&#039; necessario presentare i dati.]]></description>
+		<content:encoded><![CDATA[<p>Secondo me cmq sono due approcci entrambi validi (ragionare su mockup di UI e sul Model Design) e arriverei a dire entrambi necessari.<br />
+La cosa veramente importante e&#8217; comunicare col cliente, il che non significa fare esattamente quello che lui dice di volere (il che e&#8217; un po&#8217; XP prima maniera), ma cercare di capire insieme cosa gli serve realmente.<br />
+Concordo sull&#8217;effetto iceberg, pero&#8217; e&#8217; vero che, dopo aver chiarito il dominio, alcune scelte tecniche possono dipendere da come sara&#8217; necessario presentare i dati.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Lawrence Oluyede				</title>
+				<link>http://matteo.vaccari.name/blog/archives/74/comment-page-1#comment-2598</link>
+		<dc:creator><![CDATA[Lawrence Oluyede]]></dc:creator>
+		<pubDate>Tue, 30 Jan 2007 21:51:11 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=74#comment-2598</guid>
+					<description><![CDATA[Me lo segno nella wish-list di Amazon. Ora sto leggendo questo: http://www.pragmaticprogrammer.com/titles/mjwti/]]></description>
+		<content:encoded><![CDATA[<p>Me lo segno nella wish-list di Amazon. Ora sto leggendo questo: <a href="http://www.pragmaticprogrammer.com/titles/mjwti/" rel="nofollow">http://www.pragmaticprogrammer.com/titles/mjwti/</a></p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

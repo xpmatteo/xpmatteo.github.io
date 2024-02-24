@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: A summary of my XP2014	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/897/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/897</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Sebastian				</title>
+				<link>http://matteo.vaccari.name/blog/archives/897/comment-page-1#comment-96778</link>
+		<dc:creator><![CDATA[Sebastian]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2014 16:17:35 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=897#comment-96778</guid>
+					<description><![CDATA[Very nice summary. Thx Matteo.]]></description>
+		<content:encoded><![CDATA[<p>Very nice summary. Thx Matteo.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/897/comment-page-1#comment-96777</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2014 14:59:31 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=897#comment-96777</guid>
+					<description><![CDATA[Franco: I don&#039;t know... I&#039;m just reporting my recollection of what Joshua said :)]]></description>
+		<content:encoded><![CDATA[<p>Franco: I don&#8217;t know&#8230; I&#8217;m just reporting my recollection of what Joshua said :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Franco Lombardo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/897/comment-page-1#comment-96776</link>
+		<dc:creator><![CDATA[Franco Lombardo]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2014 11:06:30 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=897#comment-96776</guid>
+					<description><![CDATA[Matteo,
+
+thanks for sharing!
+
+You reported Joshua&#039;s opinion: &quot;DHH is grossly misinformed on TDD, even though he has a few good points&quot;
+
+Which are these good points? :-)]]></description>
+		<content:encoded><![CDATA[<p>Matteo,</p>
+<p>thanks for sharing!</p>
+<p>You reported Joshua&#8217;s opinion: &#8220;DHH is grossly misinformed on TDD, even though he has a few good points&#8221;</p>
+<p>Which are these good points? :-)</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

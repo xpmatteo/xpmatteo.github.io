@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/886 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:25:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1">
+
+<title>Extreme Enthusiasm  &raquo; Blog Archive   &raquo; Il mio corso di TDD</title>
+
+<meta name="generator" content="WordPress 5.1.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../wp-content/themes/mv2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php" />
+
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Extreme Enthusiasm &raquo; Il mio corso di TDD Comments Feed" href="886/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/matteo.vaccari.name\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Notes on exception handling' href='875.html' />
+<link rel='next' title='An introduction to contemporary web application techniques' href='890.html' />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="886.html" />
+<link rel='shortlink' href='../index6cf4.html?p=886' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embedc6ab.json?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F886" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed29ef?url=http%3A%2F%2Fmatteo.vaccari.name%2Fblog%2Farchives%2F886&amp;format=xml" />
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+	<h1><a href="../../blog">Extreme Enthusiasm</a></h1>
+</div>
+
+<div id='maincontent'>
+    <div id='main-col'>
+
+  
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="875.html" rel="prev">Notes on exception handling</a></div>
+			<div class="alignright"><a href="890.html" rel="next">An introduction to contemporary web application techniques</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-886">
+			<h2><a href="886.html" rel="bookmark" title="Permanent Link: Il mio corso di TDD">Il mio corso di TDD</a></h2>
+
+			<div class="entrytext">
+				<p>TL;DR: what my <a href="http://www.avanscoperta.it/it/training/test-driven-development/" title="Test-Driven Development | Avanscoperta">public TDD course</a> is about.  </p>
+<h3>Imparare il TDD</h3>
+<p>In gennaio terrò il mio <a href="http://www.avanscoperta.it/it/training/test-driven-development/" title="Test-Driven Development | Avanscoperta">primo corso pubblico di TDD</a>.  Grazie ad Alberto Brandolini che lo ha organizzato.</p>
+<h3>La promessa del TDD</h3>
+<p>Scrivere programmi che funzionano correttamente gia dalla prima volta che vengono messi in produzione.  Sentirsi dire dal cliente che i pochi difetti riscontrati si verificano talmente di rado che non vale neanche la pena di correggerli.</p>
+<p>Arriva il cliente con una nuova richiesta.  Ha cambiato idea di nuovo.  Il nuovo requisito coinvolge una serie di nuovi casi speciali.  Non è un problema: concordiamo con il cliente alcuni esempi concreti e lo risolviamo.    Il nostro codice è malleabile: il nuovo requisito del cliente spesso richiede solo di creare nuove implementazioni di interfacce esistenti; in questi casi il design supporta facilmente l&#8217;introduzione del nuovo requisito.  In altri casi invece dobbiamo modificare la struttura del codice per poter inserire bene il codice nuovo.  Lo facciamo in maniera controllata, a piccoli passi.  Il nostro codice è semplice perché è stato sviluppato a partire dai test: la maggior parte delle volte, il codice che abbiamo prodotto era molto più semplice di quello che ci aspettavamo di dover scrivere.</p>
+<p>Ti ricordi? Una volta scrivevamo codice per, tipo,  una settimana.  Poi passavamo una o due settimane a farlo funzionare, debuggando con le scritte sulla console.  Ora il debugging non lo facciamo quasi più.  Il codice viene pensato, testato, scritto ed integrato nel giro di minuti, non giorni.</p>
+<h3>Le difficoltà</h3>
+<p>Non è stato facile.  Io ci ho messo anni per cominciare a capire come funziona il TDD.  Sono stati anni produttivi: ogni nuovo gradino di comprensione mi ha permesso di scrivere codice migliore.  E ogni nuovo gradino diventava un plateau da cui non era facile scorgere quale fosse il prossimo passo.</p>
+<p>Mi sono dovuto ricredere su tante cose.  Ho imparato a tenere i framework, il sistema operativo, le librerie al loro posto, per essere sicuro di mantenere il controllo della situazione.  Non voglio essere alla mercé di quello che un framework può o non può fare, dei suoi bug e delle sue idiosincrasie.  Il codice della mia applicazione adesso è separato dal codice che serve a parlare con il framework.  </p>
+<p>Ho imparato che il design è importante.  <a href="http://minnenratta.wordpress.com/" title="Minnen Ratta | Saving the world, one lame suggestion at a time">Carlo Bottiglieri</a> ha detto &#8220;Se il design non lo sai fare, il TDD non te lo insegna.&#8221;  E&#8217; per questo che dopo i primi successi con il TDD, non riuscivo a migliorare.  Ho cercato chi potesse insegnarmelo; ho comprato libri di seconda mano perché l&#8217;argomento &#8220;design&#8221; è talmente fuori moda che i libri non li ristampano più.  Alcuni libri che pure avevo letto prima, come il famoso libro dei pattern, non mi avevano detto granché.  Ora li rileggo e capisco meglio che cosa vogliono dire.  </p>
+<p>Ho capito che il design è un modo di pensare; <a href="http://francescocirillo.com/" title="Francesco Cirillo">Francesco Cirillo</a> ripeteva &#8220;E&#8217; semplice ma non è facile&#8221;.  Ora capisco che l&#8217;idea che avevo io di &#8220;semplice&#8221; era tutta sbagliata.  Capisco anche perché molti programmatori confondono il &#8220;semplice&#8221; con il &#8220;facile&#8221;, perché anch&#8217;io ho vissuto questa confusione.  Coesione e accoppiamento adesso hanno un senso; le vedo nel codice.</p>
+<p>E non è finita.  Continuo a imparare nuove cose, da libri, blog,  colleghi e situazioni sul lavoro.  E&#8217; bello quando affrontiamo un problema in pair programming, facendo TDD come si deve e quindi scrivendo solo il minimo che serve per fare passare il test, rimuovendo la duplicazione a ogni passo, e otteniamo codice molto più semplice del previsto.  Salta fuori che il TDD è una tecnica di design&#8230; proprio come dicevano i libri!</p>
+<h3>Il corso di TDD</h3>
+<p>Dal 2007 al 2012 ho lavorato in Sourcesense/<a href="http://xpeppers.com/" title="XPeppers">XPeppers</a> come coach del team Orione.  Abbiamo affrontato molti problemi con TDD.  Abbiamo insegnato il TDD (con tutti i limiti della nostra comprensione dell&#8217;argomento) presso i nostri clienti.  Abbiamo fatto un corso pubblico di TDD di un giorno, che ha avuto un discreto successo.</p>
+<p>Dall&#8217;aprile 2012 sono tornato consulente indipendente.  Faccio il coach freelance presso organizzazioni che vogliono migliorare la maniera in cui lavorano con il software.  </p>
+<p>Il corso di due giorni sul TDD è stato provato più volte presso i nostri clienti, insieme al mio collega coach Antonio Carpentieri. Nel maggio del 2013 sono stato invitato dagli amici di DotNetToscana a fare un corso di TDD di due giorni.  Dopo quell&#8217;esperienza ho sentito che il corso era pronto per essere presentato al pubblico.</p>
+<h3>La prospettiva</h3>
+<p>Qual&#8217;è la prospettiva attraverso cui mostro il TDD?  </p>
+<ul>
+<li>Il TDD è divertente.  È semplice.  Cerco sempre il senso del semplice e del divertente nella programmazione.  Per questo sono molto sospettoso quando sento parlare di &#8220;framework per testare X&#8221;.  Mi puzza di complicazione.  Per iniziare a fare TDD non c&#8217;è nemmeno bisogno di xUnit.</li>
+<li>Il TDD è una tecnica di design.  Per me non è uno slogan, è una cosa che pratico per davvero. Per questo quando parlo di TDD parlo anche e soprattutto di come fare design.</li>
+<li>Si parte sempre da una user story.  Sviluppiamo per realizzare una richiesta del cliente; per questo il primo test spesso è un acceptance test.</li>
+<li>Acceptance test non significa end-to-end test.  Sono due concetti ortogonali; un AT può anche essere un test end-to-end, ma spesso non lo è.</li>
+<li>Separa la parte facile da testare da quella difficile da testare.  Concentra tutta la logica interessante nella parte facile da testare.</li>
+</ul>
+<p>I miei maestri?  Ho imparato da Francesco Cirillo e Carlo Bottiglieri.  Considero fondamentali il libro di Kent Beck, <a href="http://books.google.com/books?isbn=0321146530">Test-Driven Development: By Example</a>, il libro di Steve Freeman e Nat Pryce, <a href="http://www.growing-object-oriented-software.com/" title="Growing Object-Oriented Software Guided by Tests: About the Book">Growing Object-Oriented Software Guided By Tests</a>.  Condivido molte delle cose che scrivono <a href="http://arlobelshee.com/" title="Arlo Being Bloody Stupid">Arlo Belshee</a> e <a href="http://www.jbrains.ca/" title="jbrains">J.B. Rainsberger</a>.  Trovo utili <a href="http://cleancoders.com/" title="Clean Coders">i video di Robert Martin</a> e <a href="https://www.youtube.com/channel/UCKu3XCVh7pe06khn4N1uCiQ">quelli di Piergiuliano Bossi</a>.  </p>
+<h3>In conclusione</h3>
+<p>Per me il TDD è uno strumento per migliorare.  Senza il TDD, ogni programmatore arriva al suo livello naturale di competenza e si ferma lì.  Con il TDD, e il design che devi imparare per fare bene TDD, hai un percorso di miglioramento che non finisce mai.  Il mio corso può esserti utile se:</p>
+<ul>
+<li>
+    hai provato qualche volta a fare TDD, ma non è rimasto nella tua pratica quotidiana.
+  </li>
+<li>
+    Hai fatto qualche progetto con TDD ma il codice che ne è uscito fuori era un pasticcio.
+  </li>
+<li>
+    Vorresti iniziare a fare TDD ma non sai da dove cominciare.
+  </li>
+<li>
+    Fai correntemente TDD e hai qualche dubbio da sciogliere per passare al prossimo livello.
+  </li>
+<li>
+    Senti sempre parlare di &#8220;design&#8221; ma non hai mai trovato un libro che te lo spieghi bene.
+  </li>
+</ul>
+<p>Se ti riconosci in uno di questi casi, probabilmente posso aiutarti, perché sono stadi da cui sono passato anch&#8217;io.</p>
+
+				
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on 27 December 2013 at 09:44						and is filed under <a href="category/agile.html" rel="category tag">Agile</a>.
+						You can follow any responses to this entry through the <a href="886/feed">RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="886/trackback" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+   
+		<!-- If comments are open, but there are no comments. -->
+		
+	 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://matteo.vaccari.name/blog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="886" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="06276a8f55" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="37"/></p>
+</form>
+
+
+
+	
+    </div>
+
+    <div id='right-col'>
+        <div id="sidebar">
+    <ul>
+
+      <li>
+        <form method="get" id="searchform" action="http://matteo.vaccari.name/blog/">
+  <div>
+    <input tabindex="1" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
+      </li>
+
+      <li>
+
+        <h2>About</h2>
+
+	I am a software developer working with <a href="http://thoughtworks.com/">Thoughtworks Italia</a>.
+        I'm a fan of <a
+        href="http://extremeprogramming.org/">Extreme Programming</a>.
+        I&nbsp;helped organize the <a
+        href="http://essap.dicom.uninsubria.it/">European Summer School on
+        Agile Programming</a>
+
+      </li>
+
+      <li>
+            </li>
+
+      <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-851"><a href="../selected-tdd-resources-to-start.html">Selected TDD Resources To Start</a></li>
+<li class="page_item page-item-583"><a href="../tdd-resources.html">TDD Resources</a></li>
+<li class="page_item page-item-247"><a href="../the-hexagonal-architecture.html">The Hexagonal Architecture</a></li>
+</ul></li>
+
+      
+      <li><h2>Archives</h2>
+        <ul>
+        	<li><a href='date/2018/10.html'>October 2018</a></li>
+	<li><a href='date/2017/09.html'>September 2017</a></li>
+	<li><a href='date/2016/08.html'>August 2016</a></li>
+	<li><a href='date/2016/03.html'>March 2016</a></li>
+	<li><a href='date/2016/01.html'>January 2016</a></li>
+	<li><a href='date/2014/12.html'>December 2014</a></li>
+	<li><a href='date/2014/10.html'>October 2014</a></li>
+	<li><a href='date/2014/06.html'>June 2014</a></li>
+	<li><a href='date/2014/02.html'>February 2014</a></li>
+	<li><a href='date/2013/12.html'>December 2013</a></li>
+	<li><a href='date/2013/11.html'>November 2013</a></li>
+	<li><a href='date/2013/06.html'>June 2013</a></li>
+	<li><a href='date/2013/05.html'>May 2013</a></li>
+	<li><a href='date/2013/03.html'>March 2013</a></li>
+	<li><a href='date/2013/02.html'>February 2013</a></li>
+	<li><a href='date/2012/10.html'>October 2012</a></li>
+	<li><a href='date/2012/08.html'>August 2012</a></li>
+	<li><a href='date/2012/07.html'>July 2012</a></li>
+	<li><a href='date/2012/06.html'>June 2012</a></li>
+	<li><a href='date/2012/05.html'>May 2012</a></li>
+	<li><a href='date/2012/04.html'>April 2012</a></li>
+	<li><a href='date/2012/01.html'>January 2012</a></li>
+	<li><a href='date/2011/12.html'>December 2011</a></li>
+	<li><a href='date/2011/11.html'>November 2011</a></li>
+	<li><a href='date/2011/10.html'>October 2011</a></li>
+	<li><a href='date/2011/07.html'>July 2011</a></li>
+	<li><a href='date/2011/06.html'>June 2011</a></li>
+	<li><a href='date/2011/05.html'>May 2011</a></li>
+	<li><a href='date/2011/04.html'>April 2011</a></li>
+	<li><a href='date/2011/03.html'>March 2011</a></li>
+	<li><a href='date/2011/02.html'>February 2011</a></li>
+	<li><a href='date/2010/11.html'>November 2010</a></li>
+	<li><a href='date/2010/10.html'>October 2010</a></li>
+	<li><a href='date/2010/09.html'>September 2010</a></li>
+	<li><a href='date/2010/08.html'>August 2010</a></li>
+	<li><a href='date/2010/07.html'>July 2010</a></li>
+	<li><a href='date/2010/06.html'>June 2010</a></li>
+	<li><a href='date/2010/05.html'>May 2010</a></li>
+	<li><a href='date/2010/04.html'>April 2010</a></li>
+	<li><a href='date/2010/03.html'>March 2010</a></li>
+	<li><a href='date/2010/02.html'>February 2010</a></li>
+	<li><a href='date/2010/01.html'>January 2010</a></li>
+	<li><a href='date/2009/12.html'>December 2009</a></li>
+	<li><a href='date/2009/11.html'>November 2009</a></li>
+	<li><a href='date/2009/10.html'>October 2009</a></li>
+	<li><a href='date/2009/09.html'>September 2009</a></li>
+	<li><a href='date/2009/07.html'>July 2009</a></li>
+	<li><a href='date/2009/05.html'>May 2009</a></li>
+	<li><a href='date/2009/04.html'>April 2009</a></li>
+	<li><a href='date/2009/03.html'>March 2009</a></li>
+	<li><a href='date/2009/02.html'>February 2009</a></li>
+	<li><a href='date/2009/01.html'>January 2009</a></li>
+	<li><a href='date/2008/12.html'>December 2008</a></li>
+	<li><a href='date/2008/11.html'>November 2008</a></li>
+	<li><a href='date/2008/10.html'>October 2008</a></li>
+	<li><a href='date/2008/09.html'>September 2008</a></li>
+	<li><a href='date/2008/07.html'>July 2008</a></li>
+	<li><a href='date/2008/06.html'>June 2008</a></li>
+	<li><a href='date/2008/05.html'>May 2008</a></li>
+	<li><a href='date/2008/04.html'>April 2008</a></li>
+	<li><a href='date/2008/01.html'>January 2008</a></li>
+	<li><a href='date/2007/11.html'>November 2007</a></li>
+	<li><a href='date/2007/10.html'>October 2007</a></li>
+	<li><a href='date/2007/09.html'>September 2007</a></li>
+	<li><a href='date/2007/06.html'>June 2007</a></li>
+	<li><a href='date/2007/05.html'>May 2007</a></li>
+	<li><a href='date/2007/04.html'>April 2007</a></li>
+	<li><a href='date/2007/03.html'>March 2007</a></li>
+	<li><a href='date/2007/02.html'>February 2007</a></li>
+	<li><a href='date/2007/01.html'>January 2007</a></li>
+	<li><a href='date/2006/12.html'>December 2006</a></li>
+	<li><a href='date/2006/11.html'>November 2006</a></li>
+	<li><a href='date/2006/10.html'>October 2006</a></li>
+	<li><a href='date/2006/09.html'>September 2006</a></li>
+	<li><a href='date/2006/08.html'>August 2006</a></li>
+	<li><a href='date/2006/07.html'>July 2006</a></li>
+	<li><a href='date/2006/06.html'>June 2006</a></li>
+	<li><a href='date/2006/05.html'>May 2006</a></li>
+	<li><a href='date/2006/04.html'>April 2006</a></li>
+	<li><a href='date/2006/03.html'>March 2006</a></li>
+	<li><a href='date/2006/02.html'>February 2006</a></li>
+	<li><a href='date/2006/01.html'>January 2006</a></li>
+        </ul>
+      </li>
+
+      <li><h2>Categories</h2>
+        <ul>
+        	<li class="cat-item cat-item-1"><a href="category/agile.html" >Agile</a> (229)
+</li>
+	<li class="cat-item cat-item-3"><a href="category/books.html" >Books</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="category/design-exercise.html" >Design Exercise</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="category/essay.html" >Essay</a> (13)
+</li>
+	<li class="cat-item cat-item-8"><a href="category/expressive-code.html" >Expressive Code</a> (11)
+</li>
+	<li class="cat-item cat-item-10"><a href="category/fundamentals.html" >Fundamentals</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="category/other.html" >other</a> (1)
+</li>
+        </ul>
+      </li>
+
+      
+    </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<hr />
+<div id="footer">
+<address>
+  <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+</address>
+</div>
+</div>
+  <script type='text/javascript' src='../wp-includes/js/wp-embed.min3c21.js?ver=5.1.1'></script>
+<script async="async" type='text/javascript' src='../wp-content/plugins/akismet/_inc/form0235.js?ver=4.1.1'></script>
+</body>
+
+<!-- Mirrored from matteo.vaccari.name/blog/archives/886 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:25:14 GMT -->
+</html>

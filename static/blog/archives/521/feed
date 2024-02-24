@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Last presentation: TDD from end to end	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/521/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/521</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Roberto Simoni				</title>
+				<link>http://matteo.vaccari.name/blog/archives/521/comment-page-1#comment-93923</link>
+		<dc:creator><![CDATA[Roberto Simoni]]></dc:creator>
+		<pubDate>Thu, 07 Apr 2011 09:41:36 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=521#comment-93923</guid>
+					<description><![CDATA[Molto interessante!
+ti volevo chiedere un ulteriore step... se la prossima user story fosse &quot;un post puo&#039; esser eliminato&quot; preferiresti scrivere un test così:
+
+@Test public void deleteRemovesBlogPost() {
+  final BlogPost aBlog = new BlogPost();
+  final List allPosts = new ArrayList(asList(aBlog));
+  BlogRepository repository = new BlogRepository() {
+    public List all() {
+	  return allPosts;
+	}
+	
+	public void delete(BlogPost post) {
+	  allPost.remove(post);
+	}
+  };
+
+  repository.delete(aBlog);
+  assertEquals(0, repository.size());
+}
+
+oppure vorresti poter dire:
+
+@Test public void deleteRemovesBlogPost() {
+  ... // ?!? no idea for now...
+
+  aBlog.delete();
+  assertEquals(0, repository.size());
+}
+
+oppure faresti totalmente in un altro modo?
+
+Cioè sintetizzando: assegneresti l&#039;operazione di cancellazione al repository o al post?]]></description>
+		<content:encoded><![CDATA[<p>Molto interessante!<br />
+ti volevo chiedere un ulteriore step&#8230; se la prossima user story fosse &#8220;un post puo&#8217; esser eliminato&#8221; preferiresti scrivere un test così:</p>
+<p>@Test public void deleteRemovesBlogPost() {<br />
+  final BlogPost aBlog = new BlogPost();<br />
+  final List allPosts = new ArrayList(asList(aBlog));<br />
+  BlogRepository repository = new BlogRepository() {<br />
+    public List all() {<br />
+	  return allPosts;<br />
+	}</p>
+<p>	public void delete(BlogPost post) {<br />
+	  allPost.remove(post);<br />
+	}<br />
+  };</p>
+<p>  repository.delete(aBlog);<br />
+  assertEquals(0, repository.size());<br />
+}</p>
+<p>oppure vorresti poter dire:</p>
+<p>@Test public void deleteRemovesBlogPost() {<br />
+  &#8230; // ?!? no idea for now&#8230;</p>
+<p>  aBlog.delete();<br />
+  assertEquals(0, repository.size());<br />
+}</p>
+<p>oppure faresti totalmente in un altro modo?</p>
+<p>Cioè sintetizzando: assegneresti l&#8217;operazione di cancellazione al repository o al post?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/521/comment-page-1#comment-93817</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 08 Mar 2011 06:22:49 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=521#comment-93817</guid>
+					<description><![CDATA[Grazie Annalisa!]]></description>
+		<content:encoded><![CDATA[<p>Grazie Annalisa!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Annalisa				</title>
+				<link>http://matteo.vaccari.name/blog/archives/521/comment-page-1#comment-93813</link>
+		<dc:creator><![CDATA[Annalisa]]></dc:creator>
+		<pubDate>Mon, 07 Mar 2011 10:43:16 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=521#comment-93813</guid>
+					<description><![CDATA[Sabato ho seguito il talk al Codemotion, mi è piaciuto molto. Grazie mille]]></description>
+		<content:encoded><![CDATA[<p>Sabato ho seguito il talk al Codemotion, mi è piaciuto molto. Grazie mille</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

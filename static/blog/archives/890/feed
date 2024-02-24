@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: An introduction to contemporary web application techniques	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/890/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/890</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: CodeJam: ecco come è andata &#124; Avanscoperta Blog				</title>
+				<link>http://matteo.vaccari.name/blog/archives/890/comment-page-1#comment-96624</link>
+		<dc:creator><![CDATA[CodeJam: ecco come è andata &#124; Avanscoperta Blog]]></dc:creator>
+		<pubDate>Wed, 12 Feb 2014 15:15:48 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=890#comment-96624</guid>
+					<description><![CDATA[[...] di Matteo Vaccari (uno dei partecipanti) - http://matteo.vaccari.name/blog/archives/890    0 Flares   Twitter   0         Facebook   0         Google+   0         Buffer   0         [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] di Matteo Vaccari (uno dei partecipanti) &#8211; http://matteo.vaccari.name/blog/archives/890    0 Flares   Twitter   0         Facebook   0         Google+   0         Buffer   0         [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

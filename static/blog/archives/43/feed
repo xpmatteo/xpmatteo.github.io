@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Sudoku anch&#8217;io	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/43/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/43</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Extreme Enthusiasm &#187; Blog Archive &#187; TDD is no substitute for knowing what you are doing				</title>
+				<link>http://matteo.vaccari.name/blog/archives/43/comment-page-1#comment-93321</link>
+		<dc:creator><![CDATA[Extreme Enthusiasm &#187; Blog Archive &#187; TDD is no substitute for knowing what you are doing]]></dc:creator>
+		<pubDate>Tue, 29 Jun 2010 11:26:58 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=43#comment-93321</guid>
+					<description><![CDATA[[...] while ago we had a fun evening at the Milano XPUG writing a Sudoku solver. I blogged about my solution. I&#8217;m not particularly proud of it, in retrospect. The code and the tests are not obvious. I [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] while ago we had a fun evening at the Milano XPUG writing a Sudoku solver. I blogged about my solution. I&#8217;m not particularly proud of it, in retrospect. The code and the tests are not obvious. I [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea G.				</title>
+				<link>http://matteo.vaccari.name/blog/archives/43/comment-page-1#comment-33</link>
+		<dc:creator><![CDATA[Andrea G.]]></dc:creator>
+		<pubDate>Tue, 05 Sep 2006 06:02:00 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=43#comment-33</guid>
+					<description><![CDATA[ehehe .. carino veramente :)]]></description>
+		<content:encoded><![CDATA[<p>ehehe .. carino veramente :)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/43/comment-page-1#comment-32</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 03 Sep 2006 16:22:22 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=43#comment-32</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Per computare possible_numbers hai bisogno di esaminare un sacco di altre celle.  Finiresti a chiedere un sacco di informazioni a Board, per cui credo che possible_numbers sia bene che resti una responsabilità di Board.  A meno che&#8230; perché non provi e non ci fai vedere?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: riffraff				</title>
+				<link>http://matteo.vaccari.name/blog/archives/43/comment-page-1#comment-31</link>
+		<dc:creator><![CDATA[riffraff]]></dc:creator>
+		<pubDate>Sat, 02 Sep 2006 11:42:23 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=43#comment-31</guid>
+					<description><![CDATA[molto carino, peccato che che in questi giorni non abbia tempo di farlo, ma penso che sarebbe un interessante kata :)
+Ad esempio.. se possible_numbers diventa un metodo di un&#039;ipotetica classe Cell si potrebbe fare un bel po&#039; di propagazione di vincoli prima di  partire con la ricerca, mi sembra.]]></description>
+		<content:encoded><![CDATA[<p>molto carino, peccato che che in questi giorni non abbia tempo di farlo, ma penso che sarebbe un interessante kata :)<br />
+Ad esempio.. se possible_numbers diventa un metodo di un&#8217;ipotetica classe Cell si potrebbe fare un bel po&#8217; di propagazione di vincoli prima di  partire con la ricerca, mi sembra.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

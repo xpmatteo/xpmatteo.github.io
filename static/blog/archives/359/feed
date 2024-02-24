@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: On Jeff Sutherland&#8217;s &#8220;Shock therapy&#8221; paper	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/359/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/359</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: Vic Williams				</title>
+				<link>http://matteo.vaccari.name/blog/archives/359/comment-page-1#comment-93626</link>
+		<dc:creator><![CDATA[Vic Williams]]></dc:creator>
+		<pubDate>Sat, 20 Nov 2010 16:50:51 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=359#comment-93626</guid>
+					<description><![CDATA[Hi,
+
+I&#039;m months later and what I&#039;m noticing is few blogs with comments. I think the title and the article &#039;shock therapy&#039; are aimed to get management attention.
+
+When Toyota took over a GM plant with the workers, it didn&#039;t just say &quot;ok go do it the new way&quot;. It retrained and coached continuously. Lots of on the job coaching as the culture at all levels.
+
+Toastmasters has table topics up to 2 minutes - then red light and you&#039;re out. Most speeches are 5-7 minutes, timed, no goofing around times.
+
+If we shake off the shock of the therapy and coach, then the idea of instilling new habits with pro discipline is apt. Riding a bike or golfing or driving a car all need awareness, attention, and kinds of discipline.
+
+bye
+vic]]></description>
+		<content:encoded><![CDATA[<p>Hi,</p>
+<p>I&#8217;m months later and what I&#8217;m noticing is few blogs with comments. I think the title and the article &#8216;shock therapy&#8217; are aimed to get management attention.</p>
+<p>When Toyota took over a GM plant with the workers, it didn&#8217;t just say &#8220;ok go do it the new way&#8221;. It retrained and coached continuously. Lots of on the job coaching as the culture at all levels.</p>
+<p>Toastmasters has table topics up to 2 minutes &#8211; then red light and you&#8217;re out. Most speeches are 5-7 minutes, timed, no goofing around times.</p>
+<p>If we shake off the shock of the therapy and coach, then the idea of instilling new habits with pro discipline is apt. Riding a bike or golfing or driving a car all need awareness, attention, and kinds of discipline.</p>
+<p>bye<br />
+vic</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Maietta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/359/comment-page-1#comment-93170</link>
+		<dc:creator><![CDATA[Andrea Maietta]]></dc:creator>
+		<pubDate>Fri, 16 Apr 2010 21:09:25 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=359#comment-93170</guid>
+					<description><![CDATA[ops... a typo in the last sentence...]]></description>
+		<content:encoded><![CDATA[<p>ops&#8230; a typo in the last sentence&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrea Maietta				</title>
+				<link>http://matteo.vaccari.name/blog/archives/359/comment-page-1#comment-93169</link>
+		<dc:creator><![CDATA[Andrea Maietta]]></dc:creator>
+		<pubDate>Fri, 16 Apr 2010 19:13:24 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=359#comment-93169</guid>
+					<description><![CDATA[About comparing velocities of different teams: you simply can&#039;t, end of story, sayonara, bye bye. Each team has different definitions of done, number and experience of team members, different ways to estimate and so on and so forth. You could compare lines of code, but we know that&#039;s not a worthy measure. Or is it? (hint: if you think it is, you&#039;re in the wrong place).
+
+About Scrum rules: I agree with Matteo, they can be very hard to follow, particularly as they would lead to one of the most evident outcomes of Scrum: transparency, definitely something too many developers (in the broad sense) are not used to. Ironically, that also holds true for managers, who have the impression of losing all their control while they are actually taking it back...
+
+Besides, tipically you get answers like &quot;a week? I can&#039;t deliver anything in a week!&quot;. Which is weird, as 90 days are composed by 13 weeks... how can you add nothing to nothing and get working software? It&#039;s the problem of the heap of grain quoted by Fabrizio (http://java.net/blog/fabriziogiudici/archive/2010/04/11/when-bunch-grains-sand-make-heap), just reversed... thus, there is a certain iteration length that lets them actually deliver, so it is only a matter of finding it.
+
+Curiously, if they can&#039;t deliver, the right solution is not to lengthen the iterations, but to shorten them... Scrum goes for 30 days, XP is even more... extreme (the name must has been chosen with a reason, after all!)]]></description>
+		<content:encoded><![CDATA[<p>About comparing velocities of different teams: you simply can&#8217;t, end of story, sayonara, bye bye. Each team has different definitions of done, number and experience of team members, different ways to estimate and so on and so forth. You could compare lines of code, but we know that&#8217;s not a worthy measure. Or is it? (hint: if you think it is, you&#8217;re in the wrong place).</p>
+<p>About Scrum rules: I agree with Matteo, they can be very hard to follow, particularly as they would lead to one of the most evident outcomes of Scrum: transparency, definitely something too many developers (in the broad sense) are not used to. Ironically, that also holds true for managers, who have the impression of losing all their control while they are actually taking it back&#8230;</p>
+<p>Besides, tipically you get answers like &#8220;a week? I can&#8217;t deliver anything in a week!&#8221;. Which is weird, as 90 days are composed by 13 weeks&#8230; how can you add nothing to nothing and get working software? It&#8217;s the problem of the heap of grain quoted by Fabrizio (<a href="http://java.net/blog/fabriziogiudici/archive/2010/04/11/when-bunch-grains-sand-make-heap" rel="nofollow">http://java.net/blog/fabriziogiudici/archive/2010/04/11/when-bunch-grains-sand-make-heap</a>), just reversed&#8230; thus, there is a certain iteration length that lets them actually deliver, so it is only a matter of finding it.</p>
+<p>Curiously, if they can&#8217;t deliver, the right solution is not to lengthen the iterations, but to shorten them&#8230; Scrum goes for 30 days, XP is even more&#8230; extreme (the name must has been chosen with a reason, after all!)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/359/comment-page-1#comment-93163</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Wed, 14 Apr 2010 11:55:05 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=359#comment-93163</guid>
+					<description><![CDATA[Suppose I come to you and ask you to release your software every week.  If you are an old school developer, you might answer &quot;My deadline is in 90 days, I will release by then.&quot;  Scrum (and XP) have only a few hard rules, but they are not easy to follow.]]></description>
+		<content:encoded><![CDATA[<p>Suppose I come to you and ask you to release your software every week.  If you are an old school developer, you might answer &#8220;My deadline is in 90 days, I will release by then.&#8221;  Scrum (and XP) have only a few hard rules, but they are not easy to follow.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luca Minudel				</title>
+				<link>http://matteo.vaccari.name/blog/archives/359/comment-page-1#comment-93162</link>
+		<dc:creator><![CDATA[Luca Minudel]]></dc:creator>
+		<pubDate>Tue, 13 Apr 2010 17:59:06 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=359#comment-93162</guid>
+					<description><![CDATA[lot of interesting reflection in this post.
+
+my comment on this
+
+&#062; The theme of forcefully enforcing the rules that pervades the paper. “Resistance is futile”… 
+
+scrum gives a lot of  freedom to the team (the scrum master is a serving leader with authority only on the process) and scrum set a very small number of rules.
+
+so it looks very strange to me that a team opposes resistance to the few rules instead of using all the huge freedom he has (but it still happen as i noticed). 
+
+if you have time would like to hear
+what is your opinion about this point ?
+and what are your suggestions to deal with these situations ?]]></description>
+		<content:encoded><![CDATA[<p>lot of interesting reflection in this post.</p>
+<p>my comment on this</p>
+<p>&gt; The theme of forcefully enforcing the rules that pervades the paper. “Resistance is futile”… </p>
+<p>scrum gives a lot of  freedom to the team (the scrum master is a serving leader with authority only on the process) and scrum set a very small number of rules.</p>
+<p>so it looks very strange to me that a team opposes resistance to the few rules instead of using all the huge freedom he has (but it still happen as i noticed). </p>
+<p>if you have time would like to hear<br />
+what is your opinion about this point ?<br />
+and what are your suggestions to deal with these situations ?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

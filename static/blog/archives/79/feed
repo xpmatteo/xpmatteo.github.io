@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Essap: get aboard	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/79/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/79</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/79/comment-page-1#comment-6849</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Thu, 05 Apr 2007 18:48:21 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=79#comment-6849</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Sì Marco, attendiamo sia studenti che professionisti.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marco				</title>
+				<link>http://matteo.vaccari.name/blog/archives/79/comment-page-1#comment-6845</link>
+		<dc:creator><![CDATA[Marco]]></dc:creator>
+		<pubDate>Thu, 05 Apr 2007 17:50:43 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=79#comment-6845</guid>
+					<description><![CDATA[]]></description>
+		<content:encoded><![CDATA[<p>Buongiorno prof,</p>
+<p>mi sono laureato l&#8217;anno scorso.<br />
+volevo sapere se poteva partecipare chiunque, naturalmente con attitudini informatiche, oppure è rivolto solo a studendi.</p>
+<p>Rimango in attesa di una sua risposta.<br />
+Grazie e Arrivederci.</p>
+<p>MC</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

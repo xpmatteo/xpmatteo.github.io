@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: How I setup confluence on Debian	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/224/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/224</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: How I setup confluence on Debian &#124; Debian-News.net - Your one stop for news about Debian				</title>
+				<link>http://matteo.vaccari.name/blog/archives/224/comment-page-1#comment-92820</link>
+		<dc:creator><![CDATA[How I setup confluence on Debian &#124; Debian-News.net - Your one stop for news about Debian]]></dc:creator>
+		<pubDate>Sat, 14 Nov 2009 18:49:39 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=224#comment-92820</guid>
+					<description><![CDATA[[...] I don’t like bloated Tomcat installations with many applications on them. I prefer to have each application in its own place with its own server. So I will use the Confluence standalone package, which is integrated with Tomcat. When I will install Jira on the same box, I will download another standalone package. More here [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] I don’t like bloated Tomcat installations with many applications on them. I prefer to have each application in its own place with its own server. So I will use the Confluence standalone package, which is integrated with Tomcat. When I will install Jira on the same box, I will download another standalone package. More here [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

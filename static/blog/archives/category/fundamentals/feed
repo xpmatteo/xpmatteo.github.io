@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Fundamentals &#8211; Extreme Enthusiasm</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/category/fundamentals/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Wed, 08 Jan 2020 14:48:28 +0000	</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+	<item>
+		<title>Bureaucratic tests</title>
+		<link>http://matteo.vaccari.name/blog/archives/972</link>
+				<comments>http://matteo.vaccari.name/blog/archives/972#respond</comments>
+				<pubDate>Mon, 28 Mar 2016 16:00:53 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Essay]]></category>
+		<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=972</guid>
+				<description><![CDATA[The TDD cycle should be fast! We should be able to repeat the red-green-refactor cycle every few minutes. This means that we should work in very small steps. Kent Beck in fact is always talking about &#8220;baby steps.&#8221; So we should learn how to make progress towards our goal in very small steps, each one [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>The TDD cycle should be fast!  We should be able to repeat the red-green-refactor cycle every few minutes.  This means that we should work in very small steps.  Kent Beck in fact is always talking about &#8220;baby steps.&#8221;  So we should learn how to make progress towards our goal in very small steps, each one taking us a little bit further.  Great!  How do we do that?</p>
+<h3 id="example_1_testing_that_8220it8217s_an_object8221">Example 1: Testing that &#8220;it&#8217;s an object&#8221;</h3>
+<p>In the quest for &#8220;small steps&#8221;, I sometimes see recommendations that we write things like these:</p>
+<pre><code>it("should be an object", function() {
+  assertThat(typeof chat.userController === 'object')
+});
+</code></pre>
+<p>which, of course, we can pass by writing</p>
+<pre><code>chat.userController = {}
+</code></pre>
+<p>What is the next &#8220;baby step&#8221;?</p>
+<pre><code>it("should be a function", function() {
+  assertThat(typeof chat.userController.login === 'function')
+});
+</code></pre>
+<p>And, again, it&#8217;s very easy to make this pass.</p>
+<pre><code>chat.userController = { login: function() {} }
+</code></pre>
+<p>I think these are <strong>not the right kind of &#8220;baby steps&#8221;</strong>.  These tests give us very little value.</p>
+<p>Where is the value in a test?  In my view, a test gives you two kinds of value:</p>
+<ol>
+<li>Verification value, where I get assurance that the code does what I expect.  This is the tester&#8217;s perspective.</li>
+<li>Design feedback, where I get information on the quality of my design.  And this is the programmers&#8217;s perspective.</li>
+</ol>
+<p>I think that in the previous two tests, we didn&#8217;t get any verification value, as all we were checking is the behaviour of the <code>typeof</code> operator.  And we didn&#8217;t get any design feedback either.  We checked that we have an object with a method; this does not mean much, because any problem can be solved with objects and methods.  It&#8217;s a bit like judging a book by checking that it contains written words.  What matters is what the words mean.  In the case of software, what matters is what the objects do.</p>
+<h3 id="example_2_testing_ui_structure">Example 2: Testing UI structure</h3>
+<p>Another example: there are tutorials that suggest that we test an Android&#8217;s app UI with tests like this one:</p>
+<pre><code>public void testMessageGravity() throws Exception {
+  TextView myMessage = 
+    (TextView) getActivity().findViewById(R.id.myMessage);
+  assertEquals(Gravity.CENTER, myMessage.getGravity());
+}
+</code></pre>
+<p>Which, of course, can be made to pass by adding one line to a UI XML file:</p>
+<pre><code>&lt;TextView
+  android:id="@+id/myMessage"
+  <strong>android:gravity="center"</strong>
+/&gt;
+</code></pre>
+<p>What have we learned from this test?  Not much, I&#8217;m afraid.</p>
+<h3 id="example_3_testing_a_listener">Example 3: Testing a listener</h3>
+<p>This last example is sometimes seen in GUI/MVC code.  We are developing a screen of some sort, and we try to make progress towards the goal of &#8220;when I click this button, something interesting happens.&#8221;  So we write something like this:</p>
+<pre><code>@Test
+public void buttonShouldBeConnectedToAction() {
+    assertEquals(button.getActionListeners().length, 1);
+    assertTrue(button.getActionListeners()[0] 
+                 instanceof ActionThatDoesSomething);
+}
+</code></pre>
+<p>Once again, this test does not give us much value.</p>
+<h3 id="bureaucracy">Bureaucracy</h3>
+<p>The above tests are all examples of what Keith Braithwaithe calls &#8220;pseudo-TDD&#8221;:</p>
+<ol>
+<li>Think of a solution</li>
+<li>Imagine a bunch of classes and functions that you just know you’ll need to implement (1)</li>
+<li>Write some tests that assert the existence of (2)</li>
+<li>[&#8230; go read <a href="https://cumulative-hypotheses.org/2011/08/30/tdd-as-if-you-meant-it/">Keith&#8217;s article</a> for the rest of his thoughts on the subject.]</li>
+</ol>
+<p>In all of the above examples, we start by thinking of a line of production code that we want to write.  Then we write a test that asserts that that line of code exists.  This test does nothing but <strong>give us permission</strong> to write that line of code: it&#8217;s just bureaucracy!  </p>
+<p>Then we write the line of code, and the test passes. What have we accomplished?  A false sense of progress; a false sense of &#8220;doing the right thing&#8221;.  In the end, all we did was wasting time.  </p>
+<p>Sometimes I hear developers claim that they took longer to finish, because they had to write the tests.  To me, this is nonsense: I write tests to go faster, not slower.  Writing useless tests slows me down.  If I feel that testing makes me slower, I should probably reconsider how I write those tests: I&#8217;m probably writing bureaucratic tests.</p>
+<h3 id="valuable_tests">Valuable tests</h3>
+<p>Bureaucratic tests are about <strong>testing a bit of solution</strong> (that is, a bit of the implementation of a solution).  Valuable test are about <strong>solving a little bit of the problem</strong>.  Bureaucratic tests are usually testing structure; valuable tests are always about testing behaviour.  The right way to do baby steps is to break down <strong>the problem</strong> in small bits (not the solution).  If you want to do useful baby steps, start by writing a list of all the tests that you think you will need.</p>
+<p>In <em>Test-Driven Development: by Example</em>, Kent Beck attacks the problem of implementing multi-currency money starting with this to-do list:</p>
+<pre><code>$5 + 10 CHF = $10 if rate is 2:1
+$5 * 2 = $10
+</code></pre>
+<p>Note that these tests are nothing but small slices of the problem.  In the course of developing the solution, many more tests are added to the list.</p>
+<p>Now you are probably wonder what would I do, instead of the bureaucratic tests that I presented above.  In each case, I would start with a simple example of what the software should do.  What are the responsibilities of the <code>userController</code>?  Start there.  For instance:</p>
+<pre><code>it("logs in an existing user", function() {
+  var user = { nickname: "pippo", password: "s3cr3t" }
+  chat.userController.addUser user
+
+  expect(chat.userController.login("pippo", "s3cr3t")).toBe(user)
+});
+</code></pre>
+<p>In the case of the Android UI, I would probably test it by looking at it; the looks of the UI have no behaviour that I can test with logic.  My test passes when the UI &#8220;looks OK&#8221;, and that I can only test by looking at it (see also <a href="https://blog.8thlight.com/uncle-bob/2013/03/06/ThePragmaticsOfTDD.html">Robert Martin&#8217;s opinion on when not to TDD</a>).  I suppose that some of it can be automated with <a href='http://www.agileday.it/2015/sessions/snapshot-testing-su-ios/'>snapshot testing</a>, which is a variant of the &#8220;golden master&#8221; technique.</p>
+<p>In the case of the GUI button listener, I would not test it directly.  I would probably write an end-to-end test that proves that when I click the button, something interesting happens.  I would probably also have more focused tests on the behaviour that is being invoked by the listener.</p>
+<h3 id="conclusions">Conclusions</h3>
+<p>Breaking down a problem into baby steps means that we break in very small pieces the problem to solve, not the solution.  Our tests should always speak about bits of the problem; that is, about things that the customer actually asked for.  Sometimes we need to start by solving an arbitrarily simplified version of the original problem, like Kent Beck and Bill Wake do in <a href='http://xp123.com/articles/slicing-functionality-alternate-paths/'>this article I found enlightening</a>; but it&#8217;s always about testing the problem, not the solution!</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/972/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>Zero is a number</title>
+		<link>http://matteo.vaccari.name/blog/archives/438</link>
+				<comments>http://matteo.vaccari.name/blog/archives/438#comments</comments>
+				<pubDate>Fri, 06 Aug 2010 13:45:05 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Essay]]></category>
+		<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=438</guid>
+				<description><![CDATA[I won&#8217;t bore you with the story of how long it took for people to recognize that zero is a number. Without zero it would be difficult to explain what is the value of, say, 3 minus 3; we&#8217;d be forced to say that it&#8217;s a &#8220;meaningless&#8221; expression. Funny huh? Yet some developers seem to [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>I won&#8217;t bore you with the story of how long it took for people to recognize that zero is a number.  Without zero it would be difficult to explain what is the value of, say, 3 minus 3; we&#8217;d be forced to say that it&#8217;s a &#8220;meaningless&#8221; expression.  Funny huh?  Yet some developers seem to be stuck to medieval thinking in this respect.  </p>
+<p>Have you ever seen code like this?</p>
+<p><code></p>
+<pre>
+public List<Employee> findAllEmployeesByDepartment(int departmentId) {
+  String sql = "select * from employees where department_id = ?";
+  ResultSet rs = select(sql, department_id);
+  if (rs.size() == 0) {
+    return null;
+  } else {
+    // ... convert the recordset to a List and return it
+  }
+}
+</pre>
+<p></code></p>
+<p>This developer seems to think that an empty List is not a regular list, so he thinks he should return a special value like <code>null</code> to signal that the query returned no values.  This is totally unnecessary.  No, I take it back: this is totally wrong.  You are forcing all callers of <code>findAllEmployeesByDepartment</code> to check for null.  Not only that; this code seem to say that it&#8217;s a totally unnatural and unexpected thing for this query to return no rows.  Soon developers will forget to check for null, and the application will throw <code>NullPointerException</code>s.</p>
+<p>A related example is:<br />
+<code></p>
+<pre>
+Foo[] foos = ...;
+if (foos.length &gt; 0) {
+  for (int i=0; i &lt; foos.length; i++) {
+    // do something with foo[i]
+  }
+}
+</pre>
+<p></code></p>
+<p>Here the developer thinks that they have to treat the case of an empty array separately.  In fact the IF is totally unnecessary.  If the array is empty, the loop would execute zero times anyway.  Java (and C) arrays use asymmetric bounds, which make it easier to write code that does not need to treat a zero-size interval as a special case.</p>
+<p>In conclusion: empty collections are perfectly valid collections, and empty arrays are perfectly valid arrays.  It&#8217;s a good idea to write code that doesn&#8217;t treat &#8220;zero&#8221; as a special case.  </p>
+<p>This post is part of a series on <a href="/blog/archives/category/fundamentals" title="Extreme Enthusiasm   &raquo; Fundamentals">development fundamentals</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/438/feed</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+							</item>
+		<item>
+		<title>Work with asymmetric bounds</title>
+		<link>http://matteo.vaccari.name/blog/archives/276</link>
+				<comments>http://matteo.vaccari.name/blog/archives/276#respond</comments>
+				<pubDate>Tue, 22 Dec 2009 12:47:05 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=276</guid>
+				<description><![CDATA[Let&#8217;s talk about ranges of integers. Quick: how many numbers are in the range 16&#160;&#8804;&#160;x&#160;&#8804;&#160;37, that is in the set {16, 17, &#8230;, 37}? If you answered 21 then you got it wrong: the correct answer is 22. When you express a range inclusive of both ends, the formula to compute the number of elements [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>Let&#8217;s talk about ranges of integers.  Quick: how many numbers are in the range 16&nbsp;&le;&nbsp;<i>x</i>&nbsp;&le;&nbsp;37, that is in the set {16, 17, &#8230;, 37}?  </p>
+<p>If you answered 21 then you got it wrong: the correct answer is 22.  When you express a range inclusive of both ends, the formula to compute the number of elements is </p>
+<pre>
+size of [lower, upper] = upper - lower + 1
+</pre>
+<p>The &#8220;+1&#8221; in the above formula is the source of many &#8220;off-by-one&#8221; or fenceposts errors.  Can we get rid of the &#8220;+1&#8221;?  Yes, there is a way.  Use <em>asymmetric bounds</em>, including the lower bound and <em>excluding</em> the upper bound.  The formula becomes </p>
+<pre>
+size of [lower, upper) = upper - lower
+</pre>
+<p>I&#8217;m using square and round brackets as a shorthand notation for ranges with inclusive and exclusive bounds:</p>
+<pre>
+  [a, b] = { x | a &le; x &le; b }
+  [a, b) = { x | a &le; x &lt; b }
+</pre>
+<p>Another reason in favor of asymmetric bounds: how do you express an empty range?  With symmetric inclusive ranges, you can&#8217;t: the smallest range you can express contains one element. For instance [3, 3] contains only the number 3.  With asymmetric bounds, you can express an empty range with, for instance, [3, 3), which is empty.</p>
+<p>Asymmetric bounds work very well in conjunction with counting from zero.  Java and C arrays are indexed from 0, so that the index range is [0, N).  The upper bound is now equal to the number of elements! Expressing it with symmetric bounds gives [0, N-1], which is ugly because of the &#8220;-1&#8221;.</p>
+<p>If you need to iterate on a C or Java array, the standard pattern is </p>
+<pre>
+  int[] array = new int[N];
+  for (int i=0; i&lt;N; i++) { ... }
+</pre>
+<p>You see how the body is executed when <code>i==0</code>, through <code>i==N-1</code>, but not when <code>i==N</code>, since we are using <code>i&lt;N</code> as a boundary condition.  How many times is the loop is executed?  Exactly <code>N</code>!  It&#8217;s now easy to see that the iteration is performed the correct number of times.</p>
+<p>Asymmetric bounds can be concatenated easily.  Suppose you have a function that paginates results on a web page.  You are on the page which contains results 30, 31, &#8230; 39.  If you express the range with two parameters from and to, the page url would look like</p>
+<pre>
+  http://example.com/results?from=30&to=40
+</pre>
+<p>And the links to the next and previous page would be </p>
+<pre>
+  &lt;a href="/results?from=20&amp;to=30">previous page&lt;/a>
+  &lt;a href="/results?from=40&amp;to=50">next page&lt;/a>
+</pre>
+<p>where the bounds for the next or previous page are easily computed by adding or subtracting the page size from the current bounds.  Compare with</p>
+<pre>
+  http://example.com/results?from=30&to=39
+  &lt;a href="/results?from=20&amp;to=29">previous page&lt;/a>
+  &lt;a href="/results?from=40&amp;to=49">next page&lt;/a>
+</pre>
+<p>it&#8217;s more difficult to check that the bounds are correct here: you have to think where the &#8220;-1&#8221; must be applied.</p>
+<p>So, if you define &#8220;+&#8221; as the operation of concatenation of ranges, you get this nice little law:</p>
+<pre>
+  [a, b) + [b, c) = [a, c)
+</pre>
+<p>It&#8217;s this sort of properties that make it easy to combine software objects together.  This helps towards the goal of programming with lego-like bricks.</p>
+<p>In conclusion: express ranges with asymmetric bounds!  You will avoid off-by-one errors, get rid of &#8220;+1&#8243;s from your code, and make your programs more modular.</p>
+<h4>References</h4>
+<p>The book <em>C Traps and Pitfalls</em> by Andrew Koenig has a good explanation of asymmetric bounds.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/276/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>A database for every developer</title>
+		<link>http://matteo.vaccari.name/blog/archives/215</link>
+				<comments>http://matteo.vaccari.name/blog/archives/215#comments</comments>
+				<pubDate>Sat, 17 Oct 2009 12:51:40 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=215</guid>
+				<description><![CDATA[A database for every developer. No, *two* databases for every developer. This is a fundamental for project organization that many projects get wrong. Every development workstation should be equipped with a full local development environment, with a local copy of the database software, and a one-command way to recreate the databases from scratch. Why *two* [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>A database for every developer. No, *two* databases for every developer.</p>
+<p>This is a fundamental for project organization that many projects get wrong.  Every development workstation should be equipped with a full local development environment, with a local copy of the database software, and a one-command way to recreate the databases from scratch.</p>
+<p>Why *two* databases?  Well, one is for exploratory testing of the application we&#8217;re building.  The other one is for automatic unit tests.</p>
+<p>Why *local*?  Because whenever the database server is not local, it becomes difficult to add a new workstation, it&#8217;s impossible to work when you&#8217;re not in the office, and you must depend on other people to fix your database problems.  </p>
+<p>The software that we write should *not depend* on the data sources that live outside our development workstation.  To this end it&#8217;s a good start to have simple scripts that allow you to rebuild your database, so that you know you can experiment, change everything, make mistakes, and you&#8217;re still able to get back to a known working situation in a flash.</p>
+<p>Why it&#8217;s important that I can rebuild the databases with *one command*?  Because if it takes more than one command, it&#8217;s too complicated and I&#8217;m likely to make mistakes.  Because it&#8217;s too easy to fall in the trap of not knowing exactly which steps are needed to set up a new database instance.  If you have a single script that does the job, that script is also a living, always up-to-date document that describes how to recreate the database from scratch.</p>
+<p>The benefits are not just in development; when the time comes to release our software in production, you can see how helpful it is to have a script that is able to set up the database with no effort.  In fact, all database maintenance operations should be automated.  It&#8217;s one of the principles explained so well in <a href="http://www.pragprog.com/titles/tpp/the-pragmatic-programmer" title="The Pragmatic Bookshelf | The Pragmatic Programmer">The Pragmatic Programmer</a>, a very good book.</p>
+<p>For example, this is a typical script that I use in my non-Rails projects:</p>
+<p><code></p>
+<pre style="white-space: pre-wrap">
+#!/bin/bash
+
+src=src/main/sql
+dbname=myapp_development
+dbname_test=myapp_test
+dbuser=myapp_user
+dbpassword=myapp_password
+
+# Usually no changes needed beyond this point
+
+if [ ! -d "$src" ]; then
+  echo "Run this script from the main directory"
+  exit 1
+fi
+read -s -p "mysql root password? (type return for no password) " MYSQL_ROOT_PASSWORD
+
+if [ "$MYSQL_ROOT_PASSWORD" != "" ]; then
+    MYSQL_ROOT_PASSWORD=-p$MYSQL_ROOT_PASSWORD
+fi
+
+mysqladmin -uroot $MYSQL_ROOT_PASSWORD drop $dbname
+mysqladmin -uroot $MYSQL_ROOT_PASSWORD --force drop $dbname_test
+mysqladmin -uroot $MYSQL_ROOT_PASSWORD create $dbname
+mysqladmin -uroot $MYSQL_ROOT_PASSWORD create $dbname_test
+echo "$dbname created"
+echo "grant all on $dbname.* to '$dbuser'@localhost identified by '$dbpassword';" \
+     | mysql -uroot $MYSQL_ROOT_PASSWORD $dbname
+echo "grant all on $dbname_test.* to '$dbuser'@localhost identified by '$dbpassword';" \
+     | mysql -uroot $MYSQL_ROOT_PASSWORD $dbname_test
+echo "$dbuser authorized"
+cat $src/???_*.sql | mysql -u$dbuser -p$dbpassword $dbname 
+cat $src/???_*.sql | mysql -u$dbuser -p$dbpassword $dbname_test 
+echo "schema loaded"
+</pre>
+<p></code></p>
+<p>This handy little script will create the development and test databases, and load all sql scripts.  I like to name sql scripts like <code>001_create_foobar_table.sql</code> and <code>002_add_frobniz_column_to_foobar.sql</code>, so that they can be loaded in sequence.  It&#8217;s a simple way to develop the database schema incrementally.  I may talk about it in another post.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/215/feed</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+							</item>
+		<item>
+		<title>Two floats are never equal</title>
+		<link>http://matteo.vaccari.name/blog/archives/204</link>
+				<comments>http://matteo.vaccari.name/blog/archives/204#respond</comments>
+				<pubDate>Sat, 17 Oct 2009 12:01:38 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=204</guid>
+				<description><![CDATA[While we are on the topic of floating point fundamentals, there is another thing to remember: it is always a mistake to compare two floating-point numbers for equality. It all boils down to the simple fact that floating-point arithmetic is not exact. It is meant for approximate calculations with engineering or scientific measurements, which are [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>While we are on the topic of floating point fundamentals, there is another thing to remember: it is always a mistake to compare two floating-point numbers for equality.  </p>
+<p>It all boils down to the simple fact that floating-point arithmetic is not exact.  It is meant for approximate calculations with engineering or scientific measurements, which are inexact to begin with.  In fact, floating-point arithmetics results are almost never equal to the &#8220;true&#8221; value you would get by using exact real arithmetic.</p>
+<p>Therefore, wherever you see something like <code>x == 0.0</code>, you can be fairly sure that it&#8217;s a mistake.  Whatever computation produces the value of <code>x</code>, it&#8217;s unlikely to <strong>ever</strong> produce exactly 0.0.  </p>
+<p>The proper way to compare floating points is equality within some tolerance.  For instance:</p>
+<p><code></p>
+<pre>
+boolean approximatelyEqual(double a, double b, double epsilon) {
+  return Math.abs(a - b) &lt;= epsilon;
+}
+</pre>
+<p></code></p>
+<p>The above code works for most applications.  It does not take into account the case that the inputs are NaN or infinities.  I&#8217;m no expert of floating point arithmetic, so I will not give advice about this.  For reference I copy here the following code from JUnit:</p>
+<p><code></p>
+<pre>
+static public void assertEquals(String message, double expected,
+    double actual, double delta) {
+  if (Double.compare(expected, actual) == 0)
+    return;
+  if (!(Math.abs(expected - actual) &lt;= delta))
+    failNotEquals(message, new Double(expected), new Double(actual));
+}  
+</pre>
+<p></code></p>
+<p>The purpose of the <code>compare</code> call is to have the test pass when the two numbers are both NaN.</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/204/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+		<item>
+		<title>Money is not a float</title>
+		<link>http://matteo.vaccari.name/blog/archives/197</link>
+				<comments>http://matteo.vaccari.name/blog/archives/197#comments</comments>
+				<pubDate>Sat, 17 Oct 2009 10:32:04 +0000</pubDate>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+				<category><![CDATA[Fundamentals]]></category>
+
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=197</guid>
+				<description><![CDATA[One suggestion I took to heart is that in order to be great, you need to work on fundamentals. It&#8217;s no good to be up to date with the latest and greatest, be they Agile techniques or new technologies, if you&#8217;re weak on fundamentals. So I&#8217;m starting a collection of fundamentals, that is certainly not [&#8230;]]]></description>
+								<content:encoded><![CDATA[<p>One suggestion I took to heart is that in order to be great, you need to work on fundamentals.  It&#8217;s no good to be up to date with the latest and greatest, be they Agile techniques or new technologies, if you&#8217;re weak on fundamentals.  </p>
+<p>So I&#8217;m starting a collection of fundamentals, that is certainly not going to be comprehensive.  Rather, it&#8217;s a random collection of things that I think are fundamental, yet many experienced developers get wrong.</p>
+<p>Let us start with a surprising discovery: did you know that the number 1/10 <em>cannot be represented in a finite way</em> in base 2?  Yep, it turns out that in base 2 the number 1/10 is periodical, much like the number 1/3 has no finite decimal representation in base 10.  But what is the implication for us?</p>
+<p>The implication comes when we make the mistake of representing a money in a floating-point number.  Suppose you encode the amount of &#8220;ten cents&#8221; in the floating-point number 0.10.  And now look at this program, and guess what happens when it runs.</p>
+<p><code></p>
+<pre>
+  public class MoneyIsNotAFloat {
+    public static void main(String[] args) {
+      double tenCents = 0.1;
+      double sum = 0.0;
+      for (int i=0; i&lt;10; i++) { 
+        sum += tenCents;
+        System.out.println("0.1 * " + (i+1) + " = " + sum);
+      }
+    }
+  }  
+</pre>
+<p></code></p>
+<p>(Hint: 1.0 times 10 equals&#8230; 0.99999999999999).</p>
+<p>And this is not a Java problem.  The same happens with any language, for it&#8217;s a matter of floating point arithmetic.</p>
+<p>The simple fact is that floating-point arithmetic is <strong>not exact</strong>, therefore it <em><strong>should not be used for representing money</strong></em>!</p>
+<p>What to use then?  One simple solution is to use a plain int to represent an amount of cents.  Integer arithmetic <strong>is</strong> exact.  A 32-bit int should be enough for most applications.  If you&#8217;re worried about overflow, use a BigDecimal type.  Java has one, and most modern languages do too.  (Just a note: if you use a Java BigDecimal, remember that you should not compare them with &#8220;equals&#8221;, you must use &#8220;compare&#8221;.  Go figure.)</p>
+]]></content:encoded>
+							<wfw:commentRss>http://matteo.vaccari.name/blog/archives/197/feed</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+							</item>
+	</channel>
+</rss>

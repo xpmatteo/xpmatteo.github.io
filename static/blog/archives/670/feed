@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Can you tell a program&#8217;s paradigm by looking at it?	</title>
+	<atom:link href="http://matteo.vaccari.name/blog/archives/670/feed" rel="self" type="application/rss+xml" />
+	<link>http://matteo.vaccari.name/blog/archives/670</link>
+	<description>Extreme enthusiasm</description>
+	<lastBuildDate>
+	Mon, 25 Feb 2019 15:18:16 +0000	</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+			<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94565</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Tue, 06 Dec 2011 12:55:24 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94565</guid>
+					<description><![CDATA[Hi Dennis,
+
+I think there is value in analyzing and discussing code by itself.  But the most interesting stuff often is (also) in the head of developers, or in the process they use to arrive at the code.  
+
+I&#039;m with you when it comes to using the style that betters suits your problem.  But I think that often when we say &quot;this problem is not a good match for paradigm X&quot; we are really saying &quot;I don&#039;t know X well enough to be productive on this problem&quot;.  :-)]]></description>
+		<content:encoded><![CDATA[<p>Hi Dennis,</p>
+<p>I think there is value in analyzing and discussing code by itself.  But the most interesting stuff often is (also) in the head of developers, or in the process they use to arrive at the code.  </p>
+<p>I&#8217;m with you when it comes to using the style that betters suits your problem.  But I think that often when we say &#8220;this problem is not a good match for paradigm X&#8221; we are really saying &#8220;I don&#8217;t know X well enough to be productive on this problem&#8221;.  :-)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: dennis				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94564</link>
+		<dc:creator><![CDATA[dennis]]></dc:creator>
+		<pubDate>Tue, 06 Dec 2011 11:44:29 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94564</guid>
+					<description><![CDATA[It looks like we can not even agree on what functional and object-oriented programming is, so is there any point to being trying to be able determine the programming style by looking at the code?
+
+I think it is rare that you will find a (usefull) application that is pure OO or functional (especially if you ask if it has &quot;procedural&quot; aspects), so aren&#039;t we better off looking for oportunities of use them at the appropriate time?]]></description>
+		<content:encoded><![CDATA[<p>It looks like we can not even agree on what functional and object-oriented programming is, so is there any point to being trying to be able determine the programming style by looking at the code?</p>
+<p>I think it is rare that you will find a (usefull) application that is pure OO or functional (especially if you ask if it has &#8220;procedural&#8221; aspects), so aren&#8217;t we better off looking for oportunities of use them at the appropriate time?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94559</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Sun, 04 Dec 2011 17:46:28 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94559</guid>
+					<description><![CDATA[Ok Matteo, I agree on your main point &quot;FP is what you write while thinking in an FP way&quot; :)
+
+Still I believe the code itself, whatever the process used to write it, is important.
+
+It&#039;s true you can write pure functions in C, but for me that would be Functional C, not Procedural C. :) You can also do OO in C (real OO I mean, not C++) if you write some code to exchange messages between instances.
+
+To conclude, I think there can be some metrics that can tell you: this piece of code is good FP, good OOP or crap. 
+But I&#039;m not sure if they can be automatically measured, for sure they will be much more complicated to measure than Demeter violations or LCOM4.]]></description>
+		<content:encoded><![CDATA[<p>Ok Matteo, I agree on your main point &#8220;FP is what you write while thinking in an FP way&#8221; :)</p>
+<p>Still I believe the code itself, whatever the process used to write it, is important.</p>
+<p>It&#8217;s true you can write pure functions in C, but for me that would be Functional C, not Procedural C. :) You can also do OO in C (real OO I mean, not C++) if you write some code to exchange messages between instances.</p>
+<p>To conclude, I think there can be some metrics that can tell you: this piece of code is good FP, good OOP or crap.<br />
+But I&#8217;m not sure if they can be automatically measured, for sure they will be much more complicated to measure than Demeter violations or LCOM4.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94558</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 04 Dec 2011 16:14:11 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94558</guid>
+					<description><![CDATA[@Uberto
+
+Even something as simple as 
+
+4 – 8*9 + abs(12 -45)
+
+can be interpreted as a mathematical immutable structure, or it can be interpreted as a procedure &quot;first I compute 8*9 then...&quot;.  Or it can be interpreted as messages sent to objects.  What do &quot;8&quot; and &quot;9&quot; represent anyway?  They could be integer, rational, complex, floating point numbers... or maybe matrixes or categories.  The &quot;-&quot; and &quot;*&quot; could be messages that are sent to these objects, and at some level I don&#039;t know or care to which class they really belong.  
+
+I must also disagree that FP is about some fixed order of operations; even in this small example you could choose to compute 12-45 first, and you could compute the subexpressions concurrently.
+
+Having cacheable results is a nice property; but it&#039;s hardly a characterization.  I can cache results in procedural and OO code as well.  It depends on the meaning of a particular operation.  If having cacheable results is all you care about, then you can do that easily with procedural C :-)  I think that when you think of FP you are interested in more than just cacheable results.  I think you&#039;re more interested in writing components that can be combined with predictable results.  I think you&#039;re thinking of mathematical transformations.  
+
+It&#039;s not a single property of the code itself; the FP is mainly in the process that you use to arrive at the final code.  You don&#039;t see the process :-)  See the similar discussion in the Italian DDD mailing list.  The reason there is not much DDD code to look at is that even if you looked at it you would not see the DDD process, unless you know that process rather well to start with.
+
+]]></description>
+		<content:encoded><![CDATA[<p>@Uberto</p>
+<p>Even something as simple as </p>
+<p>4 – 8*9 + abs(12 -45)</p>
+<p>can be interpreted as a mathematical immutable structure, or it can be interpreted as a procedure &#8220;first I compute 8*9 then&#8230;&#8221;.  Or it can be interpreted as messages sent to objects.  What do &#8220;8&#8221; and &#8220;9&#8221; represent anyway?  They could be integer, rational, complex, floating point numbers&#8230; or maybe matrixes or categories.  The &#8220;-&#8221; and &#8220;*&#8221; could be messages that are sent to these objects, and at some level I don&#8217;t know or care to which class they really belong.  </p>
+<p>I must also disagree that FP is about some fixed order of operations; even in this small example you could choose to compute 12-45 first, and you could compute the subexpressions concurrently.</p>
+<p>Having cacheable results is a nice property; but it&#8217;s hardly a characterization.  I can cache results in procedural and OO code as well.  It depends on the meaning of a particular operation.  If having cacheable results is all you care about, then you can do that easily with procedural C :-)  I think that when you think of FP you are interested in more than just cacheable results.  I think you&#8217;re more interested in writing components that can be combined with predictable results.  I think you&#8217;re thinking of mathematical transformations.  </p>
+<p>It&#8217;s not a single property of the code itself; the FP is mainly in the process that you use to arrive at the final code.  You don&#8217;t see the process :-)  See the similar discussion in the Italian DDD mailing list.  The reason there is not much DDD code to look at is that even if you looked at it you would not see the DDD process, unless you know that process rather well to start with.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: matteo				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94557</link>
+		<dc:creator><![CDATA[matteo]]></dc:creator>
+		<pubDate>Sun, 04 Dec 2011 16:00:54 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94557</guid>
+					<description><![CDATA[Hi M[_],
+
+I disagree heartily.  While it&#039;s true that pure FP has the property of referential transparency, can we say that it&#039;s the essence of FP?  I think it&#039;s not, and furthermore I think it gives you very little guidance on how to write effective functional programs.  Modelling with mathematical structures is much more likely to be a good guide.
+
+About OOP, Alan Kay wrote that &quot;messaging&quot; is the key thing.  At some other point he wrote that &quot;messaging, encapsulation of state and extreme late binding of all things&quot; is the essential point of OOP.  Open Recursion seems to be &quot;late binding of some things&quot;.  
+
+My point here is that most people characterize programming paradigms by some inherent property of the programming languages themselves.  But I think that it&#039;s a lot more useful to characterize programming paradigms as different modes of thought.]]></description>
+		<content:encoded><![CDATA[<p>Hi M[_],</p>
+<p>I disagree heartily.  While it&#8217;s true that pure FP has the property of referential transparency, can we say that it&#8217;s the essence of FP?  I think it&#8217;s not, and furthermore I think it gives you very little guidance on how to write effective functional programs.  Modelling with mathematical structures is much more likely to be a good guide.</p>
+<p>About OOP, Alan Kay wrote that &#8220;messaging&#8221; is the key thing.  At some other point he wrote that &#8220;messaging, encapsulation of state and extreme late binding of all things&#8221; is the essential point of OOP.  Open Recursion seems to be &#8220;late binding of some things&#8221;.  </p>
+<p>My point here is that most people characterize programming paradigms by some inherent property of the programming languages themselves.  But I think that it&#8217;s a lot more useful to characterize programming paradigms as different modes of thought.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: M[_]				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94556</link>
+		<dc:creator><![CDATA[M[_]]]></dc:creator>
+		<pubDate>Sun, 04 Dec 2011 14:24:15 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94556</guid>
+					<description><![CDATA[Secret sauces are following:
+
+OOP = open recursion
+FP = referential transparency
+Procedural = none of the above]]></description>
+		<content:encoded><![CDATA[<p>Secret sauces are following:</p>
+<p>OOP = open recursion<br />
+FP = referential transparency<br />
+Procedural = none of the above</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Uberto				</title>
+				<link>http://matteo.vaccari.name/blog/archives/670/comment-page-1#comment-94553</link>
+		<dc:creator><![CDATA[Uberto]]></dc:creator>
+		<pubDate>Fri, 02 Dec 2011 20:05:45 +0000</pubDate>
+		<guid isPermaLink="false">http://matteo.vaccari.name/blog/?p=670#comment-94553</guid>
+					<description><![CDATA[Hi Matteo, of course I don&#039;t agree at all on the first paragraph. :)
+
+For example let&#039;s take:
+4 - 8*9 + abs(12 -45)
+
+how do you solve it?
+
+first I do 8*9 = 72
+then I do 12 - 45 = -33
+if &#060;0 then multiply for -1 = 33
+etc.
+
+many function have order and if nested
+see also the do-notation in Haskell
+http://en.wikibooks.org/wiki/Haskell/do_Notation
+
+the main point is that in functional code you take the result of one operation and you put it as input in the following (or you return early for an error). So there is a kind of immutable chain of actions.
+
+The if in my code where just redirecting the flow (proceed with this function or the other one or return), like the maybe monad in Haskell. 
+
+Instead in procedural code, you read and write on persistent variables, the value of them could not be calculated in advance.
+
+Saying it in another way: in FP your functions are perfectly cachable, that is given the values of input parameters is always safe return the previously computed result. This is true for my code, but not for procedural code.
+
+Anyway I agree with you that this is hard to spot if you don&#039;t have a functional eye, and usually you need functional programming experience for that.
+
+I&#039;m also happy for this post because it also helped me to clarify better the problem to myself. I&#039;m working on a new presentation completely about code and code quality. When I&#039;ll have something half-baked I&#039;d like to present it at xpug-mi]]></description>
+		<content:encoded><![CDATA[<p>Hi Matteo, of course I don&#8217;t agree at all on the first paragraph. :)</p>
+<p>For example let&#8217;s take:<br />
+4 &#8211; 8*9 + abs(12 -45)</p>
+<p>how do you solve it?</p>
+<p>first I do 8*9 = 72<br />
+then I do 12 &#8211; 45 = -33<br />
+if &lt;0 then multiply for -1 = 33<br />
+etc.</p>
+<p>many function have order and if nested<br />
+see also the do-notation in Haskell<br />
+<a href="http://en.wikibooks.org/wiki/Haskell/do_Notation" rel="nofollow">http://en.wikibooks.org/wiki/Haskell/do_Notation</a></p>
+<p>the main point is that in functional code you take the result of one operation and you put it as input in the following (or you return early for an error). So there is a kind of immutable chain of actions.</p>
+<p>The if in my code where just redirecting the flow (proceed with this function or the other one or return), like the maybe monad in Haskell. </p>
+<p>Instead in procedural code, you read and write on persistent variables, the value of them could not be calculated in advance.</p>
+<p>Saying it in another way: in FP your functions are perfectly cachable, that is given the values of input parameters is always safe return the previously computed result. This is true for my code, but not for procedural code.</p>
+<p>Anyway I agree with you that this is hard to spot if you don&#039;t have a functional eye, and usually you need functional programming experience for that.</p>
+<p>I&#039;m also happy for this post because it also helped me to clarify better the problem to myself. I&#039;m working on a new presentation completely about code and code quality. When I&#039;ll have something half-baked I&#039;d like to present it at xpug-mi</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>
