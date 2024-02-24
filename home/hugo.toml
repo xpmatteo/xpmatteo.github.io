@@ -21,7 +21,7 @@ tags = "/blog/:slug"
 
 [params]
 description = "A collection of writings about software development"
-favicon = "images/favicon.ico"
+favicon = "favicon.ico"
 dateFormat = "2006-01-02"
 hideMadeWithLine = false
 
