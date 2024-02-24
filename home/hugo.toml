@@ -33,10 +33,10 @@ email = "vaccari@pobox.com"
 name = "Home"
 pageRef = "/"
 weight = 10
-[[menu.main]]
-name = "Blog"
-pageRef = "/blog"
-weight = 20
+# [[menu.main]]
+# name = "Blog"
+# pageRef = "/new-blog"
+# weight = 20
 
 [services.rss]
 limit = 42
