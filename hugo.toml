@@ -3,7 +3,6 @@ languageCode = 'en'
 title = "Matteo Vaccari's Home"
 theme = 'hugo-simple'
 copyright = "© 2001-2024 Matteo Vaccari"
-#publishDir = "docs"
 
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
@@ -18,7 +17,7 @@ tag = "tags"
 
 [permalinks]
 blog = "/:slugorfilename/"
-tags = "/blog/:slug"
+tags = "/posts/:slug"
 
 
 [params]
