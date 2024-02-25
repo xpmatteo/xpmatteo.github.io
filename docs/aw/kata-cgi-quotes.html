@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/aw/kata-cgi-quotes by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:22:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Dispense: kata-cgi-quotes</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Dispense: kata-cgi-quotes</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    <style type="text/css" media="screen">
+pre {
+margin-left: 1em;
+}
+</style>
+<h1>The cgi-quotes kata</h1>
+<p>Prerequisites:</p>
+<ul>
+	<li>a Unix or Unix-like computer, for instance Linux, <span class="caps">BSD</span> or Mac OS X,</li>
+	<li>with Apache Httpd installed and running,</li>
+	<li>and Ruby 1.8.</li>
+</ul>
+<p>Ingredients: a <a href="http://en.wikipedia.org/wiki/Fortune_(Unix)">fortune</a> file (for instance <a href="files/quotes.txt">this one</a> or another one found on <a href="http://www.shlomifish.org/humour/fortunes/">the</a> <a href="http://www.dynamical-systems.org/fortune/">Internet</a>).</p>
+<p>Summary</p>
+<ul>
+	<li>Hello, world</li>
+	<li>Show all quotes</li>
+	<li>Show one quote, always the same</li>
+	<li>Randomize</li>
+	<li>Convert output to html</li>
+	<li>Show a query parameter</li>
+	<li>Use the parameter to find a random matching quote</li>
+	<li>Refactor</li>
+	<li>Measure performance</li>
+	<li>Write a table of measurements</li>
+</ul>
+<h2>Prologue</h2>
+<p>Open your browser at <code>http://localhost/cgi-bin/quotes.cgi</code> .  Observe the 404 error.</p>
+<p>Find the cgi directory on your computer.  On Linux, it&#8217;s usually <code>/var/www/cgi-bin</code>.  On Mac OS X, it&#8217;s usually <code>/Library/WebServer/CGI-Executables</code>.  Create there a file named <code>quotes.cgi</code>, with contents:</p>
+<pre>
+#!/usr/bin/env ruby
+
+print "Content-Type: text/plain\r\n"
+print "\r\n"
+
+print "Hello, world!"
+</pre>
+<p>Open again reload <code>http://localhost/cgi-bin/quotes.cgi</code> in the browser.  Observe the 500 error.  What is the reason?  Find the error log.  It&#8217;s usually at <code>/var/log/apache2/error_log</code>.  It&#8217;s not clear which lines were produced by our script, so we do<br />
+<pre>  <br />
+$ tail -f /var/log/apache2/error_log<br />
+</pre></p>
+<p>type a few returns, and reload the browser.  Now it&#8217;s clear</p>
+<pre>
+[Wed Nov 26 21:42:50 2008] [error] [client ::1] (13)Permission denied: exec of '/Library/WebServer/CGI-Executables/quotes.cgi' failed
+[Wed Nov 26 21:42:50 2008] [error] [client ::1] Premature end of script headers: quotes.cgi
+</pre>
+<p>Add the executability bit and reload the browser</p>
+<pre>
+$ chmod +x /Library/WebServer/CGI-Executables/quotes.cgi
+</pre>
+<p>Now we observe the &#8220;Hello, world!&#8221; message.</p>
+<p>Open a second terminal window, and tail the access_log file.  Reload the browser and observe the log message.  Observe the success status 200.</p>
+<h2>Showing quotes</h2>
+<p>Copy the fortune file to <code>/tmp/quotes.txt</code>.  Change quotes.cgi to</p>
+<pre>
+#!/usr/bin/env ruby
+print "Content-Type: text/plain\r\n"
+print "\r\n"
+
+print File.open("/tmp/quotes.txt").read
+</pre>
+<p>Reload the browser.</p>
+<p>Now change quote.cgi to</p>
+<pre>
+#!/usr/bin/env ruby
+print "Content-Type: text/plain\r\n"
+print "\r\n"
+
+quotes = File.open("/tmp/quotes.txt").read.split("%")
+print quotes[33]
+</pre>
+<p>Reload the browser.  Observe we see only one quote now.</p>
+<p>Change the last lines to</p>
+<pre>
+quotes = File.open("/tmp/quotes.txt").read.split("%")
+print quotes[rand(quotes.size)]
+</pre>
+<p>Reload the browser repeatedly.  Observe we see a different quote every time.</p>
+<h2>Converting to html.</h2>
+<p>Rewrite quotes.cgi to</p>
+<pre>
+#!/usr/bin/env ruby
+print "Content-Type: text/html\r\n"
+print "\r\n"
+
+quotes = File.open("/tmp/quotes.txt").read.split("%")
+quote = quotes[rand(quotes.size)]
+
+print "
+&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;Quote of the day&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h3&gt;Quote of the day&lt;/h3&gt;
+    &lt;pre&gt;
+    #{quote}
+    &lt;/p e&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"
+</pre>
+<p>Reload the browser.  Observe that the browser window title is changed as well.</p>
+<h2>Reading parameters</h2>
+<p>We want to select all quotes that contain a given string.  Point the browser to <code>http://localhost/cgi-bin/quotes.cgi?q=Linus</code>. Observe no difference from before.  Now change quotes.cgi to</p>
+<pre>
+#!/usr/bin/env ruby
+require 'cgi'
+
+print "Content-Type: text/html\r\n"
+print "\r\n"
+quotes = File.open("/tmp/quotes.txt").read.split("%")
+
+cgi = CGI.new
+keyword = cgi['q']
+if keyword
+  quote = keyword
+else
+  quote = quotes[rand(quotes.size)]
+end
+... 
+</pre>
+<p>Reload the browser.  Observe that the &#8220;q&#8221; parameter appears in place of the quote.  Try to remove the parameter and see that the old behaviour is no longer working.  Try replacing <code>text/html</code> to <code>text/plain</code> and observe that we get an empty quote.  This means that the cgi object returns empty strings for missing parameters, and empty strings are not false.  Correct by changing <code>if keyword</code> to <code>if keyword.length &gt; 0</code>.  Observe that the behaviour when the <code>q</code> parameter is missing is now back to what it was before.</p>
+<p>Now change the code to</p>
+<pre>
+quote = quotes.find {|quote| quote.include?(keyword) }
+</pre>
+<p>Reload the browser.  Change the query string, and observe different quotes are retrieved.   For any given value of <code>q</code>, always the same quote is retrieved.  Randomize by changing the code to</p>
+<pre>
+quote = quotes.select {|quote| quote.include?(keyword) }
+</pre>
+<p>Reload with <code>q=Linus</code> and see an array of matching quotes.</p>
+<p>Now change the code to</p>
+<pre>
+if keyword.length &gt; 0
+  quotes = quotes.select {|quote| quote.include?(keyword) }
+end
+quote = quotes[rand(quotes.size)]
+</pre>
+<p>And see the selected quote change randomly.</p>
+<h2>Measure performance</h2>
+<p>Execute</p>
+<pre>  
+$ ab -i -n 1000 -c   1 http://localhost/cgi-bin/quotes.cgi
+$ ab -i -n 1000 -c  10 http://localhost/cgi-bin/quotes.cgi
+$ ab -i -n 1000 -c 100 http://localhost/cgi-bin/quotes.cgi
+</pre>
+<p>And produce a table of the mean response time, and maximum response time in 90% of the cases, versus concurrency level.</p>
+<style type="text/css" media="screen">
+td {
+text-align: right;
+}
+th, td {
+border: 1px solid black;
+padding: 0.3em;
+}
+</style>
+<table cellspacing="0" cellpadding="0">
+<tr>
+    <th>Concurrency</th>
+    <th>Mean response time (ms)</th>
+    <th>Response time for 90% (ms)</th>
+    <th>Requests per second</th>
+</tr>
+<tr>
+    <td>1</td>
+    <td>6</td>
+    <td>6</td>
+    <td>160</td>
+</tr>
+<tr>
+    <td>10</td>
+    <td>38</td>
+    <td>58</td>
+    <td>263</td>
+</tr>
+<tr>
+    <td>100</td>
+    <td>372</td>
+    <td>398</td>
+    <td>268</td>
+</tr>
+</table>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/kata-cgi-quotes by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 10:22:03 GMT -->
+</html>

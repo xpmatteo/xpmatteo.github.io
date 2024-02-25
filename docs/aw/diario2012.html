@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/aw/diario2012 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Applicazioni Web, a.a. 2012/13</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Applicazioni Web, a.a. 2012/13</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    
+
+<h2>Sommario</h2>
+
+
+<ul>
+  <li><a href="#lezione00">Lezione 0: HTTP, URI</a></li>
+  <li><a href="#lezione01">Lezione 1: HTML, Web Standards, Character Encodings</a></li>
+  <li><a href="#lezione02">Lezione 2: CSS</a></li>
+  <li><a href="#lezione03">Lezione 3: Ruby</a></li>
+  <li><a href="#lezione04">Lezione 4: Introduzione a Rails</a></li>
+  <li><a href="#lezione05">Lezione 5: Rails controllers and views</a></li>
+  <li><a href="#lezione06">Lezione 6: Database e validazioni in Rails</a></li>
+  <li><a href="#lezione07">Lezione 7: Cookies, sessioni, autenticazione e autorizzazione</a></li>
+  <li><a href="#lezione08">Lezione 8: Associazioni</a></li>
+  <li><a href="#lezione09">Lezione 9: Controllo delle versioni</a></li>
+  <li><a href="#lezione10">Lezione 10: Sicurezza</a></li>
+  <li><a href="#lezione11">Lezione 11: Ricapitoliamo</a></li>
+</ul>
+
+
+
+
+<h2 id="lezione00">Lezione 0, 2012-10-05</h2>
+
+
+<p></p>
+
+<p>Argomenti: HTTP, URI</p>
+
+<h3>Esercizi</h3>
+
+<p>Per eseguire questi esercizi usa <strong>Linux</strong> oppure un <strong>Mac</strong>.  Non Windows.  Se non hai una macchina Linux, puoi usare una macchina virtuale: scarica VirtualBox e installaci sopra Ubuntu.</p>
+
+<ul>
+<li>Trova l'indirizzo IP del tuo computer con ifconfig</li>
+<li>Usa nc (netcat) per implementare una semplice chat</li>
+<li>Usa nc per osservare la richiesta http del tuo browser</li>
+<li>Usa nc per interrogare <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a></li>
+<li>Usa nc e la content-negotiation per ottenere la pagina <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a> in spagnolo</li>
+<li>Usa il comando host ottenere l'indirizzo IP di www.google.com</li>
+<li>Usa netstat per scoprire quali porte TCP sono aperte nella tua workstation</li>
+<li>Usa nc per scoprire il mime type della immagine alla url <a href="http://httpd.apache.org/images/httpd_logo_wide">http://httpd.apache.org/images/httpd_logo_wide</a></li>
+</ul>
+
+
+<h3>Esercizi svolti in laboratorio</h3>
+
+<p>  Scarica da github il codice visto a lezione.  Per farlo, assicurati di avere installato il comando "git" (apt-get install git-core) e poi esegui</p>
+
+<pre><code>git clone https://github.com/xpmatteo/applicazioni-web-2012.git
+</code></pre>
+
+<p>  Poi apri Eclipse e importa il progetto: Import -> Existing Projects Into Workspace -> seleziona la directory sample-http-server</p>
+
+<p>  Esercizi:</p>
+
+<ol>
+<li> Fai partire l'applicazione con Run As -> Java Application.  Visualizza hello, world con nc (nc localhost 8080)</li>
+<li> Visualizza hello, world con il browser (http://localhost:8080/)</li>
+<li> Modifica il codice Java per restituire text/html, verifica che il testo ora appare con gli stili corretti nel browser.</li>
+<li> Metti netcat in ascolto (nc -l -p 8081).  Visualizza la richiesta http del tuo browser andando ad aprire l'indirizzo http://localhost:8081/
+ Vai a vedere lo header "accept-language".  Verifica qual'è il codice della lingua preferita.</li>
+<li> Modifica HelloServer per restituire "hello world" nella lingua
+ preferita dall'utente:
+
+<ul>
+<li>fr -> bonjour, monde</li>
+<li>it -> ciao mondo!</li>
+<li>de -> hallo welt!</li>
+<li>default -> hello world!
+Cambiando le lingue nelle preferenze del browser, devi poter vedere cambiare il messaggio restituito dall'applicazione</li>
+</ul>
+</li>
+<li> Modifica HelloServer così che, solo se il path richiesto è /image, restituisca al browser un'immagine.  Scegli un file png o gif o jpeg qualsiasi, aprilo con FileInputStream e restituisci lo stream al posto del body.</li>
+</ol>
+
+
+<h3>Altri esempi di domande d'esame</h3>
+
+<ul>
+<li>Quali sono le principali caratteristiche del protocollo HTTP?</li>
+<li>Descrivi la sequenza di eventi che parte da digitare una URL nella barra degli indirizzi del browser e si conclude con la rappresentazione grafica nella finestra del browser di una risorsa.</li>
+<li>Che cos'è una <em>risorsa</em>?  Fai degli esempi.</li>
+<li>Scrivi il testo dei messaggi di una tipica transazione HTTP</li>
+<li>Descrivi le differenze fra GET e POST e quali sono i differenti usi di questi metodi.</li>
+<li>Descrivi il significato e l'uso degli header più importanti: Content-Type, Accept, Location, Host.</li>
+<li>Che cos'è una redirezione?  Come funziona?</li>
+<li>Descrivi i principali codici di Status e il loro significato.</li>
+<li>Descrivi la forma e le componenti di una URL HTTP.</li>
+<li>Che cos'è un <em>mime type</em>?  Quali sono i mime types più comuni?</li>
+</ul>
+
+
+<h3>Da studiare</h3>
+
+<ul>
+<li>La <a href="http://en.wikipedia.org/w/index.php?title=Hypertext_Transfer_Protocol&amp;oldid=516023840">pagina di Wikipedia su HTTP</a></li>
+<li><a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics, fino a "Cookies" escluso.</li>
+<li>Leggere <a href="00-intro.html">la mia dispensa</a>.</li>
+</ul>
+
+
+<p>Materiali per approfondimenti facoltativi</p>
+
+<ul>
+<li>Leggere <a href="http://tomayko.com/writings/rest-to-my-wife">How I explained REST to my wife</a></li>
+</ul>
+
+
+<h2 id="lezione01">Lezione 1, 12/10/2012</h2>
+
+
+<p>Argomenti: HTML, Web Standards, Character Encodings</p>
+
+<h3>Da studiare</h3>
+
+<ul>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_basics_of_html">The Basics of HTML</a></li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_validation">HTML validation</a></li>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_html_head">The HTML head</a> fino a "What about the looks" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_text">Html Text</a> fino a Compatibility escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_lists">HTML Lists</a> fino a Compatibility escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/images_in_html">Images in HTML</a> fino a "Background images with CSS" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_links">HTML Links</a> fino a "Link styling" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_structural_elements">HTML Structural elements</a> fino a "HTML5 element support" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_tables">HTML Tables</a> fino a "Structuring the table further" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_forms_basics">HTML Forms basics</a> fino a "A little bit of style..." escluso</li>
+</ul>
+
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li>Facoltativo I capitoli 5,6,7 di <em>Designing With Web Standards, 2nd edition</em> di Zeldman.</li>
+</ul>
+
+
+<h3>Esercizi</h3>
+
+<ol start="0">
+  <li>
+    Scrivere un documento HTML che aperto nel browser abbia questo aspetto:
+    <figure>
+      <img src="2012/lezione01/hello.png" alt="Hello, World!" style="border: 1px solid black" />
+    </figure>
+  </li>
+  <li>
+    Verificare che il codice dell'esercizio precedente sia <em>HTML valido</em> per mezzo del servizio <a href="http://validator.w3.org/" title="The W3C Markup Validation Service">http://validator.w3.org/</a>
+  </li>
+  <li>
+    Realizzare in HTML e validare con validator.w3.org:
+    <figure>
+      <img src="2012/lezione01/entities.png" alt="Hello, World!" style="border: 1px solid black" />
+    </figure>
+  </li>
+  <li>
+    Nell'esercizio precedente, invece di scrivere &ldquo;Perch&amp;eacute;&rdquo; provate a scriverlo con il carattere &ldquo;é&rdquo; che si trova sulla tastiera.  Verificate che cosa succede nei vari casi:
+    <ul>
+      <li>Metto <code>&lt;meta charset="UTF-8"/&gt;</code> nella <code>head</code> del documento</li>
+      <li>Metto <code>&lt;meta charset="ISO-8859-1"/&gt;</code></li>
+      <li>Non metto nessuna dichiarazione di charset nella head</li>
+    </ul>
+  </li>
+  <li>
+    Realizzare in HTML e validare con validator.w3.org:
+    <figure>
+      <img src="2011/esempio-html-lezione01.png" alt="Rendering di una pagina HTML di esempio" style="border: 1px solid black"/>        
+    </figure>
+    (La url dell'immagine è http://www.ruby-lang.org/images/logo.gif)
+  </li>
+  <li>
+    Realizzare in HTML e validare con validator.w3.org:
+    <figure>
+      <img src="2011/lezione03/esercizio-form.png" alt="Form html" />
+    </figure>
+  </li>
+  <li>
+    Verificare che mettendo o togliendo la dichiarazione <code>&lt;!DOCTYPE html&gt;</code> in testa al documento, l'aspetto grafico della pagina cambia leggermente.
+  </li>
+</ol>
+
+
+<p>Altri esempi di domande d'esame</p>
+
+<ul>
+<li>Qual'è la struttura standard di un documento HTML?</li>
+<li>Quali sono gli attributi di un immagine?</li>
+<li>Che cosa sono le <em>entities</em>?  Quali sono le più comuni?</li>
+<li>Che cos'è un <em>encoding</em>?  In quali maniere si può specificare?</li>
+<li>Quali sono le principali varianti di HTML?</li>
+<li>Qual è la relazione fra XML e HTML?</li>
+<li>Qual è la differenza fra markup <em>semantico</em> e <em>di presentazione</em>?</li>
+<li>Che cos'è il <em>quirks mode</em>?</li>
+<li>Che cosa sono gli <em>attributi</em>?  Che cosa sono e come si usano gli attributi <code>id</code> e <code>class</code>?</li>
+</ul>
+
+
+<h2 id="lezione02">Lezione 2, 2012-10-26</h2>
+
+
+<p></p>
+
+<p>Argomenti: Cascading Style Sheets (CSS), applicare stili a documenti HTML, creare layout di pagina ibridi e layout fissi.</p>
+
+<h4>Da studiare</h4>
+
+<p>Studiare questi articoli:</p>
+
+<ul>
+<li><a href="http://docs.webplatform.org/wiki/guides/getting_started_with_css">Getting started with CSS</a> fino a @importing stylesheets escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/using_selectors">Using selectors</a> fino a "List of pseudo-classes" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">Text-styling fundamentals</a> esclusi "Image replacement" e "Web fonts".</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/inheritance_and_cascade">Inheritance and cascade</a> fino a "Compatibility" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_css_layout_model">The CSS layout model</a> fino a "Working with document flow" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/floats_and_clearing">Floats and clearing</a>.</li>
+</ul>
+
+
+<p>Esempi di domande d'esame</p>
+
+<ul>
+<li>Quali sono le unità di misura che si possono usare per rappresentare le dimensioni di un font o di un elemento?</li>
+<li>Quali sono i diversi selector?</li>
+<li>Per quale motivo potrei preferire le unità di lunghezza proporzionali a quelle assolute?  E viceversa?</li>
+<li>Che cos'è la proprietà display?  Che valori può assumere?</li>
+<li>Che alternative ci sono per creare un layout di pagina?</li>
+<li>Descrivere il box model</li>
+<li>Come funziona la proprietà "float"?  A che cosa serve la proprietà "clear"?</li>
+<li>Come si risolvono regole CSS che si contraddicono?</li>
+<li>In quali maniere si può collegare un insieme di regole CSS a un documento HTML?</li>
+<li>Scrivere un esempio di layout ibrido; descrivere come funziona.</li>
+<li>Scrivere un esempio di layout fisso basato su float.  Descrivere come funziona.</li>
+</ul>
+
+
+<p>Non è necessario imparare a memoria tutte le proprietà e i loro possibili valori.  E' necessario però conoscere per lo meno le proprietà che usiamo negli esempi visti a lezione e nell'esercizio (vedi più avanti).</p>
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+<li>Il <a href="http://www.w3schools.com/css/">tutorial interattivo su CSS</a> di W3Schools</li>
+<li>Gli esempi di layout HTML5 di <a href="http://www.initializr.com/" title="Initializr - Start an HTML5 Boilerplate project in 15 seconds!">Initializr</a></li>
+</ul>
+
+
+<h3>Esempi visti a lezione</h3>
+
+<ul>
+<li>Un <a href="2012/lezione02/fixed-layout.html">layout in CSS puro</a> facile da realizzare mediante i &ldquo;float&rdquo;, ma rigido.</li>
+<li>Un <a href="2012/lezione02/hybrid-layout.html">layout ibrido</a> basato su una singola tabella.  Facile da realizzare e &ldquo;liquido&rdquo;, ma l'impianto grafico della pagina è implementato in HTML e non in CSS.  (Il CSS può essere poi applicato a tutto il resto: font, colori, ecc.; per questo è detto un layout <em>ibrido</em>).</li>
+</ul>
+
+
+<h3>Esercizio</h3>
+
+<p>Applicare stili CSS a <a href="2012/lezione02/esercizio/index.html">questo file HTML</a> per fare in modo che, aperto in un browser, abbia il seguente aspetto:</p>
+
+<p><figure>
+  <img src="2012/lezione02/esercizio/output-stiloso.png" alt="Il file html con gli stili desiderati" />
+</figure></p>
+
+<p>Esegui l'esercizio secondo i passi che seguono.  Devi modificare solo il file style.css, non il file html.  <strong>Importante</strong>: dopo ogni minima modifica al CSS, ricarica la pagina nel browser per osservare l'effetto.</p>
+
+<ol>
+<li><p>Copia in una directory il file index.html.  Crea un file vuoto &ldquo;style.css&rdquo;.</p></li>
+<li><p>Metti una prima sezione nel file style.css copiando il frammento che segue.  Apri index.html nel browser e osserva gli sfondi colorati.  Questi serviranno per aiutarci a visualizzare questi due elementi nel corso dello sviluppo.  Quando avremo ottenuto il risultato desiderato, la sezione Debug la commenteremo.</p></li>
+</ol>
+
+
+<pre>
+/* Debug */
+aside {
+    background-color: rgb(85%, 85%, 100%);
+}
+article {
+    background-color: rgb(85%, 100%, 85%)
+}
+</pre>
+
+
+<p></p>
+
+<ol>
+<li><p>Apri una nuova sezione nel file CSS, intitolata <code>/* Typography and colors */</code> Scegli uno stile tipografico.  Applica le seguenti proprietà:</p>
+
+<ul>
+<li>Per tutto il documento: font-family: Tahoma, Arial, sans-serif;</li>
+<li>Dimensioni: altezza del font 12px, altezza della riga 18px</li>
+<li>Per l'<em>aside</em>: corsivo (italic) e font più piccolo (smaller)</li>
+<li>Per l'<em>h3</em>: font più grande del 50%</li>
+</ul>
+</li>
+<li><p>Scegli i colori</p>
+
+<ul>
+<li>Per il body, background-color: white; color: #706C6E</li>
+<li>Per i link (elemento <code>a</code>): color: #A1805C</li>
+<li>Per lo aside: background-color: rgb(85%, 85%, 100%)</li>
+<li>Per l'article: background-color: rgb(85%, 100%, 85%)</li>
+</ul>
+</li>
+<li><p>Apri una nuova sezione nel file CSS, <code>/* Page layout */</code> Scegli le dimensioni.</p>
+
+<ul>
+<li>La div che ha classe "content" deve essere larga 240px</li>
+<li>La larghezza di article e aside deve essere di 120px</li>
+<li>Applica float: left sia ad article che ad aside.</li>
+</ul>
+</li>
+<li><p>Applichiamo una cornice a tutto il div che ha class="content"</p>
+
+<ul>
+<li>border: 2px dashed rgb(224, 226, 230);</li>
+<li>Oooops! il div .content ha altezza nulla, perché i float che contiene strabordano! Per correggere il problema, mettiamo float="left" anche al .content!</li>
+</ul>
+</li>
+<li><p>Diamo un po' di respiro:</p>
+
+<ul>
+<li>Diamo ad article e aside 12px di margine
+
+<ul>
+<li>PERÒ il margine destro di article deve essere 6</li>
+<li>e il margine sinistro di aside deve essere 6</li>
+</ul>
+</li>
+<li>Di conseguenza il width di article e aside deve essere ridotto di 18px (12+6), altrimenti non possono restare affiancati</li>
+</ul>
+</li>
+<li><p>Stilizziamo il menu.  Apri una nuova sezione <code>/* Navigation menu */</code></p>
+
+<ul>
+<li>Lo sfondo del menu deve essere grigio rgb(224, 226, 230)</li>
+<li>I link (elementi <code>a</code>) devono essere in grassetto (font-weight: bold)</li>
+<li>I link non devono essere sottolineati (text-decoration: none).  Ma attenzione: solo i link dentro al menu di navigazione devono perdere la sottolineanura! Gli altri link devono conservarla.  Usa i contextual selectors.</li>
+<li>Quando passo con il puntatore sopra le voci di menu, devono evidenziarsi in reverse: scambiare il background-color con il color.  Per ottenere questo effetto, occorre sfruttare la pseudo-classe <code>a:hover</code></li>
+</ul>
+</li>
+<li><p>Il menu deve essere <strong>orizzontale</strong>.  Per ottenere questo effetto occorre applicare diverse proprietà</p>
+
+<ul>
+<li>Applicare a li la proprietà display: block (spariscono i pallini)</li>
+<li>Applicare a ul la proprietà padding: 0</li>
+<li>Applicare a li le proprietà
+
+<ul>
+<li>display: block</li>
+<li>float: left;</li>
+<li>width: 80px (cioè 240 / 3)</li>
+<li>text-align: left</li>
+</ul>
+</li>
+<li>Per fare in modo che l'elemento ul contenga tutti i suoi li, dobbiamo applicare anche a lui la proprietà display: block.</li>
+</ul>
+</li>
+<li><p>A questo punto, se allarghiamo la finestra, possiamo vedere che il .content si allinea a destra del menu!  E' perché sia il menu che il .content sono fluttuati a sinistra.  Per evitare questo effetto applichiamo la proprietà clear: left a .content</p></li>
+</ol>
+
+
+<h2 id="lezione03">Lezione 3, 2012-11-09</h2>
+
+
+<p></p>
+
+<p>Argomenti: il linguaggio Ruby</p>
+
+<p>La versione di Ruby che usiamo per queste lezioni è la 1.9.3. Per installarla:</p>
+
+<dl>
+  <dt>Ubuntu</dt>
+    <dd>Eseguire <kbd>sudo apt-get install ruby1.9.3</kbd></dd>
+  <dt>Mac OS X</dt>
+    <dd>Non è semplice.  Occorre prima installare <a href="https://developer.apple.com/xcode/" title="Strumenti di sviluppo dalla Apple">XCode</a>, che contiene il compilatore C, necessario per compilare Ruby; poi installare <a href="https://rvm.io/rvm/install/"><abbr title="Ruby Version Manager">rvm</abbr></a> con il comando <kbd>curl -L https://get.rvm.io | bash -s stable --ruby</kbd></dd>
+  <dt>Windows</dt>
+    <dd>Non è supportato per questo corso.  Usa VirtualBox e installa Ubuntu su una macchina virtuale.</dd>
+</dl>
+
+
+<p>Per verificare che sia installata la versione corretta di Ruby, eseguire <kbd>ruby -v</kbd>.</p>
+
+<h3>Da studiare</h3>
+
+<ul>
+<li><a href="http://www.humblelittlerubybook.com/book/" title="Mr. Neighborly's Humble Little Ruby Book">The Humble Little Ruby Book</a>, capitoli 1, 2, 3, 4 (solo Filesystem interaction).</li>
+</ul>
+
+
+<h3>Esercizio</h3>
+
+<p>Se non hai ancora scaricato il progetto git con gli esercizi, allora per prima cosa installa git</p>
+
+<dl>
+  <dt>Ubuntu</dt>
+    <dd>Esegui <kbd>sudo apt-get install git-core</kbd></dd>
+  <dt>Mac OS X</dt>
+    <dd>
+      <ol start="0">
+        <li>Installa <a href="https://developer.apple.com/xcode/" title="Strumenti di sviluppo dalla Apple">XCode</a></li>
+        <li>Installa <a href="http://mxcl.github.com/homebrew/" title="Homebrew — Un sistema per installare programmi da riga di comando in Mac OS X">Homebrew</a> con il comando<br/><kbd>ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"</kbd><br/>Homebrew serve a installare programmi vari dalla riga di comando su Mac OS X.</li>
+        <li>Installa git con il comando <kbd>brew install git</kbd></li>
+      </ol>
+    </dd>
+  <dt>Windows</dt>
+    <dd>No.</dd>
+</dl>
+
+
+<p>Se è la prima volta che scarichi il progetto con gli esercizi, esegui</p>
+
+<pre><code>git clone https://github.com/xpmatteo/applicazioni-web-2012.git
+</code></pre>
+
+<p>altrimenti aggiorna con</p>
+
+<pre><code>git pull
+</code></pre>
+
+<p>L'esercizio si trova nella cartella Lezione03.  Le istruzioni sono nel file README.md</p>
+
+<h2 id="lezione04">Lezione 4, 2012-11-16</h2>
+
+
+<p></p>
+
+<p>Avviso: la prossima lezione sarà il 7 dicembre.</p>
+
+<p>Argomenti: introduzione a <a href="http://rubyonrails.org/">Ruby on Rails</a>. architettura Model-View-Controller, routes, controllers, views.</p>
+
+<h3>Studiare</h3>
+
+<ul>
+<li><a href="http://guides.rubyonrails.org/getting_started.html" title="Ruby on Rails Guides: Getting Started with Rails">Ruby on Rails Guides: Getting Started with Rails</a> capitoli da 1 a 5 compresi</li>
+<li><a href="http://guides.rubyonrails.org/action_controller_overview.html" title="Ruby on Rails Guides: Action Controller Overview">Ruby on Rails Guides: Action Controller Overview</a> capitoli da 1 a 5 compresi.</li>
+</ul>
+
+
+<h3>Esercizio</h3>
+
+<p>Aggiorna il <a href="https://github.com/xpmatteo/applicazioni-web-2012/tree/master/Lezione04">repository degli esercizi</a> con</p>
+
+<pre><code>git pull
+</code></pre>
+
+<p>Nella directory Lezione04/quotes c'è un'applicazione Rails.  Nel <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione04/quotes/README.md">README</a> ci sono le istruzioni per l'esercitazione.</p>
+
+<h2 id="lezione05">Lezione 5, 2012-12-07</h2>
+
+
+<p></p>
+
+<p>Argomenti: Rails controllers e views.  Le 7 azioni canoniche.</p>
+
+<p>Abbiamo presentato una semplice applicazione che imita Twitter.  A lezione ho mostrato come sviluppare la gestione degli utenti:</p>
+
+<ol>
+  <li><strong>index</strong> è l'azione  che mostra un elenco degli User esistenti.  Da lì posso passare a <strong>new</strong> per creare un nuovo User, oppure a <strong>edit</strong> per modificare uno qualsiasi degli User esistenti.</li>
+  <li><strong>show</strong> serve a mostrare uno User.  Per sapere quale User deve mostrare, deve ricevere lo "id" dello User desiderato.</li>
+  <li><strong>new</strong> è un'azione che mostra una form per inserire un nuovo User.  Quando premo il bottone di submit, i dati vengono mandati all'azione <strong>create</strong>.</li>
+  <li><strong>create</strong> cerca di creare un nuovo User.  Se ha successo, <em>ridirige</em> con una redirect HTTP sulla pagina <strong>show</strong> dello User appena creato.  Se fallisce, di solito perché i dati inseriti non sono <em>validi,</em> allora ripresenta la form popolata con i dati che avevo inserito e con appropriati messaggi di errore.</li>
+  <li><strong>edit</strong> è un'azione che mostra una form per modificare uno User esistente.  Per poter identificare lo User che vogliamo modificare, deve ricevere lo "id" dello User.  Quando premo il bottone di submit, viene invocata l'azione <strong>update</strong>.</li>
+  <li><strong>update</strong> cerca di modificare uno User.  Per potere identificare lo User che vogliamo modificare, ha bisogno di ricevere lo "id" di quello User.  Se la modifica ha successo, mi <em>ridirige</em> con una redirect HTTP sulla pagina di <strong>show</strong> per lo User appena modificato; se i dati sono invalidi, mostra di nuovo la pagina di edit con i messaggi di errore e i dati che l'utente ha inserito.</li>
+  <li><strong>destroy</strong> (non vista a lezione) serve a cancellare uno User.</li>
+</ol>
+
+
+<p>Queste sono le 7 azioni canoniche di Rails, che servono a Creare, Leggere, Modificare e Cancellare una risorsa, in questo caso gli User.  In inglese si dice CRUD (Create, Read, Update, Destroy.)</p>
+
+<p>L'esercizio svolto in laboratorio consisteva nell'implementare il CRUD per la risorsa Tweet (che sarebbe come un blog post, ma limitato a 140 caratteri.)</p>
+
+<p>Normalmente un'applicazione web usa un database per conservare i dati.  Nell'esempio didattico presentato oggi, abbiamo simulato il database con un array di oggetti.  La logica di salvataggio è implementata nella classe User e nella classe Tweet.</p>
+
+<h3>Esercizi</h3>
+
+<p>Come sempre, per realizzare gli esercizi consiglio di usare una macchina Linux, per esempio Ubuntu.  Se non hai Linux, consiglio di creare una macchina virtuale con VirtualBox e installarci sopra Ubuntu.  Dopodiché</p>
+
+<ul>
+  <li>Installare git</li>
+  <li>Installare "sudo apt-get install libsqlite3-dev"</li>
+  <li>Installare "sudo apt-get install nodejs"</li>
+  <li><a href="https://rvm.io/rvm/install/">Installare rvm</a></li>
+  <li>Installare Rails con "gem install rails"</li>
+</ul>
+
+
+<p>In generale, su ubuntu vanno evitati i pacchetti Ruby e Rails di Ubuntu (quelli installati con apt-get).  Per Ruby e Rails usiamo rvm.</p>
+
+<p>Per gli esercizi è tassativo usare Ruby versione 1.9.3, e Rails versione 3.2.9.  Eseguire</p>
+
+<pre>
+  rails -v
+</pre>
+
+
+<p>sulla riga di comando.  Se la shell dice che il comando rails non esiste, i casi sono due: o rvm non è installato, oppure non è stato caricato l'ambiente rvm.  Nell'ultimo caso potrebbe servire il comando</p>
+
+<pre>
+  source .rvm/environments/default
+</pre>
+
+
+<p>L'esercizio si trova <a href="https://github.com/xpmatteo/applicazioni-web-2012/tree/master/Lezione05">su github</a>.  Le istruzioni sono nel <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione05/twitter/README.md">README</a>.</p>
+
+<h3>Studiare</h3>
+
+<ul>
+<li><a href="http://guides.rubyonrails.org/layouts_and_rendering.html" title="Ruby on Rails Guides: Layouts and Rendering in Rails">Ruby on Rails Guides: Layouts and Rendering in Rails</a> capitoli 1 e 2 fino a "Using head to..." escluso, e poi 3.4 "Using partials"</li>
+</ul>
+
+
+<h2 id="lezione06">Lezione 6, 2012-12-21</h2>
+
+
+<p></p>
+
+<p>Argomenti: Uso del database in Rails.  Validazioni.</p>
+
+<p>Abbiamo riscritto l'applicazione Twitter per usare il database; per default Rails usa sqlite3.  Abbiamo visto che la configurazione del database si trova nel file <code>config/database.yml</code>.  La libreria (parte di Rails) che ci permette di usare il database si chiama ActiveRecord.  I modelli di AR sono oggetti che rappresentano una riga di database; la classe User corrisponde alla tabella users.</p>
+
+<p>Per creare un nuovo modello la maniera più semplice è usare un comando tipo</p>
+
+<pre><code>rails generate model User username:string email:string
+</code></pre>
+
+<p>Questo crea il modello in app/models/user.rb, e la <em>migrazione</em> in db/migrations/....create_users.rb.  La migrazione è un frammento di schema SQL descritto in Ruby.  Le migrazioni permettono di sviluppare lo schema del database in maniera incrementale.  Per eseguire le migrazioni si usa il comando</p>
+
+<pre><code>rake db:migrate
+</code></pre>
+
+<p>Una volta che abbiamo eseguito le migrazioni, possiamo ispezionare lo stato del database con il comando</p>
+
+<pre><code>rails dbconsole
+</code></pre>
+
+<p>che apre la console di Sqlite3.  Possiamo anche manipolare i modelli con il comando</p>
+
+<pre><code>rails console
+</code></pre>
+
+<p>che apre un prompt di Ruby interattivo con tutta l'applicazione Rails precaricata.</p>
+
+<p>Un breve sommario dell'API di ActiveRecord.</p>
+
+<p>Per creare un modello:</p>
+
+<pre><code>u = User.new
+u.username = "pippo"
+u.email = "a@b.c"
+u.save # restituisce true se ha successo
+</code></pre>
+
+<p>Oppure si può anche passare una hash di parametri</p>
+
+<pre><code>u = User.new(:username =&gt; "pippo", :email =&gt; "a@b.c")
+u.save
+</code></pre>
+
+<p>Per interrogare il database:</p>
+
+<pre><code># restituisce l'utente che ha id=123 oppure lancia RecordNotFound
+User.find(123)  
+
+# restituisce il primo oggetto che soddisfa il vincolo, oppure nil
+User.where("name = 'matteo'").first
+
+# restituisce il primo oggetto che soddisfa il vincolo, oppure lancia
+# RecordNotFound
+User.where("name = 'matteo'").first!
+
+# Ricerca parametrica rispetto a dati provenienti dall'esterno
+u = params[:username]
+User.where("name = ?", u).first
+
+# Restituisce *tutti* gli oggetti che soddisfano il vincolo
+User.where(...).all
+
+# In ordine di data di creazione
+User.where(...).order("created_at").all
+</code></pre>
+
+<p>Un modello AR può anche contenere validazioni.  Ad esempio, per specificare che uno User deve avere uno username e una email non vuoti, possiamo dire</p>
+
+<pre><code>class User &lt; ActiveRecord::Base
+  validates :username, :presence =&gt; true
+  validates :email, :presence =&gt; true
+end
+</code></pre>
+
+<p>A questo punto non è più possibile salvare nel database uno User se non ha i due attributi username e email valorizzati.  Quello che succede se ci proviamo è che la chiamata a <code>save</code> oppure a <code>update_attributes</code> restituiscono <code>false</code> e non salvano nulla.  Possiamo a questo punto esaminare tutti gli errori con</p>
+
+<pre><code>user.errors.full_messages
+</code></pre>
+
+<p>Dal punto di vista delle form, è importante notare che se noi diamo ai campi delle form dei nomi tipo user[questo] e user[questaltro], Rails ci presenterà i parametri nel controller raggruppati con una hash: potremo dire</p>
+
+<pre><code>params[:user]
+</code></pre>
+
+<p>e questo ci restituirà una hash che contiene tutti i parametri dello user.</p>
+
+<h3>Esercizi</h3>
+
+<p>L'esercizio si trova <a href="https://github.com/xpmatteo/applicazioni-web-2012/tree/master/Lezione06">su github</a>.  Le istruzioni sono nel <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione06/twitter/README.md">README</a>.</p>
+
+<h3>Studiare</h3>
+
+<ul>
+<li><a href="http://guides.rubyonrails.org/active_record_querying.html" title="Ruby on Rails Guides: Active Record Query Interface">Ruby on Rails Guides: Active Record Query Interface</a> capitoli 1,2 e 3</li>
+</ul>
+
+
+<h2 id="lezione07">Lezione 7, 2013-01-11</h2>
+
+
+<p></p>
+
+<p>Argomenti: Cookies, sessioni, autenticazione e autorizzazione</p>
+
+<p>Abbiamo visto come funzionano i cookie a livello HTTP; come utilizzarli per salvare informazioni lato client.  Come si usano i cookie in Rails.</p>
+
+<p>Le sessioni: che cosa sono e come si implementano con i cookie.  Come si usa la sessione in Rails; come funziona il Cookie Store, come funziona ActiveRecord Store, come scegliere l'uno o l'altro.</p>
+
+<p>Abbiamo visto come implementare l'autenticazione per mezzo di password nella nostra <a href="https://github.com/xpmatteo/applicazioni-web-2012/tree/master/Lezione07/tuitter">applicazione di esempio</a>.</p>
+
+<p>Altro esempio che abbiamo visto: come usare i cookie per implementare un contatore del numero di volte che un utente ha ricaricato una pagina; poi abbiamo visto <a href="https://github.com/xpmatteo/applicazioni-web-2012/tree/master/Lezione07/demo_cookies">come fare lo stesso con la sessione</a>.</p>
+
+<p>Esercizio svolto a lezione: è descritto nel <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione07/tuitter/README.md">README</a>.</p>
+
+<p>Da studiare:</p>
+
+<ol>
+<li><a href="http://railscasts.com/episodes/250-authentication-from-scratch" title="#250 Authentication from Scratch - RailsCasts">Authentication From Scratch</a> di Ryan Bates.  E' uno screencast, ma c'è anche una <a href="http://railscasts.com/episodes/250-authentication-from-scratch?view=asciicast" title="#250 Authentication from Scratch - RailsCasts">trascrizione</a>.  Noi abbiamo usato SHA256 invece di bcrypt, giusto per comodità ed evitare di dover installare una gemma addizionale. Se volete capire perché è meglio usare bcrypt, leggete <a href="http://codahale.com/how-to-safely-store-a-password/" title="How To Safely Store A Password | codahale.com">How to safely store a password</a> (facoltativo).</li>
+<li><a href="http://guides.rubyonrails.org/action_controller_overview.html" title="Ruby on Rails Guides: Action Controller Overview">Action Controller Overview</a>, i capitoli <a href="http://guides.rubyonrails.org/action_controller_overview.html#session" title="Ruby on Rails Guides: Action Controller Overview">Session</a> e <a href="http://guides.rubyonrails.org/action_controller_overview.html#cookies" title="Ruby on Rails Guides: Action Controller Overview">Cookies</a></li>
+</ol>
+
+
+<h2 id="lezione08">Lezione 8, 2013-01-18</h2>
+
+
+<p></p>
+
+<p>Usare le <em>associazioni</em> in un'applicazione Rails.</p>
+
+<p>Abbiamo visto</p>
+
+<ul>
+<li>Come creare un'associazione uno-a-molti in SQL; come sfruttarla in Rails usando l'annotazione has_many</li>
+<li>Come creare un'associazione molti-a-molti, con o senza un'entità intermedia.</li>
+<li>Il problema delle N+1 query e come si risolve con la clausola includes di ActiveRecord (vedi nel codice di esempio TweetsController#index)</li>
+</ul>
+
+
+<p>Studiare:</p>
+
+<ol>
+<li> <a href="http://guides.rubyonrails.org/association_basics.html" title="Ruby on Rails Guides: A Guide to Active Record Associations">A Guide to Active Record Associations</a>, capitoli:
+
+<ul>
+<li>1 Why associations</li>
+<li>2 The types of associations, escluso 2.9 (polymorphic associations) escluso</li>
+<li>3.3 Updating the schema</li>
+</ul>
+</li>
+<li> Il problema delle <a href="the-n%2b1-queries-problem-and-rails.html">N+1 queries</a></li>
+</ol>
+
+
+<p>Esercizio: è descritto nel <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione08/tuitter/README.md">README</a>.</p>
+
+<h2 id="lezione09">Lezione 9, 2013-01-22</h2>
+
+
+<p></p>
+
+<p>Argomento: controllo delle versioni (dei sorgenti.)  Abbiamo visto come e perché usare un sistema di Version Control.  Abbiamo visto nello specifico come usare Git.</p>
+
+<p>Esercizio svolto (con molta fatica) in laboratorio: vedi il <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione09/tuitter/README.md">README</a>.</p>
+
+<h3>Studiare:</h3>
+
+<ul>
+<li><a href="http://svnbook.red-bean.com/nightly/en/svn.basic.version-control-basics.html" title="Version Control Basics">Version Control Basics</a></li>
+<li><a href="http://learn.github.com/p/intro.html" title="Learn.GitHub - Introduction To Git">Learn.GitHub - Introduction To Git</a></li>
+<li><a href="http://learn.github.com/p/setup.html" title="Learn.GitHub - Setup and Initialization">Learn.GitHub - Setup and Initialization</a></li>
+<li><a href="http://learn.github.com/p/normal.html" title="Learn.GitHub - Normal Workflow">Learn.GitHub - Normal Workflow</a></li>
+<li><a href="http://learn.github.com/p/remotes.html" title="Learn.GitHub - Distributed Git">Learn.GitHub - Distributed Git</a></li>
+</ul>
+
+
+<h2 id="lezione10">Lezione 10, 2013-01-24</h2>
+
+
+<p></p>
+
+<p>Sicurezza. Sql injection, Cross-site scripting.</p>
+
+<p>Esercizio: creare un'applicazione per gestire le Todo-list. Vedi il <a href="https://github.com/xpmatteo/applicazioni-web-2012/blob/master/Lezione10/tadalist/README.md">README</a>.</p>
+
+<h3>Studiare:</h3>
+
+<ul>
+<li><a href="http://unixwiz.net/techtips/sql-injection.html" title="SQL Injection Attacks by Example">SQL Injection Attacks by Example</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Cross-site_scripting" title="Cross-site scripting - Wikipedia, the free encyclopedia">Cross-site scripting su Wikipedia</a></li>
+<li>(Facoltativo) Google TechTalks: <a href="http://video.google.com/videoplay?docid=5159636580663884360">How To Break Web Software &mdash; A look at security vulnerabilities in web software</a></li>
+</ul>
+
+
+<h2 id="lezione11">Lezione 11, 2013-01-25</h2>
+
+
+<p></p>
+
+<p>Ricapitoliamo.  Abbiamo fatto un <a href="esempio-scritto-2013.html">esempio di esame scritto</a>.  Prova a risolverlo, poi confronta la soluzione con la soluzione suggerita.</p>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/diario2012 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:43 GMT -->
+</html>

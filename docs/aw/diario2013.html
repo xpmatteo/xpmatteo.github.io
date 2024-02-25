@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/aw/diario2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Applicazioni Web, a.a. 2013/14</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Applicazioni Web, a.a. 2013/14</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    
+
+<h2>Sommario</h2>
+
+
+<ul>
+  <li><a href="#lezione01">Lezione 1: HTTP, URI, URL.</a></li>
+  <li><a href="#lezione02">Lezione 2: HTML, Web Standards, Character Encodings.</a></li>
+  <li><a href="#lezione03">Lezione 3: Javascript.</a></li>
+  <li><a href="#lezione04">Lezione 4: Ajax. jQuery.</a></li>
+  <li><a href="#lezione05">Lezione 5: CSS. Page layout.</a></li>
+  <li><a href="#lezione06">Lezione 6: Servlet API.</a></li>
+  <li><a href="#lezione07">Lezione 7: Deployment.</a></li>
+  <li><a href="#lezione08">Lezione 8: Architettura server-side.</a></li>
+  <li><a href="#lezione09">Lezione 9: Persistenza.</a></li>
+  <li><a href="#lezione10">Lezione 10: Sessioni, autenticazione, autorizzazione.</a></li>
+  <li><a href="#lezione11">Lezione 11: Client-side MVC</a></li>
+  <li><a href="#lezione12">Lezione 12: Strategie di sviluppo per l'elaborato</a></li>
+</ul>
+
+
+
+
+<h2 id="lezione01">Lezione 1, 2014-03-07</h2>
+
+
+<p>Argomenti: HTTP, URI, URL (<a href="2014/2014-aw-lezione-01.pdf">slides</a>)</p>
+
+<h3>Esercizi</h3>
+
+<p>Per eseguire questi esercizi usa <strong>Linux</strong> oppure un <strong>Mac</strong>.  Non Windows.  Se non hai una macchina Linux, puoi usare una macchina virtuale: scarica VirtualBox e installaci sopra Ubuntu.</p>
+
+<p>Installa netcat (nc).</p>
+
+<ul>
+<li>Usa nc per realizzare una chat fra due terminali</li>
+<li>Usa nc per osservare la richiesta http del tuo browser</li>
+<li>Usa nc per interrogare www.google.com</li>
+<li>Usa nc per interrogare <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a></li>
+<li>Usa nc e la content-negotiation per ottenere la pagina <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a> in spagnolo</li>
+<li>Usa nc per scoprire il mime type della immagine alla url <a href="http://httpd.apache.org/images/httpd_logo_wide">http://httpd.apache.org/images/httpd_logo_wide</a></li>
+</ul>
+
+
+<h3>Esercizi svolti in laboratorio</h3>
+
+<p>  Abbiamo usato nc per interrogare un server che permette di giocare a "hangman" (in Italiano e' il gioco dell'"impiccato" o del "prigioniero").  Consiste nell'indovinare una parola di cui conosciamo soltanto la lunghezza.  Possiamo proporre una lettera; se la parola da indovinare contiene questa lettera, verra' mostrata per esempio cosi':  <code>***e**e</code></p>
+
+<p>  L'indirizzo del server: <a href="http://aw-hangman.herokuapp.com/">http://aw-hangman.herokuapp.com/</a></p>
+
+<p>  Esegui il seguente esercizio, seguendo le istruzioni passo a passo. Nota: <strong>in laboratorio abbiamo usato il tool netcat, ma sulla versione che ho pubblicato su Heroku netcat non funziona.  Lo sostituiamo con <em>telnet</em>.</strong> (Se vuoi sapere il motivo, e' che formalmente la fine linea va specificata con due byte: CR e LF.  Con netcat, il tasto invio manda soltanto LF.  Telnet invece li invia entrambi).</p>
+
+<p>  Questo server non ha le istruzioni, ma dalle sue risposte possiamo dedurre come interrogarlo.</p>
+
+<p>  Lo interrogo con</p>
+
+<pre><code>telnet aw-hangman.herokuapp.com 80
+GET / HTTP/1.1
+host: aw-hangman.herokuapp.com
+&lt;invio&gt;
+</code></pre>
+
+<p>Quello che ho scritto sopra significa: eseguo il comando <code>telnet aw-hangman.herokuapp.com 80</code> sul terminale di Unix, e poi scrivo o copiaincollo le righe seguenti.  La scritta <code>&lt;invio&gt;</code> significa che per completare il messaggio devo mandare una riga vuota.</p>
+
+<p>  Cosi' facendo ottengo</p>
+
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Content-Length: 32
+Server: Jetty(6.1.26)
+
+{"index":"/",
+"users":"/users"}
+</code></pre>
+
+<p>Il formato di questa risposta si chiama JavaScript Object Notation (JSON).  Viene spesso utilizzato per realizzare servizi web. Questa risposta mi dice che ci sono due url che posso interrogare: http://aw-hangman.herokuapp.com/ (la url che ho appena interrogato) e http://aw-hangman.herokuapp.com/users.</p>
+
+<p>Se proviamo a interrogare quest'ultima che cosa otteniamo?</p>
+
+<pre><code>telnet aw-hangman.herokuapp.com 80
+GET /users HTTP/1.1
+host: aw-hangman.herokuapp.com
+&lt;invio&gt;
+
+HTTP/1.1 405 Method Not Allowed
+Content-Type: application/json; charset=UTF-8
+Content-Length: 103
+Server: Jetty(6.1.26)
+
+{"status_code":405,"status":"Method not allowed",
+"description":"Use POST on /users to create a user"}
+</code></pre>
+
+<p>Questo ci dice che il metodo GET non e' ammesso per questa url.  Che cosa facciamo allora?  Seguiamo il suggerimento.  Quello che vogliamo fare a questo punto e' creare un nuovo utente.</p>
+
+<pre><code>telnet aw-hangman.herokuapp.com 80
+POST / HTTP/1.1
+host: aw-hangman.herokuapp.com
+&lt;invio&gt;
+
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=UTF-8
+Content-Length: 89
+Server: Jetty(6.1.26)
+
+{"status_code":400,"status":"Bad Request",
+"description":"Parameter 'name' is required"}
+</code></pre>
+
+<p>Hmmm.  Apparentemente dobbiamo aggiungere un parametro "name".  Proviamo:</p>
+
+<pre><code>POST / HTTP/1.1
+host: aw-hangman.herokuapp.com
+Content-Type: application/x-www-form-urlencoded
+Content-length: 10
+
+name=pippo
+</code></pre>
+
+<p>Il formato della richiesta POST e' come sopra.  I parametri vengono passati nel body.  Otteniamo</p>
+
+<pre><code>HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=UTF-8
+Content-Length: 93
+Server: Jetty(6.1.26)
+
+{"status_code":400,"status":"Bad Request",
+"description":"Parameter 'password' is required"}
+</code></pre>
+
+<p>Aha! Manca un'altro parametro.  Aggiungiamolo:</p>
+
+<pre><code>POST / HTTP/1.1
+host: aw-hangman.herokuapp.com
+Content-Type: application/x-www-form-urlencoded
+Content-length: 26
+
+name=pippo&amp;password=secret
+</code></pre>
+
+<p>Questa volta otteniamo:</p>
+
+<pre><code>HTTP/1.1 303 See Other
+Content-Type: application/json; charset=UTF-8
+Location: http://aw-hangman.herokuapp.com/users/551350b3
+Content-Length: 71
+Server: Jetty(6.1.26)
+
+{"status_code":303,"status":"See other",
+"location":"/users/551350b3"}
+</code></pre>
+
+<p>Una redirezione!  Questo e' un pattern ricorrente.  Come studiamo nell'articolo <a href="http://web.archive.org/web/20061029012755/http://adamv.com/dev/articles/getafterpost" title="Flangy Software: GET after POST">GET After POST</a>, quando una POST crea con successo una nuova risorsa, il server ci restituisce una redirezione alla URL della risorsa appena creata.  Come possiamo vedere, un nuovo utente e' stato creato con id 551350b3.</p>
+
+<p><strong>AGGIORNAMENTO 3/4/14</strong> questo comportamento è cambiato; ora il server restituisce sempre un 201 Created.</p>
+
+<p>Se seguiamo la redirezione otteniamo</p>
+
+<pre><code>GET /users/551350b3 HTTP/1.1
+host: aw-hangman.herokuapp.com
+&lt;invio&gt;
+
+HTTP/1.1 403 Forbidden
+Content-Type: application/json; charset=UTF-8
+Content-Length: 181
+Server: Jetty(6.1.26)
+
+{"status_code":403,"status":"Forbidden",
+"description":"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server."}
+</code></pre>
+
+<p>Direi che le ragioni del server sono comprensibili.  Abbiamo creato un utente con una password, e ora per accedervi dobbiamo fornire la password.  Ora ATTENZIONE: il server si aspetta un parametro sulla query string, ma QUESTA NON E' UNA BUONA SOLUZIONE.  E' una semplificazione per fini didattici.  In un vero servizio web, la password NON DEVE MAI VIAGGIARE NELLA QUERY STRING.</p>
+
+<pre><code>GET /users/551350b3?password=secret HTTP/1.1
+host: aw-hangman.herokuapp.com
+&lt;invio&gt;
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Content-Length: 84
+Server: Jetty(6.1.26)
+
+{"id":"551350b3",
+"prisoners":"/users/551350b3/prisoners",
+"url":"/users/551350b3"}
+</code></pre>
+
+<p>Da questo momento in poi prosegui l'esercizio da solo.  Il risultato della ricerca precedente ci da' una nuova url da esplorare. Apparentemente ogni <em>user</em> ha dei <em>prisoners</em>.  Il meccanismo da usare sara' lo stesso: con GET vedremo che la lista dei nostri prisoners e' vuota.  Ne potremo creare uno facendo una POST alla url dei prisoners del nostro utente.  Se la POST ha successo, ci verra' restituita la URL del nostro prigioniero, che avra' la forma /users/123/prisoners/456.  Facendo GET a questa url osserviamo lo stato del gioco.  Facendo POST a questa url, potremo tentare di indovinare, una lettera per volta.</p>
+
+<p>Riesci a vincere? :-)</p>
+
+<h3>Da studiare</h3>
+
+<ul>
+<li>La <a href="http://en.wikipedia.org/w/index.php?title=Hypertext_Transfer_Protocol&amp;oldid=516023840">pagina di Wikipedia su HTTP</a></li>
+<li><a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics, fino a "Cookies" escluso.</li>
+<li>Leggere <a href="00-intro.html">la mia dispensa</a>.</li>
+<li>Leggere <a href="http://web.archive.org/web/20061029012755/http://adamv.com/dev/articles/getafterpost" title="Flangy Software: GET after POST">GET After POST</a></li>
+</ul>
+
+
+<p>Materiali per approfondimenti facoltativi</p>
+
+<ul>
+<li>Leggere <a href="http://tomayko.com/writings/rest-to-my-wife">How I explained REST to my wife</a></li>
+</ul>
+
+
+<h2 id="lezione02">Lezione 2, 21/03/2014</h2>
+
+
+<p>Argomenti: HTML, Web Standards, Character Encodings (<a href="2014/2014-aw-lezione-02.pdf">slides</a>)</p>
+
+<h3>Da studiare</h3>
+
+<ul>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_basics_of_html">The Basics of HTML</a></li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_validation">HTML validation</a></li>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_html_head">The HTML head</a> fino a "What about the looks" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_text">Html Text</a> fino a Compatibility escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_lists">HTML Lists</a> fino a Compatibility escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/images_in_html">Images in HTML</a> fino a "Background images with CSS" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_links">HTML Links</a> fino a "Link styling" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_structural_elements">HTML Structural elements</a> fino a "HTML5 element support" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_tables">HTML Tables</a> fino a "Structuring the table further" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_forms_basics">HTML Forms basics</a> fino a "A little bit of style..." escluso</li>
+</ul>
+
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li>Facoltativo I capitoli 5,6,7 di <em>Designing With Web Standards, 2nd edition</em> di Zeldman.</li>
+</ul>
+
+
+<h3>Esercizio svolto in laboratorio</h3>
+
+<p>Costruire alcune form HTML che ci permettano di giocare a hangman in maniera più agevole.  Nota bene: la interfaccia utente che costruiamo qui è molto rozza, ma è il massimo che possiamo fare senza programmare.</p>
+
+<h4>Primo passo: creare un utente</h4>
+
+<p>Scrivi un file hangman.html che contenga:</p>
+
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Hangman Client&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hangman!&lt;/h1&gt;
+
+    &lt;form action=&quot;http://aw-hangman.herokuapp.com/users&quot; method=&quot;post&quot;&gt;
+      &lt;p&gt;&lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&quot;/&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;password&quot; value=&quot;&quot;/&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Create user&quot;/&gt;&lt;/p&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+<p>Apri il file in un browser, riempi i campi e premi "Create user".  Se tutto funziona correttamente, avremo inviato una POST al server, il quale risponderà con una redirezione.  Nel browser vedremo qualcosa tipo:</p>
+
+<p><img src='2014/lezione02/screenshot1.png' alt='Messaggio di Unauthorized da parte dell applicazione' style='border: 1px solid black' /></p>
+
+<p>Che cosa è successo?  È successo che il browser ha cercato di fare la redirezione a http://aw-hangman.herokuapp.com/users/54ea83d1, ma non ha fornito il parametro "password" sulla query string.  Di conseguenza, l'applicazione ha risposto che non siamo autorizzati a visitare questa url.  Ma la creazione dell'utente ha avuto successo!  Ce ne accorgiamo perché la url nella barra degli indirizzi del browser è cambiata.  Ora c'è l'id dell'utente appena creato.</p>
+
+<p>Ricorda quello che abbiamo detto alla lezione 1: dopo il post, usualmente abbiamo una redirect!</p>
+
+<p>Per confermare che quello che dico è vero, prova ad aggiungere la password nella query string.  Vediamo così il nostro user.</p>
+
+<p><img src='2014/lezione02/screenshot2.png' alt='Il nostro user'  style='border: 1px solid black' /></p>
+
+<p>A questo punto sappiamo l'id del nostro utente e sappiamo la password. La strada è aperta: bisogna scrivere un'altra form per creare un prisoner.  Siamo costretti a cablare l'id dell'utente nel codice html, il che significa che se volessimo usare un'altro utente, dovremmo cambiare il codice html.  Come dicevo, questa interfaccia utente è rozza, ma è il massimo che possiamo fare dato quello che sappiamo fino ad ora.</p>
+
+<p>Scrivi una nuova form e crea un prisoner.  Ricora che in tutte le form che fai da questo momento in poi dovrai aggiungere un campo nascosto che fornisce la password.  Ricorda anche di non spaventarti se l'applicazione risponde con un codice 403.  I casi sono due: o la tua richiesta non è andata a buon fine, e non e' stato creato niente; oppure il prisoner è stato creato, e lo vedi da come cambia la barra degli indirizzi del browser.</p>
+
+<p>Una volta che hai creato un prisoner, devi trovare la parola!  Crea un'altra form che ti permetta di inserire agevolmente le lettere.  Anche qui: l'output dell'applicazione sul browser sarà sempre un messaggio di errore.  Per vedere lo stato del prigioniero, ricarica la url nel browser aggiungendo la password sulla barra degli indirizzi.</p>
+
+<h3>Esercizi</h3>
+
+<ol start="0">
+  <li>
+    Scrivere un documento HTML che aperto nel browser abbia questo aspetto:
+    <figure>
+      <img src="2012/lezione01/hello.png" alt="Hello, World!" style="border: 1px solid black" />
+    </figure>
+  </li>
+  <li>
+    Verificare che il codice dell'esercizio precedente sia <em>HTML valido</em> per mezzo del servizio <a href="http://html5.validator.nu/">validator.nu</a>.
+  </li>
+  <li>
+    Realizzare in HTML e validare con <a href="http://html5.validator.nu/">validator.nu</a>:
+    <figure>
+      <img src="2012/lezione01/entities.png" alt="Hello, World!" style="border: 1px solid black" />
+    </figure>
+  </li>
+  <li>
+    Nell'esercizio precedente, invece di scrivere &ldquo;Perch&amp;eacute;&rdquo; provate a scriverlo con il carattere &ldquo;é&rdquo; che si trova sulla tastiera.  Verificate che cosa succede nei vari casi:
+    <ul>
+      <li>Metto <code>&lt;meta charset="UTF-8"/&gt;</code> nella <code>head</code> del documento</li>
+      <li>Metto <code>&lt;meta charset="ISO-8859-1"/&gt;</code></li></li>
+      <li>Non metto nessuna dichiarazione di charset nella head</li>
+    </ul>
+  </li>
+  <li>
+    Realizzare in HTML e validare con <a href="http://html5.validator.nu/">validator.nu</a>:
+    <figure>
+      <img src="2011/esempio-html-lezione01.png" alt="Rendering di una pagina HTML di esempio" style="border: 1px solid black"/>
+    </figure>
+    (La url dell'immagine è http://www.ruby-lang.org/images/logo.gif)
+  </li>
+  <li>
+    Realizzare in HTML e validare con <a href="http://html5.validator.nu/">validator.nu</a>:
+    <figure>
+      <img src="2011/lezione03/esercizio-form.png" alt="Form html" />
+    </figure>
+  </li>
+  <li>
+    Verificare che mettendo o togliendo la dichiarazione <code>&lt;!DOCTYPE html&gt;</code> in testa al documento, l'aspetto grafico della pagina cambia leggermente.
+  </li>
+</ol>
+
+
+<h4>Esempi di domande d'esame</h4>
+
+<ul>
+<li>Qual'è la struttura standard di un documento HTML?</li>
+<li>Quali sono gli attributi di un immagine?</li>
+<li>Che cosa sono le <em>entities</em>?  Quali sono le più comuni?</li>
+<li>Che cos'è un <em>encoding</em>?  In quali maniere si può specificare?</li>
+<li>Quali sono le principali varianti di HTML?</li>
+<li>Qual è la relazione fra XML e HTML?</li>
+<li>Qual è la differenza fra markup <em>semantico</em> e <em>di presentazione</em>?</li>
+<li>Che cos'è il <em>quirks mode</em>?</li>
+<li>Che cosa sono gli <em>attributi</em>?  Che cosa sono e come si usano gli attributi <code>id</code> e <code>class</code>?</li>
+</ul>
+
+
+<h2 id="lezione03">Lezione 3, 2014-03-27</h2>
+
+
+<p>Argomenti: Il linguaggio JavaScript.  Programmazione funzionale, closures.  Programmazione a oggetti; prototipi; JSON. Manipolazione del DOM. Gestione degli eventi. Test unitari in JavaScript. (<a href="2014/2014-aw-lezione-03.pdf">slides</a>)</p>
+
+<p>Studiare:</p>
+
+<ol>
+  <li>Studiare i capitoli 1-6 di <em>Pro JavaScript Techniques</em> di John Resig.  La <a href="http://www.apress.com/9781590597279" title="APRESS.COM : Pro JavaScript Techniques : 9781590597279">versione pdf</a> si può comprare per $32 circa.
+  </li>
+  <li>
+  Guardare la presentazione <a href="http://www.slideshare.net/giordano/javascript-survival-guide-for-java-developers" title="JavaScript Survival Guide">JavaScript Survival Guide</a> di Giordano Scalzo
+  </li>
+</ol>
+
+
+<h3>Esercizio svolto in laboratorio</h3>
+
+<p>Scaricare il <a href="https://codeload.github.com/xpmatteo/aw2014-js-hangman/zip/master">progetto</a> .</p>
+
+<p>L'obiettivo e' realizzare una pagina web che gioca a Hangman.  In questo esercizio non c'e' il server; e' tutto implementato all'interno del file html.</p>
+
+<p>Procedimento:</p>
+
+<ol>
+  <li>Apri hangman.html nel browser e verifica che premendo il bottone "New game", i campi "prisoner" e "remaining" vengono popolati.</li>
+  <li>Apri hangman_test.html nel browser e verifica che il test fallisce.</li>
+  <li>Modificare scripts/hangman.js per fare passare il test, che si trova in scripts/hangman_test.js.</li>
+  <li>Quando il primo test passa, scommenta il successivo da scripts/hangman_test.js; verifica che non passa, e poi modifica hangman.js per farlo passare.</li>
+  <li>Prosegui cosi' fino a quando tutti i test non passano.</li>
+  <li>A questo punto torna a hangman.html.  Modificalo facendo in modo che quando si preme il tasto "Guess", il messaggio "guess" viene inviato all'oggetto Prisoner, e i campi "Remaining" e "Prisoner" vengano aggiornati di conseguenza.</li>
+</ol>
+
+
+<p>A questo punto il gioco funziona.  Per migliorarlo, potresti:</p>
+
+<ul>
+  <li>Fare in modo che la parola da indovinare venga scelta a caso da una lista</li>
+  <li>Mostrare anche l'informazione su quali lettere sono gia' state mancate (misses) e sullo stato del gioco (help, lost, rescued)</li>
+  <li>Fare in modo che non sia possibile continuare a giocare dopo che il gioco e' finito, e che le lettere gia' provate vengano ignorate (non diminuiscono il contatore dei tentativi)</li>
+  <li>Sostituire il campo di testo con 26 bottoni etichettati da A a Z </li>
+  <li>Fare in modo che quando una lettera viene giocata, il bottone corrispondente venga disabilitato.</li>
+</ul>
+
+
+
+
+<h2 id="lezione04">Lezione 4, 2014-04-03</h2>
+
+
+<p>Argomenti: Ajax e jQuery (<a href="2014/2014-aw-lezione-04.pdf">slides su Ajax</a> e <a href="http://www.slideshare.net/simon/learning-jquery-in-30-minutes">slides su jQuery</a> da pagina 4 a 27 comprese.)</p>
+
+<p>Studiare la documentazione della funzione <code>$.ajax</code> di jQuery</p>
+
+<h3>Esercizio svolto in laboratorio</h3>
+
+<p>Scaricare il <a href="https://github.com/xpmatteo/aw-hangman-client">progetto</a> . La maniera consigliata di farlo è tramite il comando <code>git clone https://github.com/xpmatteo/aw-hangman-client</code></p>
+
+<p>L'obiettivo è di creare un client ajax per il server hangman della prima lezione.  Esegui questi passi; a ogni passo verifica di avere ottenuto il risultato desiderato.  Carica sempre la pagina html tenendo aperta la console JavaScript.</p>
+
+<ol>
+<li>Per riscaldamento, nascondi l'immagine animata che gira, usando un comando jQuery.</li>
+<li>Inserisci un comando ajax che carichi nell'elemento che ha id <code>output</code> il risultato di interrogare in get la url http://aw-hangman.herokuapp.com/, non appena la pagina si carica.  Ti servirà qualcosa tipo</li>
+</ol>
+
+
+<pre><code>
+function stringify(data) {
+  return JSON.stringify(data, null, 2)
+}
+
+function on_receive_index(data) {
+  $('#output').text(stringify(data))
+}
+
+function on_failure(data) {
+  $('#output').text('*** ERROR ***\n' + stringify(data))
+}
+
+$.ajax({
+  url: 'http://aw-hangman.herokuapp.com/',
+  method: "GET",
+  success: on_receive_index,
+  error: on_failure,
+  data: {},
+})
+</code></pre>
+
+
+
+
+<ol start="3">
+  <li>
+    <p>    Ora fai in modo che il caricamento venga fatto non quando si carica la pagina, ma quando si preme il bottone "Create User".  Devi attaccare una funzione all'evento "submit" della form.  Qualcosa tipo <code>$("#make-new-user").submit(function() { ... })</code>
+    </p>
+    <p>
+      Ricordati di restituire "false" come ultima cosa nell'event handler, altrimenti la pagina si ricarica per via del comportamento di default del submit!!!
+    </p>
+  </li>
+  <li>
+    <p>I passi precedenti erano tutti di riscaldamento.  Adesso facciamo la prima azione vera con il server: modifichiamo il codice che abbiamo scritto finora per fare in modo che quando si preme il bottone "Create User", venga creato un nuovo utente nel server hangman. Per fare questo dobbiamo:</p>
+    <ul>
+      <li>usare POST, non GET;</li>
+      <li>modificare la url;</li>
+      <li>passare i parametri name e password nel campo data di $.ajax.</li>
+    </ul>
+    <p>Nota che ho modificato il server; prima faceva la redirezione dopo la post.  Ma ho scoperto che la redirezione viene seguita automaticamente da Ajax, cosa che ci viene scomoda.  Ora invece dopo una post che ha avuto successo, restituisce 201 Created.</p>
+
+    <p>Se la creazione ha avuto veramente successo, dovresti essere in grado di vedere il tuo utente chiedendolo direttamente con il browser alla url <code>http://aw-hangman.herokuapp.com/user/abcdef?password=lamiapassword</code>.</p>
+
+    <p>Nota che per estrarre il valore dai campi di testo, occorre selezionarli, ad esempio mettendo a ciascuno dei due un opportuno id, ed usando la funzione <code>val</code>: ad esempio, <code>$('#password').val()</code></p>
+  </li>
+  <li>
+    A questo punto dovresti essere in grado di proseguire da solo: quando crei un utente, memorizza la sua url e la sua password in due variabili globali.  Le userai per il passo successivo.
+  </li>
+  <li>
+    Fai in modo che quando si preme il bottone New Game! venga creato un nuovo gioco.  Fai in modo che i bottoni con le lettere ti consentano di completare una partita. :-)
+  </li>
+</ol>
+
+
+<p><strong><em> Aggiunta 2014.04.06 </em></strong></p>
+
+<p>Alcune risorse aggiuntive per imparare JavaScript.</p>
+
+<ul>
+<li><p>Video su JavaScript (facoltativo:) <a href="https://www.youtube.com/watch?v=ya4UHuXNygM&amp;t=2090">Douglas Crockford on JavaScript - Act III: Function the Ultimate</a></p></li>
+<li><p>Un libro su JavaScript gratuito in alternativa a Resig: <a href="http://eloquentjavascript.net/" title="Eloquent JavaScript: A Modern Introduction to Programming">http://eloquentjavascript.net/</a></p></li>
+<li><p>(Facoltativo) Una maniera divertente di imparare JavaScript: superare le sfide di <a href="http://www.coderbyte.com/" title="Coderbyte | Programming &amp; Game Challenges | Competitions">http://coderbyte.com/CodingArea/Challenges/</a></p></li>
+<li><p>(Facoltativo) In alternativa al precedente: <a href="https://github.com/mrdavidlaing/javascript-koans">JavaScript Koans</a></p></li>
+</ul>
+
+
+<h2 id="lezione05">Lezione 5, 2014-04-11</h2>
+
+
+<p>Argomenti: Cascading Style Sheets (CSS), applicare stili a documenti HTML, creare layout di pagina con CSS (<a href="2014/2014-aw-lezione-05.pdf">slides</a>).</p>
+
+<h3>Esercizi fatti in laboratorio</h3>
+
+<p>Scarica il <a href="https://github.com/xpmatteo/aw-css-exercises">repository degli esercizi</a>.  Le istruzioni sono dentro.</p>
+
+<h3>Da studiare</h3>
+
+<p>Studiare questi articoli:</p>
+
+<ul>
+<li><a href="http://docs.webplatform.org/wiki/guides/getting_started_with_css">Getting started with CSS</a> fino a @importing stylesheets escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/using_selectors">Using selectors</a> fino a "List of pseudo-classes" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">Text-styling fundamentals</a> esclusi "Image replacement" e "Web fonts".</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/inheritance_and_cascade">Inheritance and cascade</a> fino a "Compatibility" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_css_layout_model">The CSS layout model</a> fino a "Working with document flow" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/floats_and_clearing">Floats and clearing</a>.</li>
+</ul>
+
+
+<p>Esempi di domande d'esame</p>
+
+<ul>
+<li>Quali sono le unità di misura che si possono usare per rappresentare le dimensioni di un font o di un elemento?</li>
+<li>Quali sono i diversi selector?</li>
+<li>Per quale motivo potrei preferire le unità di lunghezza proporzionali a quelle assolute?  E viceversa?</li>
+<li>Che cos'è la proprietà display?  Che valori può assumere?</li>
+<li>Che alternative ci sono per creare un layout di pagina?</li>
+<li>Descrivere il box model</li>
+<li>Come funziona la proprietà "float"?  A che cosa serve la proprietà "clear"?</li>
+<li>Come si risolvono regole CSS che si contraddicono?</li>
+<li>In quali maniere si può collegare un insieme di regole CSS a un documento HTML?</li>
+<li>Scrivere un esempio di layout ibrido; descrivere come funziona.</li>
+<li>Scrivere un esempio di layout fisso basato su float.  Descrivere come funziona.</li>
+</ul>
+
+
+<p>Non è necessario imparare a memoria tutte le proprietà e i loro possibili valori.  E' necessario però conoscere per lo meno le proprietà che usiamo negli esempi visti a lezione e nell'esercizio (vedi più avanti).</p>
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+<li>Il <a href="http://www.w3schools.com/css/">tutorial interattivo su CSS</a> di W3Schools</li>
+<li>Gli esempi di layout HTML5 di <a href="http://www.initializr.com/" title="Initializr - Start an HTML5 Boilerplate project in 15 seconds!">Initializr</a></li>
+</ul>
+
+
+<h2 id="lezione06">Lezione 6, 2014-04-16</h2>
+
+
+<p>Argomenti: Servlet API.  Discussione su servlet container piuttosto che server embedded. (<a href="2014/2014-aw-lezione-06.pdf">slides</a>)</p>
+
+<p>Esercizio svolto in laboratorio: <a href="https://github.com/xpmatteo/aw-servlet-exercises">https://github.com/xpmatteo/aw-servlet-exercises</a> (le istruzioni sono nel README)</p>
+
+<p>Letture facoltative: <a href='http://www.slideshare.net/xpmatteo/the-unix-way-vs-the-java-enterprise-edition-way'>The Unix Way vs. the Java Enterprise Way</a></p>
+
+<h2 id="lezione07">Lezione 7, 2014-05-16</h2>
+
+
+<p>Argomenti: come installare un'applicazione in produzione (deployment).  Uso dei sistemi di version control.  Uso di Maven, Git ed Heroku.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-single-page-webapp-exercise">https://github.com/xpmatteo/aw-single-page-webapp-exercise</a>.</p>
+
+<p>Da conoscere: i comandi di git init, status, add, commit, log, diff, clone, push, pull.  Studiare <a href="http://git-scm.com/book/en/Git-Basics" title="Git - Git Basics">Git Basics</a>.  Guardare il video <a href="http://git-scm.com/video/what-is-version-control" title="Git">Git Basics</a>.</p>
+
+<p>Da conoscere: i comandi di maven clean, compile, package.  Studiare il <a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">tutorial di maven</a>.  Puoi, se ti serve, cercare altre informazioni sul <a href="http://maven.apache.org/guides/getting-started/index.html" title="Maven - Maven Getting Started Guide">getting started di maven</a>.</p>
+
+<p>Studiare <a href="https://devcenter.heroku.com/articles/how-heroku-works">l'introduzione a Heroku</a>.</p>
+
+<h2 id="lezione08">Lezione 8, 2014-05-23</h2>
+
+
+<p>Argomenti: architettura server-side di una Single Page Web Application.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-supermarket-checkout-stage-0-mvc">https://github.com/xpmatteo/aw-supermarket-checkout-stage-0-mvc</a>.</p>
+
+<p>Note sul design del lato server di questa applicazione.  Il codice dell'applicazione si puo' leggere in questo ordine.</p>
+
+<ul>
+<li>Main.  Questa e' la classe che fa partire tutto.  Lo scopo del "main" e' di istanziare gli oggetti giusti, configurarli e farli partire.  Non esiste nessuna istanza a runtime di questa classe; il suo unico scopo e' ospitare il metodo statico "main".</li>
+<li>ReusableJettyApp.  Questa e' una classe che non contiene niente di specifico del progetto "Supermarket Checkout".  Il suo scopo e' di interfacciare la nostra applicazione con la API di Jetty.  Esiste una sola istanza a runtime di questa classe, istanziata nel "main".  Ha due responsabilità:
+
+<ul>
+<li>Servire con HTTP i file statici che si trovano in src/main/webapp</li>
+<li>Delegare tutte le altre richieste HTTP a una servlet che gli viene passata come collaboratore.</li>
+</ul>
+</li>
+<li>SupermarketServlet.  Questa classe ha come scopo di interfacciare la nostra applicazione alla API servlet standard.  Esiste una sola istanza di questa classe, istanziata nel "main".  Poiche' esiste una sola istanza di questa classe, tutte le richieste web arrivano in concorrenza sul metodo "service", in diversi thread.  In linea generale gli oggetti che vengono condivisi da piu' di un thread sono piu' difficili e pericolosi da gestire, perche' dobbiamo affrontare tutti i problemi della programmazione concorrente.  Per questo una buona strategia in queste circostanze e' creare un nuovo oggetto e passare il controllo al nuovo oggetto.  In questo modo il nuovo oggetto verra' utilizzato da un solo thread alla volta.  L'applicazione nel suo complesso resta multi-threaded, ma fintanto che noi lavoriamo nel nostro nuovo oggetto, possiamo in larga misura ignorare questo fatto e fare finta di lavorare come se l'applicazione fosse single-threaded.</li>
+<li>SupermarketController.  Questo e' il "nuovo oggetto" di cui parlavamo al punto precedente.  Ne esiste una istanza per ogni richiesta HTTP che viene fatta alla nostra applicazione; viene istanziata nella servlet.  Lo scopo di questo oggetto e' di interfacciare una singola richiesta HTTP alla nostra logica applicativa.</li>
+<li>SupermarketCheckout.  Questo oggetto contiene la nostra logica applicativa.  Dato che questa applicazione e' semplicissima, tutta la logica sta in questa singola classe (e in PriceList).  Nelle applicazioni piu' complesse, la logica applicativa e' generalmente distribuita su tante classi; ma anche in quel caso e' un buon principio che ci sia una singola classe che rappresenta il punto di ingresso, la "facade" di tutta la logica applicativa.  Normalmente mi aspetterei che viene creato un nuovo SupermarketCheckout per ogni richiesta; lo stato dell'oggetto verrebbe ricostruito andando a pescare i dati in un database.  Dato che non abbiamo ancora introdotto come lavorare con il database, in questo caso deroghiamo alla nostra regola di preferire "un oggetto - un thread"; infatti abbiamo una sola istanza di SupermarketCheckout, istanziata nella servlet.  Nella prossima lezione vedremo come risolvere questo problema.</li>
+<li>PriceList.  Questo oggetto rappresenta un accesso a una fonte remota di dati sui prezzi.  Dato che non abbiamo ancora introdotto l'accesso al database, utilizziamo una fonte dati piu' semplice, basata su file.</li>
+</ul>
+
+
+<h2 id="lezione09">Lezione 9, 2014-05-30</h2>
+
+
+<p>Argomenti: persistenza.  Come usare il database in Java.  Il pattern "repository".</p>
+
+<p>Slides: <a href="2014/2014-aw-lezione-09.pdf">2014-aw-lezione-09.pdf</a>.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-supermarket-checkout-stage-1-persistence">https://github.com/xpmatteo/aw-supermarket-checkout-stage-1-persistence</a>.</p>
+
+<h2 id="lezione10">Lezione 10, 2014-06-04</h2>
+
+
+<p>Argomenti: sessioni, HTTP cookies, autenticazione, autorizzazione.</p>
+
+<p>Che cos'è una sessione e perché è utile.</p>
+
+<p>Perché è importante salvare solo lo user-id in session.</p>
+
+<p>Che cosa sono e come funzionano gli HTTP cookie.</p>
+
+<p>Come autenticare un utente.  Come salvare una password in maniera sicura nel database.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-supermarket-checkout-stage-2-authentication">https://github.com/xpmatteo/aw-supermarket-checkout-stage-2-authentication</a>.</p>
+
+<!-- HTTP is stateless, HTTP cookies, server-side memory.  HATEOAS.
+
+HTTP authentication
+
+Custom authentication
+ - generating a session id
+ - persisting a session id across requests
+
+Java servlet sessions
+
+- how java should implement a session manager
+
+Il protocollo HTTP è <em>stateless</em>.  Questo significa che ogni volta che un browser interroga un server, per il server è come se fosse la prima volta.  Questo significa che è difficile in HTTP implementare una <em>sessione</em>.
+
+Che cos'è una sessione?  E' una sequenza di transazioni HTTP compiute dallo stesso utente, dallo stesso browser, in un intervallo di tempo limitato.  A che cosa servono le sessioni?
+
+Prima di tutto bisogna inquadrare lo sviluppo web.  In un programma web, quando serviamo una richiesta, tutti i dati che abbiamo a disposizione, tutto il nostro input, provengono dalla richiesta stessa: la url, la query string, il body, ecc. ecc.  Se vogliamo costruire un dialogo con l'utente, abbiamo due strumenti:
+
+ - Salvare le informazioni nella pagina, per cui i link che riportano indietro all'applicazione contengono parametri appropriati (vedi l'esempio della paginazione nei risultati di Google)
+
+ - Salvare le informazioni sul database; ma abbiamo bisogno di sapere a -->
+
+
+
+
+<h2 id="lezione11">Lezione 11, 2014-06-18</h2>
+
+
+<p>Argomenti: uso dei template in JavaScript.  La libreria di templating <a href='https://github.com/janl/mustache.js'>Mustache</a>.  Usare il pattern "model-view-controller", e in particolare il pattern "observer" per organizzare meglio il codice lato client.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-supermarket-checkout-stage-3-client-side-mvc">https://github.com/xpmatteo/aw-supermarket-checkout-stage-3-client-side-mvc</a>.</p>
+
+<h2 id="lezione12">Lezione 12, 2014-06-20</h2>
+
+
+<p>Argomenti: ripasso e riepilogo, domande e risposte.  Abbiamo parlato di come affrontare lo sviluppo dell'elaborato.  Una possibile strategia è di partire dall'interfaccia utente, simulando le funzioni del server con uno stub.  Ad esempio</p>
+
+<pre><code>var mastermind_server = {
+  authenticate: function(id, password) {
+    return true;
+  }
+
+  on_user_try: function(code) {
+    // return  + + -
+    return {
+      plus_signs: 2,
+      minus_signs: 1,
+    }
+  }
+
+  // ...
+};
+</code></pre>
+
+<p>Si comincia facendo funzionare l'applicazione con questo stub, e poi progressivamente si vanno a sostituire le funzioni stub con funzioni vere che accedono al server tramite chiamate Ajax.</p>
+
+<p>Per la soluzione del tema, si puo' prendere spunto per il lato server dalla <a href="https://github.com/xpmatteo/hangman">mia implementazione di hangman</a>.  Per il lato client, da tutti gli esempi visti nelle lezioni passate.</p>
+
+<p>Ci sono due possibili strategie di sviluppo; una e' di implementare la logica del gioco Mastermind nel server (seguendo l'esempio di Hangman.)  L'altra e' di implementare la logica del gioco in JavaScript, ed utilizzare il server unicamente come servizio di persistenza.  Entrambe le strategie sono valide.</p>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/diario2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:42 GMT -->
+</html>

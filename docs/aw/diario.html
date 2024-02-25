@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/aw/diario by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Applicazioni Web, a.a. 2014/15</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Applicazioni Web, a.a. 2014/15</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    
+
+<h2>Sommario</h2>
+
+
+<ul>
+  <li><a href="#lezione01">Lezione 1: HTTP, URI, URL.</a></li>
+  <li><a href="#lezione02">Lezione 2: HTML, Web Standards, Character Encodings.</a></li>
+  <li><a href="#lezione03">Lezione 3: CSS. Page layout..</a></li>
+  <li><a href="#lezione04">Lezione 4: Javascript</a></li>
+  <li><a href="#lezione05">Lezione 5: Ajax. jQuery.</a></li>
+  <li><a href="#lezione06">Lezione 6: Servlet API.</a></li>
+  <li><a href="#lezione07">Lezione 7: Server-side programming.</a></li>
+  <li><a href="#lezione08">Lezione 8: Server-side tests</a></li>
+  <li><a href="#lezione09">Lezione 9: Deployment</a></li>
+  <li><a href="#lezione10">Lezione 10: Persistence</a></li>
+  <li><a href="#lezione11">Lezione 11: Refining the repository, connecting the UI</a></li>
+  <li><a href="#lezione12">Lezione 12: Sessioni, autenticazione e autorizzazione.</a></li>
+</ul>
+
+
+
+
+<h2 id="lezione01">Lezione 1, 2015-03-06</h2>
+
+
+<p>Argomenti: HTTP, URI, URL (<a href="2015/2015-aw-lezione-01.pdf">slides</a>)</p>
+
+<h3>Esercizi</h3>
+
+<p>Per eseguire questi esercizi usa <strong>Linux</strong> oppure un <strong>Mac</strong>.  Non Windows.  Se non hai una macchina Linux, puoi usare una macchina virtuale: scarica VirtualBox e installaci sopra Ubuntu.  Ti consiglio di scaricare la macchina virtuale prefabbricata da <a href='http://virtualboxes.org/images/ubuntu/'>http://virtualboxes.org/images/ubuntu/</a></p>
+
+<p>Installa netcat (nc).</p>
+
+<ul>
+<li>Usa nc per realizzare una chat fra due terminali</li>
+<li>Usa nc per osservare la richiesta http del tuo browser</li>
+<li>Usa nc per interrogare www.google.com</li>
+<li>Usa nc per interrogare <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a></li>
+<li>Usa nc e la content-negotiation per ottenere la pagina <a href="http://httpd.apache.org/docs/2.2/">http://httpd.apache.org/docs/2.2/</a> in spagnolo</li>
+<li>Usa nc per scoprire il mime type della immagine alla url <a href="http://httpd.apache.org/images/httpd_logo_wide">http://httpd.apache.org/images/httpd_logo_wide</a></li>
+</ul>
+
+
+<h3>Esercizi svolti in laboratorio</h3>
+
+<p>Abbiamo usato nc per interrogare un server che permette di giocare a "hangman" (in Italiano e' il gioco dell'"impiccato" o del "prigioniero").  Consiste nell'indovinare una parola di cui conosciamo soltanto la lunghezza.  Possiamo proporre una lettera; se la parola da indovinare contiene questa lettera, verra' mostrata per esempio cosi':  <code>***e**e</code></p>
+
+<p>L'indirizzo del server: <a href="http://aw-hangman.herokuapp.com/">http://aw-hangman.herokuapp.com/</a></p>
+
+<p>Esegui il seguente esercizio, seguendo le istruzioni passo a passo. Nota: <strong>in laboratorio abbiamo usato il tool netcat, ma sulla versione che ho pubblicato su Heroku netcat non funziona.  Lo sostituiamo con <em>telnet</em>.</strong> (Se vuoi sapere il motivo, e' che formalmente la fine linea va specificata con due byte: CR e LF.  Con netcat, il tasto invio manda soltanto LF.  Telnet invece li invia entrambi).</p>
+
+<p>Questo server non ha le istruzioni, ma dalle sue risposte possiamo dedurre come interrogarlo.</p>
+
+<p>Lo interrogo con</p>
+
+<pre><code>  telnet aw-hangman.herokuapp.com 80
+  GET / HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  &lt;invio&gt;
+</code></pre>
+
+<p>Quello che ho scritto sopra significa: eseguo il comando <code>telnet aw-hangman.herokuapp.com 80</code> sul terminale di Unix, e poi scrivo o copiaincollo le righe seguenti.  La scritta <code>&lt;invio&gt;</code> significa che per completare il messaggio devo mandare una riga vuota.</p>
+
+<p>Cosi' facendo ottengo</p>
+
+<pre><code>  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=UTF-8
+  Content-Length: 32
+  Server: Jetty(6.1.26)
+
+  {"index":"/",
+  "users":"/users"}
+</code></pre>
+
+<p>Il formato di questa risposta si chiama JavaScript Object Notation (JSON).  Viene spesso utilizzato per realizzare servizi web. Questa risposta mi dice che ci sono due url che posso interrogare: http://aw-hangman.herokuapp.com/ (la url che ho appena interrogato) e http://aw-hangman.herokuapp.com/users.</p>
+
+<p>Se proviamo a interrogare quest'ultima che cosa otteniamo?</p>
+
+<pre><code>  telnet aw-hangman.herokuapp.com 80
+  GET /users HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  &lt;invio&gt;
+
+  HTTP/1.1 405 Method Not Allowed
+  Content-Type: application/json; charset=UTF-8
+  Content-Length: 103
+  Server: Jetty(6.1.26)
+
+  {"status_code":405,"status":"Method not allowed",
+  "description":"Use POST on /users to create a user"}
+</code></pre>
+
+<p>  Questo ci dice che il metodo GET non e' ammesso per questa url.  Che cosa facciamo allora?  Seguiamo il suggerimento.  Quello che vogliamo fare a questo punto e' creare un nuovo utente.</p>
+
+<pre><code>  telnet aw-hangman.herokuapp.com 80
+  POST / HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  &lt;invio&gt;
+
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json; charset=UTF-8
+  Content-Length: 89
+  Server: Jetty(6.1.26)
+
+  {"status_code":400,"status":"Bad Request",
+  "description":"Parameter 'name' is required"}
+</code></pre>
+
+<p>Hmmm.  Apparentemente dobbiamo aggiungere un parametro "name".  Proviamo:</p>
+
+<pre><code>  POST / HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  Content-Type: application/x-www-form-urlencoded
+  Content-length: 10
+
+  name=pippo
+</code></pre>
+
+<p>  Il formato della richiesta POST e' come sopra.  I parametri vengono passati nel body.  Otteniamo</p>
+
+<pre><code>  HTTP/1.1 400 Bad Request
+  Content-Type: application/json; charset=UTF-8
+  Content-Length: 93
+  Server: Jetty(6.1.26)
+
+  {"status_code":400,"status":"Bad Request",
+  "description":"Parameter 'password' is required"}
+</code></pre>
+
+<p>  Aha! Manca un'altro parametro.  Aggiungiamolo:</p>
+
+<pre><code>  POST / HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  Content-Type: application/x-www-form-urlencoded
+  Content-length: 26
+
+  name=pippo&amp;password=secret
+</code></pre>
+
+<p>  Questa volta otteniamo:</p>
+
+<pre><code>  HTTP/1.1 303 See Other
+  Content-Type: application/json; charset=UTF-8
+  Location: http://aw-hangman.herokuapp.com/users/551350b3
+  Content-Length: 71
+  Server: Jetty(6.1.26)
+
+  {"status_code":201,"status":"Created",
+  "location":"/users/551350b3"}
+</code></pre>
+
+<p>Come possiamo vedere, un nuovo utente e' stato creato con id 551350b3.</p>
+
+<p>Se seguiamo la nuova url otteniamo</p>
+
+<pre><code>  GET /users/551350b3 HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  &lt;invio&gt;
+
+  HTTP/1.1 403 Forbidden
+  Content-Type: application/json; charset=UTF-8
+  Content-Length: 181
+  WWW-Authenticate: Basic realm="hangman"
+  Server: Jetty(6.1.26)
+
+  {"status_code":401,"status":"Unauthorized",
+  "description":"You don't have the permission to access the requested resource."}
+</code></pre>
+
+<p>  Direi che le ragioni del server sono comprensibili.  Abbiamo creato un utente con una password, e ora per accedervi dobbiamo fornire le credenziali.  Lo header WWW-Authenticate mi invita ad autenticarmi con il metodo <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">Basic authentication</a>.  In pratica devo concatenare le credenziali con il due-punti: <code>pippo:secret</code> e poi codificarle con Base64.  Posso usare la funzione btoa di Javascript; basta aprire la <a href='https://developer.chrome.com/devtools/docs/console'>console javascript</a> e digitare <code>btoa("pippo:secret")</code> e ottengo <code>cGlwcG86c2VjcmV0</code>.  Da qui:</p>
+
+<pre><code>  GET /users/551350b3 HTTP/1.1
+  host: aw-hangman.herokuapp.com
+  authorization: Basic cGlwcG86c2VjcmV0
+  &lt;invio&gt;
+
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=UTF-8
+  Content-Length: 84
+  Server: Jetty(6.1.26)
+
+  {"id":"551350b3",
+  "prisoners":"/users/551350b3/prisoners",
+  "url":"/users/551350b3"}
+</code></pre>
+
+<p>  Da questo momento in poi prosegui l'esercizio da solo.  Il risultato della ricerca precedente ci da' una nuova url da esplorare. Apparentemente ogni <em>user</em> ha dei <em>prisoners</em>.  Il meccanismo da usare sara' lo stesso: con GET vedremo che la lista dei nostri prisoners e' vuota.  Ne potremo creare uno facendo una POST alla url dei prisoners del nostro utente.  Se la POST ha successo, ci verra' restituita la URL del nostro prigioniero, che avra' la forma /users/123/prisoners/456.  Facendo GET a questa url osserviamo lo stato del gioco.  Facendo POST a questa url, potremo tentare di indovinare, una lettera per volta.</p>
+
+<p>  Riesci a vincere? :-)</p>
+
+<h3>Da studiare</h3>
+
+<ul>
+<li>La <a href="http://en.wikipedia.org/w/index.php?title=Hypertext_Transfer_Protocol&amp;oldid=516023840">pagina di Wikipedia su HTTP</a></li>
+<li><a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics, fino a "Cookies" escluso.</li>
+<li>Leggere <a href="00-intro.html">la mia dispensa</a>.</li>
+<li>Leggere <a href="http://web.archive.org/web/20061029012755/http://adamv.com/dev/articles/getafterpost" title="Flangy Software: GET after POST">GET After POST</a></li>
+</ul>
+
+
+<p>Materiali per approfondimenti facoltativi</p>
+
+<ul>
+<li>Leggere <a href="http://tomayko.com/writings/rest-to-my-wife">How I explained REST to my wife</a></li>
+</ul>
+
+
+<h2 id="lezione02">Lezione 2, 20/03/2015</h2>
+
+
+<p>Argomenti: HTML, Web Standards, Character Encodings (<a href="2014/2014-aw-lezione-02.pdf">slides</a>)</p>
+
+<h3>Da studiare</h3>
+
+<ul>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_basics_of_html">The Basics of HTML</a></li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_validation">HTML validation</a></li>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_html_head">The HTML head</a> fino a "What about the looks" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_text">Html Text</a> fino a Compatibility escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_lists">HTML Lists</a> fino a Compatibility escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/images_in_html">Images in HTML</a> fino a "Background images with CSS" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_links">HTML Links</a> fino a "Link styling" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_structural_elements">HTML Structural elements</a> fino a "HTML5 element support" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_tables">HTML Tables</a> fino a "Structuring the table further" escluso</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/html_forms_basics">HTML Forms basics</a> fino a "A little bit of style..." escluso</li>
+</ul>
+
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li>Facoltativo I capitoli 5,6,7 di <em>Designing With Web Standards, 2nd edition</em> di Zeldman.</li>
+</ul>
+
+
+<h3>Esercizi</h3>
+
+<p>Costruire alcune form HTML che ci permettano di giocare a hangman in maniera più agevole.  Nota bene: la interfaccia utente che costruiamo qui è molto rozza, ma è il massimo che possiamo fare senza programmare.</p>
+
+<h4>Primo passo: creare un utente</h4>
+
+<p>Scrivi un file hangman.html che contenga:</p>
+
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Hangman Client&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hangman!&lt;/h1&gt;
+
+    &lt;form action=&quot;http://aw-hangman.herokuapp.com/users&quot; method=&quot;post&quot;&gt;
+      &lt;p&gt;&lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&quot;/&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;password&quot; value=&quot;&quot;/&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Create user&quot;/&gt;&lt;/p&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+<p>Apri il file in un browser, riempi i campi e premi "Create user".  Se tutto funziona correttamente, avremo inviato una POST al server, il quale risponderà con una redirezione.  Nel browser vedremo qualcosa tipo:</p>
+
+<p><img src='2014/lezione02/screenshot1.png' alt='Messaggio di Unauthorized da parte dell applicazione' style='border: 1px solid black' /></p>
+
+<p>Che cosa è successo?  È successo che il browser ha cercato di fare la redirezione a http://aw-hangman.herokuapp.com/users/54ea83d1, ma non ha fornito il parametro "password" sulla query string.  Di conseguenza, l'applicazione ha risposto che non siamo autorizzati a visitare questa url.  Ma la creazione dell'utente ha avuto successo!  Ce ne accorgiamo perché la url nella barra degli indirizzi del browser è cambiata.  Ora c'è l'id dell'utente appena creato.</p>
+
+<p>Ricorda quello che abbiamo detto alla lezione 1: dopo il post, usualmente abbiamo una redirect!</p>
+
+<p>Per confermare che quello che dico è vero, prova ad aggiungere la password nella query string.  Vediamo così il nostro user.</p>
+
+<p><img src='2014/lezione02/screenshot2.png' alt='Il nostro user'  style='border: 1px solid black' /></p>
+
+<p>A questo punto sappiamo l'id del nostro utente e sappiamo la password. La strada è aperta: bisogna scrivere un'altra form per creare un prisoner.  Siamo costretti a cablare l'id dell'utente nel codice html, il che significa che se volessimo usare un'altro utente, dovremmo cambiare il codice html.  Come dicevo, questa interfaccia utente è rozza, ma è il massimo che possiamo fare dato quello che sappiamo fino ad ora.</p>
+
+<p>Scrivi una nuova form e crea un prisoner.  Ricora che in tutte le form che fai da questo momento in poi dovrai aggiungere un campo nascosto che fornisce la password.  Ricorda anche di non spaventarti se l'applicazione risponde con un codice 403.  I casi sono due: o la tua richiesta non è andata a buon fine, e non e' stato creato niente; oppure il prisoner è stato creato, e lo vedi da come cambia la barra degli indirizzi del browser.</p>
+
+<p>Una volta che hai creato un prisoner, devi trovare la parola!  Crea un'altra form che ti permetta di inserire agevolmente le lettere.  Anche qui: l'output dell'applicazione sul browser sarà sempre un messaggio di errore.  Per vedere lo stato del prigioniero, ricarica la url nel browser aggiungendo la password sulla barra degli indirizzi.</p>
+
+<h3>Altri esercizi</h3>
+
+<ol start="0">
+  <li>
+    Scrivere un documento HTML che aperto nel browser abbia questo aspetto:
+    <figure>
+      <img src="2012/lezione01/hello.png" alt="Hello, World!" style="border: 1px solid black" />
+    </figure>
+  </li>
+  <li>
+    Verificare che il codice dell'esercizio precedente sia <em>HTML valido</em> per mezzo del servizio <a href="http://html5.validator.nu/">validator.nu</a>.
+  </li>
+  <li>
+    Realizzare in HTML e validare con <a href="http://html5.validator.nu/">validator.nu</a>:
+    <figure>
+      <img src="2012/lezione01/entities.png" alt="Hello, World!" style="border: 1px solid black" />
+    </figure>
+  </li>
+  <li>
+    Nell'esercizio precedente, invece di scrivere &ldquo;Perch&amp;eacute;&rdquo; provate a scriverlo con il carattere &ldquo;é&rdquo; che si trova sulla tastiera.  Verificate che cosa succede nei vari casi:
+    <ul>
+      <li>Metto <code>&lt;meta charset="UTF-8"/&gt;</code> nella <code>head</code> del documento</li>
+      <li>Metto <code>&lt;meta charset="ISO-8859-1"/&gt;</code></li></li>
+      <li>Non metto nessuna dichiarazione di charset nella head</li>
+    </ul>
+  </li>
+  <li>
+    Realizzare in HTML e validare con <a href="http://html5.validator.nu/">validator.nu</a>:
+    <figure>
+      <img src="2011/esempio-html-lezione01.png" alt="Rendering di una pagina HTML di esempio" style="border: 1px solid black"/>
+    </figure>
+    (La url dell'immagine è http://www.ruby-lang.org/images/logo.gif)
+  </li>
+  <li>
+    Realizzare in HTML e validare con <a href="http://html5.validator.nu/">validator.nu</a>:
+    <figure>
+      <img src="2011/lezione03/esercizio-form.png" alt="Form html" />
+    </figure>
+  </li>
+  <li>
+    Verificare che mettendo o togliendo la dichiarazione <code>&lt;!DOCTYPE html&gt;</code> in testa al documento, l'aspetto grafico della pagina cambia leggermente.
+  </li>
+</ol>
+
+
+<h4>Esempi di domande d'esame</h4>
+
+<ul>
+<li>Qual'è la struttura standard di un documento HTML?</li>
+<li>Quali sono gli attributi di un immagine?</li>
+<li>Che cosa sono le <em>entities</em>?  Quali sono le più comuni?</li>
+<li>Che cos'è un <em>encoding</em>?  In quali maniere si può specificare?</li>
+<li>Quali sono le principali varianti di HTML?</li>
+<li>Qual è la relazione fra XML e HTML?</li>
+<li>Qual è la differenza fra markup <em>semantico</em> e <em>di presentazione</em>?</li>
+<li>Che cos'è il <em>quirks mode</em>?</li>
+<li>Che cosa sono gli <em>attributi</em>?  Che cosa sono e come si usano gli attributi <code>id</code> e <code>class</code>?</li>
+</ul>
+
+
+<h2 id="lezione03">Lezione 3, 2015-03-25</h2>
+
+
+<p>Argomenti: Cascading Style Sheets (CSS), applicare stili a documenti HTML, creare layout di pagina con CSS (<a href="2014/2014-aw-lezione-05.pdf">slides</a>).</p>
+
+<h3>Esercizi fatti in laboratorio</h3>
+
+<p>Scarica il <a href="https://github.com/xpmatteo/aw-css-exercises">repository degli esercizi</a>.  Le istruzioni sono dentro.</p>
+
+<h3>Da studiare</h3>
+
+<p>Studiare questi articoli:</p>
+
+<ul>
+<li><a href="http://docs.webplatform.org/wiki/guides/getting_started_with_css">Getting started with CSS</a> fino a @importing stylesheets escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/using_selectors">Using selectors</a> fino a "List of pseudo-classes" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">Text-styling fundamentals</a> esclusi "Image replacement" e "Web fonts".</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/inheritance_and_cascade">Inheritance and cascade</a> fino a "Compatibility" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/guides/the_css_layout_model">The CSS layout model</a> fino a "Working with document flow" escluso.</li>
+<li><a href="http://docs.webplatform.org/wiki/tutorials/floats_and_clearing">Floats and clearing</a>.</li>
+</ul>
+
+
+<p>Esempi di domande d'esame</p>
+
+<ul>
+<li>Quali sono le unità di misura che si possono usare per rappresentare le dimensioni di un font o di un elemento?</li>
+<li>Quali sono i diversi selector?</li>
+<li>Per quale motivo potrei preferire le unità di lunghezza proporzionali a quelle assolute?  E viceversa?</li>
+<li>Che cos'è la proprietà display?  Che valori può assumere?</li>
+<li>Che alternative ci sono per creare un layout di pagina?</li>
+<li>Descrivere il box model</li>
+<li>Come funziona la proprietà "float"?  A che cosa serve la proprietà "clear"?</li>
+<li>Come si risolvono regole CSS che si contraddicono?</li>
+<li>In quali maniere si può collegare un insieme di regole CSS a un documento HTML?</li>
+<li>Scrivere un esempio di layout ibrido; descrivere come funziona.</li>
+<li>Scrivere un esempio di layout fisso basato su float.  Descrivere come funziona.</li>
+</ul>
+
+
+<p>Non è necessario imparare a memoria tutte le proprietà e i loro possibili valori.  E' necessario però conoscere per lo meno le proprietà che usiamo negli esempi visti a lezione e nell'esercizio (vedi più avanti).</p>
+
+<p>Approfondimenti facoltativi</p>
+
+<ul>
+<li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+<li>Il <a href="http://www.w3schools.com/css/">tutorial interattivo su CSS</a> di W3Schools</li>
+<li>Gli esempi di layout HTML5 di <a href="http://www.initializr.com/" title="Initializr - Start an HTML5 Boilerplate project in 15 seconds!">Initializr</a></li>
+</ul>
+
+
+<h2 id="lezione04">Lezione 4, 2015-04-01</h2>
+
+
+<p> Argomenti: Il linguaggio JavaScript.  Programmazione funzionale, closures.  Programmazione a oggetti; prototipi; JSON. Manipolazione del DOM. Gestione degli eventi. Test unitari in JavaScript. (<a href="2014/2014-aw-lezione-03.pdf">slides</a>)</p>
+
+<p> Studiare:
+ <ol>
+   <li>Studiare i capitoli 1-6 di <em>Pro JavaScript Techniques</em> di John Resig.  La <a href="http://www.apress.com/9781590597279" title="APRESS.COM : Pro JavaScript Techniques : 9781590597279">versione pdf</a> si può comprare per $32 circa.
+   </li>
+   <li>
+   Guardare la presentazione <a href="http://www.slideshare.net/giordano/javascript-survival-guide-for-java-developers" title="JavaScript Survival Guide">JavaScript Survival Guide</a> di Giordano Scalzo
+   </li>
+ </ol></p>
+
+<h3>Esercizi svolti in laboratorio</h3>
+
+<p>Quando si risolvono questi esercizi, ricordare di tenere sempre aperta nel browser la console JavaScript!!!</p>
+
+<ol>
+  <li>Risolvere il <a href="https://projecteuler.net/problem=1">primo problema del Progetto Euler</a> scrivendo un programma JavaScript.  Il risultato deve essere stampato sulla console JS usando `console.log("...")`.  </li>
+  <li>Modificare il programma precedente per avere un'interfaccia  utente.  Realizziamo una semplice form come la seguente:
+
+    <div>
+      <form>N: <input type='text'><input type='submit' value="Euler 1"></form>
+    </div>
+
+    Quando l'utente inserisce un numero e preme "Euler 1", viene alcolata la somma di tutti gli interi positivi minori del numero inserito, che siano multipli di 3 o di 5.
+
+    Per risolvere questo esercizio puo' essere utile questo canovaccio:
+<div>
+<pre>
+&lt;form id=&#x27;my-form&#x27;&gt;
+  &lt;input type=&quot;text&quot; id=&quot;max&quot; value=&quot;10&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Euler 1&quot;&gt;
+&lt;/form&gt;
+&lt;p id=&quot;result&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+window.onload = function() {
+  var form = document.getElementById(&quot;my-form&quot;)
+  var max = document.getElementById(&quot;max&quot;)
+  var result = document.getElementById(&quot;result&quot;)
+  form.onsubmit = function() {
+    result.innerHTML = &quot;Risultato: &quot; + euler1_problem(max.value);
+    return false;
+  }
+}
+&lt;/script&gt;
+</pre>
+</div>
+    </li>
+
+    <li>
+      Scrivere una applicazione che abbia due campi di testo etichettati F e C.  Quando modifico il numero contenuto nel campo F, il campo C viene aggiornato con il valore della conversione da Fahrenheit a Celsius del valore.  E viceversa!
+    </li>
+    <li>
+      Facoltativo: risolvere <a href="http://alexnisnevich.github.io/untrusted/">Untrusted</a>, un gioco che si risolve modificando programmi JavaScript.
+    </li>
+    <li>Facoltativo: risolvere i <a href="https://github.com/mrdavidlaing/javascript-koans">JavaScript Koans</a></li>
+ </ol>
+
+
+
+
+<h2 id="lezione05">Lezione 5, 2015-04-15</h2>
+
+
+<p>Argomenti: Ajax e jQuery (<a href="2015/2015-aw-lezione-05.pdf">slides su Ajax</a> e <a href="http://www.slideshare.net/simon/learning-jquery-in-30-minutes">slides su jQuery</a> da pagina 4 a 27 comprese.)</p>
+
+<p>Studiare la documentazione della funzione <code>$.ajax</code> di jQuery</p>
+
+<h3>Esercizio svolto in laboratorio</h3>
+
+<p>Scaricare il <a href="https://github.com/xpmatteo/aw-hangman-client">progetto</a> . La maniera consigliata di farlo è tramite il comando <code>git clone https://github.com/xpmatteo/aw-hangman-client</code></p>
+
+<p>L'obiettivo è di creare un client ajax per il server hangman della prima lezione.  Esegui questi passi; a ogni passo verifica di avere ottenuto il risultato desiderato.  Carica sempre la pagina html tenendo aperta la console JavaScript.</p>
+
+<ol>
+<li>Per riscaldamento, nascondi l'immagine animata che gira, usando un comando jQuery.  Nascondi anche tutta l'interfaccia utente che sta sotto la riga orizzontale.  Lascia visibile solo la form di registrazione.</li>
+<li>Registrazione.  Collega alla form di registrazione uno handler JavaScript che crei un nuovo utente.  Quando la chiamata ha successo, nascondi la form di registrazione e mostra l'interfaccia di gioco.</li>
+<li>Nuova partita.  Collega al bottone che crea una nuova partita uno handler JavaScript.  Quando la chiamata ha avuto successo, mostra i dati della partita negli spazi appositi</li>
+<li>Indovinare.  Collega uno handler JavaScript alla form "Guess" in modo che si possa giocare la partita.  Ad ogni guess, aggiorna lo stato visibile della partita.</li>
+</ol>
+
+
+<p>Devi essere in grado di completare una partita!</p>
+
+<p>Tieni conto che per semplificare le cose, ho tolto la richiesta di autenticazione del server.</p>
+
+<p>Se non sai come iniziare, studia il codice qui sotto:</p>
+
+<pre><code>var player_name;
+var player_password;
+var player_url;
+var current_game_url;
+
+function format_json(json) {
+  return JSON.stringify(json, null, 2)
+}
+
+function on_error(xhr) {
+  console.log("error: " + JSON.stringify(xhr))
+  $("#output").text(xhr.responseText)
+  $("#spinner").hide()
+}
+
+function on_register_new_user_success(data) {
+  console.log("success: " + JSON.stringify(data))
+  player_url = data.location;
+  $("#output").text("New user created: " + format_json(data))
+  $("#make-new-user").hide()
+  $("#current-game").show()
+  $("#spinner").hide()
+}
+
+function register_new_user() {
+  $("#spinner").show()
+  player_name = $("input[name='name']").val();
+  player_password = $("input[name='password']").val();
+  $.ajax({
+    type: "POST",
+    url: "http://aw-hangman.herokuapp.com/users",
+    data: {
+      name: player_name,
+      password: player_password,
+    },
+    success: on_register_new_user_success,
+    error: on_error
+  })
+  return false;
+}
+
+function on_get_current_game_success(data) {
+  console.log("Get current game: " + JSON.stringify(data))
+  $("#spinner").hide()
+  $("#output").text("New game created: " + JSON.stringify(data, null, 2) )
+  $("#prisoner").text(data.prisoner.word)
+  // ... show all the fields...
+  $("#guess-form").show()
+}
+
+function on_new_game_success(data) {
+  console.log("New game created: " + JSON.stringify(data))
+  current_game_url = data.location
+  $.ajax({
+    type: "GET",
+    url: "http://aw-hangman.herokuapp.com" + current_game_url,
+    success: on_get_current_game_success,
+    error: on_error,
+  })
+}
+
+function new_game() {
+  $("#spinner").show()
+  $.ajax({
+    type: "POST",
+    url: "http://aw-hangman.herokuapp.com" + player_url + "/prisoners",
+    success: on_new_game_success,
+    error: on_error,
+  })
+  return false;
+}
+
+$(document).ready(function() {
+  $('#make-new-user').submit(register_new_user)
+  $('#new-game').click(new_game)
+})
+</code></pre>
+
+
+<h3>Da studiare</h3>
+
+<ul>
+<li><p>Video su JavaScript (facoltativo:) <a href="https://www.youtube.com/watch?v=ya4UHuXNygM&amp;t=2090">Douglas Crockford on JavaScript - Act III: Function the Ultimate</a></p></li>
+<li><p>Un libro su JavaScript gratuito in alternativa a Resig: <a href="http://eloquentjavascript.net/" title="Eloquent JavaScript: A Modern Introduction to Programming">http://eloquentjavascript.net/</a></p></li>
+<li><p>(Facoltativo) Una maniera divertente di imparare JavaScript: superare le sfide di <a href="http://www.coderbyte.com/" title="Coderbyte | Programming &amp; Game Challenges | Competitions">http://coderbyte.com/CodingArea/Challenges/</a></p></li>
+<li><p>(Facoltativo) In alternativa al precedente: <a href="https://github.com/mrdavidlaing/javascript-koans">JavaScript Koans</a></p></li>
+</ul>
+
+
+<h2 id="lezione06">Lezione 6, 2015-06-03</h2>
+
+
+<p> Argomenti: Servlet API.  Discussione su servlet container piuttosto che server embedded. (<a href="2014/2014-aw-lezione-06.pdf">slides</a>)</p>
+
+<p> Esercizio svolto in laboratorio: <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-6-2015">https://github.com/xpmatteo/aw-servlet-exercises</a> (le istruzioni sono nel README).  <strong>Assicuratevi di scaricare la branch "lesson-6-2015"!!</strong>.</p>
+
+<p> Letture facoltative: <a href='http://www.slideshare.net/xpmatteo/the-unix-way-vs-the-java-enterprise-edition-way'>The Unix Way vs. the Java Enterprise Way</a></p>
+
+<h2 id="lezione07">Lezione 7, 2015-06-08</h2>
+
+
+<p>  Argomenti: soluzione esercizio della volta precedente.  La soluzione del prof è nella branch <a href='https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-7-2015'>https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-7-2015</a></p>
+
+<p>  Esercizio svolto in laboratorio: <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-7-2015">https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-7-2015</a> (le istruzioni sono nel README).  <strong>Assicuratevi di scaricare la branch "lesson-7-2015"!!</strong>.</p>
+
+<h2 id="lezione08">Lezione 8, 2015-06-10</h2>
+
+
+<p>Argomenti: soluzione esercizio della volta precedente.  La soluzione del prof è nella branch <a href='https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-8-2015'>https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-8-2015</a>.  Uso dei test automatici per velocizzare lo sviluppo.</p>
+
+<p>Studiare il <a href="http://www.baerbak.com/chap5.pdf">Capitolo 5 di Flexible, Reliable Software</a> (pdf).</p>
+
+<p>Esercizio svolto in laboratorio: <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-8-2015">https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-8-2015</a> (le istruzioni sono nel README).  <strong>Assicuratevi di scaricare la branch "lesson-8-2015"!!</strong>.</p>
+
+<h2 id="lezione09">Lezione 9, 2015-06-15</h2>
+
+
+<p>Argomenti: come installare un'applicazione in produzione (deployment).  Uso dei sistemi di version control.  Uso di Maven, Git ed Heroku.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-9-2015">https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-9-2015</a>.  Contiene anche la soluzione all'esercizio della volta precedente.</p>
+
+<p>Da conoscere: i comandi di git init, status, add, commit, log, diff, clone, push, pull.  Studiare <a href="http://git-scm.com/book/en/Git-Basics" title="Git - Git Basics">Git Basics</a>.  Guardare il video <a href="http://git-scm.com/video/what-is-version-control" title="Git">Git Basics</a>.</p>
+
+<p>Da conoscere: i comandi di maven clean, compile, package.  Studiare il <a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">tutorial di maven</a>.  Puoi, se ti serve, cercare altre informazioni sul <a href="http://maven.apache.org/guides/getting-started/index.html" title="Maven - Maven Getting Started Guide">getting started di maven</a>.</p>
+
+<p>Studiare <a href="https://devcenter.heroku.com/articles/how-heroku-works">l'introduzione a Heroku</a>.</p>
+
+<h2 id="lezione10">Lezione 10, 2015-06-17</h2>
+
+
+<p>Argomenti: persistenza.  Come usare il database in Java.  Il pattern "repository".</p>
+
+<p>Slides: <a href="2015/2015-aw-lezione-10-persistenza.pdf">2015-aw-lezione-10-persistenza.pdf</a>.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-10-2015">https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-10-2015</a>.</p>
+
+<h2 id="lezione11">Lezione 11, 2015-06-22</h2>
+
+
+<p>Argomenti: collegare la interfaccia utente al backend.  Continuiamo a implementare il repository.</p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-11-2015">https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-11-2015</a>.</p>
+
+<h2 id="lezione12">Lezione 12, 2015-06-24</h2>
+
+
+<p>Argomenti: Sessioni, autenticazione e autorizzazione. Cross-site scripting.  Uso di template per evitare vulnerabilita' XSS.</p>
+
+<p>Studiare la mia <a href="lecture-notes-sessions.html">dispensa sulle sessioni</a>.</p>
+
+<p>Leggere la <a href='https://github.com/janl/mustache.js/'>documentazione di Mustache JS</a>.</p>
+
+<p>Leggere <a href='https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)'>https://www.owasp.org/index.php/Cross-site<em>Scripting</em>(XSS)</a></p>
+
+<p>Leggere <a href="http://unixwiz.net/techtips/sql-injection.html" title="SQL Injection Attacks by Example">SQL Injection Attacks by Example</a></p>
+
+<p>L'esercizio è descritto nel README di questo progetto:  <a href="https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-12-2015">https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-12-2015</a>.</p>
+
+<p>(Facoltativo) Google TechTalks: <a href="https://www.youtube.com/watch?v=jXP7b-xby6U">How To Break Web Software &mdash; A look at security vulnerabilities in web software</a></p>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/diario by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:40 GMT -->
+</html>

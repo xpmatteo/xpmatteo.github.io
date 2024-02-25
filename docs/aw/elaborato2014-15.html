@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/aw/elaborato2014-15 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Tema dell'Elaborato 2014/15</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Tema dell'Elaborato 2014/15</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    
+<style type="text/css" media="screen">
+.storia {
+  margin-top: 3em;
+}
+</style>
+
+<p>Per <a href="../aw.html">Applicazioni Web</a>; Anno Accademico 2014/15 </p>
+
+<div class="ahem" style="margin-bottom: 3em; font-weight: bold; font-size: large">
+  <p>Ultimo appello!!!</p>
+
+  <p>Do un appello straordinario il 29 aprile: oltre quella data, l'esame non lo farete più con me, ma con il prof.&nbsp;Marco Tarini.</p>
+</div>
+
+
+<h2>Regole</h2>
+  <ol>
+    <li>Lo sviluppo di un elaborato è obbligatorio per accedere all'esame</li>
+
+    <li>L'elaborato consiste nello sviluppo di un'applicazione web funzionante.</li>
+
+    <li>Deve essere una <em>single page web application</em>, realizzata secondo lo stile architetturale proposto a lezione e prendendo liberamente spunto (anche copiando) dal codice presentato dal docente a lezione.  Il punto di partenza è <a href='https://github.com/xpmatteo/aw-servlet-exercises/tree/lesson-12-2015'>il progetto presentato a lezione</a>.  Nota che va presa la branch "lesson-12-2015"!!!
+    </li>
+
+    <li>L'applicazione deve essere installata su Heroku</pre></li>
+
+    <li> Il lavoro si può svolgere in coppia, ma <em>non sono ammesse terne</em>.  È comunque ammesso  realizzare l'elaborato da soli.</li>
+
+    <li> E' ammesso discutere il problema fra studenti; ma non è ammesso scambiarsi programmi o frammenti di programma. Ricordatevi che <strong>io me ne accorgo</strong> se copiate.</li>
+
+    <li>Per questo motivo, EVITATE DI PUBBLICARE LA VOSTRA APPLICAZIONE SU GITHUB.</li>
+
+    <li>L'elaborato va consegnato entro tre giorni dalla data dell'appello; se per esempio l'appello è il giorno 10, l'elaborato va consegnato entro la mezzanotte del giorno 7. La consegna consiste nel mandarmi un'email che contenga:
+      <ol>
+        <li>I vostri nomi e numeri di matricola</li>
+        <li>La url della vostra applicazione installata su heroku, che deve essere della forma http://aw-cognome1-cognome2.herokuapp.com</li>
+        <li>Il codice sorgente dell'applicazione, in uno zip allegato che si chiama "elaborato-cognome1-cognome2.zip" </li>
+      </ol>
+    </li>
+
+  <li>A seguito di questa email io vi risponderò entro 24h per confermare la ricevuta.  <strong>Se non avete ricevuto la mia conferma, la consegna dell'elaborato non viene considerata valida.</strong></li>
+
+  <li>
+    La pagina dell'applicazione deve avere un'indicazione come la seguente in pié di pagina:
+    <pre>
+    Autori:    Paolo Rossi 123456 e Maria Bianchi 234567; appello:   luglio 2015
+    </pre>
+  </li>
+</ol>
+
+<p>
+  Tenete d'occhio la <a href="http://groups.google.com/group/studenti-di-matteo-vaccari">mailing list</a> per gli annunci e gli aggiornamenti.
+</p>
+
+
+<h2>Tema: Todolist condivise</h2>
+
+A lezione abbiamo sviluppato una applicazione che gestisce delle todo-list personali.  Per l'esame, dovete estendere l'applicazione per consentire la collaborazione.  Un utente può condividere le sue liste con altri utenti e decidere che cosa gli altri utenti possono fare con le liste condivise.
+
+<h2>Funzionalità</h2>
+
+<p>  Segue l'elenco delle funzionalità che devono essere realizzate.
+</p>
+
+  <div class='storia'>
+    <h4>Home page</h4>
+    <p>La pagina che l'utente vede quando ha effettuato la login (vedi) deve assomigliare al seguente bozzetto.</p>
+    <p>
+      <a href='elaborato1415/main-page.png' target='_blank'><img src='elaborato1415/main-page.png' alt='Bozzetto della pagina principale' width='300' style='border: 1px solid black' title='Fai clic per ingrandire.  Si aprirà in un altro tab.'></a>
+    </p>
+
+    <p>La home page contiene, fra le altre cose, il nome dell'utente (in alto a destra.)</p>
+
+    <p>Per ogni lista, viene visualizzato il numero di elementi della lista in stato "unchecked".</p>
+  </div>
+
+  <div class='storia'>
+    <h4>List page</h4>
+
+    <p>    Quando nella home page si fa clic sul nome di una lista, si apre la List page, simile alla seguente:</p>
+
+    <p>
+      <a href='elaborato1415/one-list-page.png' target='_blank'><img src='elaborato1415/one-list-page.png' alt='Bozzetto della pagina che mostra una lista' width='300' style='border: 1px solid black' title='Fai clic per ingrandire.  Si aprirà in un altro tab.'></a>
+    </p>
+
+    <p>Facendo clic sul nome dell'applicazione in alto, si ritorna alla Home page.</p>
+
+    <p>Facendo clic sulla check box di uno dei todo-item, l'item si sposta dalla sezione delle cose ancora da fare, in alto, alla sezione delle cose gia' fatte, in basso.  O viceversa.</p>
+
+    <p>Facendo clic su "share", si apre una form che permette di <a href='#share'>condividere la lista con altri utenti</a>.</p>
+
+    <p>Facendo clic su "Edit", si apre una form che permette di editare il nome della lista.</p>
+  </div>
+
+  <div class='storia'>
+    <h4 id='share'>Condivisione</h4>
+
+    <p>    La form di condivisione puo' assomigliare al seguente bozzetto:</p>
+
+    <p>
+      <a href='elaborato1415/share.png' target='_blank'><img src='elaborato1415/share.png' alt='Bozzetto della form di condivisione' width='300' style='border: 1px solid black' title='Fai clic per ingrandire.  Si aprirà in un altro tab.'></a>
+    </p>
+
+    <p>Si possono selezionare in questa form i privilegi assegnati all'utente.  Un utente puo' avere solo il permesso di vedere la lista, oppure avere il permesso di modificare lo status checked/unchecked, oppure avere il permesso di aggiungere nuovi elementi alla lista.  Deve essere sufficiente cliccare su una delle checkbox per aggiungere o togliere il privilegio.</p>
+
+    <p>Si possono aggiungere nuovi utenti alla lista digitando il nome dell'utente.  E' gradito l'autocompletamento.</p>
+
+    <p>Il link "revoke" rimuove l'utente dalla lista, insieme a tutti i suoi privilegi.</p>
+  </div>
+
+  <div class='storia'>
+    <h4>Aprire una lista condivisa da un altro utente</h4>
+
+    <p>Quando apro una lista che mi e' stata condivisa da un altro utente, ci deve essere un'indicazione del tipo: "Shared by <a href='#'>Gianni</a>".  Se non ho il permesso di aggiungere elementi alla lista, non devo vedere la form di inserimento elementi nella lista.  Se non ho il permesso di modificare lo stato checked/unchecked, vedo comunque le checkbox, ma non sono attive.</p>
+  </div>
+
+  <div class='storia'>
+    <h4>Autenticazione</h4>
+
+    <p>
+      Quando un utente non autenticato visita l'applicazione, vede una pagina simile alla seguente.
+    </p>
+
+    <p><a href='elaborato1415/not-logged-in.png' target='_blank'><img src='elaborato1415/not-logged-in.png' alt='Bozzetto della pagina per utenti non autenticati' width='300' style='border: 1px solid black' title='Fai clic per ingrandire.  Si aprirà in un altro tab.'></a></p>
+
+    <p>
+      Da questa pagina puo' registrarsi, oppure autenticarsi (Log in).
+    </p>
+
+  </div>
+
+  <div class="storia">
+    <h4>Registrazione</h4>
+    Chiunque può registrarsi sull'applicazione.  I dati richiesti sono il nome completo, un indirizzo email e una password (ripetuta).  I dati devono essere validati:
+    <ul>
+      <li>Il nome non puo' essere vuoto </li>
+      <li>La password deve essere lunga almeno 8 caratteri</li>
+      <li>La password deve essere digitata due volte e deve essere uguale</li>
+      <li>L'email deve essere unica.</li>
+      <li>L'email deve (come minimo) contenere il carattere "@"</li>
+    </ul>
+  </div>
+
+  <div class="storia">
+    <h4>Login</h4>
+    Un utente dimostra di essersi registrato facendo la login: i dati richiesti sono la sua email e la password.  Se l'autenticazione ha successo, la form di login sparisce e in alto a destra sulla pagina compare "Welcome, Nome-dell-utente".
+  </div>
+
+  <div class='storia'><h4>Validità</h4>
+    <p>Le pagine devono essere realizzate con HTML5 e CSS <em>validi</em>. La validazione deve essere fatta con il sito <a href="http://html5.validator.nu/">http://html5.validator.nu/</a> che deve riportare "The document is valid..." e con il sito <a href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a> che deve riportare "Congratulazioni! Nessun errore trovato".
+      </p>
+  </div>
+
+  <div class='storia'>
+    <h4>(Facoltativo) Chi ha cliccato sul mio todoitem?</h4>
+
+    Quando modifico lo stato checked/unchecked di un elemento di una lista, appare in piccolo accanto all'elemento una scritta che dice una cosa tipo "checked by Matteo on 20/07/2015 12:34".  La scritta deve essere in testo piu' piccolo e di un colore piu' tenue, in modo da non portare troppo via l'occhio dal testo dell'elemento stesso.
+  </div>
+
+
+
+  <h2>Vincoli architetturali</h2>
+
+<p>Lo stato dell'applicazione deve essere salvato su database Postgresql.  In altre parole: deve essere possibile spegnere e riaccendere il server, e ritrovare i dati che erano presenti prima dello spegnimento.
+</p>
+
+<p>
+  L'applicazione presenta una sola pagina html.  Usare JavaScript e jQuery per fare apparire o sparire elementi di interfaccia utente all'interno di questa pagina a seconda di quello che vogliamo fare vedere all'utente.
+</p>
+
+<p>
+  La comunicazione fra la pagina html e il server avviene attraverso chiamate Ajax.  Ricordate di gestire il caso in cui la chiamata non vada a buon fine.  E' buona norma usare uno "spinner" come questo: <img src='elaborato1314/spinner.gif' /> mentre aspettiamo la risposta del server, per rassicurare l'utente che abbiamo ricevuto il suo comando.
+</p>
+
+<h2>Criteri di valutazione</h2>
+  <p>Il lavoro verrà valutato in base ai seguenti parametri:</p>
+  <ul>
+    <li>Deve funzionare al volo quando la provo con "script/run.sh" sul mio computer.</li>
+    <li>Deve funzionare al volo quando la provo su Heroku.</li>
+    <li>Rispondenza ai requisiti</li>
+    <li>Rispondenza ai vincoli architetturali</li>
+    <li>Codice pulito: nomi chiari, ben indentato, classi non troppo grosse, codice leggibile</li>
+    <li>Rispetto degli standard W3C</li>
+    <li>Usabilità: navigazione semplice, chiara e consistente; si deve capire subito come funziona</li>
+    <li>Sicurezza: non deve essere suscettibile a SQL Injection o Cross-Site-Scripting.  Le password devono essere conservate in maniera sicura.</li>
+    <li>Non è obbligatoria, ma è apprezzata la presenza di test automatici (in aggiunta a quelli sviluppati a lezione)</li>
+  </ul>
+
+Eventuali estensioni, se ben realizzate, potranno valere punti extra.  Implementate i punti facoltativi.  Documentate quali estensioni avete fatto!
+
+
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/elaborato2014-15 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:41 GMT -->
+</html>

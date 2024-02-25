@@ -1,0 +1,16 @@
+
+def fibo(n)
+  return 0 if n == 0
+  return 1 if n == 1
+  return fibo(n-1) + fibo(n-2)
+end
+
+def call_block_with_fibo(n)
+  for i in 0..n
+    yield(fibo(i))
+  end
+end
+
+call_block_with_fibo(1000) { |n|
+  puts n
+}

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/aw/diario2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Applicazioni Web, a.a. 2010/11</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Applicazioni Web, a.a. 2010/11</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../aw.html'>Applicazioni Web</a>
+      </h3>
+    
+
+    
+<div class="ahem">
+
+<p>
+Tutte le letture e gli esercizi che non siano esplicitamente marcati come
+"facoltativi" sono parte del programma di esame.
+</p>
+
+</div>
+
+<br />
+<br />
+
+<ul>  
+  <li>
+    07-12-2010
+ Lezione 0 <br />
+    
+Introduzione.  Richiami di reti.  Gli standard URI, HTTP, MIME.
+
+    <ul><li> Studiare <a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics, fino a "The Steps" incluso.
+</li><li> Studiare <a href="http://www.jmarshall.com/easy/http/">http://www.jmarshall.com/easy/http/</a> fino a "HTTP 1.1 Clients" incluso.
+</li><li> Leggere <a href="http://tomayko.com/writings/rest-to-my-wife">How I explained REST to my wife</a>
+</li><li> Leggere <a href="00-intro.html">la mia dispensa</a> fino a 'Il protocollo HTTP e le applicazioni web' incluso.
+</li><li> Procuratevi una macchina (fisica o virtuale, non mi interessa) con installato Linux.  Se non avete particolari preferenze, scegliete Ubuntu. Per questa lezione dovete essere in grado di 
+<ul>
+<li>osservare con <code>netcat</code> una richiesta HTTP fatta da un browser</li>
+<li>interrogare con <code>netcat</code> un server HTTP</li>
+<li>osservare con <code>tail -f</code> i log del vostro server Apache</li>
+<li>osservare i servizi TCP in stato LISTEN con <code>netstat</code></li>
+</ul>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+14-12-2010
+ Lezione 1 <br />
+    
+HTML, XMl, XHTML.  Versioni di HTML. Elementi, attributi, tag.  Character sets ed encodings.  Quirks mode e Standards Compliant mode.
+
+    <ul><li>
+Dopo questa lezione dovete essere in grado di
+<ul>
+<li>Scrivere documenti XHTML</li>
+<li>Sapere la differenza fra markup semantico e markup di presentazione</li>
+<li>Scrivere e far funzionare semplici programmi CGI in Bash o in Ruby</li>
+<li>Capire cosa sono, come funzionano  e come si specificano gli encoding</li>
+</ul>
+</li><li>
+Studiare i tutorial su <a href="http://www.w3.org/MarkUp/Guide/">HTML base</a>, <a
+href="http://www.w3.org/MarkUp/Guide/Advanced.html">avanzato</a>
+di Dave Raggett
+</li><li>
+Studiare <a href="http://www.joelonsoftware.com/articles/Unicode.html">Il
+minimo che dovete assolutamente sapere su Unicode</a>
+</li><li>
+Leggere <a href="http://www.digital-web.com/articles/999_of_websites_are_obsolete/">99.9&#37; of Websites Are Obsolete</a> di Jeffrey Zeldman su perché rispettare gli standard non è una questione di idealismo, ma di pragmatismo.
+</li><li>
+Facoltativo: Studiare il <a href='http://philip.greenspun.com/seia/html'>capitolo
+su HTML</a> di <a href='http://philip.greenspun.com/seia/'>Greenspun</a>
+</li><li>
+Facoltativo I capitoli 5,6,7 di <em>Designing With Web Standards, 2nd edition</em> di
+Zeldman.
+</li><li>
+Facoltativo: <a href="http://robertnyman.com/2009/10/14/an-introduction-to-html5/" title="An introduction to HTML5 - Robert&#039;s talk">An Introduction to HTML5</a>
+</li><li>
+Facoltativo: <a href="http://infomesh.net/html/history/early/" title="Early History of HTML - 1990 to 1992">The Early History of HTML</a>
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+15-12-2010
+ Lezione 2 <br />
+    
+CSS
+
+    <ul><li>
+Studiare il tutorial su CSS di Dave Raggett:
+<a href="http://www.w3.org/MarkUp/Guide/Style.html">A Touch of Style</a> 
+</li><li> 
+Studiare il <a
+href="http://www.w3schools.com/css/">tutorial CSS interattivo</a> di w3schools fino a CSS Box Model incluso, più "CSS Display" e "CSS Positioning".  Provare tutti gli esempi interattivi e provare variazioni.
+</li><li>
+Esercizio: implementare con un layout (ibrido o puro CSS) <a href="files/bookish.png">questo bozzetto</a>.
+</li><li>
+(Facoltativo) Un esempio di <a href="http://i3.happycog.com/">layout ibrido su due
+colonne</a>. <strong>Esercizio</strong> studiare il sorgente html;
+sperimentate variazioni; provate ad aggiungere/togliere/modificare regole.
+</li><li>
+(Facoltativo) Un tutorial su <a href="http://www.subcide.com/articles/creating-a-css-layout-from-scratch/" title="Creating a CSS layout from scratch - Subcide">come realizzare un layout in CSS puro</a>
+</li><li>
+(Facoltativo)  <a
+href="http://www.ericmeyeroncss.com/links/resources.html">risorse</a>
+su CSS di Eric Meyer
+</li><li>
+(Facoltativo)  <a
+href="http://www.csszengarden.com/">CSS Zen Garden</a>
+</li><li>
+(Facoltativo) I capitoli 8,9,10 di <em>Designing With Web Standards, 2nd edition</em> di
+Zeldman.
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+21-12-2010
+ Lezione 3 <br />
+     Configurazione del web server Apache Httpd.  Architettura di Apache.
+
+    <ul><li> Studiare il <a href="http://httpd.apache.org/docs/2.2/">manuale di Apache Httpd</a>: Binding, Configuration Files, Configuration Sections (fino a "Virtual Hosts" incluso), <a href="http://httpd.apache.org/docs/2.2/vhosts/name-based.html">Name-Based Virtual Hosts</a> (eccetto la parte su "older browsers"), il modulo <a href="http://httpd.apache.org/docs/2.2/mod/prefork.html">prefork</a>.
+</li><li> Imparare come fare partire e fermare Apache con "apachectl"
+</li><li> Esercizio: installare Apache Httpd su una macchina Linux (per esempio usando il package manager della tua distribuzione preferita.  Se non hai una distribuzione preferita suggerisco Ubuntu oppure Debian.)
+</li><li> Esercizio: creare un virtual host "pippo.com"
+<ol>
+  <li>Creare uno o più documenti HTML e salvarli nella directory /tmp/pippo.com</li>
+  <li>Configurare www.pippo.com per puntare a 127.0.0.1 in /etc/hosts</li>
+  <li>Creare un file di configurazione con le direttive necessarie per configurare www.pippo.com come un name-based virtual host.  Questo file sia salvato come "pippo.conf"</li>
+  <li>Includere pippo.conf nella configurazione di Apache.  Su Ubuntu la maniera migliore è salvare pippo.conf in /etc/apache2/sites-available e poi abilitarlo con "a2ensite pippo"</li>
+  <li>Verificare che aprendo "www.pippo.conf" nel browser si vedano i file creati al primo passo.</li>
+</ol>
+(Nota che questi esercizi *non* sono facoltativi.  Mi aspetto che tu sia in grado di eseguirli.  Se ti mancano le informazioni su come fare cerca su Google -- anche questa è una skill essenziale per un professionista.  Non è difficile trovare queste informazioni, sono cose molto molto basilari.)
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+22-12-2010
+ Lezione 4 <br />
+    
+Introduzione alle form HTML.  Introduzione alla generazione di pagine dinamiche con CGI.
+
+    <ul><li>
+Studiare questo <a href="http://www.w3schools.com/html/html_forms.asp">tutorial su HTML Forms</a>.
+</li><li>
+Studiare questa <a href="http://www.jmarshall.com/easy/cgi/" title="CGI Made Really Easy">introduzione a CGI</a>.
+</li><li>
+Esercizio: installare, capire e fare funzionare in Apache su Linux gli esempi che ho presentato a lezione:
+<ul>
+  <li><a href="files/2010/uptime_cgi.txt">uptime.cgi</a> Mostra informazioni sullo stato della macchina.</li> 
+  <li><a href="files/2010/logo_cgi.txt">logo.cgi</a> Dimostra come restituire un'immagine che non è all'interno del DocumentRoot.</li> 
+  <li><a href="files/2010/tempconv_cgi.txt">tempconv.cgi</a> Conversione di temperatura da Fahrenheit a Celsius</li>
+</ul>
+</li><li>
+Esercizio: creare mediante CGI e bash un servizio web che mostri una galleria di immagini.   
+<ol>
+  <li>Salvare alcune foto in una directory.  Per ciascuna di esse creare una thumbnail in formato 320x208px e salvarle con nome thumb_NOMEFOTO.jpg</li>
+  <li>Lo script legge tutti i file nella directory che hanno un nome che corrisponde al pattern thumb*.jpg</li>
+  <li>Poi lo script restituisce una tabella con 3 colonne che mostra tutte le immagini thumbnail trovate al punto precedente</li>
+  <li>Se l'utente clicca su una thumbnail deve vedere la versione originale della foto.  Questa può essere servita direttamente dal server web, oppure servita da un'altro script cgi nel caso le foto non siano all'interno della DocumentRoot</li>
+</ol>
+Nota bene: questo esercizio richiede una modesta capacità di scripting in bash che dovresti avere acquisito nel corso di Sistemi Operativi.  Le competenze in fatto di HTML e CGI dovresti averle acquisite a lezione e sulle letture che ti ho assegnato.  Se non sei in grado di risolvere l'esercizio sei già fuori strada per passare l'esame.
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+11-01-2011
+ Lezione 5 <br />
+    
+Introduzione a Ruby
+
+    <ul><li>
+Studiare <a href="http://www.humblelittlerubybook.com/book/" title="Mr. Neighborly's Humble Little Ruby Book">The Humble Little Ruby Book</a>, capitoli 1, 2, 3, 4 (solo Filesystem interaction)
+</li><li>
+La versione di Ruby che usiamo per queste lezioni è la 1.8.7.  Il sistema operativo di riferimento è Linux (ma anche Mac va bene.)
+</li><li>
+Esercizi:
+<ul>
+  <li>Scrivere un programma che conta le occorrenze delle parole nel suo standard input.  La <a href="files/2010/count_occurrences_rb.txt">versione realizzata in aula</a> ordina alfabeticamente le parole.  Esercizio: Modificarla per restituire le parole in ordine decrescente di numero di occorrenze.</li> 
+  <li>
+    Codificare la funzione di Fibonacci in maniera efficiente.  La <a href="files/2010/fibo_rb.txt">versione naive realizzata in aula</a> è troppo lenta per valori > 30.  Scrivere un <em>generatore</em> di numeri di Fibonacci, ovvero un oggetto che restituisce ad ogni invocazione di "next" il prossimo numero di Fibonacci:
+    <code>
+      <pre>
+        g = FiboGenerator.new
+        g.next # => 0
+        g.next # => 1
+        g.next # => 1
+        ...
+      </pre>
+    </code>
+  Facoltativo (e difficile): calcolare la somma dei numeri di Fibonacci pari e minori di 4 milioni (qui c'è <a href="http://katas.softwarecraftsmanship.org/?p=161" title="Michał Kwiatkowski &#8211; Sum of Even Fibonacci Numbers     &raquo; Software Craftsmanship – Katas">una soluzione</a>). 
+  </li>
+  <li>
+    Scrivi un programma Ruby che analizza l'access_log di Apache e restituisce le seguenti informazioni:
+    <ul>
+      <li>Elenco delle URL invocate e numero di invocazioni, ordinate per numero di invocazioni</li>
+      <li>Elenco delle URL che hanno provocato errori (status ≥ 400), con il numero di errori, in ordine di numero di errori.</li>
+    </ul>
+  </li>
+</ul>
+</li><li>
+Facoltativo: Un'altra guida di riferimento è Programming Ruby, la cui prima edizione è <a href="http://www.rubycentral.com/book/">consultabile liberamente online</a>.
+</li><li>
+Facoltativo: imparara Ruby con i <a href="http://github.com/edgecase/ruby_koans" title="edgecase's ruby_koans at master - GitHub">Ruby Koans</a>; è un tutorial interattivo.  (Per scaricare il progetto da github, installare git (per esempio su Ubuntu: "apt-get install git-core") e poi esegui "git clone git://github.com/edgecase/ruby_koans.git")
+</li><li>
+Facoltativo: una bella collezione di problemi di programmazione, con soluzioni in Ruby: <a href="http://www.rubyquiz.com/">www.rubyquiz.com</a>.
+</li><li>
+Facoltativo: una collezione di utili <a href="http://www.fepus.net/ruby1line.txt">programmi Ruby di una sola riga</a>. 
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+12-01-2011
+ Lezione 6 <br />
+    
+Creare un servizio web in Ruby.
+
+    <ul><li>
+Ripetere e completare l'esercizio del <a href="https://github.com/xpmatteo/web-applications-2011">servizio citazioni</a>.  Le istruzioni per l'installazione sono nel README.
+<ul>
+  <li>Aggiungere un logo</li>
+  <li>Modificare lo stile</li>
+  <li>Dopo ogni ricerca mettere un messaggio del tipo "Abbiamo trovato 321 citazioni che contengono 'Linux'"</li>
+</ul>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+18-01-2011
+ Lezione 7 <br />
+    
+Aggiornare dati con le form
+
+    <ul><li>
+Ripetere e completare l'esercizio del <a href="https://github.com/xpmatteo/web-applications-2011">servizio citazioni</a> (lezione 07).  Le istruzioni per l'installazione sono nel README.
+<ul>
+  <li>Fare funzionare l'editing di una citazione (per il salvataggio per il momento va bene modificare l'intero file e salvarlo per intero.)</li>
+  <li>Aggiungere uno "helper" per generare la text-area analogo allo helper che genera il campo di testo (vedi lib/html_helpers.rb)</li>
+  <li>Questo comporta di realizzare una form per l'editing, che sarà al 99 percento uguale alla form per la creazione di una citazione nuova.  Trovare una maniera di evitare la duplicazione</li>
+</ul>
+</li><li>
+Leggere questo articolo sul <a href="http://media.pragprog.com/articles/may_04_oo1.pdf">principio DRY</a> (pdf)
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+19-01-2011
+ Lezione 8 <br />
+     
+Uso del database.
+
+    <ul><li>
+Studiare i capitoli 1, 2, 3 di <a href="http://philip.greenspun.com/sql/">Sql for web nerds</a> di Philip Greenspun
+</li><li>
+Per riferimento consultare <a href="http://www.kitebird.com/articles/ruby-mysql.html">Using the Ruby MySQL Module</a>.
+</li><li>
+Risolvere l'esercizio della lezione 8 dal progetto su Github.  (Leggere il README!)
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+25-01-2011
+ Lezione 9 <br />
+     
+Associazioni (relazioni) fra entità.  Uno a molti, molti a molti.  Come si implementano in SQL.  Aggiungere attributi a una relazione.  Come evitare il problema delle N+1 query.  Aggiungere indici sulla chiave esterna per migliorare le performance.  Gestire l'evoluzione dello schema dei dati.  Osservare il piano di esecuzione di una query in Mysql con "explain".
+
+    <ul><li>
+Risolvere gli esercizi nel README del <a href="https://github.com/xpmatteo/web-applications-2011">progetto per questa lezione (09)</a>.
+</li><li>
+Leggere (e capire) questo articolo sul problema delle <a href="the-n%2b1-queries-problem.html">N+1 queries</a> (aggiornato).
+</li><li>
+Esercizio: Vogliamo realizzare un’applicazione per la gestione di una biblioteca. La biblioteca conserva una collezione di <strong>documenti</strong>. I documenti sono conservati 
+in diverse <strong>copie</strong>, ciascuna delle quali può essere <strong>in prestito</strong> presso un diverso 
+<strong>utente</strong>. Ciascun utente della biblioteca può avere <strong>donato</strong> una copia di un 
+libro, e anche questo fatto deve essere rappresentato nel database. Le date di donazione, di prestito e di restituzione devono pure essere rappresentate.
+Realizzare il modello dei dati per supportare tutte le funzionalità menzionate: modello entità-relazioni e codice SQL 
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+26-01-2011
+ Lezione 10 <br />
+    
+Sessioni, cookies, autenticazione, protezione dell'accesso.
+
+    <ul><li>
+Ripassare <a href='http://philip.greenspun.com/seia/'>Greenspun</a>, capitolo 2, Basics.
+</li><li>
+Risolvere gli esercizi nel README del <a href="https://github.com/xpmatteo/web-applications-2011">progetto per questa lezione (10)</a>.
+</li><li>
+Se proprio volete fare altri esercizi oltre a quelli nel README:
+<ul>
+  <li>Aggiungere il ruolo "admin".  Un admin può listare tutti gli utenti del sito e vedere le loro email</li>
+  <li>Aggiungere la possibilità di chiedere l'"amicizia" di un altro utente.  L'utente destinatario può approvare la richiesta oppure negarla.</li>
+  <li>Sulla pagina personale dell'utente loggato, devo poter vedere le mie richieste di amicizia</li>
+  <li>Sulla pagina personale degli utenti (es. /users/show/123) devono vedersi i link a tutte le quote che hanno aggiunto, e a tutti i loro "amici"</li>
+</ul>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+01-02-2011
+ Lezione 11 <br />
+    
+Sicurezza. Sql Injection, Cross-site-scripting.
+
+    <ul><li>
+Studiare <a href="http://unixwiz.net/techtips/sql-injection.html" title="SQL Injection Attacks by Example">SQL Injection Attacks by Example</a>
+</li><li>
+Studiare <a href="http://en.wikipedia.org/wiki/Cross-site_scripting" title="Cross-site scripting - Wikipedia, the free encyclopedia">Cross-site scripting su Wikipedia</a>
+</li><li>
+Leggere il capitolo <a href="http://philip.greenspun.com/seia/discussion" title="Discussion">Discussion</a> di Greenspun.
+</li><li>
+Facoltativo: Leggere <a href="http://philip.greenspun.com/seia/scaling">Scaling</a> da Greenspun
+</li><li>
+(Facoltativo) Google TechTalks: <a href="http://video.google.com/videoplay?docid=5159636580663884360">How To Break Web Software &mdash; A look at security vulnerabilities in web software</a>
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+</ul>
+
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/aw/diario2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:56:45 GMT -->
+</html>
