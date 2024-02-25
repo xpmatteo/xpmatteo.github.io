@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/so/esercizi by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Matteo Vaccari</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Matteo Vaccari</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../so.html'>Sistemi Operativi</a>
+      </h3>
+    
+
+    <style type="text/css" media="screen">
+pre {
+margin-left: 2em;
+}
+</style>
+<h2>Esercizi sulla programmazione Unix in C</h2>
+<p>Lo scopo di questi esercizi è di impratichire lo sviluppatore con le chiamate di sistema di Unix.  Una buona conoscenza di queste chiamate di sistema permette di realizzare applicazioni più semplici ed efficaci.   Non riporto le istruzioni per l&#8217;uso delle varie chiamate di sistema; mi aspetto che il lettore si studi le pagine del manuale di Linux relative a tutte le syscall usate negli esercizi.</p>
+<p>Per gli studenti del corso di Sistemi Operativi II, a.a. 2008/09, dovete essere in grado di risolvere <em>tutti</em> gli esercizi che non siano marcati con la (!), che significa &#8220;difficile.&#8221;</p>
+<h3>Come organizzare un semplice programma C</h3>
+<p>Per prima cosa: ogni programma va realizzato per stadi successivi.  Ad ogni stadio dobbiamo avere il programma funzionante, stabile, pulito e in ordine.  Conserviamo le versioni precedenti dei nostri programmi, ad esempio archiviando tutta la directory del progetto in un file .zip o .tgz ogni volta che raggiungiamo un punto fermo, e comunque almeno una volta ogni ora.</p>
+<p>Ogni programma C dovrebbe essere accompagnato da un Makefile; soprattutto se il programma è organizzato in più di un modulo.  Un esempio di Makefile per un programma composto da un solo modulo è il seguente:</p>
+<span class="caps">CFLAGS</span>=-Wall -std=c99
+myshell: myshell.o
+gcc $(<span class="caps">CFLAGS</span>) myshell.o -o myshell
+<p>Quando il nostro programma contenga più di un modulo, è buona norma realizzare per ogni file .c un file .h che contenga tutte le dichiarazioni necessarie per usare le funzioni e le variabili dichiarate nel .c. Un esempio di Makefile per un programma composto di più moduli:</p>
+<pre>
+  CFLAGS=-Wall -std=c99
+
+  OBJECTS=foo.o bar.o
+  OBJECTS_PRODUCTION= $(OBJECTS) main.o 
+  OBJECTS_TEST=$(OBJECTS) test_foo.o test_bar.o main_test.o
+
+  myshell: $(OBJECTS_PRODUCTION)
+  	gcc $(CFLAGS) $(OBJECTS_PRODUCTION) -o myshell
+
+  test:  $(OBJECTS_TEST)
+  	gcc $(CFLAGS) $(OBJECTS_TEST) -lcgreen -o test
+  	./test
+
+  clean:
+  	rm -rf *.o *~ *.zip myshell test
+</pre>
+<p>Questo makefile prevede la compilazione di due eseguibili; uno è l&#8217;eseguibile di <em>produzione</em>, ovvero il programma che effettivamente vogliamo realizzare; l&#8217;altro è l&#8217;eseguibile di test, che contiene i <em>test unitari</em>.  L&#8217;uso di test unitari permette di sviluppare in maniera molto più efficace, tanto che sono diventati <em>la norma</em>, ovvero <em>lo stato dell&#8217;arte</em> nella pratica della programmazione.</p>
+<p>E&#8217; importante scrivere un makefile, per non essere costretti a digitare ogni volta come scimmiette i comandi per compilare.  Il lavoro meccanico deve essere lasciato alla macchina; il nostro tempo va impiegato per compiti che richiedono intelletto.</p>
+<blockquote>
+[the process of computer programming] &#8220;should be very fascinating. There need be no real danger of it ever becoming a drudge, for any processes that are quite mechanical can be be turned over to the machine itself.&#8221;
+&mdash; Alan Turing, citato in <a href="http://books.google.it/books?id=a_QApZdZOB0C">The Engines of Logic</a>, p. 192.
+</blockquote>
+<h3>L&#8217;ordine è essenziale</h3>
+<p>Non consegnate codice male indentato.  E&#8217; una cosa che denota sciatteria e assenza di cura per i particolari.  Non c&#8217;è bisogno di dire che la cura dei dettagli è una qualità importante per un programmatore.</p>
+<pre>
+// che schifo!  Tutto indentato a casaccio
+int main() {
+close(1);    
+  // se non metto spazi dopo ogni segno di interpunzione non
+  // si riesce a leggere bene.
+  int fd=open("/tmp/output",O_WRONLY|O_TRUNC|O_CREAT,0777); 
+  if (fd &lt; 0) {
+    perror("open fallita"); 
+  exit(1);
+  }
+
+execlp("ls", "ls", "/etc", NULL);
+ perror("exec fallita");
+   exit(1);
+}  
+</pre>
+<p>Non è meglio questo?</p>
+<pre>
+// uno sviluppatore che sa il fatto suo si vede anche dall'ordine.
+int main() {
+  close(1);    
+  // uno spazio dopo ogni virgola (non prima), spazi prima e dopo gli
+  // operatori come "|" o "="
+  int fd = open("/tmp/output", O_WRONLY | O_TRUNC | O_CREAT, 0777); 
+  if (fd &lt; 0) {
+    perror("open fallita"); 
+    exit(1);
+  }
+  execlp("ls", "ls", "/etc", NULL);
+  perror("exec fallita");
+  exit(1);
+}  
+</pre>
+<h3>Esercizio -1.  Trova l&#8217;errore</h3>
+<p>Esamina questo programma: vedi l&#8217;errore?  Se non lo vedi, non hai le minime conoscenze di programmazione C per proseguire.  Prenditi il Kernighan &amp; Ritchie e fai i tuoi compiti.  Lo scopo di questi esercizi è di imparare le chiamate di sistema Unix, non imparare la programmazione C tout court.</p>
+<pre>
+int main() {
+  char *buf;
+  while (1) {
+    int nread = read(0, buf, BUF_SIZE);
+    if (nread &lt; 0) {
+      perror("read"); exit(EXIT_FAILURE);
+    }
+    write(1, buf, nread);
+  }
+  return 0;
+}    
+</pre>
+<p>E in questo?  Lo vedi l&#8217;errore?</p>
+<pre>
+int main() {
+  struct stat *buf;
+  while (1) {
+    stat("/etc/passwd", buf);
+    printf("file size is %lld\n", buf-&gt;st_size);
+  }
+  return 0;
+}    
+</pre>
+<p>Altro errore:</p>
+<pre>
+  char *pid = (char*) getpid();
+  printf("%s", pid);
+</pre>
+<h3>Esercizio 0.  Redirezione</h3>
+<p>Scrivere un programma C equivalente al seguente comando di shell:</p>
+<pre>
+$ ls /etc &gt; /tmp/output
+</pre>
+<p>Come è noto, la ragione principale per cui in Unix l&#8217;esecuzione di un programma comporta due chiamate separate fork(2) ed exec(2) è che fra la prima e la seconda, il processo figlio può manipolare i propri file descriptor per implementare le redirezioni.  In questo semplice esercizio la fork(2) non è necessaria.  Si risolve facilmente:</p>
+<pre>
+int main() {
+  // Chiudo standard output
+  close(1);    
+
+  // Apro il file su cui devo ridirigere standard output.  
+  // O_TRUNC significa "se il file esiste, tronca la lunghezza a 0"
+  // O_CREAT significa "se invece il file _non_ esiste, crealo"
+  // Poiché abbiamo usato l'opzione O_CREAT dobbiamo passare anche
+  // un terzo argomento che rappresenta i permessi che vogliamo
+  // dare al file nel caso questo venga creato.
+  // Mi aspetto che il file descriptor restituito sia 1, perché
+  // dovrebbe essere il più piccolo fd non in uso.
+  int fd = open("/tmp/output", O_WRONLY | O_TRUNC | O_CREAT, 0777); 
+  
+  // Dopo _ogni_ chiamata di sistema bisogna verificare se ha avuto 
+  // successo.  In questo caso se fallisce, terminiamo il programma
+  // con un messaggio di errore informativo.
+  if (fd &lt; 0) {
+    perror("open fallita"); 
+    exit(1);
+  }
+
+  execlp("ls", "ls", "/etc", NULL);
+  
+  // se siamo qui, la execlp(2) ha fallito!
+  perror("exec fallita");
+  exit(1);
+}
+</pre>
+
+<p>Ogni programma va testato: il test di accettazione per questo programma è il seguente:</p>
+<pre>
+$ ./a.out                           # eseguo il mio programma
+$ ls /etc &gt; /tmp/output-confronto   # eseguo un comando shell equivalente
+$ diff /tmp/output /tmp/output-confronto
+                                    # se diff non dice niente, vuol dire 
+                                    # che i due file sono uguali.
+</pre>
+<p>Mi raccomando lettore: non essere asino!  Esegui il test di accettazione.  Non scherzo.</p>
+<p>Scrivere programmi analoghi che implementano i seguenti comandi di shell:</p>
+<pre>
+$ ls /etc &gt;&gt; /tmp/output
+</pre>
+<p>Mi aspetto che se lo invoco più volte, il file /tmp/output contenga il risultato delle successive invocazioni.  Il test di accettazione:</p>
+<pre>
+$ ./a.out
+$ ./a.out
+$ ls /etc &gt; /tmp/output-confronto   
+$ ls /etc &gt;&gt; /tmp/output-confronto   
+$ diff /tmp/output /tmp/output-confronto
+    # se diff non dice niente, vuol dire che i due file sono uguali.
+</pre>
+<p>Altro esercizio:</p>
+<pre>
+$ tr o 0 &lt; /etc/passwd &gt; /tmp/output
+</pre>
+<p>Mi aspetto di trovare in /tmp/output una copia di /etc/passwd con tutte le &#8220;o&#8221; cambiate in &#8220;0&#8221;</p>
+<pre>
+$ ls /tmp foobar &gt; /tmp/output 2&gt; /tmp/error
+</pre>
+<p>Mi aspetto di trovare in /tmp/output la lista dei file contenuti in /tmp, e in /tmp/error il messaggio &#8220;foobar: No such file or directory&#8221;</p>
+<pre>
+$ ls /tmp foobar &gt; /tmp/output 2&gt;&amp;1
+</pre>
+<p>Mi aspetto di trovare in /tmp/output sia la lista dei file di /tmp, che il messaggio di errore.</p>
+<h3>Esercizio 1.  Processi che comunicano tramite pipe(2)</h3>
+<p>Scrivere un programma C equivalente al seguente comando di shell:</p>
+<pre>
+$ ls /etc | more
+</pre>
+<p>Ovviamente, perché i due processi possano condividere la pipe, la chiamata a pipe(2) deve essere fatta prima della chiamata a fork(2).</p>
+<p>Altri esercizi: implementare programmi C equivalenti ai comandi:</p>
+<pre>
+$ ls /etc | grep foo &gt; /tmp/foo
+$ cat &lt; /etc/passwd | grep oo &gt;&gt; /tmp/foo 2&gt; /tmp/bar
+$ cat /etc/* | sort | uniq -c
+</pre>
+<p>Per ciascuno, verificare che il comportamento del nostro programma C sia uguale a quello del comando di shell.</p>
+<h3>Esercizio 2. Copia di file</h3>
+<p>Scrivere un file che copia un file in un altro.  Primo livello: funziona correttamente solo per file di dimensione minore di 8KB.</p>
+<p>Pseudocodice:</p>
+<pre>
+apre il primo file (argv[1])
+crea il secondo file (argv[2])
+legge i primi 8Kb con read(2)
+copia i byte con write(2)
+chiude entrambi i file
+exit(0)
+</pre>
+<p>Test:</p>
+<pre>
+./copia /etc/passwd /tmp/copia-di-passwd
+diff /etc/passwd /tmp/copia-di-passwd
+(se "diff" dice qualcosa vuol dire che i file non sono uguali)
+</pre>
+<h4>Copia di file, secondo livello</h4>
+<p>Usare un ciclo per copiare a colpi di 8KB file di dimensioni arbitrarie.</p>
+<p>Test:</p>
+<pre>
+  n=0; while [ $n -lt 1000000 ]; do echo $n &gt;&gt; /tmp/bigfile; n=$(($n + 1)); done
+  ./copia /tmp/bigfile /tmp/copia-di-bigfile
+  diff /tmp/bigfile /tmp/copia-di-bigfile
+</pre>
+<p>Domande:</p>
+<ul>
+	<li>Verificare la differenza di performance (su file di grosse dimensioni, almeno 10MB) al variare della dimensione del buffer; provare con 8192, 4096, 100, 10, 1. Spiegare il perché della differenza.</li>
+	<li>Riscrivere il programma con fread(3) e fwrite(3) al posto di read(2) e write(2). C&#8217;è ancora differenza al variare della dimensione del buffer? Perché?</li>
+</ul>
+<h3>Esercizio 3: File mappati in memoria</h3>
+<p>Usare mmap(2) per mappare in memoria un file il cui nome viene passato come argomento.  Poi, iterare su tutti i caratteri del file e produrre scritte come nel seguente esempio:</p>
+<pre>
+$ echo ciao &gt; tmp.file
+$ ./a.out tmp.file
+Il carattere alla posizione 0 è 'c'
+Il carattere alla posizione 1 è 'i'
+Il carattere alla posizione 2 è 'a'
+Il carattere alla posizione 3 è 'o'
+Il carattere alla posizione 4 è '
+'
+</pre>
+<p>Pseudocodice:</p>
+<pre>
+  apre il file il cui nome è in argv[1] con open(2)
+  ottiene la lunghezza del file con fstat(2)
+  mappa il file in memoria con mmap(2)
+  per ogni carattere 
+    esegui la stampata
+</pre>
+<h3>Esercizio 4: copiare file con mmap</h3>
+<p>Scrivere un file che copia il file il cui nome è passato come primo argomento in un file il cui nome è passato come secondo argomento.  Se il secondo file non esiste, deve essere creato.  Se il secondo file esiste, deve essere troncato.</p>
+<p>Pseudocodice:</p>
+<pre>
+main(argc, argv)
+      /* il nome del file di input è passato come argomento: si trova in argv[1] */
+      /* il nome del file di output è passato come argomento: si trova in argv[2] */
+      apri il file di input con open(2)
+      crea il file di output con open(2)
+      trova la lunghezza del file di input con fstat(2)
+      estendi la lunghezza del file di output con ftruncate(2) per farla uguale al file di input
+      mappa entrambi i file in memoria con mmap(2)
+      copia l'input sull'output con memcpy(3)
+      chiudi i due file
+</pre>
+<h3>Esercizio 5: i metadati dei file</h3>
+<p>Primo livello: scrivere un programma che accetta come argomento un nome di file e descrive i metadati del file, come da questo esempio:</p>
+<pre>
+$ ./lista /etc/passwd
+Type Mode  N.links Uid Gid Size Name
+file 0644  1       0   1   1932 /etc/passwd
+$
+$ ./lista blablabla
+blablabla: No such file or directory
+</pre>
+<p>Discussione.  Per risolvere questo esercizio dobbiamo essere in grado di:<br />
+<ul><br />
+  <li>Creare una variabile di tipo &#8220;struct stat&#8221; e passarla alla chiamata stat(2) o varianti.</p>
+</li>
+  <li>Capire come interpretare i tipi un po&#8217; misteriosi che compongono gli elementi della &#8220;struct stat&#8221;.         Ad esempio, come faccio a sapere che cosa è un &#8220;dev_t&#8221;?  Non ci sono magie: il tipo dev_t deve essere definito da qualche parte, e questo &#8220;da qualche parte&#8221; deve essere presente in qualcuno dei file di include che passiamo al compilatore C.  Il compilatore C <em>non accetterebbe</em> il nostro programma se non riuscisse a trovare la definizione di dev_t.  Il primo indizio è andare a cercare nei file di include che abbiamo passato al nostro programma.  Ad esempio, <code>#include &lt;sys/types.h&gt;</code><br />
+    fa riferimento a /usr/include/sys/types.h.  Ben presto mi accorgo che la definizione non si trova lì, ma in altri file che sono a loro volta inclusi.  Probabilmente mi ritroverò a decifrare macro.  Ricordarsi che la miglior maniera di trovare informazioni in fretta è usare grep(1): <code>grep -r /usr/include dev_t</code>.  </li>
+
+<li>
+Capire come convertire le informazioni contenute nella struct stat nel formato di stampa richiesto dal problema.  Nel fare questo, conviene definire delle piccole funzioni apposta.  Ad esempio, invece di mettere una catena di &#8220;if&#8221; innestati immersa nel codice, così
+<pre>
+char *file_type;
+if (...è un file regolare) {
+  file_type = "file";
+} else (... è una directory) {
+  file_type = "dir";
+}
+printf("%s", file_type);
+</pre>
+<p>molto meglio incapsulare la catena di if in una funzione:</p>
+<pre>
+printf("%s", format_file_type(buf.st_mode));  
+</pre>
+</li>
+</ul>
+<h4>Metadati dei file: secondo livello</h4>
+<p>Se il nome di file rappresenta una directory, listare il contenuto di essa</p>
+<pre>
+$ ./lista /etc
+Type Mode  N.links Uid Gid Size Name
+file 0644  1       0   1   1932 csh.login
+dir  0644  1       0   1   1932 cups
+file 0644  1       0   0    388 passwd
+file 0644  1       0   112 1234 profile
+</pre>
+<h4>Metadati dei file: terzo livello (!)</h4>
+<p>Se viene passato l&#8217;argomento &#8220;-R&#8221;, listare ricorsivamente le sottodirectory.</p>
+<pre>
+$ ./lista -R /etc
+directory /etc:
+Type Mode  N.links Uid Gid Size Name
+file 0644  1       0   1   1932 csh.login
+dir  0644  1       0   1   1932 cups
+file 0644  1       0   0    388 passwd
+file 0644  1       0   112 1234 profile
+
+directory cups:
+Type Mode  N.links Uid Gid Size Name
+file 0644  1       0   112 1234 printers.conf
+$
+</pre>
+<h3>Esercizio 6. Un clone di grep(1)</h3>
+<p>Sviluppare il comando sgrep (simple grep) che si comporta come grep.  Caso base:</p>
+<pre>
+$ sgrep matteo /etc/passwd
+matteo:x:1000:100:,,,:/home/matteo:/bin/bash
+$
+</pre>
+<p>Discussione.  La maniera più semplice di sviluppare questo comando è</p>
+<pre>
+  apri il file in argv[1] con fopen(3)
+  leggi il file riga per riga con fgets(3)
+  confronta ciascuna riga con strstr(3)
+</pre>
+<h4>Clone di grep(1), secondo livello</h4>
+<p>Supportare più di un file sulla riga di comando.  Esempio:</p>
+<pre>  
+$ grep root /etc/passwd /etc/motd /usr/share/dict/words 
+/etc/passwd:root:x:0:0::/root:/bin/bash
+/etc/passwd:operator:x:11:0:operator:/root:/bin/bash
+/usr/share/dict/words:bitterroot
+/usr/share/dict/words:root
+/usr/share/dict/words:rooted
+/usr/share/dict/words:rooter
+/usr/share/dict/words:rooting
+/usr/share/dict/words:roots
+/usr/share/dict/words:taproot
+/usr/share/dict/words:taproots
+/usr/share/dict/words:uproot
+/usr/share/dict/words:uprooted
+/usr/share/dict/words:uprooting
+/usr/share/dict/words:uproots
+$
+</pre>
+<p>Notare che ogni riga che corrisponde al pattern contiene come prefisso il nome del file seguito da &#8216;:&#8217;.</p>
+<h4>Clone di grep(1), terzo livello (!)</h4>
+<p>Riscrivere l&#8217;implementazione senza usare stdio.  Per ogni file passato come argomento:</p>
+<pre>
+apri il file con open(2)
+mappa il file in memoria con mmap(2)
+leggi le righe con una funzione get_next_line() sviluppata da noi
+confronta la riga con il pattern usando strstr(3)
+</pre>
+<p>Confrontare la performance delle due implementazioni su file di grosse dimensioni.  C&#8217;è differenza?</p>
+<h3>Esercizio 7: il processo invincibile</h3>
+<p>Vogliamo scrivere un programma che, come un eco, stampa sul suo standard output quello che riceve da standard input.  Come ulteriore complicazione, vogliamo che questo processo ignori il segnale <span class="caps">SIGINT</span>, inviato generalmente con control-C sul terminale.</p>
+<p>Esempio:</p>
+<pre>
+$ ./echo 
+ciao
+rispondo: ciao
+^C
+non muoio!
+bla
+rispondo: bla
+^\
+Quit
+$
+</pre>
+<h4>Il processo invincibile, primo livello: siamo ancora vulnerabili</h4>
+<p>Pseudo codice:</p>
+<pre>
+  while true
+    leggi un massimo di 100 caratteri da stdin con read(2)
+    scrivi "rispondo: " su stdout con write(2), 
+    scrivi con write(2) la riga letta prima 
+</pre>
+<h4>Il processo invincibile, secondo livello: installiamo la gestione di <span class="caps">SIGINT</span></h4>
+<p>Il programma resta identico al primo livello, ma in aggiunta prima di iniziare l&#8217;attività    installa uno handler per <span class="caps">SIGINT</span> usando signal(2) oppure sigaction(2).   Nello handler stampa &#8220;non muoio!&#8221;.</p>
+<h3>Esercizio 8. Echo server con <span class="caps">FIFO</span></h3>
+<p>Realizziamo un semplice sistema client-server che si scambia messaggi tramite oggetti <span class="caps">FIFO</span>.</p>
+<p>Primo livello: il client scrive su un oggetto <span class="caps">FIFO</span> ben noto un messaggio.  Il server dimostra di averlo ricevuto stampandolo sul suo standard output.</p>
+<p>E&#8217; facile scrivere una versione bash di questo sistema client-server:</p>
+<pre>
+# echo_client.sh
+fifo_server=/tmp/echo_server.fifo
+mkfifo $fifo_server
+while true; do
+    read -p "&gt; " message
+    echo "$message"
+done
+
+# echo_server.sh
+server_fifo=/tmp/echo_server.fifo
+mkfifo $fifo_server
+while true; do
+  cat $fifo_server
+done
+</pre>
+
+<p>Dobbiamo realizzare una versione C di questi due programmi bash.  Il bello è che possiamo scrivere prima il client in C, e testarlo con il server in bash, o viceversa.  Usano lo stesso protocollo.</p>
+<p>Esempio:</p>
+<pre>
+  $ ./echo_client      $ ./echo_server
+  &gt; ciao               ciao
+  &gt; pippo              pippo
+</pre>
+<p>Si noti che posso connettere anche più di un client contemporaneamente allo stesso server.</p>
+<p>Pseudocodice:</p>
+<pre>
+  client:
+    crea l'oggetto fifo /tmp/echo_server.fifo con mkfifo(3)
+    (se il fifo già esiste ignora l'errore e prosegue)
+    apre il fifo con open(2)
+    (se la open(2) fallisce termina con un messaggio di errore)
+    while true
+      legge una riga da stdin con read(2)
+      stampa la riga sulla fifo con write(2)
+
+  server:
+    crea l'oggetto fifo /tmp/echo_server.fifo con mkfifo(3)
+    apre il fifo con open(2)
+    while true
+      leggi una riga dal fifo
+      stampa la riga su stdout
+</pre>
+<h4>Echo server, Secondo livello</h4>
+<p>Vogliamo che il server risponda al client, in modo che il client stampi la risposta ottenuta dal server.  Non possiamo usare la fifo del server per questo, perché sarebbe condivisa fra tutti i client.  Dobbiamo usare un <span class="caps">FIFO</span> specifico per rispondere a ciascun client.  Costruiamo il nome del fifo dal process id del client; però il client ci deve comunicare in ogni messaggio il suo pid.  Decidiamo che il messaggio prende la forma &#8220;(pid) (resto del messaggio)&#8221;.  La versione bash resta come esempio.  (Si noti che $$ è la variabile built-in di bash che contiene il process id della bash stessa.)</p>
+<pre>
+# echo_client.sh
+fifo_server=/tmp/echo_server.fifo
+fifo_client=/tmp/echo_client.$$
+mkfifo $fifo_server
+mkfifo $fifo_client
+while true; do
+    read -p "&gt; " message
+    echo "$$ $message" &gt; $fifo_server
+    cat $fifo_client
+done
+
+# echo_server.sh
+fifo_server=/tmp/echo_server.fifo
+mkfifo $fifo_server
+while true; do
+    message=$(cat $fifo_server)
+    # dimostra che hai ricevuto qualche cosa
+    echo "$message"
+    # estrai il pid dal messaggio
+    client_pid=$(echo $message | cut -f 1 -d ' ')
+    # costruisci il nome del fifo su cui dobbiamo rispondere
+    fifo_client=/tmp/echo_client.$client_pid
+    echo "$message" &gt; $fifo_client
+done
+</pre>
+
+<p>Lo pseudocodice della versione C:</p>
+<pre>
+  client:
+    crea l'oggetto fifo /tmp/echo_server.fifo 
+    ottiene il proprio pid con getpid(2)
+    crea l'oggetto fifo /tmp/echo_client.(pid del client)
+    while true
+      leggi una riga da stdin
+      stampa pid + blank + la riga sul fifo del server
+      leggi una riga dal fifo del client
+    
+  server:
+    while true
+      leggi una riga dal fifo del server
+      stampa la risposta sul stdout
+      estrai dal messaggio il pid del client
+      stampa la risposta sul fifo del client
+</pre>
+<h3>Esercizio 9: una semplice shell</h3>
+<p>Lo scopo di questo esercizio è di impratichirsi con le chiamate di sistema wait(2) e varianti, fork(2), exec(2) e varianti.</p>
+<p>Primo livello: eseguiamo solo comandi composti da una sola &#8220;parola&#8221;.</p>
+<p>Esempio:</p>
+<pre>
+$ ./myshell
+myshell&gt; ls&lt;RETURN&gt;
+(lista dei file della directory corrente)
+myshell&gt; 
+</pre>
+<p>Pseudocodice:</p>
+<pre>
+while true
+  print "myshell&gt; "
+  read command
+  fork
+  if child then
+    execute command
+  else
+    wait for child
+  end
+end
+</pre>
+<h4>Semplice shell, secondo livello: eseguiamo anche comandi composti da piu&#8217; di una parola.</h4>
+<p>Esempio:</p>
+<pre>
+  $ ./myshell
+  myshell&gt; ls foo bar baz
+  baz: file does not exist
+  foo bar
+  myshell&gt;
+</pre>
+<p>Fra le varianti di exec(2) che possiamo usare, la piu&#8217; conveniente e&#8217;<br />
+probabilmente la execvp(2), perche&#8217; accetta un array di argomenti di<br />
+lunghezza arbitraria.  Ai fini dell&#8217;esercizio possiamo usare un array<br />
+di argomenti di una lunghezza massima di (diciamo) dieci elementi.</p>
+<p>E&#8217; importante testare l&#8217;algoritmo che separa gli argomenti in un<br />
+array di stringhe separatamente rispetto al resto del programma.  Ad<br />
+esempio usando un &#8220;main&#8221; apposta che esegue una c.d. &#8220;test harness&#8221;<br />
+per testare questo algoritmo.</p>
+<p>Quello che dobbiamo fare è realizzare una funzione che <em>parsa</em> il comando, ovvero converte la riga di comando digitata dall&#8217;utente in una struttura dati, che sia conveniente per quello che dovremo fare dopo.  Ad esempio, sapendo che la execv(2) e la execvp(2) richiedono un array di argomenti terminato da un puntatore nullo, conviene fare in modo che la nostra routine di parsing produca un array fatto proprio così.</p>
+<p>Alla fine dobbiamo definire una struttura dati che rappresenti il comando inserito dall&#8217;utente.  La funzione che parsa la riga popola la struttura dati.  Questa cosa è spiegata bene da Martin Fowler in <a href="http://martinfowler.com/dslwip/SemanticModel.html">Semantic Model</a>.</p>
+<h4>Semplice shell, terzo livello: implementiamo alcuni comandi built-in.</h4>
+<p>Il comando &#8220;cd&#8221; non puo&#8217; essere sensatamente implementato come un comando eseguito tramite fork+exec.  Perché?  Pensaci.</p>
+<p>Alcuni comandi, come &#8220;cd(1)&#8221;, &#8220;exit(1)&#8221;, &#8220;exec(1)&#8221; non sono eseguiti tramite fork+exec, ma sono implementati direttamente dalla shell.  Implementare almeno &#8220;cd(1)&#8221;, &quot;pwd(1) e &#8220;exit(1)&#8221;.  Esempio:</p>
+<pre>
+$ ./myshell
+myshell&gt; ls
+(lista dei file della directory corrente)
+myshell&gt; pwd
+/home/matteo
+myshell&gt; cd /tmp
+myshell&gt; pwd
+/tmp
+myshell&gt; ls -l
+(lista dei file della directory /tmp)
+myshell&gt; exit
+$ 
+</pre>
+<h4>Semplice shell, quarto livello: implementiamo i comandi in <em>background</em></h4>
+<p>Esempio:</p>
+<pre>
+$ ./myshell
+myshell&gt; sleep 5 &amp;
+processo con pid 1345 in background
+myshell&gt; sleep 5 &amp;
+processo con pid 1346 in background
+myshell&gt; sleep 5 &amp;
+processo con pid 1347 in background
+myshell&gt; 
+myshell&gt; 
+myshell&gt; 
+processo con pid 1345: terminato con status 0
+processo con pid 1346: terminato con status 0
+processo con pid 1347: terminato con status 0
+myshell&gt;
+</pre>
+<p>Come si vede dall&#8217;esempio, non è sufficiente, per implementare i comandi in background, evitare di fare la wait(2) per restituire subito il prompt; è necessario anche verificare, prima di stampare il prompt, se uno qualsiasi dei processi figli che abbiamo generato è terminato.  Se non lo facessimo, tutti i processi in background terminati resterebbero &#8220;zombie&#8221;.  Quindi, prima di stampare il prompt, invochiamo una funzione apposita &#8220;wait_for_terminated_children()&#8221;.</p>
+<p>La syscall da chiamare non è la wait(2), perché quest&#8217;ultima blocca sempre, e noi non vogliamo restare bloccati.  Vogliamo solo sapere se uno qualsiasi dei nostri figli è terminato, nel qual caso diamo notifica all&#8217;utente.  La syscall giusta in questo caso è la waitpid(2)</p>
+<pre>
+wait_for_terminated_children()
+  chiama waitpid in maniera non bloccante
+  finché waitpid dice che un processo figlio è terminato, 
+    stampa una riga di notifica 
+</pre>
+<h4>Semplice shell, quinto livello.  Implementare pipe e redirezioni (!)</h4>
+<p>Iniziare con &#8220;&gt;&#8221;, poi implementare gli altri: &#8220;&lt;&#8221;, &#8220;&gt;&gt;&#8221;, &#8220;2&gt;&#8221;, &#8220;2&gt;&amp;1&#8221;, &#8220;&lt;&lt;&#8221;, &#8220;|&#8221;. Gli ultimi due sono più difficili. Limitarsi al caso di una pipe fra due soli comandi.</p>
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/so/esercizi by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:01 GMT -->
+</html>

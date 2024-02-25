@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="it">
+  
+<!-- Mirrored from matteo.vaccari.name/so/diario2005 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matteo Vaccari &mdash; Diario per Sistemi Operativi I e II, a.a. 2004/5</title>
+    <link rel="stylesheet" href="matteo.css" />
+  </head>
+  <body>
+    <h2>Diario per Sistemi Operativi I e II, a.a. 2004/5</h2>
+    
+      <h3 class="notopmargin">
+        <a href="../index.html">Matteo Vaccari</a>
+        &gt;
+        <a href='../so.html'>Sistemi Operativi</a>
+      </h3>
+    
+
+    
+<div class="ahem">
+
+<p>
+Tutte le letture e gli esercizi che non siano esplicitamente marcati come
+"facoltativi" sono parte del programma di esame.
+</p>
+
+  <p>
+  I lucidi che potete trovare in questa pagina <strong>non sono
+  un sostituto per il libro di testo</strong> o per gli altri materiali
+  che vi segnalo.  I lucidi <em>non contengono un discorso
+  completo</em>, ma solo una traccia, che è comprensibile soltanto nel
+  contesto di quello che dico a lezione quando li proietto.  
+  </p>
+
+  <p>Lo scopo di
+  rendervi disponibili le slide è di lasciarvi una <em>traccia</em> dei
+  discorsi che abbiamo fatto a lezione.  Per chi non era presente,
+  l'unica utilità delle slide è come <strong>promemoria</strong> degli
+  argomenti che sono stati trattati.
+  </p>
+
+  <p>
+  Insomma, ripeto: <strong>non limitate il vostro studio ai lucidi!</strong>  
+  </p>
+</div>
+
+<br />
+<br />
+
+<ul>  
+  <li>
+    
+
+28-02-2005
+ Lezione 0 <br />
+    
+Introduzione; scopo e funzioni di un SO; introduzione storica;
+complementi di architettura dei calcolatori.
+
+    <ul><li>
+Tanenbaum capitolo 1
+</li><li>
+<a href="slides2005/slides00.pdf">lucidi</a>
+</li><li>
+Letture facoltative:
+<ul>
+<li><a href="http://www.bell-labs.com/history/unix/">The Creation of the UNIX Operating System</a>
+<li><a href="http://cm.bell-labs.com/cm/cs/who/dmr/cacm.html">The UNIX
+Time-Sharing System</a> &egrave; il classico articolo su Unix, uscito
+nel 1974 e rivisto nel 1978 (<a href="http://cm.bell-labs.com/cm/cs/who/dmr/cacm.pdf">PDF</a>)
+<li><a href="http://www.oreilly.com/catalog/opensources/book/appa.html">La controversia fra Linus Torvalds e Andrew Tanenbaum</a>
+<li><a href="http://www.cryptonomicon.com/beginning.html">In the
+Beginning was the Command Line</a>, di Neal Stephenson: un articolo
+fra il serio e il faceto sull'evoluzione dei sistemi operativi, scritto
+da un autore di fantascienza 
+</ul>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+03-03-2005
+ Lezione 1 <br />
+    
+Processi e thread
+
+    <ul><li>
+Tanenbaum 2.1 &mdash; 2.2.5
+</li><li>
+<a href="slides2005/slides01.pdf">lucidi</a>
+</li><li>
+Studiare il manuale di fork(2), exec(2), wait(2), getpid(2),
+getppid(2), _exit(2), exit(3)
+</li><li>
+Esercizio: scrivete un programma C che faccia uso di tutte queste
+chiamate di sistema.  Ad esempio, scrivere una shell molto
+semplificata, partendo dallo pseudocodice nei lucidi, che stampi in
+output lo status restituito dai processi figli
+
+</li><li> Lettura facoltativa: andate su <a
+href="http://msdn.microsoft.com/">Microsoft Developer Network</a> e
+consultate la documentazione della chiamata CreateProcess()
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+07-03-2005
+ Lezione 2 <br />
+    
+Thread.  
+
+    <ul><li>
+Tanenbaum 2.2.3, 2.2.4, 2.2.5, 2.2.8, 2.3.1, 2.3.2
+</li><li>
+<a href="slides2005/slides02.pdf">lucidi</a>
+</li><li>
+Studiare le pagine di manuale di pthread_create(3), pthread_join(3),
+pthread_key_create(3), pthread_setspecific(3), pthread_getspecific(3)
+</li><li>
+Letture facoltative:
+<ul>
+<li><a href="http://www.tldp.org/FAQ/Threads-FAQ">Linux threads FAQ</a>
+<li>Sull'incidente del Therac-25: <a
+href="http://sunnyday.mit.edu/therac-25.html">Investigation paper</a>, 
+<a
+href="http://www.computingcases.org/case_materials/therac/therac_case_intro.html">Case
+Materials</a>
+</ul>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+10-03-2005
+ Lezione 3 <br />
+    
+Mutua esclusione.  Algoritmo di Peterson.  Primitive di comunicazione
+fra processi.  Semafori.  
+
+    <ul><li>
+Tanenbaum 2.3.3 &mdash; 2.3.6
+</li><li>
+<a href="slides2005/slides03.pdf">lucidi</a>
+</li><li>
+Letture facoltative:
+<ul>
+<li><a
+href="http://en.wikipedia.org/wiki/Edsger_Dijkstra">Edsger Dijkstra</a>
+sulla Wikipedia
+<li><a
+href="http://www.cs.utexas.edu/users/UTCS/notices/dijkstra/ewdobit.html">Necrologio 
+per Edsger Wybe Dijkstra</a>
+<li>
+<a href="http://www.cs.utexas.edu/users/EWD/ewd03xx/EWD340.PDF">The
+Humble Programmer</a> Dijkstra 1972 Turing Award lecture
+</ul>
+
+
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+
+21-03-2005
+ Lezione 4 <br />
+    
+Monitor; message passing; barriers.  
+Problema dei cinque filosofi.  Problema dei lettori e scrittori.
+La catena di programmazione C in Unix: gcc, make, gdb.
+
+    <ul><li>
+Tanenbaum 2.3.7 &mdash; 2.3.9, 2.4.1, 2.4.2
+</li><li>
+<a href="slides2005/slides04.pdf">lucidi</a>
+</li><li>
+Il comando make(1), il compilatore gcc(1):
+leggere la documentazione (info make, info gcc)
+</li><li>
+esercizio: scrivere una shell rudimentale (vedi lucidi)
+</li><li>
+esercizio: implementare i problemi di concorrenza che abbiamo studiato in C, con la libreria pthreads.
+</li><li>
+Letture facoltative:
+<ul>
+<li><a href="http://research.microsoft.com/~thoare/">La pagina
+personale di Tony Hoare</a> alla Microsoft Research
+</ul>
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+30-03-2005
+ Lezione 5 <br />
+    
+Scheduling nei sistemi batch e interattivi; scheduling in Unix e in
+Linux.  Come compilare e installare il kernel di Linux.
+
+    <ul><li>
+Tanenbaum 2.4.1, 2.4.2, 2.5, 2.6, 2.7, 10.3
+</li><li>
+<a href="slides2005/slides06.pdf">lucidi</a>
+
+</li><li> Leggere la <a href="http://www.digitalhermit.com/~kwan/kernel.html">
+Kernel Rebuild Guide</a> su come configurare, compilare ed installare
+il kernel
+
+</li><li>
+Leggere: il file <a
+href="README.linux-2.6.html">/usr/src/linux/README</a>
+</li><li>
+Leggere le pagine di manuale dei comandi ps(1) e top(1).
+
+</li><li> Letture facoltative: un'<a
+href="http://kerneltrap.org/node/view/517">intervista a Ingo
+Molnar</a>, <a
+href="http://interviews.slashdot.org/interviews/00/07/20/1440204.shtml?tid=99">un'altra
+intervista</a>. Molnar è (fra l'altro) l'autore dello scheduler O(1).
+
+</li><li> Esercizio: scaricate l'ultima versione del kernel di Linux (<a
+href="http://pisolo.crii.uninsubria.it/linux-2.6.4.tar.bz2">disponibile
+localmente su pisolo</a>), compilatela e installatela sul vostro PC.
+
+</li><li> Esercizio: scrivete un programma C che consuma molta CPU, eseguitelo
+e osservate la  priorità del processo peggiorare con il comando
+top(1).  Stoppate il processo con ctrl-Z e osservate la sua priorità
+migliorare gradualmente.
+
+</li><li> Esercizio: scrivete un programma basato sulla libreria pthread che
+risolve il problema produttore-consumatore.
+
+</li><li> Esercizio: implementate la soluzione del problema dei 5 filosofi
+utilizzando la libreria pthread.
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+04-04-2005
+ Lezione 6 <br />
+    
+Sulla sincronizzazione nel kernel.  Esempi di implementazione.
+Aggiungere una system call al kernel di Linux.
+
+    <ul><li>
+<a href="slides2005/slides-kernelsync.pdf">lucidi</a>
+</li><li>
+Svolgere l'esercizio presentato nei lucidi; consultare per riferimento
+il libro <a href="http://www.xml.com/ldd/chapter/book/">Linux Device
+Drivers</a> di Alessandro Rubini e Jonathan Corbet
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+07-04-2005
+ Lezione 7 <br />
+    
+Esercizio <a href="esercizio20050407/index.html">svolto in classe</a>:
+sviluppare una semplicissima shell.  
+<br />Completare l'esercizio:
+
+    <ul><li> 
+Accettare comandi con argomenti
+</li><li>
+Supportare i comandi in background
+</li><li> 
+(Facoltativo) Reimplementare i test utilizzando la libreria <a
+href="http://check.sourceforge.net/">check</a>, che è molto migliore
+del semplicissimo framework di test che ho improvvisato a lezione.
+</li><li>
+Lettura <b>non</b> facoltativa: <a
+href="http://junit.sourceforge.net/doc/testinfected/testing.htm">Test Infected</a>
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+11-04-2005
+ Lezione 8 <br />
+    
+Deadlock.  Esercitazioni con la libreria pthread.
+
+    <ul><li>
+Tanenbaum capitolo 3 tutto tranne 3.5.3, 3.5.4; e in più studiare la
+sezione 10.3.4
+</li><li>
+<a href="ese20050411/index.html">Esercizio</a> svolti in classe
+</li><li>
+<a href="slides2005/slides07.pdf">lucidi</a>
+
+</li><li> Lettura <strong>non</strong> facoltativa: <a
+href="http://dis.cs.umass.edu/~wagner/threads_html/tutorial.html">Getting
+Started With Posix Threads</a>.  (Nota: non è vero quello che si dice
+in questo tutorial, che la sleep(3) provoca un blocco di
+<em>tutti</em> i thread nel processo.  Su Linux, la sleep(3) fa
+dormire solo il thread che la chiama.  Esercizio: scrivere un
+programma che dimostra questo fatto.)
+
+</li><li> Lettura <strong>non</strong> facoltativa: le pagine di manuale di
+tutte le chiamate pthread_* e sem_* che abbiamo usato negli <a
+href="ese20050411/index.html">esercizi</a> svolti in classe oggi
+
+</li><li> Esercizio: completare l'esercizio svolto in classe con una
+implementazione alternativa del buffer che usi mutex e condition
+variables al posto dei semafori. 
+
+</li><li> Esercizio: implementare con la libreria pthread
+tutti gli algoritmi (quelli corretti e le "non-soluzioni")
+riguardanti: <ul> <li>mutua esclusione <li>problema dei 5 filosofi
+<li>problema "readers and writers" (vedi Tanenbaum) <li>problema dello
+"sleeping barber" (v. Tanenbaum) </ul>
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+14-04-2005
+ Lezione 9 <br />
+    
+Gestione della memoria.  Algoritmi di allocazione di memoria nel
+kernel: resource map allocator, power-of-two free lists, buddy system,
+zone allocator.
+
+    <ul><li>
+Tanenbaum  4.1, 4.2
+</li><li>
+<a href="slides2005/slides08.pdf">lucidi</a>
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+18-04-2005
+ Lezione 10 <br />
+    
+Memoria segmentata.  Memoria virtuale paginata. Multi-level page
+tables. TLB.
+
+    <ul><li>
+Tanenbaum  4.3, 4.4, 4.6, 4.7
+</li><li>
+Leggere il manuale dei comandi time(1), vmstat(1), free(1)
+</li><li>
+<a href="slides2005/slides09.pdf">lucidi</a>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+21-04-2005
+ Lezione 11 <br />
+    
+Memoria virtuale: algoritmi di rimpiazzo.  Architettura della memoria
+virtuale in Multics.  Architettura della memoria virtuale Intel x86.
+
+    <ul><li>
+Tanenbaum 4.4, 4.6, 4.7, 4.8
+</li><li>
+<a href="slides2005/slides10.pdf">lucidi</a>
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+03-05-2005
+ Lezione 12 <br />
+    
+Gestione della memoria in Unix.  Memory mapped files, copy-on-write.
+Gestione della memoria in Linux: regioni, implementazione del copy-on-write.
+
+    <ul><li>
+Tanenbaum 10.4
+</li><li>
+<a href="slides2005/slides11.pdf">lucidi</a> 
+</li><li>
+Studiare il manuale delle chiamate di sistema relative alla memoria in
+Unix: brk(2), mmap(2), munmap(2)
+
+</li><li> Esercizio: scrivere un programma che copia un file usando read(2) e
+write(2).  Verificare la differenza di performance al variare della
+dimensione del buffer; provare con 8192, 4096, 100, 10, 1.  Spiegare
+il <em>perché</em> della differenza.
+
+</li><li> Esercizio: riscrivere il programma dell'es. precedente con fread(3)
+e fwrite(3).  C'è ancora differenza al variare della dimensione del
+buffer?  Perché?
+
+</li><li> Esercizio: verificare la differenza di performance fra una copia di
+file effettuata con read(2) e una effettuata con mmap(2).  Spiegare il
+<em>perché</em> della differenza.
+
+
+
+</li><li> Esercizio: verificare la differenza di performance fra programmi che
+accedono a una grande matrice (più grande della memoria fisica) per
+righe piuttosto che per colonne.  Spiegare il <em>perché</em> della
+differenza.  Verificare per mezzo del comando /usr/bin/time 
+<ol><li>il tempo di esecuzione</li><li>il numero di page
+fault</li></ol> Monitorare per mezzo di top(1) il comportamento del
+processo e la quantità di memoria disponibile nel sistema.
+
+
+</li><li> Esercizio: scrivere una coppia di programmi che comunicano per mezzo
+di una zona di memoria condivisa tramite la mmap.  Il primo programma
+produce una sequenza di numeri interi; il secondo legge questi numeri
+e li fattorizza, producendo il risultato su standard output.  I due
+processi si sincronizzano per mezzo di una variabile "turn" condivisa,
+anch'essa ricavata tramite la mmap nella stessa area condivisa.
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     
+05-05-2005
+ Lezione 13 <br />
+    
+Input-output.  Device drivers.  File speciali in Unix.
+
+    <ul><li>
+Studiare il manuale del comando mknod(1)
+</li><li>
+Tanenbaum 5.1, 5.2, 5.3, 10.5
+</li><li>
+<a href="slides2005/slides12.pdf">lucidi</a> 
+</li><li>
+<a href="slides2005/slides-temi.pdf">esercizi</a> da fare!
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+     
+10-05-2005
+ Lezione 14 <br />
+    
+Implementazione di device driver in Unix e Linux.  
+
+    <ul><li>
+Studiare il manuale del comando mknod(1)
+</li><li>
+<a href="slides2005/slides13.pdf">lucidi</a> 
+</li><li>
+Esercizio: <a href="../so0203/ese30-04-2003/istruzioni.html">realizzare
+un semplice driver</a>  per un dispositivo a caratteri.
+Fare riferimento ai <a href="slides2005/slides13.pdf">lucidi</a> e al <a
+href=".html#testo">testo di Alessandro Rubini</a>, capitoli 1-3.  (Il
+libro contiene più dettagli dello stretto necessario.)
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+12-05-2005
+ Lezione 15 <br />
+    
+Dischi magnetici. Clock.  Terminali a caratteri.  Terminali grafici.
+Interfacce utente grafiche.
+
+    <ul><li>
+Tanenbaum 5.4 (tranne 5.4.5), 5.5, 5.6, 5.7, 5.8
+</li><li>
+<a href="slides2005/slides14.pdf">lucidi</a> 
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+17-05-2005
+ Lezione 16 <br />
+    
+Il boot.  Il processo init(8).  La login.
+
+    <ul><li>
+Tanenbaum 10.3.4
+</li><li>
+<a href="slides2005/slides15.pdf">lucidi</a> 
+</li><li>
+Leggere l'articolo <a
+href="http://www.linux.it/kerneldocs/init/init.html">Take command:
+init</a> di Alessandro Rubini.
+</li><li>
+Studiare le pagine di manuale delle chiamate di sistema sync(2) e
+fsync(2).
+</li><li>
+Lettura facoltativa: <a
+href="http://www.livejournal.com/~brad/2116715.html">diskchecker.pl</a>,
+un programma che testa se fsync funziona veramente
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+19-05-2005
+ Lezione 17 <br />
+    
+I file.  Operazioni sui file in Unix.  Strutture dati del kernel di
+Unix relative a file aperti e processi.
+
+    <ul><li>
+Tanenbaum 6.1
+</li><li>
+Studiare le pagine di manuale di open(2), read(2), write(2), close(2),
+dup(2), lseek(2)
+</li><li>
+<a href="slides2005/slides16.pdf">lucidi</a>
+</li><li>
+Esercizio: scrivere un programma che redirige il proprio standard
+output su un file "/tmp/pippo", e verificare che ogni successiva
+operazione di output (es.\ con printf(3)) va a finire in /tmp/pippo
+</li><li>
+Esercizio: estendere il programma precedente; dopo la redirezione
+dell'output, eseguire una fork(2) seguita da wait(2) nel genitore e da
+una execve(2) nel figlio; il figlio deve eseguire il comando "ls".
+Verificare che anche questo output viene scritto nel file /tmp/pippo
+</li><li>
+Esercizio: estendere il programma precedente; deve ridirigere sia
+standard output che standard input sullo stesso file /tmp/pippo.  Il
+comando "ls" deve essere eseguito con un argomento corretto e uno
+sbagliato, in modo che produca output sia su standard input che su
+standard output  (es.\ "ls /tmp dflkjhdlfjkh").  Verificare che
+entrambi gli output finiscono nel file /tmp/pippo
+</li><li>
+Esercizio: estendere la mini-shell presentata tempo fa a lezione per
+implementare i meccanismi di redirezione.  Iniziare con "&gt;", poi implementare gli
+altri: "&lt;", "&gt;&gt;", "2&gt;", "2&gt;&amp;1", "&lt;&lt;", "|".  Gli ultimi due sono più
+difficili.  Limitarsi al caso di una pipe fra due soli comandi.
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+26-05-2005
+ Lezione 18 <br />
+    
+Pipe.  Directory.  Implementazione dei filesystem.  Hard link e soft
+link.  I filesystem di Unix: V7, FFS, Ext2.  Network file system.
+Il Virtual File System di Linux.
+
+    <ul><li>
+Tanenbaum 6.2, 6.3 tranne 6.3.8, 10.6
+</li><li>
+<a href="slides2005/slides17.pdf">lucidi</a>
+</li><li>
+Studiare il manuale delle chiamate di sistema pipe(2) e dup(2)
+</li><li>
+Esercizio: scrivere un programma che stampa la tabella dei quadrati,
+cubi e radici quadrate degli interi da 0 a 1024.  Vogliamo evitare che
+l'output del
+programma scorra troppo velocemente sullo schermo; il programma deve allora
+invocare il programma "less" e passare tutto il suo output a "less"
+per mezzo di una pipe.
+</li><li>
+Lettura facoltativa: Andrew Tanenbaum, <a
+href="http://www.cs.vu.nl/~ast/brown/">Some Notes on the "Who wrote
+Linux" Kerfuffle, Release 1.4</a>
+</li><li>
+Lettura facoltativa: <a
+href="http://kerneltrap.org/node/view/3148">intervista ad Andrea
+Arcangeli</a>
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+31-05-2005
+ Lezione 19 <br />
+    
+Pipe.  Directory.  Implementazione dei filesystem.  Hard link e soft
+link.  I filesystem di Unix: V7, FFS, Ext2.  Network file system.
+Il Virtual File System di Linux.
+
+    <ul><li>
+<a href="slides2005/slides17.pdf">lucidi</a> 
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+07-06-2005
+ Lezione 20 <br />
+    
+Controllo dell'integrità di un filesystem.  Transazioni.  Journaled
+file systems.  Reiserfs. NTFS.  RAID
+
+    <ul><li>
+Tanenbaum 6.4 tranne 6.4.1, 11.7
+</li><li>
+<a href="slides2005/slides18.pdf">lucidi</a> 
+
+</li><li> Lettura NON facoltativa: capitolo 7, fino a 7.7 escluso di <a
+href="practical-file-system-design.html">Practical File System
+Design</a> di Dominic Giampaolo
+
+</li><li>
+Letture facoltative:
+La serie di articoli di Daniel Robbins "Advanced filesystem implementor's guide"
+<ul>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs.html">Part I</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs2.html">Part II</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs3.html">Part III</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs4.html">Part IV</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs5.html">Part V</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs6/">Part VI</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs7.html">Part VII</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs8.html">Part VIII</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs9.html">Part IX</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs10.html">Part X</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs11.html">Part XI</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs12/">Part XII</a>
+<li><a href="http://www-106.ibm.com/developerworks/linux/library/l-fs13/">Part XIII</a>
+</ul>
+
+
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+08-05-2005
+ Lezione 21 <br />
+    
+Crittografia; simmetrica e asimmetrica.  Funzioni hash.  Firma digitale.  Certificati
+digitali.  Autenticazione in generale.  Autenticazione in Unix
+
+    <ul><li>
+<a href="slides2005/slides20.pdf">lucidi</a> 
+</li><li>
+<a href="slides2005/slides23.pdf">lucidi</a> 
+</li><li>
+Tanenbaum 9.1, 9.2, 9.3
+</li><li>
+Lettura <em>non</em> facoltativa: capitolo 1 di <a href="IntroToCrypto.pdf.html">An Introduction to
+Cryptography</a> di Philip Zimmermann, autore di PGP
+</li><li>
+Letture facoltative sulla crittografia:
+<ul>
+
+<li>Simon Singh, <em>The code book</em>. Una divertente introduzione
+divulgativa
+
+<li> Per chi voglia approfondire seriamente l'argomento, consiglio i
+ seguenti libri di  Bruce Schneier:
+ <ul>
+  <li><em>Practical Cryptography</em>
+  <li><em>Secrets and Lies</em>
+ </ul>
+
+<li>Andrew Hodges, <em>Alan Turing, The Enigma</em>.  È un ottima
+biografia, che ha fatto rinascere l'interesse per la figura di Turing
+e per il lavoro dei criptoanalisti alleati nella Seconda Guerra
+Mondiale
+
+<li>Neal Stephenson, <em>Cryptonomicon</em>.  Un romanzo a sfondo
+storico; contiene fra l'altro dei bellissimi ritratti di
+crittografi/crittoanalisti
+
+<li>Edgar Allan Poe, <a
+href="http://www.pambytes.com/poe/stories/goldbug.html"><em>The
+Gold-Bug</em></a> (<a
+href="http://web.tiscali.it/no-redirect-tiscali/manuel_ger/ita/bug_ita.htm">Lo
+scarabeo d'oro</a>).  Questo racconto contiene un esempio di
+criptoanalisi
+
+<li>Sui modelli tradizionali (Bell- La Padula) di sicurezza, un'ottima
+lettura è <a
+href='http://mitpress.mit.edu/catalog/item/default.asp?tid=8635&amp;ttype=2'>Mechanizing
+Proof</a>, di Donald MacKenzie
+
+</ul>
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+09-06-2005
+ Lezione 22 <br />
+    
+Software nocivi: back door, logic bomb, Trojan horse, worm, virus.  Il
+Morris Worm.  La back door di Thompson.  Buffer overflow.  Il
+protocollo ssh e i comandi relativi.
+
+    <ul><li>
+<a href="slides2005/slides21.pdf">lucidi</a> 
+</li><li>
+<a href="slides2005/slides22.pdf">lucidi</a> 
+</li><li>
+Tanenbaum 9.4, 9.5
+</li><li>
+Ken Thompson, <a href="http://www.acm.org/classics/sep95/">Reflections
+on Trusting Trust</a>; 1983 Turing Award lecture
+</li><li>
+Letture facoltative:
+<ul>
+<li><a href="http://www.spitzner.net/linux.html">Armoring Linux</a>
+<li><a href="http://www.itworld.com/Sec/2202/LWD010404vcontrol1/">On
+getting cracked and recovering with NMAP</a>
+<li> la pagina di manuale di nmap(1)
+<li>Cliff Stoll, <em>The Cuckoo's Egg</em>.  Un resoconto della lotta
+di un operatore contro un cracker.  La storia è vera, e vengono descritti
+diversi personaggi del mondo della sicurezza informatica; notevole il
+ritratto di Robert&nbsp;Morris&nbsp;Senior.
+<li>
+<a href="http://project.honeynet.org/papers/enemy/">Know your
+enemy</a>
+<li>
+<a href="http://project.honeynet.org/papers/enemy2/">Know your
+enemy II</a>
+<li>
+<a href="http://project.honeynet.org/papers/enemy3/">Know your
+enemy III</a>
+</ul> 
+
+</li></ul>
+    
+    <br />
+  </li>
+  <li>
+    
+				   
+13-06-2005
+ Lezione 23 <br />
+    
+Il meccanismo dei segnali (signal) in Unix. Ripasso.
+
+    <ul><li>
+<a href="slides2005/slides23.pdf">lucidi</a> 
+</li><li>
+<a href="slides2005/slides-signal.pdf">lucidi</a> 
+</li><li>
+Leggere le pagine di manuale di sigaction(2) e signal(7)
+</li><li>
+Questa è l'ultima lezione.  Spero che vi siano state utili!
+</li><li>
+Lettura facoltativa: Richard P. Gabriel, <a
+href="http://www.dreamsongs.com/WIB.html">Lisp: Good News, Bad News,
+How to Win Big</a>.  Anche se l'argomento principale è il linguaggio
+di programmazione Lisp, la seconda parte di questo articolo discute in
+termini molto provocatori la filosofia ingegneristica che sta alla
+base di Unix.  Di Gabriel c'è anche <a
+href="http://www.dreamsongs.com/WorseIsBetter.html"> un articolo che
+rivede questo saggio in retrospettiva </a>
+
+</li></ul>
+    
+    <br />
+  </li>
+</ul>
+
+
+    <div id="footer">
+      <address>
+        <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%22%3e%76%61%63%63%61%72%69%40%70%6f%62%6f%78%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script>
+      </address>
+    </div>
+    
+  </body>
+
+<!-- Mirrored from matteo.vaccari.name/so/diario2005 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Sep 2021 09:57:35 GMT -->
+</html>
