@@ -1,7 +1,11 @@
 +++
 title = 'Avoid Primitive Obsession in Go'
-date = 2024-02-24T16:52:19+01:00
-draft = false
+date = "2024-02-24"
+tags = [
+    "go",
+    "software-design",
+    "DDD",
+]
 +++
 
 *Primitive Obsession* is a code smell.  Consider this code:
@@ -61,8 +65,7 @@ func main() {
 And it's much more expressive: if you are looking to express the *model* of the domain in your code, as suggested by DDD, this is the way to go.
 
 <div align="center">
-  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
-  <br>*
+  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>*
 </div>
 
 But wait, there's more!  Does it make sense for an email address to be one million characters long?  Or to be empty?  Or to consist entirely of whitespace?  Probably not, yet our `EmailAddress` type allows it.  We should do something about it; we should limit the minimum and maximum length of a `EmailAddress`, and probably also restrict which characters it may contain.  As a minimum, an `EmailAddress` must necessarily contain an `@` sign.
@@ -77,7 +80,7 @@ var validEmailAddress = regexp.MustCompile("^\\S+@\\S+.\\S+$")
 
 func NewEmailAddress(s string) (EmailAddress, error) {
   const maxLength = 320 // RFC 5321 and RFC 5322
-  const minLength = 3 
+  const minLength = 5 
   if len(s) < minLength || len(s) > maxLength {
     return nil, errors.New("invalid EmailAddress length")
   }
@@ -139,8 +142,7 @@ Now the `EmailAddress` interface contains an unexported method `implementsEmailA
             Go's power is in emergent behavior")!
 
 <div align="center">
-  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
-  <br>*
+  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>*
 </div>
 
 In summary:
