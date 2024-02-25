@@ -1,6 +1,0 @@
-#!/bin/bash
-
-printf "Content-Type: image/gif\r\n"
-printf "\r\n"
-
-cat /Users/matteo/Pictures/small/128x128/Bugatti-Veyron_2005_1600x1200_wallpaper_0e.gif 

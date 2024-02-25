@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://matteo.vaccari.name/sitemap.xml
