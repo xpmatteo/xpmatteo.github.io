@@ -150,3 +150,5 @@ In summary:
  * Make your code more safe and secure   
    * Ensure these types can only be created through a validating function
    * If the underlying type is a string, check for length first; then check for valid structure and characters.
+
+See [a complete working example](https://github.com/xpmatteo/todomvc-golang/blob/main/todo/itemId.go) from my TodoMVC example code.
