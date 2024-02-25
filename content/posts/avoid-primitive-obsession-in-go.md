@@ -89,7 +89,7 @@ func NewEmailAddress(s string) (EmailAddress, error) {
 ```
 The first thing we do is validate the input string length; this check is fast and cheap.  If this passes, we validate the input string against a regexp.  This regexp is simplistic, but it does its job.  
 
-Why two separate checks?  Couldn't we check for length in the regexp?  We could, but it would be riskier; matching a regexp against a possibly very long string (remember, this input string could be crafted by an attacker to be 100K characters long) is certainly compuationally more expensive than just checking for length beforehand.  And we, or a future maintainer, could bungle the regexp, as regexps can be tricky.  A length checks is cheap and very hard to get wrong.
+Why two separate checks?  Couldn't we check for length in the regexp?  We could, but it would be riskier; matching a regexp against a possibly very long string (remember, this input string could be crafted by an attacker to be 100K characters long) is certainly computionally more expensive than just checking for length beforehand.  And we, or a future maintainer, could bungle the regexp, as regexps can be tricky.  A length check is cheap and very hard to get wrong.
 
 Now we have a function that will only create an `EmailAddress` if the input string is valid, but nothing is preventing other parts of our program to create an `EmailAddress` directly with `EmailAddress(str)`.  We want to make sure that the only way to create an `EmailAddress`, outside of this package, is the `NewEmailAddress` function.
 
