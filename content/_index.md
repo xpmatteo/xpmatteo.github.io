@@ -9,7 +9,7 @@ I'm reorganizing the materials I produced over the years, hoping to make them ea
 ### Current stuff
 
 
-  * My [new blog](blog)
+  * My [new blog](posts)
   * On [Linkedin](https://www.linkedin.com/in/matteovaccari/)
   * On [Mastodon](https://livellosegreto.it/@xpmatteo)
   * [Slides](https://speakerdeck.com/xpmatteo "Matteo Vaccari (@xpmatteo) on Speaker Deck")
