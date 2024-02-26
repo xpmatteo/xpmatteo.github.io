@@ -3,7 +3,7 @@
     {{ if .Data.Singular }}
       <h3>Filtering for "{{ .Title }}"</h3>
       <small>
-        <a href="{{ relURL "blog" }}">Remove filter</a>
+        <a href="{{ relURL "posts" }}">Remove filter</a>
       </small>
     {{ end }}
     {{ if or .Paginator.HasPrev .Paginator.HasNext }}
