@@ -19,7 +19,8 @@ I'm reorganizing the materials I produced over the years, hoping to make them ea
 
 ### Things I published
 
-  * 2024 My experiments writing a web app in Go: [code](https://github.com/xpmatteo/todomvc-golang), [article](https://www.linkedin.com/posts/matteovaccari_i-wrote-a-short-article-on-how-to-reimplement-activity-7160013816070651904-kgRO), [article](https://www.linkedin.com/posts/matteovaccari_golang-webdevelopment-metrics-activity-7161688435655753728-KPvK) 
+  * 2024 My experiments writing a web app in Go: [code](https://github.com/xpmatteo/todomvc-golang), [article](https://www.linkedin.com/posts/matteovaccari_i-wrote-a-short-article-on-how-to-reimplement-activity-7160013816070651904-kgRO), [article](https://www.linkedin.com/posts/matteovaccari_golang-webdevelopment-metrics-activity-7161688435655753728-KPvK),
+    [article](/posts/avoid-primitive-obsession-in-go/ "Avoid Primitive Obsession in Go |Matteo Vaccari's Home")
   * 2024 *Cross-functional requirements: getting the most important requirements right*, presented remotely at facile.it, [slides](https://speakerdeck.com/xpmatteo/cross-functional-requirements-getting-the-most-important-requirements-right)
   * 2024 *eXtreme Programming: pratica ormai comune, o idea rivoluzionaria?*, presented at XPUG Bergamo. [video](https://www.youtube.com/watch?v=q4saABWPGIE) (in Italian)
   * 2023 *Introdurre il Developer Testing nelle organizzazioni*, presented at [Italian Sofftware Testing Forum](https://www.swtestingforum.org/index.php/it/), [writeup](https://www.linkedin.com/posts/matteovaccari_milano-italiansoftwaretestingqualificationsboard-activity-7133019870723489792-kfWc) (in Italian) [slides](https://speakerdeck.com/xpmatteo/introdurre-il-developer-testing-nelle-organizzazioni) (in Italian)
