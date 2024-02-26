@@ -4,6 +4,7 @@ date = "2024-02-09"
 draft = false
 tags = [
     "go",
+    "webapp",
     "observability",
 ]
 +++
