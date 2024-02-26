@@ -1,6 +1,7 @@
 +++
 title = 'Avoid Primitive Obsession in Go'
 date = "2024-02-24"
+slug = "avoid-primitive-obsession-in-go"
 tags = [
     "go",
     "software-design",

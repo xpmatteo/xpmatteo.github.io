@@ -1,7 +1,7 @@
 +++
 title = 'Publish Metrics From a Go Web App'
 date = "2024-02-09"
-draft = false
+slug = "publish-metrics-from-a-go-web-app"
 tags = [
     "go",
     "webapp",
