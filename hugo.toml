@@ -38,6 +38,10 @@ weight = 10
 name = "Posts"
 pageRef = "/posts"
 weight = 20
+[[menu.main]]
+name = "About"
+pageRef = "/about"
+weight = 30
 
 [services.rss]
 limit = 42
