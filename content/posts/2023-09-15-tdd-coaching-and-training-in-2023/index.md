@@ -1,7 +1,9 @@
 +++
-title = 'Tdd Coaching and Training in 2023'
+title = 'TDD Coaching and Training in 2023'
 date = "2023-09-15"
-draft = true
+tags = [
+    "tdd",
+]
 +++
 
 *This article was originally published on [Linkedin](https://www.linkedin.com/pulse/tdd-coaching-training-2023-matteo-vaccari/ "TDD Coaching and training in 2023")*
@@ -53,7 +55,7 @@ There is a big difference between TDD and "refactoring legacy code".  The latte
 
 More generally, there is a book that covers a comprehensive training program:  [Agile Technical Practices Distilled](https://leanpub.com/agiletechnicalpracticesdistilled)  is the result of "distilling" years of experience in training
 
-The best trainer in Europe is probably  [Emily Bache](https://www.linkedin.com/in/emilybache?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAADiygBm_N7QHyme4KJjS2hwV2I3eM72MY); her book and method  [Samman Technical Coaching](https://sammancoaching.org/)  is highly recommended
+The best trainer in Europe is probably  [Emily Bache](https://www.linkedin.com/in/emilybache); her book and method  [Samman Technical Coaching](https://sammancoaching.org/)  is highly recommended
 
 TDD for the Front-End?
 ----------------------

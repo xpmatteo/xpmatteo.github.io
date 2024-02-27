@@ -2,9 +2,7 @@
 title: "Matteo Vaccari - Home"
 ---
 
-After all these years, still learning how to write good software, and helping organizations do that.
-
-I'm reorganizing the materials I produced over the years, hoping to make them easy to find for those who might look for them.
+After all these years, still learning how to write good software, and helping organizations do the same.
 
 ### Current stuff
 
