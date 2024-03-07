@@ -1,2 +1,12 @@
-<!-- hugo gen chromastyles --style=native > static/css/syntax.css -->
-<link href="/css/syntax.css" rel="stylesheet">
+<!-- 
+hugo gen chromastyles --style=native > static/css/dark.css 
+hugo gen chromastyles --style=autumn > static/css/light.css
+-->
+
+<style>
+  @import url("light.css");
+  
+  @media (prefers-color-scheme: dark) {
+    @import url("dark.css");
+  }
+</style>
