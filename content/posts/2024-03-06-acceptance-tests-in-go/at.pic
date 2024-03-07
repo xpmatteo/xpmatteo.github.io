@@ -1,10 +1,15 @@
-
-U: 			ellipse "Unit" "tests"
-				move
-SHELL: 	circle wid 200%
-				move
-A: 			ellipse "Acceptance" "tests"
-CORE:  	circle at SHELL.c "Core" "logic"
-				arrow from U.e to CORE.w
-				arrow from A.w to SHELL.e
-
+#
+# See https://pikchr.org/home/doc/trunk/doc/userman.md
+# And https://pikchr.org/home/pikchrshow
+#
+U:      ellipse "Unit" mono "tests" mono thickness 0 fill lightgreen 
+        move wid 0.2
+SHELL:  circle wid 200% thickness 0 fill lightblue
+        move wid 0.2
+A:      ellipse \
+          "Acceptance" mono "tests" mono \
+          thickness 0 fill lightblue
+CORE:   circle at SHELL.c "Core" mono "logic" mono thickness 0 fill lightgreen
+        arrow thin from U.e to CORE.w
+        arrow thin from A.w to SHELL.e
+        text "Shell" mono at SHELL.s.x,SHELL.s.y+0.1

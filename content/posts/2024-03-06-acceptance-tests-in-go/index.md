@@ -1,17 +1,16 @@
 +++
-title = 'Acceptance Tests in Go'
+title = 'One way to do acceptance tests in Go'
 date = 2024-03-06T20:09:22+01:00
 draft = true
 +++
 
 <figure>
-  <img src="at.svg"
-    alt="AT">
-  <figcaption>AT</figcaption>
+  <img src="at.svg" alt="An outer circle labelled 'Shell' surrounds an inner circle labelled 'Core logic'.  An ellipse with 'Unit tests' points at the 'Core logic', while another ellipse with 'Acceptance tests' points at the 'Shell'">
+  <figcaption>A simple application architecture, and how to test it. This diagram was produced with <em>pic</em>, a "little language" dedicated to producing diagrams (<a href="https://gist.github.com/xpmatteo/a01b705c5e33281034d044bda632c324">see the source</a>)</figcaption>
 </figure>
 
-> Give me six hours to chop down a tree, and I will spend the first four sharpening the axe
-> — <cite>Attributed to Abraham Lincoln</cite>
+> Give me six hours to chop down a tree,<br>and I will spend the first four sharpening the axe
+> <br>— <cite>Attributed to Abraham Lincoln</cite>
 
 
 
