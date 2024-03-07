@@ -1,0 +1,10 @@
+
+U: 			ellipse "Unit" "tests"
+				move
+SHELL: 	circle wid 200%
+				move
+A: 			ellipse "Acceptance" "tests"
+CORE:  	circle at SHELL.c "Core" "logic"
+				arrow from U.e to CORE.w
+				arrow from A.w to SHELL.e
+

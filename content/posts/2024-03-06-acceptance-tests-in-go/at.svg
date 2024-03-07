@@ -1,0 +1,17 @@
+<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 508.32 148.32">
+<ellipse cx="56.16" cy="74.16" rx="54" ry="36"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="56.16" y="64.08" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Unit</text>
+<text x="56.16" y="84.24" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">tests</text>
+<circle cx="254.16" cy="74.16" r="72"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<ellipse cx="452.16" cy="74.16" rx="54" ry="36"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="452.16" y="64.08" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Acceptance</text>
+<text x="452.16" y="84.24" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">tests</text>
+<circle cx="254.16" cy="74.16" r="36"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="254.16" y="64.08" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Core</text>
+<text x="254.16" y="84.24" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">logic</text>
+<polygon points="218.16,74.16 206.64,78.48 206.64,69.84" style="fill:rgb(0,0,0)"/>
+<path d="M110.16,74.16L212.4,74.16"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<polygon points="326.16,74.16 337.68,69.84 337.68,78.48" style="fill:rgb(0,0,0)"/>
+<path d="M398.16,74.16L331.92,74.16"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+</svg>
+

@@ -4,12 +4,24 @@ date = 2024-03-06T20:09:22+01:00
 draft = true
 +++
 
+<figure>
+  <img src="at.svg"
+    alt="AT">
+  <figcaption>AT</figcaption>
+</figure>
+
 > Give me six hours to chop down a tree, and I will spend the first four sharpening the axe
 > — <cite>Attributed to Abraham Lincoln</cite>
 
 
 
-Acceptance tests are tests that prove that a feature works as intended.  Unlike *unit tests*, acceptance tests are always written in terms of what the business originally requested, and for this reason they are also known as *customer tests*.  They are one of the original 12 practices of Extreme Programming.
+[Acceptance tests](https://ronjeffries.com/xprog/what-is-extreme-programming/#customer "What is Extreme Programming?") are tests that prove that a feature works as intended.  Unlike *unit tests*, acceptance tests are always written in terms of what the business originally requested, and for this reason they are also known as *customer tests*.  They are one of the original [12 practices of Extreme Programming](https://ronjeffries.com/xprog/what-is-extreme-programming/ "What is Extreme Programming?").
+
+<figure>
+  <img src="circles.jpg"
+    alt="The 12 practices of XP, arranged in 3 concentrical circles">
+  <figcaption>The 12 practices of XP from Ron Jeffries' website; acceptance tests are called <em>customer tests</em> here</figcaption>
+</figure>
 
 I was watching [this excellent presentation by Russ Cox](https://research.swtch.com/testing "research!rsc: Go Testing By Example") about testing in Go, and I was struck by the emphasis on acceptance tests; though he does not call it this way.  He was presenting the tests for the "go" command, which is the command-line entry point for a number of Go utility commands.  For instance, you build a Go program with the command `go build`; you format a Go program with `go fmt`, you test a Go progam with `go test`, and so on.
 
