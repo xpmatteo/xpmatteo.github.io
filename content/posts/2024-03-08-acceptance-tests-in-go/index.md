@@ -1,12 +1,22 @@
 +++
 title = 'One way to do acceptance tests in Go'
-date = 2024-03-06T20:09:22+01:00
-draft = true
+date = 2024-03-08
+draft = false
+tags = [
+    "go",
+    "TDD",
+    "XP",
+]
 +++
 
 <figure>
-  <img src="at.svg" alt="An outer circle labelled 'Shell' surrounds an inner circle labelled 'Core logic'.  An ellipse with 'Unit tests' points at the 'Core logic', while another ellipse with 'Acceptance tests' points at the 'Shell'">
-  <figcaption>A simple application architecture, and how to test it. This diagram was produced with <em>pic</em>, a "little language" dedicated to producing diagrams (<a href="https://gist.github.com/xpmatteo/a01b705c5e33281034d044bda632c324">see the source</a>)</figcaption>
+  <img src="at.svg" 
+    alt="An outer circle labelled 'Shell' surrounds an inner circle labelled 'Core logic'.  An ellipse with 'Unit tests' points at the 'Core logic', while another ellipse with 'Acceptance tests' points at the 'Shell'"
+    style="background-color:white"
+  >
+  <figcaption>
+    A simple application architecture, and how to test it.<br>This diagram was produced with <em>pic</em>, a "little language" dedicated to producing diagrams (<a href="https://gist.github.com/xpmatteo/a01b705c5e33281034d044bda632c324">see the source</a>)
+  </figcaption>
 </figure>
 
 > Give me six hours to chop down a tree,<br>and I will spend the first four sharpening the axe
@@ -85,7 +95,9 @@ diff <(echo "$expected") /tmp/actual.txt
 ```
 In line 1, we build the program and terminate with error if the build fails.
 
-In line 2, the `printf` command sends all the answers to the program under test, which will read them one at a time and produce output that is captured in file `/tmp/output.txt`.  Then in line 9 we compare what we got to expected output, thanks to the `diff` utility.  If `diff` finds no difference, it will print nothing and the script will return a success status code.  If `diff` finds a difference, it return a failure status code, and will print explicative output such as 
+In line 2, the `printf` command sends all the answers to the program under test, which will read them one at a time and produce output that is captured in file `/tmp/output.txt`.  
+
+Then in line 9 we compare what we got to expected output, thanks to the `diff` utility.  If `diff` finds no difference, it will print nothing and the script will return a success status code.  If `diff` finds a difference, it return a failure status code, and will print explicative output such as 
 
 ```text {linenos=true}
 1c1
