@@ -1,10 +1,10 @@
 ---
-title: "Matteo Vaccari - Home"
+title: "Home"
 ---
 
 After all these years, still learning how to write good software, and helping organizations do the same.
 
-### Current stuff
+## Current stuff
 
 
   * My [new blog](posts)
@@ -15,7 +15,7 @@ After all these years, still learning how to write good software, and helping or
   
 
 
-### Things I published
+## Things I published
 
   * 2024 My experiments writing a web app in Go: [code](https://github.com/xpmatteo/todomvc-golang), [article](https://www.linkedin.com/posts/matteovaccari_i-wrote-a-short-article-on-how-to-reimplement-activity-7160013816070651904-kgRO), [article](https://www.linkedin.com/posts/matteovaccari_golang-webdevelopment-metrics-activity-7161688435655753728-KPvK),
     [article](/posts/avoid-primitive-obsession-in-go/ "Avoid Primitive Obsession in Go |Matteo Vaccari's Home")
@@ -32,9 +32,9 @@ After all these years, still learning how to write good software, and helping or
   * 2013 [Notes on exception handling](http://matteo.vaccari.name/blog/archives/875.html)
   * 2008 [Reuse is overrated](http://matteo.vaccari.name/blog/archives/151.html), a blog post
 
-### Archived stuff
+## Archived stuff
 
 * [Old blog](blog), archived from Wordpress with httrack
-* Ph.D. Thesis on [Calculational Derivation of Circuits](matteo-vaccari-calculational-derivation-of-circuits.pdf)
+* Ph.D. Thesis on [Calculational Derivation of Circuits](matteo-vaccari-calculational-derivation-of-circuits.pdf) (will open a pdf)
 
 
