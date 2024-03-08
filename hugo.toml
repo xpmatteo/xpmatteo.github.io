@@ -1,6 +1,6 @@
 baseURL = 'https://matteo.vaccari.name/'
 languageCode = 'en'
-title = "Matteo Vaccari's Home"
+title = "Matteo Vaccari"
 theme = 'hugo-simple'
 copyright = "© 2001-2024 Matteo Vaccari"
 
