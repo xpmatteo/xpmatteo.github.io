@@ -3,10 +3,11 @@ hugo gen chromastyles --style=native > static/css/dark.css
 hugo gen chromastyles --style=autumn > static/css/light.css
 -->
 
+<link rel="stylesheet" href="/css/light.css" media="screen">
+<link rel="stylesheet" href="/css/dark.css" media="screen and (prefers-color-scheme: dark)">
+
 <style>
-  @import url("light.css");
-  
-  @media (prefers-color-scheme: dark) {
-    @import url("dark.css");
+  code {
+    font-size: 90%;
   }
 </style>
