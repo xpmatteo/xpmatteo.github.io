@@ -107,7 +107,7 @@ Then in line 9 we compare what we got to expected output, thanks to the `diff` u
 ```
 The above means: "I expected the text at line 2, but got the text at line 4".
 
-The funky `<(echo "$expected")` syntax means "save the contents of the `$expected` variable to a temporary file and return its name"; it is a quick way to transform pass the contents of a Bash variable to a utility that expects a filename.
+The funky `<(echo "$expected")` syntax means "save the contents of the `$expected` variable to a temporary file and return its name"; it is a quick way to pass the contents of a Bash variable to a utility that expects a filename.
 
 This style of testing is much less declarative, but it is still quite effective; it's not as readable as I'd like, but it serves the purpose of proving that the feature works.  For example, here is how we test another feature: "if the user takes too much time answering, the application terminates with a 'timeout' message"
 
