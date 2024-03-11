@@ -221,11 +221,11 @@ Now indeed our test fails, and fails for the right reason:
     index_template_test.go:49: Second list item: want Bar, got Buy a unicorn
 ```
 We fix it by making the template use the model data:
-```html
+```html {hl_lines=[3,7,12]}
 <ul class="todo-list">
   <!-- List items should get the class `completed` when marked as completed -->
   {{ range .Items }}
-    <li {{ if .IsCompleted }} class="completed" {{ end }}>
+    <li>
       <div class="view">
         <input class="toggle" type="checkbox">
         <label>{{ .Title }}</label>
