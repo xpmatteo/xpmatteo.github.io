@@ -10,6 +10,11 @@ tags = [
 draft = false
 +++
 
+<figure>
+  <img src="todos.jpeg" alt="A sample screenshot of the TodoMVC application">
+  <figcaption>A sample screenshot of the TodoMVC application</figcaption>
+</figure>
+
 Why test-drive HTML templates?  After all, the most reliable way to check that a template works is by rendering it to HTML and opening it in a browser, right?
 
 There's some truth in this; unit tests cannot prove that a template looks the way we expect, and testing them by hand is necessary.  And if we make a mistake in the logic of a template, **usually** the template breaks immediately, so it's difficult not to notice the error.
@@ -265,5 +270,7 @@ func Test_completedItemsGetCompletedClass(t *testing.T) {
 }
 ```
 So little by little, we can test and add the various dynamic features that our template should have.
+
+This article is part of a series on an exercise in implementing the TodoMVC application in Go; see here [the code](https://github.com/xpmatteo/todomvc-golang "GitHub - xpmatteo/todomvc-golang: A Golang implementation of the TodoMVC standard app"), and the [first article in the series](http://localhost:1313/posts/2024-02-04-a-convenient-alternative-to-spa/ "A Convenient Alternative to SPA | Matteo Vaccari")
 
 *Want to leave a comment? Please do so on Linkedin!*
