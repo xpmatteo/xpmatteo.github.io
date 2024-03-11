@@ -1,13 +1,13 @@
 +++
 title = 'Test-Driving HTML Templates in Go'
 slug = 'test-driving-html-templates-in-go'
-date = 2024-03-10T18:38:55+01:00
+date = "2024-03-11"
 tags = [
     "Go",
     "Webapp",
     "TDD",
 ]
-draft = true
+draft = false
 +++
 
 Why test-drive HTML templates?  After all, the most reliable way to check that a template works is by rendering it to HTML and opening it in a browser, right?
@@ -152,7 +152,7 @@ The next step is to prove that when I pass a non-empty todo list, the items are 
 ...
 ```
 
-We'd like our test to look like this:
+How do we assert on the content of our generated HTML?  Testing for string equality makes no sense; the size of the HTML text is too much, and there's a lot of details in there that we don't really want to test.  We'd like to make assertions on the structure of the html, ignoring most of the details: we'd like our test to look like this:
 
 ```go
 func Test_todoItemsAreShown(t *testing.T) {
@@ -168,6 +168,102 @@ func Test_todoItemsAreShown(t *testing.T) {
   // assert the second <li> text is "Bar"
 }
 ```
+How do we implement these assertions?  One good way would be to use CSS selectors: in CSS, you can express "all the `li` elements inside an `ul` element that has class X" with `ul.X li`.  Now all we need is a good library that understands CSS selectors, and luckily there is the [goquery](https://github.com/PuerkitoBio/goquery "GitHub - PuerkitoBio/goquery: A little like that j-thing, only in Go.") package, that implements an API inspired by jQuery.  Our test with goquery becomes:
+```go
+func Test_todoItemsAreShown(t *testing.T) {
+  templ := template.Must(template.ParseFiles("index.gotmpl"))
+  model := todo.NewList()
+  model.Add("Foo")
+  model.Add("Bar")
 
+  buf := renderTemplate(templ, model)
+
+  document, err := goquery.NewDocumentFromReader(bytes.NewReader(buf.Bytes()))
+  if err != nil {
+    t.Fatalf("Error rendering template %s", err)
+  }
+  selection := document.Find("ul.todo-list li.completed")
+  if selection.Length() != 2 {
+    t.Fatalf("Expected 2 list items, found: %d", selection.Length())
+  }
+}
+```
+We still haven't changed the template to populate the list from the model, yet, unfortunatly, this test passes, because the static HTML indeed contains two list items.  To make it fail, we need to add an assertion on the *content* of the list items:
+```go
+func Test_todoItemsAreShown(t *testing.T) {
+  // ... as before
+  
+  document, err := goquery.NewDocumentFromReader(bytes.NewReader(buf.Bytes()))
+  if err != nil {
+    t.Fatalf("Error rendering template %s", err)
+  }
+  firstItem := document.Find("ul.todo-list li:nth-of-type(1)")
+  want, got := "Foo", strings.TrimSpace(firstItem.Text())
+  if want != got {
+    t.Errorf("First list item: want %s, got %s", want, got)
+  }
+  secondItem := document.Find("ul.todo-list li:nth-of-type(2)")
+  want, got = "Bar", strings.TrimSpace(secondItem.Text())
+  if want != got {
+    t.Errorf("Second list item: want %s, got %s", want, got)
+  }
+}
+```
+Now indeed our test fails, and fails for the right reason:
+```text
+--- FAIL: Test_todoItemsAreShown (0.00s)
+    index_template_test.go:44: First list item: want Foo, got Taste JavaScript
+    index_template_test.go:49: Second list item: want Bar, got Buy a unicorn
+```
+We fix it by making the template use the model data:
+```html
+<ul class="todo-list">
+  <!-- List items should get the class `completed` when marked as completed -->
+  {{ range .Items }}
+    <li {{ if .IsCompleted }} class="completed" {{ end }}>
+      <div class="view">
+        <input class="toggle" type="checkbox">
+        <label>{{ .Title }}</label>
+        <button class="destroy"></button>
+      </div>
+      <input class="edit" value="Rule the web">
+    </li>
+  {{ end }}
+</ul>
+```
+Our test works, but it's very verbose.  If we're going to have more tests for variations of the input data, these tests will become difficult to read, so we make it more concise by extracting one helper function, and by using the [assert](https://github.com/stretchr/testify "GitHub - stretchr/testify: A toolkit with common assertions and mocks that plays nicely with the standard library") package
+```go {hl_lines=["9-12"]}
+func Test_todoItemsAreShown(t *testing.T) {
+  templ := template.Must(template.ParseFiles("index.gotmpl"))
+  model := todo.NewList()
+  model.Add("Foo")
+  model.Add("Bar")
+
+  buf := renderTemplate(templ, model)
+
+  document := parseHtml(t, buf)
+  assert.Equal(t, 2, document.Find("ul.todo-list li").Length())
+  assert.Equal(t, "Foo", strings.TrimSpace(document.Find("ul.todo-list li:nth-of-type(1)").Text()))
+  assert.Equal(t, "Bar", strings.TrimSpace(document.Find("ul.todo-list li:nth-of-type(2)").Text()))
+}
+```
+Much better! At least in my opinion. Now we are in a good position for testing more rendering logic.  A comment inside the template says "List items should get the class `completed` when marked as completed".  We can write a test for this:
+
+```go {hl_lines=[5,10]}
+func Test_completedItemsGetCompletedClass(t *testing.T) {
+  templ := template.Must(template.ParseFiles("index.gotmpl"))
+  model := todo.NewList()
+  model.Add("Foo")
+  model.AddCompleted("Bar")
+
+  buf := renderTemplate(templ, model)
+
+  document := parseHtml(t, buf)
+  selection := document.Find("ul.todo-list li.completed")
+  assert.Equal(t, 1, selection.Length())
+  assert.Equal(t, "Bar", strings.TrimSpace(selection.Text()))
+}
+```
+So little by little, we can test and add the various dynamic features that our template should have.
 
 *Want to leave a comment? Please do so on Linkedin!*
