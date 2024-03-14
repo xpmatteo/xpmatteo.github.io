@@ -10,7 +10,7 @@ tags = [
 +++
 
 <figure>
-  <img src="at.svg" 
+  <img src="at.png" 
     alt="An outer circle labelled 'Shell' surrounds an inner circle labelled 'Core logic'.  An ellipse with 'Unit tests' points at the 'Core logic', while another ellipse with 'Acceptance tests' points at the 'Shell'"
     style="background-color:white"
   >

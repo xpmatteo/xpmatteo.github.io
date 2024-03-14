@@ -1,4 +1,8 @@
 
+INKSCAPE=/Applications/Inkscape.app/Contents/MacOS/inkscape
+
+at.png: at.svg
+	$(INKSCAPE) --export-type png -w 720 at.svg --export-filename at.png 
 
 at.svg: pikchr at.pic
 	./pikchr --svg-only at.pic  > at.svg
