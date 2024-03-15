@@ -15,3 +15,6 @@ hugo.linux
 
 # Mac
 .DS_Store
+
+# Compiled Tools
+pikchr

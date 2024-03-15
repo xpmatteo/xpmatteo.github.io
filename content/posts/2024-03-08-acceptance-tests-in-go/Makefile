@@ -2,12 +2,16 @@
 # Thanks https://superuser.com/a/528521/233416
 INKSCAPE=/Applications/Inkscape.app/Contents/MacOS/inkscape
 
-at.png: at.svg
-	$(INKSCAPE) --export-type png -w 720 at.svg --export-filename at.png
+PIC=../../../script/pikchr
 
-at.svg: pikchr at.pic
-	./pikchr --svg-only at.pic > at.svg
+%.png: %.pic
+	$(PIC) --svg-only $< > $*.svg
+	$(INKSCAPE) --export-type png -w 720 --export-filename $@ $*.svg 
 
-pikchr:
-	gcc -DPIKCHR_SHELL -o pikchr pikchr.c -lm
-	
+at.png:
+
+.PHONY: clean	
+clean:
+	rm -f at.svg at.png
+
+
