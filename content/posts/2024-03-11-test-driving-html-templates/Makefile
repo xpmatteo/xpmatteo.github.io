@@ -1,6 +1,17 @@
 
+# Thanks https://superuser.com/a/528521/233416
+INKSCAPE=/Applications/Inkscape.app/Contents/MacOS/inkscape
 
-at.svg: diag.pic
-	../2024-03-08-acceptance-tests-in-go/pikchr --svg-only diag.pic  > diag.svg
+PIC=../../../script/pikchr
 
-	
+%.png: %.pic
+	$(PIC) --svg-only $< > $*.svg
+	$(INKSCAPE) --export-type png -w 400 --export-filename $@ $*.svg 
+
+test.png:
+
+.PHONY: clean	
+clean:
+	rm -f test.svg test.png
+
+

@@ -11,11 +11,16 @@ draft = false
 +++
 
 <figure>
-  <img src="todos.jpeg" alt="A sample screenshot of the TodoMVC application">
-  <figcaption>A sample screenshot of the TodoMVC application</figcaption>
+  <img style="background: white; display: block; margin-left: auto; margin-right: auto"
+  src="test.png" alt="Schema of how we test a template">
+  <figcaption>
+    Testing a template. 
+    Image produced with the <em>pic</em> language (<a href="test.pic">source</a>,
+    <a href="Makefile">Makefile</a>)
+  </figcaption>
 </figure>
 
-Why test-drive HTML templates?  After all, the most reliable way to check that a template works is by rendering it to HTML and opening it in a browser, right?
+Why test-drive HTML templates?  After all, the most reliable way to check that a template works is to render it to HTML and open it in a browser, right?
 
 There's some truth in this; unit tests cannot prove that a template looks the way we expect, and testing them by hand is necessary.  And if we make a mistake in the logic of a template, **usually** the template breaks immediately, so it's difficult not to notice the error.
 
@@ -27,8 +32,10 @@ On the other hand:
 
 It turns out that test-driving HTML templates is easy; let's see how to do it in Go.  I will be using the [TodoMVC template](https://github.com/tastejs/todomvc-app-template "GitHub - tastejs/todomvc-app-template: Template used for creating TodoMVC apps"), which is a sample application that is used to showcase JavaScript frameworks.
 
-<div align="center"> *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>*
-</div>
+The examples will use the Go programming language, but the techniques can be applied to any language.
+
+
+## Checking for sound HTML
 
 
 The number one thing I want to check is that the HTML we produce is basically sound. I don't mean to check that HTML is valid according to the W3C; not because I think it is not valuable, but because I think it's better to start with much simpler and fast checks.  For instance, I want my tests to break if the template generates something like
@@ -130,10 +137,37 @@ func Test_wellFormedHtml(t *testing.T) {
 }
 ```
 
+## What else should we test?
+
+We know that the looks of a page can only be tested, ultimately, by a human looking at how it is rendered in a browser.  However, there often is logic in templates, and we want to be able to test that logic.
+
+One might be tempted to test the rendered HTML with string equality, but this technique fails in practice, because templates contain a lot of details that make string equality assertions impractical.  The assertions become very verbose, and when reading the assertion, it becomes difficult to understand what it is that we're trying to prove.
+
+What we need is a technique to assert that *some parts* of the rendered HTML correspond to what we expect, and to *ignore all the details we don't care about.*  One way to do this is by running queries with the [CSS selector language](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors "CSS selectors - CSS: Cascading Style Sheets | MDN"): it is a powerful language that allows us to select the elements that we care about from the whole HTML document.  Once we have selected those elements, we (1) count that the number of element returned is what we expect, and (2) that they contain the text or other content that we expect.
+
+The UI that we are supposed to generate looks like this:
+
+<img 
+  src="todos.png"
+  alt="A screenshot of the rendered HTML"
+  style="background: white; display: block; margin-left: auto; margin-right: auto"
+  width="400">
+
+There are several details that are rendered dynamically:
+
+1. The number of items and their text content change, obviously
+2. The style of the todo-item changes when it's completed (e.g., the second)
+3. The "2 items left" text will change with the number of non-completed items
+4. The "Clear completed" button should only be visible if any item is completed 
+5. One of the three buttons "All", "Active", "Completed" will be highlighted, depending on the current url; for instance if we decide that the url that shows only the "Active" items is `/active`, then when the current url is `/active`, the "Active" button should be surrounded by a thin red rectangle
+
+Each of this concerns can be tested with the help of CSS selectors.
+
+
 <div align="center"> *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>*
 </div>
 
-The next step is to prove that when I pass a non-empty todo list, the items are rendered correcly in the template.  The TodoMVC template I downloaded currently returns two pre-populated elements (slightly simplified here):
+The next step is to prove that when I pass a non-empty todo list, the items are rendered correctly in the template.  The TodoMVC template I downloaded currently returns two pre-populated elements (slightly simplified here):
 ```html
 ...
 <ul class="todo-list">
