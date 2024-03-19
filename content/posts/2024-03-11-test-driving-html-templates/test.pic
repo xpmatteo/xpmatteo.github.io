@@ -4,21 +4,31 @@
 
 h = boxht/2
 
-T:  file "template" above fill lightblue 
-    move
+down
 D:  ellipse "data" fill gray color white thickness 0 wid 0.7*boxwid ht 0.7*boxht
-
-    line from T.s down h then right until even with D 
-    line from D.s down h to last line.end
-A:  arrow from last line.end left 0.50 then down h
+arrow
+P:  circle rad circlerad/2 fill orange "+" color white
+left
+line <-
+T:  file "template" above fill lightblue 
+down
+arrow from P.s down
 H:  file "html" above fill lightblue 
 
 ellipse wid 0.5*boxwid ht 0.5*boxht with .s at T.s + 0,0.05 thickness 0 fill white
-ellipse wid 0.5*boxwid ht 0.5*boxht with .s at H.s + 0,0.05 thickness 0 fill gray
+ellipse wid 0.5*boxwid ht 0.5*boxht with .s at H.s + 0,0.05 thickness 0 fill gray 
 
-ellipse "test" fill green color white at A.start + boxwid*1.1,0
 
-spline from last ellipse.n up h/2 then up h left h then to D.c chop thin thin ->
-spline from last ellipse.s down h/2 then down h left h then to H.c chop thin thin ->
-text " 1. setup" ljust above at last ellipse.n 
-text " 2. assert" ljust below at last ellipse.s 
+right
+move to P.e
+line <- wid 1.2*boxwid thin dashed
+text "   2. render" above at last line.center 
+
+TEST: ellipse "test" fill green color white 
+
+arrow from TEST.c to D.c chop thin dashed
+text "   1. setup" ljust at last arrow.center 
+arrow from TEST.c to H.e chop thin dashed
+text "   3. assert" ljust at last arrow.center 
+
+

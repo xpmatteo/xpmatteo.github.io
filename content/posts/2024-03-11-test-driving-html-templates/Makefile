@@ -6,7 +6,7 @@ PIC=../../../script/pikchr
 
 %.png: %.pic
 	$(PIC) --svg-only $< > $*.svg
-	$(INKSCAPE) --export-type png -w 400 --export-filename $@ $*.svg 
+	$(INKSCAPE) --export-type png -w 500 --export-filename $@ $*.svg 
 
 test.png:
 
@@ -15,3 +15,5 @@ clean:
 	rm -f test.svg test.png
 
 
+actions:
+	$(INKSCAPE) --action-list
