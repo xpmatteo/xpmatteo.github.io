@@ -1,0 +1,3168 @@
+
+What does it mean to be agile? I mean, my definition is that you accept input from reality, and you respond to it.
+
+<cite><a href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&amp;taxonomyName=Development&amp;articleId=9046399&amp;taxonomyId=11&amp;pageNumber=1">Kent Beck</a></cite>
+
+%%
+
+I dedicate <em><strong>Caravel</strong></em> to the Havelock, North Carolina crew, the earliest pioneers into my peculiar approach to fantasy, the players that brought every map and monster encounter to life for me.  Together, you taught me that it's about <em>character</em> and <em>friendship</em>.  Everything else is copper; leave it.
+
+<cite>S. John Ross, in the dedication of the <a href="http://www222.pair.com/sjohn/caravel.htm" title="Uresia: Caravel">Caravel</a> fantasy supplement</cite>
+
+%%
+
+The deeper we get, the less we think this argument [Classicist vs Mockist
+(see Fowler's <a href="http://martinfowler.com/articles/mocksArentStubs.html">Mocks Aren't Stubs</a>)] makes sense. What matters more is how someone approaches OO. We belong unashamedly to the "it's all about messages" school, as led by Alan Kay, with classification as an secondary structure. This colours our approach to TDD. Others have a different emphasis.
+
+<span class="attrib">Steve Freeman, on the XP mailing list</span>
+
+%%
+
+<div lang='it'>
+Chi si loda s'imbroda
+<span class="attrib">&mdash; proverbio</span>
+</div>
+
+%%
+
+<p> Prince Wang's programmer was coding software. His fingers danced
+ upon the keyboard. The program compiled without an error message, and
+ the program ran like a gentle wind. </p>
+
+<p> &#8220;Excellent!&#8221; the Prince exclaimed, &#8220;Your technique is
+faultless!&#8221; </p>
+
+<p> &#8220;Technique?&#8221; said the programmer turning from his terminal,
+&#8220;What I follow is Tao &mdash; beyond all techniques! When I first began to
+program I would see before me the whole problem in one mass. After
+three years I no longer saw this mass. Instead, I used
+subroutines. But now I see nothing. My whole being exists in a
+formless void. My senses are idle. My spirit, free to work without
+plan, follows its own instinct. In short, my program writes
+itself. True, sometimes there are difficult problems. I see them
+coming, I slow down, I watch silently. Then I change a single line of
+code and the difficulties vanish like puffs of idle smoke. I then
+compile the program. I sit still and let the joy of the work fill my
+being. I close my eyes for a moment and then log off.&#8221; </p>
+
+<p>
+Prince Wang said, &#8220;Would that all of my programmers were as wise!&#8221;
+</p>
+<span class="attrib">The Tao of Programming</span>
+
+%%
+
+It is estimated that <a
+href="http://catb.org/~esr/jargon/html/A/ADVENT.html">Adventure</a>
+set the entire computer industry back two weeks.
+<span class="attrib">&mdash; Tim Anderson, "<a
+href="http://www.ifarchive.org/if-archive/infocom/articles/NZT-Zorkhistory.txt">The
+History of Zork</a> &mdash; First in a Series" New Zork Times; Winter 1985</span>
+
+
+%%
+First Law of <a href="http://www.ifarchive.org/">Interactive</a> <a href="http://www.ifitalia.info/">Fiction</a>:  Go everywhere.<br />
+Second Law of Interactive Fiction: Look at/on/in/under everything.<br />
+Corollary to the Second Law:  Take and examine everything.<br />
+David's rider:  Keep everything you possibly can.<br />
+
+%%
+
+<p>
+I am in the business of building excellent guitar players, and so, I
+must convey a certain truth to them along the way, one that does not
+seem to be obvious and sufficiently appreciated by most people. It is
+this: it is relatively easy to achieve about 80% of anything. It is
+relatively easy to develop ourselves to about 80% of proficiency in
+any field we may choose. If you want to become a computer programmer,
+a business person, own a restaurant, be a carpenter, be a musician,
+anything, you can study it, get experience, and become
+"functional". Most people that bother to develop something useful (and
+most do, being forced as we are to "make a living") achieve this
+level.
+</p>
+<p>
+But to become really good, to start to rise above, and noticeably so,
+the average person doing what you do, THAT takes a whole different
+kind of effort, and a whole lot more of it. Most people do not do this
+in their particular field. Most people really are, when it comes down
+to it, content with doing what they "must", and keeping their
+standards and goals low enough to avoid too much demand and
+discomfort. That is why the age old lament of all employers is "you
+just can't find good help anymore". Yes, because the number one goal
+of most people is to DO as little as possible and GET as much as
+possible. That is the formula for mediocrity.
+</p>
+<p>
+To put it simply, it is easy to be mediocre, that is why so many
+people are achieving it.
+</p>
+<p>
+We are all climbing a mountain. In fact, we are climbing various
+mountains all the time. Becoming a guitar player is a mountain, and
+every piece of music you work on is its own mountain. It is easy to
+work on a solo, a song, or a piece, and get it "pretty good". You
+know, 80% of the notes are there, so hey, leave me alone, what do you
+want, ALL the notes! Come on, I would have to REALLY work hard on it
+to get that! To bring a piece of music from 80% to 90% is an
+incredibly demanding process. Climbing that mountain further and
+further is the essence of being an artist, no matter what your field
+of endeavor is.
+</p>
+<p>
+Yes, that is the truth. It is easy to get 80% of the way up the
+mountain; any interested party can do that. Closing in on that last
+20%, well, that separates the men from the boys, as they say. Here is
+the thing to understand: every step forward and upward required to
+move past the common crowd will most likely require as much as ALL the
+effort previously put out. The higher we climb, the more we must exert
+for every inch gained, but every inch is precious and worth more than
+everything before it. The gap between 99% and 100% is, in fact,
+infinite.
+</p>
+
+<span class="attrib">Jamey Andreas, <a
+href="http://news.guitarojam.com/artists/jamie-andreas-climb-every-mountain-140/">Climb Every Mountain</a></span>
+
+%%
+Q: What will the software industry look like in five years?<br />
+
+A: A lot like the legal profession does now, I think. Independent
+software firms will be like law firms, partnership organizations of
+professionals. Other programmers will work in-house at corporations
+the way that corporate lawyers do now. Programmers in general will be
+operating from a common open source base; secrecy will be a feature
+mainly of legacy software.
+
+<span class='attrib'><a href="http://www.catb.org/~esr/">Eric Raymond</a>, in an <a
+href="http://www.linuxworld.com/story/33884.htm">interview</a> for <a
+href="http://www.linuxworld.com/magazine/">Linux World Magazine</a> </span>
+
+%%
+I've seen things you wouldn't believe.  Attack ships on fire off the
+shoulder of Orion.  I watched C-beams glitter in the dark near the
+Tannhauser gate.  All those moments will be lost in time, like tears
+in rain.  Time to die.
+
+%%
+
+<pre style='font-family: verdana, sans-serif' lang='es'>
+        Tres cosas
+
+  Tres cosas me tienen preso
+de amores el corazón,
+la bella Inés, el jamón
+y berenjenas con queso.
+</pre>
+<span class='attrib'>Baltasar del Alcázar (1530-1606)</span>
+
+%%
+
+	Deserves it!  I daresay he does.  Many that live deserve death.
+	And some that die deserve life.  Can you give it to them?
+	Then do not be too eager to deal out death in judgement.
+	For even the very wise cannot see all ends.
+
+	<span class='attrib'>Gandalf the Grey</span>
+%%
+
+There are 10 types of people: those who understand binary, and those
+who don't.
+
+%%
+
+Well-written Web pages work well on all reasonably new browsers.
+<ul>
+    <li> "this page is optimized for XYZ" = "I only tested this page on XYZ"</li>
+    <li> "this page is best viewed in 1024x768" = "my screen has resolution 1024x768"</li>
+</ul>
+<span class='attrib'><a href="http://www.brics.dk/~amoeller/">Anders M&oslash;ller</a>,
+<a href="http://www.brics.dk/~mis/">Michael I. Schwartzbach</a>,
+<em><a href="http://www.brics.dk/~amoeller/XML/index.html">The XML Revolution</a></em></span>
+
+%%
+
+<a
+href="http://cs-exhibitions.uni-klu.ac.at/fileadmin/template/documents/picture/EWD_laughing_1971.jpg"><img
+alt=""
+src="http://cs-exhibitions.uni-klu.ac.at/fileadmin/template/thumbnail.php?DID=177"
+align="right" /></a>
+
+in 1957 I married and Dutch marriage rites require you to state your
+profession and I stated that I was a programmer.  But the municipal
+authorities of the town of Amsterdam did not accept it on the grounds
+that there was no such profession.  And, believe it or not, but under
+the heading "profession" my marriage act shows the ridiculous entry
+"theoretical physicist"!
+<span class="attrib">Edsger W. Dijkstra in his <a
+href="http://www.cs.utexas.edu/users/EWD/ewd03xx/EWD340.PDF">1972 Turing Award Lecture</a></span>
+
+<p>
+What struck me 30 years ago and still resonates in my mind today is
+how Dijkstra was <em>proud</em> to be a programmer instead of a
+theoretical physicist.
+</p>
+<span class="attrib">Peter P. Chen, in his <a
+href="http://www.csc.lsu.edu/~chen/pdf/Dijkstra.pdf">2002 EWD memorial</a>
+</span>
+
+%%
+
+In any dispute the intensity of feeling is inversely proportional to
+the value of the stakes at issue &mdash; that is why academic
+politics are so bitter.
+
+<span class="attrib">Wallace S. Sayre, <a
+href='http://lawlibrary.ucdavis.edu/LAWLIB/Sept03/0006.html'>quoted</a> in Charles
+Issawi, "Issawi's Laws of Social Motion" (1973) </span>
+
+%%
+
+Speak, O Guru: To attain Mastery, how many Kernels do I need to take apart and reassemble?
+
+<p>
+
+O Nobly Born: this question reveals that indeed thou hast touched upon
+an Ineffable Truth about Unix &mdash; thou canst not Plumb its
+Mysteries by mere Study but must become One with it through
+Practice. The true Way to the Knowledge of the Source is not the timid
+and footling way of the Student, but the Divine Foolery of the
+Hacker. Hack, then; strive against Mighty Problems, have joy in thy
+Striving, and let the Crashes fall where they may (maintaining the
+while, for the Good of thy Karma, a Rigorous Backup Policy).
+</p>
+
+<span class="attrib"><a
+href="http://www.catb.org/~esr/faqs/loginataka.html">The
+Loginataka</a></span>
+
+%%
+
+<h4>Master Foo and the Script Kiddie</h4>
+
+<p>
+
+A stranger from the land of Woot came to Master Foo as he was eating
+the morning meal with his students.</p><p>&#8220;I hear y00 are very
+l33t&#8221;, he said.  &#8220;Pl33z teach m3 all y00
+know&#8221;.</p><p>Master Foo's students looked at each other,
+confused by the stranger's barbarous language. Master Foo just smiled
+and replied: &#8220;You wish to learn the Way of
+Unix?&#8221;</p><p>&#8220;I want to b3 a wizard hax0r&#8221;, the
+stranger replied, &#8220;and 0wn ever3one's
+b0xen&#8221;.</p><p>&#8220;I do not teach that Way&#8221;, replied
+Master Foo.</p><p>The stranger grew agitated.  &#8220;D00d, y00 r
+nothing but a p0ser&#8221;, he said.  &#8220;If y00 n00 anything, y00
+wud t33ch m3&#8221;.</p><p>&#8220;There is a path&#8221;, said Master
+Foo, &#8220;that might bring you to wisdom&#8221;.  The master
+scribbled an IP address on a piece of paper.  &#8220;Cracking this box
+should pose you little difficulty, as its guardians are incompetent.
+Return and tell me what you find&#8221;.</p><p>The stranger bowed and
+left. Master Foo finished his meal.</p><p>Days passed, then months.
+The stranger was forgotten.</p><p>Years later, the stranger from the
+land of Woot returned.</p><p>&#8220;Damn you!&#8221; he said, &#8220;I
+cracked that box, and it was easy like you said.  But I got busted by
+the FBI and thrown in jail&#8221;.</p><p>&#8220;Good&#8221;, said
+Master Foo.  &#8220;You are ready for the next lesson&#8221;.  He
+scribbled an IP address on another piece of paper and handed it to the
+stranger.</p><p>&#8220;Are you <span
+class="emphasis"><em>crazy</em></span>?&#8221; the stranger
+yelled. &#8220;After what I've been through, I'm never going to break
+into a computer again!&#8221;</p><p>Master Foo smiled.
+&#8220;Here&#8221;, he said, &#8220;is the beginning of
+wisdom&#8221;.</p><p>On hearing this, the stranger was
+enlightened.</p>
+
+<span class="attrib">Eric Raymond's <em><a
+href="http://catb.org/~esr/writings/taoup/html/unix_koans.html">Rootless
+Root</a>.  The Unix Koans of Master Foo</em></span>
+
+%%
+
+Case analyses are often forced upon programmers who do not
+consider&nbsp;0 to be natural: we have all seen&nbsp;0 treated as a special
+case.  Sometimes even&nbsp;1 is treated as a special case!  Consider a
+program that selects, by some criterion, a list of names (from
+somewhere), and then sorts them.  With a "sort" that (only) works for
+lists of length at least&nbsp;1, we would be forced to code this as
+
+<blockquote>
+  <pre style="font-family: sans-serif;">
+    select a list of names
+  ; <u>if</u> list is empty -> <i>skip</i>
+    [] list is non-empty -> sort the list
+    <u>fi</u>
+  </pre>
+</blockquote>
+
+If the "sort" handled lists of length 0, we could write
+
+<blockquote>
+  <pre style="font-family: sans-serif;">
+    select a list of names
+  ; sort the list
+  </pre>
+</blockquote>
+
+<span class="attrib">Edward Cohen, <em>Programming in the
+1990s</em>, page 143</span>
+
+%%
+
+ <em>I have a problem with a friend of mine. He is active in his church and
+   feels strongly that any Fantasy Roleplaying Game is Evil. What can I
+   tell him?</em>
+
+<p>
+...  Tell him this story:
+</p>
+<p>
+       A young boy with STRONG roots in christianity became disenchanted
+       with religion in general as he grew up. He fell into very
+       antisocial behavior (thieving, pyromania). While in high school,
+       he ran across a kid who knew a LOT about magic, and played D&amp;D.
+       Our disturbed hero fell in with this crowd, and soon was playing
+       D&amp;D regularily. He always played evil characters.
+</p>
+<p>
+       Now this poor soul never really read for pleasure. In fact, *all*
+       that he had read for the past three years was _First Blood_ and
+       _Rambo_. One of the players recommended the Dragonlance series to
+       him. He loved it, empathizing with Raistlin 100%. He read the
+       first book in one night, bought the next two, read BOTH in one
+       night, and begged his DM to give him more. His pleas were
+       granted: Thomas Covenant; Dune; David Eddings; Tolkien. Soon this
+       maladjusted youth began writing himself, specializing in poetry.
+       He expanded his reading range, including such great works as Les
+       Miserables, all of Joyce, and, oh yeah, the Bible. Indeed, our
+       wayward youth regained his faith, and now this year published a
+       book of poetry, dedicated to me: The DM. True story.
+</p>
+<p>
+       Oh, yeah. For what it's worth, he wants to become a priest.
+</p>
+<span class="attrib">from the FAQ file of the Usenet newsgroup rec.games.frp,
+<a href="http://groups.google.com/groups?selm=1992Jan17.203118.13663%40athena.mit.edu&amp;oe=UTF-8&amp;output=gplain">posted</a>
+around 1992 </span>
+
+
+%%
+
+<p>
+An equal opportunity disease afflicts nearly every site now on the
+web, from the humblest personal home pages to the multi-million-dollar
+sites of corporate giants.  Cunning and insidious, the disease goes
+largely unrecognized because it is based on industry norms.  Although
+their owners and managers might not know it yet, <strong>99.9% of all
+websites are obsolete</strong>.
+</p>
+<p>
+These sites might look and work all right in mainstream, desktop
+browsers whose names end in the numbers 4 or 5.  But outside these
+fault-tolerant environments, the symptoms of disease and decay have
+already started to appear.
+</p>
+<p>
+In modern versions of Microsoft Internet Explorer, Opera Software's
+Opera Browser, Netscape Navigator, and Mozilla (the Open Source,
+Gecko-based browser whose code drives Navigator, CompuServe, AOL for
+OS&nbsp;X, AOL&nbsp;China, and other browsing environments), carefully
+constructed layouts have begun falling apart and expensively
+engineered behaviours have stopped working.  As these leading browsers
+evolve, site performance continues to deteriorate.
+</p>
+<span class='attrib'>
+<a href='http://www.zeldman.com/'>Jeffrey Zeldman</a>, <em>Designing with Web Standards</em>, New Riders 2003
+</span>
+
+%%
+
+Am I the only one that looks at the number '666' and thinks a+rw?
+
+%%
+
+George B. Dantzig, then a graduate student at the University of
+California, Berkeley, arrived late for a statistics class one day and
+found two problems written on the board. Not knowing they were
+examples of "unsolvable" statistics problems, he solved them as a
+homework assignment. Dantzig, who later became a staff mathematician
+at Stanford University, recounted his solving two "unsolvable"
+problems in a 1986 interview for College Mathematics Journal, and his
+solutions to the two problems can be found in the journal articles
+listed in the Sources section below.
+
+<span class="attrib">
+
+A true <a
+href="http://www.snopes.com/college/homework/unsolvab.htm">urban
+legend</a>, as reported in a <a
+href="http://slashdot.org/article.pl?sid=03/11/26/1942205">comment</a>
+from a <a href="http://slashdot.org">Slashdot</a> reader.
+
+</span>
+
+%%
+
+Wake up, Neo.
+
+%%
+
+[Rich Stevens'] books are so good that they have come to symbolize
+intelligence. In "Wayne's World II," Garth's girlfriend carries a copy
+of "Unix Network Programming." Stevens discovered this when he took
+his 13-year-old son to see the film. His son grabbed his arm and said,
+"Dad, that's your book!"
+
+<span class="attrib">Rachel Charmers, in her <a
+href="http://dir.salon.com/tech/feature/2000/09/01/rich_stevens/index.html">piece</a>
+about <a href="http://www.kohala.com/start/">Richard Stevens</a> on Salon</span>
+
+%%
+
+For example, let's say that you want to get rid of Philip Greenspun's phone numbers but aren't sure of the exact syntax.
+
+<blockquote><pre>
+SQL> delete from phone_numbers;
+
+3 rows deleted.
+</pre></blockquote>
+
+Oops. Yes, this does actually delete all the rows in the table. You probably wish you'd typed
+
+<blockquote><pre>
+delete from phone_numbers where email = 'philg@mit.edu';
+</pre></blockquote>
+
+but it is too late now.
+
+<span class="attrib">Philip Greenspun, <a
+href="http://philip.greenspun.com/sql/"><em>SQL for Web
+Nerds</em></a></span>
+
+%%
+
+Software is indented properly when the structure of the software is
+revealed <em>and</em> when the indentation style is familiar to a community of
+programmers.
+
+<span class="attrib">Philip Greenspun, <a
+href="http://philip.greenspun.com/sql/"><em>SQL for Web
+Nerds</em></a></span>
+
+%%
+
+We're looking at a future where only the very largest companies will
+be able to implement software, and it will technically be illegal for
+other people to do so. That's a very, very bad situation
+developing. We must do something so that there is reason for people to
+innovate, there is reason for people to invent, but that companies can
+execute without this constant fear that we will be sued into the
+ground regarding software patenting.
+
+<span class="attrib">Bruce Perens, in a BBC <a
+href="http://news.bbc.co.uk/1/hi/technology/3422853.stm">interview</a>
+</span>
+
+%%
+
+
+<blockquote>
+<p>
+<em>
+Question: Unix programmers seems to dislike using threads in their
+applications. After all, they can just fork(); and run along instead
+of using the thread functions. But, that's not important right now.
+</em>
+</p>
+<p>
+<em>
+What is your opinion on the current thread implementation in the Linux
+kernel compared to systems designed from the ground up to support
+threads (like BeOS, OS/2 and Windows NT)? In which way could the
+kernel developers make the threads work better?"
+</em>
+</p>
+</blockquote>
+
+
+<p>
+
+Ingo: thats a misconception. The Linux kernel is *fundamentally*
+'threaded'. Within the Linux kernel there are only threads. Full
+stop. Threads either share or do not share various system resources
+like VM (ie. page tables) or files. If a thread has 'all-private'
+resources then it behaves like a process. If a thread has shared
+resources (eg. shares files and page tables) then it's a
+'thread'. Some OSs have a rigid distinction between threads and
+processes - Linux is more flexible, eg. you can have two threads that
+share all files but have private page-tables. Or you can have threads
+that have the same page-tables but do not share files. Within the
+kernel i couldnt even make a distinction between 'processes' and
+'threads', because everything is a thread to the kernel.
+
+</p>
+<p>
+
+This means that in Linux every system-call is 'thread-safe', from
+grounds up. You program 'threads' the same way as 'processes'. There
+are some popular shared-VM thread APIs, and Linux implements the
+pthreads API - which btw. is a user-space wrapper exposing already
+existing kernel-provided APIs. Just to show that the Linux kernel has
+only one notion for 'context of execution': under Linux the
+context-switch time between two 'threads' and two 'processes' is all
+the same: around 2 microseconds on a 500MHz PIII.
+
+</p>
+<p>
+
+programming 'with threads' (ie.: with Linux threads that share page
+tables) is fundamentally more error-prone that coding isolated threads
+(ie. processes). This is why you see all those lazy Linux programmers
+using processes (ie. isolated threads) - if there is no need to share
+too much state, why go the error-prone path? Under Linux processes
+scale just as fine on SMP as threads.
+
+</p>
+<p>
+
+the only area where 'all-shared-VM threads' are needed is where there
+is massive and complex interaction between threads. 98% of the
+programming tasks are not such. Additionally, on SMP systems threads
+are *fundamentally slower*, because there has to be (inevitable,
+hardware-mandated) synchronization between CPUs if shared VM is used.
+
+</p>
+<p>
+
+this whole threading issue i believe comes from the fact that it's so
+hard and slow to program isolated threads (processes) under NT (NT
+processes are painfully slow to be created for example) - so all
+programming tasks which are performance-sensitive are forced to use
+all-shared-VM threads. Then this technological disadvantage of NT is
+spinned into a magical 'using threads is better' mantra. IMHO it's a
+fundamentally bad (and rude) thing to force some stupid all-shared-VM
+concept on all multi-context programming tasks.
+
+</p>
+<p>
+
+for example, the submitted SPECweb99 TUX results were done in a setup
+where every CPU was running an isolated thread. Windows 2000 will
+never be able to do stuff like this without redesigning their whole
+OS, because processes are just so much fscked up there, and all the
+APIs (and programming tools) have this stupid bias towards
+all-shared-VM threads.
+
+</p>
+<span class="attrib">Ingo Molnar, <a
+href="http://slashdot.org/articles/00/07/20/1440204.shtml">interviewed</a>
+on Slashdot</span>
+
+%%
+
+A real software engineer can optimize any single attribute to become
+ten times better than it would otherwise had been.
+
+<span class="attrib">&mdash; Tom Gilb, <em>Principles of Software
+Engineering Management</em>, page 22</span>
+
+%%
+
+It was a fantastic night.  You could lose yourself in this
+noise. Little problems like the fact that you had no money and nowhere
+to stay dissolved in the sea of chords and sweat and beer and feedback
+and pounding bodies throwing themselves manically up and down in a
+distant approximation to the rhythm of the music.  Doug had never heard
+any of these songs before but in the months and years to come they
+would become his closest friends: 'Deny', 'London's burning', 'Janie
+Jones'.  He was transfixed by the sight and sound of Joe Strummer
+shouting, screaming, singing, howling into the microphone: the hair
+lank with sweat, the veins on his neck tautened and pulsing with
+blood.  Doug surrended to the noise and for an hour he pogoed like a
+madman in the dense, heaving heart of a crowd two hundred or more
+strong.  When it was over he stumbled to the bar and jostled for place
+as the fans clamoured to slake their thirst.  He was pushed and shoved
+and he pushed and shoved with the best of them and he felt, for the
+first time that day, wonderfully and unexpectedly at home.
+
+<span class="attrib">&mdash; Jonathan Coe, <em>Rotter's
+Club</em></span>
+
+%%
+
+Using numbers does not imply exact knowledge.  Many people find this
+point very hard to grasp.  In fact it is because our knowledge of our
+technology is so inexact, that we need numeric tools to keep some
+degree of control over how we are doing in relation to what we want to
+be doing.  To avoid numbers when knowledge is poor only exacerbates an
+already dangerous situation.
+
+<span class="attrib">&mdash; Thomas Gilb, <em>Principles of Software
+Engineering Management</em>, 1988, p. 339</span>
+
+
+%%
+
+IP was designed for use in a hostile environment, but its designers
+did not thoroughly appreciate how hostile the network itself might one
+day become.
+
+<span class="attrib">
+Simson Garfinkel, Gene Spafford &amp; Alan Schwartz, <em>Practical Unix and
+Internet Security</em>, p. 292
+</span>
+
+%%
+
+If the human brain were so simple that we could understand it, we
+would be so simple we couldn't.
+
+%%
+
+If a wise policymaker proceeds through a succession of incremental
+changes, he avoids serious lasting mistakes in several ways.  <span
+class="attrib">Charles E. Lindbloom</span>
+
+%%
+
+The concept of handbooks containing a list of technical solutions,
+with information about their expected attributes, is imbedded in all
+engineering disciplines, except for software engineering.  There are
+no real software engineering handbooks available at this time (1987).
+It will be some time before we are at the same level of maturity as
+other disciplines in this respect.  Therefore, I have eliminated
+discussion of software engineering handbooks in this book.  I have
+decided to stick with what is currently achievable, rather than what
+seems to be the logical way of organizing our discipline.  The
+equivalent today of a software engineering handbook is the data that
+resides in the heads and personal notebooks of the designers.
+
+<span class="attrib">&mdash; Thomas Gilb, <em>Principles of Software
+Engineering Management</em>, 1988, p. 163</span>
+
+%%
+
+Alare gli alari
+
+%%
+
+BeOS combines the best features of all the major operating systems:
+the ease-of-use of the Macintosh, the power and flexibility of Linux,
+and Minesweeper from Windows.
+<span class="attrib">&mdash; from a slashdot <a
+href="http://books.slashdot.org/article.pl?sid=04/05/10/181231&amp;mode=thread&amp;tid=137&amp;tid=185&amp;tid=187&amp;tid=190&amp;tid=198&amp;tid=87">story</a></span>
+
+%%
+
+Thus, of course, Linus didn't sit down in a vacuum and suddenly type
+in the Linux source code. He had my book, was running MINIX, and
+undoubtedly knew the history (since it is in my book). But the code
+was his. The proof of this is that he messed the design up. MINIX is a
+nice, modular microkernel system, with the memory manager and file
+system running as user-space processes. This makes the system cleaner
+and more reliable than a big monolithic kernel and easier to debug and
+maintain, at a small price in performance, although even on a 4.77 MHz
+8088 it booted in maybe 5 seconds (vs. a minute for Windows on
+hardware 500 times faster).
+
+	<span class="attrib">Andrew Tanenbaum, on <a href="http://www.cs.vu.nl/~ast/brown/">Some Notes on the "Who wrote Linux" Kerfuffle, Release 1.4</a></span>
+
+%%
+
+ When it comes to writing reliable software, there are four kinds of programmers:
+
+<ul>
+  <li> Those who are constantly writing buggy code, no matter what    </li>
+
+  <li> Those who can write reasonable code, given coaching and  examples </li>
+
+  <li> Those who write good code most of the time, but who don't fully realize their limitations </li>
+
+  <li> Those who really understand the language, the machine
+    architecture, software engineering, and the application area, and
+    who can write textbook code on a regular basis </li>
+ </ul>
+
+The gap between the third category and the fourth may not seem like
+much to some readers, but there are far fewer people in that last
+category than you might think. It's also the case that there are lots
+of people in the third category who would claim they are in the
+fourth, but really aren't...similar to they 70% of all licensed
+drivers who say they are in the top 50% of safe drivers. Being an
+objective judge of one's own abilities is not always possible.
+
+<span class="attrib">
+<a href="">Gene Spafford</a>, in the introduction to <em>Secure
+Programming Cookbook for C and C++</em> by Viega, John &amp; Matt Messier
+</span>
+
+%%
+
+<div class="quote">
+The difference between thread-safety and re-entrancy
+
+<p> An operation is "thread-safe" if it can be performed from multiple
+threads safely, even if the calls happen simultaneously on multiple
+threads. </p>
+
+<p> An operation is re-entrant if it can be performed while the
+operation is already in progress (perhaps in another context). This is
+a <strong>stronger</strong> concept than thread-safety, because the
+second attempt to perform the operation can even come <strong>from
+within the same thread</strong>. </p>
+
+<span class="attrib"><a
+href="http://weblogs.asp.net/oldnewthing/archive/2004/06/29/168719.aspx">Raymond
+Chen</a></span>
+</div>
+
+
+%%
+
+True, at one time or another I have written programs in FORTRAN,
+BASIC, COBOL, APL, SNOBOL, Spitbol, Icon, and a few other
+languages. But, to be honest, hasn't everyone?
+
+<span class="attrib">Lawrence I. Charters, <a
+href="http://www.wap.org/journal/geekhandbook/geek3.html"><em>I Am Not
+A Geek. Honest.</em></a></span>
+
+%%
+
+The goal is clean code that works (thanks to Ron Jeffries for this
+pithy summary).  Clean code that works is out of the reach of even the
+best programmers some of the time, and out of the reach of most
+programmers (like me) most of the time.  Divide and conquer, baby.
+First we'll solve the "that works" part of the problem.  Then we'll
+solve the "clean code" part.  This is the opposite of
+architecture-driven development, where you solve the "clean code"
+first, then scramble around trying to integrate into the design the
+things you learn as you solve the "that works" problem.
+
+<span class="attrib">Kent Beck, <em>Test-Driven Development by
+Example</em>, p. 11</span>
+
+%%
+
+<p>Finally, Jerry said: "Go ahead, delete it."</p>
+
+<p>"But it works." I said.</p>
+
+<p>"So what?" Said Jerry.</p>
+
+<p>I was starting to get testy. "There's nothing wrong with it!" I
+asserted.</p>
+
+<p>"Really." he grumbled ; and he grabbed the keyboard and deleted my
+code.</p>
+
+<p>I was dumbfounded. No, I was furious. He had just reached over and
+deleted my work. For a minute I stopped caring about the prestige of
+being an apprentice of Mr. C. What good was that apprenticeship if it
+meant I had to work with brutes like Jerry? These, and other less
+complimentary, thoughts raced behind my eyes as I glared at him.</p>
+
+<p>"Ah. I see that upset you." Jerry said calmly.</p>
+
+<p>I sputtered, but couldn't say anything intelligent.</p>
+
+<p>"Look." Jerry said, clearly trying to calm me down. "Don't become
+vested in your code. This was just thirty minutes worth of work. It's
+not that big a deal. You need to be ready to throw away a lot more
+code than that if you want to become any kind of a programmer. Often
+the best thing you can do with a batch of code is throw it out."</p>
+
+<span class="attrib">Robert C. Martin, <em>The Craftsman: Four</em></span>
+
+%%
+
+<pre style='font-family: verdana, sans-serif' lang='en'>
+Walking across the sitting-room, I turn the television off.
+Sitting beside you, I look into your eyes.
+As the sound of motor cars fades in the night time,
+I swear I saw your face change, it didn't seem quite right.
+And it's: Hello babe with your guardian eyes so blue
+Hey my baby, don't you know our love is true.
+
+Coming closer with our eyes, a distance falls around our bodies.
+Out in the garden, the moon seems very bright,
+Six saintly shrouded men move across the lawn slowly.
+The seventh walks in front with a cross held high in hand.
+And it's: Hey babe your supper's waiting for you
+Hey my baby, don't you know our love is true.
+
+    I've been so far from here,
+    Far from your loving arms.
+    It's good to feel you again,
+    It's been a long, long time. &mdash; Hasn't it?
+</pre>
+<span class="attrib">Lovers' leap &mdash; Genesis</span>
+
+%%
+
+<p>
+My dear Wormwood, </p>
+
+<p> it seems to me that you take a great many pages to tell a very
+simple story. The long and the short of it is that you have let the
+man slip through your fingers.  The situation is very grave, and I
+really see no reason why I should try to shield you from the
+consequences of your inefficiency.  A repentance and renewal of what
+the other side calls 'grace' on a scale which you describe is a defeat
+of the first order.  It amounts to a second conversion&mdash;and
+probably on a deeper level than the first. </p>
+
+<p> ... And now for your blunders.  On your own showing you first of
+all allowed the patient to read a book he really enjoyed, because he
+enjoyed it and not in order to make clever remarks about it to his new
+friends.  In the second place, you allowed him to walk down to the old
+mill and have tea there&mdash;a walk through country he really
+likes, and taken alone.  In other words you allowed him two real
+positive Pleasures.   </p>
+
+<p> Were you so ignorant not to see the danger of this?  The
+characteristic of Pains and Pleasures is that they are unmistakably
+real, and therefore, as far as they go, give the man who feels them a
+touchstone of reality.  Thus if you had been trying to damn your man
+by the Romantic method&mdash;by making him a kind of Childe Harold or
+Werther submerged in self-pity for imaginary distresses&mdash;you
+would try to protect him at all cost from any real pain; because of
+course, five minutes' genuine toothache would reveal the romantic
+sorrows for the nonsense they were and unmask your whole
+stratagem. </p>
+
+<p> But you were trying to damn your patient by the World, that is by
+palming off vanity, bustle, irony, and expensive tedium as pleasures.
+</p>
+
+<span class="attrib">C.S. Lewis, <a
+href="http://en.wikipedia.org/wiki/The_Screwtape_Letters">The
+Screwtape Letters</a></span>
+
+%%
+
+All I Really Need to Know I Learned in Kindergarten
+
+<ul>
+        <li> Share everything. </li>
+        <li> Play fair. </li>
+        <li> Don't hit people. </li>
+        <li> Put things back where you found them. </li>
+        <li> Clean up your own mess. </li>
+        <li> Don't take things that aren't yours. </li>
+        <li> Say you're sorry when you hurt somebody. </li>
+        <li> Wash your hands before you eat. </li>
+        <li> Flush. </li>
+        <li> Warm cookies and cold milk are good for you. </li>
+        <li> Live a balanced life--learn some and think some and draw and paint and sing and dance and play and work every day some. </li>
+        <li> Take a nap every afternoon. </li>
+        <li> When you go out into the world, watch out for traffic, hold hands, and stick together. </li>
+        <li> Be aware of wonder. </li>
+</ul>
+<p class="attrib">Robert Fulghum</p>
+
+%%
+
+Verbing weirds language
+
+<p class="attrib">&mdash; Calvin</p>
+
+%%
+
+<p>
+One morning at Unirel, Francesco told us that our room
+was too messy to work in; we needed to tidy up. As we
+were doing so, we realized that most of the clutter was
+concentrated on the bookcase, which hadn't been sorted out
+for months. There was an accumulation of things used by
+various people, some having nothing to do with the team.
+</p>
+
+<p>
+More importantly there were things that had become
+permanent fixtures, and other objects&mdash;belonging to the
+gurus of the company&mdash;that were considered sacred.
+Beyond that, we thought that it would take forever to
+straighten it all out. Following Francesco's advice: we all
+pitched in to reorganize the bookcase without a
+coordinator, without first dividing up work areas, but by
+talking to one another about every problem and every
+decision, by doing simple things like setting out books two
+by two to classify them, and finding the courage to touch
+the "untouchable." Surprisingly, in a short time not only
+was the bookcase tidied up, but there was much more space
+available than what we had imagined when we started out.
+Spontaneous, sudden order had emerged; things that didn't
+belong to the team were removed, and most importantly
+every member of the team knew the position of any given
+object.
+</p>
+
+<p class="attrib">&mdash; Marco Dani, Alberico Gualfetti,
+Luigi Mengoni, Francesco Cirillo,
+<a href="http://www.xplabs.it/risorse.xpl">How We Became The Pongo Team</a>
+</p>
+
+%%
+
+
+<p> <strong>AK</strong> We looked at Java very closely in 1995 when we
+were starting on a major set of implementations, just because it's a
+lot of work to do a viable language kernel. The thing we liked least
+about Java was the way it was implemented. It had this old idea, which
+has never worked, of having a set of paper specs, having to implement
+the VM (virtual machine) to the paper specs, and then having
+benchmarks that try to validate what you've just implemented&mdash;and
+that has never resulted in a completely compatible system.  </p>
+
+<p> The technique that we had for Smalltalk was to write the VM in
+itself, so there's a Smalltalk simulator of the VM that was
+essentially the only specification of the VM. You could debug and you
+could answer any question about what the VM would do by submitting
+stuff to it, and you made every change that you were going to make to
+the VM by changing the simulator. After you had gotten everything
+debugged the way you wanted, you pushed the button and it would
+generate, without human hands touching it, a mathematically correct
+version of C that would go on whatever platform you were trying to get
+onto.  </p>
+
+<p> The result is that this system today, called Squeak, runs
+identically on more than two dozen platforms. Java does not do
+that. If you think about what the Internet means, it means you have to
+run identically on everything that is hooked to the Internet. So Java,
+to me, has always violated one of the prime things about software
+engineering in the world of the Internet.  </p>
+
+<p> ... </p>
+
+
+<p> <strong>SF</strong> If nothing else, Lisp was carefully defined in
+terms of Lisp.  </p>
+
+<p> <strong>AK</strong> Yes, that was the big revelation to me when I
+was in graduate school&mdash;when I finally understood that the half
+page of code on the bottom of page 13 of the Lisp 1.5 manual was Lisp
+in itself. These were "Maxwell's Equations of Software!" This is the
+whole world of programming in a few lines that I can put my hand over.
+</p>
+
+<p>
+I realized that anytime I want to know what I'm doing, I can just
+write down the kernel of this thing in a half page and it's not going
+to lose any power. In fact, it's going to gain power by being able to
+reenter itself much more readily than most systems done the other way
+can possibly do.
+</p>
+
+<span class="attrib">Alan Kay, <a
+href="http://acmqueue.com/modules.php?name=Content&amp;pa=showpage&amp;pid=273">interviewed</a>
+on ACM Queue</span>
+
+%%
+
+His approach seemed to me to consist of unafraid hard thinking,
+intuition, and no great reliance on advanced mathematics.  This was
+inspiring to lesser mortals.  He attacked problems directly, with
+whatever skills he had at his commands, and often they worked.  He
+gave you the sense (perhaps misguided) that you could discover deep
+truths with whatever skills you had, too, if you were willing to think
+hard.  He was guided by his great economics intuition; though his
+mathematical skills were unexceptional, his instinct was strong, and
+he was tenacious in trying to attain insight before resorting to
+mathematics.
+
+<p class="attrib">Emanuel Derman, <em>My Life as a Quant</em></p>
+
+%%
+
+I find myself wanting to talk about the things I learned from Redmond,
+but I almost don't know where to begin. But perhaps this will suffice:
+before computers were anything that existed outside academia and
+government, Redmond taught me about UI. He taught me about the
+importance of graphical representation of information, how <em>showing
+could be vastly more important than explaining</em>, how a clever visual
+system could transform a game from mediocrity to fascination.
+
+<p class="attrib"><a href="http://www.costik.com">Greg Costikyan</a>'s
+obituary for Redmond A. Simonsen (my emphasis)</p>
+
+
+%%
+
+<p>
+The most sought-after drummer in Sonoma County, California, is a friend
+of mine.  He is in demand not only because his playing is flashy and
+energetic but because it is also rock steady.  Once I asked him what
+he practices at home to maintain his excellence.  He demonstrated by
+sitting at his drum set and, with his right foot, playing the pedal
+(which causes the bass drum to be struck by a large felt mallet) about
+one beat per second, steady as a metronome, true as time.  His eyes
+fell inward as if in a trance.  I had expected exotic percussive
+fireworks, but there were none.  Then I realized that none were
+needed.  ...
+</p>
+
+<p> He stopped.  &#8220;That's it?&#8221; I asked. </p>
+
+<p> He grinned.  &#8220;I'll learn it someday.&#8221; </p>
+
+<p class='attrib'>W. A. Mathieu, The Listening Book, p. 53</p>
+
+<p> There is a relationship between mastery and simplicity.  The
+greater the mastery one has in a subject, the more absorbed one can
+become in its most fundamental concepts and behaviours.  Conversely, a
+beginner usually needs to skim the surface before being drawn in.  A
+child is much more interested in learning &#8220;Greensleeves&#8221;
+or current pop music rather than learning to sing in unison with a
+string, or recognizing the overtones series. ... But as you develop,
+you begin to hunger for what is beneath the surface, for the practices
+and concepts that deepen and widen your range of perception.
+Gradually, your capacity for elementary practice increases, and you
+find yourself moving slowly and listening deeply just for the pleasure
+of it.  ... Keep coming back to the simple things.  It may come to
+pass that what was once only mildly interesting and marginally
+relevant has become a touchstone for your musical life.  </p>
+
+<p class='attrib'>W. A. Mathieu, Harmonic Experience, p. 18</p>
+
+
+%%
+
+Chicago in the early 1960s.  We were young musicians and actors and
+writers discovering the Zen of our lives, or what we called Zen, or
+The Moment, or the Eternal Now, or I-Thou, depending on whom we were
+reading, from Watts to Reps to Buber.  We were high on the idea of
+being high on life.
+
+<p class='attrib'>W. A. Mathieu, The Listening Book, p. 59</p>
+
+%%
+
+<p>
+  Code should be clear and simple&mdash;straightforward logic, natural
+  expression, conventional language use, meaningful names, neat
+  formatting, helpful comments&mdash;and it should avoid clever tricks
+  and unusual constructions.
+</p>
+<p class='attrib'>Brian W. Kernighan, Rob Pike, The Practice of
+Programming, p. 2</p>
+
+<p>
+But there are some constants, some points of stability, where lessons
+and insight from the past can help with the future.  The underlying
+themes in this book are based on these lasting concepts.  <br />
+<strong>Simplicity</strong> and <strong>clarity</strong> are first and most
+important, since almost everything else follows from them.
+</p>
+<p class='attrib'>ibid., p. 247</p>
+
+%%
+
+... XP e' destinato a collezionare successo perche' tra l'altro:
+
+<ul>
+  <li>Incita la componente creativa laddove non si credeva potesse esistere (il software) esaltando l'assunzione di responsabilita' e limitando comportamenti meccanici</li>
+  <li>Elenca chiaramente principi, valori e pratiche che formano il background del "buon programmatore"</li>
+  <li>Limita drasticamente l'insorgere del malumore da ufficio dovuto a tecniche di protezionismo, arrampicatura sociale et similia spostando queste energie sugli scopi di progetto</li>
+  <li>Coinvolge direttamente il cliente o il datore di lavoro nel team di sviluppo sensibilizzandolo nelle sue responsabilta'</li>
+  <li>Rende evidenti successi ed insuccessi del team cosi' come le cause dell'insuccesso</li>
+  <li>Costringe all'introspezione sulle motivazioni che stanno alla base di una scelta di progetto, attivita' o modus operandi</li>
+</ul>
+Il concetto di "Seniority" in XP e' piu' simile ad un percorso spirituale che tecnico ...
+<p class='attrib'>Renzo Borgatti, sul wiki del <a href="http://milano-xpug.pbwiki.com/">Milano XP User Group</a></p>
+
+
+%%
+
+<h4>
+Rurik's Saga &mdash; the fight in Gimpy's Tavern
+</h4>
+
+<p>
+We have already established that Rurik can handle a cudgel with a 25% attack
+and a 25% parry.  ...
+</p>
+<p>
+Having reached his age of maturity, 16, he has gone to
+Gimpy's Tavern (run by three Adventurers, all of whom lost
+a leg in a previous adventure) for the first time in his
+life.
+</p>
+<p>
+Intelligently moving down the bar from the rowdies at one
+end, his natural clumsiness literally trips him up
+(or is the boot of the rowdy with close-set eyes?) and
+he falls against a foppishly shabby sort sitting at a table
+in his path.
+</p>
+<p>
+There is much shouting and insulting, and Rurik finds events
+moving too fast for him.  In no time, the patrons have made
+a circle around him and his involuntary target and he
+seems to be in the middle of a duel.  Youthful pride
+is too much to let him back out.
+</p>
+<p>
+Being intelligent, Rurik has a good idea of whom he faces.
+This is Herkan Quickword, a known bully.  Rurik is also
+aware that Herkan has picked up some training with the
+rapier he is now drawing, but has never been asked to join
+an Adventurer band.  He is also somewhat smaller and less
+bright than our hero.  Rurik hefts his cudgel and grins
+boyishly.
+</p>
+<p>
+(Herkan actually has a STR of 10, and INT of 9, a POW of 8,
+a CON of 11, a DEX of 13, and a SIZ of 9.  Rurik has a 2
+point per hit location edge on him and his cudgel actually
+does more damage.  Herkan has managed to be trained
+to 20% with a Rapier, which is added to his natural
+5% bonus from the 13 DEX to give him a 25% chance with
+the rapier.  He also parries at 25%.  He doesn't like
+Rurik's grin.)
+</p>
+<p>
+Herkan has a strike rank of 6 and attacks first, rolling
+a 44 (miss).  Rurik's parry is 45, also a miss.  Rurik's
+attack and Herkan's parry also miss.  The more
+experienced habitues of Gimpy's are having many chuckles
+at the expense of the combatants' lack of expertise.
+</p>
+<p>
+Second melee round,  Herkan rolls 14, and Rurik's parry
+of 53 is another miss.  The hit location is 9, abdomen,
+and Rurik feels the metal of the rapier enter his side.
+It's a shallow wound (only 2 points rolled for damage).
+Rurik misses his return attack and Herkan misses his
+parry.
+</p>
+<p>
+Third melee round, Herkan again connects with 15,
+Rurik's 56 missing the parry.  Rurik's left leg takes
+3 points of damage.  But Herkan is too cocky.  His
+parry just misses the oncoming cudgel as Rurik rolls 01
+on his attack!  As neither of the combatants wears any
+armor, the referee rules that the critical hit does no
+special damage, rather than ignoring the effect of the
+non-existent armor.  The cudgel lands on Herkan's abdomen,
+for a roll of 10 out of the 12 a heavy mace (cudgel) can
+do.  Herkan takes 10 points in the abdomen!  This is 6 more
+than Herkan can take in the abdomen, so Herkan dies.
+</p>
+<p>
+There is a stunned silence in Gimpy's.  Everyone look
+around for a friend of Herkan's to take up the quarrel,
+as Rurik hefts his cudgel and waits.   When it develops
+that, indeed, Herkan had no friends, the patrons buy
+Rurik a drink.
+</p>
+<p class="attrib">Steve Perrin, Ray Turney, <em>Runequest</em>, 1978</p>
+
+%%
+
+<p>
+Whereas Mathematics is principally concerned with amassing a
+collection of results, Computing Science is about method: <em>how to
+construct</em> programs and systems that are reliable, ergonomic and
+efficient.  The <em>calculational method</em> is about enhancing the
+human being's innate abilities by reducing as much as possible of the
+construction of process to elementary syntactic calculation.
+</p>
+<p>
+Reliability demands precision, but precision is often achieved at the
+expense of concision, and a lack of concision is a severe impediment
+to creativity.  ... The calculational method, in contrast, aims to
+combine precision with concision, and thus eliminate the separation
+between construction and verification</p>
+
+<p>
+... Calculation is not a spectator sport.  To appreciate its charms
+one must do it, and to become proficient one must practise.
+</p>
+<p class="attrib">Roland Backhouse, <em>The calculational method</em>,
+Information Processing Letters 53 (1995) 121</p>
+
+%%
+
+	<p>
+    Avere fede richiede <em>coraggio</em>, capacità di correre un rischio
+    e di accettare perfino il dolore e la delusione.  Chiunque
+    insista sulla sicurezza e sulla forza come mezzi principali
+    non può aver fede; chiunque si rinchiuda in un sistema di
+    difesa, in cui distacco e possesso siano i suoi mezzi di
+    sicurezza, si rende prigioniero.  Amare ed essere amati
+    significa aver coraggio di giudicare certi valori e di aver
+    fede in essi.
+	</p>
+
+	<p>
+	...
+	</p>
+
+	<p>
+  	La pratica della fede e del coraggio comincia con i piccoli
+  	particolari della vita quotidiana.  Il primo passo è quello di
+  	notare come e perché si perde la fede, di studiare le ragioni
+  	con cui si giustifica tale perdita, di riconoscere se ci si è
+  	comportati da vigliacchi e perché.  Riconoscere come ogni
+  	tradimento indebolisca e come la crescente debolezza porti a
+  	nuovi tradimenti, in una catena senza fine.  Allora si
+  	riconoscerà anche che <em>mentre si è coscientemente timorosi di
+  	non essere amati, il vero, sebbene inconscio timore, è quello
+  	d'amare.</em>
+	</p>
+
+<span class="attrib">
+Eric Fromm, <em>L'arte di amare</em>, p.132-133, Oscar
+		Mondadori
+</span>
+
+%%
+
+The lyf so short, the craft so long to lerne.
+<p class="attrib">&mdash; Geoffrey Chaucer</p>
+
+%%
+
+<p>
+Wabi-sabi is a beauty of things imperfect, impermanent, and incomplete.
+</p>
+<p>
+It is the beauty of things modest and humble.
+</p>
+<p>
+It is the beauty of things unconventional.
+</p>
+<p>
+... At the core of wabi- sabi is the importance of transcending ways of looking and thinking about things/existence.  All things are impermanent.
+All things are imperfect.  All things are incomplete.
+</p>
+<p>
+Material characteristics of wabi-sabi:
+suggestion of natural process,
+irregular,
+intimate,
+unpretentious,
+earthy,
+simple
+</p>
+<p class="attrib">Wabi-sabi nel <a href="http://c2.com/w4/wikibase/?WabiSabi">wiki di Ward</a></p>
+
+%%
+
+... "if an object or expression can bring about, within us, a sense of serene melancholy and a spiritual longing, then that object could be said to be wabi sabi." Richard R. Powell summarizes by saying "It (wabi-sabi) nurtures all that is authentic by acknowledging three simple realities: nothing lasts, nothing is finished, and nothing is perfect."
+
+<p class="attrib"><a href="http://en.wikipedia.org/wiki/Wabi-sabi">http://en.wikipedia.org/wiki/Wabi-sabi</a></p>
+
+%%
+
+
+<p>I think everyone would agree that democracy and Ajax are elements of "Web 2.0." I also see a third: not to maltreat users. During the Bubble a lot of popular sites were quite high-handed with users. And not just in obvious ways, like making them register, or subjecting them to annoying ads. The very design of the average site in the late 90s was an abuse. Many of the most popular sites were loaded with obtrusive branding that made them slow to load and sent the user the message: this is our site, not yours. (There's a physical analog in the Intel and Microsoft stickers that come on some laptops.)
+</p>
+
+<p>I think the root of the problem was that sites felt they were giving something away for free, and till recently a company giving anything away for free could be pretty high-handed about it. Sometimes it reached the point of economic sadism: site owners assumed that the more pain they caused the user, the more benefit it must be to them. The most dramatic remnant of this model may be at salon.com, where you can read the beginning of a story, but to get the rest you have sit through a movie.
+</p>
+
+<p>At Y Combinator we advise all the startups we fund never to lord it over users. Never make users register, unless you need to in order to store something for them. If you do make users register, never make them wait for a confirmation link in an email; in fact, don't even ask for their email address unless you need it for some reason. Don't ask them any unnecessary questions. Never send them email unless they explicitly ask for it. Never frame pages you link to, or open them in new windows. If you have a free version and a pay version, don't make the free version too restricted. And if you find yourself asking "should we allow users to do x?" just answer "yes" whenever you're unsure. Err on the side of generosity.
+</p>
+
+<p class="attrib">Paul Graham, <a href="http://www.paulgraham.com/web20.html">Web 2.0</a></p>
+
+%%
+
+<p> The correct answer to the whining "can you pull an all nighter?"
+is, "only if you can accept the serious loss in productivity this will
+cause".  </p>
+
+<p> The correct answer to the incredulous, "oh, come on, everyone does
+it!" is, "have you measured the effect on their productivity?".  </p>
+
+<p> The correct answer to the haughty, "I've been a manager for N
+years. I know all about productivity." is "have you measured it? Where
+are your figures?".  </p>
+
+<p> The correct answer to the arrogant, "Look, do it, or I'll remember
+it on your next performance evaluation." is "I've been measuring it
+for the last 3 months on this DeathMarch. Here's the graph. Do you
+want me to show it to your manager?"
+</p>
+
+<p class="attrib">&mdash; Ward's Wiki: <a
+href='http://c2.com/cgi/wiki?ThirtySixHourDay'>36 Hours Day</a>
+</p>
+
+%%
+
+I'd much rather work with dedicated, enthusiatic intelligent people who were average programmers than with socially dysfunctional code heroes.
+
+<p class="attrib">&mdash; Tim Haughton</p>
+
+%%
+
+Il primo passo per migliorare con XP non è conformarsi ai valori [di XP], non avrebbe senso; ma semmai riconoscere i propri valori.
+
+<p class="attrib">&mdash; Francesco Cirillo</p>
+
+%%
+
+Since the Romans have taught us "Simplex Veri Sigillum" —that is: simplicity is the hallmark of truth— we should know better, but complexity continues to have a morbid attraction. When you give for an academic audience a lecture that is crystal clear from alpha to omega, your audience feels cheated and leaves the lecture hall commenting to each other: "That was rather trivial, wasn't it?" The sore truth is that complexity sells better. ... And it is even more diabolical in that we even use the complexity of our own constructs to impress ourselves.
+
+<cite> E.W. Dijkstra, EWD898</cite>
+
+%%
+
+<p>
+Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better. The computing industry is not the only one that has discovered that sore truth: so has the academic world. If you deliver a lecture that is crystal clear from the beginning to end, your audience feels cheated and mutters while leaving the lecture hall "That was all rather trivial, wasn't it?". One of our learned journals has rejected a beautiful paper of mine because the solution it presented was too simple to be of academic interest and I am waiting for the rejection of a paper on the grounds that it is too short.
+</p>
+
+<p>
+Also our academic reward system works against us. One can get credit for some complicated concepts one has introduced, it is hard to get credit for the discovery how some established but complicated concepts had better be avoided: those unaware of these concepts won't notice your discovery and those with vested interests in them will hate you for it. Hence my urgent advice to all of you to reject the morals of the bestseller society and to find, to start with, your reward in your own fun. This is quite feasible, for the challenge of simplification is so fascinating that, if we do our job properly, we shall have the greatest fun in the world.
+</p>
+
+<p>In short: Two cheers for Elegance!</p>
+
+<cite>Edsger W. Dijkstra, <a href="http://www.cs.utexas.edu/users/EWD/ewd08xx/EWD896.PDF">EWD896</a></cite>
+
+%%
+<p>
+I like to think of Agile as a party. And like any good party, everyone gets invited. It’s then up to you whether or not you show up. And when. If you do, it’s then up to you how much time and effort you want to put in. As to whether you’re a party animal or a party pooper, the choice is entirely up to you.
+</p>
+<p>
+The key is to include everyone on the invite. Agile, to me, is about inclusion. It’s about making-change-for-the-better an option for everyone. It’s the kind of option that has no expiry date.
+</p>
+
+<cite>Portia Tung, <a href="http://www.selfishprogramming.com/2009/10/02/celebration-of-life/" title="Celebration of Life | Selfish Programming">Celebration of Life</a></cite>
+
+%%
+
+<p>   Privacy protects us from abuses by those in power, even if we&#x27;re
+  doing nothing wrong at the time of surveillance.
+</p>
+
+<p>
+  We do nothing wrong when we make love or go to the bathroom. We
+   are not deliberately hiding anything when we seek out private
+   places for reflection or conversation. We keep private journals,
+   sing in the privacy of the shower, and write letters to secret
+   lovers and then burn them. Privacy is a basic human need.
+</p>
+
+<cite>Bruce Schneier, <a href="http://www.schneier.com/crypto-gram-0912.html#2">Crypto-Gram: December 15, 2009</a></cite>
+
+%%
+
+<p>
+  You think Yoda stops teaching, just because his student does not want to hear? A teacher Yoda is. Yoda teaches like drunkards drink, like killers kill.
+</p>
+
+%%
+
+<blockquote>
+  I agree. And yet, some people are assholes. Perhaps not many, and I never
+  want to listen to my immediate judgments of people, but some people are,
+  simply, assholes.
+</blockquote>
+
+I wholeheartedly disagree. "Being an asshole" is a property of a
+relationship, not of a person.
+
+<cite><a href="http://groups.google.com/group/lonely-coaches-sodality/msg/13fc322337475e8e" title="Bitterness resistence -  Lonely Coaches Sodality |  Google Groups">Ilja Preuß</a></cite>
+
+
+%%
+
+The Product Owners look at slack as a way to evaluate whether the team is overloaded–and seek to reduce velocity until we hit slack consistently. Otherwise, we fear we’ll be paying for code debt, bug fixes, and reduced innovation that the team can’t really see until they come up for air.
+
+<cite><a href="http://tech.groups.yahoo.com/group/extremeprogramming/message/153277">André Dhondt</a></cite>
+
+%%
+
+<p><strong>WW</strong> - I'm interested in things you do, behaviors you have, whether you think of them as coaching or programming.
+</p>
+
+<p><strong>AK</strong> - I was at a position in my life where I stopped being a traditional team lead and turned myself into a ScrumMaster. It's hard to do, because you get used to proposing your ideas and believing that you're smarter than other people. Instead you have to start believing that the team can make up better ideas themselves. You make yourself stop talking and just ask questions. This is a hard thing to achieve.</p>
+
+<cite>Alexey Krivitsky, <a href="http://xp123.com/coach/interviews/Alexey2009.htm" title="XP123 -&nbsp; Coach Interview - Alexey Krivitsky">interviewed by</a> William Wake</cite>
+
+%%
+
+<p>Watching Master Chef on TV some time ago I was struck by how the chefs continually clean their work areas, the more so when under greater pressure. At one point, a dish went horribly wrong for one of the chefs in the competition and he had very little time to improvise something from the ingredients he had at hand. He worked very fast, chopping, cooking, plating up etc. And all the time wiped up spills, placed utensils back in their correct locations, moved things he no longer needs out of the way, and so on.
+</p>
+
+<p>A common query about refactoring, TDD and test automation in general is whether teams should drop the practices when deadlines are close, or have been missed altogether, and how to recover the technical debt. My answer is that in my experience those are the times when the practices *most* help, when you most need the predictable rate of delivery the practices give you.</p>
+
+<cite>Nat Pryce on the <a href="http://groups.google.com/group/softwaremetaphor/msg/babe641d117a8d77" title="cleaning up a kitchen as a metaphor for refactoring - SoftwareMetaphor | Google Groups">SoftwareMetaphor</a> mailing list</cite>
+
+%%
+
+RT <a href="http://twitter.com/ByronKatie/status/16159507740">@ByronKatie</a>: Stress is an alarm clock that lets you know you’re attached to something not true for you.
+
+%%
+
+RT <a href="http://twitter.com/deborahh/status/16461945136">@deborahh</a> I have a strange job: getting things to happen in other people's minds, bodies, hearts. Kind of like the faith healer who doesn't touch you.
+
+%%
+
+<p>Sure. What I mean is that a "good designer" will say, "we need Spring"
+before one line of code is written, but an XP team should not. Spring
+is more or less a given on most Java projects, but when we are
+practicing "pure TDD" it is not. Now one side will argue that this
+means we are under-designing our system or ignoring best practices.
+The counter argument is that we are avoiding a source of additional
+complexity until there is a business need.
+</p>
+
+<cite>Adam Sroka on the XP mailing list</cite>
+
+%%
+<p>
+The real lesson of TDD, AFAIK, is that designing and testing are
+entirely the same thing. At least, that is true for the kind of
+testing we are talking about (small, isolated, object-oriented tests.)
+</p>
+<p>
+I used to think that I wrote tests to prove that my code worked. Now I
+believe that I write tests to understand /how/ my code works. The fact
+that running the tests also gives me some confidence that the code
+does work is a nice side effect.
+</p>
+<p>
+When I write tests to understand how my code works I end up finding
+ways that I can make it better. That doesn't just happen sometimes. It
+happens every single time.
+</p>
+<p>
+If I can't make my code better then I'm not looking in the right
+place. Which probably means that I'm writing the wrong test. I need to
+pause, think about what I need to know that I currently don't know,
+and then write a test for that.
+</p>
+<cite>Adam Sroka on the XP mailing list</cite>
+
+%%
+
+<p>That's naive but potentially valid. A better approach might be to use
+a framework that understands how to parse xml so that silly things
+like white space or character entities don't break the test. Better
+than that would be to use something that understands how to parse HTML
+in a manner similar to what the browser does.
+</p>
+<p>
+However, all of those solutions couple you to an intermediate form
+that isn't really that interesting. A better approach would be to
+validate the actual browser components that the user interacts with.
+The place to do that in is in the browser.
+</p>
+<p>
+Now, some would suggest that the way to test in the browser is to use
+a tool like e.g. Selenium against a running server, but then that
+couples your front end tests to your back end, which is a whole new
+kind of pain. I used to do it that way and I can tell you that it is
+less than a fun time.
+</p>
+<p>
+What I would do is decouple the front end HTML code from the back end
+server code. The way to do that is to use static HTML and have the
+dynamic, server parts handled by javascript. You can test the way the
+javascript interacts with the static HTML bits in the browser without
+the need for a running server. You can test the way javascript
+interacts with the server by writing interaction tests using test
+doubles in javascript. Then you can write HTTP tests that interact
+with the server side functionality (Without running any javascript.)
+</p>
+
+<p>
+This approach works very well provided that this sort of architecture
+works for your problem space. If you need to generate HTML dynamically
+on the server side then your back to needing to write integration
+tests that include the browser and the server (i.e. you have tight
+coupling across a system boundary.) Another approach would be to use a
+rich client side technology with better testing support like
+Flash/Flex.
+</p>
+
+<cite>Adam Sroka on the TDD mailing list</cite>
+
+%%
+
+<blockquote>
+  <blockquote>
+  To your first part something like this:
+
+<pre>
+  testHasATableNamedMasterTable() {
+    page = retrievePage('MyPage');
+    isTrue(htmlParser.hasATable(page).named('master_table'));
+  }
+</pre>
+
+  I think you could do this using jQuery (Client-side using qunit) because of its selectors. The problem I have with this is that XML/HTML (i.e STATIC) is a declarative language. It would be like testing against a relational database. There is no specific behavior to test just concrete data, not specifically Test Driven DESIGN.
+</blockquote>
+
+I mentioned testing the structure because that is an option. It is not
+what I recommend. However, if you are going to do it you need to do it
+in a way that is informative. i.e. the tests need to pass when the
+code will parse to the right representation, and only fail when it
+won't. If you test for a particular HTML string then you will have a
+brittle test that will fail for silly reasons.
+
+  <blockquote>
+    I would like opinions concerning if this is even worth doing?
+  </blockquote>
+
+I don't do it any more, but I used to...
+
+  <blockquote>
+    Sounds like an opinion here. Is there some reason you actually don't want to explicitly state the reason why you don't any more?
+  </blockquote>
+</blockquote>
+
+<p>
+  Sorry about that. I don't do it for two reasons: 1) Like I said
+earlier the HTML is just an intermediate representation and not
+interesting in and of itself. It would be like testing that my C# code
+was correct by parsing CIL, or testing that my Java code was correct
+by parsing bytecode. 2) As you said, structure is less important to
+test than behavior. What I care about is how the JavaScript interacts
+with the DOM, not the structure of the DOM itself.
+</p>
+
+<cite>Adam Sroka on the TDD mailing list</cite>
+
+%%
+
+<p>Assuming that you are test driving a web page that contains javascript, what
+I do is use webdriver (now merged with Selenium 2.0, currently in alpha
+release) to drive the external behavior of the page in a top-down fashion.
+Then I use jasmine (currently, but I've played with several others) to test
+drive javascript modules in isolation.
+</p>
+<p>
+I use a lot of stubbing when I test javascript, which is real easy since you
+can redefine anything on the fly. In particular, I tend to wrap Ajaxy things
+in their own object and then replace them with a stub that returns canned
+data. That way I can avoid calls to the server during my unit tests.
+</p>
+<cite>Adam Sroka on the TDD mailing list</cite>
+
+%%
+
+If you never question anything, you won't get very far.
+
+<cite>Japanese proverb freely translated by <a href="http://gobase.org/studying/articles/mioch/daigo/?issue=1">Pieter Mioch</a></cite>
+
+%%
+
+As my interest in gaming grew more sophisticated so did my interest in history.  <em>Squad Leader</em> scenarios provided starting points for my visits to the library. ...  And so it went until life got in the way: girls, college, careers.  All that stuff that sits in violent opposition to learning a game with a 150-pages rulebook. ... Poor <em>Advanced Squad Leader</em> was overrun, broken and eventually retired to the bookshelf.  I missed my old friend, but <em>Squad Leader</em> defended against reality with, at best, 1:6&nbsp;odds.
+
+<cite>Ken Levine in <em><a href="http://www.greenronin.com/store/product/grr4002.html">Family Games: the 100 Best</a></em></cite>
+
+%%
+
+<p>
+We introduced Test-First Programming and it improved our defect situation. (Reduced size of defect queue, reduced average age of defects, reduced arrival of new defects.) We chose TDD because we agreed that our defects were a top source of distraction from shipping new features. We discovered this by building a value stream of the defect fix process and determined that it takes us 45 days on average to ship a defect fix, and that one of every four defect fixes resulted in either a new defect or a recurrence of the defect we tried to fix.
+</p>
+
+<p>I use this template: "We introduced practice X with effect Y. We choose practice X because we thought it would solve problem A. We decided problem A needed solving soon because symptom S costs us N days per month."
+</p>
+<p>
+I would imagine that each team could provide about three of these.
+</p>
+
+<cite>J. B. Rainsberger <a href="http://groups.google.com/group/lonely-coaches-sodality/msg/40399af663b36bbb">posted on the</a> Lonely Coaches Sodality mailing list</cite>
+
+
+%%
+
+<p>
+  <strong>Yves Hanoulle</strong>: what would be your number 1 tip for someone new to facilitate any agile game?
+</p>
+
+<p>
+  <strong>Jean Tabaka</strong>: My experience goes along with much that has been stated:
+</p>
+<ul>
+<li>be very clear about instructions</li>
+<li>use visuals as a support</li>
+<li>ask if there are any questions</li>
+<li>wait 10 seconds</li>
+<li>run the game and check in with everyone to ensure that you are available should questions arise</li>
+<li>and MOST important of all, debrief the game using something like an ORID technique:</li>
+<ul>
+  <li>O - objective questions such as "What did you notice was going on
+in the game?" (Example: there was a lot of noise)</li>
+  <li>R - reflective questions such as "What was your reaction to these things? How did this impact you during the game?"</li>
+  <li>I  - interpretive questions such as "How could this experience relate to your work in your agile organization?" (Example: we need to be clearer about our roles)</li>
+  <li>D - decisional questions such as "So now what will commit to changing in how you do your agile work based on your experience here?"</li>
+</ul></ul>
+<cite>Read on the Agile Games mailing list</cite>
+
+%%
+
+<p>Ladders should be the school that teaches you to read patiently, move by move -- black, white, black, white, black, white -- which is the only way.
+</p>
+
+<p>
+Some will say &ldquo;Phooey, that much I know already! It's just that it's too much bother to actually do it.&rdquo;.  Others will say, &ldquo;Look, I'm still weak at the game; I can't do anything difficult like reading&rdquo;.  So much for these lazy students, let them do as they please.  They are not going to get anywhere.  They need to be grabbed by the scruff of the neck and have some sense knocked into them.
+</p>
+
+<cite>Toshiro Kageyama, <em>Lessons in the Fundamentals of Go</em>, p. 14</cite>
+
+%%
+
+<p>Figment Engine wrote:
+</p>
+<blockquote>
+    I guess the skill is knowing in what makes as small as possible but
+    valid slice (as you say in the book)
+</blockquote>
+
+I use a simple technique to help me with that. I can describe the algorithm like so:
+
+1. Write out any, and I mean any, meaningful end-to-end scenario in detail with concrete values at every step.
+
+2. Now that you've chosen one real scenario, go to each step in that scenario and ask the question, "What would I need to assume to eliminate this step?" If you find those assumptions make for a reasonable scenario, then use that assumption to simplify the scenario.
+
+3. Repeat step 2 until exhausted or unable to come up with a simplifying assumption with five minutes' thought.
+
+I've used the example of online bill payment in many of my classes and applied this algorithm. You'd be surprised how simple, but useful a bill payments system one can build.
+
+<cite>A <a href="http://www.jbrains.ca/permalink/three-steps-to-a-useful-minimal-feature">blog post</a> by J.B. Rainsberger</cite>
+
+%%
+<p>
+The point of Tell Don't Ask style is that objects tell each other to *do things*. So you get objects that have rich, useful behaviour, clear responsibilities and hidden/encapsulated state, rather than bags of loosely related data that are manipulated by procedural code.
+</p>
+
+<p>As a result, it is true, objects are not coupled to the structure of the rest of the system. But that is also the case for pure functional code that transforms data through maps and folds. The point, I think, of Tell, Don't Ask style OO code is to program in terms of collaborating, autonomous activities rather than in terms of shuffling data between storage locations. And when that clicks into place, I find I can rapidly raise the level of abstraction so I can make large changes to system behavior merely by plugging objects together into different configurations.</p>
+
+<cite><a href="http://www.natpryce.com/">Nat Pryce</a> on the Growing Object-Oriented Software <a href="http://groups.google.com/group/growing-object-oriented-software/t/9af7f06f8a632f2e">mailing list</a></cite>
+
+%%
+
+<blockquote>
+Here are the two measures I pay the most attention to:
+
+<ul>
+<li> Frequency of test runs. The more work I do between runs, the greater the chance of unexpected errors. The greater the incidence of unexpected errors, the slower I go. Unexpected errors generally indicate either fatigue or a lack of understanding on my part. If I'm tired, I (should) rest. If I don't understand, I divide the work into smaller slices so I can test individual assumptions.
+</li>
+<li>Double reds. If a test run fails twice in a row, I'm not doing my job well. Again, it's either fatigue or ignorance. This is why the JUnit Max postage stamp has a teensy tiny test history along the bottom. It should go red/green/red/green/green/green/red/green. If the reds start doubling up, it's time to shift gears.
+</li>
+</ul>
+</blockquote>
+
+<cite>Kent Beck on the TDD mailing list</cite>
+
+%%
+
+<blockquote>
+Typically in a system of any significant size I'll wind up with two
+models - a "read" model for the UI/service layer/etc... and a "write"
+model that houses the actual domain/business logic. When returning
+data as part of a web page, for example, only the read model would be
+used. The read model includes getters and setters, precalculated data,
+etc... and more often than not one can wind up creating an entity per
+view. How you populate this model is up to you, but I've used ORM's,
+views in the database which provide the data for a given entity, or in
+some scenarios there is an entirely separate data store for the read
+model, which is kept up to date asynchronously via queues, etc... from
+the write model. The write model follows all the rules when it comes
+to Tell, Don't Ask, etc... Defining a strict separation of concerns
+through the entire stack usually makes for a simpler, more
+straightforward implementation on both sides of the fence, as the
+write model truly only contains what it needs to do it's job (process
+commands coming from the user) and the read model entities are
+carefully tailored to fit each use case / view and you can get away
+from those nasty "Super Entities" that contain every possible property
+that might ever be needed on any given screen.
+</blockquote>
+<cite>Matt Burton on the GOOS mailing list</cite>
+
+%%
+
+Val più uno a fare, che cento a comandare.
+
+<cite>Proverbio</cite>
+
+%%
+
+<p>
+The point of OO design is to make time and space the same thing.  The
+object structure (space) represents how the entire system of objects
+behaves (time). The structure is explicit, because every object talks
+to other objects only through local references and so the structure
+must be defined *outside* the objects. Therefore the behaviour of the
+system is easily understood, because it is described by the explicit
+structure.
+</p>
+<p>
+I have to admit that I just never find the need to explicitly
+represent scopes/lifetimes the way you describe or squirrel them away
+in thread-local variables or AOP gubbins.  I create an object that
+needs to do something, giving it references to the objects that it
+needs to do its job. I pass its reference to the sources of events
+that will trigger its behaviour.  When an event source will no longer
+feed it events, the source "forgets" the reference.  Eventually there
+will be no references to the object and it gets garbage collected.
+That, in turn, may cause the collection of the objects that it depends
+on, and so on...
+</p>
+  <cite>Nat Pryce on the Growing Object-Oriented Software <a href="http://groups.google.com/group/growing-object-oriented-software/">mailing list</a></cite>
+
+%%
+
+1980: Once a year, my music teacher, for whom Tchaikovski was the most modern musician he knew, asked us to play 2 examples of what he called "popular music". My﻿ friend brought Visage´s "Fade to Grey" and I became courageous and played <a href="http://www.youtube.com/watch?v=XIu2Fr2nIhI">Ruckzuck</a>, the whole 7:50. After this my teacher and my mates thought of me as a complete idiot. Sweet youth, where have you gone...
+
+<cite><a href="http://www.youtube.com/user/TrottaVonSipolje">Trotta Von Sipolje</a> commenting on a Kraftwerk song on YouTube</cite>
+
+%%
+
+Optimization is solving the right problem.
+
+<cite>Brian Kernighan, Rob Pike, <em>The Practice of Programming</em></cite>
+
+%%
+
+On 8 January 2011 14:24, philip schwarz
+&lt;philip.johann.schwarz@googlemail.com&gt; wrote:
+
+<blockquote>
+  here is the post: http://parlezuml.com/blog/?postid=987
+</blockquote>
+<p>
+Thinking some more about this, I think the line that really bothers me
+is "we move on to the next easiest failing test."
+</p>
+<p>
+Maybe it's a poor choice of words but, taken at face value, I think it
+illustrates a deep misunderstanding of TDD.
+</p>
+<p>
+Firstly, TDD is not about writing a bunch of failing tests that we
+make pass one at a time.  TDD stipulates that we write one test at a
+time, implement just enough to make it pass, make the implementation
+as simple as possible (note: simple, not easy), and continue by
+writing another test.
+</p>
+<p>
+Secondly. we don't order tests by what is easy.  We test what we need
+to do next and we MAKE that easy to test. Making it easy to test might
+actually be difficult to do: it might bring to light a shortcoming in
+our design and force us to address it.
+</p>
+<p>
+That, to me, is the essence of the TDD process: the experience of
+writing a test gives us feedback about the quality of our design.  And
+I want that that feedback is to be met head on, not avoided by always
+taking the easy route.
+</p>
+<cite>Nat Pryce, on the GOOS mailing list</cite>
+
+%%
+
+<p>... Siate felici perché viviamo in un Paese memorabile. E se qualche volta
+la felicità si scorda di voi, voi non scordatevi della felicità. Per essere
+felici deve bastare poco, non dev’essere cara la felicità, perchè se costa
+cara non è di buona qualità. </p>
+
+<cite>Roberto Benigni al Festival di Sanremo 2011</cite>
+
+%%
+
+<p>
+We write a test showing what we intend to accomplish, and a few
+minutes later, we have accomplished it. If doing that has made the
+design not quite as nice as it was before we started, we evolve the
+design in place to keep it good.
+</p>
+<p>
+The more we practice this, the easier it gets and the better we get
+at it.
+</p>
+<p>
+..., there will always be times when our design ideas come too
+late for immediate inclusion but they are still desirable to put
+into the program. <strong>This is the original meaning of "technical debt",</strong> the deviation of the code now from what we understand of the
+desirable design now.
+</p>
+<cite>Ron Jeffries on the Software Craftmanship mailing list (my emphasis)</cite>
+
+%%
+
+<p>
+  Cavallo che suda,<br/>
+Uomo che giura,<br/>
+Donna piangente,<br/>
+Non credere a niente!
+</p>
+
+<cite>Proverbio</cite>
+
+%%
+
+<p>
+In XP non si parte dal TDD, ma si fa tanta analisi prima, o meglio si
+fa un'analisi molto efficace.
+</p><p>
+Il primo obiettivo da raggiungere è arrivare alla pianificazione di
+una release (Release Planning).
+</p><p>
+Questo lavoro si realizza con la collaborazione del cliente (un unico
+team lavora per arrivare alla Release).
+</p><p>
+Per far questo si individuano le storie con il cliente, si scrivono i
+test, se la storia è complessa, non breve, non testabile, si spezza.
+Si spezza seguendo un criterio di valore.
+</p><p>
+Ogni storia ha elementi di valore e di dinamica (quindi occorre fare
+uno sforzo per farle assumere questi caratteri). Per ogni storia
+occorre individuare e descrivere una serie di test (ripeto se sono
+numerosi o difficili da identificare, si splitta ulteriormente). Se
+non fosse chiaro, individuare la dinamica il valore e i test è fare
+analisi. La scrittura dei test di fatto fa emergere gli stessi
+concetti tipici della robustness analysis di tanti anni fa (oggetti di
+analisi).
+</p><p>
+Finora nessuno ha toccato una tastiera.
+</p><p>
+Spesso le storie sono arricchite di elementi grafici o di interazione,
+proprio perché sono dinamiche e concrete   è importante nel colloquio
+con il cliente avere elementi concreti per discutere ed eventualmente
+trovare nuove storie.
+</p><p>
+Dalle storie emergono gli spike. Ovvero delle verifiche tecniche (si
+può fare questa cosa con rmi?/i canvas gestiscono il refresh con
+l'evento X? quanto tempo ci vuole per fare una ricerca Y su un
+terabyte di dati/etc) o logiche (una transazione è un oggetto in una
+collezione?) che servono per ridurre il rischio. E' importante
+sottolineare che gli spike non sono prototipi (ovvero prototipi
+aperti). Sono "progetti a se stante" molto circoscritti, limitati
+(tecnicamente "prototipi chiusi" ovvero destinati ad essere buttati
+una volta terminati - buttati = non si espandono nel sistema da
+sviluppare). Ci si sforza per riuscire a dargli il contorno minimo
+possibile.
+</p><p>
+Alcuni spike saranno importante svilupparli immediatamente per
+comprendere meglio il contesto e per poter continuare l'attività
+orientata alla pianificazione della release.
+</p><p>
+(ancora non abbiamo scritto una riga di software di produzione)
+</p><p>
+Con l'esperienza degli spike - se richiesti (in genere si :-) ) - si
+prosegue l'attività fino a che il cliente riesce ad individuare
+l'insieme di storie che realizza la prima release - ovvero la prima
+messa in produzione (=il primo momento in cui il committente riesce ad
+ottenere qualche soldo dal sistema).
+</p><p>
+(Per esperienza il cliente può anche individuare velocemente altre
+release per farsi una idea - a noi capita spesso che il gioco lo
+appassioni - il gioco si chiama Planning Game - pratica di XP)
+</p><p>
+Una volta individuata la prima release (questo è quello che ci
+interessa) - che sia la più piccola aggregazione di storie possibile
+(quindi più breve possibile) il team individua le iterazioni
+(Iteration Planning).
+</p><p>
+Il cliente può andare in produzione solo con la release, ma la
+pianificazione dell'iterazione è rilevante perchè sa che al termine
+della prima iterazione può cambiare tutto e quindi può organizzare le
+storie dell'iterazione in una sequenza di consegna che ne massimizzi
+l'utilità.
+</p><p>
+Apro una parentesi - in XP a differenza di Scrum - il cliente sa che
+se vuole può cambiare anche il contenuto della iterazione sostituendo
+storie non iniziate di pari peso (stima).
+</p><p>
+Quindi il cliente ed il team lavorano insieme per organizzare lo
+sviluppo in obiettivi incrementali di utliità (iterazioni) e di valore
+(release) sapendo che quegli obiettivi potranno essere cambiati.
+</p><p>
+Una volta messe in ordine sulla lavagna :-) le storie dell'iterazione
+si inizia lo sviluppo.
+</p><p>
+Si prende la storia con obiettivo, descrizione dinamica, spike
+correlati, test e si comincia a ragionare come arrivare a completarla
+e qui inizia il TDD o almeno la versione di XP del TDD :-)
+</p><p>
+Nessuno in XP parte senza aver capito cosa deve fare. Semmai si
+accetta il caso di dover scoprire dallo sviluppo nuove informazioni
+utili per comprendere ulteriormente il business.
+</p>
+
+<cite>Francesco Cirillo sulla lista italiana di Extreme Programming</cite>
+
+
+%%
+
+<p>
+L'analisi XP è molto simile all'analisi proposta da Jacobson.
+</p><p>
+In entrambi i processi i requisiti sono dinamici e concreti e
+orientati al valore.
+</p><p>
+
+In entrambi i processi il "processo" di analisi è incrementale. In
+altri termini nel processo di analisi di XP come in quello di Jacobson
+si prevede di non poter disporre al tempo t di un insieme completo di
+casi d'uso e di scenari, ma che un processo iterativo che parta da un
+piccolo insieme di requisiti possa allargarsi progressivamente. Il
+dominio del problema si analizza progressivamente, questo è l'elemento
+in comune (a prescindere da quando si inizia lo sviluppo).
+</p><p>
+E' importante sottolineare una distorsione nella divulgazione dello
+Use Case Modeling. Molti testi a seguire hanno posto enfasi sugli use
+case, mentre Jacobson li intende necessari per scoprire gli scenari.
+Gli scenari degli use case servono a trovare i test (oops :-) questi
+test in XP sono assimilabili ai test delle storie).
+</p><p>
+Altra nota: gli use case iniziali servono a trovare il valore,
+progressivamente nel processo si passa dal "mondo ideale" del valore a
+use case reali (vedi il libro del caro Craig dove sono descritti
+bene). Gli use case reali considerano gli aspetti tecnologici e non
+funzionali in genere (con scenari e relativi test - oops :-) )
+</p>
+<cite>Francesco Cirillo sulla lista italiana di Extreme Programming</cite>
+
+%%
+
+<p>There are a few things I look for that are good predictors of whether a
+project is in good shape. These are also properties I strive for in my code.
+</p>
+
+<p>Once and only once - If I only have one minute to describe good
+style, I reduce it to a simple rule: in a program written with good style
+everything is said once and only once. This isn’t much help in creating good
+code, but it’s a darned good analytic tool. If I see several methods with the
+same logic, or several objects with the same methods, or several systems with
+similar objects, I know this rule isn’t satisfied. This leads us to the second
+property: </p>
+
+<p> Lots of little pieces - Good code invariably has small methods and
+small objects. Only by factoring the system into many small pieces of state
+and function can you hope to satisfy the “once and only once” rule. I get lots
+of resistance to this idea, especially from experienced developers, but no one
+thing I do to systems provides as much help as breaking it into more pieces.
+When you are doing this, however, you must always be certain that you
+communicate the big picture effectively. Otherwise, you’ll find yourself in a
+big bowl of “Pasta a la Smalltalk”, which is every bit as nasty a dish as
+“Fettucine a la C”.</p>
+
+<p> Replacing objects - Good style leads to easily replaceable objects. In
+a really good system, every time the user says “I want to do this radically
+different thing,” the developer says, “Oh, I’ll have to make a new kind of X
+and plug it in.” When you can extend a system solely by adding new objects
+without modifying any existing objects, then you have a system that is
+flexible and cheap to maintain. You can’t do this if you don’t have lots of
+little pieces. </p>
+
+<p> Moving objects - Another property of systems with good style is that
+their objects can be easily moved to new contexts. You should never be able to
+say, “This objects in this system does what that object in that system does,
+but they can’t be the same.” Warning- the first time you try to move an object
+you will discover you have done it wrong, that it doesn’t generalize well.
+Don’t try to move it too early in the game. Ship a couple of systems first.
+Then, if you have a system built of lots of little pieces, you will be able to
+make the necessary modifications and generalizations fairly easily.
+</p>
+
+<p>
+Rates of change - A simple criteria I use all the time is checking rates of
+change. I learned this criteria from something Brad Cox said a long time ago.
+I’ve since generalized it to- don’t put two rates of change together. Don’t
+have part of a method that changes in every superclass with parts that don’t
+change. Don’t have some instance variables whose values change every second in
+the same object with instance variables whose values change once a month.
+Don’t have a collection where some elements are added and removed every second
+and some elements are added and removed once a month. Don’t have code in an
+object that has to change for every piece of hardware and code that has to
+change for every operating system. How do you avoid this problem? You got it,
+lots of little pieces.
+</p>
+<cite>Kent Beck, <em>Smalltalk Best Practice Patterns</em></cite>
+
+%%
+
+<p>Hi Julian,<br/>
+I agree with you – the analogy between the <em>gemba</em> and the codebase is striking, and potentially very powerful (the Agile NW group also discussed it at last week’s meeting). And I agree that the ‘invisibility’ of the code makes it hard to engineer the drama of kaikaku events.</p>
+
+<p>Here are some kaikaku activities I’ve been able to do (depending on the maturity – or otherwise – of the shop in question):</p>
+
+<ul>
+
+<li>‘release’ the current code</li>
+
+<li>install the code into a CM repository</li>
+
+<li>get the build automated</li>
+
+<li>get the build time under an hour</li>
+
+<li>get just one test running every hour</li>
+
+<li>run a linter to identify unused code, and then remove it all</li>
+
+<li>run a dependency checker to identify loops, and then collapse each loop into a single module/package</li>
+</ul>
+<p>All except the last can create positive shockwaves…
+</p>
+
+<cite><a href="http://silkandspinach.net/2004/07/27/design-for-testability/" title="Design for testability &laquo; silk and spinach">Kevin Rutherford</a></p></cite>
+
+%%
+
+<p>
+  There’s a great story of a manager of a Coca-cola plant who’s numbers were far better than his peers. When asked what his “secret” was, he said simply that rather than take a best practice and modify it to meet what the plant did, he instead modified the plant to match the best practice. His secret was not trying to be too clever.
+</p>
+
+<cite><a href="http://blog.objectmentor.com/articles/2011/05/24/bamboo-reminds-me-of-a-time-when" title="Bamboo reminds me of a time when...">Brett Schuchert</a></cite>
+
+%%
+
+Ted M. Young [@jitterted] wrote:
+
+<blockquote>
+Finally, Corey's note on abstractions is key: the more comfortable you are
+with abstractions, the more likely you are to factor out methods
+appropriately and see duplication. I've seen lots of refactorings that are
+technically correct, but slice the code in a way that leaves you with just a
+bunch of methods instead of a cohesive set of abstractions that match the
+problem. I've seen these slices cause an increase in subtle duplication
+because other developers don't see those methods as doing what they need to
+do, so they write new methods. I'll have to find some examples of this,
+because it's a more insidious problem in that it can make the code appear
+clean, when in fact there's duplication all over the place.
+</blockquote>
+
+<p>
+  …which is why I focus so much on good names. Even if you have a bunch
+of methods, if you name them accurately and precisely, then you'll see
+duplication again, and your compulsion to remove that duplication will
+cause you to increase cohesion.
+</p>
+
+<p>Hm: removing structural duplication leads to low coupling; removing
+naming duplication leads to high cohesion. I think I'll use that.</p>
+
+<cite>Ted M. Young e J.B. Rainsberger on the Software Craftmanship mailing list, 4 July 2011</cite>
+
+%%
+
+<blockquote> The ancients who wished to illustrate illustrious virtue
+throughout the Kingdom first ordered well their own states. Wishing to order
+their own states, they first regulated their families. Wishing to regulate
+their families, they first cultivated their persons. Wishing to cultivate
+their persons, the first rectified their hearts. Wishing to rectify their
+hearts, they first sought to be sincere in their thoughts. Wishing to be
+sincere in their thoughts, they first extended to the utmost their knowledge.
+Such extension of knowledge lay in the investigation of things. </blockquote>
+
+<cite>Confucius, quoted in Jerry Weinberg's "Responding to significant software events"</cite>
+
+%%
+
+<p>
+  Without even thinking about it, I used to be able to fly. Now I'm trying to look inside myself and find out how I did it.
+</p>
+
+<cite>Kiki's Delivery Service, an animation movie by Hayao Miyazaki</cite>
+
+%%
+
+<p>
+  A rule of thumb can help when estimating the effects of splitting tasks. The following table is what I use:
+</p>
+
+<table style="text-align: center">
+  <tr>
+    <th style="padding-right: 2em">Numbert of Tasks</th>
+    <th>% on Each</th>
+  </tr>
+  <tr><td>1</td><td>100%</td></tr>
+  <tr><td>2</td><td>40%</td></tr>
+  <tr><td>3</td><td>20%</td></tr>
+  <tr><td>4</td><td>10%</td></tr>
+  <tr><td>5</td><td>5%</td></tr>
+  <tr><td>&gt;5</td><td>random</td></tr>
+</table>
+
+<p>Sometimes you do better than this for certain people for short periods of time, but if you plan on it, your plan will fail.
+</p>
+<cite>Jerry Weinberg, Why Software Gets In Trouble, section 6.5</cite>
+
+%%
+<p>
+When I design with interfaces in the London style, I defer details as long as possible and build a system from tiny pieces with well-defined contracts between each layer. Sometimes, I learn that a given layer has become too small to justify its own existence, then I collapse it into a neighboring layer.
+</p>
+<p>
+When I design clusters of classes in the Detroit style, I let classes inflate in size until they become obviously overweight, then I split them into smaller classes. I find that I often duplicate tests as I pull a small class out of a bigger class, and I usually want the bigger class to talk to the newly-sprouted smaller class through an interface with a well-defined contract, for which I use test doubles anyway.
+</p>
+<p>
+The Detroit style leads me to discover types as I go, and the London style leads me to guess-and-refine types as I go. I’m happy to feel comfortable doing both.
+</p>
+<cite>J.B. Rainsberger answering <a href="http://myagileeducation.com/2011/whats-this-london-school-of-tdd/" title="what&#8217;s the london school of tdd? at My Agile Education">What's the London school of TDD</a></cite>
+
+%%
+<p>
+Suppose you have class called "ledger" a method called "calculate" that uses a "Calculator" to do different types of calculations depending on the arguments passed to "calculate", for example "multiply(x, y)" or "subtract(x, y)".
+</p><p>
+Now, suppose you want to test what happens when you call ledger.calculate("5 * 7").
+</p><p>
+The London/Interaction school would have you assert whether Calculator.multiply(5,7) got called. The various mocking frameworks are useful for this, and it can be very useful if, for example, you don't have ownership of the "Calculator" object (suppose it is an external component or service that you cannot test directly, but you do know you have to call in a particular way).</p>
+<p>
+The Chicago/State school would have you assert whether the result is 35. The jUnit/nUnit frameworks are generally geared towards doing this.</p>
+
+<p>
+  Both are valid and important tests.
+</p>
+
+<cite>Matthew Flynn <a href="http://programmers.stackexchange.com/a/123672/42607" title="concepts - What are the London and Chicago schools of TDD? - Programmers - Stack Exchange">summarizing</a> the difference between the London and Chicago style of TDD </cite>
+
+%%
+
+<p>Chet and I teach the Simple Design order this way:
+</p>
+<ol>
+<li>Runs all the tests;</li>
+<li>Contains no duplication;</li>
+<li>Expresses all the programmer's design ideas;</li>
+<li>Minimizes programming artifacts.</li>
+</ol>
+<p>
+We also "teach the controversy" by pointing out that some people want to place expression above duplication removal. We say that if we ever encountered a place where removing duplication inevitably horked up expression, we'd favor expression.
+</p>
+<p>
+We go on to say that we suspect that when rules 2 and 3 seem to be in competition, the code is telling us something that we do not yet hear. A very common occurrence is that there is a new idea in the code which has not yet materialized out of the fog. A new class, perhaps.
+</p>
+<p>
+For me, I leave duplication above expression because duplication is easy to spot and it needs to be heeded so often that it deserves high priority. In addition, many programmers, though of course none of us here, think that their code is perfectly expressive as it stands. I fear that if we rank expression over duplication, the normal tendency to think our code is great will cause us to miss opportunities to improve.
+</p>
+<p>
+It's a very interesting list. In some ways, the most interesting thing Kent ever did. For sure, 2 and 3 are close together in priority. In theory, I think expression trumps duplication removal. In practice, I think that happens very very rarely, if ever.
+</p>
+<cite>Ron Jeffries on the <a href="http://groups.google.com/group/software_craftsmanship/msg/84106f8a09a9486c" title="Is Intent Revelation More Important than DRY? -
+  software_craftsmanship |
+  Google Groups">Software Craftmanship mailing list</a></cite>
+
+%%
+<p>
+Novice Rule: remove all duplication, and assume that the result is
+better than what you had before, because sometimes you need to remove
+duplication 5 or 6 times to get to the really good stuff
+</p>
+<p>
+Advanced Beginner Rule: remove all duplication, and question whether
+the result is better than what you had before, because often you need
+to remove duplication 3 times more more to get to the really good
+stuff
+</p>
+<p>
+Competent Rule: remove duplication unless you strongly believe the
+duplication is accidental
+</p>
+<p>
+By "accidental duplication", I usually use the area/perimeter problem:
+</p>
+
+<pre>
+Circle:
+ area:
+   pi * r * r
+ perimeter:
+   2 * pi * r
+</pre>
+<p>
+Question: Extract pi * r into a method? Why/why not? What to call the
+new method?
+</p>
+<p>
+I strongly recommend that people remove duplication even when it's not
+clear why, mostly because they don't necessarily know how to use
+duplication removal as a mechanism to uncover non-obvious structure.
+That's why I rely on removing duplication myself: I have the
+experience of removing duplication in a way that starts to make things
+worse, but eventually makes things better. Not always, but enough to
+trust the mechanism.
+</p>
+
+<cite>J.B. Rainsberger on the <a href="http://groups.google.com/group/growing-object-oriented-software/msg/e41ec864b6480815" title="Writing code that&#39;s too specific -
+  Growing Object-Oriented Software |
+  Google Groups">GOOS mailing list</a></cite>
+
+
+%%
+
+<em>The Career Craftsman</em> believes this process of career crafting always begins with the mastery of something rare and valuable. The traits that define great work (autonomy, creativity, impact, recognition) are rare and valuable themselves, and you need something to offer in return. Put another way: no one owes you a fulfilling job; you have to earn it.
+
+<cite><a href="http://calnewport.com/blog/2011/08/11/the-career-craftsman-manifesto/" title="Study Hacks  &raquo; Blog Archive   &raquo; The Career Craftsman Manifesto">The Career Craftsman Manifesto</a></cite>
+
+%%
+
+<p>
+What is it that makes programs hard to work with? Four things I can think of as I am typing this are as follows:
+</p>
+<ul>
+<li>Programs that are hard to read are hard to modify. </li>
+<li>Programs that have duplicated logic are hard to modify. </li>
+<li>Programs that require additional behavior that requires you to change running code are hard to modify. </li>
+<li>Programs with complex conditional logic are hard to modify. </li>
+</ul>
+
+<p> So, we want programs that are easy to read, that have all logic specified in one and only one place, that do not allow changes to endanger existing behavior, and that allow conditional logic to be expressed as simply as possible. </p>
+
+<p> Refactoring is the process of taking a running program and adding to its value, not by changing its behavior but by giving it more of these qualities that enable us to continue developing at speed.</p>
+
+<cite>Kent Beck in Martin Fowler's <em>Refactoring</em>, chapter 2</cite>
+
+%%
+
+<p>Objects have a fabulous mechanism, polymorphic messages, to flexibly but clearly express conditional logic. By changing explicit conditionals to messages, you can often reduce duplication, add clarity, and increase flexibility all at the same time. </p>
+
+<cite>Kent Beck in Martin Fowler's <em>Refactoring</em>, chapter 2</cite>
+
+
+%%
+
+
+<p>The other driver of refactoring here is a design that does not help me add a feature easily. I look at the design and say to myself, "If only I'd designed the code this way, adding this feature would be easy." In this case I don't fret over my past misdeeds—I fix them by refactoring. I do this partly to make future enhancements easy, but mostly I do it because I've found it's the fastest way. Refactoring is a quick and smooth process. Once I've refactored, adding the feature can go much more quickly and smoothly. </p>
+
+<cite>Martin Fowler <em>Refactoring</em>, chapter 2</cite>
+
+%%
+
+<p>
+  You may remember, that I have always earnestly recommended to you, to do what you are about, be that what it will; and to do nothing else at the same time. Do not imagine that I mean by this, that you should attend to and plod at your book all day long; far from it; I mean that you should have your pleasures too; and that you should attend to them for the time; as much as to your studies; and, if you do not attend equally to both, you will neither have improvement nor satisfaction from either. A man is fit for neither business nor pleasure, who either cannot, or does not, command and direct his attention to the present object, and, in some degree, banish for that time all other objects from his thoughts. If at a ball, a supper, or a party of pleasure, a man were to be solving, in his own mind, a problem in Euclid, he would be a very bad companion, and make a very poor figure in that company; or if, in studying a problem in his closet, he were to think of a minuet, I am apt to believe that he would make a very poor mathematician.
+</p>
+<p>
+  There is time enough for everything, in the course of the day, if you do but one thing at once; but there is not time enough in the year, if you will do two things at a time. The Pensionary de Witt, who was torn to pieces in the year 1672, did the whole business of the Republic, and yet had time left to go to assemblies in the evening, and sup in company. Being asked how he could possibly find time to go through so much business, and yet amuse himself in the evenings as he did, he answered, there was nothing so easy; for that it was only doing one thing at a time, and never putting off anything till tomorrow that could be done today. This steady and undissipated attention to one object is a sure mark of a superior genius; as hurry, bustle, and agitation are the never-failing symptoms of a weak and frivolous mind.
+</p>
+<cite>Lord Chesterfield's Letters To His Son, <a href="http://ebooks.adelaide.edu.au/c/chesterfield/letters/volume1.html">Letter IX, April 14, 1747</a>, cited in <a href="http://www.thenewatlantis.com/publications/the-myth-of-multitasking" title="The New Atlantis  &raquo; The Myth of Multitasking">The Myth Of Multitasking</a></cite>
+
+%%
+
+<p>Just to get warmed up, I'll start with a principle that is more social than technical and that is largely responsible for the particular bias of the Smalltalk project:
+</p>
+
+<blockquote><strong>Personal Mastery</strong>: If a system is to serve the creative spirit, it must be entirely comprehensible to a single individual. </blockquote>
+
+<p>The point here is that the human potential manifests itself in individuals. To realize this potential, we must provide a medium that can be mastered by a single individual.</p>
+
+<cite>Dan Ingalls, <a href="http://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html" title="Design Principles Behind Smalltalk">Design Principles Behind Smalltalk</a></cite>
+
+%%
+
+The various HyperCard clones and HyperCard-influenced software lack HyperCard’s radical simplicity and the resulting <strong>explorability</strong>. Explorability of the “<em>master of all you survey</em>” variety <em>matters</em>. All of the extra features in a more feature-rich system like SuperCard (or even VB) <em>are not harmless</em>. There is a fundamental difference, especially for a child, between a system which you can fully wrap your mind around and one with countless mystery knobs.
+
+<cite><a href="http://www.loper-os.org/?p=568" title="Loper OS &raquo; Why Hypercard Had to Die">Why Hypercard Had to Die</a></cite>
+
+
+%%
+
+<p>Many people can:
+</p>
+<ul>
+<li>recite, parrot-fashion object-oriented principles,</li>
+<li>use those principles to criticise code, and</li>
+<li>create designs by force-fitting design patterns from a book.</li>
+</ul>
+
+<p>Not so many people can:</p>
+<ul>
+<li>start with some simple, concrete user stories and build a minimal yet flexible object model,</li>
+<li>take an existing system and a new user story, generate multiple possible solutions and find a minimal yet flexible solution,</li>
+<li>build an object model incrementally, gradually building towards some patterns and away from others, and</li>
+<li>… do the above in a team with other people some of whom aren’t so experienced in design.</li>
+</ul>
+
+<cite>Dafydd Rees, <a href="http://www.dafydd.net/archive/2010/responsibility-driven-design-references/">Responsibility Driven Design References</a></cite>
+
+%%
+<p>
+An old Cherokee is teaching his grandson about life. "A fight is going on inside me," he said to the boy.
+</p>
+
+<p>
+  "It is a terrible fight and it is between two wolves. One is evil - he is anger, envy, sorrow, regret, greed, arrogance, self-pity, guilt, resentment, inferiority, lies, false pride, superiority, and ego."
+</p>
+
+<p>
+  He continued, "The other is good - he is joy, peace, love, hope, serenity, humility, kindness, benevolence, empathy, generosity, truth, compassion, and faith. The same fight is going on inside you - and inside every other person, too."
+</p>
+
+<p>
+  The grandson thought about it for a minute and then asked his grandfather, "Which wolf will win?"
+</p>
+<p>
+The old Cherokee simply replied, "The one you feed."
+</p>
+
+<cite><a href="http://www.quora.com/Whats-your-favourite-parable">Related by Tim Johnson</a></cite>
+
+%%
+
+<p>
+  The Google Translate team was actually surprised about the high quality of machine translation for Esperanto. As we know from many experiments, more training data (which in our case means more existing translations) tends to yield better translations. For Esperanto, the number of existing translations is comparatively small. German or Spanish, for example, have more than 100 times the data; other languages on which we focus our research efforts have similar amounts of data as Esperanto but don’t achieve comparable quality yet. Esperanto was constructed such that it is easy to learn for humans, and this seems to help automatic translation as well.
+</p>
+<cite><a href="http://googletranslate.blogspot.com/2012/02/tutmonda-helplingvo-por-ciuj-homoj.html">http://googletranslate.blogspot.com/2012/02/tutmonda-helplingvo-por-ciuj-homoj.html</a></cite>
+
+%%
+<p>
+I have been struggling with something over the past few years after doing TDD or it's predecessors since about 1999.
+</p>
+<p>
+I'm finding that because TDD pushes you towards small things, and because of some very good mentoring in the late 1990's, everything I write is tiny and looks like a toy problem. Many times, I've had those who don't understand TDD say things like "Why did you bother to write tests for all this? It's all too simple to bother.", which has some resonance with "Test Everything That Could Possibly Break", where there is errr… nothing that could possibly break, because it's all so simple (take that last bit with some humour please).
+</p>
+<p>
+And yet, when I do write the code without TDDing it, although I maintain the smallness and the simplicity, I often find defects.
+</p>
+<p>
+So my answer to this issue is that ALL well factored code has that "toy problem" quality to it, and indeed that is what should be aspired to. If you only aim to TDD (or test after the fact) the complex stuff, then I can pretty much guarantee that you will get a lot of complex stuff, most of which won't work. And the anecdotal evidence we have for this is overwhelming (in the financial sector in which I tend to work).
+</p>
+
+<cite><a href="http://groups.google.com/group/lonely-coaches-sodality/msg/368d125e4487d9fb">Lance Walton</a></cite>
+
+%%
+
+<ul>
+	<li>Math, in the sense of the number-crunching stuff, is largely commoditized. Nobody is writing an FFT from scratch anymore, except the few who are pioneering new technologies (see cuda), waiting to be commoditized anyway. So, <strong>math is the low-level stuff in 2012.</strong>
+	</li>
+	<li>Domain abstractions, however, are not going to be commoditized. That’s where you should be spending your time, creating meaningful, reusable classes.
+	</li>
+</ul>
+
+<cite><a href="http://www.carlopescio.com/2012/03/episode-2-controller-strikes-back.html" title="Carlo Pescio: Episode 2: the Controller Strikes Back">Carlo Pescio</a></cite>
+
+%%
+
+<p>Some of you may recognize the SumpPump / SafeEngine chain as an "and" chain: we pump when we must drain and it’s safe to do so. As usual, if you work with this kind of systems on a regular basis, it could be tempting to generalize on that and build some kind of rule-based infrastructure.
+</p>
+<p>Again, it is not wrong to do so, but always remember the difference between a domain-based abstraction and a math-based abstraction. In my experience (and as I told before, I used to love math-based abstractions) the former is more easily understood and adopted, the latter is often misunderstood and abused. It’s not a general rule or “principle”. Just experience.
+</p>
+<cite><a href="http://www.carlopescio.com/2012/03/life-without-controller-case-1.html" title="Carlo Pescio: Life without a controller, case 1">Carlo Pescio</a></cite>
+
+
+%%
+
+<p>... I remember not that long ago I was talking to a group of our Scrum Masters at my “day job” iContact. If you don’t know about Scrum, the Scrum Master is the primary coach &amp; guide and agile leadership voice within the agile scrum team. They’re also responsible for maintaining core agile values within the team and for the teams’ overall performance. What I mean by that is—guiding the teams improved performance over time. Continually asking questions like—is their team improving in their overall performance? Is their velocity improving? Is their work quality improving? Is their teamwork and collaboration improving? And, is their focus on delivered customer value improving?
+</p>
+<p>
+So my point to the Scrum Masters was I felt we hadn’t failed in quite a while. I defined failure in this case as a sprint failure or a stop-the-line incident where a team basically ran into an impediment and needed to re-plan or re-align their sprint.
+</p>
+<p>
+They all agreed with me that things had been going smoothly. And I received more than a few questioning stares as to why that was a problem. I tried to be careful in my reply, but my concern was that we might be playing it too safe. That we were becoming complacent in our agile practices and that we weren’t stretching ourselves enough. We weren’t taking chances. And we weren’t taking risks.
+</p>
+<p>
+I explained that these traits are fundamental to the growth and advancement of agile teams. And the fact that we weren’t seeing failures indicated that we’ve plateaued in our growth and performance. I felt this was a problem…and I asked if they could drive more failures from the teams.
+</p>
+<p>
+Can you imagine the remainder of this discussion?
+</p>
+<p>
+Here I am the Director of R&amp;D at a successful company talking to my team of Scrum Masters and asking them to drive more failure—to influence their teams towards more risk-taking and inspire more stretch goals. The point I’m trying to make is that I truly embrace failure. That I’ve learned to view it as a critical success criterion and that its absence is a problem for me. I wonder how many organizations and leaders have the same view.</p>
+
+<cite>Bob Galen, <a href="http://www.pmhut.com/the-agile-project-manager-fail-now-as-a-strategy">The Agile Project Manager - Fail Now as a Strategy</a></cite>
+
+%%
+<p>
+My high regard for customer affinity is one the main reasons why I'm such a fan of Extreme Programming and other agile methods. I found it very significant that when Kent Beck summarized XP to his agile peers at the snowbird workshop which coined 'agile', he chose to describe not the technical elements of XP, but his desire to change the nature of the customer/developer interaction.
+</p>
+<p>
+I've often heard this relationship mis-characterized. In particular there is a belief in some quarters that the customer team just comes up with stories which they throw at the developers. This characterization is rather like the notion that requirements are just lying out there to be gathered. Either way that's not much of a collaboration. Instead developers need to work together with domain people to generate ideas with developers learning a lot about the business in the process.
+</p>
+<p>
+One of Kent's suggested names for 'Agile' was conversational software development - the point being that it's a two way communication. This isn't something like a telecoms protocol that you can define, but the back and forth discussions about how software can enhance the business are where the real value lives. Much of this conversation is of half-baked ideas, some of which grow into valuable features - often ones that aren't things that the customer originally thought of.
+</p>
+<cite>Martin Fowler, <a href="http://martinfowler.com/bliki/CustomerAffinity.html">Customer Affinity</a></cite>
+
+%%
+
+How dangerous the assumption that you’re going to grow is: “oh, we need to build this this way, because when we’re successful, we’ll need it”. This is often used as an argument against over-engineering for scalability, but it applies more generally. Now, when coding, I try to think: “how can I write this such that if people saw my code, they’d be amazed at how little there is and how little it does”
+
+<cite><a href="http://patrickcollison.com/blog/2009/10/surprises">Patrick Collison</a></cite>
+
+%%
+
+<p>MIT Professor Daniel Jackson captures the importance of software abstractions well [7]:
+</p>
+<blockquote>
+"Pick the right ones, and programming will flow naturally from design; modules will have small and simple interfaces; and new functionality will more likely fit in without extensive reorganization. Pick the wrong ones, and programming will be a series of nasty surprises: interfaces will become baroque and clumsy as they are forced to accommodate unanticipated interactions, and even the simplest of changes will be hard to make."
+</blockquote>
+
+<p>Part of what allowed thousands of engineers to build scalable systems at Google is that really smart engineers like Jeff Dean and Sanjay Ghemawat built simple but versatile abstractions like MapReduce [8], SSTable [9], protocol buffers [10], and the like. Part of what allowed Facebook engineering to scale up is the focus on similarly core abstractions like Thrift [11], Scribe [12], and Hive [13].  And part of what allows designers to build products effectively at Quora is that Webnode and Livenode [14] are fairly easy to understand and build on top of.
+</p>
+
+<p>Keeping core abstractions simple and general reduces the need for custom solutions and increases the team's familiarity and expertise with the common abstractions. The growing popularity and reliability of systems like Memcached, Redis, MongoDB, etc. have reduced the need to build custom storage and caching systems. Funneling the team's focus onto a small number of core abstractions rather than fragmenting it over many ad-hoc solutions means that common libraries get more robust, monitoring gets more intelligent, performance characteristics get better understood, and tests get more comprehensive. All of this helps contribute to a simpler system with reduced operational burden.
+</p>
+
+<p>[7] Daniel Jackson. Software Abstractions: Logic, Language, and Analysis <a href="http://mitpress.mit.edu/catalog/item/default.asp?ttype=2&amp;tid=10928" rel="nofollow" target="_blank" class="external_link">http://mitpress.mit.edu/c<wbr />atalog/...</a><br />[8] <a href="http://research.google.com/archive/mapreduce.html" target="_blank" class="external_link">http://research.google.co<wbr />m/archi...</a><br />[9] <span class="qlink_container"><a href="/What-is-an-SSTable-in-Googles-internal-infrastructure">What is an SSTable in Google&#039;s internal infrastructure?</a></span><br />[10] <a href="http://code.google.com/p/protobuf/" target="_blank" class="external_link">http://code.google.com/p/<wbr />protobuf/</a><br />[11] <a href="https://thrift.apache.org/" rel="nofollow" target="_blank" class="external_link">https://thrift.apache.org<wbr />/</a><br />[12] <a href="https://github.com/facebook/scribe" target="_blank" class="external_link">https://github.com/facebo<wbr />ok/scribe</a><br />[13] <a href="http://hive.apache.org/" rel="nofollow" target="_blank" class="external_link">http://hive.apache.org/</a><br />[14] <a href="http://www.quora.com/Shreyes-Seshasai/Posts/Tech-Talk-webnode2-and-LiveNode" target="_blank" class="external_link">http://www.quora.com/Shre<wbr />yes-Ses...</a>
+</p>
+<cite><a href="http://www.quora.com/What-makes-a-good-engineering-culture#ans1220471" title="What makes a good engineering culture? - Quora">Edmond Lau</a></cite>
+
+
+%%
+
+<p>
+  On one project we build up such a compositional, declarative DSL style
+through rigorous TDD &amp; refactoring and ended up with a code that was,
+give or take Java's punctuation, a word for word transliteration of
+the users' requirements.  TDD gave us confidence that the language
+elements composed the way we expected and that the system interpreted
+them in the way we expected.  But after a while acceptance testing the
+requirements felt like repeating ourselves.  We wrote out the
+requirements in the DSL as the user described them and the system made
+them happen.  It felt weird, having been used to an acceptance-test
+driven process, but the turn around was very fast: by the end it took
+about 5 minutes to implement new features, as long as the feature
+could be described by the DSL. And as we built up the DSL more and
+more features were defined in terms of existing language elements.
+</p>
+
+<cite><a href="https://groups.google.com/group/growing-object-oriented-software/msg/dfac0a7813ca82ea">Nat Pryce</a></cite>
+
+%%
+
+<blockquote>
+  <p>Però sotto c'è un'aspetto complesso: una gran parte delle interviste tende a selezionare nella presunzione che l'intervistatore ne sappia di più del candidato. Se il candidato deve saperne di più dell'intervistatore, allora cerchiamo un consulente, perché non vogliamo tenerci competenze ingombranti in azienda, non si sa mai.
+  </p>
+
+<p>  Ma il punto è che in un settore come il nostro, ci saranno sempre e comunque aspetti che il candidato conosce meglio di noi. Per quanti anni di esperienza noi possiamo mettere sul piatto. Siamo in grado di riconoscere questi aspetti ...o cerchiamo semplicemente di assumere dei cloni junior di noi stessi che possano un giorno ambire a diventare quasi sfocate ombre del grande programmatore che noi siamo?
+</p>
+</blockquote>
+<cite>Alberto Brandolini</cite>
+
+%%
+
+On 19 Jun 2012, at 07:08, Nikolay Sturm &lt;...&gt; wrote:
+<pre>
+&gt; Hi,
+&gt;
+&gt; I am rereading GOOS in our company&#x27;s book club atm and one question
+&gt; neither of us could make sense of was the relationship between the
+&gt; Single Responsibility Principle and the notion of objects as
+&gt; implementations of one or many roles, with each having one or many
+&gt; responsibilities.
+&gt;
+&gt; At 1st, 2nd and 3rd thought, these ideas seem to be opposed to each
+&gt; other. How do I get them into a coherent picture? Thoughts anyone?
+&gt;
+&gt; cheers,
+&gt;
+&gt; Nikolay
+</pre>
+
+<p>The word "responsibility" is being slightly differently in the two
+uses.  SRP is about responsibilities in the system. We were talking
+about the responsibilities of correctly playing a role in a protocol
+between objects.
+</p>
+
+<p>
+  For example, suppose we have a system that communicates over a network
+but must not send messages faster than some maximum rate. Our system
+needs to rate limit the sending of messages. We would want to
+implement the rate limiting responsibility in one class -- not have it
+intermingled with formatting the contents of messages or transmitting
+them over the wire -- and compose it into the system. But a class that
+performs rate limiting must collaborate with other objects: play roles
+in protocols between objects. It must be able to send and receive
+messages via some lower layer transport and request and receive timer
+callbacks. To play those roles correctly it must follow certain rules
+-- that is, it has a responsibility to send correct requests &amp;
+responses to its peers and respond appropriately to correct requests &amp;
+responses it receives from them. For example, it might not be allowed
+send a zero length message or send a message to a wildcard address,
+and it must announce a "stop sending" notification if the rate limit
+has been reached and a "start sending" notification when peers can
+send messages again.
+</p>
+<a href="http://www.natpryce.com/">Nat Pryce</a> on the Growing Object-Oriented Software mailing list
+
+%%
+
+<p>Given a choice, I prefer fewer, more powerful classes than many simpler ones.
+Proper encoding lets one class represent several different variations.</p>
+
+<cite>Rebecca Wirfs-Brock, <a href="http://www.wirfs-brock.com/PDFs/013-015.pdf">Looking for Powerful Abstractions</a> (pdf)</cite>
+
+%%
+
+<p>Following the design heuristic “make objects do something with what they know,”
+experienced designers often blend role stereotypes to make certain objects more
+intelligent. Their designs often have
+</p>
+
+<ul>
+<li>information holders that compute;</li>
+
+<li>service providers that cache information, using it to improve performance or give
+clients more control over their operations; and</li>
+
+<li>carefully crafted structurers that answer intelligent questions about the objects
+they organize.</li> </ul>
+
+<cite>Rebecca Wirfs-Brock <a
+href="http://www.wirfs-brock.com/PDFs/Characterizing%20Classes.pdf">Characterizing
+Classes</a> (pdf)</cite>
+
+
+%%
+
+<p>If you believe everything you read, better not read.</p>
+<cite>Japanese Proverb</cite>
+
+%%
+
+<p>Based on a discussion on our recent course with Kent Beck, I think that the following three principles below are important to have decoupled, easy to evolve tests:
+</p>
+<ol>
+<li>Tests tell a story</li>
+<li>True unit tests + decoupled higher-level integration tests (-> Mike Cohn’s Layers of the Test Automation Pyramid)</li>
+<li>More functional composition of the processing</li>
+</ol>
+<cite><a href="http://theholyjava.wordpress.com/2011/11/21/principles-for-creating-maintainable-and-evolvable-tests/" title="Principles for Creating Maintainable and Evolvable Tests &laquo; The Holy Java">Principles for Creating Maintainable and Evolvable Tests</a>  by Jakub Holý</cite>
+
+%%
+
+<p>"Shared vision is a state, not a statement," she tasted the sentence in her head. Yes, it felt right. Yves continued, "What I learned from BootCamp is that a true shared vision is the state where a team all thinks in a direction, sharing a picture of a desired future."
+</p>
+
+<p>"People thinking the same; don't you want diversity in your team?" she asked.
+</p>
+<p>
+"No, no, thinking in the same direction is not thinking the same," he replied quickly. "Let me tell you a story to clarify this." He knew this was hard to understand. "When I organized a BootCamp in Europe, I arranged an interview with the trainers and a business magazine. As I walked into the interview room, I told Paul and Vickie (the trainers) that my most scary idea would be to ask Benny (the reporter) to join us on Friday when the team had to deliver their BootCamp results. Halfway through the interview, I got a phone call from the team (that was out on an adventure), 'Yves, will you ask the reporter if he wants to join us on Friday...' That is an example of being in a state of shared vision. This particular shared vision was created by working together over the course of three days."
+</p>
+
+<p>"Three days, gee, they must have been lucky," Allison thought skeptically.
+</p>
+
+<p>As if he knew what she was thinking Yves added, "I have seen examples of a shared vision state in all the BootCamps in which I have participated."
+</p>
+
+<p>"Creating a shared vision state in a repeatable way?" Allison could hardly believe what she was hearing. "Wow, that sounds powerful. Tell me how this is done."
+</p>
+
+<cite>Yves Hanoulle, <a href="http://www.methodsandtools.com/archive/archive.php?id=106" title="The Core Protocols, an Experience Report - Part 1">The Core Protocol, an Experience Report</a></cite>
+
+%%
+
+<p>Basically, I like any music that remains simple and I feel this is the formula that makes 'soul music' successful. When any music form becomes cluttered and/or complicated you lose the average listener's ear. There is nothing more beautiful than a simple blues tune. There is beauty in simplicity whether you are talking about architecture, art or music.
+</p>
+
+<cite>Otis Redding</cite>
+
+%%
+
+One of the reasons that TDD works is that the tests become kind of a universal client of your code, forcing your code to have a lot of surface area, so to speak, and not a lot of hidden depth or interactions. Again, this is valuable because code without hidden depth is easier to understand and easier to change. If writing tests becomes hard or slow, the tests are trying to tell you that your code is building up interior space where logic is hiding — you need to break the code apart to expose the logic to a unit test.
+
+<cite><a href="http://www.noelrappin.com/railsrx/2012/7/16/rails-objects-tests-and-other-useful-things.html">Noel Rappin</a></cite>
+
+%%
+
+If there is drama in the system it lies here, where the transformation from program to system takes place. The code is found in file initialize.c
+
+<cite><a href="http://books.google.it/books?ei=AGoXUOWiBIf44QTQ24DoAg&amp;id=5nchAQAAIAAJ&amp;dq=xinu+%22drama%22&amp;q=%22drama%22#search_anchor" title="Google Libri">Operating Systems Design: The Xinu Approach</a></cite>
+
+%%
+
+<h3>Love After Love</h3>
+
+<p>
+The time will come <br/>
+when, with elation <br/>
+you will greet yourself arriving <br/>
+at your own door, in your own mirror <br/>
+and each will smile at the other's welcome, <br/>
+</p>
+<p>
+and say, sit here. Eat. <br/>
+You will love again the stranger who was your self.<br/>
+Give wine. Give bread. Give back your heart <br/>
+to itself, to the stranger who has loved you <br/>
+</p>
+<p>
+all your life, whom you ignored <br/>
+for another, who knows you by heart. <br/>
+Take down the love letters from the bookshelf, <br/>
+</p>
+<p>
+the photographs, the desperate notes, <br/>
+peel your own image from the mirror. <br/>
+Sit. Feast on your life. <br/>
+</p>
+<cite>Derek Walcott</cite>
+
+
+%%
+
+When modules contain more than one responsibility, then the system can become fragile due to interactions between those responsibilities.
+
+<cite>Uncle Bob, Clean Code Episode 10 02.00</cite>
+
+%%
+
+<p>La presentazione "Kanban sucks" sosteneva che:
+</p>
+
+<p>1) E' più facile fingere di fare Kanban che fingere di fare Scrum.
+</p>
+
+<p>2) Il numero di regole in un processo è inversamente proporzionale
+alla disciplina richiesta per implementarlo.
+</p>
+
+<p>A causa di (1), molti usano Kanban perché non hanno la disciplina
+richiesta da Scrum, che impone pratiche difficili come le iterazioni e
+le retrospettive. Ma a causa di (2), chi non ha la disciplina per
+Scrum a maggior ragione non l'avrà per Kanban, che ha meno regole. In
+pratica, la quasi totalità dei progetti che usano Kanban non applicano
+nè i principi Agili, nè le regole di Kanban. Di solito i limiti al WIP
+valgono fin quando il capo non si incazza o qualche task resta
+bloccato, l'ottimizzazione del flusso non la fa niuno, e il sistema è
+"push" anziché "pull". Di fatto vedo team che appendono una board al
+muro, incaricano qualcuno di aggiornarla e si illudono di essere
+agili. Kanban è l'ultima frontiera del cargo culting.
+</p>
+<p>
+Quindi la mia tesi pacatamente argomentata è che Kanban fa schifo al
+cazzo, nello stesso senso in cui fa schifo al cazzo la dittatura del
+proletariato: è un buon sistema di idee in teoria, ma nel mondo reale
+offre talmente tante opportunità di abuso, consapevole o meno, da
+risultare disfunzionale e maligno. Nei termini della teoria
+dell'evoluzione, Kanban non è una strategia evolutivamente stabile
+(http://en.wikipedia.org/wiki/Evolutionarily_stable_strategy).
+</p>
+<p>
+Sono certo che se applichi Kanban in modo coerente e disciplinato,
+funziona. Il fatto è che non vedo molti team che lo fanno. I team che
+raccolgono maggiori successi non applicano Kanban, ma il proprio
+metodo, che a volte include principi che capita siano stati
+popolarizzati da Kanban (rendi visibile ciò che fai, limita il WIP,
+eccetera). Il fatto che Kanban rifugga i dettagli aiuta a confondere
+le acque. Un caso eclatante è l'espressione "Kanban board": in base
+alla definizione comune, *qualsiasi* board che visualizzi lo stato dei
+task con delle colonne è una Kanban board. Di fatto, Kanban ha preso
+quello che già facevamo, ci ha messo un marchio e se lo è attribuito.
+</p>
+<p>
+Kanban è anche un punto di arrivo nell'involuzione di Agile da sistema
+di pratiche (XP) a sistema di idee astratte. Come sa chiunque abbia
+implementato un diagramma UML, l'astrazione non risolve i problemi -
+li deferisce. Kanban è il momento in cui la comunità Agile/Lean
+raggiunge lo stesso livello di astrazione del management tradizionale:
+"se seguo queste tre regole, allora avrò successo, a prescindere da
+cosa sto producendo". Ora che abbiamo lo stesso livello di astrazione
+del management tradizionale, possiamo aspettarci la stessa percentuale
+di successo. Che culo.
+</p>
+<p>
+Per rendersi conto di cosa sta succedendo basta osservare come noi
+consulenti Agili ci affanniamo a spiegare che Kanban/Scrum/eccetera
+non servono a fare software, ma a "organizzare il lavoro". Il cerchio
+si è chiuso: dopo aver detto per anni che scrivere software è
+un'attività con le proprie difficoltà specifiche, ora diciamo di avere
+un silver bullet che funziona per il software come per ogni altra
+attività, proprio come diceva il "management scientifico". Il motivo
+per argomentare queste puttanate è che così anche consulenti che non
+capiscono una straminchia di software possono vendere un metodo per
+fare software a manager che a loro volta non capiscono una straminchia
+di software. In effetti, Kanban non ha nessuna radice storica
+"comunitaria": è stato importato e adattato al software da un gruppo
+ristretto di persone allo scopo di venderlo in giro. Ha circa lo
+stesso valore filantropico di Scientology ("If you want to get rich,
+you start a religion." - L. Ron Hubbard).
+</p>
+<cite>Paolo "Nusco" Perrotta, Italy</cite>
+
+%%
+
+<p> Each team has a limit to how deep it can get into the practices. It is based on a set of mutual expectations within the team. You don't get more refactoring done by telling a team it is hurting them. There are well established expectations. Change the expectations of the team and more refactoring gets done. That is why: "The team follows the rules until the team changes them." (The XP rules are your strategic rules, the coding standard is your tactical rules. I prefer a written coding standard because of that.) </p>
+
+<p> "Tech leads" slow a project down. It's like opening a parachute. The project I am on now has a programmer who likes to act as the tech lead. He wastes about 4 person days each week out of the 30 we have available. Usually the waste is only an hour or two of his own, the big lose is 4 person days from the combined team's time. Tech leads do not often understand they are part of the team and therefore responsible for the speed of the entire team, not just themselves. This is often compounded by tech leads being the highest paid and therefore under pressure to perform more in some way. This sets up an arrangement that is at odds with the idea of a single team. </p>
+
+<p>This also applies to consultants in many ways. If they are not part of the team then they will not effect the terminal velocity except to overcome some temporary technical difficulty. </p> <p> Now we need our shocking statement: <strong>To decrease the drag and go faster you must increase team spirit</strong>.</p>
+
+<p> As team spirit goes up expectations can change. We can begin to demand more from each other because we trust that it will be done. We respect the wishes of other team members and do what is expected. We can expect more refactoring, better tests, and fewer regressions. If the team's spirit is up we can bring in more people and have them become productive. If the team's spirit is up we can work hard on a single project for several years before we need a change. If the team's spirit is up we don't need no stinkin' consultants. (Oops, sorry Kent.) </p>
+
+<p> Collective ownership as I have experienced it is more than just about code or even design. It has to do with the way the team works together. The organization of your team will be reflected in your code, think about how you want your team to interact. Many of the teams I have been on have come to share so much we put all our resumes into a single envelope when applying for a new job. You don't get to that kind of spirit with a "tech lead". You don't get there with consultants. You don't get there with more refactoring. And you certainly don't get there with an army of coders. So, the only way to go faster is to slow down. This sounds crazy if we are in an us/them, Taylorist, industrial world. If however, we are controlling a dynamic process, adding more feedback makes perfect sense as a way to increase speed. </p>
+
+<cite><a href="http://tech.groups.yahoo.com/group/extremeprogramming/message/39252" title="Yahoo! Groups">Kent Beck, relating a discussion with Don Wells</a></cite>
+
+%%
+
+<h3>TDD no estilo londrino</h3>
+
+<p>Muitas pessoas conhecem a prática de TDD e mockar as dependências como “TDD ao estilo londrino”. Muitas das discussões importantes na área de mock objects surgiram por lá. Famosos autores como Steve Freeman e Nat Pryce (ambos britânicos) são fãs dessa abordagem.
+</p>
+<p>
+Independente do nome, me agrada muito a utilização de mock objects durante a escrita dos testes. Quando estou criando uma classe, mocks me ajudam a pensar somente no que ela vai fazer e como ela vai interagir com as outras classes do sistema. Nesse momento, me preocupo muito pouco com as outras classes e foco somente do que espero da classe atual. Sem a utilização de mocks, isso seria um pouco mais trabalhoso.
+</p>
+<cite>Mauricio Aniche, <a href="http://tddnomundoreal.com.br/">TDD no mundo real</a></cite>
+
+%%
+
+Carmina non dant panem
+
+<cite>&mdash; Proverbio prosaico</cite>
+
+%%
+
+<p>... Late in a project, such a superreasonable manager will become blaming and say, "I <strong>told</strong> them that we were to put Function A <strong>ahead</strong> of Function B, and now they've done just the <strong>opposite</strong>! Are they <strong>stupid</strong> or are they <strong>deaf</strong>?"
+</p>
+<p>
+What could be more superreasonable&mdash;more out of touch with real people&mdash;than the belief that everyone listens to, understands and believes every word you say or write?  Real communication is noisy.  If you wish to be effective, you must make it iterative.  Small, relevant feedback is one of the keys to keeping everyone in the same context.</p>
+
+<cite>Jerry Weinberg, Quality Software Management Vol. 3, Congruent Action, chapter 15</cite>
+
+%%
+
+<p>
+when you don’t create things, you become defined by your tastes rather than ability. your tastes only narrow &amp; exclude people. so create.
+</p>
+<cite><a href="http://gilesbowkett.blogspot.it/2012/02/rails-went-off-rails-why-im-rebuilding.html">Attributed to "why the lucky stiff"</a></cite>
+
+%%
+<p>
+All we can say for certain is that putting in more hours to impress management with your dedication and devotion is nonsense. If you start to struggle with attentiveness and cognitive decline, cut back a bit. If you find you are going home while you're still vital and deeply interested, maybe add a little on.
+</p>
+<p>
+Agile works for whole people. Broken people make poor collaborators.
+</p>
+<p>
+Too many people fall out of the industry due to health issues (including substance abuse) due to depression and an overeagerness to display devotion. When a guy has sacrificed his whole life to a job, then a layoff or being passed over for a raise are acts of personal betrayal by the very company he's worked so hard to build.
+</p>
+<p>
+Better that people remember to view things as they are. You work with people because they want to work with you, and because they can afford to. Your security is in being the kinds of people that others always want to work with &mdash; especially in a consulting field.
+</p>
+<p>
+So make the best of your working hours, and don't make all of your hours working hours. Don't let exhaustion and frustration make you disagreeable.
+</p>
+
+<cite>Tim Ottinger on the <a href="https://groups.google.com/d/msg/software_craftsmanship/LVCKzl4ny0A/Qo3IrRmdBUYJ">Software Craftmanship mailing list</a></cite>
+
+%%
+
+
+<blockquote>
+<p>  J.B you are right but if you take the adapter approach then you will have:
+</p>
+<ul>
+<li>duplication between properties of the Domain objects and the DB objects which are for persistence</li>
+
+<li>assembly/transform logic from DB Object to Domain Object (mostly in the repository classes)</li>
+
+<li>additional objects that will be added</li>
+</ul>
+
+<p>... I know that some of the steps could be skipped by using some reflection magic, but for sure it will add some more typing.
+</p>
+</blockquote>
+
+<p>This is what people keep saying, but the funny thing is that eventually, on most projects, someone says "We can't refactor that because it would mess up our database layer" or "We had to change that because our database schema changed". This is a long-distance signal that the duplication between the domain objects and persistence objects was temporary and coincidental. This is precisely what makes this tricky: the persistence objects and domain objects look the same for a long time before they want to be different.</p>
+
+<cite>J.B. Rainsberger on the <a href="https://groups.google.com/d/msg/growing-object-oriented-software/siUu67betIs/vrNrbpWNijEJ">GOOS mailing list</a></cite>
+
+%%
+
+<p>
+  Don't ignore your dreams; don't work too much; say what you think; cultivate friendships; be happy.
+</p>
+<cite>Paul Graham</cite>
+
+%%
+<p>
+Don't worry about people stealing your ideas. If your ideas are any good, you'll have to ram them down people's throats.
+</p>
+<cite>Howard Aiken </cite>
+
+%%
+<p>
+I coined the term UserStory, as far as I know, so I'll tell you what I had in mind.
+</p>
+<p>
+My purpose is to maintain a balance of political power between business and development. Use cases as I have seen them used are complex and formal enough that business doesn't want to touch them. This leads to development asking all the questions and writing down all the answers and taking responsibility for the resulting corpus. Business is reduced to sitting on the other side of the table and pointing.
+</p>
+
+<p>I want a very different dynamic. I want business to feel ownership of and take responsibility for the care and maintenance of "the requirements". I want business to feel comfortable making priority decisions about the requirements. I want business to feel free to add new requirements, and add new detail to existing requirements, as development progresses (see also ProgrammingIsSocialLearning).
+</p>
+
+<p>This requires a form of expression that is more approachable than a formalized use case. It also helps if the communication medium is something approachable, like IndexCards. So I say, "Tell me the stories of what the system will do. Write down the name of the story and a paragraph or two."
+</p>
+
+<p>My experience is that business, properly trained, takes to managing stories like the proverbial duck to the equally proverbial water. Business has to be trained not to just throw new stories into the CommitmentSchedule or WorkQueue without a DevelopmentEstimate and the necessary reshuffling. Development has to be trained to begin examining stories enough ahead of IterationPlanning so learning the next level of detail does not become a bottleneck or a risk.
+</p>
+<p>
+So, to answer your first question [User Stories and Use Cases are the same thing?], yes and no. The idea of specifying the behavior of the system from an outside perspective, and using those specifications throughout the life of the system is the same. The execution is quite different
+</p>
+<cite>Kent Beck, <a href="http://c2.com/cgi/wiki?UserStoryAndUseCaseComparison">http://c2.com/cgi/wiki?UserStoryAndUseCaseComparison</a></cite>
+
+%%
+
+<blockquote>
+<p>  In extremeprogramming@yahoogroups.com, "william.syntagm"
+  &lt;william.hudson@...&gt; wrote:
+</p>
+<p>  I'm researching the origins of the term and concept 'user story'. The first
+  mention in print is Kent Beck's Extreme Programming in 1999, but the first XP
+  project started in 1996 (according to Wikipedia) but were stories a part of it?
+  Where did they come from? The prevalent approach at the time was use cases
+</p></blockquote>
+
+<p>There are three antecedents I can think of:</p>
+<ul>
+  <li>Use Cases, which were a revelation to me. Imagine, measuring progress using units the customer cares about! Before that we'd have a pile of requirements, extract technical tasks, and measure progress based on the tasks. The idea that half way through a project half of the features would be usable was revolutionary.</li>
+<li>A story Kristen Nygaard told me about dock workers (maybe) helping to design the software they would use. I loved the breakdown of the patronizing attitude I had as a programmer (especially since said attitude often concealed ignorance and terror).</li>
+<li>One day at a mutual fund I heard an expert user excitedly telling another user about this great new feature--just type in a zip code and the city and state are filled in automatically. That gave me the "story" metaphor--these are stories the user would like to tell about the system (btw I don't like prepending "user", but whatever).</li>
+</ul>
+
+<p>The hardest part of applying stories doesn't appear to be decomposition, but rather giving up disproportionate power. Programmers have been high priests from the days of the raised floor. Accepting that other groups should an appropriate level of power in projects (with all the conflict that implies) is uncomfortable. Hence all the attempts to slyly snatch power back.
+</p>
+
+<cite><a href="http://tech.groups.yahoo.com/group/extremeprogramming/message/158592" title="Yahoo! Groups">Kent Beck</a></cite>
+
+%%
+
+<p>Ricordati, o buon giocatore, che non giochi soltanto con le tue ma anche con le carte del compagno. Bada di non farti allettare da una buona presa immediata, a rischio di pagarne poi il fio, perché la filosofia dello Scopone consiste nel guardare lontano e considerare, di là dal guadagno immediato, l'esito finale.
+</p>
+<p>Ut in negotiis, sic in scopone</p>
+<p>Come negli affari, così nello scopone</p>
+
+<cite><a href="http://www.francobampi.it/franco/ditutto/scopone/chitarrella.htm#regole" title="Scopone: il Codice di Chitarrella">Le regole del Chitarrella</a></cite>
+
+%%
+<p>
+I got it from Jerry Weinberg. He has formulated it in a number of
+different ways. Sometimes I express it this way:
+</p>
+<blockquote>
+        One option is a trap.<br>
+        Two options is a dilemma.<br>
+        Three options is a choice.
+</blockquote>
+<p>
+If you only know one solution, you're trapped into that solution. You're
+like the proverbial six-year-old with a hammer.
+</p>
+<p>
+Having two solutions seems like it would be better, but I've noticed
+that one of those solutions tends to be a foil to make the preferred
+solution look good. Even when that's not true, you've got very limited
+options at best.
+</p>
+<p>
+Once I think of a third option, then I've broken the boolean "this or
+that" hold that the problem has on my brain. I can now vary various
+parts of the solutions independently. I usually think of options four,
+five, six, and more in short order. I start thinking about how I can
+tell if I've made a good choice rather than just picking one and
+crossing my fingers.
+</p>
+<p>
+I've been using this tool for over a decade, and it's made a huge
+difference for me.
+</p>
+<cite>George Dinwiddie on the XP Mailing List</cite>
+
+%%
+<p>
+If your use of shared code ever leaks outside your service boundary, you have introduced a potential form of coupling. ... My general rule of thumb: don't violate DRY within a microservice, but be relaxed about violating DRY across all services. The evils of too much coupling between services are far worse than problems caused by code duplication.
+</p>
+<cite>Sam Newman, "Building microservices", p.59, in section "DRY and the perils of reuse in a microservice world"</cite>
+
+%%
+
+<p>
+Coaches: start the day by sorting your coaching stories by importance and scouting the day for openings.
+</p>
+<cite><a href='https://twitter.com/GeePawHill/status/600312747298058240'>Michael D. Hill ‏@GeePawHill</a></cite>
+
+%%
+
+<p>
+  I ended up using only few off-the-shelf libraries – mainly one for the web server, one for rendering HTML templates and one for parsing command line parameters. I chose libraries that I liked and that solved a single problem in a simple and elegant way – no less, no more. When I could not find a suitable library, I followed the Do It Yourself Simply principle and coded my solution. Some problems are not hugely difficult and you can solve them easily with few lines of code. As an example, the code that replaces SiteMesh in the new version of the application is no more than 100 lines long.
+</p>
+<cite><a href='http://www.vtence.com/2013/05/02/simple-java-web-development.html'>Vincent Tencé, Simple Web Development In Java</a></cite>
+
+%%
+
+<p>
+  Many frameworks may look very appealing at first glance because they seem to reduce web application development to a couple of trivial steps leading to some code generation and often automatic schema detection, but these same shortcuts are likely to be your bottlenecks as well since they achieve this simplicity by sacrifizing flexibility and performance. Nothing is going to build your application for you, no matter what it promises. You are going to have to build it yourself. Instead of starting by fixing the mistakes in some foreign framework and refactoring all the things that don't apply to your environment spend your time building a lean and reusable pattern that fits your requirements directly.
+</p>
+<cite><a href='https://toys.lerdorf.com/archives/38-The-no-framework-PHP-MVC-framework.html'>Rasmus Lerdorf</a></cite>
+
+%%
+
+<p>
+So then why do so many programmers still work in MODE-A? They do, you know. They pile mess upon mess, and framework upon framework, until their loop time grows from seconds to minutes and longer? They inject so many dependencies that the builds become fragile and error-prone. They create so many unisolated external dependencies that they might as well be using paper tape. Why would anybody do <em>anything</em> that increased their loop time? Why wouldn't everyone <em>defend their loop time with their lives</em>?
+</p>
+
+<cite>Uncle Bob, <a href='http://blog.cleancoder.com/uncle-bob/2015/02/21/ModeBImperative.html'>The Mode-B Imperative</a></cite>
+
+%%
+
+<p>On Thu, Jul 23, 2015 at 1:29 AM, John Carter john.carter@... [extremeprogramming]
+&lt;extremeprogramming@yahoogroups.com&gt; wrote:
+</p>
+
+<blockquote>
+  Now the Absolute Number One enemy of a successful refactoring is change sprawl. [...]
+</blockquote>
+<p>
+In my experience, the number one enemy of successful refactoring is that we make the code worse when we refactor.  We create abstractions that are not right and make the code more complicated.  We introduce coupling in the name of removing duplication.  We can't tell the difference between "simple" and "easy".  We add yet another framework.  We hide interactions in global variables (or static methods and fields, which is the same) and we delude ourselves it's elegant code.  I don't know, and I don't even mean that the problems I described apply in your case.  I simply point out what I have seen, many many times.
+</p>
+
+<cite>xpmatteo</cite>
+
+
+%%
+
+<blockquote>
+  1. when and how should design be discussed?
+</blockquote>
+
+<p>
+  Always, collegially, and while looking at the code.
+</p>
+<p>
+  On the C3 project, Kent Beck gave us this rule (roughly): Whenever two or more programmers discuss design alternatives for more than ten minutes, they must settle the discussion by writing code.
+</p>
+<blockquote>
+2. given the fact that not all programmers are equally skilled in designing / organizing their code (e.g. some might come with a strong procedural experience, others might simply obfuscate code all the way they are passing), but they're all convinced of their own ways, how should a design idea be accepted - like, by votes from the other team members?
+</blockquote>
+<p>
+Try them. In code. With pairing. In a few minutes, or an hour.
+</p>
+<blockquote>
+3. in how much depth should a design be accepted? I mean, people can debate over new concepts introduced, the (new) relationships among some classes, modifications within a class (such as, the class becoming a template / generic), etc.
+</blockquote>
+<p>
+Code. Try it. Let the code participate in the design. The code will tell you.
+</p>
+<cite>Ron Jeffries on the extremeprogramming mailing list</cite>
+
+%%
+
+<p>
+Hubbard says that information is valuable if it reduces uncertainty about decisions, and that the “value of measuring a variable is often inversely proportional to the attention it gets”. Knowing that we need to decide whether or not to continue investing in an area of a map, we can design measurements that would inform this decision.
+</p>
+<p>
+In Lean Startup, Eric Ries warns against vanity metrics, whose sole purpose is to make people feel good, as a key problem affecting the success of software delivery. He advises focusing on metrics that can lead to actions. Impact maps can help establish good actionable metrics, because they make us think about desired impacts on actor behaviour and how we can observe them.
+</p>
+
+<cite>Gojko Adzik, <em>Impact Mapping</em></cite>
+
+%%
+
+<p>
+"After all this time?"
+<br>
+"Always," said Snape.
+</p>
+
+%%
+
+L'essenziale è invisibile agli occhi.
+
+%%
+
+Expecto patronus!
+
+%%
+
+Hairy Guy seeks Chick. Birmingham area.
+
+%%
+
+<p>It was a great day when I connected Mindset with the old (I think buddhist?) advice to "replace judgment with curiosity."
+I'm still absorbing that, and it keeps improving my life, work, and relationships.
+</p>
+<p>
+One of the more fun bits is, in moments of reflection, to replace "how" with "why."
+</p>
+<p>
+How do I overcome these people's resistance to TDD?
+</p>
+<p>s/How/Why/
+</p>
+<ul style='list-style: none'>
+<li>Why do I overcome these people's resistance to TDD? </li>
+<li>Why do I think they're resisting? </li>
+<li>Why, do I think, they're resisting?</li>
+<li>Why don't they take up TDD? </li>
+<li>Why do they think it's inefficient?</li>
+<li>Why do they think efficiency is the thing? </li>
+<li>What is efficiency here? </li>
+<li>What is it that they value that they don't see in TDD? </li>
+</ul>
+<p>
+And on.  It isn't "faster" the way that force and demand and pressure are "fast", but I learned a lot in the process, and the next gig is easier once I understand plate-emptying and reputation/relation damage and focus on touch time instead of lead time.
+</p>
+<p>
+I'm still "but an egg" here, but a growth mindset is "I can learn this" and "there is much to learn" and "not succeeding means that there's more to learn" and "this is kinda fun!"
+</p>
+<p>
+In my fixed mindset moments, a voice whispers "it didn't work because you're not good enough."  I try not to feed that voice, though I'm inexperienced at making the switch, I'm learning it.
+</p>
+<cite>Tim Ottinger</cite>
+
+%%
+
+<p>Here's a rule I follow... Try to **never** have a hidden agenda in any
+conversation with the team.
+</p>
+<cite>Charlie Poole</cite>
+
+%%
+<p>
+ I use One Great Trick: I ask, “What would have to be true for _me_ to behave/think this way?” It sometimes leads to some painful introspection, but it usually leads to a good result.
+</p>
+<cite>J.B. Rainsberger</cite>
+
+%%
+
+<p>I love platforms, I hate frameworks.</p>
+
+<cite><a href="http://www.infoq.com/presentations/8-lines-code-refactoring">Greg Young</a></cite>
+
+%%
+
+
+<verse>
+  Ogni server diverso dall'artro <br>
+Come tanti fiocchi de neve, <br>
+Potessino ammazzatte, <br>
+Alvaro.
+</verse>
+
+<cite><a href='https://twitter.com/agilegigi'>https://twitter.com/agilegigi</a></cite>
+
+%%
+
+<p>
+  ... a remarkable separation of concerns. Not the kind you’ve been told all the time (UI / logic / persistence). The hard kind: logic / logic / logic :-)
+</p>
+<cite><a href='http://www.carlopescio.com/2012/05/notes-on-software-design-chapter-16.html'>Carlo Pescio</a></cite>
+
+
+%%
+
+<p>
+  For example: If you have 200 people working on a project that can be done by 80 (*), your main problem is not one of scaling the methodology but of scaling (down) the project. Of course, if you do that, you will still have to make your approach to software development work for 80 people, but if you started out by trying to make it work for 200 people, you would be on the wrong track.
+</p>
+<cite>Charlie Poole on the XP mailing list</cite>
+
+%%
+
+<p>
+  I would try to avoid having teams be customers of other teams. Every team should have an “edge” that faces a real customer for all of the brilliant reasons that the Lean folks say so eloquently.
+</p>
+<cite>Adam Sroka on the XP mailing list</cite>
+
+%%
+<p>
+...we wanted to get to zero bugs and turned to our Agile coach, Mattias Karlsson, for some advice. Our first idea was to take one day each week and just fix bugs. The Agile coaches advised us against that, since it does not change the behaviour of handling bugs, it just adds a day for fixing things and then the next day nobody cares again.
+</p>
+<p>
+Mattias’ idea was to set a ceiling for the bug count and to aim at not going above this number. We first set the ceiling to the current bug count, around 80. If the bug count went over the ceiling, the amount of bugs would be mentioned at the daily stand up for all the teams. If people fixed more bugs and the bug count went below 80, we would set the bug ceiling to that number, like 78. Then we continued to do this, with gradual decline through changing behaviour rather than addressing it all in one block. Today we are down to 7 major bugs and that actually exceeds our goals for Q3.
+</p>
+<cite>Per Malmén on the <a href='https://techblog.king.com/applying-a-ceiling-to-the-bug-count/'>King technical blog</a></cite>
+
+%%
+<verse>
+Oggi ho imparato a volare<br/>
+e non me ne voglio più dimenticare<br/>
+da tutti i miei amici in visita andrò<br/>
+e alle loro finestre io busserò<br/>
+e dirò guarda ho imparato a volare<br/>
+è facile anche tu potrai imparare<br/>
+ti devi solo un poco concentrare<br/>
+e devi scegliere dove vuoi andare<br/>
+<strong>
+  e se bene sceglierai, allora potrai cambiare<br/>
+e se non ti disperderai, allora potrai volare.<br/>
+</strong>
+</verse>
+<cite><a href='https://www.youtube.com/watch?v=_2gLRZH-Pbo'>Eugenio Finardi</a></cite>
+
+%%
+
+<p>
+  The difference [between user stories and use cases] in practice is the uses cases facilitate:
+</p>
+<ul>
+<li>greater weight, </li>
+<li>moving further down the road from what the problem is to what the solution is, </li>
+<li>and premature commitment.</li>
+</ul>
+<p>
+  As Adam rightly points out, you can still utilize use cases and resist these forces and you can also give into these forces using user stories.
+</p>
+<cite>Steven Gordon on the Extreme Programming mailing list</cite>
+
+%%
+
+<p>Go out there and fail, and then laugh it off and do it again.  Learn to value process more than results.  Internalize the substance of the task as well as the product.  People who are only results oriented do not often enjoy their talents.  Learn to enjoy them, you will be exercising them for a long time.</p>
+<cite>Henry Cloud, Changes That Heal</cite>
+
+%%
+
+<p>The Problem is Evolvability not Correctness</p>
+
+<cite>Gerald Jay Sussman,
+<a href='https://www.infoq.com/presentations/We-Really-Dont-Know-How-To-Compute'>We Really Don't Know How To Compute!</a></cite>
+
+%%
+
+<p>
+And thou, Melkor, shalt see that no theme may be played that hath not its uttermost source in me, nor can any alter the music in my despite. For he that attempteth this shall prove but mine instrument in the devising of things more wonderful, which he himself hath not imagined.
+</p>
+
+<cite>J.R.R. Tolkien, <i>The Silmarillion</i> </cite>
+
+%%
+<p>
+In my dreams I have used that language to heal the sick and to fly; once I dreamed I kept a perfect little bed-and-breakfast by the seaside, and to everyone who came to stay with me I would say, in that tongue, “Be whole,” and they would become whole, not be broken people, not any longer, because I had spoken the language of shaping.
+</p>
+<cite>Neil Gaiman, <i>The Ocean at the End of the Lane</i></cite>
+
+%%
+
+<p>
+There, peeping among the cloud-wrack above a dark tor high up in the mountains, Sam saw a white star twinkle for a while. The beauty of it smote his heart, as he looked up out of the forsaken land, and hope returned to him. For like a shaft, clear and cold, the thought pierced him that in the end the Shadow was only a small and passing thing: there was light and high beauty for ever beyond its reach</p>
+
+<cite>J.R.R. Tolkien, <em>The Lord of the Rings</em></cite>
+
+%%
+
+<p>La saĝulo ne scias kiel sentas, esti stulta tiel briko</p>
+<cite>Jethro Tull (tr. Esperanto)</cite>
+
+%%
+
+<p>Vietato lamentarsi</p>
+
+<p>I trasgressori sono soggetti da una sindrome da vittimismo, con conseguente abbassamento del tono dell'umore e della capacità di risolvere i problemi.  la sanzione è raddoppiata qualora la violazione sia commessa in presenza di bambini. Per diventare il meglio di sé, bisogna concentrarsi sulle proprie potenzialità e non sui propri limiti, quindi: smettila di lamentarti e agisci per cambiare in meglio la tua vita!</p>
+
+<cite><a href='http://www.rainews.it/dl/rainews/media/Simpatico-cartello-che-ammonisce-chi-bussa-appartamento-di-Papa-Francesco-Vietato-lamentarsi-fdabc528-355d-4d82-8b4c-d960a273d05e.html'>Papa Bergoglio</a></cite>
+
+%%
+ 
+<p>The purpose of your conference paper abstract is to get your paper in the A Pile and keep it out of the B Pile.</p>
+
+<p>The sentences are:</p>
+<ul>  
+  <li>The problem</li>
+  <li>Why the problem is a problem</li>
+  <li>One Startling Sentence</li>
+  <li>The implication of the One Startling Sentence</li>
+</ul>
+<cite><a href='https://twitter.com/KentBeck/status/974359988352110592'>Kent Beck</a></cite>
+
+%%
+
+<p>
+if you can’t laugh at yourself, you’re missing the best joke around
+</p>
+
+<cite>
+Balle, Freddy. The Lean Manager: A Novel of Lean Transformation (p. 140).
+</cite>
+
