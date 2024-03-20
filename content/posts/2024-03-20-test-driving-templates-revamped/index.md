@@ -13,7 +13,8 @@ draft = true
 
 <figure>
   <img style="background: white; display: block; margin-left: auto; margin-right: auto"
-  src="test.png" alt="Schema of how we test a template">
+  src="test.png"
+  alt="Schema of how we test a template">
   <figcaption>
     Testing a template. 
     Image produced with the <em>pic</em> language (<a href="test.pic">source</a>,
@@ -38,7 +39,7 @@ It turns out that test-driving HTML templates is easy; let's see how to do it in
 The examples will use the Go programming language, but the techniques can be applied to any language.
 
 
-## Checking for sound HTML
+## Checking for sound&nbsp;HTML
 
 
 The number one thing I want to check is that the HTML we produce is basically sound. I don't mean to check that HTML is valid according to the W3C; not because I think it is not valuable, but because I think it's better to start with much simpler and fast checks.  For instance, I want my tests to break if the template generates something like
@@ -139,7 +140,7 @@ func Test_wellFormedHtml(t *testing.T) {
 }
 ```
 
-## What else should we test?
+## What else should we&nbsp;test?
 
 We know that the looks of a page can only be tested, ultimately, by a human looking at how it is rendered in a browser.  However, there often is logic in templates, and we want to be able to test that logic.
 
