@@ -419,7 +419,7 @@ And the corrisponding change in the html template is
 ```
 (Note that now that adding new tests is easy, we could test drive the special case for "1&nbsp;item left" where the word "item" is singular)
 
-We now test the "All", "Active" and "Completed" navigation link at the bottom of the UI (<a href="#ui-picture">see the picture above</a>); now the test depends on which url we are currently visiting, and this is something that our template currently has no way to find out.  So we need to pass this information to the template; our `renderTemplate` function must change.  An easy way to pass more than one piece of information to a Go template is to pass a map:
+We will now test the "All", "Active" and "Completed" navigation link at the bottom of the UI (<a href="#ui-picture">see the picture above</a>), and these depend on which url we are currently visiting, which is something that our template currently has no way to find out.  So we need to pass this information to the template: our `renderTemplate` function must change.  An easy way to pass more than one piece of information to a Go template is to pass a map:
 ```go {hl_lines=[1,"4-8"]}
 func renderTemplate(model *todo.List, path string) bytes.Buffer {
   templ := template.Must(template.ParseFiles("index.gotmpl"))
@@ -465,7 +465,8 @@ var testCases = []struct {
   },
 }
 ```
-Note that for these three cases, the contents of the model are irrelevant, so we don't pass it here; if we were to add `model: todo.NewList().Add("foo")` one could be led to think that the behaviour depends on the model having one item, or something like this.  In order to make the model optional in the test table, we test for nil:
+Note that for these three cases, the contents of the model are irrelevant, so we don't pass it here; if we were to add a sample model like `model: todo.NewList().Add("foo")`, one could be led to think that the behaviour we are testing depends on something in the model we're passing, like having one item, or being empty, or anything else. 
+But we can't pass a `nil` model to the template, or we'll get a runtime error: so, to make the model optional in the test cases table, we must test for `nil` in the test function:
 ```go {hl_lines=["4-6"]}
 func Test_allDynamicFeatures(t *testing.T) {
   for _, test := range testCases {
@@ -483,7 +484,7 @@ We are making the test code a little bit more complicated, so that the test case
 
 ## Conclusion
 
-Modern web applications often have very complicated templates. In my experience, when you start testing these templates, you inevitably find errors: the templates do not always produce the HTML you think.  And often, time is lost debugging the templates, when we could let automated tests do the testing for us instead.
+Modern web applications often have very complicated templates. In my experience, when you start testing these templates, you inevitably find errors: the templates do not always produce the HTML you think.  And often, time is lost debugging the templates, when we could write automated tests that do the testing for us instead.
 
 For these reasons, I think it's a good practice to test HTML templates.  I hope I showed that it's easy (and fun!) to test them.
 
