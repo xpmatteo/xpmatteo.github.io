@@ -1,14 +1,15 @@
 
-// see https://pikchr.org/home/doc/trunk/doc/userman.md
-// use https://pikchr.org/home/pikchrshow
+# see https://pikchr.org/home/doc/trunk/doc/userman.md
+# use https://pikchr.org/home/pikchrshow
 
 fontscale = 1.2
 h = boxht/2
+w = boxwid/2
 
 down
 D:  ellipse "data" fill gray color white thickness 0 wid 0.7*boxwid ht 0.7*boxht
 arrow
-P:  circle rad circlerad/2 fill orange "+" color white
+P:  circle rad circlerad/2 fill orange "+" big big big color white thickness 0
 left
 line <-
 T:  file "template" above fill lightblue 
@@ -16,16 +17,15 @@ down
 arrow from P.s down
 H:  file "html" above fill lightblue 
 
-ellipse wid 0.5*boxwid ht 0.5*boxht with .s at T.s + 0,0.05 thickness 0 fill white
-ellipse wid 0.5*boxwid ht 0.5*boxht with .s at H.s + 0,0.05 thickness 0 fill gray 
-
+ellipse wid w ht h thickness 0 fill white with .s at T.s + 0,0.05 
+ellipse same with .s at H.s + 0,0.05 fill gray 
 
 right
 move to P.e
 line <- wid 1.2*boxwid thin dashed
 text "   2. render" above at last line.center 
 
-TEST: ellipse "test" fill green color white 
+TEST: ellipse "test" big fill green color white thickness 0
 
 arrow from TEST.c to D.c chop thin dashed
 text "   1. setup" ljust at last arrow.center 
