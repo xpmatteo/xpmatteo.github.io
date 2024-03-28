@@ -25,7 +25,7 @@ The SPA-like features of this app are
 1. Infinite scrolling
 2. Smooth changing of the genre with no full page reload
 
-The starting point was a plain HTML application that can be used without JavaScript.  Adding Ajax is just a matter of including the HTMX library, and adding appropriate HTMX attribute.  The only line of JavaScript is used to hide the "submit" button of the genre form, because it is not needed on a JavaScript-enabled browser.  In fact, the application is still usable with JavaScript disabled.
+The starting point was a plain HTML application that can be used without JavaScript.  Adding Ajax is just a matter of including the HTMX library, and adding appropriate HTMX attributes.  
 
 The infinite scrolling effect is achieved by adding a few HTMX attributes to the element that we want to animate:
 
@@ -77,7 +77,7 @@ The other bit of HTMX is in the genre selection form.
   <script>document.getElementById("submitGenre").style.display = "none"</script>
 </form>
 ```
-Here we add two more HTMX attributes:
+Here we add three more HTMX attributes:
 * `data-hx-target` means that the results should be placed in the specified HTML element, and
 * `data-hx-swap` specifies that we want to scroll the page to the top (thus avoiding an immediate trigger of the infinite scroll) and
 * `data-hx-push-url` makes HTMX copy the new url in the address bar.
@@ -85,6 +85,5 @@ Here we add two more HTMX attributes:
 The bit of JavaScript is meant to hide the submit button when JavaScript is enabled. If JavaScript is not enabled, the HTMX attributes have no effect and this form works perfectly well as a non-Ajax, traditional HTML form.  
 
 The conclusion?  It seems to me you can get sleek SPA-like effects at a fraction of the development cost (assuming you already have a backend team) and with a  performance that is at least comparable to what you get with the big JavaScript frameworks.
-
 
 *Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_infinite-scrolling-in-go-activity-7179207369359253506-xEj0?utm_source=share&amp;utm_medium=member_desktop "Matteo Vaccari on LinkedIn: Infinite Scrolling in Go")!*
