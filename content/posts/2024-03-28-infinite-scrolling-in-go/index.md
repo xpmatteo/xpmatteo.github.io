@@ -87,4 +87,4 @@ The bit of JavaScript is meant to hide the submit button when JavaScript is enab
 The conclusion?  It seems to me you can get sleek SPA-like effects at a fraction of the development cost (assuming you already have a backend team) and with a  performance that is at least comparable to what you get with the big JavaScript frameworks.
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_infinite-scrolling-in-go-activity-7179207369359253506-xEj0?utm_source=share&amp;utm_medium=member_desktop "Matteo Vaccari on LinkedIn: Infinite Scrolling in Go")!*
