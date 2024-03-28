@@ -21,6 +21,13 @@ This time I'm implementing a [standard SPA sample project](https://github.com/ta
 
 The [source code is on Github](https://github.com/xpmatteo/moviegoers "GitHub - xpmatteo/moviegoers: An experiment in delivering a very fast webapp with HTMX").  The UI is inspired by [this Angular example](https://angular-movies-a12d3.web.app/list/category/popular "HubMovies").  This Angular app is admittedly fast, but my version is at least as fast.
 
+
+<figure>
+  <img src="performance.png" alt="A screenshot of the Google Chrome Lighthouse performance results" width="400" style="margin:auto; display:block">
+  <figcaption>The performance results from Google Chrome Lighthouse. The application was deployed on Heroku and performs similarly to <a href="https://angular-movies-a12d3.web.app/list/category/popular">our Angular inspiration</a> (that gets a 92 in performance from Lighthouse)</figcaption>
+</figure>
+
+
 The SPA-like features of this app are 
 1. Infinite scrolling
 2. Smooth changing of the genre with no full page reload
