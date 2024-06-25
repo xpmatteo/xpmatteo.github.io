@@ -104,7 +104,7 @@ With these tools, composing a diamond becomes very easy:
 <div align="center"> *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>*
 </div>
 
-I always thought that TDD, or rather, good design, ought to lead not simply to a solution, but to **a toolkit that makes expressing the solution easy**.  Decomposing this problem into a composition of "images" seems natural to me; it does not require a lot of mathematical thinking, except perhaps a little bit in the `diag` function about the correct amount of dots surrounding the letter. We could say that this solution is *incremental* rather than *iterative*: instead of refining a single algorithm towards the solution, we compose many simple algorithm together, so that the solution becomes easy.  
+I always thought that TDD, or rather, good design, ought to lead not simply to a solution, but to **a toolkit that makes expressing the solution easy**.  Decomposing this problem into a composition of "images" seems natural to me; it does not require a lot of mathematical thinking, except perhaps a little bit in the `diag` function about the correct amount of dots surrounding the letter. We could say that this solution is *incremental* rather than *iterative*: instead of refining a single algorithm towards the solution, we compose many simple algorithms together, so that the solution becomes easy.
 
 All we needed is a single primitive operation `diag`, and four composition operators: `flipHor`, `flipVert` `composeHor` and `composeVert`.
 
