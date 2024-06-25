@@ -75,9 +75,9 @@ and vertically:
 Joining two images horizontally:
 
     composeHor("ABC", "CBA") == "ABCBA"
-    composeHor(diag(3, 'C'), flipHor(diag(3, 'C'))) == "..A..
-                                                        .B.B.
-                                                        C...C"
+    composeHor(diag(3), flipHor(diag(3))) == "..A..
+                                              .B.B.
+                                              C...C"
 
 and vertically
 
