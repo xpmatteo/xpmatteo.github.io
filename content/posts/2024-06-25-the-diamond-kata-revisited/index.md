@@ -5,7 +5,6 @@ date = 2024-06-25T13:34:35+02:00
 tags = [
     "TDD",
 ]
-draft = true
 +++
 
 A few years ago, Seb Rose [published an article about the Diamond Kata](https://claysnow.co.uk/recycling-tests-in-tdd/ "Recycling tests in TDD &#8211; Claysnow"). The problem statement is simple, but solving it with TDD is not straightforward.
