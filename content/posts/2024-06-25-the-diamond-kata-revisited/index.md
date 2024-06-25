@@ -21,8 +21,8 @@ The interesting bit for TDD enthusiasts is that, while it's easy to get started 
 
 Seb wrote that the best you can do is to start with tests for an approximate solution, and iterate both tests and code towards solving the full problem. His blog post led to a number of interesting responses:
 
- * Alistair Cockburn says that this problem could be [better solved by more mathematically-oriented thinking upfront](https://web.archive.org/web/20170621004437/http://alistair.cockburn.us/Thinking+before+programming "Alistair.Cockburn.us | Thinking before programming") about how many spaces should be generated where
- * Emily Bache says that ["recycling tests" is a valid way to iterate](https://coding-is-like-cooking.info/2015/04/iterative-incremental-tdd-diamond-kata/ "Coding Is Like Cooking  &raquo; Blog Archive   &raquo; Iterative and Incremental TDD with the Diamond Kata") towards a difficult problem
+ * Alistair Cockburn said that this problem could be [better solved by more mathematically-oriented thinking upfront](https://web.archive.org/web/20170621004437/http://alistair.cockburn.us/Thinking+before+programming "Alistair.Cockburn.us | Thinking before programming") about how many spaces should be generated where
+ * Emily Bache said that ["recycling tests" is a valid way to iterate](https://coding-is-like-cooking.info/2015/04/iterative-incremental-tdd-diamond-kata/ "Coding Is Like Cooking  &raquo; Blog Archive   &raquo; Iterative and Incremental TDD with the Diamond Kata") towards a difficult problem
  * Other solutions came from [Ron Jeffries](https://ronjeffries.com/articles/tdd-diamond/ "TDD on the Diamond Problem"), [George Dinwiddie](https://blog.gdinwiddie.com/2014/11/30/another-approach-to-the-diamond-kata/ "Another Approach to the Diamond Kata &#8211; George Dinwiddie&#039;s blog"), [Jon Jagger](https://jonjagger.blogspot.com/2012/06/sliming-and-refactoring-and-deliberate.html "less code, more software: sliming and refactoring and deliberate duplication"), again [Ron Jeffries](https://ronjeffries.com/articles/more-diamond/ "https://ronjeffries.com/articles/more-diamond/")
  
 The challenge with this kata is "what is the sequence of tests that will incrementally lead to a solution?"  
@@ -70,7 +70,7 @@ and vertically:
 
     flipVert("AA
               BB") == "BB
-                         AA"
+                       AA"
     
 Joining two images horizontally:
 
@@ -126,6 +126,5 @@ can be defined as
         var lower = flipVert(upper);
         return composeVert(upper, lower);
     }
-    
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/feed/update/urn:li:share:7211360180381351938/ "Matteo Vaccari on LinkedIn: The Diamond Kata Revisited")!*
