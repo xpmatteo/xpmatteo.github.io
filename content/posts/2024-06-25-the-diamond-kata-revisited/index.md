@@ -127,4 +127,17 @@ can be defined as
         return composeVert(upper, lower);
     }
 
+**Update 2024-06-26** Géza Mihala pointed me at [his solution](https://infinitary.org/stray_words/diamond_kata.html "Diamond Kata"); it's a similar way of thinking, and his solution is more elegant than mine. He uses two operations `mirrorLeft` and `mirrorDown`, which combine my `flip` and `compose` operations, and as a result the solution can be expressed as a linear chain of transformations:
+
+    diag(n).mirrorLeft().mirrorDown()
+    
+This works in Ruby because he's adding methods to the String class; in Java I would achieve the same effect by wrapping the string in a domain-specific class, perhaps `Image`.  The `mirrorLeft` operation can be defined as
+
+    String mirrorLeft(String s) {
+        return composeHor(s, flipHor(s));
+    }
+
+Good job Géza!
+
+
 *Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/feed/update/urn:li:share:7211360180381351938/ "Matteo Vaccari on LinkedIn: The Diamond Kata Revisited")!*
