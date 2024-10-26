@@ -22,6 +22,11 @@ draft = true
   </figcaption>
 </figure>
 
+<h2>
+Note: this article has been rewritten and extended <a href="https://martinfowler.com/articles/tdd-html-templates.html">on Martin Fowler's website</a>
+</h2>
+
+
 ## Why?
 
 Why test-drive HTML templates?  After all, the most reliable way to check that a template works is to render it to HTML and open it in a browser, right?

@@ -15,6 +15,10 @@ draft = false
   <figcaption>A sample screenshot of the TodoMVC application</figcaption>
 </figure>
 
+<h2>
+Note: this article has been rewritten and extended <a href="https://martinfowler.com/articles/tdd-html-templates.html">on Martin Fowler's website</a>
+</h2>
+
 Why test-drive HTML templates?  After all, the most reliable way to check that a template works is by rendering it to HTML and opening it in a browser, right?
 
 There's some truth in this; unit tests cannot prove that a template looks the way we expect, and testing them by hand is necessary.  And if we make a mistake in the logic of a template, **usually** the template breaks immediately, so it's difficult not to notice the error.
