@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple TypeScript Project</title>
+    <title>Memoir helper</title>
     <style>
         label {
             width: 9em;
@@ -41,11 +41,18 @@
                     numDice: Number(params.get("numDice")),
                     flagsMeanHit: !!params.get("flagsMeanHit"),
                     starsMeanHit: !!params.get("starsMeanHit"),
+                    flagsThatCanBeIgnored: Number(params.get("flagsThatCanBeIgnored")),
                 };
                 let response = evaluateDiceRequest(request);
                 document.getElementById("output").innerText = JSON.stringify(response, null, 2);
             }
         });
+
+        function resetPage() {
+            document.getElementById("output").innerText = "";
+            window.location.href = window.location.origin + window.location.pathname;
+            return true;
+        }
     </script>
 </head>
 <body>
@@ -73,10 +80,11 @@
         <input id="starsMeanHit" name="starsMeanHit" type="checkbox">
         <br>
         <input type="submit">
+        <input type="reset" onclick="resetPage()">
     </form>
 
 
-    <p id="output">Output will be shown here.</p>
+    <p id="output"></p>
 
 </body>
 </html>

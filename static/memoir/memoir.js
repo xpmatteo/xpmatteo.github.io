@@ -23,7 +23,12 @@ function kills(diceValue, diceRequest) {
 }
 function numKills(combination, diceRequest) {
     let result = 0;
+    let flagsThatCanBeIgnored = diceRequest.flagsThatCanBeIgnored;
     for (let i = 0; i < combination.length; i++) {
+        if (diceRequest.flagsMeanHit && combination[i] === DiceValue.Flag && flagsThatCanBeIgnored > 0) {
+            flagsThatCanBeIgnored--;
+            continue;
+        }
         if (kills(combination[i], diceRequest) && result < diceRequest.numFigures) {
             result++;
         }
