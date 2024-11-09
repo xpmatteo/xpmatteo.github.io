@@ -13,6 +13,11 @@
         #results td {
             text-align: right;
         }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
     <script src="https://unpkg.com/mustache@4.2.0" integrity="sha384-w1w4OJZe53/hPslZL3huM7kr/RQ+IXfaVeO5Tx0boUDt0ZTA8dwJ5OjxjpWOtw14" crossorigin="anonymous"></script>
     <script>var exports = {};</script>
@@ -72,7 +77,7 @@
         <table id="results">
         {{#data}}
         <tr>
-            <td>{{numKills}} hits, with probability</td>
+            <td>{{numHits}} hits, with probability</td>
             <td>{{probability}}%</td>
         </tr>
         {{/data}}
@@ -111,5 +116,8 @@
 
     <div id="output"></div>
 
+    <footer>
+        <p>This is <a href="https://github.com/xpmatteo/memoir-helper">free software</a></p>
+    </footer>
 </body>
 </html>

@@ -15,13 +15,13 @@ var DiceValue;
     DiceValue["Flag"] = "Flag";
     DiceValue["Grenade"] = "Grenade";
 })(DiceValue || (exports.DiceValue = DiceValue = {}));
-function kills(diceValue, diceRequest) {
+function hits(diceValue, diceRequest) {
     return diceValue.toString() == diceRequest.target.toString()
         || diceValue == DiceValue.Grenade
         || diceValue == DiceValue.Flag && diceRequest.flagsMeanHit
         || diceValue == DiceValue.Star && diceRequest.starsMeanHit;
 }
-function numKills(combination, diceRequest) {
+function numHits(combination, diceRequest) {
     let result = 0;
     let flagsThatCanBeIgnored = diceRequest.flagsThatCanBeIgnored;
     for (let i = 0; i < combination.length; i++) {
@@ -29,7 +29,7 @@ function numKills(combination, diceRequest) {
             flagsThatCanBeIgnored--;
             continue;
         }
-        if (kills(combination[i], diceRequest) && result < diceRequest.numFigures) {
+        if (hits(combination[i], diceRequest) && result < diceRequest.numFigures) {
             result++;
         }
     }
@@ -40,12 +40,12 @@ function evaluateDiceRequest(request) {
     let combinations = generateCombinations(request.numDice, diceFaces);
     let classifyCombinations = Array(request.numFigures + 1).fill(0);
     combinations.forEach(function (combination) {
-        let nk = numKills(combination, request);
+        let nk = numHits(combination, request);
         classifyCombinations[nk]++;
     });
     let result = [];
     for (let i = 0; i < classifyCombinations.length; i++) {
-        result.push({ numKills: i, probability: classifyCombinations[i] / combinations.length });
+        result.push({ numHits: i, probability: classifyCombinations[i] / combinations.length });
     }
     return result;
 }
