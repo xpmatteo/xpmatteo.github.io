@@ -13,10 +13,8 @@
         #results td {
             text-align: right;
         }
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        #preamble {
+            padding-bottom: 20pt;
         }
     </style>
     <script src="https://unpkg.com/mustache@4.2.0" integrity="sha384-w1w4OJZe53/hPslZL3huM7kr/RQ+IXfaVeO5Tx0boUDt0ZTA8dwJ5OjxjpWOtw14" crossorigin="anonymous"></script>
@@ -53,7 +51,7 @@
                     starsMeanHit: !!params.get("starsMeanHit"),
                     flagsThatCanBeIgnored: Number(params.get("flagsThatCanBeIgnored")),
                 };
-                let response = evaluateDiceRequest(request);
+                let response = evaluateOddsRequest(request);
                 const template = document.getElementById('output-template').innerHTML;
                 document.getElementById("output").innerHTML = Mustache.render(template, {data: fixPercentages(response)});
             }
@@ -86,7 +84,12 @@
 </head>
 <body>
     <h1>Memoir helper</h1>
-    <p>Calculate the odds of scoring hits in Memoir '44!</p>
+
+    <p id="preamble">
+        Calculate the odds of scoring hits in <a href="https://www.daysofwonder.com/memoir-44/">Memoir '44</a>!
+        This is <a href="https://github.com/xpmatteo/memoir-helper">free software</a>.
+    </p>
+
     <form action="." >
         <label for="target">Target</label>
         <select id="target" name="target">
@@ -103,7 +106,7 @@
         <br>
         <label for="flagsMeanHit">Flags mean hit</label>
         <input id="flagsMeanHit" name="flagsMeanHit" type="checkbox">
-        <label for="flagsThatCanBeIgnored" style="width: 11em">Flags that can be ignored</label>
+        <label for="flagsThatCanBeIgnored" style="width: 11em; text-align: right">Flags that can be ignored</label>
         <input id="flagsThatCanBeIgnored" name="flagsThatCanBeIgnored" type="number" min="0" max="9" value="0">
         <br>
         <label for="starsMeanHit">Stars mean hit</label>
@@ -112,12 +115,6 @@
         <input type="submit">
         <input type="reset" onclick="resetPage()">
     </form>
-
-
     <div id="output"></div>
-
-    <footer>
-        <p>This is <a href="https://github.com/xpmatteo/memoir-helper">free software</a></p>
-    </footer>
 </body>
 </html>
