@@ -1,20 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.enumerateRolls = exports.evaluateOddsRequest = exports.DiceValue = exports.UnitType = void 0;
-var UnitType;
+export var UnitType;
 (function (UnitType) {
     UnitType["Infantry"] = "Infantry";
     UnitType["Armor"] = "Armor";
     UnitType["Artillery"] = "Artillery";
-})(UnitType || (exports.UnitType = UnitType = {}));
-var DiceValue;
+})(UnitType || (UnitType = {}));
+export var DiceValue;
 (function (DiceValue) {
-    DiceValue["Infantry"] = "Infantry";
-    DiceValue["Armor"] = "Armor";
+    DiceValue["Grenade"] = "Grenade";
     DiceValue["Star"] = "Star";
     DiceValue["Flag"] = "Flag";
-    DiceValue["Grenade"] = "Grenade";
-})(DiceValue || (exports.DiceValue = DiceValue = {}));
+    DiceValue["IgnoredFlag"] = "IgnoredFlag";
+    DiceValue["Infantry"] = "Infantry";
+    DiceValue["Armor"] = "Armor";
+})(DiceValue || (DiceValue = {}));
 function hits(diceValue, oddsRequest) {
     return diceValue.toString() == oddsRequest.target.toString()
         || diceValue == DiceValue.Grenade
@@ -23,51 +21,70 @@ function hits(diceValue, oddsRequest) {
 }
 function numHits(diceRoll, oddsRequest) {
     let result = 0;
-    let flagsThatCanBeIgnored = oddsRequest.flagsThatCanBeIgnored;
     for (let i = 0; i < diceRoll.length; i++) {
-        if (oddsRequest.flagsMeanHit && diceRoll[i] === DiceValue.Flag && flagsThatCanBeIgnored > 0) {
-            flagsThatCanBeIgnored--;
-            continue;
-        }
         if (hits(diceRoll[i], oddsRequest) && result < oddsRequest.numFigures) {
             result++;
         }
     }
     return result;
 }
-function evaluateOddsRequest(request) {
-    let diceFaces = [DiceValue.Grenade, DiceValue.Star, DiceValue.Armor, DiceValue.Infantry, DiceValue.Infantry, DiceValue.Flag];
-    let combinations = enumerateRolls(request.numDice, diceFaces);
-    let classifyCombinations = Array(request.numFigures + 1).fill(0);
-    combinations.forEach(function (combination) {
-        let nk = numHits(combination, request);
-        classifyCombinations[nk]++;
+function classifyRolls(rolls, request) {
+    let classifyRolls = Array(request.numFigures + 1).fill(0);
+    rolls.forEach(function (roll) {
+        let nh = numHits(roll, request);
+        classifyRolls[nh]++;
     });
+    return classifyRolls;
+}
+// Morph some Flags into IgnoredFlags
+// Changes the array in-place for speed and preserving memory on small devices
+export function ignoreFlags(rolls, flagsThatCanBeIgnored) {
+    if (flagsThatCanBeIgnored === 0) {
+        return;
+    }
+    rolls.forEach((roll) => {
+        let toBeIgnored = flagsThatCanBeIgnored;
+        for (let i = 0; i < roll.length; i++) {
+            if (roll[i] === DiceValue.Flag && toBeIgnored > 0) {
+                roll[i] = DiceValue.IgnoredFlag;
+                toBeIgnored--;
+            }
+        }
+    });
+    return;
+}
+export function evaluateOddsRequest(request) {
+    let diceFaces = [DiceValue.Grenade, DiceValue.Star, DiceValue.Armor, DiceValue.Infantry, DiceValue.Infantry, DiceValue.Flag];
+    let rolls = enumerateRolls(request.numDice, diceFaces);
+    ignoreFlags(rolls, request.flagsThatCanBeIgnored);
+    let rollsCountByHits = classifyRolls(rolls, request);
     let result = [];
-    for (let i = 0; i < classifyCombinations.length; i++) {
-        result.push({ numHits: i, probability: classifyCombinations[i] / combinations.length });
+    for (let i = 0; i < rollsCountByHits.length; i++) {
+        result.push({
+            numHits: i,
+            rolls: rollsCountByHits[i],
+            totalRolls: rolls.length,
+            probability: rollsCountByHits[i] / rolls.length,
+        });
     }
     return result;
 }
-exports.evaluateOddsRequest = evaluateOddsRequest;
-function enumerateRolls(numDice, diceFaces) {
+export function enumerateRolls(numDice, diceFaces) {
     if (numDice === 0) {
         return [];
     }
     let result = [];
     if (numDice === 1) {
-        for (let i = 0; i < diceFaces.length; i++) {
-            result.push([diceFaces[i]]);
-        }
+        diceFaces.forEach(function (face) {
+            result.push([face]);
+        });
         return result;
     }
     let recResult = enumerateRolls(numDice - 1, diceFaces);
-    for (let r = 0; r < recResult.length; r++) {
-        let rec = recResult[r];
-        for (let i = 0; i < diceFaces.length; i++) {
-            result.push(rec.concat([diceFaces[i]]));
-        }
-    }
+    recResult.forEach(function (rec) {
+        diceFaces.forEach(function (face) {
+            result.push(rec.concat([face]));
+        });
+    });
     return result;
 }
-exports.enumerateRolls = enumerateRolls;

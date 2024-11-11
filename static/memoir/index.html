@@ -18,9 +18,9 @@
         }
     </style>
     <script src="https://unpkg.com/mustache@4.2.0" integrity="sha384-w1w4OJZe53/hPslZL3huM7kr/RQ+IXfaVeO5Tx0boUDt0ZTA8dwJ5OjxjpWOtw14" crossorigin="anonymous"></script>
-    <script>var exports = {};</script>
-    <script src="memoir.js"></script>
-    <script>
+    <script type="module">
+        import {evaluateOddsRequest} from './memoir.js';
+
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
 
@@ -85,10 +85,15 @@
 <body>
     <h1>Memoir helper</h1>
 
-    <p id="preamble">
-        Calculate the odds of scoring hits in <a href="https://www.daysofwonder.com/memoir-44/">Memoir '44</a>!
-        This is <a href="https://github.com/xpmatteo/memoir-helper">free software</a>.
-    </p>
+    <div id="preamble">
+        <p>
+            Calculate the odds of scoring hits in <a href="https://www.daysofwonder.com/memoir-44/">Memoir '44</a>!
+            This is <a href="https://github.com/xpmatteo/memoir-helper">free software</a>.
+        </p>
+        <p>
+            Click here if you are <a href="tiger.html">targeting Tiger tanks</a>.
+        </p>
+    </div>
 
     <form action="." >
         <label for="target">Target</label>
