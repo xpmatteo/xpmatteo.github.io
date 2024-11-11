@@ -55,15 +55,13 @@
                 const template = document.getElementById('output-template').innerHTML;
                 let data = {
                     probabilityPercentage: fixPercentage(response.totalSuccess/response.totalCombinations),
-                    ...request
                 };
-                console.log(data);
                 document.getElementById("output").innerHTML = Mustache.render(template, data);
             }
         });
 
         function fixPercentage(probability) {
-            return (probability*100).toFixed(2);
+            return (probability*100).toFixed(1);
         }
 
         function resetPage() {
@@ -76,7 +74,7 @@
         <h2>Result:</h2>
         <p>
             The odds of hitting a Tiger
-            is {{probabilityPercentage}}%
+            are {{probabilityPercentage}}%
         </p>
     </script>
 </head>
