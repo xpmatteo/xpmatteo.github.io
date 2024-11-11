@@ -52,10 +52,15 @@
                     flagsThatCanBeIgnored: Number(params.get("flagsThatCanBeIgnored")),
                 };
                 let response = evaluateTigerRequest(request);
-                const template = document.getElementById('output-template').innerHTML;
+                const odds = response.totalSuccess/response.totalCombinations;
+                const triesNeededFloor = Math.floor(1/odds);
+                const triesNeededCeil = Math.ceil(1/odds);
                 let data = {
-                    probabilityPercentage: fixPercentage(response.totalSuccess/response.totalCombinations),
+                    probabilityPercentage: fixPercentage(odds),
+                    triesNeededFloor,
+                    triesNeededCeil,
                 };
+                const template = document.getElementById('output-template').innerHTML;
                 document.getElementById("output").innerHTML = Mustache.render(template, data);
             }
         });
@@ -74,8 +79,12 @@
     <script id="output-template" type="x-tmpl-mustache">
         <h2>Result:</h2>
         <p>
-            The odds of hitting a Tiger
-            are {{probabilityPercentage}}%
+            The odds of hitting a Tiger under these conditions
+            are {{probabilityPercentage}}%.
+        </p>
+        <p>
+            It will take <strong>on average</strong> {{triesNeededFloor}} to {{triesNeededCeil}} attempts to get a hit.
+            Good luck!
         </p>
     </script>
 </head>
@@ -85,7 +94,7 @@
     <section id="preamble">
         <p>
             Tiger tanks are hit with specific rules that make them much harder to hit. On the other hand,
-            a Tiger unit has only one figure, so all that it is needed is one lucky roll.
+            a Tiger unit has only one figure, so &ldquo;all&rdquo; that it is needed is one lucky roll.
         </p>
         <p>
             Or, get back to <a href="index.html">targeting ordinary units</a>.
