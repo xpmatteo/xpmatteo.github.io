@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tigers in the snow - Memoir helper</title>
+    <style>
+        label {
+            width: 9em;
+            display:inline-block;
+            margin-bottom: 1ex;
+        }
+        #results td {
+            text-align: right;
+        }
+        #preamble {
+            padding-bottom: 20pt;
+        }
+    </style>
+    <script src="https://unpkg.com/mustache@4.2.0" integrity="sha384-w1w4OJZe53/hPslZL3huM7kr/RQ+IXfaVeO5Tx0boUDt0ZTA8dwJ5OjxjpWOtw14" crossorigin="anonymous"></script>
+    <script type="module">
+        import {evaluateTigerRequest} from './tiger.js'
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+
+            // values submitted are copied back in form elements
+            ["numDice", "flagsThatCanBeIgnored"].forEach(function (element) {
+                const target = params.get(element);
+                if (target) {
+                    document.getElementById(element).value = target;
+                }
+            });
+
+            ["flagsMeanHit", "starsMeanHit"].forEach(function (element) {
+                if (params.get(element) === "on") {
+                    const target = params.get(element);
+                    if (target) {
+                        document.getElementById(element).checked = true;
+                    }
+                }
+            });
+
+            // send request to evaluation logic
+            if (params.get("numDice")) {
+                let request = {
+                    // target: params.get("target"),
+                    // numFigures: Number(params.get("numFigures")),
+                    numDice: Number(params.get("numDice")),
+                    flagsMeanHit: !!params.get("flagsMeanHit"),
+                    starsMeanHit: !!params.get("starsMeanHit"),
+                    flagsThatCanBeIgnored: Number(params.get("flagsThatCanBeIgnored")),
+                };
+                let response = evaluateTigerRequest(request);
+                const template = document.getElementById('output-template').innerHTML;
+                let data = {
+                    probabilityPercentage: fixPercentage(response.totalSuccess/response.totalCombinations),
+                    ...request
+                };
+                console.log(data);
+                document.getElementById("output").innerHTML = Mustache.render(template, data);
+            }
+        });
+
+        function fixPercentage(probability) {
+            return (probability*100).toFixed(2);
+        }
+
+        function resetPage() {
+            document.getElementById("output").innerText = "";
+            window.location.href = window.location.origin + window.location.pathname;
+            return true;
+        }
+    </script>
+    <script id="output-template" type="x-tmpl-mustache">
+        <h2>Result:</h2>
+        <p>
+            The odds of hitting a Tiger
+            is {{probabilityPercentage}}%
+        </p>
+    </script>
+</head>
+<body>
+    <h1>Tigers in the snow &mdash; Memoir helper</h1>
+
+    <section id="preamble">
+        <p>
+            Tiger tanks are hit with specific rules that make them much harder to hit. On the other hand,
+            a Tiger unit has only one figure, so all that it is needed is one lucky roll.
+        </p>
+        <p>
+            Or, get back to <a href="index.html">targeting ordinary units</a>.
+        </p>
+    </section>
+
+    <form action="tiger.html" >
+        <label for="numDice">Number of dice</label>
+        <input id="numDice" name="numDice" type="number" min="1" max="5" value="3">
+        <br>
+        <label for="flagsMeanHit">Flags mean hit</label>
+        <input id="flagsMeanHit" name="flagsMeanHit" type="checkbox">
+        <label for="flagsThatCanBeIgnored" style="width: 11em; text-align: right">Flags that can be ignored</label>
+        <input id="flagsThatCanBeIgnored" name="flagsThatCanBeIgnored" type="number" min="0" max="9" value="0">
+        <br>
+        <label for="starsMeanHit">Stars mean hit</label>
+        <input id="starsMeanHit" name="starsMeanHit" type="checkbox">
+        <br>
+        <input type="submit">
+        <input type="reset" onclick="resetPage()">
+    </form>
+    <div id="output"></div>
+</body>
+</html>
