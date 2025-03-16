@@ -61,5 +61,9 @@ lineNumbersInTable = false
 noClasses = false
 #style="catppuccin-mocha"
 
+[pagination]
+disableAliases = false
+pagerSize = 50
+path = 'page'
 
 
