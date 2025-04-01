@@ -17,6 +17,7 @@ After all these years, still learning how to write good software, and helping or
 
 ## Things I published
 
+  * 2025 *Progettare il software per un feedback migliore*: [video](https://vimeo.com/1068383220 "AVRE25 - Progettare il software per un feedback migliore - Matteo Vaccari"), [slides](https://speakerdeck.com/xpmatteo/progettare-il-software-per-un-feedback-migliore "Progettare il software per un feedback migliore - Speaker Deck"). Presentation in Italian at the Agile Venture conference, about better feedback from software architecture
   * 2024 [Kill the SPA King!](https://vimeo.com/showcase/11250618/video/970433719 "Matteo Vaccari - Kill the SPA King on Vimeo") presentation in Italian at the Working Software conference, about frontends without JavaScript complications
   * 2024 [Test-Driving HTML Templates](https://martinfowler.com/articles/tdd-html-templates.html "Test-Driving HTML Templates"), an article on martinfowler.com on how to apply TDD when developing server-side rendered web apps
   * 2024 My experiments writing a web app in Go: [code](https://github.com/xpmatteo/todomvc-golang), [article](https://www.linkedin.com/posts/matteovaccari_i-wrote-a-short-article-on-how-to-reimplement-activity-7160013816070651904-kgRO), [article](https://www.linkedin.com/posts/matteovaccari_golang-webdevelopment-metrics-activity-7161688435655753728-KPvK),
