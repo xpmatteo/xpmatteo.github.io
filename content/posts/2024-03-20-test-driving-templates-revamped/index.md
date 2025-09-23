@@ -3,8 +3,8 @@ title = 'Test-Driving HTML Templates, revised'
 slug = 'test-driving-html-templates-revised'
 date = "2024-03-20"
 tags = [
-    "Go",
-    "Webapp",
+    "go",
+    "webapp",
     "TDD",
 ]
 toc = true

@@ -1,6 +1,11 @@
 +++
 title = 'How I Learned to Love Mocks'
 date = "2018-09-27"
+tags = [
+    "testing",
+    "TDD",
+    "mocks",
+]
 draft = false
 +++
 

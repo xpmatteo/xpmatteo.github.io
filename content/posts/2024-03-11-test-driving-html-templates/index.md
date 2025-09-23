@@ -3,8 +3,8 @@ title = 'Test-Driving HTML Templates in Go'
 slug = 'test-driving-html-templates-in-go'
 date = "2024-03-11"
 tags = [
-    "Go",
-    "Webapp",
+    "go",
+    "webapp",
     "TDD",
 ]
 draft = false

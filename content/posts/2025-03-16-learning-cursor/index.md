@@ -3,7 +3,8 @@ title = 'Learning Cursor'
 slug = 'learning-cursor'
 date = 2025-03-16T19:53:07+01:00
 tags = [
-    "AI", "Go"
+    "AI",
+    "go",
 ]
 +++
 

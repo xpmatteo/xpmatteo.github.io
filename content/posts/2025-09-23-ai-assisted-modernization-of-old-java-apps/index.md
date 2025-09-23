@@ -315,7 +315,39 @@ And so in the end clicking on the "Bonsai" link worked:
 
 ## Conclusion
 
+We started with the hypothesis that AI could be a significant help in modernizing an old, broken Java application. The result surpassed my expectations; in roughly 2-3 hours of work, we were able to get the application to run, fixing multiple configuration and data issues.  This would have taken me days of research, experimentation, and debugging.
 
+### What the AI Excelled At
+
+Claude Code handled the tedious, research-heavy aspects brilliantly:
+
+- **Platform Compatibility**: Automatically detected ARM64 Mac issues and found compatible Docker images
+- **Version Compatibility**: Resolved MySQL driver conflicts, Maven plugin versions, and OpenLiberty feature mappings
+- **Configuration Translation**: Converted WebSphere paths to OpenLiberty equivalents without manual research
+- **Data Generation**: Created realistic test data with appropriate humor 😀
+
+These are the kind of time-consuming, low-value and risky tasks that make legacy modernization projects expensive.
+
+### What Required Human Skill
+
+The AI did a lot of work, but it could only do it because a human was directing it with a bit of skill:
+
+ - **Work incrementally**:  make it compile, then make it run, then check one page at a time.
+ - **Apply the Goal Principle**: make the AI iterate towards the desired result
+ - **Fast feedback**: give the AI a way to test the application "manually": in this case, the Puppeteer MCP server
+ - **Context management**: avoid getting the context window too full; know when to compact it
+
+### The Principles We Applied
+
+Two practices proved valuable:
+
+> **🎯 The Goal Principle**: Give the AI a user-focused goal and let it iterate toward that goal, rather than prescribing technical steps one at a time, which is time consuming
+
+> **🎯 The One-Prompt-One-Commit Principle**: After every successful prompt, commit to version control for safe rollback points.
+
+### What's Next
+
+We've only achieved **Phase 1** - getting legacy code to run (mostly) unchanged. The real modernization work - converting to Spring Boot, implementing proper testing, modernizing the architecture - remains ahead. That's where we'll truly see how much help the AI can give. In Part II, we'll get to understand better the legacy application and document it, with the help of AI of course.
 
 Stay tuned for the next parts!
 

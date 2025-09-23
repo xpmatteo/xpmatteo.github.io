@@ -2,7 +2,7 @@
 title = 'TDD Coaching and Training in 2023'
 date = "2023-09-15"
 tags = [
-    "tdd",
+    "TDD",
 ]
 +++
 

@@ -1,6 +1,10 @@
 +++
 title = 'There Is No Advanced TDD'
 date = '2023-07-28'
+tags = [
+    "TDD",
+    "opinion",
+]
 +++
 
 *This article was previously published on [Linkedin](https://www.linkedin.com/pulse/advanced-tdd-matteo-vaccari/ "There is no advanced TDD")*
