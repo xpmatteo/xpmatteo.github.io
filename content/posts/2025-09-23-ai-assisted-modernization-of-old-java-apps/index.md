@@ -7,7 +7,6 @@ tags = [
     "java",
     "modernization",
 ]
-draft = true
 +++
 
 What to do with old code?  Suppose you inherited an ancient Java application using obsolete technologies.  You need to make it work, and you need to make it safe to operate again.  By _safe to operate, I mean_:
