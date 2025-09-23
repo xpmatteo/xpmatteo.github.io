@@ -9,7 +9,7 @@ tags = [
 ]
 +++
 
-What to do with old code?  Suppose you inherited an ancient Java application using obsolete technologies.  You need to make it work, and you need to make it safe to operate again.  By _safe to operate, I mean_:
+What to do with old code?  Suppose you inherited an ancient Java application using obsolete technologies.  You need to make it work, and you need to make it safe to operate again.  By _safe to operate_, I mean:
 
 - Well tested
 - Using current versions of language and libraries
@@ -70,9 +70,7 @@ I asked about the modernization status of the application.  According to the REA
 
 Good enough.  Now let's run it. I run `mvn clean compile` and it fails because Java 6 is no longer supported!  I could hack the `pom.xml` to fix it myself, but let's make CC do it instead.
 
-**🎯 THE GOAL PRINCIPLE** Give the AI a goal and let it iterate towards that goal (thanks [Federico Feroldi](https://www.linkedin.com/posts/feroldi_my-eureka-moment-with-coding-agents-id-activity-7358402031109267456-LbMj?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAdvYEB_WYMP5bxaJQCQng5nC_wODYfbu8 "My Eureka Moment with Coding Agents!
-
-I’d been a heavy user of Copilot Agent in Visual Studio Code for months, leaning on it for boilerplate, clever refactors and to zap me out of writer’s block. Yet… | Federico Feroldi | 10 comments") for this)
+**🎯 THE GOAL PRINCIPLE** Give the AI a goal and let it iterate towards that goal (thanks [Federico Feroldi](https://www.linkedin.com/posts/feroldi_my-eureka-moment-with-coding-agents-id-activity-7358402031109267456-LbMj?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAdvYEB_WYMP5bxaJQCQng5nC_wODYfbu8 "My Eureka Moment with Coding Agents!") for this)
 
 <blockquote>
   <b>try to build the app</b>
