@@ -3,7 +3,9 @@ title = 'AI-assisted modernization of Java, Part I'
 slug = 'ai-assisted-modernization-of-java-part-i'
 date = 2025-09-23T11:51:32+02:00
 tags = [
-    "Default",
+    "AI",
+    "java",
+    "modernization",
 ]
 draft = true
 +++
@@ -307,9 +309,9 @@ After a bit of back-and-forth, it found that the application was failing because
     INSERT INTO INVENTORY (INVENTORYID, NAME, HEADING, DESCRIPTION, ...) VALUES
       ('A0006', 'Leaf Rake', 'The Ultimate Backscratcher', ...
 
-And so in the end the application worked!
+And so in the end clicking on the "Bonsai" link worked:
 
-<img src="bonsay.jpg" alt="a screenshot of the detail page for the 'bonsai' product">
+<img src="bonsai.jpg" alt="a screenshot of the detail page for the 'bonsai' product">
 
 ## Conclusion
 
