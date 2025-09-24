@@ -96,7 +96,7 @@ Good enough.  Now let's run it. I run `mvn clean compile` and it fails because J
 
 I verify that `mvn clean package` now works and produces a bunch of .jar (a Java archive), .war (a packaged Java web application) and .ear (an archive for a multi-module JEE application).  The next question is: will it work?  But first, let's commit what we have, so that we have a safe place to get back to.
 
-**🎯 THE ONE-PROMPT-ONE-COMMIT PRINCIPLE** After every successful prompt, commit to version control.  (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this)
+**💾 THE ONE-PROMPT-ONE-COMMIT PRINCIPLE** After every successful prompt, commit to version control.  (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this)
 
 
 ## Make it run
@@ -230,6 +230,9 @@ But, not so fast!  This session has been long already, and I suspected that CC's
 
 Indeed, we have less than 50% context free; it's better not to continue with another prompt, especially when we don't know how long it will take CC to fix the bug.  We have two choices: restart the context from scratch, or "compacting" the context, which means that the AI will summarize the work done so far and produce a prompt for itself, so that we can continue with no need for us to explain at length what we were doing to the AI.  I chose to compact.
 
+**📊 THE MANAGE CONTEXT PRINCIPLE** when interacting with AI, we should be aware at all times of how much free context we have. Try to avoid getting close to the limit.
+
+
 <blockquote>
 <b>now that the app is up, please check it out at http://localhost:9080/promo.jsf and try to click on "Bonsai tree"</b>
 
@@ -316,7 +319,7 @@ And so in the end clicking on the "Bonsai" link worked:
 
 We started with the hypothesis that AI could be a significant help in modernizing an old, broken Java application. The result surpassed my expectations; in roughly 2-3 hours of work, we were able to get the application to run, fixing multiple configuration and data issues.  This would have taken me days of research, experimentation, and debugging.
 
-### What the AI Excelled At
+### What the AI excelled at
 
 Claude Code handled the tedious, research-heavy aspects brilliantly:
 
@@ -327,7 +330,7 @@ Claude Code handled the tedious, research-heavy aspects brilliantly:
 
 These are the kind of time-consuming, low-value and risky tasks that make legacy modernization projects expensive.
 
-### What Required Human Skill
+### What required human skill
 
 The AI did a lot of work, but it could only do it because a human was directing it with a bit of skill:
 
@@ -336,21 +339,21 @@ The AI did a lot of work, but it could only do it because a human was directing 
  - **Fast feedback**: give the AI a way to test the application "manually": in this case, the Puppeteer MCP server
  - **Context management**: avoid getting the context window too full; know when to compact it
 
-### The Principles We Applied
-
-Two practices proved valuable:
-
-> **🎯 The Goal Principle**: Give the AI a user-focused goal and let it iterate toward that goal, rather than prescribing technical steps one at a time, which is time consuming
-
-> **🎯 The One-Prompt-One-Commit Principle**: After every successful prompt, commit to version control for safe rollback points.
-
-### What's Next
+### What's next
 
 We've only achieved **Phase 1** - getting legacy code to run (mostly) unchanged. The real modernization work - converting to Spring Boot, implementing proper testing, modernizing the architecture - remains ahead. That's where we'll truly see how much help the AI can give. In Part II, we'll get to understand better the legacy application and document it, with the help of AI of course.
 
 Stay tuned for the next parts!
 
 
-
-
 *Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_ai-assisted-modernization-of-java-part-i-activity-7376283142116155392-PHtF "AI-assisted modernization of Java, Part I | Matteo Vaccari")!*
+
+
+<details>
+<summary>Change history</summary>
+
+* 2025-09-23 Initial publication
+* 2025-09-24 Added the third principle: 📊 The Manage Context Principle
+
+</details>
+
