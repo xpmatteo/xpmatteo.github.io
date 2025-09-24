@@ -1,15 +1,16 @@
 +++
 
-title = 'Ai Assisted Modernization Part Ii'
-slug = 'ai-assisted-modernization-part-ii'
+title = 'AI-assisted modernization of Java, part II'
+slug = 'ai-assisted-modernization-of-java-part-ii'
 date = 2025-09-24T08:35:06+02:00
 tags = [
-    "Default",
+    "AI",
+    "java",
+    "modernization",
 ]
-draft = true
 +++
 
-# Part II: documentation and planning
+# Documentation and planning
 
 Following [Part I](/posts/ai-assisted-modernization-of-java-backend-apps-part-i/ "AI-assisted modernization of Java backend apps, Part I"), let's now try to understand better the nature of this repo.  Here is a snippet of the CLAUDE.md file that Claude Code (CC) produced:
 
@@ -152,13 +153,18 @@ SUM:                             2              9            165            292
        1 text file.
        1 unique file.
        1 file ignored.
-master > ~/dojo/2025-09-22-legacy-modernization-with-ai/app-modernization-plants-by-websphere-jee6 >
+>
 ```
 
-OK, so the pbw-ear module has no code and is just a container for the other two.  What are the HTTP endpoints?  I take a brief look at the pbw-war codebase, and I can't find at a glance a clear indication of what the endpoints could be.  Time to offload some work on CC.
+OK, so the `pbw-ear` module has no code and is just a container for the other two.  
+
+
+## Application entry points
+
+What are the HTTP endpoints?  I take a brief look at the `pbw-war` codebase, and I can't find at a glance a clear indication of what the endpoints could be.  Time to offload some work on CC.
 
 <blockquote>
-> Hi young ensign, please help me figure out what are the HTTP endpoints in this application
+<b>Hi young ensign, please help me figure out what are the HTTP endpoints in this application</b>
 
 ⏺ I'll help you identify the HTTP endpoints in this Plants by WebSphere application, Captain Matt. Let me search through the codebase to find all the web endpoints.
 
@@ -255,57 +261,63 @@ So it did create a comprehensive openapi spec. Even though this does not impleme
   
 ⏺ Plants by WebSphere API Summary
 
-Account Management:
-POST /servlet/AccountServlet?action=login
-POST /servlet/AccountServlet?action=register
-POST /servlet/AccountServlet?action=accountUpdate
-GET  /servlet/AccountServlet?action=account
+    Account Management:
+    POST /servlet/AccountServlet?action=login
+    POST /servlet/AccountServlet?action=register
+    POST /servlet/AccountServlet?action=accountUpdate
+    GET  /servlet/AccountServlet?action=account
 
-Product Images:
-GET  /servlet/ImageServlet?action=getimage&inventoryID={id}
+    Product Images:
+    GET  /servlet/ImageServlet?action=getimage&inventoryID={id}
 
-Administration (requires Basic Auth):
-GET  /servlet/AdminServlet
-POST /servlet/AdminServlet
+    Administration (requires Basic Auth):
+    GET  /servlet/AdminServlet
+    POST /servlet/AdminServlet
 
-Health Check:
-GET  /servlet/ready
+    Health Check:
+    GET  /servlet/ready
 
-JSF Web Pages:
-GET  /promo.jsf
-GET  /shopping.jsf
-GET  /cart.jsf
-GET  /login.jsf
-GET  /register.jsf
-GET  /account.jsf
-GET  /checkout_final.jsf
-GET  /orderdone.jsf
-GET  /orderinfo.jsf
-GET  /product.jsf
-GET  /help.jsf
-GET  /viewExpired.jsf
+    JSF Web Pages:
+    GET  /promo.jsf
+    GET  /shopping.jsf
+    GET  /cart.jsf
+    GET  /login.jsf
+    GET  /register.jsf
+    GET  /account.jsf
+    GET  /checkout_final.jsf
+    GET  /orderdone.jsf
+    GET  /orderinfo.jsf
+    GET  /product.jsf
+    GET  /help.jsf
+    GET  /viewExpired.jsf
 
-Admin Pages (requires SampAdmin role):
-GET  /backorderadmin.jsp
-GET  /supplierconfig.jsp
-GET  /adminactions.html
-GET  /adminbanner.html  
+    Admin Pages (requires SampAdmin role):
+    GET  /backorderadmin.jsp
+    GET  /supplierconfig.jsp
+    GET  /adminactions.html
+    GET  /adminbanner.html  
 </blockquote>
 
-OK this is clear enough.  Let's check the context window:
+OK this is clear enough.  
+
+
+## User journeys
+
+Let's check the context window:
 
 <blockquote>
 <b>/context</b>
-⛁ ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀   Context Usage
-⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   claude-sonnet-4-20250514 • 45k/200k tokens (22%)
-⛁ ⛁ ⛁ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System prompt: 3.2k tokens (1.6%)
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System tools: 12.6k tokens (6.3%)
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ MCP tools: 3.0k tokens (1.5%)
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Custom agents: 776 tokens (0.4%)
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 2.2k tokens (1.1%)
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 22.6k tokens (11.3%)
-⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛶ Free space: 155.5k (77.7%)  
+
+    ⛁ ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀   Context Usage
+    ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   claude-sonnet-4-20250514 • 45k/200k tokens (22%)
+    ⛁ ⛁ ⛁ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System prompt: 3.2k tokens (1.6%)
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System tools: 12.6k tokens (6.3%)
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ MCP tools: 3.0k tokens (1.5%)
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Custom agents: 776 tokens (0.4%)
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 2.2k tokens (1.1%)
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 22.6k tokens (11.3%)
+    ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛶ Free space: 155.5k (77.7%) 
 </blockquote>
 
 We're good to continue.  Let's analyze what the main user flows would be; my intention is to port one user flow at a time.  I ensure CC is in plan mode, then:
@@ -330,11 +342,13 @@ Deliverables:
 
 Now this is all an exercise!  In real life, I would be asking people about this.  
 
-** THE TEAM SPORT PRINCIPLE: Legacy modernization is a team sport. Involve the people who normally work with this system**
+**🏈 The Team Sport Principle**: Legacy modernization is a team sport. Involve the people who normally work with this system.
+
+<img src="talk.png" alt="A cartoon of two young engineers in discussion with an ancient philosopher">
 
 It delivered the promised file, which, however, is a very code-oriented document, as is to be expected.  
 
-** THE ITERATION PRINCIPLE: If you find accepting the AI output, you're losing control** (Thanks to Uberto Barbini for this)
+**🔄 The Iteration Principle**: If you find yourself accepting the AI output without question, you're losing control (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this).
 
 The most value out of AI is in iteration; do not just accept the first thing it gives you: analyze it critically, ask yourself how it could be improved.
 
@@ -347,7 +361,7 @@ The most value out of AI is in iteration; do not just accept the first thing it 
 
 After all the analysis of the application endpoints we did before, you would expect it could do this with no further instructions; unfortunately, it tried repeatedly to find the home page at wrong addresses, then was trying to rebuild and restart the application.  This is where I stopped it and gave it the correct landing page url.
 
-** THE BREAK THE LOOP PRINCIPLE: Keep an eye on what the AI is doing and stop it if it's getting lost**
+**🛑 The Break the Loop Principle**: Keep an eye on what the AI is doing and stop it if it's getting lost.
 
 I then watched CC's progress on the test browser opened by Puppeteer as it attempted to buy the Bonsai Tree, then finds it must be logged in to do it, then struggles with passing the fields validation, just like one of us 😀.  In the end it is unable to pass the validation and it gives up, making notes of how unfriendly the UX is.
 
@@ -383,34 +397,45 @@ I then watched CC's progress on the test browser opened by Puppeteer as it attem
   This user-centered approach provides much more actionable insights for modernization priorities than purely technical code analysis!  
 </blockquote>
 
-Now this is clearly bullshit; it claims it completed the journey when it didn't achieve the objective.  The Iteration Principle is needed here, but I think the gist of how to proceed is clear, and this post is getting long, so I will stop here.  Now what's the plan?  I think that from the 
+Now this is clearly bullshit; it claims it completed the journey when it didn't achieve the objective.  The Iteration Principle would be needed here, but I think it's more effective to just explore the app by hand and note down major journeys.  It seems that the major journeys are
+
+1. Catalog exploration
+1. Purchase
+1. User registration
+1. User login
+1. Administration
+
+Of these, #1 seems easiest, #2 is the most valuable, #3, #4 and #5 are needed but are the least valuable: after all, the reason for an ecommerce app is to sell, right?  We are not in the business of registering people.  We are not Facebook, thanks goodness.
+
+## The plan
+
+We want to get to value as soon as possible, so the plan would be to port user journeys one by one, starting with Purchase. For each user journey, we would do in order:
+
+- Test the original implementation
+- Port it
+- Test the new implementation
+
+Wait, can we start with Purchase?  Shouldn't we do things in the "logical" order, of Catalog exploration, then registration, then login, then purchase?  No! I think we should start with the most valuable user journey, the one where our client would get the most value out of.  The ideal would be one where the client would apply improvements: remember the Team Sport principle, and let's involve them in the planning. In case the client wishes for improvements, we could apply the improvements at the same time as the porting.  Given that we're going to rework the code anyway, let's deliver the most value we can while we do it.
+
+But how can we purchase without registration or login?  Well, we can bypass registration by inserting a registered user in the DB; and we will figure out a way to bypass login somehow, so that we can demo the ported journey and get early feedback.
+
+**💎 The VALUE FIRST Principle**: plan modernization projects so that the most valuable parts are ported first.  Try to apply any desired enhancements while you modernize.  (See the [thoughts of some of my colleagues on this](https://martinfowler.com/articles/patterns-legacy-displacement/ "Patterns of Legacy Displacement"))
 
 
+## Conclusions
+
+### What we achieved
+
+In Part II, we scouted the codebase for its structure, the major modules, and their size.  We investigated HTTP endpoints and took a look at some user journeys.  We started with some conventional utilities like [tree](https://en.wikipedia.org/wiki/Tree_(command) "tree (command) - Wikipedia") and [cloc](https://github.com/AlDanial/cloc "GitHub - AlDanial/cloc: cloc counts blank lines, comment lines, and physical lines of source code in many programming languages."), then asked Claude Code to help.
+
+Did the AI help?  Yes, it did a great job in identifying and documenting all the endpoints of the application.  However, it was not very skilled at identifying user journeys; in the end, it was more effective to do journey identification manually.  It has the added benefit of helping us become more familiar with the app we are working with.  
+
+We *could* have asked for the AI to generate a modernization roadmap, but I don't think it would be very effective at this stage.  
 
 
+### Next steps
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+With our analysis complete, we're ready for Part III: the actual modernization work. We'll tackle the conversion one user flow at a time, starting with the core purchase experience.
 
 
 
