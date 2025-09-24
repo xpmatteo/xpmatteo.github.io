@@ -12,7 +12,7 @@ tags = [
 
 # Documentation and planning
 
-Following [Part I](/posts/ai-assisted-modernization-of-java-backend-apps-part-i/ "AI-assisted modernization of Java backend apps, Part I"), let's now try to understand better the nature of this repo.  Here is a snippet of the CLAUDE.md file that Claude Code (CC) produced:
+Following [Part I](/posts/ai-assisted-modernization-of-java-part-i/ "AI-assisted modernization of Java backend apps, Part I"), let's now try to understand better the nature of this repo.  Here is a snippet of the CLAUDE.md file that Claude Code (CC) produced:
 
 ```
 ## Architecture
@@ -440,4 +440,4 @@ With our analysis complete, we're ready for Part III: the actual modernization w
 
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_i-published-part-ii-of-my-ai-assisted-java-activity-7376587596476452864-HCFb)!*
