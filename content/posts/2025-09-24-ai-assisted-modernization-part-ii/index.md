@@ -438,6 +438,58 @@ We *could* have asked for the AI to generate a modernization roadmap, but I don'
 With our analysis complete, we're ready for Part III: the actual modernization work. We'll tackle the conversion one user flow at a time, starting with the core purchase experience.
 
 
+## Appendix: visualization
 
+There were a few other things I wanted to try to improve our documentation.  I'm a big fan of package import graphs.  There are some Java tools that do that, but they are fairly difficult to use; given that we have AI, we can just ask the AI to write the tool for us.
+
+<blockquote>
+  <b>write me a python script that takes a number of source directory names on the command line, analyzes the java files in there, and
+  returns a dot graph of all the import relationships between java packages.  If a java file in package A imports something from
+  package B, then we will have an arc from A to B</b>
+  
+⏺ Perfect! I've created java_package_deps.py that analyzes Java files and generates a DOT graph of package import relationships.
+
+* * *
+
+  Usage: <br>
+  ./java_package_deps.py pbw-web/src/main/java pbw-lib/src/main/java
+
+  You can pipe the output to GraphViz to visualize it: <br>
+  ./java_package_deps.py pbw-web/src/main/java pbw-lib/src/main/java | dot -Tpng -o dependencies.png  
+</blockquote>
+
+I like to use [the Graphviz library](https://graphviz.org/) to visualize graphs: the Python script that Claude wrote for us generates the graph in Graphviz format, and the `dot` command renders it as an image.
+
+<img src='dependencies.png' alt='A visualization of the Java package import graph'>
+
+Hmmmm... not very useful.  This codebase is structured by technology (war, ejb, jpa) instead of by features.
+
+Let's try to see the entity-relationship diagram; if this Java codebase is like most Java business application, it will be centered around the DB.  The codebase contains a SQL file that creates the DB schema; unfortunately it does not use foreign keys, so we will have to guess relationships from the column names (and from actual usage in Java, if necessary.)
+
+<blockquote>
+  <b>very good.  Now please analyze ./docker/mariadb/init.sql and produce an e-r diagram.  You will  have to deduce the relationships
+  given that it does not use explicit foreign keys</b>
+</blockquote>
+
+I had to correct Claude to avoid it creating a Python script for this: given that there are only 7 tables, and that there are no well-defined foreign keys, I asked it to generate a Graphviz file directly.  Note that I am explaining to Claude something that it could figure out by itself; in my experience, acknowledging the difficulties in the task in advance results in the AI producing more helpful results, so let's not be stingy with the information we give it.  
+
+The result is more interesting:
+
+<img src="plants_er_diagram.png" alt="The entity-relationship diagram for this app">
+
+This gives me a very concise picture of what the application can do: (1) orders can be placed, and (2) backorders can be sent to suppliers.
+
+### The conclusion on visualization
+
+Every app benefits from different visualization techniques. The AI can quickly generate those, either directly or through scripts that it generates. Let's be creative!
+
+
+<details>
+<summary>Change history</summary>
+
+* 2025-09-24 Initial publication
+* 2025-09-25 Added the appendix on visualization
+
+</details>
 
 *Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_i-published-part-ii-of-my-ai-assisted-java-activity-7376587596476452864-HCFb)!*
