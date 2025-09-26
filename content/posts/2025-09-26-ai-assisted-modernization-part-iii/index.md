@@ -13,7 +13,9 @@ draft = true
 
 # Converting the landing page
 
-In this installment, we use characterization logs to make sure we can observe the behaviour of the legacy app, then we kickstart the conversion, starting with the app home page.
+In parts [I](/posts/ai-assisted-modernization-of-java-part-i/) and [II](/posts/ai-assisted-modernization-of-java-part-ii/), we got an abandoned Java EE 6 application running in Docker, explored its architecture (JSF frontend, EJBs, JPA persistence), and documented the codebase structure and user workflows. Now in this installment, we use characterization logs to make sure we can observe the behaviour of the legacy app, then we kickstart the conversion, starting with the app home page.
+
+Characterization logging captures the complete behavior of a system by recording inputs, outputs, database operations, and internal state changes—creating a behavioral specification for the modernized system. This approach allows us to understand what the legacy application actually does, rather than relying exclusively on analysis of the source code.
 
 ## Characterization
 
