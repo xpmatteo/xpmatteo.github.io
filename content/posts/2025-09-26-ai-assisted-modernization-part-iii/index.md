@@ -170,6 +170,8 @@ So far so good; this logic seems straightforward.
 
 ## Starting a Spring Boot application from scratch
 
+Now that we can observe what the legacy actually does, we can start porting it, using the logs as a specification to ensure we preserve the old behaviour. 
+
 Given the extent of the changes we are applying, I don't think it's feasible to do a change in place.  Our strategy will be to create a fresh Spring Boot 3 in a subfolder of the project, and add incrementally bits from the old application.  I used the [Spring Initializr](https://start.spring.io/), choosing the Web, JDBC and Mustache extensions.  Why choose Mustache for HTML templates?  I like it because it's low-key, very simple to use, and much less enterprisey than Thymeleaf.  Freemarker would also be a good choice, but Mustache seems easier to configure.
 
 After creating the app, I asked CC to build it
@@ -347,9 +349,9 @@ Today we created the basis for proceeding:
 - we converted the home page, which is step 0 in the purchasing journey
 - we wrote our first non-regression test (about time!)
 
-### AI Collaboration Patterns
+### Useful patterns
 
-In this exercise, we applied a few useful patterns for working effectively with AI and legacy code:
+In this exercise, we applied a few useful patterns for working effectively with AI and with legacy code:
 
 **🔧 The Makefile Heuristic**: Provide explicit build/restart commands to prevent AI from making wrong assumptions about your stack. The Makefile with proper Docker rebuild commands saved significant debugging time and prevented Claude from using ineffective `docker-compose restart` commands.
 
@@ -367,11 +369,13 @@ In this exercise, we applied a few useful patterns for working effectively with 
 - Fixing fiddly technical issues, such as DB connectivity in Spring Boot and Docker configuration
 
 **When AI struggled:**
-- Initial characterization setup took much longer than expected
-- I might have done the characterization work faster myself and learned more about the legacy app in the process
+- Initial characterization setup took much longer than expected. I might have done the characterization work faster myself and learned more about the legacy app in the process
 
 
 Next steps: we continue with the purchasing journey: the user clicks on the "bonsai tree" link, and sees the product details.  Stay tuned!
+
+
+*Want to leave a comment? Please do so on Linkedin!*
 
 
 <details>
@@ -383,5 +387,4 @@ Next steps: we continue with the purchasing journey: the user clicks on the "bon
 
 
 
-*Want to leave a comment? Please do so on Linkedin!*
  
