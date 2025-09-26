@@ -70,7 +70,7 @@ I asked about the modernization status of the application.  According to the REA
 
 Good enough.  Now let's run it. I run `mvn clean compile` and it fails because Java 6 is no longer supported!  I could hack the `pom.xml` to fix it myself, but let's make CC do it instead.
 
-**🎯 THE GOAL PRINCIPLE** Give the AI a goal and let it iterate towards that goal (thanks [Federico Feroldi](https://www.linkedin.com/posts/feroldi_my-eureka-moment-with-coding-agents-id-activity-7358402031109267456-LbMj?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAdvYEB_WYMP5bxaJQCQng5nC_wODYfbu8 "My Eureka Moment with Coding Agents!") for this)
+**🎯 THE GOAL HEURISTIC** Give the AI a goal and let it iterate towards that goal (thanks [Federico Feroldi](https://www.linkedin.com/posts/feroldi_my-eureka-moment-with-coding-agents-id-activity-7358402031109267456-LbMj "My Eureka Moment with Coding Agents!") for this)
 
 <blockquote>
   <b>try to build the app</b>
@@ -96,7 +96,7 @@ Good enough.  Now let's run it. I run `mvn clean compile` and it fails because J
 
 I verify that `mvn clean package` now works and produces a bunch of .jar (a Java archive), .war (a packaged Java web application) and .ear (an archive for a multi-module JEE application).  The next question is: will it work?  But first, let's commit what we have, so that we have a safe place to get back to.
 
-**💾 THE ONE-PROMPT-ONE-COMMIT PRINCIPLE** After every successful prompt, commit to version control.  (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this)
+**💾 THE ONE-PROMPT-ONE-COMMIT HEURISTIC** After every successful prompt, commit to version control.  (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this)
 
 
 ## Make it run
@@ -140,7 +140,7 @@ I was running CC in "accept-edits" mode instead of "plan-mode", by mistake, so i
 1. a Mysql container
 2. an app container, built from the existing Dockerfile, that starts with OpenLiberty, which is an open source JEE application server
 
-I tried to run docker compose, but it stopped with an error.  Applying *The Goal Principle* again, I let CC work on it:
+I tried to run docker compose, but it stopped with an error.  Applying *The Goal Heuristic* again, I let CC work on it:
 
 <blockquote>
 <b>please try `docker-compose up -d` and fix any issues</b>
@@ -216,13 +216,13 @@ Current Status:
   You can access the application at http://localhost:9080/ and it will redirect to the main promotional page!
 </blockquote>
 
-At this point I committed, by the *one-prompt-one-commit* principle.  
+At this point I committed, by the *one-prompt-one-commit* heuristic.  
 
 ## Make it work
 
 The application was indeed up, but clicking on the "Bonsai Tree" button produced an error.
 <img src="home-page.jpg" alt='the home page of the Plants by WebSphere application'>
-It was time to apply the *Goal Principle* again: we want the AI to "click" on the button and experience the problem, so that it can iterate until it's solved.  This means that we must give the AI a way to click on a web page, and we can do it through an MCP server: I have Puppeteer configured for this purpose.
+It was time to apply the *Goal Heuristic* again: we want the AI to "click" on the button and experience the problem, so that it can iterate until it's solved.  This means that we must give the AI a way to click on a web page, and we can do it through an MCP server: I have Puppeteer configured for this purpose.
 
 But, not so fast!  This session has been long already, and I suspected that CC's context window might be full already. Indeed, with the `/context` command you can get an insight on how much "free" context is left
 
@@ -230,7 +230,7 @@ But, not so fast!  This session has been long already, and I suspected that CC's
 
 Indeed, we have less than 50% context free; it's better not to continue with another prompt, especially when we don't know how long it will take CC to fix the bug.  We have two choices: restart the context from scratch, or "compacting" the context, which means that the AI will summarize the work done so far and produce a prompt for itself, so that we can continue with no need for us to explain at length what we were doing to the AI.  I chose to compact.
 
-**📊 THE MANAGE CONTEXT PRINCIPLE** when interacting with AI, we should be aware at all times of how much free context we have. Try to avoid getting close to the limit.
+**📊 THE MANAGE CONTEXT HEURISTIC** when interacting with AI, we should be aware at all times of how much free context we have. Try to avoid getting close to the limit.
 
 
 <blockquote>
@@ -335,7 +335,7 @@ These are the kind of time-consuming, low-value and risky tasks that make legacy
 The AI did a lot of work, but it could only do it because a human was directing it with a bit of skill:
 
  - **Work incrementally**:  make it compile, then make it run, then check one page at a time.
- - **Apply the Goal Principle**: make the AI iterate towards the desired result
+ - **Apply the Goal Heuristic**: make the AI iterate towards the desired result
  - **Fast feedback**: give the AI a way to test the application "manually": in this case, the Puppeteer MCP server
  - **Context management**: avoid getting the context window too full; know when to compact it
 
@@ -353,7 +353,8 @@ Stay tuned for the next parts!
 <summary>Change history</summary>
 
 * 2025-09-23 Initial publication
-* 2025-09-24 Added the third principle: 📊 The Manage Context Principle
+* 2025-09-24 Added the third heuristic: 📊 The Manage Context Heuristic
+* 2025-09-26 Changed all 'Principle' to 'Heuristic' to be more honest about what they are
 
 </details>
 

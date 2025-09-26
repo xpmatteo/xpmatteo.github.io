@@ -349,13 +349,13 @@ Deliverables:
 
 Now this is all an exercise!  In real life, I would be asking people about this.  
 
-**🏈 The Team Sport Principle**: Legacy modernization is a team sport. Involve the people who normally work with this system.
+**🏈 The Team Sport Heuristic**: Legacy modernization is a team sport. Involve the people who normally work with this system.
 
 <img src="talk.png" alt="A cartoon of two young engineers in discussion with an ancient philosopher">
 
 It delivered the promised file, which, however, is a very code-oriented document, as is to be expected.  
 
-**🔄 The Iteration Principle**: If you find yourself accepting the AI output without question, you're losing control (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this).
+**🔄 The Iteration Heuristic**: If you find yourself accepting the AI output without question, you're losing control (Thanks to [Uberto Barbini](https://www.linkedin.com/in/uberto/ "Uberto Barbini | LinkedIn") for this).
 
 The most value out of AI is in iteration; do not just accept the first thing it gives you: analyze it critically, ask yourself how it could be improved.
 
@@ -368,7 +368,7 @@ The most value out of AI is in iteration; do not just accept the first thing it 
 
 After all the analysis of the application endpoints we did before, you would expect it could do this with no further instructions; unfortunately, it tried repeatedly to find the home page at wrong addresses, then was trying to rebuild and restart the application.  This is where I stopped it and gave it the correct landing page url.
 
-**🛑 The Break the Loop Principle**: Keep an eye on what the AI is doing and stop it if it's getting lost.
+**🛑 The Break the Loop Heuristic**: Keep an eye on what the AI is doing and stop it if it's getting lost.
 
 I then watched CC's progress on the test browser opened by Puppeteer as it attempted to buy the Bonsai Tree, then finds it must be logged in to do it, then struggles with passing the fields validation, just like one of us 😀.  In the end it is unable to pass the validation and it gives up, making notes of how unfriendly the UX is.
 
@@ -404,7 +404,7 @@ I then watched CC's progress on the test browser opened by Puppeteer as it attem
   This user-centered approach provides much more actionable insights for modernization priorities than purely technical code analysis!  
 </blockquote>
 
-Now this is clearly bullshit; it claims it completed the journey when it didn't achieve the objective.  The Iteration Principle would be needed here, but I think it's more effective to just explore the app by hand and note down major journeys.  It seems that the major journeys are
+Now this is clearly bullshit; it claims it completed the journey when it didn't achieve the objective.  The Iteration Heuristic would be needed here, but I think it's more effective to just explore the app by hand and note down major journeys.  It seems that the major journeys are
 
 1. Catalog exploration
 1. Purchase
@@ -422,11 +422,11 @@ We want to get to value as soon as possible, so the plan would be to port user j
 - Port it
 - Test the new implementation
 
-Wait, can we start with Purchase?  Shouldn't we do things in the "logical" order, of Catalog exploration, then registration, then login, then purchase?  No! I think we should start with the most valuable user journey, the one where our client would get the most value out of.  The ideal would be one where the client would apply improvements: remember the Team Sport principle, and let's involve them in the planning. In case the client wishes for improvements, we could apply the improvements at the same time as the porting.  Given that we're going to rework the code anyway, let's deliver the most value we can while we do it.
+Wait, can we start with Purchase?  Shouldn't we do things in the "logical" order, of Catalog exploration, then registration, then login, then purchase?  No! I think we should start with the most valuable user journey, the one where our client would get the most value out of.  The ideal would be one where the client would apply improvements: remember the Team Sport heuristic, and let's involve them in the planning. In case the client wishes for improvements, we could apply the improvements at the same time as the porting.  Given that we're going to rework the code anyway, let's deliver the most value we can while we do it.
 
 But how can we purchase without registration or login?  Well, we can bypass registration by inserting a registered user in the DB; and we will figure out a way to bypass login somehow, so that we can demo the ported journey and get early feedback.
 
-**💎 The VALUE FIRST Principle**: plan modernization projects so that the most valuable parts are ported first.  Try to apply any desired enhancements while you modernize.  (See the [thoughts of some of my colleagues on this](https://martinfowler.com/articles/patterns-legacy-displacement/ "Patterns of Legacy Displacement"))
+**💎 The VALUE FIRST Heuristic**: plan modernization projects so that the most valuable parts are ported first.  Try to apply any desired enhancements while you modernize.  (See the [thoughts of some of my colleagues on this](https://martinfowler.com/articles/patterns-legacy-displacement/ "Patterns of Legacy Displacement"))
 
 
 ## Conclusions
@@ -496,6 +496,7 @@ Every app benefits from different visualization techniques. The AI can quickly g
 
 * 2025-09-24 Initial publication
 * 2025-09-25 Added the appendix on visualization
+* 2025-09-26 Changed all 'Heuristic' to 'Heuristic' to be more honest about what they are
 
 </details>
 
