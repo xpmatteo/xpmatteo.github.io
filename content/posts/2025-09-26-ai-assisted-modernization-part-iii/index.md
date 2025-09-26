@@ -11,6 +11,15 @@ tags = [
 draft = true
 +++
 
+<style>
+pre {
+  overflow-x: auto;
+  white-space: pre;
+}
+</style>
+
+Disclaimer: This series of articles is about solving an exercise; actual work is going to be more difficul than this. However, by practicising like this, I believe **we can build skills** that will enable us to deal with the more complicated challenges in real life
+
 # Converting the landing page
 
 In parts [I](/posts/ai-assisted-modernization-of-java-part-i/) and [II](/posts/ai-assisted-modernization-of-java-part-ii/), we got an abandoned Java EE 6 application running in Docker, explored its architecture (JSF frontend, EJBs, JPA persistence), and documented the codebase structure and user workflows. Now in this installment, we use characterization logs to make sure we can observe the behaviour of the legacy app, then we kickstart the conversion, starting with the app home page.
@@ -338,10 +347,29 @@ Today we created the basis for proceeding:
 - we converted the home page, which is step 0 in the purchasing journey
 - we wrote our first non-regression test (about time!)
 
-Did the AI help?
+### AI Collaboration Patterns
 
-1. The characterization work took a lot more iteration than I expected.  I could perhaps have done it faster myself, and I would have learned more quickly about the legacy app this way.
-2. The JSF to Mustach conversion was brilliant (so far), and it saved me a lot of boring work
+In this exercise, we applied a few useful patterns for working effectively with AI and legacy code:
+
+**🔧 The Makefile Heuristic**: Provide explicit build/restart commands to prevent AI from making wrong assumptions about your stack. The Makefile with proper Docker rebuild commands saved significant debugging time and prevented Claude from using ineffective `docker-compose restart` commands.
+
+**🔄 The Iteration Heuristic**: Plan for multiple rounds of refinement rather than expecting perfect results on first try. The characterization logging took several iterations to filter noise, add template logging, and capture backing bean methods—this is normal and expected.
+
+**🧠 Context Window Management**: When AI gets confused between similar concepts (our custom logging vs existing Util.debug facility), it's better to start fresh rather than continue debugging in a degraded context.
+
+**💭 Prompt Specificity**: Using "think deeply" triggered better architectural reasoning and comprehensive migration planning. Explicit guidance on reasoning depth significantly improved output quality.
+
+**👁️ Visual Validation**: Screenshots for before/after UI comparison worked effectively when automated testing wasn't immediately available. Sometimes manual verification is the right first step.
+
+**When AI excelled:**
+- JSF to Mustache conversion saved me a lot of boring work
+- Writing the golden master test
+- Fixing fiddly technical issues, such as DB connectivity in Spring Boot and Docker configuration
+
+**When AI struggled:**
+- Initial characterization setup took much longer than expected
+- I might have done the characterization work faster myself and learned more about the legacy app in the process
+
 
 Next steps: we continue with the purchasing journey: the user clicks on the "bonsai tree" link, and sees the product details.  Stay tuned!
 

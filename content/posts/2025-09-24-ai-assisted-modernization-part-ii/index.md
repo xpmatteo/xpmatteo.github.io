@@ -17,6 +17,9 @@ pre {
 }
 </style>
 
+Disclaimer: This series of articles is about solving an exercise; actual work is going to be more difficul than this. However, by practicising like this, I believe **we can build skills** that will enable us to deal with the more complicated challenges in real life
+
+
 # Documentation and planning
 
 Following [Part I](/posts/ai-assisted-modernization-of-java-part-i/ "AI-assisted modernization of Java backend apps, Part I"), let's now try to understand better the nature of this repo.  Here is a snippet of the CLAUDE.md file that Claude Code (CC) produced:

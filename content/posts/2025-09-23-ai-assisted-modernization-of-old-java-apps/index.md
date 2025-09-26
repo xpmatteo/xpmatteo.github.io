@@ -9,6 +9,10 @@ tags = [
 ]
 +++
 
+Disclaimer: This series of articles is about solving an exercise; actual work is going to be more difficul than this. However, by practicising like this, I believe **we can build skills** that will enable us to deal with the more complicated challenges in real life
+
+# Legacy code
+
 What to do with old code?  Suppose you inherited an ancient Java application using obsolete technologies.  You need to make it work, and you need to make it safe to operate again.  By _safe to operate_, I mean:
 
 - Well tested
