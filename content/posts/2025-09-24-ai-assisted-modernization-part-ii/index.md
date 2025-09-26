@@ -10,6 +10,13 @@ tags = [
 ]
 +++
 
+<style>
+pre {
+  overflow-x: auto;
+  white-space: pre;
+}
+</style>
+
 # Documentation and planning
 
 Following [Part I](/posts/ai-assisted-modernization-of-java-part-i/ "AI-assisted modernization of Java backend apps, Part I"), let's now try to understand better the nature of this repo.  Here is a snippet of the CLAUDE.md file that Claude Code (CC) produced:
