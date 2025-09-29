@@ -4,7 +4,10 @@ slug = 'acceptance-tests-for-ai-assisted-development'
 date = 2025-09-29T12:18:09+02:00
 tags = [
     "AI",
-    "modernization",
+    "XP",
+    "TDD",
+    "ATDD",
+    "ports-and-adapters"
 ]
 +++
 

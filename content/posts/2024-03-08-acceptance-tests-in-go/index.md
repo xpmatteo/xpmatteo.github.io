@@ -5,6 +5,7 @@ draft = false
 tags = [
     "go",
     "TDD",
+    "ATDD",
     "XP",
 ]
 +++
