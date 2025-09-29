@@ -307,3 +307,7 @@ ATs, like TDD and good software design, have always been important tools in the 
 
 
 *Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_acceptance-tests-for-ai-assisted-development-activity-7378422714673328128-pPhS "Acceptance Tests for AI-assisted development | Matteo Vaccari")!*
+
+# Appendix
+
+See also [this excellent article from Henrik Kniberg](https://www.infoq.com/articles/atdd-from-the-trenches/ "ATDD From the Trenches - InfoQ")
