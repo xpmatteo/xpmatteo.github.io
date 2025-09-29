@@ -262,11 +262,11 @@ func Create(
 	config Config,
 	persistence Persistence,
 	sessions Sessions,
-	awsClient AwsClient,
+	secrets Secrets,
 ) *http.ServeMux {
 	middlewares := []func(http.Handler) http.Handler{
 		middleware.NewTimeoutHandler(time.Duration(config.TimeoutSeconds) * time.Second),
-		middleware.FeatureToggleMiddleware(config.Environment, awsClient),
+		middleware.FeatureToggleMiddleware(config.Environment, secrets),
 		middleware.NewAuthentication(sessions),
 	}
 
@@ -279,7 +279,6 @@ func Create(
 	return mux
 }
 
-
 func makeCreateHandler(persistence Persistence) http.HandlerFunc {
 	repo := thing.NewRepository(persistence)
 	service := thing.NewCreateService(repo)
@@ -287,7 +286,7 @@ func makeCreateHandler(persistence Persistence) http.HandlerFunc {
 }
 ```
 
-Note that the `Create` function here does **not** get all the handlers and services and repositories as arguments.  All the necessary handlers and repositories and services are created here from the basic materials that are required to build them, that is, the ports, which in this case are the configuration, persistence, sessions and aws adapters.  The set of ports is stable over time, so the signature of the `Create` function is not going to change much.
+Note that the `Create` function here does **not** get all the handlers and services and repositories as arguments, because as the application grows in functionality, the number of handler and services (and maybe repositories too) is going to keep growing, and this would make for a very unstable functoin signature. This does not happen here, because all the necessary handlers and repositories and services are created here, from the basic materials that are required to build them, that is, the ports, which in this case are the configuration, persistence, sessions and secrets adapters.  The set of ports is stable over time, so the signature of the `Create` function is not going to change much.
 
 
 
