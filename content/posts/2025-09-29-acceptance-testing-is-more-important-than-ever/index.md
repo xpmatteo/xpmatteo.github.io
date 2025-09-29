@@ -22,11 +22,11 @@ Acceptance tests have many benefits:
 
  1. they act as a means of communication between technical and less-technical stakeholders: we use them to agree that the developers understood the business rules correctly.  As Alberto Brandolini says, [It's the developer's understanding, not your knowledge, that becomes software](https://x.com/ziobrando/status/634668319006683136)
  2. they frame the amount of logic that should be implemented for a given user story, that is, we make it clear what's part of this story and what's not included, so they support thin slices of value, a very good development organization technique
- 3. they act as non-regression tests long after the user story was completed.  In particular, if an AT for an old user story fails, it's usually easy to understand what's broken.  Programmer tests are great, but they run the risk to be too techhical and detail-oriented and sometimes, when an old programmer test breaks, it's hard to understand what is wrong.  AT do not have this problem, because they tell you exactly which customer-wanted behaviour is breaking
+ 3. they act as non-regression tests long after the user story was completed.  In particular, if an AT for an old user story fails, it's usually easy to understand what's broken.  Programmer tests are great, but they run the risk to be too techhical and detail-oriented and sometimes, when an old programmer test breaks, it's hard to understand what is wrong.  ATs do not have this problem, because they tell you exactly which customer-wanted behaviour is breaking
  
-AT also have problems.  They are often implemented as end-to-end tests, and in this case, they suffer all the problems of e2e tests: they are slow, they are flaky, they are unreliable.  When and e2e test fails, it's sometimes necessary to analyze logs to understand what broke, and it sometimes happen that the breakage is due to some system outside our control that is temporarily down; so e2e tests in the end might negate benefit #3 above.
+ATs also have problems.  They are often implemented as end-to-end tests, and in this case, they suffer all the problems of e2e tests: they are slow, they are flaky, they are unreliable.  When and e2e test fails, it's sometimes necessary to analyze logs to understand what broke, and it sometimes happen that the breakage is due to some system outside our control that is temporarily down; so e2e tests in the end might negate benefit #3 above.
 
-# Doing AT well
+# Doing ATs well
 
 Around 2010, there was a big discussion in the XP community, [sparked by James Shore](https://ronjeffries.com/xprog/xpmag/problems-with-acceptance-testing/ "Problems with Acceptance Testing"), who complained about these problems we just mentioned.  At around the same time, [the second-best book on TDD](http://www.growing-object-oriented-software.com/ "Growing Object-Oriented Software Guided by Tests: About the Book") was published, and they advocated starting development from an acceptance test.  Wow! Who should we listen to?
 
@@ -37,7 +37,7 @@ Around 2010, there was a big discussion in the XP community, [sparked by James S
 </figure>
 
 
-Actually, there's a way to write AT that run as fast, and as reliable, as regular unit tests.  The TL;DR is: **we should not run the AT through the UI**.  In more detail: Alistair Cockburn introduced the [Ports-and-adapters architecture](https://alistair.cockburn.us/hexagonal-architecture "hexagonal-architecture"), which is a way to design applications that separates the "inside" of the application that implements the business rules, from the "outside", which takes care of I/O and infrastructure.  
+Actually, there's a way to write ATs that run as fast, and as reliable, as regular unit tests.  The TL;DR is: **we should not run the ATs through the UI**.  In more detail: Alistair Cockburn introduced the [Ports-and-adapters architecture](https://alistair.cockburn.us/hexagonal-architecture "hexagonal-architecture"), which is a way to design applications that separates the "inside" of the application that implements the business rules, from the "outside", which takes care of I/O and infrastructure.  
 
 <figure style="margin: 0 auto; display: block; width: 80%">
   <img src="ports-and-adapters-architecture.svg" style="background: white; padding: 20px" width="600" alt="Ports-and-adapters architecture"> 
@@ -45,18 +45,18 @@ Actually, there's a way to write AT that run as fast, and as reliable, as regula
   </figcaption>
 </figure>
 
-Implementing AT with the Ports-and-adapters architecture allows you to make the AT precise, fast and reliable.  
+Implementing ATs with the Ports-and-adapters architecture allows you to make the ATs precise, fast and reliable.  
 
-1. The AT connects to the UI port (bypassing the UI technology)
+1. The ATs connect to the UI port (bypassing the UI technology)
 2. The persistence ports are connected to either a local, fast DB, or to an in-memory implementation of the persistence interface (which is NOT the same as using an in-memory DB such as H2: implementing the repository interface in memory is going to be way simpler)
 3. Any external systems that we don't control are most definitely replaced by local versions, or in-memory implementations of the interface.
 
 
-# AI-assisted development and AT
+# AI-assisted development and ATs
 
-What I have seen to work well, is to split development along thin slices (eg use [Harper Reed's method](https://harper.blog/2025/05/08/basic-claude-code/ "Basic Claude Code | Harper Reed's Blog")) and then ask the AI to start development by writing the AT first.  But this only works well when you provide an example of how an AT in your situation should look like.  I have seen this work well also in brownfield, real work: point the AI to a Jira ticket, and ask it to write the AT for it, *based on an example that we provide*.
+What I have seen to work well, is to split development along thin slices (eg use [Harper Reed's method](https://harper.blog/2025/05/08/basic-claude-code/ "Basic Claude Code | Harper Reed's Blog")) and then ask the AI to start development by writing the ATs first.  But this only works well when you provide an example of how ATs in your situation should look like.  I have seen this work well also in brownfield, real work: point the AI to a Jira ticket, and ask it to write the ATs for it, *based on an example that we provide*.
 
-What?  We let the AI write the AT?  Isn't this dangerous?  Of course we should review that the AI-written test makes sense; it is probably going to be easy because the AT should be written in terms of the user story, so **it should be easy to understand**.  If it's hard to understand, we probably better iterate until it becomes easy.  And I prefer to let the AI write the AT because 
+What?  We let the AI write the ATs?  Isn't this dangerous?  Of course we should review that the AI-written test makes sense; it is probably going to be easy because the ATs should be written in terms of the user story, so **it should be easy to understand**.  If it's hard to understand, we probably better iterate until it becomes easy.  And I prefer to let the AI write the ATs because 
 
 1. I want to offload as much tedious work as possible, and testing the fiddly details of CRUD HTTP calls is tedious, and 
 2. the AI is more detail-oriented than I am and **together we do a better job** than either human alone or AI alone.
@@ -103,9 +103,9 @@ tests:
       - "LO\n"
 ```
 
-In this BASIC program, the AT are written as yaml files, that are then read and interpreted by Go code.  Initially this started as a regular tabular test in Go code, but the Go file was growing way beyond the limit after which the AI coding assistants find it difficult to work with a file (that is, beyond 500 lines), so I had it move the test tables to yaml files.  Every feature had its own dedicated yaml file; there were 38 of them, and the interpreter still did not cover all of the C64 BASIC features.
+In this BASIC program, the ATs are written as yaml files, that are then read and interpreted by Go code.  Initially this started as a regular tabular test in Go code, but the Go file was growing way beyond the limit after which the AI coding assistants find it difficult to work with a file (that is, beyond 500 lines), so I had it move the test tables to yaml files.  Every feature had its own dedicated yaml file; there were 38 of them, and the interpreter still did not cover all of the C64 BASIC features.
 
-What enabled effective ATs in this case was that the BASIC interpreter did not do I/O directly; it would use a Runtime port, which could be reimplemented in the AT to prevent real I/O from happening.  The following is the Runtime interface:
+What enabled effective ATs in this case was that the BASIC interpreter did not do I/O directly; it would use a Runtime port, which could be reimplemented in the ATs to prevent real I/O from happening.  The following is the Runtime interface:
 
 ```go
 // Runtime provides an interface for all I/O operations
@@ -129,7 +129,7 @@ type Runtime interface {
 }
 ```
 
-The following example is from a REST API written in Go (sanitized not to give away client code.)  The user story was about implementing an HTTP entrypoint, so the language of the AT talks about payload and expected HTTP status codes; this is consistent with the language of the Jira ticket.
+The following example is from a REST API written in Go (sanitized not to give away client code.)  The user story was about implementing an HTTP entrypoint, so the language of the ATs talks about payload and expected HTTP status codes; this is consistent with the language of the Jira ticket.
 
 ```go
 func TestCreateThing_InvalidInput(t *testing.T) {
@@ -253,16 +253,16 @@ func TestCreateThing_InvalidInput(t *testing.T) {
 }
 ```
 
-Again, what enabled effective AT in this case was that the HTTP API was being defined in the Go application by a single, specific Go function that had as input all the external adapters it needed, and returned a Go stdlib router.
+Again, what enabled effective ATs in this case was that the HTTP API was being defined in the Go application by a single, specific Go function that had as input all the external adapters it needed, and returned a Go stdlib router.
 
 ```go
 package api
 
 func Create(
-	config *configs.OurConfig,
-	persistence *mysql.Persistence,
-	sessions redis.Sessions,
-	awsClient aws.Client,
+	config Config,
+	persistence Persistence,
+	sessions Sessions,
+	awsClient AwsClient,
 ) *http.ServeMux {
 	middlewares := []func(http.Handler) http.Handler{
 		middleware.NewTimeoutHandler(time.Duration(config.TimeoutSeconds) * time.Second),
@@ -278,17 +278,30 @@ func Create(
 	mux.Handle("POST /thingy/v1/thing", applyMiddlewares(middlewares, makeCreateHandler(persistence)))
 	return mux
 }
+
+
+func makeCreateHandler(persistence Persistence) http.HandlerFunc {
+	repo := thing.NewRepository(persistence)
+	service := thing.NewCreateService(repo)
+	return thing.NewCreateHandler(service)
+}
 ```
+
+Note that the `Create` function here does **not** get all the handlers and services and repositories as arguments.  All the necessary handlers and repositories and services are created here from the basic materials that are required to build them, that is, the ports, which in this case are the configuration, persistence, sessions and aws adapters.  The set of ports is stable over time, so the signature of the `Create` function is not going to change much.
+
+
 
 # Conclusions
 
-AI-assisted developments needs strong guardrails; the better your guardrails, the better AI can help you.  Acceptance tests look like the first and maybe the most important guardrails for AI to work within, giving it clear specifications while keeping the business logic testable and maintainable.  We will need all sorts of guardrails of course, but this particular type of guardrail offers safety and clarity.
+AI-assisted development needs strong guardrails; the better your guardrails, the better AI can help you.  Acceptance tests look like  the most important guardrail for working with AI, giving it clear specifications while keeping the business logic testable and maintainable.  We will need all sorts of guardrails of course, but this particular type of guardrail offers the most safety and clarity around functionality.
 
-David Farley of [Modern Software Engineering](https://www.davefarley.net/?p=352 "What is Modern Software Engineering? | Dave Farley&#8217;s Weblog") fame, [recently video-blogged](https://www.youtube.com/watch?v=NsOUKfzyZiU "- YouTube") about ATDD as the future of programming (with AI.)  I agree with lots of what he says, but I disagree when he says that humans should write all AT.  As I discussed before, I find it more productive both in terms of quality and coverage to pair with AI in this.  
+David Farley of [Modern Software Engineering](https://www.davefarley.net/?p=352 "What is Modern Software Engineering? | Dave Farley&#8217;s Weblog") fame, [recently video-blogged](https://www.youtube.com/watch?v=NsOUKfzyZiU "- YouTube") about ATDD as the future of programming (with AI.)  I agree with lots of what he says, but I disagree when he says that humans should write all ATs.  As I discussed before, I find it more productive both in terms of quality and coverage to pair with AI in this.  
 
-There is a key technical enablement that makes AT effective: use the Ports-and-adapters architecture to make the AT fast and reliable.  Make both the input ports and the output ports configurable so that you can connect your modules together to make a version of your application that is perfect for running AT against.
+There is a key technical enablement that makes ATs effective: use the Ports-and-adapters architecture to make the ATs fast and reliable.  Make both the input ports and the output ports configurable so that you can connect your modules together to make a version of your application that is perfect for running ATs against.
 
+Now there is considerable push for "spec-driven" development, where we put a lot of emphasis on co-generating specs with the AI.  I think that the missing ingredient in that narrative is that every development step that is specified, should be specified with ATs.
 
+ATs, like TDD and good software design, have always been important tools in the hands of the best developers.  Now that everyone is learning how to get value out of AI-assisted development, they are becoming way more important: even though some of us may have seen those as "nice-to-have for when we will have time", if we're going to do work with AI, these are **undeniably necessary**.  AI multiplies whatever we bring to the table: if we bring sloppy practices (no tests or inconsistent tests, no ATs, no attention to software design), AI is going to make our work a disaster.  If, on the other hand, we bring good habits and good practices, AI can help us write better software much faster.
 
 
 *Want to leave a comment? Please do so on Linkedin!*
