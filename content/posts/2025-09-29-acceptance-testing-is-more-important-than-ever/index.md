@@ -303,4 +303,4 @@ Now there is considerable push for "spec-driven" development, where we put a lot
 ATs, like TDD and good software design, have always been important tools in the hands of the best developers.  Now that everyone is learning how to get value out of AI-assisted development, they are becoming way more important: even though some of us may have seen those as "nice-to-have for when we will have time", if we're going to do work with AI, these are **undeniably necessary**.  AI multiplies whatever we bring to the table: if we bring sloppy practices (no tests or inconsistent tests, no ATs, no attention to software design), AI is going to make our work a disaster.  If, on the other hand, we bring good habits and good practices, AI can help us write better software much faster.
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_acceptance-tests-for-ai-assisted-development-activity-7378422714673328128-pPhS "Acceptance Tests for AI-assisted development | Matteo Vaccari")!*
