@@ -19,6 +19,12 @@ pre {
 
 Disclaimer: This series of articles is about solving an exercise; actual work is going to be more difficul than this. However, by practicising like this, I believe **we can build skills** that will enable us to deal with the more complicated challenges in real life
 
+Setup: 
+
+- Claude Code with Claude Sonnet 4.0
+- My global CLAUDE.md is a variant of [Harper Reed's](https://github.com/harperreed/dotfiles/blob/35c2d5508f36b7ad6a845f605c12bcdb16fb15a3/.claude/CLAUDE.md "dotfiles/.claude/CLAUDE.md at 35c2d5508f36b7ad6a845f605c12bcdb16fb15a3 · harperreed/dotfiles · GitHub")
+- The [repo for the exercise on Github](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6: AI-assisted porting a Java app from JEE to Spring Boot")
+
 # Converting the landing page
 
 In parts [I](/posts/ai-assisted-modernization-of-java-part-i/) and [II](/posts/ai-assisted-modernization-of-java-part-ii/), we got an abandoned Java EE 6 application running in Docker, explored its architecture (JSF frontend, EJBs, JPA persistence), and documented the codebase structure and user workflows. Now in this installment, we use characterization logs to make sure we can observe the behaviour of the legacy app, then we kickstart the conversion, starting with the app home page.

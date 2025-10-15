@@ -136,8 +136,6 @@ The following example is from a REST API written in Go (sanitized not to give aw
 
 ```go
 func TestCreateThing_InvalidInput(t *testing.T) {
-	type any = interface{}
-
 	testCases := []struct {
 		label     string
 		body      map[string]any
