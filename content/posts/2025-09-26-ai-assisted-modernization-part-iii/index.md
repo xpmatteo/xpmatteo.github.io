@@ -1,5 +1,4 @@
 +++
-
 title = 'AI-assisted modernization of Java, part III'
 slug = 'ai-assisted-modernization-of-java-part-iii'
 date = 2025-09-26T08:32:18+02:00
@@ -165,7 +164,7 @@ The `CatalogMgr` just invokes the JPA "entity manager".
 
 ```java
 public Inventory getItemInventory(String inventoryID) {
-	Inventory si = em.find(Inventory.class, inventoryID);
+Inventory si = em.find(Inventory.class, inventoryID);
 	return si;
 }
 ```
