@@ -87,7 +87,9 @@ Spring Boot returns 404 at http://localhost:8080/product?itemID=T0003.  What are
 
 (It turns out that the legacy app also supports opening the product page with GET. This is helpful.)  Given that I have the Puppetteer MCP server installed, Claude examines both urls.
 
-**The Ask For Options heuristic**: it's good to start new tasks in plan mode, so that CC knows that we don't want it to rush to code. It's also good to ask for options, so that we get the model to look for more than one way to achieve what we ask it. Here's CC's proposal:
+**The Ask For Options heuristic**: start new tasks in plan mode, so that CC knows that we don't want it to rush to code. Ask for options, so that we get the model to look for more than one way to achieve what we ask it.  See Andrej Karpathy "[Don't ask for code, ask for a few high-level approaches, pros/cons.](https://x.com/karpathy/status/1915581920022585597)"
+
+Here's CC's proposal:
 
 <blockquote>
   Porting Product Page to Spring Boot - Options Analysis
@@ -392,7 +394,146 @@ I often have the feeling that Claude is mocking me. See how in the results above
 
 ## Verifying
 
-Now it's time to take a look at the code it wrote.
+Now it's time to take a look at the code it wrote.  Quick code review.
+
+**The Product Repository** has this one main method:
+
+```java
+/**
+ * Find a product by its inventory ID
+ * @param inventoryId The product inventory ID (e.g., "T0003")
+ * @return Product if found, null otherwise
+ */
+public Product findByInventoryId(String inventoryId) {
+    if (inventoryId == null) {
+        return null;
+    }
+
+    String sql = "SELECT INVENTORYID, NAME, HEADING, DESCRIPTION, PKGINFO, IMAGE, " +
+                "PRICE, COST, QUANTITY, CATEGORY, NOTES, ISPUBLIC " +
+                "FROM INVENTORY WHERE INVENTORYID = ?";
+
+    try {
+        return jdbcTemplate.queryForObject(sql, new ProductRowMapper(), inventoryId);
+    } catch (org.springframework.dao.EmptyResultDataAccessException e) {
+        return null;
+    }
+}
+```
+What I don't like:
+
+- it should return an Optional, not a possibly null value
+
+Apart from this, it's more or less ok.  We could be wrapping errors other than "no data" in domain-specific errors, or maybe not; I can't think of a domain-specific meaning for a network error, for instance.
+
+The **Product domain object** is a data class masquerading as a class.  We can expect the agent's first attempt will usually by an [anemic domain model](https://martinfowler.com/bliki/AnemicDomainModel.html "Anemic Domain Model"), as the vast majority of code it was trained on is presumably like this.  However, there is not much behaviour for now that we can assign to this class, so I will let it be for the moment.
+
+The **Product controller** is ok.  Not much logic there.
+
+```java
+    @GetMapping("/product")
+    public String showProduct(@RequestParam String itemID, Model model) {
+        Product product = productRepository.findByInventoryId(itemID);
+
+        if (product == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
+
+        model.addAttribute("product", product);
+        model.addAttribute("title", "Plants By WebSphere Product Detail");
+
+        // Shopping cart data - for now using static data (no cart functionality)
+        model.addAttribute("cartEmpty", true);
+        model.addAttribute("cartNotEmpty", false);
+        model.addAttribute("cartSize", 0);
+        model.addAttribute("cartTotal", "$0.00");
+
+        return "product";
+    }
+```
+
+The **Product HTML template**, however, has me scratching my head.  It seems to replicate the header and footer that are already present in the layout template.  I guess that it forgot that it could use the layout.
+
+**Overall considerations**: the project is organized by layer, with a package for controllers, one for repositories, one for the domain. I think that [package-by-feature](http://www.javapractices.com/topic/TopicAction.do?Id=205 "Java Practices-&gt;Package by feature, not layer") is usually better.
+
+The review summary, what I would like to change:
+
+ - return optional from the find method in the controller
+ - use the HTML layout instead of duplicating the layout in the page templates
+ - organize packages by feature, not by layer.
+ 
+In addition, I would like to
+
+ - add images to the DB and test that the ImageController works
+ 
+## Iteration #1: fix the layout problem
+
+I reset the context with `/clear` and ask:
+
+<blockquote>
+  <b>Check out the @spring-boot-pbw/src/main/resources/templates/product.mustache ; it is duplicating the header and footer that are in the
+    @spring-boot-pbw/src/main/resources/templates/layout.mustache .  Perhaps we forgot to use the layout in the
+    @spring-boot-pbw/src/main/java/it/xpug/pbw/controller/ProductController.java .  Please check this out</b>
+    
+⏺ Captain Matt, I've examined the files and you're absolutely right! The product.mustache template is duplicating the entire page structure (header, navigation, footer) that's already defined in layout.mustache.
+</blockquote>
+
+Yes, I'm absolutely right. Cringe 😬.
+
+<blockquote>
+  <b>and check if there is the same problem in the @spring-boot-pbw/src/main/resources/templates/promo.mustache template</b>
+
+  ⏺ Captain Matt, I've checked promo.mustache and it has exactly the same problem! It's also duplicating the entire page structure (lines 1-201) including    header, navigation, and footer - all of which are already defined in layout.mustache.
+</blockquote>
+
+Claude researches for a while and comes up with
+
+<blockquote>
+Solution Options:
+
+Spring Boot Mustache doesn't natively support layouts like some other template engines. We have two approaches:
+
+Option 1: Manual composition - Controllers render the content template into a string, then pass it to the layout
+
+Option 2: Mustache partials - Extract header/footer into partials and include them in each page (opposite of the layout approach, but more native to
+Mustache)
+
+Given that a layout.mustache already exists with {{{content}}}, I recommend Option 1 - implementing a layout wrapper mechanism.
+</blockquote>
+
+I prefer to use the most idiomatic option, that is, idiomatic when you use Mustache templates, so I ask for option 2 instead. It seems also less risky.  Claude gets to work and uses its `TodoWrite` tool again.  It's good that it again plans to test the pages "manually".  "Manually" is between quotes because it is still a test done by a machine, which, weirdly enough, is imitating how a human would test a page by looking at it.
+
+<figure style="margin: 0 auto; display: block; width: 80%">
+  <img src="todo-templates.jpg" alt="The todo list for fixing the layout duplication in templates">
+</figure>
+
+With its usual cheer, Claude announces that the task is done
+
+<blockquote>
+⏺ Perfect, Captain Matt! I've successfully refactored both templates to eliminate the duplication. Here's what was done:
+
+Summary
+
+Created two new partial templates:
+
+- header.mustache - Contains the HTML head, logo, cart info, and navigation tabs
+- footer.mustache - Contains the closing bodycontent div, footer links, and closing HTML tags
+
+Refactored existing templates:
+
+- product.mustache - Reduced from 177 lines to 76 lines by replacing duplicated header/footer with {{> header}} and {{> footer}}
+- promo.mustache - Reduced from 201 lines to 101 lines using the same approach
+
+Testing confirmed:
+
+- Product page (http://localhost:8080/product?itemID=F0001) renders correctly with all elements
+- Promo page (http://localhost:8080/promo) renders correctly with all elements
+
+Both pages now share the same header and footer code through Mustache partials, which means any future updates to the header or footer only need to be
+made in one place!  
+</blockquote>
+
+I check the pages myself, and they look OK, and I run the tests and they all pass, so we can move on.  No, wait, it did not delete the old layout file that should no longer be needed! I point this out and yes, I'm absolutely right again 🤷.  It turns out that Claude will tend to leave unused stuff around if we don't pay attention.
 
 
 ## Conclusions (for now)
