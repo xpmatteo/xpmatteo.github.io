@@ -23,10 +23,10 @@ Setup:
 
 - Claude Code with Claude Sonnet 4.5 (new!)
 - My global CLAUDE.md is a variant of [Harper Reed's](https://github.com/harperreed/dotfiles/blob/35c2d5508f36b7ad6a845f605c12bcdb16fb15a3/.claude/CLAUDE.md "dotfiles/.claude/CLAUDE.md at 35c2d5508f36b7ad6a845f605c12bcdb16fb15a3 · harperreed/dotfiles · GitHub")
-- The [repo for the exercise on Github](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6: AI-assisted porting a Java app from JEE to Spring Boot")
+- The [repo for the exercise, in the state it was when we started this session](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/89589297ec0deaadf1a65f598cd187eb2676a3a4 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6 at 89589297ec0deaadf1a65f598cd187eb2676a3a4")
 
 
-# Converting the product page
+# Reading from the DB
 
 ## Brief recap
 
@@ -155,7 +155,7 @@ Spring Boot returns 404 at http://localhost:8080/product?itemID=T0003.  What are
   Would you like me to proceed with Option 2 (simple read-only) or go straight to Option 1 (full cart functionality)?
 </blockquote>
 
-I don't care for option 3, the "modern" option of creating a REST endpoint, because it implies that we will also create a separate frontend, which is a lot of extra work.  Server-side HTML templates work fine, because [not all frontends need to be a full-blown SPA](https://www.thoughtworks.com/radar/techniques/spa-by-default "SPA by default | Technology Radar | Thoughtworks").
+I don't care for option 3, the "modern" option of creating a REST endpoint, because it implies that we will also create a separate frontend, which is a lot of extra work.  Server-side HTML templates work fine, because [not all frontends need to be a full-blown JavaScript single-page application](https://www.thoughtworks.com/radar/techniques/spa-by-default "SPA by default | Technology Radar | Thoughtworks").
 
 I am also not a fan of option 2, because it seems like a waste of time; I think CC should be able to go for the real implementation directly, but it should not rush ahead and implement the "add to cart" functionality yet.  Let's iterate the plan.
 
@@ -383,9 +383,11 @@ What We Skipped (as requested)
 - ✅ But kept the quantity field visible in the UI
 </blockquote>
 
-I often have the feeling that Claude is mocking me. See how in the results above it says "Test-First!", as if to say: "are you happy now, you human with this silly insistence on writing the tests first?" 😄
+I often have the feeling that Claude is mocking me. See how in the results above it says "Test-First!", as if to say: "are you happy now, you silly human with this insistence on writing the test first?" 😄
 
-I now check the state of the context window with `/context`, and it's almost full at 82%; let's hope we don't have to iterate much on these results.
+**📊 The Manage Context heuristic** I now check the state of the context window with `/context`, and I only have 18% free context before auto-compaction.  If I disable auto-compaction, the free space is almost 40%, but it's still not wise to let the context grow too big as it makes the models performance degrade.
+
+
 
 
 ## Verifying
@@ -393,5 +395,19 @@ I now check the state of the context window with `/context`, and it's almost ful
 Now it's time to take a look at the code it wrote.
 
 
+## Conclusions (for now)
+
+### My TODO-list at the end of this session
+
+- Tech debt
+  - Move to package-by-feature
+  - Create a dedicated DB for automated tests
+- The customer purchase journey
+  - Click on the "Add to cart" button -> the Shopping Cart page opens
+  - Click on "Checkout now" -> assume we are logged in, and the Checkout page opens
+  - Fill in the order data in the Checkout page, and click on "Continue" -> the "Review your order" page opens
+  - Click on "Submit Order" (and fix the crash)
+
+  
 
 *Want to leave a comment? Please do so on Linkedin!*
