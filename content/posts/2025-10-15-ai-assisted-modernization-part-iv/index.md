@@ -423,38 +423,77 @@ public Product findByInventoryId(String inventoryId) {
 What I don't like:
 
 - it should return an Optional, not a possibly null value
+- it should not accept a null optional parameter
 
 Apart from this, it's more or less ok.  We could be wrapping errors other than "no data" in domain-specific errors, or maybe not; I can't think of a domain-specific meaning for a network error, for instance.
+
+The **ProductRepositoryTest** uses the `@SpringBootTest` annotation to get a ProductRepository configured with the proper data source.  
+
+```java
+@SpringBootTest
+public class ProductRepositoryTest {
+  @Autowired
+  private ProductRepository productRepository;
+
+  @Test
+  public void shouldFindBonsaiTreeByInventoryId() {
+      // Arrange: Known product in database (T0003 = Bonsai)
+      String inventoryId = "T0003";
+
+      // Act
+      Optional<Product> result = productRepository.findByInventoryId(inventoryId);
+
+      // Assert
+      assertTrue(result.isPresent(), "Product should be found");
+      Product product = result.get();
+      assertEquals("T0003", product.getInventoryId());
+      assertEquals("Bonsai", product.getName());
+      assertEquals("Tabletop Fun", product.getHeading());
+      assertEquals(30.00f, product.getPrice(), 0.01f);
+      assertEquals("0.5 gallon mature tree", product.getPkginfo());
+      assertEquals(2, product.getCategory()); // Trees category
+      assertTrue(product.getDescription().contains("miniature replicas"));
+  }
+```
+
+What I don't like:
+
+ - Automated tests using the same data source that we're using for human manual testing. They should use a dedicated test DB, so that we can truncate tables and populate them with the test data appropriate for each test.
+ - Using `@SpringBootTest` in repository tests.  This annotation makes the test load the whole Spring context every time it is run, which is slow.  Not that slow in this demo app, but it can take up to minutes in real Spring Boot apps.  This delay is not good when you're TDDing a repository.  I usually configure the repository tests with a "manually" configured Data Source (here "manually" means that I configure the data source for the tests with explicit code, instead of letting the Spring Boot config do it for me).  However, the dynamic of development with AI agents is a bit different.
+ - It is relying on the `T0003` id to be valid and to correspond to a known product.  It's better for repository tests to build the data they need, for robustness.  And also to make the test self-explanatory: tests should not rely on data defined who-knows-where. The data should be ideally defined right there in the test.
+ - I prefer AssertJ for assertions, so that you can write `assertThat(foo).contains("bar")` instead of `assertTrue(foo.contains("bar"))`.  The former reads better, and provides a much more informative error message.
 
 The **Product domain object** is a data class masquerading as a class.  We can expect the agent's first attempt will usually by an [anemic domain model](https://martinfowler.com/bliki/AnemicDomainModel.html "Anemic Domain Model"), as the vast majority of code it was trained on is presumably like this.  However, there is not much behaviour for now that we can assign to this class, so I will let it be for the moment.
 
 The **Product controller** is ok.  Not much logic there.
 
 ```java
-    @GetMapping("/product")
-    public String showProduct(@RequestParam String itemID, Model model) {
-        Product product = productRepository.findByInventoryId(itemID);
+@GetMapping("/product")
+public String showProduct(@RequestParam String itemID, Model model) {
+    Product product = productRepository.findByInventoryId(itemID);
 
-        if (product == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
-        }
-
-        model.addAttribute("product", product);
-        model.addAttribute("title", "Plants By WebSphere Product Detail");
-
-        // Shopping cart data - for now using static data (no cart functionality)
-        model.addAttribute("cartEmpty", true);
-        model.addAttribute("cartNotEmpty", false);
-        model.addAttribute("cartSize", 0);
-        model.addAttribute("cartTotal", "$0.00");
-
-        return "product";
+    if (product == null) {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
     }
+
+    model.addAttribute("product", product);
+    model.addAttribute("title", "Plants By WebSphere Product Detail");
+
+    // Shopping cart data - for now using static data (no cart functionality)
+    model.addAttribute("cartEmpty", true);
+    model.addAttribute("cartNotEmpty", false);
+    model.addAttribute("cartSize", 0);
+    model.addAttribute("cartTotal", "$0.00");
+
+    return "product";
+}
 ```
 
 The **Product HTML template**, however, has me scratching my head.  It seems to replicate the header and footer that are already present in the layout template.  I guess that it forgot that it could use the layout.
 
 **Overall considerations**: the project is organized by layer, with a package for controllers, one for repositories, one for the domain. I think that [package-by-feature](http://www.javapractices.com/topic/TopicAction.do?Id=205 "Java Practices-&gt;Package by feature, not layer") is usually better.
+
+Also, when I run the tests I notice that it starts Spring Boot twice, which makes the test suite slower.
 
 The review summary, what I would like to change:
 
@@ -536,13 +575,129 @@ made in one place!
 I check the pages myself, and they look OK, and I run the tests and they all pass, so we can move on.  No, wait, it did not delete the old layout file that should no longer be needed! I point this out and yes, I'm absolutely right again 🤷.  It turns out that Claude will tend to leave unused stuff around if we don't pay attention.
 
 
-## Conclusions (for now)
+## Iteration 2: fix the ProductRepository
+
+It's not that hard to fix the two complaints we had against the ProductRepository
+
+<blockquote>
+<b>please make the @spring-boot-pbw/src/main/java/it/xpug/pbw/repository/ProductRepository.java find method return an optional instead of a nullable 
+    value.  it's better style </b>
+
+⏺ I'll update the ProductRepository.findByInventoryId method to return an Optional&lt;Product&gt; instead of a nullable value.
+
+* * *
+  
+⏺ Perfect! I've successfully updated the ProductRepository.findByInventoryId method to return an Optional&lt;Product&gt; instead of a nullable value. 
+  
+* * *
+
+<b>let's not allow the findByIntentoryId method to receive a null input parameter.  Use Objects.requireNotNull to ensure we don't accept it </b>
+
+⏺ I'll update the ProductRepository.findByInventoryId method to use Objects.requireNonNull to reject null inputs.
+
+* * *
+
+⏺ Perfect, Captain Matt! I've successfully updated the ProductRepository.findByInventoryId method to reject null inputs using Objects.requireNonNull.
+
+* * *
+
+  All 18 tests pass successfully!
+</blockquote>
+
+The changes were good.  
+
+## Intermezzo: fixing CLAUDE.md
+
+While doing this, I noticed that Claude was not using the provided `make restart` command to rebuild and rerun the application. 
+
+<blockquote>
+⏺ Excellent! All tests pass. Let me check if the running application has reloaded the changes properly:
+
+⏺ BashOutput(Reading shell output)
+  ⎿  [INFO] Scanning for projects...                                                                                                                    
+     [INFO]
+     [INFO] ----------------------------< it.xpug:pbw >-----------------------------
+     … +61 lines (ctrl+o to expand)
+  ⎿ WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+    WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/Users/matteo/.m2/wrapper/dists
+    /apache-maven-3.9.11/a2d47e15/lib/guice-5.1.0-classes.jar)
+    … +2 lines (ctrl+o to expand)
+
+
+⏺ The background process was killed, but that's fine. Let me start it again to verify the application runs correctly with the changes:
+
+⏺ Bash(cd spring-boot-pbw && ./mvnw spring-boot:run)  
+</blockquote>
+
+So I asked Claude to update the project `CLAUDE.md` so that it knows to use it going forward
+
+<blockquote>
+  <b> I notice that you didn't use the provided `make restart` command to rebuild and restart the application.  Please update CLAUDE.md with clear
+indications and strong wording to use it</b>
+</blockquote>
+
+Claude then produced instructions that were incorrect
+
+```
+10 +  ## CRITICAL: Running the Applications
+11 +
+12 +  ### Legacy Application (pbw-lib, pbw-web, pbw-ear)
+13 +  **⚠️ ALWAYS use `make restart` when working with the legacy application!**
+...
+21 +  ### Spring Boot Application (spring-boot-pbw)
+22 +  **Use `cd spring-boot-pbw && ./mvnw spring-boot:run` for the Spring Boot app**
+23 +
+24 +  - Spring Boot has its own standalone build and run process
+25 +  - Can be run directly with Maven wrapper
+26 +  - Does NOT use Docker or `make restart`
+27 +
+```
+
+<blockquote>
+  <b>actually, `make restart` restarts both legacy and spring boot.  The spring boot app runs with the same docker-compose as the legacy.  Please update
+CLAUDE.md to reflect this information BRIEFLY but clearly, and encourage Claude to use `make restart` every time it wants to test the app manually</b>
+</blockquote>
+
+This time, it produced correct information, but was repeated three times in the CLAUDE.md!
+
+```
++**⚠️ CRITICAL: Use `make restart` to run BOTH applications together via Docker Compose**
++
++- **Legacy App**: http://localhost:9080/promo.jsf
++- **Spring Boot**: http://localhost:8080
++
++## Running the Applications
++
++**`make restart` is the REQUIRED command for testing the applications manually.**
++
++- Rebuilds and restarts BOTH legacy (WebSphere Liberty) and Spring Boot apps via Docker Compose
++- Run from project root directory
++- Use this EVERY time you want to test changes manually in either application
++- Both apps share the same MariaDB database container
+```
+
+**The Get The AI To Program Itself heuristic**: do not write documentation files directly; tell the AI the effect you want to achieve and let it work for you. I think this is good for two reasons: (1) it probably results in more effective documentation, and (2) it's less work for us!  It's not just about being lazy.  It's about learning to automate as much as possible with AI agents.  It's about building skills.
+
+
+## Conclusions
+
+I will stop now, as this post has gotten big enough already.  Key learnings:
+
+ - A medium-sized task like the product page we coded today can be produced by the AI in one go, but just barely: we almost ran out of context space
+ - The result is the average *meh* Spring Boot code, as it was to be expected given that most of the code the AI has been trained on is probably similar code.  But it's mostly good enough for now
+ - It took literally a minute to complete the task
+ - It took a bit more to review and iterate on it
+ - We now have quite a bit of technical debt already! Wow it does come up very quickly; see below
+
 
 ### My TODO-list at the end of this session
 
 - Tech debt
   - Move to package-by-feature
   - Create a dedicated DB for automated tests
+  - Avoid `@SpringBootTest` in the repository test
+  - Use AssertJ in tests
+  - add images to the DB and test that the ImageController works
 - The customer purchase journey
   - Click on the "Add to cart" button -> the Shopping Cart page opens
   - Click on "Checkout now" -> assume we are logged in, and the Checkout page opens
