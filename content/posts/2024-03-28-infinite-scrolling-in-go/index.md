@@ -4,7 +4,8 @@ slug = 'infinite-scrolling-in-go'
 date = 2024-03-28T19:12:19+01:00
 tags = [
     "go",
-    "webapp"
+    "webapp",
+    "HTMX"
 ]
 draft = false
 +++

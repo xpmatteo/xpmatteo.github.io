@@ -3,7 +3,6 @@ title = 'There Is No Advanced TDD'
 date = '2023-07-28'
 tags = [
     "TDD",
-    "opinion",
 ]
 +++
 
