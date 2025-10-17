@@ -7,7 +7,6 @@ tags = [
     "java",
     "modernization",
 ]
-draft = true
 +++
 
 <style>
@@ -24,6 +23,7 @@ Setup:
 - Claude Code with Claude Sonnet 4.5 (new!)
 - My global CLAUDE.md is a variant of [Harper Reed's](https://github.com/harperreed/dotfiles/blob/35c2d5508f36b7ad6a845f605c12bcdb16fb15a3/.claude/CLAUDE.md "dotfiles/.claude/CLAUDE.md at 35c2d5508f36b7ad6a845f605c12bcdb16fb15a3 · harperreed/dotfiles · GitHub")
 - The [repo for the exercise, in the state it was when we started this session](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/89589297ec0deaadf1a65f598cd187eb2676a3a4 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6 at 89589297ec0deaadf1a65f598cd187eb2676a3a4")
+- The [repo at the end of this session](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/0347e36f5cca9e1b4137351015c5e55de1b68a5c "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6 at 0347e36f5cca9e1b4137351015c5e55de1b68a5c")
 
 
 # Reading from the DB
@@ -323,7 +323,7 @@ Gee, I *love it* that it plans to test the application "manually" in the browser
 
 **The "let the AI do the testing" heuristic**: When the AI claims it's done with a task, let's ask the AI itself to verify it. It should use some sort of tool or MCP to access the UI of what it built and test it "manually".  In this case, I didn't have to ask.
 
-I observe what CC is doing; it is indeed creating the AT and unit tests before the code; however, it is happy to see them fail because of compilation errors.  Proper TDD would be to write a minimal implementation for the code under test so that it compiles, and fails for the right reason, namely that the logic is not yet implemented. The risk is that the tests, once they compile, never fail because of some logic error in the tests.  I might check this later by injecting a fault in the code to get to see the tests fail; I'll let it go for now to avoid disrupting the flow, and inspect the tests later.
+I observe what CC is doing; it is indeed creating the AT and unit tests before the code; however, it is happy to see them fail because of compilation errors.  Proper TDD would be to write a minimal implementation for the code under test so that it compiles, and fails for the right reason, namely that the logic is not yet implemented. The risk is that the tests, once they compile, never fail because of some logic error in the tests.  I might check this later by injecting a fault in the code to get to see the tests fail; I'll let it go for now to avoid disrupting the flow, and inspect the tests later. (Update: I later checked the tests and they do indeed fail if I inject a defect in the production code)
 
 True to its word, after all the steps are completed (it took less time that it took me to write this section up to here), it checked that the page works with the Puppetteer MCP.  It first opened the Bonsai tree page, took a screenshot and examined it.  It looks pretty much like the original:
 
@@ -388,6 +388,43 @@ I often have the feeling that Claude is mocking me. See how in the results above
 
 **📊 The Manage Context heuristic** I now check the state of the context window with `/context`, and I'm at 82% context usage, with only 18% remaining before auto-compaction.  If I disable auto-compaction, the free space goes to 40%, but it's still not wise to let the context grow too big as it makes the models performance degrade.  I will probably clear the context before asking for more work.
 
+<blockquote>
+  > /context
+    ⎿  Context Usage
+       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛁ ⛁   claude-sonnet-4-5-20250929 · 121k/200k tokens (60%)
+       ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁
+       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ System prompt: 2.2k tokens (1.1%)
+       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ System tools: 13.0k tokens (6.5%)
+       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ MCP tools: 4.3k tokens (2.1%)
+       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ Custom agents: 776 tokens (0.4%)
+       ⛁ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 1.7k tokens (0.9%)
+       ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 98.5k tokens (49.3%)
+       ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛶ Free space: 79k (39.7%)
+       ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶
+
+       MCP tools · /mcp
+       └ mcp__puppeteer__puppeteer_navigate (puppeteer): 673 tokens
+       └ mcp__puppeteer__puppeteer_screenshot (puppeteer): 689 tokens
+       └ mcp__puppeteer__puppeteer_click (puppeteer): 578 tokens
+       └ mcp__puppeteer__puppeteer_fill (puppeteer): 597 tokens
+       └ mcp__puppeteer__puppeteer_select (puppeteer): 602 tokens
+       └ mcp__puppeteer__puppeteer_hover (puppeteer): 579 tokens
+       └ mcp__puppeteer__puppeteer_evaluate (puppeteer): 576 tokens
+
+       Custom agents · /agents
+       └ qa-exploratory-tester (User): 263 tokens
+       └ kent-beck-code-mentor (User): 240 tokens
+       └ code-refactoring-critic (User): 273 tokens
+
+       Memory files · /memory
+       └ User (/Users/matteo/.claude/CLAUDE.md): 1.1k tokens
+       └ User (/Users/matteo/.claude/docs/go.md): 61 tokens
+       └ Project (/Users/matteo/dojo/2025-09-22-legacy-modernization-with-ai/510
+       pp-modernization-plants-by-websphere-jee6/CLAUDE.md):                 tokens
+
+       SlashCommand Tool · 0 commands
+       └ Total: 998 tokens
+</blockquote>
 
 ## Verifying
 
@@ -496,7 +533,7 @@ The **Product HTML template**, however, has me scratching my head.  It seems to 
 
 ### Overall considerations
 
-The project is organized by layer, with a package for controllers, one for repositories, one for the domain.  The way it usually ends up is with a controller package with hundreds of controllers, and so on, which is not that helpful.  I think that [package-by-feature](http://www.javapractices.com/topic/TopicAction.do?Id=205 "Java Practices-&gt;Package by feature, not layer") is usually better, because we are grouping things by what they are for (implementing a given feature), not by what they are (a controller, a repository).  
+The project is organized by layer, with a package for controllers, one for repositories, one for the domain.  The way it usually ends up is with a controller package with hundreds of controllers, and so on, which is not that helpful.  I think that [package-by-feature](http://www.javapractices.com/topic/TopicAction.do?Id=205 "Java Practices-&gt;Package by feature, not layer") is usually better, because we are grouping things by what they are for (implementing a given feature), not by what they are (a controller, a repository).
 
 Also, when I run the tests I notice that it starts Spring Boot twice, which makes the test suite slower.
 
@@ -551,33 +588,7 @@ I prefer to use the most idiomatic option, that is, idiomatic when you use Musta
   <img src="todo-templates.jpg" alt="The todo list for fixing the layout duplication in templates">
 </figure>
 
-With its usual cheer, Claude announces that the task is done
-
-<blockquote>
-⏺ Perfect, Captain Matt! I've successfully refactored both templates to eliminate the duplication. Here's what was done:
-
-Summary
-
-Created two new partial templates:
-
-- header.mustache - Contains the HTML head, logo, cart info, and navigation tabs
-- footer.mustache - Contains the closing bodycontent div, footer links, and closing HTML tags
-
-Refactored existing templates:
-
-- product.mustache - Reduced from 177 lines to 76 lines by replacing duplicated header/footer with {{> header}} and {{> footer}}
-- promo.mustache - Reduced from 201 lines to 101 lines using the same approach
-
-Testing confirmed:
-
-- Product page (http://localhost:8080/product?itemID=F0001) renders correctly with all elements
-- Promo page (http://localhost:8080/promo) renders correctly with all elements
-
-Both pages now share the same header and footer code through Mustache partials, which means any future updates to the header or footer only need to be
-made in one place!
-</blockquote>
-
-I check the pages myself, and they look OK, and I run the tests and they all pass, so we can move on.  No, wait, it did not delete the old layout file that should no longer be needed! I point this out and yes, I'm absolutely right again 🤷.  It turns out that Claude will tend to leave unused stuff around if we don't pay attention.
+With its usual cheer, Claude announces that the task is done. I check the pages myself, and they look OK, and I run the tests and they all pass, so we can move on.  No, wait, it did not delete the old layout file that should no longer be needed! I point this out and yes, I'm absolutely right again 🤷.  It turns out that Claude will tend to leave unused stuff around if we don't pay attention.
 
 
 ## Iteration 2: fix the ProductRepository
@@ -644,13 +655,13 @@ indications and strong wording to use it</b>
 Claude then produced instructions that were incorrect
 
     ## CRITICAL: Running the Applications
-    
+
     ### Legacy Application (pbw-lib, pbw-web, pbw-ear)
     **⚠️ ALWAYS use `make restart` when working with the legacy application!**
-    
+
     ### Spring Boot Application (spring-boot-pbw)
     **Use `cd spring-boot-pbw && ./mvnw spring-boot:run` for the Spring Boot app**
-    
+
     - Spring Boot has its own standalone build and run process
     - Can be run directly with Maven wrapper
     - Does NOT use Docker or `make restart`
@@ -695,7 +706,7 @@ Time invested: the work reported here was completed very quickly; what slows me 
 
 Would I change something about what I did today?  Probably not, it was a pretty successful session.  About the amount of technical debt we created: it's fair, whenever you add stuff you also add tech debt.  It's like the TDD rhythm: first you add, then you clean.  I'm not worried about it because it took so little to create this stuff, and I imagine it will not take much to fix it.
 
-Did the AI help?  Yes, definitely, it was much faster than I would have done by hand, especially with the template stuff.  Translating between one template engine syntax to another is boring and time consuming, and the AI got it right almost immediately.  
+Did the AI help?  Yes, definitely, it was much faster than I would have done by hand, especially with the template stuff.  Translating between one template engine syntax to another is boring and time consuming, and the AI got it right almost immediately.
 
 
 ### My TODO-list at the end of this session
