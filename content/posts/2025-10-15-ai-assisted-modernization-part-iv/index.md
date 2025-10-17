@@ -388,7 +388,7 @@ I often have the feeling that Claude is mocking me. See how in the results above
 
 **📊 The Manage Context heuristic** I now check the state of the context window with `/context`, and I'm at 82% context usage, with only 18% remaining before auto-compaction.  If I disable auto-compaction, the free space goes to 40%, but it's still not wise to let the context grow too big as it makes the models performance degrade.  I will probably clear the context before asking for more work.
 
-<blockquote>
+<pre>
   > /context
     ⎿  Context Usage
        ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛁ ⛁   claude-sonnet-4-5-20250929 · 121k/200k tokens (60%)
@@ -424,7 +424,7 @@ I often have the feeling that Claude is mocking me. See how in the results above
 
        SlashCommand Tool · 0 commands
        └ Total: 998 tokens
-</blockquote>
+</pre>
 
 ## Verifying
 
