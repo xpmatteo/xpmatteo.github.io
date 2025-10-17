@@ -85,7 +85,7 @@ Let's get the AI to the task. We start Claude Code (CC), we put it in *plan mode
 Spring Boot returns 404 at http://localhost:8080/product?itemID=T0003.  What are our options?</b>
 </blockquote>
 
-It turns out the legacy app also supports opening the product page with GET, which is helpful.  Given that I have the Puppetteer MCP server installed, Claude examines both urls.
+It turns out the legacy app also supports opening the product page with GET, which is helpful.  Given that I have the Puppeteer MCP server installed, Claude examines both urls.
 
 **The Ask For Options heuristic**: start new tasks in plan mode, so that CC knows that we don't want it to rush to code. Ask for options, so that we get the model to look for more than one way to achieve what we ask it.  See Andrej Karpathy "[Don't ask for code, ask for a few high-level approaches, pros/cons.](https://x.com/karpathy/status/1915581920022585597)"
 
@@ -325,7 +325,7 @@ Gee, I *love it* that it plans to test the application "manually" in the browser
 
 I observe what CC is doing; it is indeed creating the AT and unit tests before the code; however, it is happy to see them fail because of compilation errors.  Proper TDD would be to write a minimal implementation for the code under test so that it compiles, and fails for the right reason, namely that the logic is not yet implemented. The risk is that the tests, once they compile, never fail because of some logic error in the tests.  I might check this later by injecting a fault in the code to get to see the tests fail; I'll let it go for now to avoid disrupting the flow, and inspect the tests later. (Update: I later checked the tests and they do indeed fail if I inject a defect in the production code)
 
-True to its word, after all the steps are completed (it took less time that it took me to write this section up to here), it checked that the page works with the Puppetteer MCP.  It first opened the Bonsai tree page, took a screenshot and examined it.  It looks pretty much like the original:
+True to its word, after all the steps are completed (it took less time that it took me to write this section up to here), it checked that the page works with the Puppeteer MCP.  It first opened the Bonsai tree page, took a screenshot and examined it.  It looks pretty much like the original:
 
 <figure style="margin: 0 auto; display: block; width: 80%">
   <img src="bonsai-page-ported.jpg" alt="The ported Bonsai tree page" style='border: 1px solid black'>
