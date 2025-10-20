@@ -388,43 +388,43 @@ I often have the feeling that Claude is mocking me. See how in the results above
 
 **📊 The Manage Context heuristic** I now check the state of the context window with `/context`, and I'm at 82% context usage, with only 18% remaining before auto-compaction.  If I disable auto-compaction, the free space goes to 40%, but it's still not wise to let the context grow too big as it makes the models performance degrade.  I will probably clear the context before asking for more work.
 
-<pre>
-  > /context
-    ⎿  Context Usage
-       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛁ ⛁   claude-sonnet-4-5-20250929 · 121k/200k tokens (60%)
-       ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁
-       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ System prompt: 2.2k tokens (1.1%)
-       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ System tools: 13.0k tokens (6.5%)
-       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ MCP tools: 4.3k tokens (2.1%)
-       ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ Custom agents: 776 tokens (0.4%)
-       ⛁ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 1.7k tokens (0.9%)
-       ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 98.5k tokens (49.3%)
-       ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛶ Free space: 79k (39.7%)
-       ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶
+```
+> /context
+  ⎿  Context Usage
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛁ ⛁   claude-sonnet-4-5-20250929 · 121k/200k tokens (60%)
+     ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ System prompt: 2.2k tokens (1.1%)
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ System tools: 13.0k tokens (6.5%)
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ MCP tools: 4.3k tokens (2.1%)
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   ⛁ Custom agents: 776 tokens (0.4%)
+     ⛁ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 1.7k tokens (0.9%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 98.5k tokens (49.3%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛶ Free space: 79k (39.7%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶
 
-       MCP tools · /mcp
-       └ mcp__puppeteer__puppeteer_navigate (puppeteer): 673 tokens
-       └ mcp__puppeteer__puppeteer_screenshot (puppeteer): 689 tokens
-       └ mcp__puppeteer__puppeteer_click (puppeteer): 578 tokens
-       └ mcp__puppeteer__puppeteer_fill (puppeteer): 597 tokens
-       └ mcp__puppeteer__puppeteer_select (puppeteer): 602 tokens
-       └ mcp__puppeteer__puppeteer_hover (puppeteer): 579 tokens
-       └ mcp__puppeteer__puppeteer_evaluate (puppeteer): 576 tokens
+     MCP tools · /mcp
+     └ mcp__puppeteer__puppeteer_navigate (puppeteer): 673 tokens
+     └ mcp__puppeteer__puppeteer_screenshot (puppeteer): 689 tokens
+     └ mcp__puppeteer__puppeteer_click (puppeteer): 578 tokens
+     └ mcp__puppeteer__puppeteer_fill (puppeteer): 597 tokens
+     └ mcp__puppeteer__puppeteer_select (puppeteer): 602 tokens
+     └ mcp__puppeteer__puppeteer_hover (puppeteer): 579 tokens
+     └ mcp__puppeteer__puppeteer_evaluate (puppeteer): 576 tokens
 
-       Custom agents · /agents
-       └ qa-exploratory-tester (User): 263 tokens
-       └ kent-beck-code-mentor (User): 240 tokens
-       └ code-refactoring-critic (User): 273 tokens
+     Custom agents · /agents
+     └ qa-exploratory-tester (User): 263 tokens
+     └ kent-beck-code-mentor (User): 240 tokens
+     └ code-refactoring-critic (User): 273 tokens
 
-       Memory files · /memory
-       └ User (/Users/matteo/.claude/CLAUDE.md): 1.1k tokens
-       └ User (/Users/matteo/.claude/docs/go.md): 61 tokens
-       └ Project (/Users/matteo/dojo/2025-09-22-legacy-modernization-with-ai/510
-       pp-modernization-plants-by-websphere-jee6/CLAUDE.md):                 tokens
+     Memory files · /memory
+     └ User (/Users/matteo/.claude/CLAUDE.md): 1.1k tokens
+     └ User (/Users/matteo/.claude/docs/go.md): 61 tokens
+     └ Project (/Users/matteo/dojo/2025-09-22-legacy-modernization-with-ai/510
+     pp-modernization-plants-by-websphere-jee6/CLAUDE.md):                 tokens
 
-       SlashCommand Tool · 0 commands
-       └ Total: 998 tokens
-</pre>
+     SlashCommand Tool · 0 commands
+     └ Total: 998 tokens
+```
 
 ## Verifying
 
