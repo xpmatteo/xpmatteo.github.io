@@ -26,7 +26,7 @@ Setup:
 - Claude Code with Claude Sonnet 4.5
 - My global CLAUDE.md is a variant of [Harper Reed's](https://github.com/harperreed/dotfiles/blob/35c2d5508f36b7ad6a845f605c12bcdb16fb15a3/.claude/CLAUDE.md "dotfiles/.claude/CLAUDE.md at 35c2d5508f36b7ad6a845f605c12bcdb16fb15a3 · harperreed/dotfiles · GitHub")
 - The repo for the exercise [starting state](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/01099d585c887c26b5bbebc112743555988daab5 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6 at 01099d585c887c26b5bbebc112743555988daab5"): Java 6, Java EE 6
-- The repo [at the end of this session](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/cd5aa901dd0d5b0760a257856d1501f0948ea023 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6 at cd5aa901dd0d5b0760a257856d1501f0948ea023"): Java 21, Jakarta EE 10
+- The repo [at the end of this session](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/86e078ba6a54ff5e18e1d6edbad6afc794c29449 "GitHub - xpmatteo/app-modernization-plants-by-websphere-jee6 at cd5aa901dd0d5b0760a257856d1501f0948ea023"): Java 21, Jakarta EE 10
 
 
 # A different approach
