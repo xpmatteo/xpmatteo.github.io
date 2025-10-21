@@ -325,6 +325,8 @@ I tested the purchase workflow until the Submit Order page; there was a bug.  I 
 
 After all of this work, it was time to update the `CLAUDE.md` file that we created at the beginning, for the benefit of future sessions.  It's just a matter of asking: **please update CLAUDE.md to reflect the current state of the app**
 
+**The Keep CLAUDE.md Up To Date heuristic**: periodically ensure that the AI documentation is still accurate.  Let the AI do it! But keep an eye on it.  Claude tends to leave duplicate information, or to write "historic" information about "how we got here".  I sometimes ask Claude, with a fresh context, to **review CLAUDE.md and remove duplications and inconsistencies**. It seems to work well to keep `CLAUDE.md` trim. 
+
 
 # Conclusions
 
