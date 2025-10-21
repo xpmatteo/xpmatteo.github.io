@@ -43,7 +43,7 @@ In response to this challenge, I asked myself if what Uberto says is true, that 
 
 This is a special episode: we pause the story arc of how we port JEE to Spring Boot, and present a "what if we wanted to stay with JEE after all".  Instead of creating a duplicate of the legacy app in a separate folder, we will **modernize the existing app in place**.
 
-The goal is still to make the application safe to operate:
+The goal is still to make the application *safe to operate*:
 
  - using up-to-date compilers and dependencies
  - easy to update through an appropriate package manager
