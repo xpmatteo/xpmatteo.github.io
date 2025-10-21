@@ -350,7 +350,7 @@ What is missing:
 
 ## In-place vs rewrite: what we learned
 
-If we're staying on the same tech stack, in-place modernization can be viable. The AI handled the tedious aspects brilliantly.
+If we're staying on the same tech stack, in-place modernization can be viable. The AI handled the tedious aspects brilliantly.  There is some truth in what Uberto says, that JEE technology is stable enough over the years; however, it requires a lot of expertise to pull off the upgrades, *unless you have the AI to help you*.  I suppose that porting a Spring Boot application from Spring Boot 1.x to 3.x would require a similar level of work, and a comparable level of expertise, but of course, it all depends on the specific application.
 
 Would I do something different?  We were lucky that CC was able to port from JEE 6 to 10 in one go.  If this was a real project, I would probably do much smaller and careful steps.  On the other hand, to paraphrase [Steve Freeman](https://wiki.c2.com/?SteveFreeman), you never know what a step that's too big looks like until you make a step that's too big!  We're here to experiment and check out what's possible.
 
