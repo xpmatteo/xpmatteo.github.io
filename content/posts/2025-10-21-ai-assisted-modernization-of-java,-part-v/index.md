@@ -366,4 +366,4 @@ With AI assistance, technical migrations that once could have taken weeks can no
 
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_another-episode-in-my-ai-assisted-java-modernization-activity-7386423138722418688-jugK "Another episode in my AI-assisted Java modernization series.  This time we try something different: we port the legacy JEE version in-place, from JEE 6 to Jakarta EE 10, and from Java 6 to Java… | Matteo Vaccari")!*
