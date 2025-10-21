@@ -7,7 +7,6 @@ tags = [
     "java",
     "modernization",
 ]
-draft = true
 +++
 
 <style>
@@ -32,7 +31,7 @@ Setup:
 
 # A different approach
 
-In [Part I](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-i/ "AI-assisted modernization of Java, part II | Matteo Vaccari"), [part I](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-ii/ "AI-assisted modernization of Java, part II | Matteo Vaccari"), [part III](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-iii/ "AI-assisted modernization of Java, part III | Matteo Vaccari") and [part IV](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-iv/ "AI-assisted modernization of Java, part IV | Matteo Vaccari"), we modernized this app by porting it to Spring Boot. Now we explore an alternative path.
+In [Part I](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-i/ "AI-assisted modernization of Java, part I | Matteo Vaccari"), [part II](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-ii/ "AI-assisted modernization of Java, part II | Matteo Vaccari"), [part III](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-iii/ "AI-assisted modernization of Java, part III | Matteo Vaccari") and [part IV](https://matteo.vaccari.name/posts/ai-assisted-modernization-of-java-part-iv/ "AI-assisted modernization of Java, part IV | Matteo Vaccari"), we modernized this app by porting it to Spring Boot. Now we explore an alternative path.
 
 I was [challenged by my friend Uberto Barbini](https://www.linkedin.com/feed/update/urn:li:activity:7384876850445094912?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7384876850445094912%2C7385913554920534016%29&amp;replyUrn=urn%3Ali%3Acomment%3A%28activity%3A7384876850445094912%2C7385993029830131712%29&amp;dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287385913554920534016%2Curn%3Ali%3Aactivity%3A7384876850445094912%29&amp;dashReplyUrn=urn%3Ali%3Afsd_comment%3A%287385993029830131712%2Curn%3Ali%3Aactivity%3A7384876850445094912%29 "AI-assisted modernization of Java, part IV | Matteo Vaccari") about Spring Boot being more maintainable than <abbr title="Java Enterprise Edition">JEE</abbr>. I think that maintainability depends on context; in places where Spring Boot is the norm, you want to avoid JEE and the other way around.  I personally find that JEE has a number of nonsensical features, which I [discussed in this document](https://speakerdeck.com/xpmatteo/the-unix-way-vs-the-java-enterprise-edition-way "The UNIX Way vs. the Java Enterprise Edition Way - Speaker Deck"), but in the end I find it unpalatable because solving problems in JEE often amounts to figuring out arcane incantations in extensive, cryptic and poorly-documented XML files. 
 
@@ -107,14 +106,14 @@ What happens next is interesting:
 
 Not bad for a single-line prompt!  I commit at this point.
 
-**The run-locally heuristic**: the first thing when starting work on a legacy codebase is to see if you can compile it.  The second thing is to see if you can run it locally; this makes the development loop much faster for both humans and AI, as opposed to having to deploy to the cloud before you can see the app running.
+**🏃 The Run-Locally Heuristic** The first thing when starting work on a legacy codebase is to see if you can compile it. The second thing is to see if you can run it locally; this makes the development loop much faster for both humans and AI, as opposed to having to deploy to the cloud before you can see the app running.
 
 
 ## A big leap
 
 The codebase is now on Java 8 and JEE 6.  The current LTS versions are Java 21 and Jakarta EE 11. It seems a big leap. How to get there?
 
-**The plan-before-you-code heuristic**: before attempting anything complicated, ask the AI to come up with one or more plans. Ask the AI to ask clarifying questions!  Actually in this case the AI offered clarifying questions spontaneously
+**📋 The Plan-Before-You-Code Heuristic** Before attempting anything complicated, ask the AI to come up with one or more plans. Ask the AI to ask clarifying questions! Actually in this case the AI offered clarifying questions spontaneously.
 
 I put CC in *plan mode*, and ask:
 
@@ -285,7 +284,7 @@ I commit what we have now, even if it's broken.
 
 ## Fixing
 
-With the major migration complete but the app partially broken, it was time to debug the issues. The next logical is to ask CC to fix these problems, one by one. But first, let's clear the context.
+With the major migration complete but the app partially broken, it was time to debug the issues. The next logical step is to ask CC to fix these problems, one by one. But first, let's clear the context.
 
 The &amp;nbsp; problem is quickly fixed by just asking.  I'm being lazy here, I could have fixed it myself with a simple search and replace.
 
@@ -324,17 +323,46 @@ Then I ask to fix the broken product page. CC quickly finds out that the problem
 
 I tested the purchase workflow until the Submit Order page; there was a bug.  I showed a screenshot of the problem to CC, and it fixed it in a minute.
 
+After all of this work, it was time to update the `CLAUDE.md` file that we created at the beginning, for the benefit of future sessions.  It's just a matter of asking: **please update CLAUDE.md to reflect the current state of the app**
+
+
 # Conclusions
 
-Now the app is pretty much working; there might be some things to fix here and there, but I'm confident that CC will be able to fix it quickly. 
+Let's get back to our earlier definition of "safe to operate". We got a lot done, but there is still a big omission:
 
-What did we learn?  Modernization in place is a viable option, if you intend to stay on the same general technology stack.
+ - ✅ using up-to-date compilers and dependencies (reasonably up-to-date: JEE 11 is still quite new, having been [released in June 2025](https://projects.eclipse.org/projects/ee4j.jakartaee-platform/releases/11 "Jakarta EE Platform 11 | projects.eclipse.org"))
+ - ✅ easy to update through an appropriate package manager (maven)
+ - ✅ running locally (with docker-compose)
+ - ❌ well tested
+
+The legacy application has no tests at all. We will have to get back to the tests in another episode as this one is long enough already.
+
+The in-place modernization was surprisingly successful. In approximately one hour of work, we:
+
+- Upgraded Java 6 → Java 21 (3 major LTS versions)
+- Migrated JEE 6 → Jakarta EE 10 (skipping 4 major versions)
+- Consolidated EAR packaging → single WAR (modern cloud-native approach)
+- Fixed a few bugs
+
+What is missing:
+
+- automated tests
+
+## In-place vs rewrite: what we learned
+
+If we're staying on the same tech stack, in-place modernization can be viable. The AI handled the tedious aspects brilliantly.
 
 Would I do something different?  We were lucky that CC was able to port from JEE 6 to 10 in one go.  If this was a real project, I would probably do much smaller and careful steps.  On the other hand, to paraphrase [Steve Freeman](https://wiki.c2.com/?SteveFreeman), you never know what a step that's too big looks like until you make a step that's too big!  We're here to experiment and check out what's possible.
 
-Did the AI help?  Completely.  I think that fixing arcane JEE configuration issues is one of the things that the AI does best.  Especially when I am clueless about this particularly technology, and I do not particularly wish to become an expert either.
+Did the AI help?  Completely.  The AI excelled at technology details, such as package namespace migrations, configuration updates, debugging cryptic JEE errors, and was especially useful when I am clueless about this technology, and I do not particularly wish to become an expert either.
 
+What required human skill: deciding the step size, committing frequently, keeping CLAUDE.md up-to-date. Checking the app manually. Asking the right questions.
 
+I am not a fan of frameworks, and JEE is one that I'm the least a fan of; however, the best choice depends on your organizational context and preferences.  Whatever framework I'm using, I like to keep it away from the important logic, so that the latter can be tested without fuss.  The legacy application we have here, unfortunately, couples important logic to the framework in a way that makes testing problematic, as we will see if we will do another episode about testing the legacy.
+
+## Takeaway
+
+With AI assistance, technical migrations that once could have taken weeks can now be done in hours, but we need to apply the right heuristics to keep the AI on track.
 
 
 
