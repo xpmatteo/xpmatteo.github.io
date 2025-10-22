@@ -1,6 +1,6 @@
 +++
 
-title = 'AI-assisted modernization of Java, part II'
+title = 'AI-assisted modernization, part II: documentation and planning'
 slug = 'ai-assisted-modernization-of-java-part-ii'
 date = 2025-09-24T08:35:06+02:00
 tags = [

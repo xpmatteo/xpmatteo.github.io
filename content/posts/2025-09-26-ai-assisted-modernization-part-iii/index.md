@@ -1,5 +1,5 @@
 +++
-title = 'AI-assisted modernization of Java, part III'
+title = 'AI-assisted modernization, part III: converting the landing page'
 slug = 'ai-assisted-modernization-of-java-part-iii'
 date = 2025-09-26T08:32:18+02:00
 tags = [
