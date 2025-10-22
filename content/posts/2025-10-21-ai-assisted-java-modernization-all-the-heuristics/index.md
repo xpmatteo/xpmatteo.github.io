@@ -169,7 +169,7 @@ These heuristics keep your project clean and manageable.
 
 **Don't write documentation files directly; tell the AI the effect you want to achieve and let it work for you.**
 
-When you need to update CLAUDE.md, README, or other documentation, describe the desired outcome rather than editing directly. The AI will likely produce more comprehensive and better-organized documentation.
+When you need to update CLAUDE.md, README, or other documentation, describe what you want to document rather than editing directly. The AI will likely produce more comprehensive and better-organized documentation.
 
 **Example:** Instead of editing CLAUDE.md yourself, say "update CLAUDE.md with clear instructions to use `make restart` when testing the application."
 
@@ -210,13 +210,13 @@ Regularly check context window usage with `/context`. When context gets tight (>
 
 **Provide a Makefile (or equivalent tool) that makes it easy for humans and AI to execute common development tasks.**
 
-Create explicit, documented commands for building, testing, starting, and restarting the application. This prevents the AI from guessing or using ineffective commands.
+Wrap the commands to building, testing, starting and restarting the application in a place that's very well documented and easy to run.  Makefiles are very good for this; other viable alternatives exists, eg `npm` scripts. This prevents the AI from guessing or using ineffective commands.  Also, when you wrap the commands you can add your own documentation and follow up actions, that helps the AI know what to do.
 
 **Example:** Create a `Makefile` with `make restart` that does `mvn clean package && docker-compose down && docker-compose up -d --build` rather than letting the AI use ineffective `docker-compose restart`.
 
 **Why it matters:** Reduces ambiguity, prevents wasted time on wrong commands, documents the canonical way to do things, and benefits both humans and AI.
 
-*Credit: [Armin Ronacher](https://lucumr.pocoo.org/2025/6/12/agentic-coding/)*
+*Credit: [Armin Ronacher](https://lucumr.pocoo.org/2025/6/12/agentic-coding/) and [Shrivu Shankar](https://blog.sshh.io/i/171208815/pattern-every-output-is-a-prompt)*
 
 [See it in action in Part III](/posts/ai-assisted-modernization-of-java-part-iii/)
 
