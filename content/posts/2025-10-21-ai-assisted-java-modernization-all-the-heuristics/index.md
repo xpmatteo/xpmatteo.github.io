@@ -34,7 +34,7 @@ These heuristics help you set up your project for success before diving into cod
 
 **Before attempting anything complicated, ask the AI to come up with one or more plans. Ask the AI to ask clarifying questions!**
 
-Put the AI in plan mode and let it explore the problem space before jumping into implementation. Modern AI tools will often offer clarifying questions spontaneously.
+Put the AI in plan mode and let it explore the problem space before jumping into implementation. Modern AI tools will often offer clarifying questions spontaneously.   Some tools do not have a plan mode; in that case, just say "Let's plan now, do not code yet, think first!"
 
 **Example:** Instead of "upgrade to Jakarta EE 11," ask "Let's think of a plan to bring this up to the latest version." The AI will ask about target versions, packaging changes, UI migration approach, etc.
 
@@ -46,7 +46,7 @@ Put the AI in plan mode and let it explore the problem space before jumping into
 
 **Start new tasks in plan mode; ask for options to get the model to explore multiple approaches.**
 
-Don't rush to code. Put the AI in plan mode and ask "what are our options?" This triggers deeper reasoning about trade-offs and alternatives.  Some tools do not have a plan mode; in that case, just say "Let's plan now, do not code yet, think first!"
+Don't rush to code. Put the AI in plan mode and ask "what are our options?" This triggers deeper reasoning about trade-offs and alternatives.
 
 **Example:** "We want to port the product page to Spring Boot. What are our options?" makes the AI explain the situation that it sees, will uncover any misunderstanding or missing context, and might help us learn something too, given that the AI has read vastly more books on programming than any human can.
 
@@ -212,7 +212,7 @@ Regularly check context window usage with `/context`. When context gets tight (>
 
 Wrap the commands to building, testing, starting and restarting the application in a place that's very well documented and easy to run.  Makefiles are very good for this; other viable alternatives exists, eg `npm` scripts. This prevents the AI from guessing or using ineffective commands.  Also, when you wrap the commands you can add your own documentation and follow up actions, that helps the AI know what to do.
 
-**Example:** Create a `Makefile` with `make restart` that does `mvn clean package && docker-compose down && docker-compose up -d --build` rather than letting the AI use ineffective `docker-compose restart`.
+**Example:** Create a `Makefile` with `make help` that documents all the other commands, eg `make restart` that does `mvn clean package && docker-compose down && docker-compose up -d --build` and then prints `open the application at http://localhost:5432`.
 
 **Why it matters:** Reduces ambiguity, prevents wasted time on wrong commands, documents the canonical way to do things, and benefits both humans and AI.
 
