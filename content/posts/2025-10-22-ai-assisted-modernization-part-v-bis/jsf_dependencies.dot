@@ -1,0 +1,68 @@
+digraph JSF_Dependencies {
+  // Graph attributes
+  rankdir=LR;
+  node [fontname="Arial"];
+  edge [fontname="Arial"];
+
+  // Template files
+  "WEB-INF/PlantTemplate.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "account.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "cart.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "checkout_final.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "help.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "login.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "orderdone.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "orderinfo.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "product.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "promo.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "register.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+  "shopping.xhtml" [shape=box, style=filled, fillcolor=lightblue];
+
+  // JSF Managed beans (@Named)
+  "account" [shape=oval, style=filled, fillcolor=lightgreen];
+  "help" [shape=oval, style=filled, fillcolor=lightgreen];
+  "shopping" [shape=oval, style=filled, fillcolor=lightgreen];
+
+  // Other beans/classes referenced in templates
+  "item" [shape=oval, style=filled, fillcolor=lightgreen];
+  "product" [shape=oval, style=filled, fillcolor=lightgreen];
+
+  // EJB/Service beans
+  "CatalogMgr" [shape=oval, style=filled, fillcolor=lightyellow];
+  "CustomerMgr" [shape=oval, style=filled, fillcolor=lightyellow];
+  "MailerBean" [shape=oval, style=filled, fillcolor=lightyellow];
+  "ResetDBBean" [shape=oval, style=filled, fillcolor=lightyellow];
+  "ShoppingCartBean" [shape=oval, style=filled, fillcolor=lightyellow];
+
+  // Template -> Bean dependencies
+  "WEB-INF/PlantTemplate.xhtml" -> "account";
+  "WEB-INF/PlantTemplate.xhtml" -> "help";
+  "WEB-INF/PlantTemplate.xhtml" -> "shopping";
+  "account.xhtml" -> "account";
+  "cart.xhtml" -> "account";
+  "cart.xhtml" -> "item";
+  "cart.xhtml" -> "shopping";
+  "checkout_final.xhtml" -> "account";
+  "checkout_final.xhtml" -> "item";
+  "checkout_final.xhtml" -> "shopping";
+  "help.xhtml" -> "help";
+  "login.xhtml" -> "account";
+  "orderdone.xhtml" -> "account";
+  "orderinfo.xhtml" -> "account";
+  "orderinfo.xhtml" -> "shopping";
+  "product.xhtml" -> "shopping";
+  "promo.xhtml" -> "shopping";
+  "register.xhtml" -> "account";
+  "shopping.xhtml" -> "product";
+  "shopping.xhtml" -> "shopping";
+
+  // Bean -> Bean dependencies
+  "account" -> "ShoppingCartBean" [style=dashed, label="@Inject", color=darkgreen];
+  "account" -> "shopping" [style=dashed, label="lookup", color=purple];
+  "account" -> "shopping" [style=dashed, label="lookup", color=purple];
+  "account" -> "CustomerMgr" [style=dashed, label="@EJB", color=darkorange];
+  "account" -> "MailerBean" [style=dashed, label="@EJB", color=darkorange];
+  "help" -> "ResetDBBean" [style=dashed, label="@EJB", color=darkorange];
+  "shopping" -> "ShoppingCartBean" [style=dashed, label="@Inject", color=darkgreen];
+  "shopping" -> "CatalogMgr" [style=dashed, label="@EJB", color=darkorange];
+}
