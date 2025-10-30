@@ -54,7 +54,33 @@ Don't rush to code. Put the AI in plan mode and ask "what are our options?" This
 
 *Credit: Inspired by [Andrej Karpathy's advice](https://x.com/karpathy/status/1915581920022585597)*
 
-[See it in action in Part IV](/posts/ai-assisted-modernization-of-java-part-iv/)
+[See it in action in Part IV](/posts/ai-assisted-modernization-of-java-part-iv/) and [Part VI](/posts/ai-assisted-modernization-part-vi/)
+
+
+### 💬 The Discuss With The AI Heuristic
+
+**When unsure how to proceed, explain your concerns to the AI and have a discussion.**
+
+A lot of the value of working with AI comes from discussions. When you're uncertain about an approach, articulate your concerns and explore them with the AI. This helps clarify your thinking and uncover options you might not have considered.
+
+**Example:** "I'm concerned about the integration tests. I'm uncomfortable with using things like Arquillian for testing the core logic of the application. Let me understand what happens when we submit an order—where is the inventory checking happening and how could we test it?"
+
+**Why it matters:** Discussion surfaces assumptions, reveals alternatives, and helps you refine your understanding. The AI's broad training means it can offer perspectives and patterns you might not have encountered.
+
+[See it in action in Part VI](/posts/ai-assisted-modernization-part-vi/)
+
+
+### 🔄 The Start Again Heuristic
+
+**Try approaching the same problem multiple ways by starting fresh conversations.**
+
+It pays to try something more than one way. Start a new conversation about the same problem—the discussion might go differently, and you might learn new things or get better solutions.
+
+**Example:** After one planning conversation about testing strategy, start a completely fresh conversation and ask about the same topic from a different angle. You might discover new insights or approaches.
+
+**Why it matters:** Different conversation contexts can lead to different solutions. AI reasoning can vary, and a fresh start might surface better options or help you see the problem from a new perspective.
+
+[See it in action in Part VI](/posts/ai-assisted-modernization-part-vi/)
 
 
 ### 💎 The Value First Heuristic
@@ -245,5 +271,6 @@ Want to see these heuristics in action? Read the full series:
 - [Part III: Converting the Landing Page](/posts/ai-assisted-modernization-of-java-part-iii/) - Characterization logging and first Spring Boot conversion
 - [Part IV: Reading from the Database](/posts/ai-assisted-modernization-of-java-part-iv/) - Building a complete MVC stack with ATDD/TDD
 - [Part V: In-Place JEE Modernization](/posts/ai-assisted-modernization-of-java-part-v/) - Upgrading Java 6 to Java 21 and JEE 6 to Jakarta EE 10 in place
+- [Part VI: A Testing Strategy](/posts/ai-assisted-modernization-part-vi/) - Designing a comprehensive testing strategy for legacy applications
 
 *Want to leave a comment? Please do so on LinkedIn!*
