@@ -140,4 +140,4 @@ This works in Ruby because he's adding methods to the String class; in Java I wo
 Good job Géza!
 
 
-*Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/feed/update/urn:li:share:7211360180381351938/ "Matteo Vaccari on LinkedIn: The Diamond Kata Revisited")!*
+*Want to leave a comment? [Please do so on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7211360180381351938/ "Matteo Vaccari on LinkedIn: The Diamond Kata Revisited")!*

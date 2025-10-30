@@ -8,7 +8,7 @@ tags = [
 ]
 +++
 
-*This article was originally published on [Linkedin](https://www.linkedin.com/pulse/convenient-alternative-spa-matteo-vaccari-97j5f "A convenient alternative to SPA")*
+*This article was originally published on [LinkedIn](https://www.linkedin.com/pulse/convenient-alternative-spa-matteo-vaccari-97j5f "A convenient alternative to SPA")*
 
 
 <figure>

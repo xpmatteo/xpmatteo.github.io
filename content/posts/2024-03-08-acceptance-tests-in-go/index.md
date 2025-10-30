@@ -220,4 +220,4 @@ My conclusions?
 
 Keep on testing!
 
-*Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_one-way-to-do-acceptance-tests-in-go-activity-7171911685400641537--zcd?utm_source=share&amp;utm_medium=member_desktop "Matteo Vaccari on LinkedIn: One way to do acceptance tests in Go")*
+*Want to leave a comment? Please [do so on LinkedIn](https://www.linkedin.com/posts/matteovaccari_one-way-to-do-acceptance-tests-in-go-activity-7171911685400641537--zcd?utm_source=share&amp;utm_medium=member_desktop "Matteo Vaccari on LinkedIn: One way to do acceptance tests in Go")*

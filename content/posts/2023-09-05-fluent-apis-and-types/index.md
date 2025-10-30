@@ -6,7 +6,7 @@ tags = [
 ]
 +++
 
-*This article was originally published on [Linkedin](https://www.linkedin.com/pulse/fluent-apis-types-matteo-vaccari/ "Fluent APIs and Types")*
+*This article was originally published on [LinkedIn](https://www.linkedin.com/pulse/fluent-apis-types-matteo-vaccari/ "Fluent APIs and Types")*
 
 ![A frame from the earliest cartoon featuring Tweety and an hungry cat](tweety.jpeg)
 

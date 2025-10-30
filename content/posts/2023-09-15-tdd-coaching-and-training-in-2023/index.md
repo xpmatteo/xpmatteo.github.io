@@ -6,7 +6,7 @@ tags = [
 ]
 +++
 
-*This article was originally published on [Linkedin](https://www.linkedin.com/pulse/tdd-coaching-training-2023-matteo-vaccari/ "TDD Coaching and training in 2023")*
+*This article was originally published on [LinkedIn](https://www.linkedin.com/pulse/tdd-coaching-training-2023-matteo-vaccari/ "TDD Coaching and training in 2023")*
 
 <figure>
   <img src="tdd-coaching.png" alt='A giant post-it note with "(why|how|should) we do TDD coaching in 2023"'>

@@ -725,4 +725,4 @@ Did the AI help?  Yes, definitely, it was much faster than I would have done by 
 
 
 
-*Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_ai-assisted-modernization-of-java-part-iv-activity-7384876850445094912-Q4Gk "AI-assisted modernization of Java, part IV | Matteo Vaccari")!*
+*Want to leave a comment? [Please do so on LinkedIn](https://www.linkedin.com/posts/matteovaccari_ai-assisted-modernization-of-java-part-iv-activity-7384876850445094912-Q4Gk "AI-assisted modernization of Java, part IV | Matteo Vaccari")!*

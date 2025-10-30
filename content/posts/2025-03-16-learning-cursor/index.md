@@ -44,4 +44,4 @@ My impression is that using AI rules well is essential to use Cursor effectively
 * [My WIP side project](https://github.com/xpmatteo/scopa-trainer "GitHub - xpmatteo/scopa-trainer") where I'm availing the help of Yoda
 
 
-*Want to leave a comment? [Please do so on Linkedin!](https://www.linkedin.com/posts/matteovaccari_learning-cursor-activity-7307123298100781059-KdVZ "Matteo Vaccari on LinkedIn: Learning Cursor")*
+*Want to leave a comment? [Please do so on LinkedIn!](https://www.linkedin.com/posts/matteovaccari_learning-cursor-activity-7307123298100781059-KdVZ "Matteo Vaccari on LinkedIn: Learning Cursor")*

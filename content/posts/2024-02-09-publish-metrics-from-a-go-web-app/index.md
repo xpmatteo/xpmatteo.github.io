@@ -9,7 +9,7 @@ tags = [
 ]
 +++
 
-*This article was originally published on [Linkedin](https://www.linkedin.com/pulse/publish-metrics-from-go-web-app-matteo-vaccari-m2bbf/ "Publish metrics from a Go web app"); it was updated on 2024-02-25 to use go&nbsp;1.22 http routing style*
+*This article was originally published on [LinkedIn](https://www.linkedin.com/pulse/publish-metrics-from-go-web-app-matteo-vaccari-m2bbf/ "Publish metrics from a Go web app"); it was updated on 2024-02-25 to use go&nbsp;1.22 http routing style*
 
 <figure>
   <img src="prometheus.jpeg" alt="An extract of Prometheus metrics exposes by a web app">

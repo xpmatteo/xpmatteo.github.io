@@ -6,7 +6,7 @@ tags = [
 ]
 +++
 
-*This article was previously published on [Linkedin](https://www.linkedin.com/pulse/advanced-tdd-matteo-vaccari/ "There is no advanced TDD")*
+*This article was previously published on [LinkedIn](https://www.linkedin.com/pulse/advanced-tdd-matteo-vaccari/ "There is no advanced TDD")*
 
 ![A screenshot of a FizzBuzz kata executed in JavaScript, very early stage](https://media.licdn.com/dms/image/D4D12AQFAVlkI-KVeIA/article-cover_image-shrink_720_1280/0/1690530970273?e=1715212800&v=beta&t=eMBDJeS83E-WrnRxPJRRH6VjaOhgLV7R70xBkq7OCzI)
 

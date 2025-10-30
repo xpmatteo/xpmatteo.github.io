@@ -156,4 +156,4 @@ In summary:
 
 See [a complete working example](https://github.com/xpmatteo/todomvc-golang/blob/main/todo/itemId.go) from my TodoMVC example code.
 
-*Want to leave a comment? Please [do so on Linkedin!](https://www.linkedin.com/posts/matteovaccari_avoid-primitive-obsession-in-go-activity-7167561918105206786-W1N3?utm_source=share&amp;utm_medium=member_desktop "Matteo Vaccari on LinkedIn: Avoid Primitive Obsession in Go")*
+*Want to leave a comment? Please [do so on LinkedIn!](https://www.linkedin.com/posts/matteovaccari_avoid-primitive-obsession-in-go-activity-7167561918105206786-W1N3?utm_source=share&amp;utm_medium=member_desktop "Matteo Vaccari on LinkedIn: Avoid Primitive Obsession in Go")*

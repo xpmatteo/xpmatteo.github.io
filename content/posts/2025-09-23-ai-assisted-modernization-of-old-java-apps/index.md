@@ -350,7 +350,7 @@ We've only achieved **Phase 1** - getting legacy code to run (mostly) unchanged.
 Stay tuned for the next parts!
 
 
-*Want to leave a comment? [Please do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_ai-assisted-modernization-of-java-part-i-activity-7376283142116155392-PHtF "AI-assisted modernization of Java, Part I | Matteo Vaccari")!*
+*Want to leave a comment? [Please do so on LinkedIn](https://www.linkedin.com/posts/matteovaccari_ai-assisted-modernization-of-java-part-i-activity-7376283142116155392-PHtF "AI-assisted modernization of Java, Part I | Matteo Vaccari")!*
 
 
 <details>

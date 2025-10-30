@@ -10,4 +10,4 @@ draft = true
 +++
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? Please do so on LinkedIn!*

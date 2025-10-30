@@ -8,7 +8,7 @@ After all these years, still learning how to write good software, and helping or
 
 
   * My [new blog](posts)
-  * On [Linkedin](https://www.linkedin.com/in/matteovaccari/)
+  * On [LinkedIn](https://www.linkedin.com/in/matteovaccari/)
   * On [Mastodon](https://livellosegreto.it/@xpmatteo)
   * [Slides](https://speakerdeck.com/xpmatteo "Matteo Vaccari (@xpmatteo) on Speaker Deck")
   * Github [repositories](https://github.com/xpmatteo/)

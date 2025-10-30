@@ -246,4 +246,4 @@ Want to see these heuristics in action? Read the full series:
 - [Part IV: Reading from the Database](/posts/ai-assisted-modernization-of-java-part-iv/) - Building a complete MVC stack with ATDD/TDD
 - [Part V: In-Place JEE Modernization](/posts/ai-assisted-modernization-of-java-part-v/) - Upgrading Java 6 to Java 21 and JEE 6 to Jakarta EE 10 in place
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? Please do so on LinkedIn!*

@@ -497,5 +497,5 @@ The complete code for these examples [is available in this gist](https://gist.gi
 
 <!-- This article is part of a series on an exercise in implementing the TodoMVC application in Go; see here [the code](https://github.com/xpmatteo/todomvc-golang "GitHub - xpmatteo/todomvc-golang: A Golang implementation of the TodoMVC standard app"), and the [first article in the series](http://localhost:1313/posts/2024-02-04-a-convenient-alternative-to-spa/ "A Convenient Alternative to SPA | Matteo Vaccari")
 
-*Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_test-driving-html-templates-in-go-activity-7173075313403412480-8N1f "Matteo Vaccari on LinkedIn: Test-Driving HTML Templates in Go")!*
+*Want to leave a comment? Please [do so on LinkedIn](https://www.linkedin.com/posts/matteovaccari_test-driving-html-templates-in-go-activity-7173075313403412480-8N1f "Matteo Vaccari on LinkedIn: Test-Driving HTML Templates in Go")!*
  -->

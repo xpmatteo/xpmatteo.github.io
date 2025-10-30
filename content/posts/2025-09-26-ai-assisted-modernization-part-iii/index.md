@@ -379,7 +379,7 @@ In this exercise, we applied a few useful patterns for working effectively with 
 Next steps: we continue with the purchasing journey: the user clicks on the "bonsai tree" link, and sees the product details.  Stay tuned!
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? Please do so on LinkedIn!*
 
 
 <details>

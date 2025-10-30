@@ -503,4 +503,4 @@ Every app benefits from different visualization techniques. The AI can quickly g
 
 </details>
 
-*Want to leave a comment? Please [do so on Linkedin](https://www.linkedin.com/posts/matteovaccari_i-published-part-ii-of-my-ai-assisted-java-activity-7376587596476452864-HCFb)!*
+*Want to leave a comment? Please [do so on LinkedIn](https://www.linkedin.com/posts/matteovaccari_i-published-part-ii-of-my-ai-assisted-java-activity-7376587596476452864-HCFb)!*
