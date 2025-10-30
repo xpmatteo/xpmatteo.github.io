@@ -23,7 +23,7 @@ Let's get back to our earlier definition of "safe to operate". We got a lot done
  - ✅ running locally (with docker-compose)
  - ❌ well tested
 
-The legacy application has no tests at all.  Let's discuss with CC how to design a *testing strategy*.  
+The legacy application has no tests at all.  Let's discuss with CC how to design a *testing strategy*.   In this post, we'll work through choosing a good approach; in the next post, we'll implement it.
 
 **The Discuss With The AI heuristic**: a lot of the value of working with the AI comes out of the discussions we can have with it. When we are unsure on how to proceed, let's explain our concerns to the AI and see what it comes up with.
 
@@ -96,7 +96,7 @@ But here, it's unclear how we can get by without loading the full JEE context.  
 <blockquote>
 ⏺ User declined to answer questions
 
-<b>I'm concerned about the integration tests.  I'm uncomfortable with using things like Arquilian for testing the core logic of the application.  For instance, let's see what  happens when we submit an order.  I understand there should be checks on inventory levels, am I right? Where is this happening and how could we test it?</b>
+<b>I'm concerned about the integration tests.  I'm uncomfortable with using things like Arquillian for testing the core logic of the application.  For instance, let's see what  happens when we submit an order.  I understand there should be checks on inventory levels, am I right? Where is this happening and how could we test it?</b>
 
 ⏺ Great question, Captain Matt! Let me trace through the order submission flow to understand the inventory checking logic and how we could test it without heavy integration  frameworks like Arquillian.
 
@@ -283,27 +283,26 @@ Claude is proposing a comprehensive test strategy, but its plan is way too ambit
 
 **For this exercise, my testing strategy will be: pure unit tests for class 1, and smoke tests for class 3.**
 
-The long conversation with the AI helped me with reassurance that I am not overlooking any good options, and helped me crystallize my intent.  Now let's get started with the implementation.
+The long conversation with the AI helped me with reassurance that I am not overlooking any good options, and helped me crystallize my intent.  Time to pause here, before we dive in the implementation in the next part of the series.
 
 
 
-# Conclusion of this session
+# Conclusion: strategy decided, implementation next
 
-Testing of legacy software remains challenging, with or without AI.  
+Testing legacy software is still challenging, with or without AI.  
 
 Where the AI helps:
 
  - Learn about options; the AI knows the technology and design patterns well, having been trained on literally all of the programming books in the world.  Having a discussion with the AI is informative, and helps us refine our thoughts
- - Executing the strategy that we decide on.  Once we know what we want, the AI is usually good at implementing our wishes.
+ - Executing the strategy that we decide on.  Once we know what we want, the AI is usually good at implementing our wishes (see next part).
  
 Where the human must step in:
 
- - Deciding on an overall testing strategy.  After discussing all the options, choosing what makes sense in our situation is up to us. The AI is trained on all kinds of codebases, and it does not care much for one design choice or another; it aims to please and if we tell it that Arquillian is the way to go, they'll love it!  And if we tell it that Arquillian sucks, they will very much agree!
- - Knowing when to avoid antipatterns such as the "change detector tests"
- - Knowing what to test and what not to test, eg, mock the EntityManager, because we are not in the business of testing that JPA works; we want to test our logic, not JPA's
- - Understand that code that's difficult to test is difficult because of the way it is written, and, that when we are well covered by tests, we can safely refactor it.
+ - Deciding on an overall testing strategy.  After discussing all the options, choosing what makes sense in our situation is up to us. The AI is trained on all kinds of codebases, and it does not care much for one design choice or another; it aims to please and if we tell it that Arquillian is the way to go, they'll love it!  And if we tell it that Arquillian sucks, they will very much agree!  It tries hard to please us.
  
 The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in [my fond memories](https://boardgamegeek.com/rpgitem/44966/dungeons-and-dragons-set-2-expert-rules "Dungeons &amp; Dragons Set 2: Expert Rules | RPG Item | BoardGameGeek") of playing Dungeons & Dragons, one being that responds to that description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html?utm_source=chatgpt.com "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.
+
+With strategy decided, let's see how the implementation goes in part VII!
 
 
 *Want to leave a comment? Please do so on LinkedIn!*

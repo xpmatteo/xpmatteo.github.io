@@ -50,3 +50,4 @@ This is a Hugo static site for Matteo Vaccari's personal blog at https://matteo.
 - Posts use date-based directory naming convention: `YYYY-MM-DD-title`
 - The `public/` directory contains generated site output (not tracked for editing)
 - Theme formatting requires npm dependencies to be installed in `themes/hugo-simple/`
+- the main thing we work on is Captain Matt's blog which is in @content/posts/

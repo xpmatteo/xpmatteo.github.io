@@ -277,5 +277,23 @@ void testSufficientInventory() throws Exception {
 }
 ```
 
+# Conclusion of this session
+
+Testing of legacy software remains challenging, with or without AI.  
+
+Where the AI helps:
+
+ - Learn about options; the AI knows the technology and design patterns well, having been trained on literally all of the programming books in the world.  Having a discussion with the AI is informative, and helps us refine our thoughts
+ - Executing the strategy that we decide on.  Once we know what we want, the AI is usually good at implementing our wishes.
+ 
+Where the human must step in:
+
+ - Deciding on an overall testing strategy.  After discussing all the options, choosing what makes sense in our situation is up to us. The AI is trained on all kinds of codebases, and it does not care much for one design choice or another; it aims to please and if we tell it that Arquillian is the way to go, they'll love it!  And if we tell it that Arquillian sucks, they will very much agree!
+ - Knowing when to avoid antipatterns such as the "change detector tests"
+ - Knowing what to test and what not to test, eg, mock the EntityManager, because we are not in the business of testing that JPA works; we want to test our logic, not JPA's
+ - Understand that code that's difficult to test is difficult because of the way it is written, and, that when we are well covered by tests, we can safely refactor it.
+ 
+The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in [my fond memories](https://boardgamegeek.com/rpgitem/44966/dungeons-and-dragons-set-2-expert-rules "Dungeons &amp; Dragons Set 2: Expert Rules | RPG Item | BoardGameGeek") of playing Dungeons & Dragons, one being that responds to that description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html?utm_source=chatgpt.com "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.
+
 
 *Want to leave a comment? Please do so on LinkedIn!*
