@@ -8,7 +8,6 @@ tags = [
     "java",
     "modernization",
 ]
-draft = true
 +++
 
 
@@ -91,7 +90,9 @@ The integration tests options make me uncomfortable.  It seems that the only way
 
 ## How to run integration tests?
 
-But here, it's unclear how we can get by without loading the full JEE context.  Let's discuss.
+In this project, it's unclear how we can test business logic without loading the full JEE context, and I would like to avoid this, because it requires a lot of machinery.  This is because in this JEE application, objects are connected through annotations that are resolved at runtime by a dependency injection framework.  
+
+Let's discuss options.
 
 <blockquote>
 ⏺ User declined to answer questions
@@ -266,7 +267,7 @@ This code has a number of problems:
  - it receives dependencies thanks to mysterious (to me) annotation: there is no constructor
  - it does too many things! The checkInventory call is probably doing lots of complicated stuff 
 
-Let's park this discussion for a moment, and start another conversation
+We'll have to deal with this when we get down to write tests for this code, in a future post.
 
 **The Start Again heuristic**: it pays to try something more than one way. The discussion might go differently, and you might learn new things.
 
@@ -281,7 +282,11 @@ Claude is proposing a comprehensive test strategy, but its plan is way too ambit
 3. Broad-scope local tests.  These might be simple smoke tests, eg some tests that prove that the whole app, when built, hangs together, but do not exercise the full breadth of business logic;  or the could be broad acceptance tests, testing that the business rules that the business care about are implemented correctly.  In both cases these tests are slower than the previous one, but are still **rock solid reliable**.  We don't want flaky tests here, because class 1, 2, and 3 are the tests that we run before we push code to the repository.
 4. The fourth category comprehends multiple different types of tests that the developers do not run frequently.  They might (and probably should) be run as part of the build pipeline.  Examples are: performance tests or security scans, which are too slow to run at every push; end-to-end tests that include external apps and systems, that might fail more frequently than we'd like.
 
-**For this exercise, my testing strategy will be: pure unit tests for class 1, and smoke tests for class 3.**
+**For this exercise, my testing strategy will be: pure unit tests for class 1, and smoke tests for class 3.**  We skip class 4 because it's out of scope for this exercise; we will also skip class 2 for the moment, because persistency here is implemented with JPA, and there is no explicit SQL code involved in the transactions. 
+
+Does this mean that we can afford to skip integration tests completely?  We run the risk that if we get one annotation wrong, the application will not perform correctly at runtime!  This is a valid point, and it is also a good reason to avoid programming-through-annotation; but we must prioritize. Integration tests should eventually be included, after smoke and unit tests are ready.
+
+Why smoke tests and not AT?  I think that the kind of HTML we have in this project makes comprehensive acceptance testing from the HTML impractical.  In most cases, running AT through the UI is not a good idea.  We could run them by exercising the underlying JSF "beans", which have the same role as controllers in a Spring Boot application.  If we did that, we should still have *some* tests that run through the UI, just to check that the UI isn't obviously broken.
 
 The long conversation with the AI helped me with reassurance that I am not overlooking any good options, and helped me crystallize my intent.  Time to pause here, before we dive in the implementation in the next part of the series.
 
@@ -300,7 +305,7 @@ Where the human must step in:
 
  - Deciding on an overall testing strategy.  After discussing all the options, choosing what makes sense in our situation is up to us. The AI is trained on all kinds of codebases, and it does not care much for one design choice or another; it aims to please and if we tell it that Arquillian is the way to go, they'll love it!  And if we tell it that Arquillian sucks, they will very much agree!  It tries hard to please us.
  
-The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in [my fond memories](https://boardgamegeek.com/rpgitem/44966/dungeons-and-dragons-set-2-expert-rules "Dungeons &amp; Dragons Set 2: Expert Rules | RPG Item | BoardGameGeek") of playing Dungeons & Dragons, one being that responds to that description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html?utm_source=chatgpt.com "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.
+The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in [my fond memories](https://boardgamegeek.com/rpgitem/44966/dungeons-and-dragons-set-2-expert-rules "Dungeons &amp; Dragons Set 2: Expert Rules | RPG Item | BoardGameGeek") of playing Dungeons & Dragons, one creature that fits this description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.  Let's just remember that AI has no wisdom: we need to provide that.
 
 With strategy decided, let's see how the implementation goes in part VII!
 
