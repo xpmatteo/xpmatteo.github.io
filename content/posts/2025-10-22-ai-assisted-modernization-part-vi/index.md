@@ -1,6 +1,6 @@
 +++
 
-title = 'Ai Assisted Modernization Part VI: testing the in-place modernization'
+title = 'AI-Assisted Modernization Part VI: testing the in-place modernization'
 slug = 'ai-assisted-modernization-part-vi'
 date = 2025-10-22T16:18:09+02:00
 tags = [
@@ -10,7 +10,7 @@ draft = true
 +++
 
 
-# In-place modernization, continued
+# In-place modernization, continued from part V
 
 In the previous part of this series, we tried a different modernization approach: porting to up-to-date JEE instead of porting to Spring Boot.  To complete the discussion, we should discuss how we test it.
 
@@ -85,7 +85,7 @@ It then shows me a bunch of questions, like which unit testing framework I want 
   <img src='questions.jpg' alt='The questions asked from CC'>
 </figure>
 
-The integration tests options I am very uncomfortable with.  It seems that the only way to test the things that matter (eg., when I submit an order, depending on the inventory levels of the stuff I'm buying, a backorder could be automatically created to replenish the warehouse.)  This sort of important tests should, in my view, not be burdened with all this infrastructure concerns.  In the Spring Boot port, we can do fast and reliable integration tests by building a subset of the application with direct injection and using a test data source.  We bypass the Spring Context completely, and this is relatively safe because, the way I like to use Spring Boot, dependency injection is straightforward, ie, I tend to use the framework as little as possible.  The framework is a detail, and should be kept away from the important logic as much as possible.
+The integration tests options make me uncomfortable.  It seems that the only way to test the things that matter (eg., when I submit an order, depending on the inventory levels of the stuff I'm buying, a backorder could be automatically created to replenish the warehouse.)  This sort of important tests should, in my view, not be burdened with all this infrastructure concerns.  In the Spring Boot port, we can do fast and reliable integration tests by building a subset of the application with direct injection and using a test data source.  We bypass the Spring Context completely, and this is relatively safe because, the way I like to use Spring Boot, dependency injection is straightforward, ie, I tend to use the framework as little as possible.  The framework is a detail, and should be kept away from the important logic as much as possible.
 
 ## How to run integration tests?
 
@@ -261,7 +261,7 @@ This code has a number of problems:
  - it is coupled to a UI page
  - it is coupled to JPA
  - it is coupled to the mailer
- - it receives dependencies thanks to mysterious (to me) annotation -- there is no constructor
+ - it receives dependencies thanks to mysterious (to me) annotation: there is no constructor
  - it does too many things! The checkInventory call is probably doing lots of complicated stuff 
 
 Let's park this discussion for a moment, and start another conversation
@@ -279,7 +279,7 @@ Claude is proposing a comprehensive test strategy, but its plan is way too ambit
 3. Broad-scope local tests.  These might be simple smoke tests, eg some tests that prove that the whole app, when built, hangs together, but do not exercise the full breadth of business logic;  or the could be broad acceptance tests, testing that the business rules that the business care about are implemented correctly.  In both cases these tests are slower than the previous one, but are still **rock solid reliable**.  We don't want flaky tests here, because class 1, 2, and 3 are the tests that we run before we push code to the repository.
 4. The fourth category comprehends multiple different types of tests that the developers do not run frequently.  They might (and probably should) be run as part of the build pipeline.  Examples are: performance tests or security scans, which are too slow to run at every push; end-to-end tests that include external apps and systems, that might fail more frequently than we'd like.
 
-**For this exercise, my testing strategy will be: (class 1) pure unit tests, and (class 3) smoke tests.  **
+**For this exercise, my testing strategy will be: pure unit tests for class 1, and smoke tests for class 3.**
 
 The long conversation with the AI helped me with reassurance that I am not overlooking any good options, and helped me crystallize my intent.  Now let's get started with the implementation.
 
@@ -431,9 +431,9 @@ void testPerformCompleteCheckout_ChecksInventoryForAllItems() throws Exception {
 
 So this test checks that for every item in the shopping cart, we invoke the `ShoppingCart#checkInventory` method.  The tests for the backorder logic will be written in the <code>ShoppingCart</code> test suite.  Hmmm.
 
-The thing that leaves me uneasy about these tests is that they look very much like [change detector tests](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html "Google Testing Blog: Testing on the Toilet: Change-Detector Tests Considered Harmful").  This test will break when the implementation code in the `AccountBean#performCompleteCheckout` is changed. A valid and an invalid change will break this code with equal likelyhood.  
+The thing that leaves me uneasy about these tests is that they look very much like [change detector tests](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html "Google Testing Blog: Testing on the Toilet: Change-Detector Tests Considered Harmful").  This test will break when code in the `AccountBean#performCompleteCheckout` is changed. A valid and an invalid change will break this code with equal likelyhood.  
 
-OK Matteo, if this test is not good, what should be doing differently then?  I think that difficulty in testing comes from poor production code design.  We have that when the customer submits an order, a number of things should be done:
+OK Matteo, if this test is not good, what should we be doing differently then?  I think that difficulty in testing comes from poor production code design.  We have that when the customer submits an order, a number of things should be done:
 
 1. Create an order object in the DB
 2. Send a confirmation email (but continue if there's any problem sending it)
@@ -566,10 +566,10 @@ Where the human must step in:
  - Knowing what to test and what not to test, eg, mock the EntityManager, because we are not in the business of testing that JPA works; we want to test our logic, not JPA's
  - Understand that code that's difficult to test is difficult because of the way it is written, and, that when we are well covered by tests, we can safely refactor it.
  
-The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in my fond memories of playing Dungeons & Dragons, one being that responds to that description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html?utm_source=chatgpt.com "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.
+The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in [my fond memories](https://boardgamegeek.com/rpgitem/44966/dungeons-and-dragons-set-2-expert-rules "Dungeons &amp; Dragons Set 2: Expert Rules | RPG Item | BoardGameGeek") of playing Dungeons & Dragons, one being that responds to that description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html?utm_source=chatgpt.com "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.
 
 
-*Want to leave a comment? Please do so on Linkedin!*
+*Want to leave a comment? Please do so on LinkedIn!*
 
 
 # Appendix
