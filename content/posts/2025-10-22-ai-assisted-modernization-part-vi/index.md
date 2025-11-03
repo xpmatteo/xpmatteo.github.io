@@ -15,7 +15,7 @@ Disclaimer: This series of articles is about solving an exercise; actual work is
 
 # In-place modernization, continued from part V
 
-In the previous part of this series, we tried a different modernization approach: porting to up-to-date JEE instead of porting to Spring Boot.  To complete the discussion, we should discuss how we test it.
+In [the previous part](/posts/ai-assisted-modernization-of-java-part-v/) of [this series](/posts/plants-by-websphere/), we tried a different modernization approach: porting to up-to-date JEE instead of porting to Spring Boot.  To complete the discussion, we should discuss how we test it.
 
 Let's get back to our earlier definition of "safe to operate". We got a lot done, but there is still a big omission:
 

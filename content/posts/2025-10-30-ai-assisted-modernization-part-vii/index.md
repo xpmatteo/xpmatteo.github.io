@@ -22,7 +22,7 @@ Setup:
 
 # Continued from part VI
 
-In the previous part, we continued work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
+In [the previous part](/posts/ai-assisted-modernization-part-vi/), we continued work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
 
 ## Implementing smoke tests
 
@@ -406,7 +406,7 @@ Further readings on change detector tests in [this thoughtful article](https://e
 
 # Conclusion of the series
 
-This series explored how AI helps in modernizing old software, in the context of business software.  As most business software is the private property of some business, and thus is not available to us for public experimentation, we adopted a sample codebase that was written for the purposes of demonstration and training. 
+[This series](/posts/plants-by-websphere/) explored how AI helps in modernizing old software, in the context of business software.  As most business software is the private property of some business, and thus is not available to us for public experimentation, we adopted [a sample codebase](https://github.com/IBMAppModernization/app-modernization-plants-by-websphere-jee6) that was written for the purposes of demonstration and training. 
 
 The goals of the series are:
 
