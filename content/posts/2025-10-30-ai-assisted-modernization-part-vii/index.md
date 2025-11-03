@@ -496,4 +496,4 @@ This series demonstrates that AI hasn't just made us faster at coding: it's chan
 **Thanks for reading along. Hope it comes handy!**
 
 
-*Want to leave a comment? Please do so on LinkedIn!*
+*Want to leave a comment? [Please do so on LinkedIn](https://www.linkedin.com/posts/matteovaccari_i-just-posted-the-conclusion-of-my-series-activity-7391124345429041153-7RWf)!*
