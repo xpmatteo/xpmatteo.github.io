@@ -1,12 +1,12 @@
 +++
-
-title = 'Ai Assisted Modernization Part Vii'
+title = 'AI-assisted modernization part VII'
 slug = 'ai-assisted-modernization-part-vii'
 date = 2025-10-30T15:39:24+01:00
 tags = [
     "AI",
     "java",
     "modernization",
+    "plants-by-websphere",
 ]
 draft = true
 +++

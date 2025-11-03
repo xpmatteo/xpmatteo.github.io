@@ -1,10 +1,11 @@
 +++
-title = 'AI-assisted Java modernization: All the heuristics'
+title = 'AI-assisted modernization: All the heuristics'
 slug = 'ai-assisted-java-modernization-all-the-heuristics'
 date = 2025-10-21T12:35:57+02:00
 tags = [
     "AI",
     "modernization",
+    "plants-by-websphere",
 ]
 +++
 
