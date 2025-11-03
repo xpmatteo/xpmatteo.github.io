@@ -461,16 +461,17 @@ Where human judgment is required:
 
 ## The Testing Dilemma Resolution
 
-The unit testing discussion in this episode revealed an important insight: **production code design determines test quality more than testing technique**.
+The unit testing discussion in this episode revealed an important insight: the default style of tests that the AI might want to write will be testing the implementation, not the behaviour. And as a result, these tests would prevent refactoring, instead of enabling it.
 
 The initial AI-generated tests for `AccountBean#performCompleteCheckout` were change-detector tests—they would break on any refactoring, valid or not. But the problem wasn't the tests; it was that the production code was difficult to test well because it:
 - Mixed different concerns (order creation, email, inventory)
 - Had unclear business logic boundaries
 - Was tightly coupled to the framework
 
-By creating hand-rolled mocks and focusing on business logic (inventory levels, backorder creation), we got tests that actually enable refactoring rather than prevent it.
+By focusing on business logic (inventory levels, backorder creation), we got valuable tests that actually enable refactoring rather than prevent it.
 
-**Key insight**: When testing is hard, the problem is usually in the production code design, not the test design.
+**Key insight**: A lot of legacy code is tightly coupled, hence is difficult to test well. This is the legacy code dilemma that's [explained very well by Michael Feathers](https://martinfowler.com/bliki/LegacySeam.html).  The technique we applied here might or might not work in other cases; on the other hand, AI is quite capable of writing many different types of tests **if you know what to ask**
+
 
 ## Which approach won?
 
