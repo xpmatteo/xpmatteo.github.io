@@ -11,6 +11,7 @@ tags = [
 ]
 +++
 
+Disclaimer: This series of articles is about solving an exercise; actual work is going to be more difficult than this. However, by practicing like this, I believe **we can build skills** that will enable us to deal with the more complicated challenges in real life.
 
 # In-place modernization, continued from part V
 

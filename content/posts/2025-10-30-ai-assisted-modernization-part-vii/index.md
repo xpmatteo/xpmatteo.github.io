@@ -8,12 +8,21 @@ tags = [
     "modernization",
     "plants-by-websphere",
 ]
-draft = true
 +++
+
+Disclaimer: This series of articles is about solving an exercise; actual work is going to be more difficult than this. However, by practicing like this, I believe **we can build skills** that will enable us to deal with the more complicated challenges in real life.
+
+Setup:
+
+- Claude Code with Claude Sonnet 4.5
+- My global CLAUDE.md is a variant of [Harper Reed's](https://github.com/harperreed/dotfiles/blob/35c2d5508f36b7ad6a845f605c12bcdb16fb15a3/.claude/CLAUDE.md "dotfiles/.claude/CLAUDE.md at 35c2d5508f36b7ad6a845f605c12bcdb16fb15a3 · harperreed/dotfiles · GitHub")
+- The repo for the exercise [starting state](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/86e078ba6a54ff5e18e1d6edbad6afc794c29449): no tests
+- The repo [at the end of this session](https://github.com/xpmatteo/app-modernization-plants-by-websphere-jee6/tree/2a3b8008aa299b94fab868038a7e9dc87efc4fe5): two smoke tests, several unit tests
+
 
 # Continued from part VI
 
-In last session, we continued the work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
+In previous part, we continued the work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
 
 ## Implementing smoke tests
 
@@ -76,7 +85,7 @@ Of course there's a corresponding negative test.
 
 So much for the smoke tests; now let's see what we should do for the unit tests.
 
-# The unit tests dilemma
+## The unit tests dilemma
 
 It's fairly easy to point an AI agent to a bit of code and ask it to cover it with tests: it will usually do a great job of identifying and testing all the behaviours.  Warning: rethorical question coming!  But is this going to give us **good tests**?
 
@@ -234,8 +243,6 @@ void testSufficientInventory() throws Exception {
 The `createInventory` call is opaque, because as I read the test, it's not clear what the 100, 50, 10.0 numbers mean.  This is easily fixed by CC with a builder:
 
 ```java
-@Test
-@DisplayName("should decrease inventory when sufficient stock is available")
 void testSufficientInventory() throws Exception {
   // Given - plenty of stock, well above minThreshold
   inventory("ITEM-001")
@@ -244,16 +251,7 @@ void testSufficientInventory() throws Exception {
     .create();
   addItemToCart("ITEM-001", 10);
 
-  // When
-  accountBean.performCompleteCheckout();
-
-  // Then - inventory decreased correctly
-  Inventory inv = testEntityManager.find(Inventory.class, "ITEM-001");
-  assertThat(inv.getQuantity()).isEqualTo(90);
-
-  // No backorder created (still above minThreshold)
-  BackOrder backOrder = testEntityManager.getBackOrder("ITEM-001");
-  assertThat(backOrder).isNull();
+  // ...
 }
 ```
 
@@ -263,7 +261,7 @@ In the previous section, I complained against one of the tests being written by 
 
 What we want are tests that detect changes in behaviour, not implementation.  This sounds sensible, right?  But there is some nuance here.
 
-The term "change detector test" was introduced in [this blog post from the Google testing blog](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html).  The typical change detector test uses mocks to fix the implementation behaviour.  The example reported in the article is worth a little discussion, so I translated it to Java to make my point.
+The term "change detector test" was introduced in [this post from the Google testing blog](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html).  The typical change detector test uses mocks to fix the implementation behaviour.  The example reported in the article is worth a little discussion, so I translated it to Java, to better make my point.
 
 ```java
 // Production code:
@@ -347,7 +345,7 @@ public void testProcess() {
 
 I don't particulary like this, because it couples business logic to the CDI technology, but then again, it might be a good idea in some situations.  I would rather have `Processor` return a list of `DomainEvent`s: much simpler.
 
-An alternative idea for decoupling `Processor` from the bits that it invokes is to make `Processor` and abstract combinator.
+An alternative idea for decoupling `Processor` from the bits that it invokes is to make `Processor` an [abstract parts combinator](https://softwareengineering.stackexchange.com/questions/344555/change-detector-tests-considered-harmful/344695#344695).
 
 ```java
 // Production code:
@@ -397,10 +395,97 @@ public class Processor {
 }
 ```
 
-# Conclusion of series
+**The Avoid Change Detector Test heuristic**: when the test mirrors the production code, look for ways to change production code so that it's less coupled, or change the test code to focus on the business outcomes and not the implementation, or both.  Domain events and abstract parts combinators are two useful techniques.
+
+Further readings on change detector tests in [this thoughtful article](https://explosionduck.com/wp/change-detectors-versus-unit-tests/) and in this [Stackoverflow answer](https://softwareengineering.stackexchange.com/questions/344555/change-detector-tests-considered-harmful/344695#344695) 
 
 
+# Conclusion of the series
 
+This series explored how AI helps in modernizing old software, in the context of business software.  As most business software is the private property of some business, and thus is not available to us for public experimentation, we adopted a sample codebase that was written for the purposes of demonstration and training. 
+
+The goals of the series are:
+
+ - identify broadly applicable techniques that leverage AI to help with modernization
+ - build skills through a repeatable and shareable exercise
+ - assess how and where the AI is helping.
+
+## We tried two approaches
+
+### Spring Boot port (parts I-IV)
+
+In the first approach, we looked to significantly change the tech stack, moving from JEE to Spring Boot with Mustache templates. The strategy was:
+
+- Start with the legacy app running locally
+- Document and understand the application structure
+- Port pages one-by-one to Spring Boot using TDD/ATDD
+- Build modern REST endpoints and Mustache templates
+
+We successfully ported the promotional landing page and product detail page, with full test coverage.  The work that remains is to complete the porting, page by page, and as the port grows, I expect the AI agent to be able to complete the steps with increasing accuracy, having a growing set of exemplar code, in the growing Spring Boot app, to take inspiration from.
+
+
+### In-place JEE modernization (parts V-VII)
+
+Having received a challenge on the idea that JEE is not a viable platform, we tried a completely different technique: upgrade the JEE stack in place.
+
+What we achieved:
+- Upgraded Java 6 to Java 21
+- Migrated JEE 6 to Jakarta EE 10
+- Consolidated EAR packaging → single WAR (modern cloud-native approach)
+- Implemented smoke tests with Playwright
+- Created business-logic focused unit tests
+
+We got fully functional, modernized application running on current technology.  The work that remains is to complete the test coverage, at both unit and smoke level.  What I would do next is to evolve the technology, making the application less dependent on JEE features:
+
+- move from JSF to Mustache + HTMX
+- move from the JEE application server to Jetty embedded
+
+## What we learned
+
+The AI was good at:
+- **Tedious technical translations**: Namespace migrations, dependency updates, configuration conversions
+- **Technology expertise**: Finding compatible versions, debugging cryptic errors, understanding JEE/Jakarta EE specifics
+- **Rapid prototyping**: Creating test data, writing initial test suites, generating template code
+- **Iterative debugging**: When given clear goals and fast feedback mechanisms (like Puppeteer MCP)
+
+Where human judgment is required:
+- **Strategic decisions**: Choosing the target technology stacks
+- **Step sizing**: Knowing when to commit, when to reset, when to try smaller steps
+- **Quality standards**: Pushing back on change-detector tests, insisting on business-logic focused tests
+- **Context management**: Keeping the AI focused, preventing context window overflow
+- **Automated testing strategy**: Decide which types tests we want to have
+
+## The Testing Dilemma Resolution
+
+The unit testing discussion in this episode revealed an important insight: **production code design determines test quality more than testing technique**.
+
+The initial AI-generated tests for `AccountBean#performCompleteCheckout` were change-detector tests—they would break on any refactoring, valid or not. But the problem wasn't the tests; it was that the production code was difficult to test well because it:
+- Mixed different concerns (order creation, email, inventory)
+- Had unclear business logic boundaries
+- Was tightly coupled to the framework
+
+By creating hand-rolled mocks and focusing on business logic (inventory levels, backorder creation), we got tests that actually enable refactoring rather than prevent it.
+
+**Key insight**: When testing is hard, the problem is usually in the production code design, not the test design.
+
+## Which approach won?
+
+Both approaches, the port to a separate Spring Boot app, or the port in-place to modern JEE, seem viable.  Which one you choose depends on which tech stack is better in your context.  One important thing is to release incrementally, which is easier to achieve with the in-place port.  With the separate Spring Boot app, we could change the links in the Spring Boot app to point to the legacy app, so that the user is able to navigate seamlessly from one app to the other; but it would be challenging to keep the same session in both apps, as JEE and Spring Boot use incompatible technology for session management.
+
+Having learned all this, if I were to do it again, I would probably start with the in-place port.  If we really wanted Spring Boot, we could probably achieve if with incremental in-place refactoring, from JEE to embedded Jetty to Spring Boot. On the other hand, this is a small project: while the AI in October 2025 is quite capable to upgrade the JEE versions in this project, it will likely find it harder in real-life, much larger projects.  If this were the case, we'd need to look for ways to slice the work in thinner slices, and porting pages one by one in a fresh project is a way to do it.
+
+
+## Broader Implications
+
+This series demonstrates that AI hasn't just made us faster at coding: it's changing **what strategies are viable**:
+
+- **Technical migrations are much cheaper**: Upgrading 4 framework versions in one go would be reckless without AI, but with AI assistance providing rapid iteration and debugging, it became manageable
+- **The rewrite calculus changes**: Even with AI making rewrites faster, [Port &amp; Mend](https://www.youtube.com/watch?v=ndLnqwL9Ies "My presentation at XConf 2025 (video)") is ever more attractive
+- **Continuous modernization is much cheaper**: We can delegate AI agent to fix minor (and not-so-minor) framework version updates
+- **AI can be a valuable training tool** Discussion with AI helps learn about what is possible, and develop our own thoughts
+- **Engineering skills are ever more valuable** The AI didn't replace the need for engineering skill: it amplified it, as AI recommendations are very often bad.  In <abbr title="Dungeons &amp; Dragons">D&amp;D</abbr> terms, AI agents have high <abbr title="Intelligence">INT</abbr> and no <abbr title="Wisdom">WIS</abbr>
+
+**Thanks for reading along. Hope it comes handy!**
 
 
 *Want to leave a comment? Please do so on LinkedIn!*
