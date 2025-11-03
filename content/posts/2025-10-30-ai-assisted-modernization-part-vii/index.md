@@ -1,5 +1,5 @@
 +++
-title = 'AI-assisted modernization part VII'
+title = 'AI-assisted modernization part VII: season finale'
 slug = 'ai-assisted-modernization-part-vii'
 date = 2025-10-30T15:39:24+01:00
 tags = [
@@ -11,11 +11,17 @@ tags = [
 draft = true
 +++
 
+# Continued from part VI
+
+In last session, we continued the work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
+
 ## Implementing smoke tests
 
 This was **not** an easy task. CC took a very long time, and I had to help it along the way.  Getting started with Playwright on a project is usually not easy, in my experience, and JSF code conventions made it harder for the AI: submit buttons that are not *real* HTML submit buttons that only work thanks to JavaScript; the content changes but the browser location does not, etc.  
 
 I trimmed down CC's plan to a very short flow: the login flow.  It took an hour, more or less, to get it working, and I suggested an improvement on the original UI: show the name of the logged in user in the header, so that we can prove in the test if the login was successful.  It's an improvement for human users too.
+
+**The Fix Prod to Make Testing Easier heuristic**: it makes no sense to write overcomplicated and fragile testing code, when small changes in application behaviour could fix that. The changes might benefits non-automatic users too.
 
 <figure>
   <img src='login-screen.jpg' alt='Screenshot of the login page' style='border: 1px solid black'>
@@ -110,33 +116,7 @@ It turns out that on completion of an order, in page `checkout_final`, the `Acco
  
 </blockquote>
 
-It wasn't easy.  At some point, the AI found it very difficult to create mocks with Mockito for the other "beans" that the `AccountBean` depends on.  
-
-<blockquote>
-⏺ The issue is that Mockito is having trouble mocking the EJB classes on Java 25. We need to add mockito-inline to support mocking final classes and classes with special class  loaders. Let me update the pom.xml:
-
----
-
-⏺ The issue is Java 25 compatibility. Let me check what the CustomerMgr class looks like:
-
----
-
-⏺ The issue is that we're trying to mock EJB beans which are problematic with Java 25. Since performCompleteCheckout doesn't actually use CustomerMgr, we don't need to mock it. Let me update the test to not mock CustomerMgr since it's not used in the method we're testing:
-
----
-
-⏺ The problem is that Mockito is having trouble with EJB classes on Java 25. This is a known issue with Mockito and Java 25. Let me add JVM arguments to the surefire plugin to allow   Mockito to work properly:
-
----
-
-⏺ This is a persistent issue with Java 25 and EJBs. Let me check what interfaces the EJB classes might be using that we can create real stub implementations for instead of mocking:
-
----
-
-⏺ Now let me update the test to use these test stubs instead of Mockito mocks:
-</blockquote>
-
-It was pretty good of CC to solve the technology problems by creating "hand-rolled" mocks for the dependencies.  
+It wasn't straightforward.  At some point, the AI found it very difficult to create mocks with Mockito for the other "beans" that the `AccountBean` depends on, because of some technical issue with Mockito not being able to mock classes from a "sealed module".  Rather than going through convoluted hacks to make it work, I asked CC to create "hand-rolled" mocks for the dependencies.
 
 And, bang! In short while, it wrote all these 11 tests.  These tests are fast, they depend on nothing, they exercise exactly one class, and each test has a single assertion!  Sounds good.  But what about the important backorder logic mentioned above?  This is the test that deals with it:
 
@@ -277,23 +257,150 @@ void testSufficientInventory() throws Exception {
 }
 ```
 
-# Conclusion of this session
+## Aside: change detector tests
 
-Testing of legacy software remains challenging, with or without AI.  
+In the previous section, I complained against one of the tests being written by Claude, because I think it's a "change detector test".  But what does that mean?  It means that the test will break when *the implementation* is changed: it's a "change in implementation code" detector.  The problem with this is that this test will not provide a safety net for refactoring, because whatever change we make to the implementation, be it good or bad, will break the test.  On the contrary, this type of test will make refactoring more expensive!
 
-Where the AI helps:
+What we want are tests that detect changes in behaviour, not implementation.  This sounds sensible, right?  But there is some nuance here.
 
- - Learn about options; the AI knows the technology and design patterns well, having been trained on literally all of the programming books in the world.  Having a discussion with the AI is informative, and helps us refine our thoughts
- - Executing the strategy that we decide on.  Once we know what we want, the AI is usually good at implementing our wishes.
- 
-Where the human must step in:
+The term "change detector test" was introduced in [this blog post from the Google testing blog](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html).  The typical change detector test uses mocks to fix the implementation behaviour.  The example reported in the article is worth a little discussion, so I translated it to Java to make my point.
 
- - Deciding on an overall testing strategy.  After discussing all the options, choosing what makes sense in our situation is up to us. The AI is trained on all kinds of codebases, and it does not care much for one design choice or another; it aims to please and if we tell it that Arquillian is the way to go, they'll love it!  And if we tell it that Arquillian sucks, they will very much agree!
- - Knowing when to avoid antipatterns such as the "change detector tests"
- - Knowing what to test and what not to test, eg, mock the EntityManager, because we are not in the business of testing that JPA works; we want to test our logic, not JPA's
- - Understand that code that's difficult to test is difficult because of the way it is written, and, that when we are well covered by tests, we can safely refactor it.
- 
-The AI agent has been [compared to a "genie"](https://substack.com/@kentbeck).  I like that, in the sense that like a genie of legends, it grants wishes, even when what we ask for is not good for us.  What comes to me is that the AI is all INT (intelligence) and no WIS (wisdom): in [my fond memories](https://boardgamegeek.com/rpgitem/44966/dungeons-and-dragons-set-2-expert-rules "Dungeons &amp; Dragons Set 2: Expert Rules | RPG Item | BoardGameGeek") of playing Dungeons & Dragons, one being that responds to that description is the [intelligent magic sword](https://www.tenkarstavern.com/2012/12/intelligent-swords-in-ad-1e-whats-with.html?utm_source=chatgpt.com "Tenkar's Tavern: Intelligent Swords in AD&D 1e - What's With the Ego Trip?").  I think the comparison fits, because AI is the quintessential sharp tool: powerful, but dangerous.
+```java
+// Production code:
+public class Processor {
+    private FirstPart firstPart;
+    private SecondPart secondPart;
+    
+    public Processor(FirstPart firstPart, SecondPart secondPart) {
+        this.firstPart = firstPart;
+        this.secondPart = secondPart;
+    }
+    
+    public void process(Work w) {
+        firstPart.process(w);
+        secondPart.process(w);
+    }
+}
+
+// Test code (using Mockito):
+@Test
+public void testProcess() {
+    FirstPart part1 = mock(FirstPart.class);
+    SecondPart part2 = mock(SecondPart.class);
+    Work w = new Work();
+    
+    new Processor(part1, part2).process(w);
+    
+    InOrder inOrder = inOrder(part1, part2);
+    inOrder.verify(part1).process(w);
+    inOrder.verify(part2).process(w);
+}
+```
+
+Why is this test bad?  It's bad because it is just repeating the implementation.  It's basically fixing forever that to achieve some business objective, you need to invoke two specific procedures in order: `FirstPart#process` and `SecondPart#process`.  What would make better sense here?  I see these options.
+
+1. Write business-oriented tests for `FirstPart` and `SecondPart`.  Rely on a cheap, fast integration smoke test to ensure that the `Processor` isn't broken
+2. Write business-oriented integration test for `Processor`, `FirstPart` and `SecondPart`
+3. Change `Processor` so that it's not tightly coupled to `FirstPart` and `SecondPart`.
+
+My preference?  If this bit of code is likely going to be subject to maintenance and evolution, is surely for the third option.
+
+One way of decoupling `Processor` is to have it publish domain events, that will be acted upon by something that then calls `FirstPart` and `SecondPart`.  This implies that there's some other code that receives the domain events and distributes them to the interested parties.  In JEE, you could do this using CDI services provided by the application server:
+
+```java
+// Production code:
+public class Processor {
+    @Inject
+    private Event<Work> workEvent;
+    
+    public void process(Work w) {
+        workEvent.fire(w);
+    }
+}
+
+// Event observers:
+public class FirstPart {
+    public void process(@Observes @Priority(1) Work w) {
+        // process work
+    }
+}
+
+public class SecondPart {
+    public void process(@Observes @Priority(2) Work w) {
+        // process work
+    }
+}
+
+// Test code:
+@Test
+public void testProcess() {
+    Work w = new Work();
+    
+    Processor processor = new Processor();
+    ReflectionTestUtils.setField(processor, "workEvent", workEvent);
+    
+    processor.process(w);
+    
+    verify(workEvent).fire(w);
+}
+```
+
+I don't particulary like this, because it couples business logic to the CDI technology, but then again, it might be a good idea in some situations.  I would rather have `Processor` return a list of `DomainEvent`s: much simpler.
+
+An alternative idea for decoupling `Processor` from the bits that it invokes is to make `Processor` and abstract combinator.
+
+```java
+// Production code:
+public interface ComputationPart {
+    void process(Work w);
+}
+
+public class Processor {
+    private List<ComputationPart> parts;
+    
+    public Processor(List<ComputationPart> parts) {
+        this.parts = parts;
+    }
+    
+    public void process(Work w) {
+        for (ComputationPart part : parts) {
+            part.process(w);
+        }
+    }
+}
+
+// Test code:
+@Test
+public void testProcess() {
+    ComputationPart part1 = mock(ComputationPart.class);
+    ComputationPart part2 = mock(ComputationPart.class);
+    Work w = new Work();
+    
+    new Processor(List.of(part1, part2)).process(w);
+    
+    InOrder inOrder = inOrder(part1, part2);
+    inOrder.verify(part1).process(w);
+    inOrder.verify(part2).process(w);
+}
+```
+
+This test looks superficially similar to the one we started with, but is in fact a completely different situation.  From the software design point of view, where before class `Processor` knew about the collaborators it needed to call and in which order, now it only knows it has to execute a list of things, and it does not know exactly what it is executing.  
+
+From the testing point of view, the original test was a mirror of the production code, and now it's much different, so it's no longer a change detector test.  Now the `Processor` logic is about executing an arbitrary list of `ComputationPart`s, and the test proves that the Processor is doing just that.  If we refactor `Processor`, eg to use `Stream`s, the test will not break.
+
+```java
+public class Processor {
+    // ...    
+    public void process(Work w) {
+        parts.stream().forEach(part -> part.process(w));
+    }
+}
+```
+
+# Conclusion of series
+
+
+
 
 
 *Want to leave a comment? Please do so on LinkedIn!*
