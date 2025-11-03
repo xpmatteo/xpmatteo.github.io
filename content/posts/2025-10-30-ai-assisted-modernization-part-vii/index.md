@@ -22,7 +22,7 @@ Setup:
 
 # Continued from part VI
 
-In previous part, we continued the work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
+In the previous part, we continued work on the in-place JEE modernization by deciding on a good testing strategy.  In this session, we will begin the implementation of the testing strategy, and we'll come to a conclusion for the series, with a discussion of the two approaches we tried: re-engineering with Spring Boot, and upgrade in place.
 
 ## Implementing smoke tests
 
@@ -30,7 +30,7 @@ This was **not** an easy task. CC took a very long time, and I had to help it al
 
 I trimmed down CC's plan to a very short flow: the login flow.  It took an hour, more or less, to get it working, and I suggested an improvement on the original UI: show the name of the logged in user in the header, so that we can prove in the test if the login was successful.  It's an improvement for human users too.
 
-**The Fix Prod to Make Testing Easier heuristic**: it makes no sense to write overcomplicated and fragile testing code, when small changes in application behaviour could fix that. The changes might benefits non-automatic users too.
+**The Observable Design heuristic**: it makes no sense to write overcomplicated and fragile testing code, when small changes in application behaviour could fix that. The changes might benefit non-automatic users too.
 
 <figure>
   <img src='login-screen.jpg' alt='Screenshot of the login page' style='border: 1px solid black'>
@@ -87,9 +87,9 @@ So much for the smoke tests; now let's see what we should do for the unit tests.
 
 ## The unit tests dilemma
 
-It's fairly easy to point an AI agent to a bit of code and ask it to cover it with tests: it will usually do a great job of identifying and testing all the behaviours.  Warning: rethorical question coming!  But is this going to give us **good tests**?
+It's fairly easy to point an AI agent to a bit of code and ask it to cover it with tests: it will usually do a great job of identifying and testing all the behaviours.  Warning: rhetorical question coming!  But is this going to give us **good tests**?
 
-Let's start from the beginning.  The starting point was trying to understand where the interesting business logic happens.  I had spend a little time earlier asking CC to write a Python utility that will visualize which "beans" are executed in response to user actions.
+Let's start from the beginning.  The starting point was trying to understand where the interesting business logic happens.  I had spent a little time earlier asking CC to write a Python utility that will visualize which "beans" are executed in response to user actions.
 
 <figure>
   <img src='dependencies.png' alt='A diagram of "beans" being invoked by user actions'>
@@ -127,7 +127,7 @@ It turns out that on completion of an order, in page `checkout_final`, the `Acco
 
 It wasn't straightforward.  At some point, the AI found it very difficult to create mocks with Mockito for the other "beans" that the `AccountBean` depends on, because of some technical issue with Mockito not being able to mock classes from a "sealed module".  Rather than going through convoluted hacks to make it work, I asked CC to create "hand-rolled" mocks for the dependencies.
 
-And, bang! In short while, it wrote all these 11 tests.  These tests are fast, they depend on nothing, they exercise exactly one class, and each test has a single assertion!  Sounds good.  But what about the important backorder logic mentioned above?  This is the test that deals with it:
+And, bang! In a short while, it wrote all these 11 tests.  These tests are fast, they depend on nothing, they exercise exactly one class, and each test has a single assertion!  Sounds good.  But what about the important backorder logic mentioned above?  This is the test that deals with it:
 
 ```java
 @Test
@@ -146,9 +146,10 @@ void testPerformCompleteCheckout_ChecksInventoryForAllItems() throws Exception {
 }
 ```
 
-So this test checks that for every item in the shopping cart, we invoke the `ShoppingCart#checkInventory` method.  The tests for the backorder logic will be written in the <code>ShoppingCart</code> test suite.  Hmmm.
+This test verifies that the ShoppingCart#checkInventory method is invoked
+for every item in the cart.  The tests for the backorder logic will be written in a separate test suite for the <code>ShoppingCart</code>.  Hmmm.
 
-The thing that leaves me uneasy about these tests is that they look very much like [change detector tests](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html "Google Testing Blog: Testing on the Toilet: Change-Detector Tests Considered Harmful").  This test will break when code in the `AccountBean#performCompleteCheckout` is changed. A valid and an invalid change will break this code with equal likelyhood.  
+The thing that leaves me uneasy about these tests is that they look very much like [change detector tests](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html "Google Testing Blog: Testing on the Toilet: Change-Detector Tests Considered Harmful").  This test will break when code in the `AccountBean#performCompleteCheckout` is changed. A valid and an invalid change might break this code with equal likelihood.  
 
 OK Matteo, if this test is not good, what should we be doing differently then?  I think that difficulty in testing comes from poor production code design.  We have that when the customer submits an order, a number of things should be done:
 
@@ -156,7 +157,7 @@ OK Matteo, if this test is not good, what should we be doing differently then?  
 2. Send a confirmation email (but continue if there's any problem sending it)
 3. Check inventory for each item being purchased
 
-It seems likely that, as the business evolves, this list is likely to change.  It seems an unstable list of things to do. The first thing that comes to my mind is for `performCompleteCheckout` to generate a [Domain Event](https://martinfowler.com/eaaDev/DomainEvent.html "Domain Event"), and move the mailer and inventory check concerns in separate listeners.  I would like to make this change, but the tests are not covering me!  I would have to make the refactoring, breaking the tests, and then writing new tests for the new untested code.  We could do that, but there's a better way: let's write better tests for this functionality!
+It seems likely that, as the business evolves, this list is likely to change.  It seems an unstable list of things to do. The first thing that comes to my mind is for `performCompleteCheckout` to generate a [Domain Event](https://martinfowler.com/eaaDev/DomainEvent.html "Domain Event"), and move the mailer and inventory check concerns in separate listeners.  I would like to make this change, but the tests are not covering me!  Yes it's true that we just wrote 11 tests, but if I change the implementation, some tests will likely break, even though I'm preserving the behaviour: that's the problem.  I would have to make the refactoring, breaking the tests, and then writing new tests for the new untested code.  We could do that, but there's a better way: let's write better tests for this functionality.
 
 **The Testing Important Things heuristic**: our tests should be testing important behaviour, not implementation. We should be very suspicious of tests that mirror the implementation, and of tests that seem not very related to the business logic that we care about.
 
@@ -255,13 +256,16 @@ void testSufficientInventory() throws Exception {
 }
 ```
 
+The test we have just written covers the behaviour.  **Now** I'm confident that we can apply a refactoring to the production code, to decouple it and improve testability.  And this exercise is left to the reader...
+
+
 ## Aside: change detector tests
 
 In the previous section, I complained against one of the tests being written by Claude, because I think it's a "change detector test".  But what does that mean?  It means that the test will break when *the implementation* is changed: it's a "change in implementation code" detector.  The problem with this is that this test will not provide a safety net for refactoring, because whatever change we make to the implementation, be it good or bad, will break the test.  On the contrary, this type of test will make refactoring more expensive!
 
 What we want are tests that detect changes in behaviour, not implementation.  This sounds sensible, right?  But there is some nuance here.
 
-The term "change detector test" was introduced in [this post from the Google testing blog](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html).  The typical change detector test uses mocks to fix the implementation behaviour.  The example reported in the article is worth a little discussion, so I translated it to Java, to better make my point.
+The term "change detector test" was introduced in [this post from the Google testing blog](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html).  The typical change detector test uses mocks to fix the implementation behaviour.  The example reported in the article is worth a little discussion, so I translated it from Python to Java, because seeing the types makes my point easier to see.
 
 ```java
 // Production code:
@@ -301,7 +305,7 @@ Why is this test bad?  It's bad because it is just repeating the implementation.
 2. Write business-oriented integration test for `Processor`, `FirstPart` and `SecondPart`
 3. Change `Processor` so that it's not tightly coupled to `FirstPart` and `SecondPart`.
 
-My preference?  If this bit of code is likely going to be subject to maintenance and evolution, is surely for the third option.
+My preference?  If this bit of code is likely going to be subject to maintenance and evolution, it's surely the third option.
 
 One way of decoupling `Processor` is to have it publish domain events, that will be acted upon by something that then calls `FirstPart` and `SecondPart`.  This implies that there's some other code that receives the domain events and distributes them to the interested parties.  In JEE, you could do this using CDI services provided by the application server:
 
@@ -395,7 +399,7 @@ public class Processor {
 }
 ```
 
-**The Avoid Change Detector Test heuristic**: when the test mirrors the production code, look for ways to change production code so that it's less coupled, or change the test code to focus on the business outcomes and not the implementation, or both.  Domain events and abstract parts combinators are two useful techniques.
+**The Avoid Change Detector Test heuristic**: when the test mirrors the production code, look for ways to change production code so that it's less coupled, or change the test code to focus on the business outcomes and not the implementation, or both.  Domain events and abstract parts combinators are two useful techniques decoupling techniques.
 
 Further readings on change detector tests in [this thoughtful article](https://explosionduck.com/wp/change-detectors-versus-unit-tests/) and in this [Stackoverflow answer](https://softwareengineering.stackexchange.com/questions/344555/change-detector-tests-considered-harmful/344695#344695) 
 
@@ -472,7 +476,11 @@ By creating hand-rolled mocks and focusing on business logic (inventory levels, 
 
 Both approaches, the port to a separate Spring Boot app, or the port in-place to modern JEE, seem viable.  Which one you choose depends on which tech stack is better in your context.  One important thing is to release incrementally, which is easier to achieve with the in-place port.  With the separate Spring Boot app, we could change the links in the Spring Boot app to point to the legacy app, so that the user is able to navigate seamlessly from one app to the other; but it would be challenging to keep the same session in both apps, as JEE and Spring Boot use incompatible technology for session management.
 
-Having learned all this, if I were to do it again, I would probably start with the in-place port.  If we really wanted Spring Boot, we could probably achieve if with incremental in-place refactoring, from JEE to embedded Jetty to Spring Boot. On the other hand, this is a small project: while the AI in October 2025 is quite capable to upgrade the JEE versions in this project, it will likely find it harder in real-life, much larger projects.  If this were the case, we'd need to look for ways to slice the work in thinner slices, and porting pages one by one in a fresh project is a way to do it.
+Which tech stack we choose depends on our context: what is the common tech stack in our company? What are the skills of our colleagues?  Much as I dislike JEE, if the company I work for bets on JEE, and I really want to stay in this company, I would make JEE work well.
+
+Anyways, having learned all this, if I were to do it again, I would probably start with the in-place port.  If we really wanted Spring Boot, we could probably achieve if with incremental in-place refactoring, from JEE to embedded Jetty to Spring Boot. On the other hand, this is a small project: while the AI in October 2025 is quite capable to upgrade the JEE versions in this project, it will likely find it harder in real-life, much larger projects.  If this were the case, we'd need to look for ways to slice the work in thinner slices, and porting pages one by one in a fresh project is a way to do it.
+
+So my advice would be: start with an in-place port, if you can make it work.  If you can't make it work, either because the codebase is too large, or because the tech jump is too large, then go with page-by-page port to a fresh project.
 
 
 ## Broader Implications
