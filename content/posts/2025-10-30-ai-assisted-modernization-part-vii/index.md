@@ -347,7 +347,18 @@ public void testProcess() {
 }
 ```
 
-I don't particulary like this, because it couples business logic to the CDI technology, but then again, it might be a good idea in some situations.  I would rather have `Processor` return a list of `DomainEvent`s: much simpler.
+I don't particulary like this, because it couples business logic to the CDI technology, but then again, it might be a good idea in some situations.  I would rather have `Processor` return a list of `DomainEvent`s: much simpler:
+
+```java
+@Test
+public void testProcess() {
+    Work w = new Work();
+    
+    List<DomainEvent> events = new Processor().process(w);
+    
+    assertThat(events).containsExactly(new WorkEvent(w));
+}
+```
 
 An alternative idea for decoupling `Processor` from the bits that it invokes is to make `Processor` an [abstract parts combinator](https://softwareengineering.stackexchange.com/questions/344555/change-detector-tests-considered-harmful/344695#344695).
 
