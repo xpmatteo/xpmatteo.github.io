@@ -260,6 +260,64 @@ After significant changes to your project, ask the AI to update CLAUDE.md to ref
 
 [See it in action in Part V](/posts/ai-assisted-modernization-of-java-part-v/)
 
+
+# Testing
+
+These heuristics help write effective tests for legacy and modernized code.
+
+### 🔍 The Observable Design Heuristic
+
+**It makes no sense to write overcomplicated and fragile testing code when small changes in application behaviour could fix that.**
+
+When testing is difficult because the application is hard to observe, consider making small changes to the production code to make it more testable. Often these changes also improve the user experience.
+
+**Example:** When testing a login flow with Playwright, add "Logged in as: [username]" to the header. This makes the test simpler and more reliable, and it's also a better experience for human users.
+
+**Why it matters:** Testing code that fights against the application design is brittle and hard to maintain. Small production changes that improve observability benefit both tests and users.
+
+[See it in action in Part VII](/posts/ai-assisted-modernization-part-vii/)
+
+
+### 🔬 The Multiple Test Cases Heuristic
+
+**Good tests check for more than one behaviour in the code under test.**
+
+If you only have one test case for a particular part of the application, chances are good that you've missed some interesting behaviour in either the tests or the production code. Interesting code has more than one behaviour!
+
+**Example:** Don't just test the successful login case: also test wrong password, locked account, missing credentials, etc. Don't just test sufficient inventory: also test insufficient stock, zero inventory, exact match scenarios.
+
+**Why it matters:** Code that has just one behaviour is boring, and the tests for it tend to be change detectors.  Consider the production code: can you think of a case where it should behave differently?  Consider the test code: can you think of an existing behaviour that you missed?
+
+
+[See it in action in Part VII](/posts/ai-assisted-modernization-part-vii/)
+
+
+### 🎯 The Testing Important Things Heuristic
+
+**Our tests should be testing important behaviour, not implementation.**
+
+Be very suspicious of tests that mirror the implementation, and of tests that seem not very related to the business logic that you care about. Tests that count method calls or verify internal state often become obstacles to refactoring rather than enablers.
+
+**Example:** Instead of testing that `ShoppingCart.checkInventory()` is called for each item (implementation detail), test that inventory quantities decrease correctly, backorders are created when stock falls below threshold, and existing backorders are updated appropriately (business logic).
+
+**Why it matters:** Tests focused on implementation break during valid refactorings just as often as invalid ones. Tests focused on business outcomes enable refactoring by catching actual behavioral regressions while allowing implementation changes.
+
+[See it in action in Part VII](/posts/ai-assisted-modernization-part-vii/)
+
+
+### 🚫 The Avoid Change Detector Test Heuristic
+
+**When the test mirrors the production code, look for ways to change production code so that it's less coupled, or change the test code to focus on business outcomes, or both.**
+
+Change detector tests typically use mocks to verify the exact sequence of internal method calls. They break on most implementation change, whether the change is valid or not. This makes refactoring expensive rather than safe.
+
+**Why it matters:** Change detector tests make refactoring more expensive by breaking on most implementation change; they provide little value as a safety net since they fail equally for good and bad changes. Focus on business outcomes instead.
+
+**Techniques:** Domain events and abstract parts combinators are two useful techniques for decoupling code and enabling more meaningful tests.
+
+[See it in action in Part VII](/posts/ai-assisted-modernization-part-vii/)
+
+
 ---
 
 
@@ -273,5 +331,6 @@ Want to see these heuristics in action? Read the full series:
 - [Part IV: Reading from the Database](/posts/ai-assisted-modernization-of-java-part-iv/) - Building a complete MVC stack with ATDD/TDD
 - [Part V: In-Place JEE Modernization](/posts/ai-assisted-modernization-of-java-part-v/) - Upgrading Java 6 to Java 21 and JEE 6 to Jakarta EE 10 in place
 - [Part VI: A Testing Strategy](/posts/ai-assisted-modernization-part-vi/) - Designing a comprehensive testing strategy for legacy applications
+- [Part VII: Season Finale](/posts/ai-assisted-modernization-part-vii/) - Implementing tests, avoiding change detector tests, and comparing the two approaches
 
 *Want to leave a comment? Please do so on LinkedIn!*
