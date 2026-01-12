@@ -1,14 +1,13 @@
 +++
 title = 'Learning to code well in the age of AI'
 slug = 'learning-to-code-well-in-the-age-of-ai'
-date = 2026-01-11T12:00:00+01:00
+date = 2026-01-11T11:00:00+01:00
 tags = [
     "AI",
     "TDD",
     "refactoring",
     "DSL",
 ]
-draft = true
 +++
 
 <!-- TODO: Add introduction paragraph that sets up the main thesis -->

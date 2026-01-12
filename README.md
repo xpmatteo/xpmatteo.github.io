@@ -6,4 +6,4 @@ Start a local server with
 
 Generate a new blog post with
 
-    hugo new content posts/2020-00-00-my-title
+    script/new-post.sh "the title of my new blog"
