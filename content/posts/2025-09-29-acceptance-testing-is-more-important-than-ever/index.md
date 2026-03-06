@@ -13,6 +13,8 @@ tags = [
 
 In my experiments with AI-assisted software development, and especially when trying spec-driven development, I found that Acceptance Tests are key to enable success.  Here's my take on them.
 
+**Update 2026-03-06**: the [Approved Fixtures](https://lexler.github.io/augmented-coding-patterns/patterns/approved-fixtures/) pattern from the [Augmented Coding Patterns](https://lexler.github.io/augmented-coding-patterns/) website tells a very similar story in much fewer words, with convincing examples.
+
 # The scoop on Acceptance Tests
 
 One of the original practices of [Extreme Programming](https://ronjeffries.com/xprog/what-is-extreme-programming/ "What is Extreme Programming?") was "[Customer Tests](https://ronjeffries.com/xprog/what-is-extreme-programming/#customer "What is Extreme Programming?")", more commonly known as "Acceptance Tests": these are tests that are written from the point of view of the business, and they prove that a given business rule has been implemented by checking specific examples of that business rule; e.g., when the user does X, in context Y, then Z should happen.
