@@ -46,4 +46,4 @@ Not many books on this subject; of the ones I read, this one is the only one I l
 * Chad Fowler's blog on what he calls the [Phoenix Architecture](https://aicoding.leaflet.pub/ "The Phoenix Architecture") is a detailed treatment of exactly that idea: spec-as-source taken to its logical extreme.  It's unclear what the limits of applicability are; I can't find tangible evidence of it being applied at scale, besides [a POC library](https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html "A Software Library with No Code") and the claims from [the StrongDM team](https://factory.strongdm.ai/ "StrongDM Software Factory")
 
 
-*Want to leave a comment? Please do so on LinkedIn!*
+*[Want to leave a comment? Please do so on LinkedIn!](https://www.linkedin.com/posts/matteovaccari_my-current-favorite-readings-on-coding-with-activity-7438590952455172096-CweI "My current favorite readings on coding with AI | Matteo Vaccari")*
