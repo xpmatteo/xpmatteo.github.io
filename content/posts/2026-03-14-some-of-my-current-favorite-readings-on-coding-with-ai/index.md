@@ -25,7 +25,7 @@ It's always fascinating to read about talented individuals' personal work habits
 
 ## Pattern languages
 
-Emily Bache recently argued that, given that traditional TDD katas are no match for AI coding assistants, we should study patterns instead.  She has a very good point, though I think that finding existing open source codebases and making them safe to operate with AI is also a very good exercise.
+Emily Bache recently argued that, given that traditional TDD katas are no match for AI coding assistants, we should study patterns instead.  She has a very good point, though I think that finding existing open source codebases and making them safe to operate with AI [is also a very good exercise](https://matteo.vaccari.name/posts/modernization/ "Modernization | Matteo Vaccari").
 
 Here are the only two coding-with-AI pattern collections I know
 
