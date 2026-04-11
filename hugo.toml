@@ -16,7 +16,7 @@ tag = "tags"
 
 
 [permalinks]
-blog = "/:slugorfilename/"
+blog = "/:slugorcontentbasename/"
 tags = "/posts/:slug"
 
 
