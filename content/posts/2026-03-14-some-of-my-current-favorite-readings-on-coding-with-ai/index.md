@@ -61,6 +61,7 @@ Not many books on this subject; of the ones I read, this one is the only one I l
 * [Ivett Ördög's video](https://youtu.be/GyI5qU9MNJU?si=AU9RyQOjoiI8yrlT&t=1577) on [Approved Scenarios](https://lexler.github.io/augmented-coding-patterns/patterns/approved-scenarios/ "Augmented Coding Patterns") and [Approved Logs](https://lexler.github.io/augmented-coding-patterns/patterns/approved-logs/ "Augmented Coding Patterns")
 * Julias Shaw's article on [why specs without tests are next to useless](https://www.linkedin.com/pulse/youre-wasting-effort-you-put-spec-driven-development-julias-shaw-dxmcc/ "You're Wasting the Effort You Put Into Spec-Driven Development"). "Encoding specifications into automated tests that actually enforce the contract. [...], most developers outside the extreme programming crowd don't realize they need to". THIS
 * Ross Cox's [famous presentation on testing in Go](https://research.swtch.com/testing "research!rsc: Go Testing By Example") is very much applicable to any other language, and arrives at similar conclusions as Ivett Ördög's
+* It turns out it's easy to get AI to follow (its own version of) TDD: just tell it to "[use red/green TDD](https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/ "Red/green TDD - Agentic Engineering Patterns - Simon Willison's Weblog")", as Simon Willison reports. It's a different version of TDD where the AI writes a bunch of tests first, then checks that they fail, then makes them pass, whereas the original TDD calls for writing a test at a time.  Also, the AI will usually forget the refactoring part.  All the same, it's a very useful technique
 
 ### Harnesses and guardrails
 
@@ -74,6 +75,7 @@ Not many books on this subject; of the ones I read, this one is the only one I l
 ### Reviewing AI output
 
 * Kieran Klaassen of Compound Engineering fame writes that he [stopped reading code, and his code reviews got better](https://every.to/source-code/i-stopped-reading-code-my-code-reviews-got-better "I Stopped Reading Code. My Code Reviews Got Better.")
+* Simon Willison's [Linear Walkthrough](https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/ "Linear walkthroughs - Agentic Engineering Patterns - Simon Willison's Weblog") get the AI to write a report about the code it's written. 
 
 ## Finally...
 
