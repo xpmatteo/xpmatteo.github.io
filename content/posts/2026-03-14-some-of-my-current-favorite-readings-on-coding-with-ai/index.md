@@ -14,7 +14,7 @@ I’ve been experimenting with coding with AI intensely for the past 13 months. 
 
 ## Personal workflows
 
-It's always fascinating to read about talented individuals' personal work habits.  Here are two favorites out of many.
+It's always fascinating to read about talented individuals' personal work habits.  Here are three favorites out of many.
 
 * Shrivu Shankar's [AI Can't Read Your Docs](https://blog.sshh.io/p/ai-cant-read-your-docs) contains a mix of advice on what works and what doesn't, especially related to "how do I teach AI what I like"
 * Boris Tane's [How I Use Claude Code](https://boristane.com/blog/how-i-use-claude-code/) explains how to focus on planning a programming task, which is one of my favorite strategies for levelling up with agentic AI.
@@ -59,15 +59,12 @@ Not many books on this subject; of the ones I read, this one is the only one I l
 ### TDD and testing in general
 
 * [Ivett Ördög's video](https://youtu.be/GyI5qU9MNJU?si=AU9RyQOjoiI8yrlT&t=1577) on [Approved Scenarios](https://lexler.github.io/augmented-coding-patterns/patterns/approved-scenarios/ "Augmented Coding Patterns") and [Approved Logs](https://lexler.github.io/augmented-coding-patterns/patterns/approved-logs/ "Augmented Coding Patterns")
-
 * Julias Shaw's article on [why specs without tests are next to useless](https://www.linkedin.com/pulse/youre-wasting-effort-you-put-spec-driven-development-julias-shaw-dxmcc/ "You're Wasting the Effort You Put Into Spec-Driven Development"). "Encoding specifications into automated tests that actually enforce the contract. [...], most developers outside the extreme programming crowd don't realize they need to". THIS
-
 * Ross Cox's [famous presentation on testing in Go](https://research.swtch.com/testing "research!rsc: Go Testing By Example") is very much applicable to any other language, and arrives at similar conclusions as Ivett Ördög's
 
 ### Harnesses and guardrails
 
 * Birgitta Böckeler's article on [Harness Engineering](https://martinfowler.com/articles/harness-engineering.html "Harness engineering for coding agent users") explains the concept and its nuances
-
 * Ben O'Mahony's article on [Hardening Codebases for Agentic Coding](https://benomahony.com/blog/hardening-codebases-for-agentic-coding/) gives good tips for Python codebases; it's straightorward to extend this to other languages
 
 ### Spec Driven Development
