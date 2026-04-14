@@ -412,7 +412,7 @@ public class Processor {
 
 **The Avoid Change Detector Test heuristic**: when the test mirrors the production code, look for ways to change production code so that it's less coupled, or change the test code to focus on the business outcomes and not the implementation, or both.  Domain events and abstract parts combinators are two useful techniques decoupling techniques.
 
-Further readings on change detector tests in [this thoughtful article](https://explosionduck.com/wp/change-detectors-versus-unit-tests/) and in this [Stackoverflow answer](https://softwareengineering.stackexchange.com/questions/344555/change-detector-tests-considered-harmful/344695#344695) 
+Further readings on change detector tests in [this thoughtful article](https://web.archive.org/web/20241225075733/https://explosionduck.com/wp/change-detectors-versus-unit-tests/) and in this [Stackoverflow answer](https://softwareengineering.stackexchange.com/questions/344555/change-detector-tests-considered-harmful/344695#344695) 
 
 
 # Conclusion of the series
