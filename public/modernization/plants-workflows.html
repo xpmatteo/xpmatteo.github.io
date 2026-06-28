@@ -1,0 +1,691 @@
+<!doctype html>
+<!--
+ABOUTME: Single-page interactive workflow viewer for Plants by WebSphere.
+ABOUTME: Renders component boxes + arrows from the FLOWS JSON; clicking an action highlights its flow.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Plants by WebSphere — Workflows</title>
+<style>
+  :root {
+    --bg:#0f1115; --panel:#171a21; --border:#2a2f3a; --text:#e6e8ee;
+    --muted:#9aa3b2; --accent:#62d196; --accent-soft:rgba(98,209,150,0.18);
+    --arrow:#475063; --arrow-active:#62d196; --layer:#1b1f28;
+    --read:#5aa9e6; --read-soft:rgba(90,169,230,0.18);
+    --write:#62d196; --write-soft:rgba(98,209,150,0.18);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--text);
+    font:14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  header { padding:14px 20px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:16px; font-weight:600; }
+  header .subtitle { color:var(--muted); font-size:12px; }
+  .actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .actions button {
+    background:var(--panel); color:var(--text); border:1px solid var(--border);
+    padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;
+  }
+  .actions button:hover { border-color:var(--accent); }
+  .actions button.active { background:var(--accent-soft); border-color:var(--accent); color:var(--accent); }
+  main { display:grid; grid-template-columns: 1fr 360px; height: calc(100vh - 60px); }
+  #stage { position:relative; overflow:auto; padding:20px; }
+  #stage svg { position:absolute; top:0; left:0; pointer-events:none; }
+  .layer-row { display:flex; gap:14px; margin-bottom:18px; align-items:stretch; }
+  .layer-label { width:90px; flex-shrink:0; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--muted); display:flex; align-items:center; }
+  .layer-nodes { flex:1; display:flex; flex-wrap:wrap; gap:10px; background:var(--layer);
+    padding:10px; border:1px dashed var(--border); border-radius:8px; }
+  .node {
+    background:var(--panel); border:1px solid var(--border); border-radius:6px;
+    padding:8px 12px; min-width:120px; position:relative; transition:all 0.2s;
+  }
+  .node .name { font-weight:600; font-size:13px; }
+  .node .kind { font-size:11px; color:var(--muted); margin-top:2px; }
+  .node.active { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-soft); }
+  .node.dim { opacity:0.35; }
+  /* Table nodes coloured by the operation the selected flow performs */
+  .node.tbl-read  { border-color:var(--read);  box-shadow:0 0 0 2px var(--read-soft); }
+  .node.tbl-write { border-color:var(--write); box-shadow:0 0 0 2px var(--write-soft); }
+  .op-badges { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+  .op-badge { font-size:10px; font-weight:700; letter-spacing:0.04em; padding:1px 6px;
+    border-radius:4px; font-family: ui-monospace, Menlo, monospace; }
+  .op-badge.read  { background:var(--read-soft);  color:var(--read);  border:1px solid var(--read); }
+  .op-badge.write { background:var(--write-soft); color:var(--write); border:1px solid var(--write); }
+  .legend { display:flex; gap:14px; align-items:center; margin-left:auto; font-size:11px; color:var(--muted); }
+  .legend .swatch { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:middle; }
+  .legend .swatch.read { background:var(--read); }
+  .legend .swatch.write { background:var(--write); }
+  aside .tables-hit { margin:0 0 14px 0; }
+  aside .tables-hit h3 { margin:0 0 8px 0; font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); }
+  aside .tables-hit .row { display:flex; align-items:center; gap:8px; padding:4px 0; }
+  aside .tables-hit .tname { font-family: ui-monospace, Menlo, monospace; font-size:12px; min-width:90px; }
+  .step-badge {
+    position:absolute; top:-8px; left:-8px;
+    width:22px; height:22px; border-radius:50%;
+    background:var(--accent); color:#0f1115; font-weight:700; font-size:12px;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--bg);
+  }
+  aside { background:var(--panel); border-left:1px solid var(--border); overflow-y:auto; padding:18px; }
+  aside h2 { margin:0 0 4px 0; font-size:15px; }
+  aside .desc { color:var(--muted); font-size:12px; margin-bottom:14px; }
+  ol.steps { list-style:none; padding:0; margin:0; counter-reset:step; }
+  ol.steps li { counter-increment:step; padding:10px 10px 10px 36px; position:relative;
+    border-left:2px solid var(--border); margin-left:10px; }
+  ol.steps li::before {
+    content: counter(step);
+    position:absolute; left:-13px; top:8px;
+    width:24px; height:24px; border-radius:50%;
+    background:var(--accent); color:#0f1115; font-weight:700;
+    display:flex; align-items:center; justify-content:center; font-size:12px;
+  }
+  ol.steps li .from-to { font-size:12px; color:var(--muted); }
+  ol.steps li .from-to code { color:var(--accent); font-family: ui-monospace, Menlo, monospace; }
+  ol.steps li .payload { margin-top:4px; font-family: ui-monospace, Menlo, monospace; font-size:12px; color:var(--text); }
+  ol.steps li .note { margin-top:4px; font-size:12px; color:var(--muted); font-style:italic; }
+  .empty { color:var(--muted); text-align:center; padding:40px 10px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Plants by WebSphere — Workflows</h1>
+  <span class="subtitle">Click an action to highlight the flow</span>
+  <div class="actions" id="actions"></div>
+  <div class="legend">
+    <span><span class="swatch read"></span>read (SELECT)</span>
+    <span><span class="swatch write"></span>write (INSERT/UPDATE/DELETE)</span>
+  </div>
+</header>
+<main>
+  <div id="stage">
+    <div id="layers"></div>
+    <svg id="arrows"></svg>
+  </div>
+  <aside id="sidebar">
+    <div class="empty">Pick an action above to see how it flows through the system.</div>
+  </aside>
+</main>
+
+<script id="flows-data" type="application/json">
+{
+  "components": [
+    { "id": "browser",        "name": "Browser",                "kind": "client",        "layer": "Client" },
+    { "id": "facelets",       "name": "JSF Facelets (.xhtml)",  "kind": "view",          "layer": "View" },
+    { "id": "AccountServlet", "name": "AccountServlet",         "kind": "servlet",       "layer": "View" },
+    { "id": "AdminServlet",   "name": "AdminServlet",           "kind": "servlet",       "layer": "View" },
+    { "id": "ImageServlet",   "name": "ImageServlet",           "kind": "servlet",       "layer": "View" },
+    { "id": "K8sReadyServlet","name": "K8sReadyServlet",        "kind": "servlet",       "layer": "View" },
+    { "id": "AccountBean",    "name": "AccountBean",            "kind": "JSF backing",   "layer": "View" },
+    { "id": "ShoppingBean",   "name": "ShoppingBean",           "kind": "JSF backing",   "layer": "View" },
+    { "id": "ProductBean",    "name": "ProductBean",            "kind": "JSF backing",   "layer": "View" },
+    { "id": "OrderInfo",      "name": "OrderInfo",              "kind": "form DTO",      "layer": "View" },
+    { "id": "LoginInfo",      "name": "LoginInfo",              "kind": "form DTO",      "layer": "View" },
+    { "id": "MailAction",     "name": "MailAction",             "kind": "helper",        "layer": "View" },
+
+    { "id": "CustomerMgr",    "name": "CustomerMgr",            "kind": "@Stateless EJB",       "layer": "EJB" },
+    { "id": "CatalogMgr",     "name": "CatalogMgr",             "kind": "@Stateless EJB",       "layer": "EJB" },
+    { "id": "ShoppingCartBean","name":"ShoppingCartBean",       "kind": "@Stateful EJB",        "layer": "EJB" },
+    { "id": "BackOrderMgr",   "name": "BackOrderMgr",           "kind": "@Stateless EJB",       "layer": "EJB" },
+    { "id": "SuppliersBean",  "name": "SuppliersBean",          "kind": "@Stateless EJB",       "layer": "EJB" },
+    { "id": "MailerBean",     "name": "MailerBean",             "kind": "@Stateless EJB",       "layer": "EJB" },
+    { "id": "ResetDBBean",    "name": "ResetDBBean",            "kind": "@Stateless EJB",       "layer": "EJB" },
+    { "id": "Populate",       "name": "Populate",               "kind": "seeder",               "layer": "EJB" },
+
+    { "id": "Customer",       "name": "Customer",               "kind": "JPA entity",    "layer": "JPA" },
+    { "id": "Inventory",      "name": "Inventory",              "kind": "JPA entity",    "layer": "JPA" },
+    { "id": "Order",          "name": "Order",                  "kind": "JPA entity",    "layer": "JPA" },
+    { "id": "OrderItem",      "name": "OrderItem",              "kind": "JPA entity",    "layer": "JPA" },
+    { "id": "BackOrder",      "name": "BackOrder",              "kind": "JPA entity",    "layer": "JPA" },
+    { "id": "Supplier",       "name": "Supplier",               "kind": "JPA entity",    "layer": "JPA" },
+    { "id": "EntityManager",  "name": "EntityManager (PBW)",    "kind": "JPA",           "layer": "JPA" },
+
+    { "id": "MariaDB",        "name": "MariaDB (plantsdb)",     "kind": "RDBMS",         "layer": "External" },
+    { "id": "MailSession",    "name": "JavaMail (mail/mail-service)", "kind": "SMTP",    "layer": "External" },
+
+    { "id": "t_CUSTOMER",     "name": "CUSTOMER",               "kind": "table",         "layer": "Tables" },
+    { "id": "t_INVENTORY",    "name": "INVENTORY",              "kind": "table",         "layer": "Tables" },
+    { "id": "t_ORDER",        "name": "ORDER",                  "kind": "table",         "layer": "Tables" },
+    { "id": "t_ORDERITEM",    "name": "ORDERITEM",              "kind": "table",         "layer": "Tables" },
+    { "id": "t_BACKORDER",    "name": "BACKORDER",              "kind": "table",         "layer": "Tables" },
+    { "id": "t_SUPPLIER",     "name": "SUPPLIER",               "kind": "table",         "layer": "Tables" }
+  ],
+  "layers": ["Client", "View", "EJB", "JPA", "External", "Tables"],
+  "actions": [
+    {
+      "id": "register",
+      "title": "Register",
+      "description": "Browser POSTs the registration form; AccountServlet validates inputs, asks CustomerMgr to create a Customer, and stores it in the HTTP session.",
+      "steps": [
+        { "from": "browser", "to": "AccountServlet", "label": "POST /servlet/AccountServlet?action=register", "payload": "userid, passwd, fname, lname, addr1/2, city, state, zip, phone" },
+        { "from": "AccountServlet", "to": "CustomerMgr", "label": "createCustomer(...)", "payload": "all 10 fields", "note": "after Util.validateString(...) per field" },
+        { "from": "CustomerMgr", "to": "Customer", "label": "new Customer(...)", "payload": "constructor args" },
+        { "from": "CustomerMgr", "to": "EntityManager", "label": "em.persist(c); em.flush()", "payload": "Customer entity" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "INSERT INTO CUSTOMER", "payload": "row" },
+        { "from": "AccountServlet", "to": "browser", "label": "forward to promo/shopping page", "payload": "session.setAttribute(CUSTOMER, customer)" }
+      ],
+      "tables": [
+        { "id": "t_CUSTOMER", "ops": ["INSERT"] }
+      ]
+    },
+    {
+      "id": "login",
+      "title": "Login",
+      "description": "Browser POSTs userid/passwd; AccountServlet asks CustomerMgr to verify credentials, then fetches the Customer and stashes it in session.",
+      "steps": [
+        { "from": "browser", "to": "AccountServlet", "label": "POST /servlet/AccountServlet?action=login", "payload": "userid, passwd" },
+        { "from": "AccountServlet", "to": "CustomerMgr", "label": "verifyUserAndPassword(userid, passwd)", "payload": "credentials", "note": "returns error msg or null on success" },
+        { "from": "CustomerMgr", "to": "EntityManager", "label": "em.find(Customer.class, userid)", "payload": "PK lookup" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT FROM CUSTOMER", "payload": "by customerID" },
+        { "from": "AccountServlet", "to": "CustomerMgr", "label": "getCustomer(userid)", "payload": "userid", "note": "only when verify returned null" },
+        { "from": "AccountServlet", "to": "browser", "label": "forward to promo/shopping/orderInfo", "payload": "session.setAttribute(CUSTOMER, customer)" }
+      ],
+      "tables": [
+        { "id": "t_CUSTOMER", "ops": ["SELECT"] }
+      ]
+    },
+    {
+      "id": "login-jsf",
+      "title": "Login (JSF path)",
+      "description": "The JSF page binds to AccountBean#performLoginComplete which talks directly to CustomerMgr — same backend as the servlet path.",
+      "steps": [
+        { "from": "browser", "to": "facelets", "label": "submit login.xhtml", "payload": "h:inputText backed by LoginInfo" },
+        { "from": "facelets", "to": "AccountBean", "label": "performLoginComplete()", "payload": "LoginInfo (email, password)" },
+        { "from": "AccountBean", "to": "LoginInfo", "label": "getEmail() / getPassword()", "payload": "form values" },
+        { "from": "AccountBean", "to": "CustomerMgr", "label": "verifyUserAndPassword(...)", "payload": "email, password" },
+        { "from": "CustomerMgr", "to": "EntityManager", "label": "em.find(Customer.class, id)", "payload": "PK lookup" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT FROM CUSTOMER", "payload": "by customerID" },
+        { "from": "AccountBean", "to": "CustomerMgr", "label": "getCustomer(email)", "payload": "email" },
+        { "from": "AccountBean", "to": "facelets", "label": "navigate (promo / orderInfo / account)", "payload": "ACTION_* outcome" }
+      ],
+      "tables": [
+        { "id": "t_CUSTOMER", "ops": ["SELECT"] }
+      ]
+    },
+    {
+      "id": "browse",
+      "title": "Browse category",
+      "description": "JSF shopping page asks ShoppingBean for items in a category; ShoppingBean delegates to CatalogMgr which runs a JPA named query.",
+      "steps": [
+        { "from": "browser", "to": "facelets", "label": "GET shopping.xhtml?category=N", "payload": "category id" },
+        { "from": "facelets", "to": "ShoppingBean", "label": "performShopping()", "payload": "via request params" },
+        { "from": "ShoppingBean", "to": "CatalogMgr", "label": "getItemsByCategory(category)", "payload": "int category" },
+        { "from": "CatalogMgr", "to": "EntityManager", "label": "createNamedQuery(\"getItemsByCategory\")", "payload": "param: category" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT FROM INVENTORY WHERE category = ?", "payload": "result set" },
+        { "from": "EntityManager", "to": "Inventory", "label": "hydrate entities", "payload": "List<Inventory>" },
+        { "from": "ShoppingBean", "to": "ProductBean", "label": "wrap each Inventory", "payload": "new ProductBean(inv)" },
+        { "from": "ShoppingBean", "to": "facelets", "label": "render shopping page", "payload": "products list" }
+      ],
+      "tables": [
+        { "id": "t_INVENTORY", "ops": ["SELECT"] }
+      ]
+    },
+    {
+      "id": "product-detail",
+      "title": "View product",
+      "description": "ShoppingBean#performProductDetail fetches a single Inventory item via CatalogMgr and wraps it in a ProductBean.",
+      "steps": [
+        { "from": "browser", "to": "facelets", "label": "click product link", "payload": "itemID" },
+        { "from": "facelets", "to": "ShoppingBean", "label": "performProductDetail()", "payload": "requestParams[itemID]" },
+        { "from": "ShoppingBean", "to": "CatalogMgr", "label": "getItemInventory(itemID)", "payload": "itemID" },
+        { "from": "CatalogMgr", "to": "EntityManager", "label": "em.find(Inventory.class, itemID)", "payload": "PK lookup" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT FROM INVENTORY", "payload": "by id" },
+        { "from": "ShoppingBean", "to": "ProductBean", "label": "new ProductBean(inv)", "payload": "Inventory" },
+        { "from": "ShoppingBean", "to": "facelets", "label": "render product page", "payload": "product" }
+      ],
+      "tables": [
+        { "id": "t_INVENTORY", "ops": ["SELECT"] }
+      ]
+    },
+    {
+      "id": "image",
+      "title": "Product image",
+      "description": "Images are served by ImageServlet which streams bytes from CatalogMgr.",
+      "steps": [
+        { "from": "browser", "to": "ImageServlet", "label": "GET /servlet/ImageServlet?action=getimage&inventoryID=...", "payload": "inventoryID" },
+        { "from": "ImageServlet", "to": "CatalogMgr", "label": "getItemImageBytes(inventoryID)", "payload": "inventoryID" },
+        { "from": "CatalogMgr", "to": "EntityManager", "label": "em.find(Inventory.class, id)", "payload": "PK lookup" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT FROM INVENTORY", "payload": "image blob" },
+        { "from": "ImageServlet", "to": "browser", "label": "200 image/jpeg", "payload": "byte[] body" }
+      ],
+      "tables": [
+        { "id": "t_INVENTORY", "ops": ["SELECT"] }
+      ]
+    },
+    {
+      "id": "add-to-cart",
+      "title": "Add to cart",
+      "description": "ShoppingBean clones the current ProductBean's Inventory with the chosen quantity and adds it to the stateful ShoppingCartBean.",
+      "steps": [
+        { "from": "browser", "to": "facelets", "label": "click 'Add to cart'", "payload": "quantity" },
+        { "from": "facelets", "to": "ShoppingBean", "label": "performAddToCart()", "payload": "uses #{shopping.product}" },
+        { "from": "ShoppingBean", "to": "ProductBean", "label": "getInventory() / getQuantity()", "payload": "current product" },
+        { "from": "ShoppingBean", "to": "Inventory", "label": "new Inventory(prod) + setQuantity(qty)", "payload": "cloned item" },
+        { "from": "ShoppingBean", "to": "ShoppingCartBean", "label": "addItem(item)", "payload": "Inventory", "note": "merges with existing line if same ID" },
+        { "from": "ShoppingBean", "to": "facelets", "label": "render cart page", "payload": "ACTION_CART" }
+      ],
+      "tables": []
+    },
+    {
+      "id": "checkout",
+      "title": "Checkout",
+      "description": "AccountBean#performCompleteCheckout drives the cart-to-order conversion: ShoppingCartBean persists Order/OrderItems, decrements Inventory (and back-orders if needed), then MailerBean sends a confirmation email.",
+      "steps": [
+        { "from": "browser", "to": "facelets", "label": "submit checkoutFinal.xhtml", "payload": "OrderInfo (billing/shipping/cc)" },
+        { "from": "facelets", "to": "AccountBean", "label": "performCompleteCheckout()", "payload": "bound OrderInfo" },
+        { "from": "AccountBean", "to": "ShoppingCartBean", "label": "createOrder(customerID, ...OrderInfo fields..., items)", "payload": "21 args + cart items" },
+        { "from": "ShoppingCartBean", "to": "EntityManager", "label": "em.find(Inventory.class, id) per cart line", "payload": "lookup" },
+        { "from": "ShoppingCartBean", "to": "OrderItem", "label": "new OrderItem(inv) + setQuantity()", "payload": "OrderItem[]" },
+        { "from": "ShoppingCartBean", "to": "Order", "label": "new Order(customer, ...billing/shipping/cc..., orderitems)", "payload": "Order aggregate" },
+        { "from": "ShoppingCartBean", "to": "EntityManager", "label": "em.persist(order); em.flush()", "payload": "Order + OrderItems" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "INSERT INTO ORDER, ORDERITEM", "payload": "rows" },
+        { "from": "AccountBean", "to": "ShoppingCartBean", "label": "checkInventory(si) for each item", "payload": "Inventory" },
+        { "from": "ShoppingCartBean", "to": "Inventory", "label": "setQuantity(qty - sold)", "payload": "decrement" },
+        { "from": "ShoppingCartBean", "to": "BackOrder", "label": "new BackOrder(inv, amountToOrder)", "payload": "only if below minThreshold", "note": "or update existing back-order quantity" },
+        { "from": "AccountBean", "to": "MailerBean", "label": "createAndSendMail(customer, orderId)", "payload": "Customer + orderId" },
+        { "from": "MailerBean", "to": "EntityManager", "label": "em.find(Order.class, orderId)", "payload": "load order for email body" },
+        { "from": "MailerBean", "to": "MailSession", "label": "Transport.send(MimeMessage)", "payload": "to customer email", "note": "skipped when Util.debugOn()" },
+        { "from": "AccountBean", "to": "ShoppingCartBean", "label": "removeAllItems()", "payload": "clear cart" },
+        { "from": "AccountBean", "to": "facelets", "label": "navigate to orderdone", "payload": "ACTION_ORDERDONE" }
+      ],
+      "tables": [
+        { "id": "t_INVENTORY", "ops": ["SELECT", "UPDATE"] },
+        { "id": "t_CUSTOMER",  "ops": ["SELECT"] },
+        { "id": "t_ORDER",     "ops": ["INSERT", "SELECT"] },
+        { "id": "t_ORDERITEM", "ops": ["INSERT"] },
+        { "id": "t_BACKORDER", "ops": ["INSERT", "UPDATE"] }
+      ]
+    },
+    {
+      "id": "update-account",
+      "title": "Update account",
+      "description": "AccountServlet (or AccountBean) hands edited fields to CustomerMgr#updateUser which loads, locks, and mutates the Customer entity.",
+      "steps": [
+        { "from": "browser", "to": "AccountServlet", "label": "POST action=accountUpdate", "payload": "edited customer fields" },
+        { "from": "AccountServlet", "to": "CustomerMgr", "label": "updateUser(userid, ...fields...)", "payload": "9 args" },
+        { "from": "CustomerMgr", "to": "EntityManager", "label": "em.find + em.lock(WRITE) + em.refresh", "payload": "Customer" },
+        { "from": "CustomerMgr", "to": "Customer", "label": "setFirstName/...setPhone()", "payload": "mutate fields" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "UPDATE CUSTOMER on tx commit", "payload": "dirty fields" },
+        { "from": "AccountServlet", "to": "browser", "label": "forward to next page", "payload": "session updated" }
+      ],
+      "tables": [
+        { "id": "t_CUSTOMER", "ops": ["SELECT", "UPDATE"] }
+      ]
+    },
+    {
+      "id": "admin-populate",
+      "title": "Admin: populate DB",
+      "description": "AdminServlet (admintype=populate) routes to ResetDBBean which clears tables and reseeds them with the Populate dataset.",
+      "steps": [
+        { "from": "browser", "to": "AdminServlet", "label": "POST action=admin&admintype=populate", "payload": "form" },
+        { "from": "AdminServlet", "to": "ResetDBBean", "label": "performPopulate(...)", "payload": "request" },
+        { "from": "ResetDBBean", "to": "EntityManager", "label": "DELETE from each table", "payload": "JPQL" },
+        { "from": "ResetDBBean", "to": "Inventory", "label": "new Inventory(...) seeds", "payload": "catalog data" },
+        { "from": "ResetDBBean", "to": "Customer", "label": "new Customer(...) seeds", "payload": "demo accounts" },
+        { "from": "ResetDBBean", "to": "Supplier", "label": "new Supplier(...) seeds", "payload": "demo suppliers" },
+        { "from": "ResetDBBean", "to": "ShoppingCartBean", "label": "cart.createOrder(...)", "payload": "demo orders" },
+        { "from": "ShoppingCartBean", "to": "Order", "label": "new Order(...)", "payload": "Order aggregate" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "INSERTs across all tables", "payload": "seed data" },
+        { "from": "AdminServlet", "to": "browser", "label": "forward to admin home", "payload": "result" }
+      ],
+      "tables": [
+        { "id": "t_CUSTOMER",  "ops": ["DELETE", "INSERT"] },
+        { "id": "t_INVENTORY", "ops": ["DELETE", "INSERT"] },
+        { "id": "t_ORDER",     "ops": ["DELETE", "INSERT"] },
+        { "id": "t_ORDERITEM", "ops": ["DELETE", "INSERT"] },
+        { "id": "t_BACKORDER", "ops": ["DELETE", "INSERT"] },
+        { "id": "t_SUPPLIER",  "ops": ["DELETE", "INSERT"] }
+      ]
+    },
+    {
+      "id": "admin-backorder",
+      "title": "Admin: back-orders",
+      "description": "AdminServlet shows pending BackOrders via BackOrderMgr and lets an admin reset them after fulfilment.",
+      "steps": [
+        { "from": "browser", "to": "AdminServlet", "label": "POST admintype=backorder", "payload": "form" },
+        { "from": "AdminServlet", "to": "BackOrderMgr", "label": "getBackOrders() / resetBackOrder(id)", "payload": "ids" },
+        { "from": "BackOrderMgr", "to": "EntityManager", "label": "em.createNamedQuery / em.remove", "payload": "BackOrder" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT/DELETE FROM BACKORDER", "payload": "rows" },
+        { "from": "BackOrderMgr", "to": "Inventory", "label": "inv.setBackOrder(null)", "payload": "clear link" },
+        { "from": "AdminServlet", "to": "browser", "label": "render back-order admin page", "payload": "list" }
+      ],
+      "tables": [
+        { "id": "t_BACKORDER", "ops": ["SELECT", "DELETE"] },
+        { "id": "t_INVENTORY", "ops": ["UPDATE"] }
+      ]
+    },
+    {
+      "id": "admin-suppliers",
+      "title": "Admin: suppliers",
+      "description": "AdminServlet edits Supplier rows via SuppliersBean.",
+      "steps": [
+        { "from": "browser", "to": "AdminServlet", "label": "POST admintype=suppliercfg", "payload": "supplier fields" },
+        { "from": "AdminServlet", "to": "SuppliersBean", "label": "getSuppliers() / updateSupplier(...)", "payload": "supplier id + fields" },
+        { "from": "SuppliersBean", "to": "EntityManager", "label": "em.find / em.merge", "payload": "Supplier" },
+        { "from": "EntityManager", "to": "MariaDB", "label": "SELECT/UPDATE SUPPLIER", "payload": "rows" },
+        { "from": "AdminServlet", "to": "browser", "label": "render suppliers admin page", "payload": "list" }
+      ],
+      "tables": [
+        { "id": "t_SUPPLIER", "ops": ["SELECT", "UPDATE"] }
+      ]
+    },
+    {
+      "id": "k8s-ready",
+      "title": "K8s readiness probe",
+      "description": "Tiny servlet returning OK — used by Kubernetes liveness/readiness probes. No DB or EJB hops.",
+      "steps": [
+        { "from": "browser", "to": "K8sReadyServlet", "label": "GET /servlet/ready", "payload": "kubelet probe" },
+        { "from": "K8sReadyServlet", "to": "browser", "label": "200 text/html \"OK\"", "payload": "body" }
+      ],
+      "tables": []
+    },
+    {
+      "id": "set-logging",
+      "title": "Toggle debug logging",
+      "description": "Help page can flip the Util.debug flag at runtime via AccountServlet.",
+      "steps": [
+        { "from": "browser", "to": "AccountServlet", "label": "POST action=SetLogging&logging=debug", "payload": "flag" },
+        { "from": "AccountServlet", "to": "browser", "label": "forward to help page", "payload": "Util.setDebug(true/false)" }
+      ],
+      "tables": []
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById('flows-data').textContent);
+  const layersEl = document.getElementById('layers');
+  const svg = document.getElementById('arrows');
+  const sidebar = document.getElementById('sidebar');
+  const actionsEl = document.getElementById('actions');
+
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  function el(tag, attrs, children) {
+    const e = document.createElement(tag);
+    if (attrs) for (const k in attrs) {
+      if (k === 'class') e.className = attrs[k];
+      else e.setAttribute(k, attrs[k]);
+    }
+    (children || []).forEach(c => e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c));
+    return e;
+  }
+
+  function renderLayers() {
+    layersEl.innerHTML = '';
+    DATA.layers.forEach(layer => {
+      const row = el('div', { class: 'layer-row' });
+      row.appendChild(el('div', { class: 'layer-label' }, [layer]));
+      const nodes = el('div', { class: 'layer-nodes' });
+      DATA.components.filter(c => c.layer === layer).forEach(c => {
+        const node = el('div', { class: 'node', 'data-id': c.id });
+        node.appendChild(el('div', { class: 'name' }, [c.name]));
+        node.appendChild(el('div', { class: 'kind' }, [c.kind]));
+        nodes.appendChild(node);
+      });
+      row.appendChild(nodes);
+      layersEl.appendChild(row);
+    });
+  }
+
+  function renderActions() {
+    DATA.actions.forEach(a => {
+      const btn = el('button', { 'data-action': a.id }, [a.title]);
+      btn.addEventListener('click', () => selectAction(a.id));
+      actionsEl.appendChild(btn);
+    });
+  }
+
+  function nodeCenter(id) {
+    const stage = document.getElementById('stage');
+    const node = stage.querySelector(`.node[data-id="${id}"]`);
+    if (!node) return null;
+    const sRect = stage.getBoundingClientRect();
+    const r = node.getBoundingClientRect();
+    return {
+      x: r.left - sRect.left + stage.scrollLeft + r.width / 2,
+      y: r.top - sRect.top + stage.scrollTop + r.height / 2,
+      el: node,
+      rect: { x: r.left - sRect.left + stage.scrollLeft, y: r.top - sRect.top + stage.scrollTop, w: r.width, h: r.height }
+    };
+  }
+
+  function edgePoint(c, target) {
+    const dx = target.x - c.x, dy = target.y - c.y;
+    if (dx === 0 && dy === 0) return c;
+    const halfW = c.rect.w / 2, halfH = c.rect.h / 2;
+    const sx = dx === 0 ? Infinity : Math.abs(halfW / dx);
+    const sy = dy === 0 ? Infinity : Math.abs(halfH / dy);
+    const s = Math.min(sx, sy);
+    return { x: c.x + dx * s, y: c.y + dy * s };
+  }
+
+  function clearArrows() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+  }
+
+  function setSvgSize() {
+    const stage = document.getElementById('stage');
+    svg.setAttribute('width', stage.scrollWidth);
+    svg.setAttribute('height', stage.scrollHeight);
+    svg.style.width = stage.scrollWidth + 'px';
+    svg.style.height = stage.scrollHeight + 'px';
+  }
+
+  function drawArrow(from, to, index) {
+    const c1 = nodeCenter(from), c2 = nodeCenter(to);
+    if (!c1 || !c2) return;
+    const p1 = edgePoint(c1, c2);
+    const p2 = edgePoint(c2, c1);
+
+    const dx = p2.x - p1.x, dy = p2.y - p1.y;
+    const len = Math.hypot(dx, dy);
+    if (len < 1) return;
+    const ux = dx / len, uy = dy / len;
+    const px = -uy, py = ux;
+    const curve = Math.min(60, len / 4);
+    const mx = (p1.x + p2.x) / 2 + px * curve;
+    const my = (p1.y + p2.y) / 2 + py * curve;
+
+    const path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('d', `M ${p1.x} ${p1.y} Q ${mx} ${my} ${p2.x} ${p2.y}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', 'var(--arrow-active)');
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('marker-end', 'url(#arrowhead)');
+    svg.appendChild(path);
+
+    // step label
+    const label = document.createElementNS(SVG_NS, 'g');
+    const lx = mx, ly = my;
+    const circle = document.createElementNS(SVG_NS, 'circle');
+    circle.setAttribute('cx', lx); circle.setAttribute('cy', ly);
+    circle.setAttribute('r', 11);
+    circle.setAttribute('fill', '#0f1115');
+    circle.setAttribute('stroke', 'var(--arrow-active)');
+    circle.setAttribute('stroke-width', '2');
+    label.appendChild(circle);
+    const text = document.createElementNS(SVG_NS, 'text');
+    text.setAttribute('x', lx); text.setAttribute('y', ly + 4);
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('fill', 'var(--arrow-active)');
+    text.setAttribute('font-size', '12');
+    text.setAttribute('font-weight', '700');
+    text.textContent = index;
+    label.appendChild(text);
+    svg.appendChild(label);
+  }
+
+  const WRITE_OPS = ['INSERT', 'UPDATE', 'DELETE'];
+  function hasWrite(ops) {
+    return ops.some(op => WRITE_OPS.indexOf(op) !== -1);
+  }
+
+  // Draws an arrow from MariaDB to a table node, coloured + labelled by the SQL op(s).
+  function drawTableArrow(from, to, opsText, isWrite) {
+    const c1 = nodeCenter(from), c2 = nodeCenter(to);
+    if (!c1 || !c2) return;
+    const p1 = edgePoint(c1, c2);
+    const p2 = edgePoint(c2, c1);
+
+    const dx = p2.x - p1.x, dy = p2.y - p1.y;
+    const len = Math.hypot(dx, dy);
+    if (len < 1) return;
+    const ux = dx / len, uy = dy / len;
+    const px = -uy, py = ux;
+    const curve = Math.min(40, len / 4);
+    const mx = (p1.x + p2.x) / 2 + px * curve;
+    const my = (p1.y + p2.y) / 2 + py * curve;
+
+    const color = isWrite ? 'var(--write)' : 'var(--read)';
+    const path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('d', `M ${p1.x} ${p1.y} Q ${mx} ${my} ${p2.x} ${p2.y}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('marker-end', isWrite ? 'url(#arrowhead)' : 'url(#arrowhead-read)');
+    svg.appendChild(path);
+
+    // op label pill at the curve midpoint
+    const padX = 5, h = 16;
+    const w = opsText.length * 6.5 + padX * 2;
+    const rect = document.createElementNS(SVG_NS, 'rect');
+    rect.setAttribute('x', mx - w / 2); rect.setAttribute('y', my - h / 2);
+    rect.setAttribute('width', w); rect.setAttribute('height', h);
+    rect.setAttribute('rx', 4);
+    rect.setAttribute('fill', '#0f1115');
+    rect.setAttribute('stroke', color);
+    rect.setAttribute('stroke-width', '1.5');
+    svg.appendChild(rect);
+    const text = document.createElementNS(SVG_NS, 'text');
+    text.setAttribute('x', mx); text.setAttribute('y', my + 4);
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('fill', color);
+    text.setAttribute('font-size', '11');
+    text.setAttribute('font-weight', '700');
+    text.setAttribute('font-family', 'ui-monospace, Menlo, monospace');
+    text.textContent = opsText;
+    svg.appendChild(text);
+  }
+
+  function ensureDefs() {
+    if (svg.querySelector('defs')) return;
+    const defs = document.createElementNS(SVG_NS, 'defs');
+    defs.innerHTML = `
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--arrow-active)" />
+      </marker>
+      <marker id="arrowhead-read" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--read)" />
+      </marker>`;
+    svg.appendChild(defs);
+  }
+
+  function clearHighlights() {
+    document.querySelectorAll('.node').forEach(n => n.classList.remove('active', 'dim', 'tbl-read', 'tbl-write'));
+    document.querySelectorAll('button[data-action]').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.op-badges').forEach(b => b.remove());
+  }
+
+  function renderSidebar(action) {
+    sidebar.innerHTML = '';
+    sidebar.appendChild(el('h2', null, [action.title]));
+    sidebar.appendChild(el('div', { class: 'desc' }, [action.description]));
+
+    const tables = action.tables || [];
+    if (tables.length) {
+      const box = el('div', { class: 'tables-hit' });
+      box.appendChild(el('h3', null, ['Tables hit']));
+      tables.forEach(t => {
+        const row = el('div', { class: 'row' });
+        row.appendChild(el('span', { class: 'tname' }, [lookup(t.id).name]));
+        const badges = el('div', { class: 'op-badges' });
+        t.ops.forEach(op => {
+          const cls = hasWrite([op]) ? 'write' : 'read';
+          badges.appendChild(el('span', { class: 'op-badge ' + cls }, [op]));
+        });
+        row.appendChild(badges);
+        box.appendChild(row);
+      });
+      sidebar.appendChild(box);
+    }
+
+    const ol = el('ol', { class: 'steps' });
+    action.steps.forEach(s => {
+      const li = el('li');
+      const fromName = lookup(s.from).name, toName = lookup(s.to).name;
+      const ft = el('div', { class: 'from-to' });
+      ft.appendChild(el('code', null, [fromName]));
+      ft.appendChild(document.createTextNode(' → '));
+      ft.appendChild(el('code', null, [toName]));
+      li.appendChild(ft);
+      li.appendChild(el('div', { class: 'payload' }, [s.label]));
+      if (s.payload) li.appendChild(el('div', { class: 'note' }, ['payload: ' + s.payload]));
+      if (s.note)    li.appendChild(el('div', { class: 'note' }, [s.note]));
+      ol.appendChild(li);
+    });
+    sidebar.appendChild(ol);
+  }
+
+  function lookup(id) {
+    return DATA.components.find(c => c.id === id) || { name: id };
+  }
+
+  function selectAction(id) {
+    const action = DATA.actions.find(a => a.id === id);
+    if (!action) return;
+    clearHighlights();
+    document.querySelector(`button[data-action="${id}"]`).classList.add('active');
+
+    const tables = action.tables || [];
+    const tableById = {};
+    tables.forEach(t => { tableById[t.id] = t; });
+
+    const involved = new Set();
+    action.steps.forEach(s => { involved.add(s.from); involved.add(s.to); });
+    tables.forEach(t => involved.add(t.id));
+
+    document.querySelectorAll('.node').forEach(n => {
+      const t = tableById[n.dataset.id];
+      if (t) {
+        // table node: colour by op and attach op badges instead of the generic accent
+        n.classList.add(hasWrite(t.ops) ? 'tbl-write' : 'tbl-read');
+        const badges = el('div', { class: 'op-badges' });
+        t.ops.forEach(op => {
+          const cls = hasWrite([op]) ? 'write' : 'read';
+          badges.appendChild(el('span', { class: 'op-badge ' + cls }, [op]));
+        });
+        n.appendChild(badges);
+      } else if (involved.has(n.dataset.id)) {
+        n.classList.add('active');
+      } else {
+        n.classList.add('dim');
+      }
+    });
+
+    // strip old step badges
+    document.querySelectorAll('.step-badge').forEach(b => b.remove());
+
+    setSvgSize();
+    clearArrows();
+    ensureDefs();
+    action.steps.forEach((s, i) => drawArrow(s.from, s.to, i + 1));
+    // draw MariaDB -> table arrows, coloured/labelled by the op(s)
+    tables.forEach(t => drawTableArrow('MariaDB', t.id, t.ops.join('/'), hasWrite(t.ops)));
+    renderSidebar(action);
+  }
+
+  renderLayers();
+  renderActions();
+  window.addEventListener('resize', () => {
+    const active = document.querySelector('button[data-action].active');
+    if (active) selectAction(active.dataset.action);
+  });
+})();
+</script>
+</body>
+</html>
