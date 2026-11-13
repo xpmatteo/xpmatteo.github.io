@@ -17,6 +17,7 @@ After all these years, still learning how to write good software, and helping or
 
 ## Things I published
 
+  * 2026 [Tests As Data](https://martinfowler.com/articles/tests-as-data.html "Tests As Data"), an article on how testing changes when writing code is delegated to AI
   * 2026 *A harness for behaviour: how to get AI to generate code that does what we intend, or TDD in the age of AI*: [video](https://www.youtube.com/watch?v=3tdmoj35HG0), [slides](https://speakerdeck.com/xpmatteo/a-harness-for-behaviour-how-to-get-ai-to-generate-code-that-does-what-we-intend-or-tdd-in-the-age-of-ai "A harness for behaviour - Speaker Deck")
   * 2025 *"Port & Mend" over rewrite. Reducing the cost & risk of dealing with legacy code*, presented at XConf Europe. [video](https://www.youtube.com/watch?v=ndLnqwL9Ies), [slides](https://speakerdeck.com/xpmatteo/port-and-mend-over-rewrite "Port and Mend over rewrite - Speaker Deck")
   * 2025 *Progettare il software per un feedback migliore*: [video](https://vimeo.com/1068383220 "AVRE25 - Progettare il software per un feedback migliore - Matteo Vaccari"), [slides](https://speakerdeck.com/xpmatteo/progettare-il-software-per-un-feedback-migliore "Progettare il software per un feedback migliore - Speaker Deck"). Presentation in Italian at the Agile Venture conference, about better feedback from software architecture
